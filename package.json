@@ -1,0 +1,17 @@
+{
+  "name": "property_tokenization_backend",
+  "version": "1.0.0",
+  "description": "A backend for RWA (properties)",
+  "keywords": [
+    "backend",
+    "javascript",
+    "RWA"
+  ],
+  "license": "ISC",
+  "author": "aditupte",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
