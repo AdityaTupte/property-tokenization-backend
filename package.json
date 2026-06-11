@@ -1,17 +1,26 @@
 {
   "name": "property_tokenization_backend",
   "version": "1.0.0",
-  "description": "A backend for RWA (properties)",
-  "keywords": [
-    "backend",
-    "javascript",
-    "RWA"
-  ],
+  "description": "A backend for property tokenization platform",
+  "homepage": "https://github.com/AdityaTupte/property-tokenization-backend#readme",
+  "bugs": {
+    "url": "https://github.com/AdityaTupte/property-tokenization-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdityaTupte/property-tokenization-backend.git"
+  },
   "license": "ISC",
   "author": "aditupte",
   "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "prettier": "^3.8.4",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
   }
 }
