@@ -55,5 +55,6 @@
     "dist",
     "generated",
     "prisma.config.ts"
+    
   ]
 }
