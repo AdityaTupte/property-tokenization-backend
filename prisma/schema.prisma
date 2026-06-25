@@ -7,18 +7,129 @@ datasource db {
   provider = "postgresql"
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+enum GovernmentType {
+  COUNTRY
+  STATE
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  authorId  Int
-  author    User    @relation(fields: [authorId], references: [id])
+model User {
+  fullName     String   @db.VarChar(100)
+  username     String   @db.VarChar(100)
+  email        String   @unique @db.VarChar(100)
+  avatar       String
+  coverImage   String
+  password     String   @db.VarChar(100)
+  id           String   @id @default(uuid())
+  signer       String
+  refreshToken String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model admin {
+  user String @id
+}
+
+model CountryApprovalAuthority {
+  id            String   @id @default(uuid())
+  authority     String[]
+  threshold     Int
+  bump          Int
+  created_time  DateTime @default(now())
+  last_modified DateTime @updatedAt
+}
+
+model ApproveCountryAuthorityReceipt {
+  id            Int             @id @default(autoincrement())
+  proposal_key  String
+  approval_time DateTime        @default(now())
+  signer        String
+  bump          Int
+  proposal      CountryProposal @relation(fields: [proposal_key], references: [proposal_public_key])
+
+  @@unique([proposal_key, signer])
+}
+
+model CountryProposal {
+  proposal_public_key             String                           @id
+  total_authority                 Int
+  country_id                      Int
+  country_pda_threshold           Int
+  country_name                    String
+  approveCountryAuthorityReceipts ApproveCountryAuthorityReceipt[]
+  approved                        Boolean
+  executed                        Boolean
+  proposal_bump                   Int
+  proposal_created_time           DateTime                         @default(now())
+}
+
+model CountryPda {
+  proposal_public_key     String                   @unique
+  country_public_key      String                   @unique
+  current_total_authority Int
+  country_id              Int                      @id
+  country_name            String                   @unique
+  country_pda_threshold   Int
+  total_authority         Int
+  country_bump            Int
+  authority               CountryAuthorityReceipt?
+}
+
+model CountryAuthorityReceipt {
+  public_key           String     @id
+  country_created_time DateTime   @default(now())
+  bump                 Int
+  signer               String[]
+  country              CountryPda @relation(fields: [public_key], references: [country_public_key])
+}
+
+model ApproveStateAuthorityReceipt {
+  id            Int      @id @default(autoincrement())
+  proposal_key  String
+  approval_time DateTime @default(now())
+  signer        String
+  bump          Int
+
+  proposal StateProposal @relation(fields: [proposal_key], references: [proposal_public_key])
+
+  @@unique([proposal_key, signer])
+}
+
+model StateProposal {
+  proposal_creator_id     String
+  proposal_public_key     String                         @unique
+  state_id                Int
+  state_name              String
+  state_total_authorities Int
+  country_pubkey          String
+  approval                ApproveStateAuthorityReceipt[]
+  approved                Boolean
+  executed                Boolean
+  proposal_bump           Int
+  propsal_created_time    DateTime                       @default(now())
+
+  @@id([proposal_creator_id, proposal_public_key])
+}
+
+model StatePda {
+  state_public_key          String                  @id
+  proposal_public_key       String
+  current_total_authority   Int
+  state_id                  Int
+  state_name                String
+  state_total_authorities   Int
+  state_authority_threshold Int
+  country_pubkey            String
+  state_bump                Int
+  state_created_time        DateTime                @default(now())
+  bump                      Int
+  stateAuthorityReceipts    StateAuthorityReceipt?
+}
+
+model StateAuthorityReceipt {
+  public_key         String   @id
+  state_created_time DateTime @default(now())
+  bump               Int
+  signer             String[]
+  state              StatePda @relation(fields: [public_key], references: [state_public_key])
 }
