@@ -9,4 +9,9 @@
 * 🟢 You can import this file directly.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GovernmentType = void 0;
+exports.GovernmentType = {
+    COUNTRY: 'COUNTRY',
+    STATE: 'STATE'
+};
 //# sourceMappingURL=enums.js.map

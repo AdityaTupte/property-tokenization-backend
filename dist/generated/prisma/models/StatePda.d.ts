@@ -1,0 +1,1385 @@
+import type * as runtime from "@prisma/client/runtime/library";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model StatePda
+ *
+ */
+export type StatePdaModel = runtime.Types.Result.DefaultSelection<Prisma.$StatePdaPayload>;
+export type AggregateStatePda = {
+    _count: StatePdaCountAggregateOutputType | null;
+    _avg: StatePdaAvgAggregateOutputType | null;
+    _sum: StatePdaSumAggregateOutputType | null;
+    _min: StatePdaMinAggregateOutputType | null;
+    _max: StatePdaMaxAggregateOutputType | null;
+};
+export type StatePdaAvgAggregateOutputType = {
+    current_total_authority: number | null;
+    state_id: number | null;
+    state_total_authorities: number | null;
+    state_authority_threshold: number | null;
+    state_bump: number | null;
+    bump: number | null;
+};
+export type StatePdaSumAggregateOutputType = {
+    current_total_authority: number | null;
+    state_id: number | null;
+    state_total_authorities: number | null;
+    state_authority_threshold: number | null;
+    state_bump: number | null;
+    bump: number | null;
+};
+export type StatePdaMinAggregateOutputType = {
+    state_public_key: string | null;
+    proposal_public_key: string | null;
+    current_total_authority: number | null;
+    state_id: number | null;
+    state_name: string | null;
+    state_total_authorities: number | null;
+    state_authority_threshold: number | null;
+    country_pubkey: string | null;
+    state_bump: number | null;
+    state_created_time: Date | null;
+    bump: number | null;
+};
+export type StatePdaMaxAggregateOutputType = {
+    state_public_key: string | null;
+    proposal_public_key: string | null;
+    current_total_authority: number | null;
+    state_id: number | null;
+    state_name: string | null;
+    state_total_authorities: number | null;
+    state_authority_threshold: number | null;
+    country_pubkey: string | null;
+    state_bump: number | null;
+    state_created_time: Date | null;
+    bump: number | null;
+};
+export type StatePdaCountAggregateOutputType = {
+    state_public_key: number;
+    proposal_public_key: number;
+    current_total_authority: number;
+    state_id: number;
+    state_name: number;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: number;
+    state_bump: number;
+    state_created_time: number;
+    bump: number;
+    _all: number;
+};
+export type StatePdaAvgAggregateInputType = {
+    current_total_authority?: true;
+    state_id?: true;
+    state_total_authorities?: true;
+    state_authority_threshold?: true;
+    state_bump?: true;
+    bump?: true;
+};
+export type StatePdaSumAggregateInputType = {
+    current_total_authority?: true;
+    state_id?: true;
+    state_total_authorities?: true;
+    state_authority_threshold?: true;
+    state_bump?: true;
+    bump?: true;
+};
+export type StatePdaMinAggregateInputType = {
+    state_public_key?: true;
+    proposal_public_key?: true;
+    current_total_authority?: true;
+    state_id?: true;
+    state_name?: true;
+    state_total_authorities?: true;
+    state_authority_threshold?: true;
+    country_pubkey?: true;
+    state_bump?: true;
+    state_created_time?: true;
+    bump?: true;
+};
+export type StatePdaMaxAggregateInputType = {
+    state_public_key?: true;
+    proposal_public_key?: true;
+    current_total_authority?: true;
+    state_id?: true;
+    state_name?: true;
+    state_total_authorities?: true;
+    state_authority_threshold?: true;
+    country_pubkey?: true;
+    state_bump?: true;
+    state_created_time?: true;
+    bump?: true;
+};
+export type StatePdaCountAggregateInputType = {
+    state_public_key?: true;
+    proposal_public_key?: true;
+    current_total_authority?: true;
+    state_id?: true;
+    state_name?: true;
+    state_total_authorities?: true;
+    state_authority_threshold?: true;
+    country_pubkey?: true;
+    state_bump?: true;
+    state_created_time?: true;
+    bump?: true;
+    _all?: true;
+};
+export type StatePdaAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which StatePda to aggregate.
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StatePdas to fetch.
+     */
+    orderBy?: Prisma.StatePdaOrderByWithRelationInput | Prisma.StatePdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.StatePdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StatePdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StatePdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned StatePdas
+    **/
+    _count?: true | StatePdaCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: StatePdaAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: StatePdaSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: StatePdaMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: StatePdaMaxAggregateInputType;
+};
+export type GetStatePdaAggregateType<T extends StatePdaAggregateArgs> = {
+    [P in keyof T & keyof AggregateStatePda]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateStatePda[P]> : Prisma.GetScalarType<T[P], AggregateStatePda[P]>;
+};
+export type StatePdaGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.StatePdaWhereInput;
+    orderBy?: Prisma.StatePdaOrderByWithAggregationInput | Prisma.StatePdaOrderByWithAggregationInput[];
+    by: Prisma.StatePdaScalarFieldEnum[] | Prisma.StatePdaScalarFieldEnum;
+    having?: Prisma.StatePdaScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: StatePdaCountAggregateInputType | true;
+    _avg?: StatePdaAvgAggregateInputType;
+    _sum?: StatePdaSumAggregateInputType;
+    _min?: StatePdaMinAggregateInputType;
+    _max?: StatePdaMaxAggregateInputType;
+};
+export type StatePdaGroupByOutputType = {
+    state_public_key: string;
+    proposal_public_key: string;
+    current_total_authority: number;
+    state_id: number;
+    state_name: string;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: string;
+    state_bump: number;
+    state_created_time: Date;
+    bump: number;
+    _count: StatePdaCountAggregateOutputType | null;
+    _avg: StatePdaAvgAggregateOutputType | null;
+    _sum: StatePdaSumAggregateOutputType | null;
+    _min: StatePdaMinAggregateOutputType | null;
+    _max: StatePdaMaxAggregateOutputType | null;
+};
+type GetStatePdaGroupByPayload<T extends StatePdaGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<StatePdaGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof StatePdaGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], StatePdaGroupByOutputType[P]> : Prisma.GetScalarType<T[P], StatePdaGroupByOutputType[P]>;
+}>>;
+export type StatePdaWhereInput = {
+    AND?: Prisma.StatePdaWhereInput | Prisma.StatePdaWhereInput[];
+    OR?: Prisma.StatePdaWhereInput[];
+    NOT?: Prisma.StatePdaWhereInput | Prisma.StatePdaWhereInput[];
+    state_public_key?: Prisma.StringFilter<"StatePda"> | string;
+    proposal_public_key?: Prisma.StringFilter<"StatePda"> | string;
+    current_total_authority?: Prisma.IntFilter<"StatePda"> | number;
+    state_id?: Prisma.IntFilter<"StatePda"> | number;
+    state_name?: Prisma.StringFilter<"StatePda"> | string;
+    state_total_authorities?: Prisma.IntFilter<"StatePda"> | number;
+    state_authority_threshold?: Prisma.IntFilter<"StatePda"> | number;
+    country_pubkey?: Prisma.StringFilter<"StatePda"> | string;
+    state_bump?: Prisma.IntFilter<"StatePda"> | number;
+    state_created_time?: Prisma.DateTimeFilter<"StatePda"> | Date | string;
+    bump?: Prisma.IntFilter<"StatePda"> | number;
+    stateAuthorityReceipts?: Prisma.XOR<Prisma.StateAuthorityReceiptNullableScalarRelationFilter, Prisma.StateAuthorityReceiptWhereInput> | null;
+};
+export type StatePdaOrderByWithRelationInput = {
+    state_public_key?: Prisma.SortOrder;
+    proposal_public_key?: Prisma.SortOrder;
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_name?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    stateAuthorityReceipts?: Prisma.StateAuthorityReceiptOrderByWithRelationInput;
+};
+export type StatePdaWhereUniqueInput = Prisma.AtLeast<{
+    state_public_key?: string;
+    AND?: Prisma.StatePdaWhereInput | Prisma.StatePdaWhereInput[];
+    OR?: Prisma.StatePdaWhereInput[];
+    NOT?: Prisma.StatePdaWhereInput | Prisma.StatePdaWhereInput[];
+    proposal_public_key?: Prisma.StringFilter<"StatePda"> | string;
+    current_total_authority?: Prisma.IntFilter<"StatePda"> | number;
+    state_id?: Prisma.IntFilter<"StatePda"> | number;
+    state_name?: Prisma.StringFilter<"StatePda"> | string;
+    state_total_authorities?: Prisma.IntFilter<"StatePda"> | number;
+    state_authority_threshold?: Prisma.IntFilter<"StatePda"> | number;
+    country_pubkey?: Prisma.StringFilter<"StatePda"> | string;
+    state_bump?: Prisma.IntFilter<"StatePda"> | number;
+    state_created_time?: Prisma.DateTimeFilter<"StatePda"> | Date | string;
+    bump?: Prisma.IntFilter<"StatePda"> | number;
+    stateAuthorityReceipts?: Prisma.XOR<Prisma.StateAuthorityReceiptNullableScalarRelationFilter, Prisma.StateAuthorityReceiptWhereInput> | null;
+}, "state_public_key">;
+export type StatePdaOrderByWithAggregationInput = {
+    state_public_key?: Prisma.SortOrder;
+    proposal_public_key?: Prisma.SortOrder;
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_name?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    _count?: Prisma.StatePdaCountOrderByAggregateInput;
+    _avg?: Prisma.StatePdaAvgOrderByAggregateInput;
+    _max?: Prisma.StatePdaMaxOrderByAggregateInput;
+    _min?: Prisma.StatePdaMinOrderByAggregateInput;
+    _sum?: Prisma.StatePdaSumOrderByAggregateInput;
+};
+export type StatePdaScalarWhereWithAggregatesInput = {
+    AND?: Prisma.StatePdaScalarWhereWithAggregatesInput | Prisma.StatePdaScalarWhereWithAggregatesInput[];
+    OR?: Prisma.StatePdaScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.StatePdaScalarWhereWithAggregatesInput | Prisma.StatePdaScalarWhereWithAggregatesInput[];
+    state_public_key?: Prisma.StringWithAggregatesFilter<"StatePda"> | string;
+    proposal_public_key?: Prisma.StringWithAggregatesFilter<"StatePda"> | string;
+    current_total_authority?: Prisma.IntWithAggregatesFilter<"StatePda"> | number;
+    state_id?: Prisma.IntWithAggregatesFilter<"StatePda"> | number;
+    state_name?: Prisma.StringWithAggregatesFilter<"StatePda"> | string;
+    state_total_authorities?: Prisma.IntWithAggregatesFilter<"StatePda"> | number;
+    state_authority_threshold?: Prisma.IntWithAggregatesFilter<"StatePda"> | number;
+    country_pubkey?: Prisma.StringWithAggregatesFilter<"StatePda"> | string;
+    state_bump?: Prisma.IntWithAggregatesFilter<"StatePda"> | number;
+    state_created_time?: Prisma.DateTimeWithAggregatesFilter<"StatePda"> | Date | string;
+    bump?: Prisma.IntWithAggregatesFilter<"StatePda"> | number;
+};
+export type StatePdaCreateInput = {
+    state_public_key: string;
+    proposal_public_key: string;
+    current_total_authority: number;
+    state_id: number;
+    state_name: string;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: string;
+    state_bump: number;
+    state_created_time?: Date | string;
+    bump: number;
+    stateAuthorityReceipts?: Prisma.StateAuthorityReceiptCreateNestedOneWithoutStateInput;
+};
+export type StatePdaUncheckedCreateInput = {
+    state_public_key: string;
+    proposal_public_key: string;
+    current_total_authority: number;
+    state_id: number;
+    state_name: string;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: string;
+    state_bump: number;
+    state_created_time?: Date | string;
+    bump: number;
+    stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUncheckedCreateNestedOneWithoutStateInput;
+};
+export type StatePdaUpdateInput = {
+    state_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_total_authority?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_name?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_total_authorities?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_authority_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUpdateOneWithoutStateNestedInput;
+};
+export type StatePdaUncheckedUpdateInput = {
+    state_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_total_authority?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_name?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_total_authorities?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_authority_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUncheckedUpdateOneWithoutStateNestedInput;
+};
+export type StatePdaCreateManyInput = {
+    state_public_key: string;
+    proposal_public_key: string;
+    current_total_authority: number;
+    state_id: number;
+    state_name: string;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: string;
+    state_bump: number;
+    state_created_time?: Date | string;
+    bump: number;
+};
+export type StatePdaUpdateManyMutationInput = {
+    state_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_total_authority?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_name?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_total_authorities?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_authority_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type StatePdaUncheckedUpdateManyInput = {
+    state_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_total_authority?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_name?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_total_authorities?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_authority_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type StatePdaCountOrderByAggregateInput = {
+    state_public_key?: Prisma.SortOrder;
+    proposal_public_key?: Prisma.SortOrder;
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_name?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StatePdaAvgOrderByAggregateInput = {
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StatePdaMaxOrderByAggregateInput = {
+    state_public_key?: Prisma.SortOrder;
+    proposal_public_key?: Prisma.SortOrder;
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_name?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StatePdaMinOrderByAggregateInput = {
+    state_public_key?: Prisma.SortOrder;
+    proposal_public_key?: Prisma.SortOrder;
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_name?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StatePdaSumOrderByAggregateInput = {
+    current_total_authority?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_total_authorities?: Prisma.SortOrder;
+    state_authority_threshold?: Prisma.SortOrder;
+    state_bump?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StatePdaScalarRelationFilter = {
+    is?: Prisma.StatePdaWhereInput;
+    isNot?: Prisma.StatePdaWhereInput;
+};
+export type StatePdaCreateNestedOneWithoutStateAuthorityReceiptsInput = {
+    create?: Prisma.XOR<Prisma.StatePdaCreateWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput>;
+    connectOrCreate?: Prisma.StatePdaCreateOrConnectWithoutStateAuthorityReceiptsInput;
+    connect?: Prisma.StatePdaWhereUniqueInput;
+};
+export type StatePdaUpdateOneRequiredWithoutStateAuthorityReceiptsNestedInput = {
+    create?: Prisma.XOR<Prisma.StatePdaCreateWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput>;
+    connectOrCreate?: Prisma.StatePdaCreateOrConnectWithoutStateAuthorityReceiptsInput;
+    upsert?: Prisma.StatePdaUpsertWithoutStateAuthorityReceiptsInput;
+    connect?: Prisma.StatePdaWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.StatePdaUpdateToOneWithWhereWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUpdateWithoutStateAuthorityReceiptsInput>, Prisma.StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput>;
+};
+export type StatePdaCreateWithoutStateAuthorityReceiptsInput = {
+    state_public_key: string;
+    proposal_public_key: string;
+    current_total_authority: number;
+    state_id: number;
+    state_name: string;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: string;
+    state_bump: number;
+    state_created_time?: Date | string;
+    bump: number;
+};
+export type StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput = {
+    state_public_key: string;
+    proposal_public_key: string;
+    current_total_authority: number;
+    state_id: number;
+    state_name: string;
+    state_total_authorities: number;
+    state_authority_threshold: number;
+    country_pubkey: string;
+    state_bump: number;
+    state_created_time?: Date | string;
+    bump: number;
+};
+export type StatePdaCreateOrConnectWithoutStateAuthorityReceiptsInput = {
+    where: Prisma.StatePdaWhereUniqueInput;
+    create: Prisma.XOR<Prisma.StatePdaCreateWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput>;
+};
+export type StatePdaUpsertWithoutStateAuthorityReceiptsInput = {
+    update: Prisma.XOR<Prisma.StatePdaUpdateWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput>;
+    create: Prisma.XOR<Prisma.StatePdaCreateWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput>;
+    where?: Prisma.StatePdaWhereInput;
+};
+export type StatePdaUpdateToOneWithWhereWithoutStateAuthorityReceiptsInput = {
+    where?: Prisma.StatePdaWhereInput;
+    data: Prisma.XOR<Prisma.StatePdaUpdateWithoutStateAuthorityReceiptsInput, Prisma.StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput>;
+};
+export type StatePdaUpdateWithoutStateAuthorityReceiptsInput = {
+    state_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_total_authority?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_name?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_total_authorities?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_authority_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput = {
+    state_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_total_authority?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_name?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_total_authorities?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_authority_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type StatePdaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    state_public_key?: boolean;
+    proposal_public_key?: boolean;
+    current_total_authority?: boolean;
+    state_id?: boolean;
+    state_name?: boolean;
+    state_total_authorities?: boolean;
+    state_authority_threshold?: boolean;
+    country_pubkey?: boolean;
+    state_bump?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+    stateAuthorityReceipts?: boolean | Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>;
+}, ExtArgs["result"]["statePda"]>;
+export type StatePdaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    state_public_key?: boolean;
+    proposal_public_key?: boolean;
+    current_total_authority?: boolean;
+    state_id?: boolean;
+    state_name?: boolean;
+    state_total_authorities?: boolean;
+    state_authority_threshold?: boolean;
+    country_pubkey?: boolean;
+    state_bump?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+}, ExtArgs["result"]["statePda"]>;
+export type StatePdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    state_public_key?: boolean;
+    proposal_public_key?: boolean;
+    current_total_authority?: boolean;
+    state_id?: boolean;
+    state_name?: boolean;
+    state_total_authorities?: boolean;
+    state_authority_threshold?: boolean;
+    country_pubkey?: boolean;
+    state_bump?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+}, ExtArgs["result"]["statePda"]>;
+export type StatePdaSelectScalar = {
+    state_public_key?: boolean;
+    proposal_public_key?: boolean;
+    current_total_authority?: boolean;
+    state_id?: boolean;
+    state_name?: boolean;
+    state_total_authorities?: boolean;
+    state_authority_threshold?: boolean;
+    country_pubkey?: boolean;
+    state_bump?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+};
+export type StatePdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"state_public_key" | "proposal_public_key" | "current_total_authority" | "state_id" | "state_name" | "state_total_authorities" | "state_authority_threshold" | "country_pubkey" | "state_bump" | "state_created_time" | "bump", ExtArgs["result"]["statePda"]>;
+export type StatePdaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    stateAuthorityReceipts?: boolean | Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>;
+};
+export type StatePdaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
+export type StatePdaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
+export type $StatePdaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "StatePda";
+    objects: {
+        stateAuthorityReceipts: Prisma.$StateAuthorityReceiptPayload<ExtArgs> | null;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        state_public_key: string;
+        proposal_public_key: string;
+        current_total_authority: number;
+        state_id: number;
+        state_name: string;
+        state_total_authorities: number;
+        state_authority_threshold: number;
+        country_pubkey: string;
+        state_bump: number;
+        state_created_time: Date;
+        bump: number;
+    }, ExtArgs["result"]["statePda"]>;
+    composites: {};
+};
+export type StatePdaGetPayload<S extends boolean | null | undefined | StatePdaDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$StatePdaPayload, S>;
+export type StatePdaCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<StatePdaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: StatePdaCountAggregateInputType | true;
+};
+export interface StatePdaDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['StatePda'];
+        meta: {
+            name: 'StatePda';
+        };
+    };
+    /**
+     * Find zero or one StatePda that matches the filter.
+     * @param {StatePdaFindUniqueArgs} args - Arguments to find a StatePda
+     * @example
+     * // Get one StatePda
+     * const statePda = await prisma.statePda.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StatePdaFindUniqueArgs>(args: Prisma.SelectSubset<T, StatePdaFindUniqueArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one StatePda that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {StatePdaFindUniqueOrThrowArgs} args - Arguments to find a StatePda
+     * @example
+     * // Get one StatePda
+     * const statePda = await prisma.statePda.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StatePdaFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, StatePdaFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first StatePda that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaFindFirstArgs} args - Arguments to find a StatePda
+     * @example
+     * // Get one StatePda
+     * const statePda = await prisma.statePda.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StatePdaFindFirstArgs>(args?: Prisma.SelectSubset<T, StatePdaFindFirstArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first StatePda that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaFindFirstOrThrowArgs} args - Arguments to find a StatePda
+     * @example
+     * // Get one StatePda
+     * const statePda = await prisma.statePda.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StatePdaFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, StatePdaFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more StatePdas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all StatePdas
+     * const statePdas = await prisma.statePda.findMany()
+     *
+     * // Get first 10 StatePdas
+     * const statePdas = await prisma.statePda.findMany({ take: 10 })
+     *
+     * // Only select the `state_public_key`
+     * const statePdaWithState_public_keyOnly = await prisma.statePda.findMany({ select: { state_public_key: true } })
+     *
+     */
+    findMany<T extends StatePdaFindManyArgs>(args?: Prisma.SelectSubset<T, StatePdaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a StatePda.
+     * @param {StatePdaCreateArgs} args - Arguments to create a StatePda.
+     * @example
+     * // Create one StatePda
+     * const StatePda = await prisma.statePda.create({
+     *   data: {
+     *     // ... data to create a StatePda
+     *   }
+     * })
+     *
+     */
+    create<T extends StatePdaCreateArgs>(args: Prisma.SelectSubset<T, StatePdaCreateArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many StatePdas.
+     * @param {StatePdaCreateManyArgs} args - Arguments to create many StatePdas.
+     * @example
+     * // Create many StatePdas
+     * const statePda = await prisma.statePda.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends StatePdaCreateManyArgs>(args?: Prisma.SelectSubset<T, StatePdaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many StatePdas and returns the data saved in the database.
+     * @param {StatePdaCreateManyAndReturnArgs} args - Arguments to create many StatePdas.
+     * @example
+     * // Create many StatePdas
+     * const statePda = await prisma.statePda.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many StatePdas and only return the `state_public_key`
+     * const statePdaWithState_public_keyOnly = await prisma.statePda.createManyAndReturn({
+     *   select: { state_public_key: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends StatePdaCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, StatePdaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a StatePda.
+     * @param {StatePdaDeleteArgs} args - Arguments to delete one StatePda.
+     * @example
+     * // Delete one StatePda
+     * const StatePda = await prisma.statePda.delete({
+     *   where: {
+     *     // ... filter to delete one StatePda
+     *   }
+     * })
+     *
+     */
+    delete<T extends StatePdaDeleteArgs>(args: Prisma.SelectSubset<T, StatePdaDeleteArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one StatePda.
+     * @param {StatePdaUpdateArgs} args - Arguments to update one StatePda.
+     * @example
+     * // Update one StatePda
+     * const statePda = await prisma.statePda.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends StatePdaUpdateArgs>(args: Prisma.SelectSubset<T, StatePdaUpdateArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more StatePdas.
+     * @param {StatePdaDeleteManyArgs} args - Arguments to filter StatePdas to delete.
+     * @example
+     * // Delete a few StatePdas
+     * const { count } = await prisma.statePda.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends StatePdaDeleteManyArgs>(args?: Prisma.SelectSubset<T, StatePdaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more StatePdas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many StatePdas
+     * const statePda = await prisma.statePda.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends StatePdaUpdateManyArgs>(args: Prisma.SelectSubset<T, StatePdaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more StatePdas and returns the data updated in the database.
+     * @param {StatePdaUpdateManyAndReturnArgs} args - Arguments to update many StatePdas.
+     * @example
+     * // Update many StatePdas
+     * const statePda = await prisma.statePda.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more StatePdas and only return the `state_public_key`
+     * const statePdaWithState_public_keyOnly = await prisma.statePda.updateManyAndReturn({
+     *   select: { state_public_key: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends StatePdaUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, StatePdaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one StatePda.
+     * @param {StatePdaUpsertArgs} args - Arguments to update or create a StatePda.
+     * @example
+     * // Update or create a StatePda
+     * const statePda = await prisma.statePda.upsert({
+     *   create: {
+     *     // ... data to create a StatePda
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the StatePda we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StatePdaUpsertArgs>(args: Prisma.SelectSubset<T, StatePdaUpsertArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of StatePdas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaCountArgs} args - Arguments to filter StatePdas to count.
+     * @example
+     * // Count the number of StatePdas
+     * const count = await prisma.statePda.count({
+     *   where: {
+     *     // ... the filter for the StatePdas we want to count
+     *   }
+     * })
+    **/
+    count<T extends StatePdaCountArgs>(args?: Prisma.Subset<T, StatePdaCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], StatePdaCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a StatePda.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StatePdaAggregateArgs>(args: Prisma.Subset<T, StatePdaAggregateArgs>): Prisma.PrismaPromise<GetStatePdaAggregateType<T>>;
+    /**
+     * Group by StatePda.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StatePdaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends StatePdaGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: StatePdaGroupByArgs['orderBy'];
+    } : {
+        orderBy?: StatePdaGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, StatePdaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStatePdaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the StatePda model
+     */
+    readonly fields: StatePdaFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for StatePda.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__StatePdaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    stateAuthorityReceipts<T extends Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the StatePda model
+ */
+export interface StatePdaFieldRefs {
+    readonly state_public_key: Prisma.FieldRef<"StatePda", 'String'>;
+    readonly proposal_public_key: Prisma.FieldRef<"StatePda", 'String'>;
+    readonly current_total_authority: Prisma.FieldRef<"StatePda", 'Int'>;
+    readonly state_id: Prisma.FieldRef<"StatePda", 'Int'>;
+    readonly state_name: Prisma.FieldRef<"StatePda", 'String'>;
+    readonly state_total_authorities: Prisma.FieldRef<"StatePda", 'Int'>;
+    readonly state_authority_threshold: Prisma.FieldRef<"StatePda", 'Int'>;
+    readonly country_pubkey: Prisma.FieldRef<"StatePda", 'String'>;
+    readonly state_bump: Prisma.FieldRef<"StatePda", 'Int'>;
+    readonly state_created_time: Prisma.FieldRef<"StatePda", 'DateTime'>;
+    readonly bump: Prisma.FieldRef<"StatePda", 'Int'>;
+}
+/**
+ * StatePda findUnique
+ */
+export type StatePdaFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which StatePda to fetch.
+     */
+    where: Prisma.StatePdaWhereUniqueInput;
+};
+/**
+ * StatePda findUniqueOrThrow
+ */
+export type StatePdaFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which StatePda to fetch.
+     */
+    where: Prisma.StatePdaWhereUniqueInput;
+};
+/**
+ * StatePda findFirst
+ */
+export type StatePdaFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which StatePda to fetch.
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StatePdas to fetch.
+     */
+    orderBy?: Prisma.StatePdaOrderByWithRelationInput | Prisma.StatePdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for StatePdas.
+     */
+    cursor?: Prisma.StatePdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StatePdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StatePdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of StatePdas.
+     */
+    distinct?: Prisma.StatePdaScalarFieldEnum | Prisma.StatePdaScalarFieldEnum[];
+};
+/**
+ * StatePda findFirstOrThrow
+ */
+export type StatePdaFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which StatePda to fetch.
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StatePdas to fetch.
+     */
+    orderBy?: Prisma.StatePdaOrderByWithRelationInput | Prisma.StatePdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for StatePdas.
+     */
+    cursor?: Prisma.StatePdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StatePdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StatePdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of StatePdas.
+     */
+    distinct?: Prisma.StatePdaScalarFieldEnum | Prisma.StatePdaScalarFieldEnum[];
+};
+/**
+ * StatePda findMany
+ */
+export type StatePdaFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which StatePdas to fetch.
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StatePdas to fetch.
+     */
+    orderBy?: Prisma.StatePdaOrderByWithRelationInput | Prisma.StatePdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing StatePdas.
+     */
+    cursor?: Prisma.StatePdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StatePdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StatePdas.
+     */
+    skip?: number;
+    distinct?: Prisma.StatePdaScalarFieldEnum | Prisma.StatePdaScalarFieldEnum[];
+};
+/**
+ * StatePda create
+ */
+export type StatePdaCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a StatePda.
+     */
+    data: Prisma.XOR<Prisma.StatePdaCreateInput, Prisma.StatePdaUncheckedCreateInput>;
+};
+/**
+ * StatePda createMany
+ */
+export type StatePdaCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many StatePdas.
+     */
+    data: Prisma.StatePdaCreateManyInput | Prisma.StatePdaCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * StatePda createManyAndReturn
+ */
+export type StatePdaCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * The data used to create many StatePdas.
+     */
+    data: Prisma.StatePdaCreateManyInput | Prisma.StatePdaCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * StatePda update
+ */
+export type StatePdaUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a StatePda.
+     */
+    data: Prisma.XOR<Prisma.StatePdaUpdateInput, Prisma.StatePdaUncheckedUpdateInput>;
+    /**
+     * Choose, which StatePda to update.
+     */
+    where: Prisma.StatePdaWhereUniqueInput;
+};
+/**
+ * StatePda updateMany
+ */
+export type StatePdaUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update StatePdas.
+     */
+    data: Prisma.XOR<Prisma.StatePdaUpdateManyMutationInput, Prisma.StatePdaUncheckedUpdateManyInput>;
+    /**
+     * Filter which StatePdas to update
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * Limit how many StatePdas to update.
+     */
+    limit?: number;
+};
+/**
+ * StatePda updateManyAndReturn
+ */
+export type StatePdaUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * The data used to update StatePdas.
+     */
+    data: Prisma.XOR<Prisma.StatePdaUpdateManyMutationInput, Prisma.StatePdaUncheckedUpdateManyInput>;
+    /**
+     * Filter which StatePdas to update
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * Limit how many StatePdas to update.
+     */
+    limit?: number;
+};
+/**
+ * StatePda upsert
+ */
+export type StatePdaUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the StatePda to update in case it exists.
+     */
+    where: Prisma.StatePdaWhereUniqueInput;
+    /**
+     * In case the StatePda found by the `where` argument doesn't exist, create a new StatePda with this data.
+     */
+    create: Prisma.XOR<Prisma.StatePdaCreateInput, Prisma.StatePdaUncheckedCreateInput>;
+    /**
+     * In case the StatePda was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.StatePdaUpdateInput, Prisma.StatePdaUncheckedUpdateInput>;
+};
+/**
+ * StatePda delete
+ */
+export type StatePdaDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+    /**
+     * Filter which StatePda to delete.
+     */
+    where: Prisma.StatePdaWhereUniqueInput;
+};
+/**
+ * StatePda deleteMany
+ */
+export type StatePdaDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which StatePdas to delete
+     */
+    where?: Prisma.StatePdaWhereInput;
+    /**
+     * Limit how many StatePdas to delete.
+     */
+    limit?: number;
+};
+/**
+ * StatePda.stateAuthorityReceipts
+ */
+export type StatePda$stateAuthorityReceiptsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+};
+/**
+ * StatePda without action
+ */
+export type StatePdaDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StatePda
+     */
+    select?: Prisma.StatePdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StatePda
+     */
+    omit?: Prisma.StatePdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StatePdaInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=StatePda.d.ts.map

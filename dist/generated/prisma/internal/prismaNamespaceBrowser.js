@@ -48,35 +48,44 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NullsOrder = exports.QueryMode = exports.SortOrder = exports.PostScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
+exports.QueryMode = exports.SortOrder = exports.StateAuthorityReceiptScalarFieldEnum = exports.StatePdaScalarFieldEnum = exports.StateProposalScalarFieldEnum = exports.ApproveStateAuthorityReceiptScalarFieldEnum = exports.CountryAuthorityReceiptScalarFieldEnum = exports.CountryPdaScalarFieldEnum = exports.CountryProposalScalarFieldEnum = exports.ApproveCountryAuthorityReceiptScalarFieldEnum = exports.CountryApprovalAuthorityScalarFieldEnum = exports.AdminScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.Decimal = void 0;
 const runtime = __importStar(require("@prisma/client/runtime/index-browser"));
 exports.Decimal = runtime.Decimal;
 exports.NullTypes = {
-    DbNull: runtime.NullTypes.DbNull,
-    JsonNull: runtime.NullTypes.JsonNull,
-    AnyNull: runtime.NullTypes.AnyNull,
+    DbNull: runtime.objectEnumValues.classes.DbNull,
+    JsonNull: runtime.objectEnumValues.classes.JsonNull,
+    AnyNull: runtime.objectEnumValues.classes.AnyNull,
 };
 /**
  * Helper for filtering JSON entries that have `null` on the database (empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-exports.DbNull = runtime.DbNull;
+exports.DbNull = runtime.objectEnumValues.instances.DbNull;
 /**
  * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-exports.JsonNull = runtime.JsonNull;
+exports.JsonNull = runtime.objectEnumValues.instances.JsonNull;
 /**
  * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-exports.AnyNull = runtime.AnyNull;
+exports.AnyNull = runtime.objectEnumValues.instances.AnyNull;
 exports.ModelName = {
     User: 'User',
-    Post: 'Post'
+    admin: 'admin',
+    CountryApprovalAuthority: 'CountryApprovalAuthority',
+    ApproveCountryAuthorityReceipt: 'ApproveCountryAuthorityReceipt',
+    CountryProposal: 'CountryProposal',
+    CountryPda: 'CountryPda',
+    CountryAuthorityReceipt: 'CountryAuthorityReceipt',
+    ApproveStateAuthorityReceipt: 'ApproveStateAuthorityReceipt',
+    StateProposal: 'StateProposal',
+    StatePda: 'StatePda',
+    StateAuthorityReceipt: 'StateAuthorityReceipt'
 };
 /*
  * Enums
@@ -88,16 +97,100 @@ exports.TransactionIsolationLevel = runtime.makeStrictEnum({
     Serializable: 'Serializable'
 });
 exports.UserScalarFieldEnum = {
-    id: 'id',
+    fullName: 'fullName',
+    username: 'username',
     email: 'email',
-    name: 'name'
-};
-exports.PostScalarFieldEnum = {
+    avatar: 'avatar',
+    coverImage: 'coverImage',
+    password: 'password',
     id: 'id',
-    title: 'title',
-    content: 'content',
-    published: 'published',
-    authorId: 'authorId'
+    signer: 'signer',
+    refreshToken: 'refreshToken',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+exports.AdminScalarFieldEnum = {
+    user: 'user'
+};
+exports.CountryApprovalAuthorityScalarFieldEnum = {
+    id: 'id',
+    authority: 'authority',
+    threshold: 'threshold',
+    bump: 'bump',
+    created_time: 'created_time',
+    last_modified: 'last_modified'
+};
+exports.ApproveCountryAuthorityReceiptScalarFieldEnum = {
+    id: 'id',
+    proposal_key: 'proposal_key',
+    approval_time: 'approval_time',
+    signer: 'signer',
+    bump: 'bump'
+};
+exports.CountryProposalScalarFieldEnum = {
+    proposal_public_key: 'proposal_public_key',
+    total_authority: 'total_authority',
+    country_id: 'country_id',
+    country_pda_threshold: 'country_pda_threshold',
+    country_name: 'country_name',
+    approved: 'approved',
+    executed: 'executed',
+    proposal_bump: 'proposal_bump',
+    proposal_created_time: 'proposal_created_time'
+};
+exports.CountryPdaScalarFieldEnum = {
+    proposal_public_key: 'proposal_public_key',
+    country_public_key: 'country_public_key',
+    current_total_authority: 'current_total_authority',
+    country_id: 'country_id',
+    country_name: 'country_name',
+    country_pda_threshold: 'country_pda_threshold',
+    total_authority: 'total_authority',
+    country_bump: 'country_bump'
+};
+exports.CountryAuthorityReceiptScalarFieldEnum = {
+    public_key: 'public_key',
+    country_created_time: 'country_created_time',
+    bump: 'bump',
+    signer: 'signer'
+};
+exports.ApproveStateAuthorityReceiptScalarFieldEnum = {
+    id: 'id',
+    proposal_key: 'proposal_key',
+    approval_time: 'approval_time',
+    signer: 'signer',
+    bump: 'bump'
+};
+exports.StateProposalScalarFieldEnum = {
+    proposal_creator_id: 'proposal_creator_id',
+    proposal_public_key: 'proposal_public_key',
+    state_id: 'state_id',
+    state_name: 'state_name',
+    state_total_authorities: 'state_total_authorities',
+    country_pubkey: 'country_pubkey',
+    approved: 'approved',
+    executed: 'executed',
+    proposal_bump: 'proposal_bump',
+    propsal_created_time: 'propsal_created_time'
+};
+exports.StatePdaScalarFieldEnum = {
+    state_public_key: 'state_public_key',
+    proposal_public_key: 'proposal_public_key',
+    current_total_authority: 'current_total_authority',
+    state_id: 'state_id',
+    state_name: 'state_name',
+    state_total_authorities: 'state_total_authorities',
+    state_authority_threshold: 'state_authority_threshold',
+    country_pubkey: 'country_pubkey',
+    state_bump: 'state_bump',
+    state_created_time: 'state_created_time',
+    bump: 'bump'
+};
+exports.StateAuthorityReceiptScalarFieldEnum = {
+    public_key: 'public_key',
+    state_created_time: 'state_created_time',
+    bump: 'bump',
+    signer: 'signer'
 };
 exports.SortOrder = {
     asc: 'asc',
@@ -106,9 +199,5 @@ exports.SortOrder = {
 exports.QueryMode = {
     default: 'default',
     insensitive: 'insensitive'
-};
-exports.NullsOrder = {
-    first: 'first',
-    last: 'last'
 };
 //# sourceMappingURL=prismaNamespaceBrowser.js.map

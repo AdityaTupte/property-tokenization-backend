@@ -5,6 +5,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  // url      = env("DATABASE_URL")
 }
 
 enum GovernmentType {
@@ -112,7 +113,7 @@ model StateProposal {
 }
 
 model StatePda {
-  state_public_key          String                  @id
+  state_public_key          String                 @id
   proposal_public_key       String
   current_total_authority   Int
   state_id                  Int
@@ -121,7 +122,7 @@ model StatePda {
   state_authority_threshold Int
   country_pubkey            String
   state_bump                Int
-  state_created_time        DateTime                @default(now())
+  state_created_time        DateTime               @default(now())
   bump                      Int
   stateAuthorityReceipts    StateAuthorityReceipt?
 }
@@ -133,3 +134,23 @@ model StateAuthorityReceipt {
   signer             String[]
   state              StatePda @relation(fields: [public_key], references: [state_public_key])
 }
+
+// model PropertySystemAccount {
+//   creator_pubky       String
+//   property_system_id  Int
+//   property_system_public_key String
+//   governance_mint     String
+//   threshold           String
+//   treasury            String
+//   reinvestment        String
+//   safety              String
+//   dividend            String
+//   trustee_registry    String
+//   arbitrator_registry String
+//   total_properties    Int
+//   total_token_supply  BigInt
+//   created_at          DateTime @default((now()))
+//   creator             String
+//   ready_for_listing   boolean
+//   bump                Int
+// }

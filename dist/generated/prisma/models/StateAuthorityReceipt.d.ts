@@ -1,0 +1,1135 @@
+import type * as runtime from "@prisma/client/runtime/library";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model StateAuthorityReceipt
+ *
+ */
+export type StateAuthorityReceiptModel = runtime.Types.Result.DefaultSelection<Prisma.$StateAuthorityReceiptPayload>;
+export type AggregateStateAuthorityReceipt = {
+    _count: StateAuthorityReceiptCountAggregateOutputType | null;
+    _avg: StateAuthorityReceiptAvgAggregateOutputType | null;
+    _sum: StateAuthorityReceiptSumAggregateOutputType | null;
+    _min: StateAuthorityReceiptMinAggregateOutputType | null;
+    _max: StateAuthorityReceiptMaxAggregateOutputType | null;
+};
+export type StateAuthorityReceiptAvgAggregateOutputType = {
+    bump: number | null;
+};
+export type StateAuthorityReceiptSumAggregateOutputType = {
+    bump: number | null;
+};
+export type StateAuthorityReceiptMinAggregateOutputType = {
+    public_key: string | null;
+    state_created_time: Date | null;
+    bump: number | null;
+};
+export type StateAuthorityReceiptMaxAggregateOutputType = {
+    public_key: string | null;
+    state_created_time: Date | null;
+    bump: number | null;
+};
+export type StateAuthorityReceiptCountAggregateOutputType = {
+    public_key: number;
+    state_created_time: number;
+    bump: number;
+    signer: number;
+    _all: number;
+};
+export type StateAuthorityReceiptAvgAggregateInputType = {
+    bump?: true;
+};
+export type StateAuthorityReceiptSumAggregateInputType = {
+    bump?: true;
+};
+export type StateAuthorityReceiptMinAggregateInputType = {
+    public_key?: true;
+    state_created_time?: true;
+    bump?: true;
+};
+export type StateAuthorityReceiptMaxAggregateInputType = {
+    public_key?: true;
+    state_created_time?: true;
+    bump?: true;
+};
+export type StateAuthorityReceiptCountAggregateInputType = {
+    public_key?: true;
+    state_created_time?: true;
+    bump?: true;
+    signer?: true;
+    _all?: true;
+};
+export type StateAuthorityReceiptAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which StateAuthorityReceipt to aggregate.
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StateAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.StateAuthorityReceiptOrderByWithRelationInput | Prisma.StateAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StateAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StateAuthorityReceipts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned StateAuthorityReceipts
+    **/
+    _count?: true | StateAuthorityReceiptCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: StateAuthorityReceiptAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: StateAuthorityReceiptSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: StateAuthorityReceiptMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: StateAuthorityReceiptMaxAggregateInputType;
+};
+export type GetStateAuthorityReceiptAggregateType<T extends StateAuthorityReceiptAggregateArgs> = {
+    [P in keyof T & keyof AggregateStateAuthorityReceipt]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateStateAuthorityReceipt[P]> : Prisma.GetScalarType<T[P], AggregateStateAuthorityReceipt[P]>;
+};
+export type StateAuthorityReceiptGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    orderBy?: Prisma.StateAuthorityReceiptOrderByWithAggregationInput | Prisma.StateAuthorityReceiptOrderByWithAggregationInput[];
+    by: Prisma.StateAuthorityReceiptScalarFieldEnum[] | Prisma.StateAuthorityReceiptScalarFieldEnum;
+    having?: Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: StateAuthorityReceiptCountAggregateInputType | true;
+    _avg?: StateAuthorityReceiptAvgAggregateInputType;
+    _sum?: StateAuthorityReceiptSumAggregateInputType;
+    _min?: StateAuthorityReceiptMinAggregateInputType;
+    _max?: StateAuthorityReceiptMaxAggregateInputType;
+};
+export type StateAuthorityReceiptGroupByOutputType = {
+    public_key: string;
+    state_created_time: Date;
+    bump: number;
+    signer: string[];
+    _count: StateAuthorityReceiptCountAggregateOutputType | null;
+    _avg: StateAuthorityReceiptAvgAggregateOutputType | null;
+    _sum: StateAuthorityReceiptSumAggregateOutputType | null;
+    _min: StateAuthorityReceiptMinAggregateOutputType | null;
+    _max: StateAuthorityReceiptMaxAggregateOutputType | null;
+};
+type GetStateAuthorityReceiptGroupByPayload<T extends StateAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<StateAuthorityReceiptGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof StateAuthorityReceiptGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], StateAuthorityReceiptGroupByOutputType[P]> : Prisma.GetScalarType<T[P], StateAuthorityReceiptGroupByOutputType[P]>;
+}>>;
+export type StateAuthorityReceiptWhereInput = {
+    AND?: Prisma.StateAuthorityReceiptWhereInput | Prisma.StateAuthorityReceiptWhereInput[];
+    OR?: Prisma.StateAuthorityReceiptWhereInput[];
+    NOT?: Prisma.StateAuthorityReceiptWhereInput | Prisma.StateAuthorityReceiptWhereInput[];
+    public_key?: Prisma.StringFilter<"StateAuthorityReceipt"> | string;
+    state_created_time?: Prisma.DateTimeFilter<"StateAuthorityReceipt"> | Date | string;
+    bump?: Prisma.IntFilter<"StateAuthorityReceipt"> | number;
+    signer?: Prisma.StringNullableListFilter<"StateAuthorityReceipt">;
+    state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>;
+};
+export type StateAuthorityReceiptOrderByWithRelationInput = {
+    public_key?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    signer?: Prisma.SortOrder;
+    state?: Prisma.StatePdaOrderByWithRelationInput;
+};
+export type StateAuthorityReceiptWhereUniqueInput = Prisma.AtLeast<{
+    public_key?: string;
+    AND?: Prisma.StateAuthorityReceiptWhereInput | Prisma.StateAuthorityReceiptWhereInput[];
+    OR?: Prisma.StateAuthorityReceiptWhereInput[];
+    NOT?: Prisma.StateAuthorityReceiptWhereInput | Prisma.StateAuthorityReceiptWhereInput[];
+    state_created_time?: Prisma.DateTimeFilter<"StateAuthorityReceipt"> | Date | string;
+    bump?: Prisma.IntFilter<"StateAuthorityReceipt"> | number;
+    signer?: Prisma.StringNullableListFilter<"StateAuthorityReceipt">;
+    state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>;
+}, "public_key">;
+export type StateAuthorityReceiptOrderByWithAggregationInput = {
+    public_key?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    signer?: Prisma.SortOrder;
+    _count?: Prisma.StateAuthorityReceiptCountOrderByAggregateInput;
+    _avg?: Prisma.StateAuthorityReceiptAvgOrderByAggregateInput;
+    _max?: Prisma.StateAuthorityReceiptMaxOrderByAggregateInput;
+    _min?: Prisma.StateAuthorityReceiptMinOrderByAggregateInput;
+    _sum?: Prisma.StateAuthorityReceiptSumOrderByAggregateInput;
+};
+export type StateAuthorityReceiptScalarWhereWithAggregatesInput = {
+    AND?: Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput[];
+    OR?: Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput[];
+    public_key?: Prisma.StringWithAggregatesFilter<"StateAuthorityReceipt"> | string;
+    state_created_time?: Prisma.DateTimeWithAggregatesFilter<"StateAuthorityReceipt"> | Date | string;
+    bump?: Prisma.IntWithAggregatesFilter<"StateAuthorityReceipt"> | number;
+    signer?: Prisma.StringNullableListFilter<"StateAuthorityReceipt">;
+};
+export type StateAuthorityReceiptCreateInput = {
+    state_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[];
+    state: Prisma.StatePdaCreateNestedOneWithoutStateAuthorityReceiptsInput;
+};
+export type StateAuthorityReceiptUncheckedCreateInput = {
+    public_key: string;
+    state_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[];
+};
+export type StateAuthorityReceiptUpdateInput = {
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[];
+    state?: Prisma.StatePdaUpdateOneRequiredWithoutStateAuthorityReceiptsNestedInput;
+};
+export type StateAuthorityReceiptUncheckedUpdateInput = {
+    public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[];
+};
+export type StateAuthorityReceiptCreateManyInput = {
+    public_key: string;
+    state_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[];
+};
+export type StateAuthorityReceiptUpdateManyMutationInput = {
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[];
+};
+export type StateAuthorityReceiptUncheckedUpdateManyInput = {
+    public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[];
+};
+export type StateAuthorityReceiptNullableScalarRelationFilter = {
+    is?: Prisma.StateAuthorityReceiptWhereInput | null;
+    isNot?: Prisma.StateAuthorityReceiptWhereInput | null;
+};
+export type StateAuthorityReceiptCountOrderByAggregateInput = {
+    public_key?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    signer?: Prisma.SortOrder;
+};
+export type StateAuthorityReceiptAvgOrderByAggregateInput = {
+    bump?: Prisma.SortOrder;
+};
+export type StateAuthorityReceiptMaxOrderByAggregateInput = {
+    public_key?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StateAuthorityReceiptMinOrderByAggregateInput = {
+    public_key?: Prisma.SortOrder;
+    state_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type StateAuthorityReceiptSumOrderByAggregateInput = {
+    bump?: Prisma.SortOrder;
+};
+export type StateAuthorityReceiptCreateNestedOneWithoutStateInput = {
+    create?: Prisma.XOR<Prisma.StateAuthorityReceiptCreateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedCreateWithoutStateInput>;
+    connectOrCreate?: Prisma.StateAuthorityReceiptCreateOrConnectWithoutStateInput;
+    connect?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+};
+export type StateAuthorityReceiptUncheckedCreateNestedOneWithoutStateInput = {
+    create?: Prisma.XOR<Prisma.StateAuthorityReceiptCreateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedCreateWithoutStateInput>;
+    connectOrCreate?: Prisma.StateAuthorityReceiptCreateOrConnectWithoutStateInput;
+    connect?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+};
+export type StateAuthorityReceiptUpdateOneWithoutStateNestedInput = {
+    create?: Prisma.XOR<Prisma.StateAuthorityReceiptCreateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedCreateWithoutStateInput>;
+    connectOrCreate?: Prisma.StateAuthorityReceiptCreateOrConnectWithoutStateInput;
+    upsert?: Prisma.StateAuthorityReceiptUpsertWithoutStateInput;
+    disconnect?: Prisma.StateAuthorityReceiptWhereInput | boolean;
+    delete?: Prisma.StateAuthorityReceiptWhereInput | boolean;
+    connect?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.StateAuthorityReceiptUpdateToOneWithWhereWithoutStateInput, Prisma.StateAuthorityReceiptUpdateWithoutStateInput>, Prisma.StateAuthorityReceiptUncheckedUpdateWithoutStateInput>;
+};
+export type StateAuthorityReceiptUncheckedUpdateOneWithoutStateNestedInput = {
+    create?: Prisma.XOR<Prisma.StateAuthorityReceiptCreateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedCreateWithoutStateInput>;
+    connectOrCreate?: Prisma.StateAuthorityReceiptCreateOrConnectWithoutStateInput;
+    upsert?: Prisma.StateAuthorityReceiptUpsertWithoutStateInput;
+    disconnect?: Prisma.StateAuthorityReceiptWhereInput | boolean;
+    delete?: Prisma.StateAuthorityReceiptWhereInput | boolean;
+    connect?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.StateAuthorityReceiptUpdateToOneWithWhereWithoutStateInput, Prisma.StateAuthorityReceiptUpdateWithoutStateInput>, Prisma.StateAuthorityReceiptUncheckedUpdateWithoutStateInput>;
+};
+export type StateAuthorityReceiptCreatesignerInput = {
+    set: string[];
+};
+export type StateAuthorityReceiptUpdatesignerInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type StateAuthorityReceiptCreateWithoutStateInput = {
+    state_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[];
+};
+export type StateAuthorityReceiptUncheckedCreateWithoutStateInput = {
+    state_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[];
+};
+export type StateAuthorityReceiptCreateOrConnectWithoutStateInput = {
+    where: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    create: Prisma.XOR<Prisma.StateAuthorityReceiptCreateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedCreateWithoutStateInput>;
+};
+export type StateAuthorityReceiptUpsertWithoutStateInput = {
+    update: Prisma.XOR<Prisma.StateAuthorityReceiptUpdateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedUpdateWithoutStateInput>;
+    create: Prisma.XOR<Prisma.StateAuthorityReceiptCreateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedCreateWithoutStateInput>;
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+};
+export type StateAuthorityReceiptUpdateToOneWithWhereWithoutStateInput = {
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    data: Prisma.XOR<Prisma.StateAuthorityReceiptUpdateWithoutStateInput, Prisma.StateAuthorityReceiptUncheckedUpdateWithoutStateInput>;
+};
+export type StateAuthorityReceiptUpdateWithoutStateInput = {
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[];
+};
+export type StateAuthorityReceiptUncheckedUpdateWithoutStateInput = {
+    state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[];
+};
+export type StateAuthorityReceiptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    public_key?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+    state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["stateAuthorityReceipt"]>;
+export type StateAuthorityReceiptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    public_key?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+    state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["stateAuthorityReceipt"]>;
+export type StateAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    public_key?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+    state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["stateAuthorityReceipt"]>;
+export type StateAuthorityReceiptSelectScalar = {
+    public_key?: boolean;
+    state_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+};
+export type StateAuthorityReceiptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "state_created_time" | "bump" | "signer", ExtArgs["result"]["stateAuthorityReceipt"]>;
+export type StateAuthorityReceiptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>;
+};
+export type StateAuthorityReceiptIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>;
+};
+export type StateAuthorityReceiptIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>;
+};
+export type $StateAuthorityReceiptPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "StateAuthorityReceipt";
+    objects: {
+        state: Prisma.$StatePdaPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        public_key: string;
+        state_created_time: Date;
+        bump: number;
+        signer: string[];
+    }, ExtArgs["result"]["stateAuthorityReceipt"]>;
+    composites: {};
+};
+export type StateAuthorityReceiptGetPayload<S extends boolean | null | undefined | StateAuthorityReceiptDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload, S>;
+export type StateAuthorityReceiptCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<StateAuthorityReceiptFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: StateAuthorityReceiptCountAggregateInputType | true;
+};
+export interface StateAuthorityReceiptDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['StateAuthorityReceipt'];
+        meta: {
+            name: 'StateAuthorityReceipt';
+        };
+    };
+    /**
+     * Find zero or one StateAuthorityReceipt that matches the filter.
+     * @param {StateAuthorityReceiptFindUniqueArgs} args - Arguments to find a StateAuthorityReceipt
+     * @example
+     * // Get one StateAuthorityReceipt
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StateAuthorityReceiptFindUniqueArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptFindUniqueArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one StateAuthorityReceipt that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {StateAuthorityReceiptFindUniqueOrThrowArgs} args - Arguments to find a StateAuthorityReceipt
+     * @example
+     * // Get one StateAuthorityReceipt
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StateAuthorityReceiptFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first StateAuthorityReceipt that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptFindFirstArgs} args - Arguments to find a StateAuthorityReceipt
+     * @example
+     * // Get one StateAuthorityReceipt
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StateAuthorityReceiptFindFirstArgs>(args?: Prisma.SelectSubset<T, StateAuthorityReceiptFindFirstArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first StateAuthorityReceipt that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptFindFirstOrThrowArgs} args - Arguments to find a StateAuthorityReceipt
+     * @example
+     * // Get one StateAuthorityReceipt
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StateAuthorityReceiptFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, StateAuthorityReceiptFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more StateAuthorityReceipts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all StateAuthorityReceipts
+     * const stateAuthorityReceipts = await prisma.stateAuthorityReceipt.findMany()
+     *
+     * // Get first 10 StateAuthorityReceipts
+     * const stateAuthorityReceipts = await prisma.stateAuthorityReceipt.findMany({ take: 10 })
+     *
+     * // Only select the `public_key`
+     * const stateAuthorityReceiptWithPublic_keyOnly = await prisma.stateAuthorityReceipt.findMany({ select: { public_key: true } })
+     *
+     */
+    findMany<T extends StateAuthorityReceiptFindManyArgs>(args?: Prisma.SelectSubset<T, StateAuthorityReceiptFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a StateAuthorityReceipt.
+     * @param {StateAuthorityReceiptCreateArgs} args - Arguments to create a StateAuthorityReceipt.
+     * @example
+     * // Create one StateAuthorityReceipt
+     * const StateAuthorityReceipt = await prisma.stateAuthorityReceipt.create({
+     *   data: {
+     *     // ... data to create a StateAuthorityReceipt
+     *   }
+     * })
+     *
+     */
+    create<T extends StateAuthorityReceiptCreateArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptCreateArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many StateAuthorityReceipts.
+     * @param {StateAuthorityReceiptCreateManyArgs} args - Arguments to create many StateAuthorityReceipts.
+     * @example
+     * // Create many StateAuthorityReceipts
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends StateAuthorityReceiptCreateManyArgs>(args?: Prisma.SelectSubset<T, StateAuthorityReceiptCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many StateAuthorityReceipts and returns the data saved in the database.
+     * @param {StateAuthorityReceiptCreateManyAndReturnArgs} args - Arguments to create many StateAuthorityReceipts.
+     * @example
+     * // Create many StateAuthorityReceipts
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many StateAuthorityReceipts and only return the `public_key`
+     * const stateAuthorityReceiptWithPublic_keyOnly = await prisma.stateAuthorityReceipt.createManyAndReturn({
+     *   select: { public_key: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends StateAuthorityReceiptCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, StateAuthorityReceiptCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a StateAuthorityReceipt.
+     * @param {StateAuthorityReceiptDeleteArgs} args - Arguments to delete one StateAuthorityReceipt.
+     * @example
+     * // Delete one StateAuthorityReceipt
+     * const StateAuthorityReceipt = await prisma.stateAuthorityReceipt.delete({
+     *   where: {
+     *     // ... filter to delete one StateAuthorityReceipt
+     *   }
+     * })
+     *
+     */
+    delete<T extends StateAuthorityReceiptDeleteArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptDeleteArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one StateAuthorityReceipt.
+     * @param {StateAuthorityReceiptUpdateArgs} args - Arguments to update one StateAuthorityReceipt.
+     * @example
+     * // Update one StateAuthorityReceipt
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends StateAuthorityReceiptUpdateArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptUpdateArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more StateAuthorityReceipts.
+     * @param {StateAuthorityReceiptDeleteManyArgs} args - Arguments to filter StateAuthorityReceipts to delete.
+     * @example
+     * // Delete a few StateAuthorityReceipts
+     * const { count } = await prisma.stateAuthorityReceipt.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends StateAuthorityReceiptDeleteManyArgs>(args?: Prisma.SelectSubset<T, StateAuthorityReceiptDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more StateAuthorityReceipts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many StateAuthorityReceipts
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends StateAuthorityReceiptUpdateManyArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more StateAuthorityReceipts and returns the data updated in the database.
+     * @param {StateAuthorityReceiptUpdateManyAndReturnArgs} args - Arguments to update many StateAuthorityReceipts.
+     * @example
+     * // Update many StateAuthorityReceipts
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more StateAuthorityReceipts and only return the `public_key`
+     * const stateAuthorityReceiptWithPublic_keyOnly = await prisma.stateAuthorityReceipt.updateManyAndReturn({
+     *   select: { public_key: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends StateAuthorityReceiptUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one StateAuthorityReceipt.
+     * @param {StateAuthorityReceiptUpsertArgs} args - Arguments to update or create a StateAuthorityReceipt.
+     * @example
+     * // Update or create a StateAuthorityReceipt
+     * const stateAuthorityReceipt = await prisma.stateAuthorityReceipt.upsert({
+     *   create: {
+     *     // ... data to create a StateAuthorityReceipt
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the StateAuthorityReceipt we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StateAuthorityReceiptUpsertArgs>(args: Prisma.SelectSubset<T, StateAuthorityReceiptUpsertArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of StateAuthorityReceipts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptCountArgs} args - Arguments to filter StateAuthorityReceipts to count.
+     * @example
+     * // Count the number of StateAuthorityReceipts
+     * const count = await prisma.stateAuthorityReceipt.count({
+     *   where: {
+     *     // ... the filter for the StateAuthorityReceipts we want to count
+     *   }
+     * })
+    **/
+    count<T extends StateAuthorityReceiptCountArgs>(args?: Prisma.Subset<T, StateAuthorityReceiptCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], StateAuthorityReceiptCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a StateAuthorityReceipt.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StateAuthorityReceiptAggregateArgs>(args: Prisma.Subset<T, StateAuthorityReceiptAggregateArgs>): Prisma.PrismaPromise<GetStateAuthorityReceiptAggregateType<T>>;
+    /**
+     * Group by StateAuthorityReceipt.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StateAuthorityReceiptGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends StateAuthorityReceiptGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: StateAuthorityReceiptGroupByArgs['orderBy'];
+    } : {
+        orderBy?: StateAuthorityReceiptGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, StateAuthorityReceiptGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStateAuthorityReceiptGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the StateAuthorityReceipt model
+     */
+    readonly fields: StateAuthorityReceiptFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for StateAuthorityReceipt.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__StateAuthorityReceiptClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    state<T extends Prisma.StatePdaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StatePdaDefaultArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the StateAuthorityReceipt model
+ */
+export interface StateAuthorityReceiptFieldRefs {
+    readonly public_key: Prisma.FieldRef<"StateAuthorityReceipt", 'String'>;
+    readonly state_created_time: Prisma.FieldRef<"StateAuthorityReceipt", 'DateTime'>;
+    readonly bump: Prisma.FieldRef<"StateAuthorityReceipt", 'Int'>;
+    readonly signer: Prisma.FieldRef<"StateAuthorityReceipt", 'String[]'>;
+}
+/**
+ * StateAuthorityReceipt findUnique
+ */
+export type StateAuthorityReceiptFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which StateAuthorityReceipt to fetch.
+     */
+    where: Prisma.StateAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * StateAuthorityReceipt findUniqueOrThrow
+ */
+export type StateAuthorityReceiptFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which StateAuthorityReceipt to fetch.
+     */
+    where: Prisma.StateAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * StateAuthorityReceipt findFirst
+ */
+export type StateAuthorityReceiptFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which StateAuthorityReceipt to fetch.
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StateAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.StateAuthorityReceiptOrderByWithRelationInput | Prisma.StateAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for StateAuthorityReceipts.
+     */
+    cursor?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StateAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StateAuthorityReceipts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of StateAuthorityReceipts.
+     */
+    distinct?: Prisma.StateAuthorityReceiptScalarFieldEnum | Prisma.StateAuthorityReceiptScalarFieldEnum[];
+};
+/**
+ * StateAuthorityReceipt findFirstOrThrow
+ */
+export type StateAuthorityReceiptFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which StateAuthorityReceipt to fetch.
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StateAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.StateAuthorityReceiptOrderByWithRelationInput | Prisma.StateAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for StateAuthorityReceipts.
+     */
+    cursor?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StateAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StateAuthorityReceipts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of StateAuthorityReceipts.
+     */
+    distinct?: Prisma.StateAuthorityReceiptScalarFieldEnum | Prisma.StateAuthorityReceiptScalarFieldEnum[];
+};
+/**
+ * StateAuthorityReceipt findMany
+ */
+export type StateAuthorityReceiptFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which StateAuthorityReceipts to fetch.
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of StateAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.StateAuthorityReceiptOrderByWithRelationInput | Prisma.StateAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing StateAuthorityReceipts.
+     */
+    cursor?: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` StateAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` StateAuthorityReceipts.
+     */
+    skip?: number;
+    distinct?: Prisma.StateAuthorityReceiptScalarFieldEnum | Prisma.StateAuthorityReceiptScalarFieldEnum[];
+};
+/**
+ * StateAuthorityReceipt create
+ */
+export type StateAuthorityReceiptCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a StateAuthorityReceipt.
+     */
+    data: Prisma.XOR<Prisma.StateAuthorityReceiptCreateInput, Prisma.StateAuthorityReceiptUncheckedCreateInput>;
+};
+/**
+ * StateAuthorityReceipt createMany
+ */
+export type StateAuthorityReceiptCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many StateAuthorityReceipts.
+     */
+    data: Prisma.StateAuthorityReceiptCreateManyInput | Prisma.StateAuthorityReceiptCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * StateAuthorityReceipt createManyAndReturn
+ */
+export type StateAuthorityReceiptCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * The data used to create many StateAuthorityReceipts.
+     */
+    data: Prisma.StateAuthorityReceiptCreateManyInput | Prisma.StateAuthorityReceiptCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * StateAuthorityReceipt update
+ */
+export type StateAuthorityReceiptUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a StateAuthorityReceipt.
+     */
+    data: Prisma.XOR<Prisma.StateAuthorityReceiptUpdateInput, Prisma.StateAuthorityReceiptUncheckedUpdateInput>;
+    /**
+     * Choose, which StateAuthorityReceipt to update.
+     */
+    where: Prisma.StateAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * StateAuthorityReceipt updateMany
+ */
+export type StateAuthorityReceiptUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update StateAuthorityReceipts.
+     */
+    data: Prisma.XOR<Prisma.StateAuthorityReceiptUpdateManyMutationInput, Prisma.StateAuthorityReceiptUncheckedUpdateManyInput>;
+    /**
+     * Filter which StateAuthorityReceipts to update
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * Limit how many StateAuthorityReceipts to update.
+     */
+    limit?: number;
+};
+/**
+ * StateAuthorityReceipt updateManyAndReturn
+ */
+export type StateAuthorityReceiptUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * The data used to update StateAuthorityReceipts.
+     */
+    data: Prisma.XOR<Prisma.StateAuthorityReceiptUpdateManyMutationInput, Prisma.StateAuthorityReceiptUncheckedUpdateManyInput>;
+    /**
+     * Filter which StateAuthorityReceipts to update
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * Limit how many StateAuthorityReceipts to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * StateAuthorityReceipt upsert
+ */
+export type StateAuthorityReceiptUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the StateAuthorityReceipt to update in case it exists.
+     */
+    where: Prisma.StateAuthorityReceiptWhereUniqueInput;
+    /**
+     * In case the StateAuthorityReceipt found by the `where` argument doesn't exist, create a new StateAuthorityReceipt with this data.
+     */
+    create: Prisma.XOR<Prisma.StateAuthorityReceiptCreateInput, Prisma.StateAuthorityReceiptUncheckedCreateInput>;
+    /**
+     * In case the StateAuthorityReceipt was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.StateAuthorityReceiptUpdateInput, Prisma.StateAuthorityReceiptUncheckedUpdateInput>;
+};
+/**
+ * StateAuthorityReceipt delete
+ */
+export type StateAuthorityReceiptDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter which StateAuthorityReceipt to delete.
+     */
+    where: Prisma.StateAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * StateAuthorityReceipt deleteMany
+ */
+export type StateAuthorityReceiptDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which StateAuthorityReceipts to delete
+     */
+    where?: Prisma.StateAuthorityReceiptWhereInput;
+    /**
+     * Limit how many StateAuthorityReceipts to delete.
+     */
+    limit?: number;
+};
+/**
+ * StateAuthorityReceipt without action
+ */
+export type StateAuthorityReceiptDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StateAuthorityReceipt
+     */
+    select?: Prisma.StateAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the StateAuthorityReceipt
+     */
+    omit?: Prisma.StateAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.StateAuthorityReceiptInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=StateAuthorityReceipt.d.ts.map

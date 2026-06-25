@@ -24,35 +24,42 @@ export const Decimal = runtime.Decimal
 
 
 export const NullTypes = {
-  DbNull: runtime.NullTypes.DbNull as (new (secret: never) => typeof runtime.DbNull),
-  JsonNull: runtime.NullTypes.JsonNull as (new (secret: never) => typeof runtime.JsonNull),
-  AnyNull: runtime.NullTypes.AnyNull as (new (secret: never) => typeof runtime.AnyNull),
+  DbNull: runtime.objectEnumValues.classes.DbNull as (new (secret: never) => typeof runtime.objectEnumValues.instances.DbNull),
+  JsonNull: runtime.objectEnumValues.classes.JsonNull as (new (secret: never) => typeof runtime.objectEnumValues.instances.JsonNull),
+  AnyNull: runtime.objectEnumValues.classes.AnyNull as (new (secret: never) => typeof runtime.objectEnumValues.instances.AnyNull),
 }
 /**
  * Helper for filtering JSON entries that have `null` on the database (empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const DbNull = runtime.DbNull
-
+export const DbNull = runtime.objectEnumValues.instances.DbNull
 /**
  * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const JsonNull = runtime.JsonNull
-
+export const JsonNull = runtime.objectEnumValues.instances.JsonNull
 /**
  * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const AnyNull = runtime.AnyNull
+export const AnyNull = runtime.objectEnumValues.instances.AnyNull
 
 
 export const ModelName = {
   User: 'User',
-  Post: 'Post'
+  admin: 'admin',
+  CountryApprovalAuthority: 'CountryApprovalAuthority',
+  ApproveCountryAuthorityReceipt: 'ApproveCountryAuthorityReceipt',
+  CountryProposal: 'CountryProposal',
+  CountryPda: 'CountryPda',
+  CountryAuthorityReceipt: 'CountryAuthorityReceipt',
+  ApproveStateAuthorityReceipt: 'ApproveStateAuthorityReceipt',
+  StateProposal: 'StateProposal',
+  StatePda: 'StatePda',
+  StateAuthorityReceipt: 'StateAuthorityReceipt'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -72,23 +79,143 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 
 
 export const UserScalarFieldEnum = {
-  id: 'id',
+  fullName: 'fullName',
+  username: 'username',
   email: 'email',
-  name: 'name'
+  avatar: 'avatar',
+  coverImage: 'coverImage',
+  password: 'password',
+  id: 'id',
+  signer: 'signer',
+  refreshToken: 'refreshToken',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
-export const PostScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  content: 'content',
-  published: 'published',
-  authorId: 'authorId'
+export const AdminScalarFieldEnum = {
+  user: 'user'
 } as const
 
-export type PostScalarFieldEnum = (typeof PostScalarFieldEnum)[keyof typeof PostScalarFieldEnum]
+export type AdminScalarFieldEnum = (typeof AdminScalarFieldEnum)[keyof typeof AdminScalarFieldEnum]
+
+
+export const CountryApprovalAuthorityScalarFieldEnum = {
+  id: 'id',
+  authority: 'authority',
+  threshold: 'threshold',
+  bump: 'bump',
+  created_time: 'created_time',
+  last_modified: 'last_modified'
+} as const
+
+export type CountryApprovalAuthorityScalarFieldEnum = (typeof CountryApprovalAuthorityScalarFieldEnum)[keyof typeof CountryApprovalAuthorityScalarFieldEnum]
+
+
+export const ApproveCountryAuthorityReceiptScalarFieldEnum = {
+  id: 'id',
+  proposal_key: 'proposal_key',
+  approval_time: 'approval_time',
+  signer: 'signer',
+  bump: 'bump'
+} as const
+
+export type ApproveCountryAuthorityReceiptScalarFieldEnum = (typeof ApproveCountryAuthorityReceiptScalarFieldEnum)[keyof typeof ApproveCountryAuthorityReceiptScalarFieldEnum]
+
+
+export const CountryProposalScalarFieldEnum = {
+  proposal_public_key: 'proposal_public_key',
+  total_authority: 'total_authority',
+  country_id: 'country_id',
+  country_pda_threshold: 'country_pda_threshold',
+  country_name: 'country_name',
+  approved: 'approved',
+  executed: 'executed',
+  proposal_bump: 'proposal_bump',
+  proposal_created_time: 'proposal_created_time'
+} as const
+
+export type CountryProposalScalarFieldEnum = (typeof CountryProposalScalarFieldEnum)[keyof typeof CountryProposalScalarFieldEnum]
+
+
+export const CountryPdaScalarFieldEnum = {
+  proposal_public_key: 'proposal_public_key',
+  country_public_key: 'country_public_key',
+  current_total_authority: 'current_total_authority',
+  country_id: 'country_id',
+  country_name: 'country_name',
+  country_pda_threshold: 'country_pda_threshold',
+  total_authority: 'total_authority',
+  country_bump: 'country_bump'
+} as const
+
+export type CountryPdaScalarFieldEnum = (typeof CountryPdaScalarFieldEnum)[keyof typeof CountryPdaScalarFieldEnum]
+
+
+export const CountryAuthorityReceiptScalarFieldEnum = {
+  public_key: 'public_key',
+  country_created_time: 'country_created_time',
+  bump: 'bump',
+  signer: 'signer'
+} as const
+
+export type CountryAuthorityReceiptScalarFieldEnum = (typeof CountryAuthorityReceiptScalarFieldEnum)[keyof typeof CountryAuthorityReceiptScalarFieldEnum]
+
+
+export const ApproveStateAuthorityReceiptScalarFieldEnum = {
+  id: 'id',
+  proposal_key: 'proposal_key',
+  approval_time: 'approval_time',
+  signer: 'signer',
+  bump: 'bump'
+} as const
+
+export type ApproveStateAuthorityReceiptScalarFieldEnum = (typeof ApproveStateAuthorityReceiptScalarFieldEnum)[keyof typeof ApproveStateAuthorityReceiptScalarFieldEnum]
+
+
+export const StateProposalScalarFieldEnum = {
+  proposal_creator_id: 'proposal_creator_id',
+  proposal_public_key: 'proposal_public_key',
+  state_id: 'state_id',
+  state_name: 'state_name',
+  state_total_authorities: 'state_total_authorities',
+  country_pubkey: 'country_pubkey',
+  approved: 'approved',
+  executed: 'executed',
+  proposal_bump: 'proposal_bump',
+  propsal_created_time: 'propsal_created_time'
+} as const
+
+export type StateProposalScalarFieldEnum = (typeof StateProposalScalarFieldEnum)[keyof typeof StateProposalScalarFieldEnum]
+
+
+export const StatePdaScalarFieldEnum = {
+  state_public_key: 'state_public_key',
+  proposal_public_key: 'proposal_public_key',
+  current_total_authority: 'current_total_authority',
+  state_id: 'state_id',
+  state_name: 'state_name',
+  state_total_authorities: 'state_total_authorities',
+  state_authority_threshold: 'state_authority_threshold',
+  country_pubkey: 'country_pubkey',
+  state_bump: 'state_bump',
+  state_created_time: 'state_created_time',
+  bump: 'bump'
+} as const
+
+export type StatePdaScalarFieldEnum = (typeof StatePdaScalarFieldEnum)[keyof typeof StatePdaScalarFieldEnum]
+
+
+export const StateAuthorityReceiptScalarFieldEnum = {
+  public_key: 'public_key',
+  state_created_time: 'state_created_time',
+  bump: 'bump',
+  signer: 'signer'
+} as const
+
+export type StateAuthorityReceiptScalarFieldEnum = (typeof StateAuthorityReceiptScalarFieldEnum)[keyof typeof StateAuthorityReceiptScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -105,12 +232,4 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
-
-
-export const NullsOrder = {
-  first: 'first',
-  last: 'last'
-} as const
-
-export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

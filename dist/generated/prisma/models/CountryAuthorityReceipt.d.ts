@@ -1,0 +1,1135 @@
+import type * as runtime from "@prisma/client/runtime/library";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model CountryAuthorityReceipt
+ *
+ */
+export type CountryAuthorityReceiptModel = runtime.Types.Result.DefaultSelection<Prisma.$CountryAuthorityReceiptPayload>;
+export type AggregateCountryAuthorityReceipt = {
+    _count: CountryAuthorityReceiptCountAggregateOutputType | null;
+    _avg: CountryAuthorityReceiptAvgAggregateOutputType | null;
+    _sum: CountryAuthorityReceiptSumAggregateOutputType | null;
+    _min: CountryAuthorityReceiptMinAggregateOutputType | null;
+    _max: CountryAuthorityReceiptMaxAggregateOutputType | null;
+};
+export type CountryAuthorityReceiptAvgAggregateOutputType = {
+    bump: number | null;
+};
+export type CountryAuthorityReceiptSumAggregateOutputType = {
+    bump: number | null;
+};
+export type CountryAuthorityReceiptMinAggregateOutputType = {
+    public_key: string | null;
+    country_created_time: Date | null;
+    bump: number | null;
+};
+export type CountryAuthorityReceiptMaxAggregateOutputType = {
+    public_key: string | null;
+    country_created_time: Date | null;
+    bump: number | null;
+};
+export type CountryAuthorityReceiptCountAggregateOutputType = {
+    public_key: number;
+    country_created_time: number;
+    bump: number;
+    signer: number;
+    _all: number;
+};
+export type CountryAuthorityReceiptAvgAggregateInputType = {
+    bump?: true;
+};
+export type CountryAuthorityReceiptSumAggregateInputType = {
+    bump?: true;
+};
+export type CountryAuthorityReceiptMinAggregateInputType = {
+    public_key?: true;
+    country_created_time?: true;
+    bump?: true;
+};
+export type CountryAuthorityReceiptMaxAggregateInputType = {
+    public_key?: true;
+    country_created_time?: true;
+    bump?: true;
+};
+export type CountryAuthorityReceiptCountAggregateInputType = {
+    public_key?: true;
+    country_created_time?: true;
+    bump?: true;
+    signer?: true;
+    _all?: true;
+};
+export type CountryAuthorityReceiptAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which CountryAuthorityReceipt to aggregate.
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of CountryAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.CountryAuthorityReceiptOrderByWithRelationInput | Prisma.CountryAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` CountryAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` CountryAuthorityReceipts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned CountryAuthorityReceipts
+    **/
+    _count?: true | CountryAuthorityReceiptCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: CountryAuthorityReceiptAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: CountryAuthorityReceiptSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: CountryAuthorityReceiptMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: CountryAuthorityReceiptMaxAggregateInputType;
+};
+export type GetCountryAuthorityReceiptAggregateType<T extends CountryAuthorityReceiptAggregateArgs> = {
+    [P in keyof T & keyof AggregateCountryAuthorityReceipt]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateCountryAuthorityReceipt[P]> : Prisma.GetScalarType<T[P], AggregateCountryAuthorityReceipt[P]>;
+};
+export type CountryAuthorityReceiptGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    orderBy?: Prisma.CountryAuthorityReceiptOrderByWithAggregationInput | Prisma.CountryAuthorityReceiptOrderByWithAggregationInput[];
+    by: Prisma.CountryAuthorityReceiptScalarFieldEnum[] | Prisma.CountryAuthorityReceiptScalarFieldEnum;
+    having?: Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: CountryAuthorityReceiptCountAggregateInputType | true;
+    _avg?: CountryAuthorityReceiptAvgAggregateInputType;
+    _sum?: CountryAuthorityReceiptSumAggregateInputType;
+    _min?: CountryAuthorityReceiptMinAggregateInputType;
+    _max?: CountryAuthorityReceiptMaxAggregateInputType;
+};
+export type CountryAuthorityReceiptGroupByOutputType = {
+    public_key: string;
+    country_created_time: Date;
+    bump: number;
+    signer: string[];
+    _count: CountryAuthorityReceiptCountAggregateOutputType | null;
+    _avg: CountryAuthorityReceiptAvgAggregateOutputType | null;
+    _sum: CountryAuthorityReceiptSumAggregateOutputType | null;
+    _min: CountryAuthorityReceiptMinAggregateOutputType | null;
+    _max: CountryAuthorityReceiptMaxAggregateOutputType | null;
+};
+type GetCountryAuthorityReceiptGroupByPayload<T extends CountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryAuthorityReceiptGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof CountryAuthorityReceiptGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], CountryAuthorityReceiptGroupByOutputType[P]> : Prisma.GetScalarType<T[P], CountryAuthorityReceiptGroupByOutputType[P]>;
+}>>;
+export type CountryAuthorityReceiptWhereInput = {
+    AND?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[];
+    OR?: Prisma.CountryAuthorityReceiptWhereInput[];
+    NOT?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[];
+    public_key?: Prisma.StringFilter<"CountryAuthorityReceipt"> | string;
+    country_created_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string;
+    bump?: Prisma.IntFilter<"CountryAuthorityReceipt"> | number;
+    signer?: Prisma.StringNullableListFilter<"CountryAuthorityReceipt">;
+    country?: Prisma.XOR<Prisma.CountryPdaScalarRelationFilter, Prisma.CountryPdaWhereInput>;
+};
+export type CountryAuthorityReceiptOrderByWithRelationInput = {
+    public_key?: Prisma.SortOrder;
+    country_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    signer?: Prisma.SortOrder;
+    country?: Prisma.CountryPdaOrderByWithRelationInput;
+};
+export type CountryAuthorityReceiptWhereUniqueInput = Prisma.AtLeast<{
+    public_key?: string;
+    AND?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[];
+    OR?: Prisma.CountryAuthorityReceiptWhereInput[];
+    NOT?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[];
+    country_created_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string;
+    bump?: Prisma.IntFilter<"CountryAuthorityReceipt"> | number;
+    signer?: Prisma.StringNullableListFilter<"CountryAuthorityReceipt">;
+    country?: Prisma.XOR<Prisma.CountryPdaScalarRelationFilter, Prisma.CountryPdaWhereInput>;
+}, "public_key">;
+export type CountryAuthorityReceiptOrderByWithAggregationInput = {
+    public_key?: Prisma.SortOrder;
+    country_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    signer?: Prisma.SortOrder;
+    _count?: Prisma.CountryAuthorityReceiptCountOrderByAggregateInput;
+    _avg?: Prisma.CountryAuthorityReceiptAvgOrderByAggregateInput;
+    _max?: Prisma.CountryAuthorityReceiptMaxOrderByAggregateInput;
+    _min?: Prisma.CountryAuthorityReceiptMinOrderByAggregateInput;
+    _sum?: Prisma.CountryAuthorityReceiptSumOrderByAggregateInput;
+};
+export type CountryAuthorityReceiptScalarWhereWithAggregatesInput = {
+    AND?: Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput[];
+    OR?: Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput[];
+    public_key?: Prisma.StringWithAggregatesFilter<"CountryAuthorityReceipt"> | string;
+    country_created_time?: Prisma.DateTimeWithAggregatesFilter<"CountryAuthorityReceipt"> | Date | string;
+    bump?: Prisma.IntWithAggregatesFilter<"CountryAuthorityReceipt"> | number;
+    signer?: Prisma.StringNullableListFilter<"CountryAuthorityReceipt">;
+};
+export type CountryAuthorityReceiptCreateInput = {
+    country_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[];
+    country: Prisma.CountryPdaCreateNestedOneWithoutAuthorityInput;
+};
+export type CountryAuthorityReceiptUncheckedCreateInput = {
+    public_key: string;
+    country_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[];
+};
+export type CountryAuthorityReceiptUpdateInput = {
+    country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[];
+    country?: Prisma.CountryPdaUpdateOneRequiredWithoutAuthorityNestedInput;
+};
+export type CountryAuthorityReceiptUncheckedUpdateInput = {
+    public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[];
+};
+export type CountryAuthorityReceiptCreateManyInput = {
+    public_key: string;
+    country_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[];
+};
+export type CountryAuthorityReceiptUpdateManyMutationInput = {
+    country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[];
+};
+export type CountryAuthorityReceiptUncheckedUpdateManyInput = {
+    public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[];
+};
+export type CountryAuthorityReceiptNullableScalarRelationFilter = {
+    is?: Prisma.CountryAuthorityReceiptWhereInput | null;
+    isNot?: Prisma.CountryAuthorityReceiptWhereInput | null;
+};
+export type CountryAuthorityReceiptCountOrderByAggregateInput = {
+    public_key?: Prisma.SortOrder;
+    country_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    signer?: Prisma.SortOrder;
+};
+export type CountryAuthorityReceiptAvgOrderByAggregateInput = {
+    bump?: Prisma.SortOrder;
+};
+export type CountryAuthorityReceiptMaxOrderByAggregateInput = {
+    public_key?: Prisma.SortOrder;
+    country_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type CountryAuthorityReceiptMinOrderByAggregateInput = {
+    public_key?: Prisma.SortOrder;
+    country_created_time?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type CountryAuthorityReceiptSumOrderByAggregateInput = {
+    bump?: Prisma.SortOrder;
+};
+export type CountryAuthorityReceiptCreateNestedOneWithoutCountryInput = {
+    create?: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedCreateWithoutCountryInput>;
+    connectOrCreate?: Prisma.CountryAuthorityReceiptCreateOrConnectWithoutCountryInput;
+    connect?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+};
+export type CountryAuthorityReceiptUncheckedCreateNestedOneWithoutCountryInput = {
+    create?: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedCreateWithoutCountryInput>;
+    connectOrCreate?: Prisma.CountryAuthorityReceiptCreateOrConnectWithoutCountryInput;
+    connect?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+};
+export type CountryAuthorityReceiptUpdateOneWithoutCountryNestedInput = {
+    create?: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedCreateWithoutCountryInput>;
+    connectOrCreate?: Prisma.CountryAuthorityReceiptCreateOrConnectWithoutCountryInput;
+    upsert?: Prisma.CountryAuthorityReceiptUpsertWithoutCountryInput;
+    disconnect?: Prisma.CountryAuthorityReceiptWhereInput | boolean;
+    delete?: Prisma.CountryAuthorityReceiptWhereInput | boolean;
+    connect?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateToOneWithWhereWithoutCountryInput, Prisma.CountryAuthorityReceiptUpdateWithoutCountryInput>, Prisma.CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput>;
+};
+export type CountryAuthorityReceiptUncheckedUpdateOneWithoutCountryNestedInput = {
+    create?: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedCreateWithoutCountryInput>;
+    connectOrCreate?: Prisma.CountryAuthorityReceiptCreateOrConnectWithoutCountryInput;
+    upsert?: Prisma.CountryAuthorityReceiptUpsertWithoutCountryInput;
+    disconnect?: Prisma.CountryAuthorityReceiptWhereInput | boolean;
+    delete?: Prisma.CountryAuthorityReceiptWhereInput | boolean;
+    connect?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateToOneWithWhereWithoutCountryInput, Prisma.CountryAuthorityReceiptUpdateWithoutCountryInput>, Prisma.CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput>;
+};
+export type CountryAuthorityReceiptCreatesignerInput = {
+    set: string[];
+};
+export type CountryAuthorityReceiptUpdatesignerInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type CountryAuthorityReceiptCreateWithoutCountryInput = {
+    country_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[];
+};
+export type CountryAuthorityReceiptUncheckedCreateWithoutCountryInput = {
+    country_created_time?: Date | string;
+    bump: number;
+    signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[];
+};
+export type CountryAuthorityReceiptCreateOrConnectWithoutCountryInput = {
+    where: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    create: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedCreateWithoutCountryInput>;
+};
+export type CountryAuthorityReceiptUpsertWithoutCountryInput = {
+    update: Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput>;
+    create: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedCreateWithoutCountryInput>;
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+};
+export type CountryAuthorityReceiptUpdateToOneWithWhereWithoutCountryInput = {
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    data: Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateWithoutCountryInput, Prisma.CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput>;
+};
+export type CountryAuthorityReceiptUpdateWithoutCountryInput = {
+    country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[];
+};
+export type CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput = {
+    country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[];
+};
+export type CountryAuthorityReceiptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    public_key?: boolean;
+    country_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+    country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["countryAuthorityReceipt"]>;
+export type CountryAuthorityReceiptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    public_key?: boolean;
+    country_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+    country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["countryAuthorityReceipt"]>;
+export type CountryAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    public_key?: boolean;
+    country_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+    country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["countryAuthorityReceipt"]>;
+export type CountryAuthorityReceiptSelectScalar = {
+    public_key?: boolean;
+    country_created_time?: boolean;
+    bump?: boolean;
+    signer?: boolean;
+};
+export type CountryAuthorityReceiptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "country_created_time" | "bump" | "signer", ExtArgs["result"]["countryAuthorityReceipt"]>;
+export type CountryAuthorityReceiptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>;
+};
+export type CountryAuthorityReceiptIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>;
+};
+export type CountryAuthorityReceiptIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>;
+};
+export type $CountryAuthorityReceiptPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "CountryAuthorityReceipt";
+    objects: {
+        country: Prisma.$CountryPdaPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        public_key: string;
+        country_created_time: Date;
+        bump: number;
+        signer: string[];
+    }, ExtArgs["result"]["countryAuthorityReceipt"]>;
+    composites: {};
+};
+export type CountryAuthorityReceiptGetPayload<S extends boolean | null | undefined | CountryAuthorityReceiptDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload, S>;
+export type CountryAuthorityReceiptCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<CountryAuthorityReceiptFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: CountryAuthorityReceiptCountAggregateInputType | true;
+};
+export interface CountryAuthorityReceiptDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['CountryAuthorityReceipt'];
+        meta: {
+            name: 'CountryAuthorityReceipt';
+        };
+    };
+    /**
+     * Find zero or one CountryAuthorityReceipt that matches the filter.
+     * @param {CountryAuthorityReceiptFindUniqueArgs} args - Arguments to find a CountryAuthorityReceipt
+     * @example
+     * // Get one CountryAuthorityReceipt
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CountryAuthorityReceiptFindUniqueArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptFindUniqueArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one CountryAuthorityReceipt that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CountryAuthorityReceiptFindUniqueOrThrowArgs} args - Arguments to find a CountryAuthorityReceipt
+     * @example
+     * // Get one CountryAuthorityReceipt
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CountryAuthorityReceiptFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first CountryAuthorityReceipt that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptFindFirstArgs} args - Arguments to find a CountryAuthorityReceipt
+     * @example
+     * // Get one CountryAuthorityReceipt
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CountryAuthorityReceiptFindFirstArgs>(args?: Prisma.SelectSubset<T, CountryAuthorityReceiptFindFirstArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first CountryAuthorityReceipt that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptFindFirstOrThrowArgs} args - Arguments to find a CountryAuthorityReceipt
+     * @example
+     * // Get one CountryAuthorityReceipt
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CountryAuthorityReceiptFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, CountryAuthorityReceiptFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more CountryAuthorityReceipts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CountryAuthorityReceipts
+     * const countryAuthorityReceipts = await prisma.countryAuthorityReceipt.findMany()
+     *
+     * // Get first 10 CountryAuthorityReceipts
+     * const countryAuthorityReceipts = await prisma.countryAuthorityReceipt.findMany({ take: 10 })
+     *
+     * // Only select the `public_key`
+     * const countryAuthorityReceiptWithPublic_keyOnly = await prisma.countryAuthorityReceipt.findMany({ select: { public_key: true } })
+     *
+     */
+    findMany<T extends CountryAuthorityReceiptFindManyArgs>(args?: Prisma.SelectSubset<T, CountryAuthorityReceiptFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a CountryAuthorityReceipt.
+     * @param {CountryAuthorityReceiptCreateArgs} args - Arguments to create a CountryAuthorityReceipt.
+     * @example
+     * // Create one CountryAuthorityReceipt
+     * const CountryAuthorityReceipt = await prisma.countryAuthorityReceipt.create({
+     *   data: {
+     *     // ... data to create a CountryAuthorityReceipt
+     *   }
+     * })
+     *
+     */
+    create<T extends CountryAuthorityReceiptCreateArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptCreateArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many CountryAuthorityReceipts.
+     * @param {CountryAuthorityReceiptCreateManyArgs} args - Arguments to create many CountryAuthorityReceipts.
+     * @example
+     * // Create many CountryAuthorityReceipts
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends CountryAuthorityReceiptCreateManyArgs>(args?: Prisma.SelectSubset<T, CountryAuthorityReceiptCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many CountryAuthorityReceipts and returns the data saved in the database.
+     * @param {CountryAuthorityReceiptCreateManyAndReturnArgs} args - Arguments to create many CountryAuthorityReceipts.
+     * @example
+     * // Create many CountryAuthorityReceipts
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many CountryAuthorityReceipts and only return the `public_key`
+     * const countryAuthorityReceiptWithPublic_keyOnly = await prisma.countryAuthorityReceipt.createManyAndReturn({
+     *   select: { public_key: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends CountryAuthorityReceiptCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, CountryAuthorityReceiptCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a CountryAuthorityReceipt.
+     * @param {CountryAuthorityReceiptDeleteArgs} args - Arguments to delete one CountryAuthorityReceipt.
+     * @example
+     * // Delete one CountryAuthorityReceipt
+     * const CountryAuthorityReceipt = await prisma.countryAuthorityReceipt.delete({
+     *   where: {
+     *     // ... filter to delete one CountryAuthorityReceipt
+     *   }
+     * })
+     *
+     */
+    delete<T extends CountryAuthorityReceiptDeleteArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptDeleteArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one CountryAuthorityReceipt.
+     * @param {CountryAuthorityReceiptUpdateArgs} args - Arguments to update one CountryAuthorityReceipt.
+     * @example
+     * // Update one CountryAuthorityReceipt
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends CountryAuthorityReceiptUpdateArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptUpdateArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more CountryAuthorityReceipts.
+     * @param {CountryAuthorityReceiptDeleteManyArgs} args - Arguments to filter CountryAuthorityReceipts to delete.
+     * @example
+     * // Delete a few CountryAuthorityReceipts
+     * const { count } = await prisma.countryAuthorityReceipt.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends CountryAuthorityReceiptDeleteManyArgs>(args?: Prisma.SelectSubset<T, CountryAuthorityReceiptDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more CountryAuthorityReceipts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CountryAuthorityReceipts
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends CountryAuthorityReceiptUpdateManyArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more CountryAuthorityReceipts and returns the data updated in the database.
+     * @param {CountryAuthorityReceiptUpdateManyAndReturnArgs} args - Arguments to update many CountryAuthorityReceipts.
+     * @example
+     * // Update many CountryAuthorityReceipts
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more CountryAuthorityReceipts and only return the `public_key`
+     * const countryAuthorityReceiptWithPublic_keyOnly = await prisma.countryAuthorityReceipt.updateManyAndReturn({
+     *   select: { public_key: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends CountryAuthorityReceiptUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one CountryAuthorityReceipt.
+     * @param {CountryAuthorityReceiptUpsertArgs} args - Arguments to update or create a CountryAuthorityReceipt.
+     * @example
+     * // Update or create a CountryAuthorityReceipt
+     * const countryAuthorityReceipt = await prisma.countryAuthorityReceipt.upsert({
+     *   create: {
+     *     // ... data to create a CountryAuthorityReceipt
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CountryAuthorityReceipt we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CountryAuthorityReceiptUpsertArgs>(args: Prisma.SelectSubset<T, CountryAuthorityReceiptUpsertArgs<ExtArgs>>): Prisma.Prisma__CountryAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$CountryAuthorityReceiptPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of CountryAuthorityReceipts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptCountArgs} args - Arguments to filter CountryAuthorityReceipts to count.
+     * @example
+     * // Count the number of CountryAuthorityReceipts
+     * const count = await prisma.countryAuthorityReceipt.count({
+     *   where: {
+     *     // ... the filter for the CountryAuthorityReceipts we want to count
+     *   }
+     * })
+    **/
+    count<T extends CountryAuthorityReceiptCountArgs>(args?: Prisma.Subset<T, CountryAuthorityReceiptCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], CountryAuthorityReceiptCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a CountryAuthorityReceipt.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CountryAuthorityReceiptAggregateArgs>(args: Prisma.Subset<T, CountryAuthorityReceiptAggregateArgs>): Prisma.PrismaPromise<GetCountryAuthorityReceiptAggregateType<T>>;
+    /**
+     * Group by CountryAuthorityReceipt.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CountryAuthorityReceiptGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends CountryAuthorityReceiptGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: CountryAuthorityReceiptGroupByArgs['orderBy'];
+    } : {
+        orderBy?: CountryAuthorityReceiptGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, CountryAuthorityReceiptGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCountryAuthorityReceiptGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the CountryAuthorityReceipt model
+     */
+    readonly fields: CountryAuthorityReceiptFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for CountryAuthorityReceipt.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__CountryAuthorityReceiptClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    country<T extends Prisma.CountryPdaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CountryPdaDefaultArgs<ExtArgs>>): Prisma.Prisma__CountryPdaClient<runtime.Types.Result.GetResult<Prisma.$CountryPdaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the CountryAuthorityReceipt model
+ */
+export interface CountryAuthorityReceiptFieldRefs {
+    readonly public_key: Prisma.FieldRef<"CountryAuthorityReceipt", 'String'>;
+    readonly country_created_time: Prisma.FieldRef<"CountryAuthorityReceipt", 'DateTime'>;
+    readonly bump: Prisma.FieldRef<"CountryAuthorityReceipt", 'Int'>;
+    readonly signer: Prisma.FieldRef<"CountryAuthorityReceipt", 'String[]'>;
+}
+/**
+ * CountryAuthorityReceipt findUnique
+ */
+export type CountryAuthorityReceiptFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which CountryAuthorityReceipt to fetch.
+     */
+    where: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * CountryAuthorityReceipt findUniqueOrThrow
+ */
+export type CountryAuthorityReceiptFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which CountryAuthorityReceipt to fetch.
+     */
+    where: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * CountryAuthorityReceipt findFirst
+ */
+export type CountryAuthorityReceiptFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which CountryAuthorityReceipt to fetch.
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of CountryAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.CountryAuthorityReceiptOrderByWithRelationInput | Prisma.CountryAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for CountryAuthorityReceipts.
+     */
+    cursor?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` CountryAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` CountryAuthorityReceipts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of CountryAuthorityReceipts.
+     */
+    distinct?: Prisma.CountryAuthorityReceiptScalarFieldEnum | Prisma.CountryAuthorityReceiptScalarFieldEnum[];
+};
+/**
+ * CountryAuthorityReceipt findFirstOrThrow
+ */
+export type CountryAuthorityReceiptFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which CountryAuthorityReceipt to fetch.
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of CountryAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.CountryAuthorityReceiptOrderByWithRelationInput | Prisma.CountryAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for CountryAuthorityReceipts.
+     */
+    cursor?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` CountryAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` CountryAuthorityReceipts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of CountryAuthorityReceipts.
+     */
+    distinct?: Prisma.CountryAuthorityReceiptScalarFieldEnum | Prisma.CountryAuthorityReceiptScalarFieldEnum[];
+};
+/**
+ * CountryAuthorityReceipt findMany
+ */
+export type CountryAuthorityReceiptFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter, which CountryAuthorityReceipts to fetch.
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of CountryAuthorityReceipts to fetch.
+     */
+    orderBy?: Prisma.CountryAuthorityReceiptOrderByWithRelationInput | Prisma.CountryAuthorityReceiptOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing CountryAuthorityReceipts.
+     */
+    cursor?: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` CountryAuthorityReceipts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` CountryAuthorityReceipts.
+     */
+    skip?: number;
+    distinct?: Prisma.CountryAuthorityReceiptScalarFieldEnum | Prisma.CountryAuthorityReceiptScalarFieldEnum[];
+};
+/**
+ * CountryAuthorityReceipt create
+ */
+export type CountryAuthorityReceiptCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a CountryAuthorityReceipt.
+     */
+    data: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateInput, Prisma.CountryAuthorityReceiptUncheckedCreateInput>;
+};
+/**
+ * CountryAuthorityReceipt createMany
+ */
+export type CountryAuthorityReceiptCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CountryAuthorityReceipts.
+     */
+    data: Prisma.CountryAuthorityReceiptCreateManyInput | Prisma.CountryAuthorityReceiptCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * CountryAuthorityReceipt createManyAndReturn
+ */
+export type CountryAuthorityReceiptCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * The data used to create many CountryAuthorityReceipts.
+     */
+    data: Prisma.CountryAuthorityReceiptCreateManyInput | Prisma.CountryAuthorityReceiptCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * CountryAuthorityReceipt update
+ */
+export type CountryAuthorityReceiptUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a CountryAuthorityReceipt.
+     */
+    data: Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateInput, Prisma.CountryAuthorityReceiptUncheckedUpdateInput>;
+    /**
+     * Choose, which CountryAuthorityReceipt to update.
+     */
+    where: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * CountryAuthorityReceipt updateMany
+ */
+export type CountryAuthorityReceiptUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CountryAuthorityReceipts.
+     */
+    data: Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateManyMutationInput, Prisma.CountryAuthorityReceiptUncheckedUpdateManyInput>;
+    /**
+     * Filter which CountryAuthorityReceipts to update
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * Limit how many CountryAuthorityReceipts to update.
+     */
+    limit?: number;
+};
+/**
+ * CountryAuthorityReceipt updateManyAndReturn
+ */
+export type CountryAuthorityReceiptUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * The data used to update CountryAuthorityReceipts.
+     */
+    data: Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateManyMutationInput, Prisma.CountryAuthorityReceiptUncheckedUpdateManyInput>;
+    /**
+     * Filter which CountryAuthorityReceipts to update
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * Limit how many CountryAuthorityReceipts to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * CountryAuthorityReceipt upsert
+ */
+export type CountryAuthorityReceiptUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the CountryAuthorityReceipt to update in case it exists.
+     */
+    where: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+    /**
+     * In case the CountryAuthorityReceipt found by the `where` argument doesn't exist, create a new CountryAuthorityReceipt with this data.
+     */
+    create: Prisma.XOR<Prisma.CountryAuthorityReceiptCreateInput, Prisma.CountryAuthorityReceiptUncheckedCreateInput>;
+    /**
+     * In case the CountryAuthorityReceipt was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.CountryAuthorityReceiptUpdateInput, Prisma.CountryAuthorityReceiptUncheckedUpdateInput>;
+};
+/**
+ * CountryAuthorityReceipt delete
+ */
+export type CountryAuthorityReceiptDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+    /**
+     * Filter which CountryAuthorityReceipt to delete.
+     */
+    where: Prisma.CountryAuthorityReceiptWhereUniqueInput;
+};
+/**
+ * CountryAuthorityReceipt deleteMany
+ */
+export type CountryAuthorityReceiptDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which CountryAuthorityReceipts to delete
+     */
+    where?: Prisma.CountryAuthorityReceiptWhereInput;
+    /**
+     * Limit how many CountryAuthorityReceipts to delete.
+     */
+    limit?: number;
+};
+/**
+ * CountryAuthorityReceipt without action
+ */
+export type CountryAuthorityReceiptDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CountryAuthorityReceipt
+     */
+    select?: Prisma.CountryAuthorityReceiptSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the CountryAuthorityReceipt
+     */
+    omit?: Prisma.CountryAuthorityReceiptOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=CountryAuthorityReceipt.d.ts.map

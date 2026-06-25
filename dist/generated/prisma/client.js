@@ -51,7 +51,7 @@ const process = __importStar(require("node:process"));
 const path = __importStar(require("node:path"));
 const node_url_1 = require("node:url");
 globalThis['__dirname'] = path.dirname((0, node_url_1.fileURLToPath)(import.meta.url));
-const runtime = __importStar(require("@prisma/client/runtime/client"));
+const runtime = __importStar(require("@prisma/client/runtime/library"));
 const $Enums = __importStar(require("./enums.js"));
 const $Class = __importStar(require("./internal/class.js"));
 const Prisma = __importStar(require("./internal/prismaNamespace.js"));
@@ -64,14 +64,15 @@ __exportStar(require("./enums.js"), exports);
  * Type-safe database client for TypeScript
  * @example
  * ```
- * const prisma = new PrismaClient({
- *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
- * })
+ * const prisma = new PrismaClient()
  * // Fetch zero or more Users
  * const users = await prisma.user.findMany()
  * ```
  *
- * Read more in our [docs](https://pris.ly/d/client).
+ * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
  */
-exports.PrismaClient = $Class.getPrismaClientClass();
+exports.PrismaClient = $Class.getPrismaClientClass(__dirname);
+// file annotations for bundling tools to include these files
+path.join(__dirname, "query_engine-windows.dll.node");
+path.join(process.cwd(), "src/generated/prisma/query_engine-windows.dll.node");
 //# sourceMappingURL=client.js.map

@@ -1,4 +1,4 @@
-import * as runtime from "@prisma/client/runtime/client";
+import * as runtime from "@prisma/client/runtime/library";
 import type * as Prisma from "./prismaNamespace.js";
 export type LogOptions<ClientOptions extends Prisma.PrismaClientOptions> = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never;
 export interface PrismaClientConstructor {
@@ -8,18 +8,16 @@ export interface PrismaClientConstructor {
    * Type-safe database client for TypeScript
    * @example
    * ```
-   * const prisma = new PrismaClient({
-   *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
-   * })
+   * const prisma = new PrismaClient()
    * // Fetch zero or more Users
    * const users = await prisma.user.findMany()
    * ```
    *
-   * Read more in our [docs](https://pris.ly/d/client).
+   * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
    */
     new <Options extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions, LogOpts extends LogOptions<Options> = LogOptions<Options>, OmitOpts extends Prisma.PrismaClientOptions['omit'] = Options extends {
         omit: infer U;
-    } ? U : Prisma.PrismaClientOptions['omit'], ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs>(options: Prisma.Subset<Options, Prisma.PrismaClientOptions>): PrismaClient<LogOpts, OmitOpts, ExtArgs>;
+    } ? U : Prisma.PrismaClientOptions['omit'], ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs>(options?: Prisma.Subset<Options, Prisma.PrismaClientOptions>): PrismaClient<LogOpts, OmitOpts, ExtArgs>;
 }
 /**
  * ## Prisma Client
@@ -27,16 +25,14 @@ export interface PrismaClientConstructor {
  * Type-safe database client for TypeScript
  * @example
  * ```
- * const prisma = new PrismaClient({
- *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
- * })
+ * const prisma = new PrismaClient()
  * // Fetch zero or more Users
  * const users = await prisma.user.findMany()
  * ```
  *
- * Read more in our [docs](https://pris.ly/d/client).
+ * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
  */
-export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out OmitOpts extends Prisma.PrismaClientOptions['omit'] = undefined, in out ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> {
+export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out OmitOpts extends Prisma.PrismaClientOptions['omit'] = Prisma.PrismaClientOptions['omit'], in out ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> {
     [K: symbol]: {
         types: Prisma.TypeMap<ExtArgs>['other'];
     };
@@ -56,7 +52,7 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
        * const result = await prisma.$executeRaw`UPDATE User SET cool = ${true} WHERE email = ${'user@email.com'};`
        * ```
        *
-       * Read more in our [docs](https://pris.ly/d/raw-queries).
+       * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
        */
     $executeRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<number>;
     /**
@@ -67,7 +63,7 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
      * const result = await prisma.$executeRawUnsafe('UPDATE User SET cool = $1 WHERE email = $2 ;', true, 'user@email.com')
      * ```
      *
-     * Read more in our [docs](https://pris.ly/d/raw-queries).
+     * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
      */
     $executeRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<number>;
     /**
@@ -77,7 +73,7 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
      * const result = await prisma.$queryRaw`SELECT * FROM User WHERE id = ${1} OR email = ${'user@email.com'};`
      * ```
      *
-     * Read more in our [docs](https://pris.ly/d/raw-queries).
+     * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
      */
     $queryRaw<T = unknown>(query: TemplateStringsArray | Prisma.Sql, ...values: any[]): Prisma.PrismaPromise<T>;
     /**
@@ -88,7 +84,7 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
      * const result = await prisma.$queryRawUnsafe('SELECT * FROM User WHERE id = $1 OR email = $2;', 1, 'user@email.com')
      * ```
      *
-     * Read more in our [docs](https://pris.ly/d/raw-queries).
+     * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/raw-database-access).
      */
     $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
     /**
@@ -102,11 +98,9 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
      * ])
      * ```
      *
-     * Read more in our [docs](https://www.prisma.io/docs/orm/prisma-client/queries/transactions).
+     * Read more in our [docs](https://www.prisma.io/docs/concepts/components/prisma-client/transactions).
      */
     $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: {
-        maxWait?: number;
-        timeout?: number;
         isolationLevel?: Prisma.TransactionIsolationLevel;
     }): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>;
     $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => runtime.Types.Utils.JsPromise<R>, options?: {
@@ -129,16 +123,115 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
-     * `prisma.post`: Exposes CRUD operations for the **Post** model.
+     * `prisma.admin`: Exposes CRUD operations for the **admin** model.
       * Example usage:
       * ```ts
-      * // Fetch zero or more Posts
-      * const posts = await prisma.post.findMany()
+      * // Fetch zero or more Admins
+      * const admins = await prisma.admin.findMany()
       * ```
       */
-    get post(): Prisma.PostDelegate<ExtArgs, {
+    get admin(): Prisma.adminDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.countryApprovalAuthority`: Exposes CRUD operations for the **CountryApprovalAuthority** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more CountryApprovalAuthorities
+      * const countryApprovalAuthorities = await prisma.countryApprovalAuthority.findMany()
+      * ```
+      */
+    get countryApprovalAuthority(): Prisma.CountryApprovalAuthorityDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.approveCountryAuthorityReceipt`: Exposes CRUD operations for the **ApproveCountryAuthorityReceipt** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ApproveCountryAuthorityReceipts
+      * const approveCountryAuthorityReceipts = await prisma.approveCountryAuthorityReceipt.findMany()
+      * ```
+      */
+    get approveCountryAuthorityReceipt(): Prisma.ApproveCountryAuthorityReceiptDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.countryProposal`: Exposes CRUD operations for the **CountryProposal** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more CountryProposals
+      * const countryProposals = await prisma.countryProposal.findMany()
+      * ```
+      */
+    get countryProposal(): Prisma.CountryProposalDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.countryPda`: Exposes CRUD operations for the **CountryPda** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more CountryPdas
+      * const countryPdas = await prisma.countryPda.findMany()
+      * ```
+      */
+    get countryPda(): Prisma.CountryPdaDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.countryAuthorityReceipt`: Exposes CRUD operations for the **CountryAuthorityReceipt** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more CountryAuthorityReceipts
+      * const countryAuthorityReceipts = await prisma.countryAuthorityReceipt.findMany()
+      * ```
+      */
+    get countryAuthorityReceipt(): Prisma.CountryAuthorityReceiptDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.approveStateAuthorityReceipt`: Exposes CRUD operations for the **ApproveStateAuthorityReceipt** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ApproveStateAuthorityReceipts
+      * const approveStateAuthorityReceipts = await prisma.approveStateAuthorityReceipt.findMany()
+      * ```
+      */
+    get approveStateAuthorityReceipt(): Prisma.ApproveStateAuthorityReceiptDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.stateProposal`: Exposes CRUD operations for the **StateProposal** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more StateProposals
+      * const stateProposals = await prisma.stateProposal.findMany()
+      * ```
+      */
+    get stateProposal(): Prisma.StateProposalDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.statePda`: Exposes CRUD operations for the **StatePda** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more StatePdas
+      * const statePdas = await prisma.statePda.findMany()
+      * ```
+      */
+    get statePda(): Prisma.StatePdaDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.stateAuthorityReceipt`: Exposes CRUD operations for the **StateAuthorityReceipt** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more StateAuthorityReceipts
+      * const stateAuthorityReceipts = await prisma.stateAuthorityReceipt.findMany()
+      * ```
+      */
+    get stateAuthorityReceipt(): Prisma.StateAuthorityReceiptDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
 }
-export declare function getPrismaClientClass(): PrismaClientConstructor;
+export declare function getPrismaClientClass(dirname: string): PrismaClientConstructor;
 //# sourceMappingURL=class.d.ts.map
