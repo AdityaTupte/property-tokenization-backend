@@ -8,23 +8,69 @@ datasource db {
   // url      = env("DATABASE_URL")
 }
 
+enum ProposalType {
+  SELLPROPERTY
+  BUYPROPERTY
+  USESAFETY
+  USEREINVESTMENT
+  REVENUETHRESHOLDCHANGE
+  CHALLLENGEAUTHORITY
+  REMOVEAUTHORITY
+  PROPOSEREMOVEPROPOSAL
+}
+
+enum LeaseStatus {
+  Active
+  Terminated
+  Expired
+}
+
+enum ReasonType {
+  None
+  Inactivity
+  Other
+  InvalidDocuments
+  DuplicateIdentity
+  Misconduct
+  MaliciousVoting
+  Fraud
+  GovernanceDecision
+}
+
+enum ProposalStatus {
+  Draft
+  Active
+  Passed
+  Failed
+  Rejected
+  Executed
+  Pending
+  Approved
+}
+
 enum GovernmentType {
   COUNTRY
   STATE
 }
 
+enum AuthorityType {
+  TRUSTEE
+  ARBITRATOR
+}
+
 model User {
-  fullName     String   @db.VarChar(100)
-  username     String   @db.VarChar(100)
-  email        String   @unique @db.VarChar(100)
-  avatar       String
-  coverImage   String
-  password     String   @db.VarChar(100)
-  id           String   @id @default(uuid())
-  signer       String
-  refreshToken String
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  fullName         String           @db.VarChar(100)
+  username         String           @db.VarChar(100)
+  email            String           @unique @db.VarChar(100)
+  avatar           String
+  coverImage       String
+  password         String           @db.VarChar(100)
+  id               String           @id @default(uuid())
+  signer           String           @unique
+  refreshToken     String
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  candiateProfiles CandiateProfile?
 }
 
 model admin {
@@ -135,22 +181,402 @@ model StateAuthorityReceipt {
   state              StatePda @relation(fields: [public_key], references: [state_public_key])
 }
 
-// model PropertySystemAccount {
-//   creator_pubky       String
-//   property_system_id  Int
-//   property_system_public_key String
-//   governance_mint     String
-//   threshold           String
-//   treasury            String
-//   reinvestment        String
-//   safety              String
-//   dividend            String
-//   trustee_registry    String
-//   arbitrator_registry String
-//   total_properties    Int
-//   total_token_supply  BigInt
-//   created_at          DateTime @default((now()))
-//   creator             String
-//   ready_for_listing   boolean
-//   bump                Int
+model PropertySystemAccount {
+  creator_pubky              String
+  property_system_id         Int
+  property_system_public_key String             @id
+  governance_mint            String             @unique
+  threshold                  String             @unique
+  treasury                   String             @unique
+  reinvestment               String             @unique
+  safety                     String             @unique
+  dividend                   String             @unique
+  trustee_registry           String             @unique
+  arbitrator_registry        String             @unique
+  total_properties           Int
+  // total_token_supply         BigInt
+  created_at                 DateTime           @default(now())
+  ready_for_listing          Boolean
+  bump                       Int
+  dividendPdas               DividendPda[]
+  trusteeRegistries          TrusteeRegistry[]
+  arbitrarRegistries         ArbitrarRegistry[]
+  thresholds                 Threshold[]
+  treasuries                 Treasury[]
+  propertyProposals          PropertyProposal[]
+  propertyAccounts           PropertyAccount[]
+}
+
+model DividendPda {
+  dividend_pubkey     String                @id
+  dividen_per_token   Int
+  last_updated_ts     DateTime              @default(now())
+  bump                Int
+  property_system_key PropertySystemAccount @relation(fields: [dividend_pubkey], references: [dividend])
+}
+
+model TrusteeRegistry {
+  trustee_registry_pubkey    String                @id
+  current_number_of_trustees Int
+  total_trustees             Int
+  vote_threshold             Int
+  claim_deadline_ts          DateTime              @default(now())
+  total_salary_allocated     Int
+  bump                       Int
+  trustees                   String[]
+  property_system_key        PropertySystemAccount @relation(fields: [trustee_registry_pubkey], references: [trustee_registry])
+}
+
+model ArbitrarRegistry {
+  arbitrar_registry_pubkey   String                @id
+  current_number_of_arbitrar Int
+  total_arbitrar             Int
+  vote_threshold             Int
+  claim_deadline_ts          DateTime              @default(now())
+  total_salary_allocated     Int
+  bump                       Int
+  arbitrar                   String[]
+  property_system_key        PropertySystemAccount @relation(fields: [arbitrar_registry_pubkey], references: [arbitrator_registry])
+}
+
+model Threshold {
+  threshold_pub_key           String                @id
+  trustee_salary_threshold    Int
+  arbitrator_salary_threshold Int
+  dividend_threshold          Int
+  reinvestment_threshold      Int
+  safety_threshold            Int
+  property_system_key         PropertySystemAccount @relation(fields: [threshold_pub_key], references: [threshold])
+}
+
+model Treasury {
+  treasury_key        String                @id
+  last_distribution   DateTime              @default(now())
+  bump                Int
+  property_system_key PropertySystemAccount @relation(fields: [treasury_key], references: [treasury])
+}
+
+// model Fund{
+//   id Int 
+//   property_system_pubkey String
+//   fundtype option(reinvest_safty)
+//   used BigInt
+// }
+
+enum ActionsHistory {
+  None
+  Inactivity
+  Other
+  InvalidDocuments
+  DuplicateIdentity
+  Misconduct
+  MaliciousVoting
+  Fraud
+  GovernanceDecision
+}
+
+model CandiateProfile {
+  candidate                  String           @id
+  total_applied              Int
+  total_selected_as_trustee  Int
+  total_selected_as_arbitrar Int
+  is_blacklisted             Boolean
+  removal_count              Int
+  actions_history            ActionsHistory[]
+  metadata_hash              String
+  bump                       Int
+  user                       User             @relation(fields: [candidate], references: [signer])
+
+  authorityCandidates AuthorityCandidate[]
+}
+
+model AuthorityCandidate {
+  authority_candidate String              @unique
+  candidate           String
+  proposal            String
+  selected            Boolean             @default(false)
+  selected_time       DateTime            @default(now())
+  vote_gained         BigInt
+  is_finalized        Boolean
+  authority_type      AuthorityType
+  bump                Int
+  candidate_profile   CandiateProfile     @relation(fields: [candidate], references: [candidate])
+  votingForCandiates  VotingForCandiate[]
+
+  @@id([candidate, proposal])
+}
+
+model PropertyProposal {
+  property_id              Int
+  proposal_property_pubkey String                @id
+  property_system_pubkey   String
+  state_id                 Int
+  state_pubkey             String
+  country_id               Int
+  country_pubkey           String
+  legal_doc_hash           String
+  issued_by                String
+  approval_count           String[]
+  approved                 Boolean
+  executed                 Boolean
+  bump                     Int
+  property_system          PropertySystemAccount @relation(fields: [property_system_pubkey], references: [property_system_public_key])
+}
+
+model PropertyAccount {
+  property_id         Int
+  property_public_key String                @id
+  is_leased           Boolean
+  property_system     String
+  history_of_owner    String[]
+  state_id            Int
+  state_pubkey        String
+  country_id          Int
+  country_pubkey      String
+  issued_at           DateTime              @default(now())
+  issued_by           String
+  metadata            String
+  bump                Int
+  property_system_ref PropertySystemAccount @relation(fields: [property_public_key], references: [property_system_public_key])
+}
+
+model SalaryClaim {
+  id             Int           @default(autoincrement())
+  payer          String
+  from           String
+  authority_type AuthorityType
+  receipt        String
+  claim_time     DateTime      @default(now())
+  amount         BigInt
+
+  @@id([id, payer])
+}
+
+model PropertySellProposal {
+  id                       Int            @default(autoincrement())
+  proposal_id              Int
+  proposal_key             String
+  property_account         String
+  sale_price               BigInt
+  property_system_account  String
+  deposit_account_pda      String
+  merkle_root              String
+  arbitrar_approvals_count String[]
+  is_arbitrar_approved     Boolean
+  votes_for                Int
+  votes_against            Int
+  vote_threshold           Int
+  start_time               DateTime
+  end_time                 DateTime
+  transfer_deadline        DateTime
+  status                   ProposalStatus
+  snapshot_submitted       Boolean
+  slot                     Int
+  bump                     Int
+
+  @@id([id, property_account])
+}
+
+model PropertyBuyProposal {
+  id                       Int            @default(autoincrement())
+  proposal_id              Int
+  buyer                    String
+  buyer_wallet             String
+  sell_proposal            String
+  property                 String
+  sale_price               Int
+  merkle_root              String
+  arbitrar_approvals_count String[]
+  is_arbitrar_approved     Boolean
+  total_voting_power       Int
+  votes_for                Int
+  votes_against            Int
+  vote_threshold           Int
+  start_time               DateTime
+  end_time                 DateTime
+  payment_deadline         DateTime
+  status                   ProposalStatus
+  snapshot_submitted       Boolean
+  slot                     Int
+  bump                     Int
+
+  @@id([id, buyer])
+}
+
+model Lease {
+  property_system            String
+  lease_id                   Int
+  is_arbitrar_approved       Boolean
+  arbitrar_approval_count    String[]
+  initailized_at             DateTime    @default(now())
+  property                   String
+  lessee                     String
+  periodic_pay               DateTime
+  late_payment_fee_per_day   BigInt
+  status                     LeaseStatus
+  rent_amount                BigInt
+  security_deposit           BigInt
+  last_payement              DateTime
+  agreemenbt_hash            String
+  lessee_acceptance_deadline DateTime
+  lease_end_time             DateTime
+  neutral                    String
+  bump                       Int
+
+  @@id([lease_id, property])
+}
+
+model ChallengeProposal {
+  creator                        String         @id
+  proposal_id                    Int
+  property_system                String
+  trustee_offender_total_number  String[]
+  arbitrar_offender_total_number String[]
+  required_vote_to_active        Int
+  vote_gained                    Int
+  charges_hash                   String
+  evidence_String                String
+  status                         ProposalStatus
+  merkle_root                    String
+  guilty                         ReasonType
+  created_at                     DateTime       @default(now())
+  result_time                    DateTime
+  voting_deadline                DateTime
+  index                          Int
+  bump                           Int
+  // ranking                        array
+}
+
+model RankCounter {
+  proposal_id     String @id
+  property_system String
+  current_rank    Int
+  bump            Int
+}
+
+model Offenders {
+  id                  Int           @id @default(autoincrement())
+  offender_key        String[]
+  proposal_key        String
+  property_system_key String
+  authority_type      AuthorityType
+  is_finalized        Boolean
+  bump                Int
+  // challenge_proposal
+}
+
+// Authority_voting{
+//    property_system_key:
+//      proposal_key
+//      trustee_key
+//      type
+//      bump
+
+// }
+
+model VotingForCandiate {
+  proposal_id            String
+  property_system_pubkey String
+  timestamp              DateTime
+  signer                 String
+  to_whom                String
+  authority_candidate    AuthorityCandidate @relation(fields: [signer], references: [authority_candidate])
+
+  @@id([proposal_id, signer, property_system_pubkey])
+}
+
+model Resignation {
+  id              Int            @default(autoincrement())
+  authority       String[]
+  proposal        String
+  property_system String
+  authority_type  AuthorityType
+  time            DateTime       @default(now())
+  status          ProposalStatus
+  bump            Int
+
+  @@unique([property_system, proposal, authority_type])
+}
+
+model RTChgProposal {
+  property_system                  String         @id
+  new_threshold                    String
+  proposal_id                      String
+  merkle_root                      String
+  arbitrar_approvals               String[]
+  is_arbitrar_approved             Boolean
+  total_voting_power               BigInt
+  votes_for                        BigInt
+  votes_against                    BigInt
+  vote_threshold                   Int
+  start_time                       DateTime
+  end_time                         DateTime
+  status                           ProposalStatus
+  snapshot_submitted               Boolean
+  proposal_type                    ProposalType
+  threshold_submission_deadline    DateTime
+  voting_for_threshold_deadline    DateTime
+  add_new_threshold_deadline       DateTime
+  challenge_new_threshold_deadline DateTime
+  slot                             Int
+  bump                             Int
+}
+
+model NewThresholdProposal {
+  property_system                 String
+  new_threshold                   String
+  proposal                        String @id
+  signer                          String
+  vote_gained                     String
+  new_trustee_salary_threshold    Int
+  new_arbitrator_salary_threshold Int
+  new_dividend_threshold          Int
+  new_reinvestment_threshold      Int
+  new_safety_threshold            Int
+  bump                            Int
+}
+
+// model TokenTransferProposal {
+//   proposal_id
+//   amount_required
+//   reason_hash
+//   property_system
+//   recepient_wallet
+//   merkle_root
+//   arbitrar_approvals_count
+//   is_arbitrar_approved
+//   total_voting_power
+//   votes_for
+//   votes_against
+//   vote_threshold
+//   start_time
+//   end_time
+//   status
+//   snapshot_submitted
+//   proposal_type
+//   deadline
+//   slot
+//   bump
+// }
+
+// Elect{
+//     proposal_id 
+//     property_system 
+//     total_authority_to_resign 
+//      authority_type : AuthorityType,
+//     status:ProposalStatus,
+//      merkle_root: [u8; 32],
+//      arbitrar_approvals_count: u8,
+//      is_initialized : bool,
+//      is_arbitrar_approved : bool,
+//      snapshot_submitted : bool,
+//      candidate_submission_deadline
+//      voting_for_authority_deadline 
+//      add_new_authority_deadline  
+//      challenge_new_authority_deadline
+//      is_finalize 
+//      slot 
+//       bump:u8,
+//       rm_voting_threshold
+//       rm_total_voting_power_gained
 // }
