@@ -19,6 +19,11 @@ enum ProposalType {
   PROPOSEREMOVEPROPOSAL
 }
 
+enum FundType {
+  safety
+  reinvestment
+}
+
 enum LeaseStatus {
   Active
   Terminated
@@ -72,6 +77,7 @@ model User {
   updatedAt        DateTime         @updatedAt
   candiateProfiles CandiateProfile?
 }
+
 
 model admin {
   user String @id
@@ -184,26 +190,25 @@ model StateAuthorityReceipt {
 model PropertySystemAccount {
   creator_pubky              String
   property_system_id         Int
-  property_system_public_key String             @id
-  governance_mint            String             @unique
-  threshold                  String             @unique
-  treasury                   String             @unique
-  reinvestment               String             @unique
-  safety                     String             @unique
-  dividend                   String             @unique
-  trustee_registry           String             @unique
-  arbitrator_registry        String             @unique
+  property_system_public_key String            @id
+  governance_mint            String            @unique
+  threshold                  String            @unique
+  treasury                   String            @unique
+  reinvestment               String            @unique
+  safety                     String            @unique
+  dividend                   String            @unique
+  trustee_registry           String            @unique
+  arbitrator_registry        String            @unique
   total_properties           Int
   // total_token_supply         BigInt
-  created_at                 DateTime           @default(now())
+  created_at                 DateTime          @default(now())
   ready_for_listing          Boolean
   bump                       Int
   dividendPdas               DividendPda[]
-  trusteeRegistries          TrusteeRegistry[]
-  arbitrarRegistries         ArbitrarRegistry[]
-  thresholds                 Threshold[]
-  treasuries                 Treasury[]
-  propertyProposals          PropertyProposal[]
+  trusteeRegistries          TrusteeRegistry?
+  arbitrarRegistries         ArbitrarRegistry?
+  thresholds                 Threshold?
+  treasuries                 Treasury?
   propertyAccounts           PropertyAccount[]
 }
 
@@ -256,12 +261,12 @@ model Treasury {
   property_system_key PropertySystemAccount @relation(fields: [treasury_key], references: [treasury])
 }
 
-// model Fund{
-//   id Int 
-//   property_system_pubkey String
-//   fundtype option(reinvest_safty)
-//   used BigInt
-// }
+model Fund {
+  id                     Int      @id
+  property_system_pubkey String
+  fundtype               FundType
+  used                   BigInt
+}
 
 enum ActionsHistory {
   None
@@ -276,7 +281,7 @@ enum ActionsHistory {
 }
 
 model CandiateProfile {
-  candidate                  String           @id
+  candidate                  String               @id
   total_applied              Int
   total_selected_as_trustee  Int
   total_selected_as_arbitrar Int
@@ -285,9 +290,8 @@ model CandiateProfile {
   actions_history            ActionsHistory[]
   metadata_hash              String
   bump                       Int
-  user                       User             @relation(fields: [candidate], references: [signer])
-
-  authorityCandidates AuthorityCandidate[]
+  user                       User                 @relation(fields: [candidate], references: [signer])
+  authorityCandidates        AuthorityCandidate[]
 }
 
 model AuthorityCandidate {
@@ -308,7 +312,7 @@ model AuthorityCandidate {
 
 model PropertyProposal {
   property_id              Int
-  proposal_property_pubkey String                @id
+  proposal_property_pubkey String   @id
   property_system_pubkey   String
   state_id                 Int
   state_pubkey             String
@@ -320,7 +324,6 @@ model PropertyProposal {
   approved                 Boolean
   executed                 Boolean
   bump                     Int
-  property_system          PropertySystemAccount @relation(fields: [property_system_pubkey], references: [property_system_public_key])
 }
 
 model PropertyAccount {
@@ -353,54 +356,25 @@ model SalaryClaim {
 }
 
 model PropertySellProposal {
-  id                       Int            @default(autoincrement())
-  proposal_id              Int
-  proposal_key             String
-  property_account         String
-  sale_price               BigInt
-  property_system_account  String
-  deposit_account_pda      String
-  merkle_root              String
-  arbitrar_approvals_count String[]
-  is_arbitrar_approved     Boolean
-  votes_for                Int
-  votes_against            Int
-  vote_threshold           Int
-  start_time               DateTime
-  end_time                 DateTime
-  transfer_deadline        DateTime
-  status                   ProposalStatus
-  snapshot_submitted       Boolean
-  slot                     Int
-  bump                     Int
-
-  @@id([id, property_account])
+  proposal_id         Int
+  proposal_key        String    @id
+  property_account    String
+  sale_price          BigInt
+  deposit_account_pda String
+  transfer_deadline   DateTime
+  proposal            Proposals @relation(fields: [proposal_key], references: [proposal_key])
 }
 
 model PropertyBuyProposal {
-  id                       Int            @default(autoincrement())
-  proposal_id              Int
-  buyer                    String
-  buyer_wallet             String
-  sell_proposal            String
-  property                 String
-  sale_price               Int
-  merkle_root              String
-  arbitrar_approvals_count String[]
-  is_arbitrar_approved     Boolean
-  total_voting_power       Int
-  votes_for                Int
-  votes_against            Int
-  vote_threshold           Int
-  start_time               DateTime
-  end_time                 DateTime
-  payment_deadline         DateTime
-  status                   ProposalStatus
-  snapshot_submitted       Boolean
-  slot                     Int
-  bump                     Int
-
-  @@id([id, buyer])
+  id               Int      @default(autoincrement())
+  proposal_id      Int
+  proposal_key     String   @id
+  buyer            String
+  buyer_wallet     String
+  sell_proposal    String
+  property         String
+  sale_price       Int
+  payment_deadline DateTime
 }
 
 model Lease {
@@ -427,23 +401,17 @@ model Lease {
 }
 
 model ChallengeProposal {
-  creator                        String         @id
+  creator                        String
   proposal_id                    Int
-  property_system                String
+  proposal_key                   String     @id
   trustee_offender_total_number  String[]
   arbitrar_offender_total_number String[]
   required_vote_to_active        Int
-  vote_gained                    Int
   charges_hash                   String
-  evidence_String                String
-  status                         ProposalStatus
-  merkle_root                    String
+  evidence                       String
   guilty                         ReasonType
-  created_at                     DateTime       @default(now())
   result_time                    DateTime
-  voting_deadline                DateTime
   index                          Int
-  bump                           Int
   // ranking                        array
 }
 
@@ -455,34 +423,31 @@ model RankCounter {
 }
 
 model Offenders {
-  id                  Int           @id @default(autoincrement())
+  id                  Int            @default(autoincrement())
   offender_key        String[]
-  proposal_key        String
-  property_system_key String
+  proposal_key        String     @id
   authority_type      AuthorityType
   is_finalized        Boolean
   bump                Int
   // challenge_proposal
 }
 
-// Authority_voting{
-//    property_system_key:
-//      proposal_key
-//      trustee_key
-//      type
-//      bump
-
-// }
+model VotingForProposal {
+  proposal_key        String   
+  timestamp              DateTime
+  signer                 String
+  voting_power    BigInt
+  @@id([proposal_key, signer])
+}
 
 model VotingForCandiate {
-  proposal_id            String
-  property_system_pubkey String
+  proposal_key        String   
   timestamp              DateTime
   signer                 String
   to_whom                String
   authority_candidate    AuthorityCandidate @relation(fields: [signer], references: [authority_candidate])
 
-  @@id([proposal_id, signer, property_system_pubkey])
+  @@id([proposal_key, signer])
 }
 
 model Resignation {
@@ -499,27 +464,12 @@ model Resignation {
 }
 
 model RTChgProposal {
-  property_system                  String         @id
   new_threshold                    String
-  proposal_id                      String
-  merkle_root                      String
-  arbitrar_approvals               String[]
-  is_arbitrar_approved             Boolean
-  total_voting_power               BigInt
-  votes_for                        BigInt
-  votes_against                    BigInt
-  vote_threshold                   Int
-  start_time                       DateTime
-  end_time                         DateTime
-  status                           ProposalStatus
-  snapshot_submitted               Boolean
-  proposal_type                    ProposalType
+  proposal_id                      String   @id
   threshold_submission_deadline    DateTime
   voting_for_threshold_deadline    DateTime
   add_new_threshold_deadline       DateTime
   challenge_new_threshold_deadline DateTime
-  slot                             Int
-  bump                             Int
 }
 
 model NewThresholdProposal {
@@ -536,47 +486,44 @@ model NewThresholdProposal {
   bump                            Int
 }
 
-// model TokenTransferProposal {
-//   proposal_id
-//   amount_required
-//   reason_hash
-//   property_system
-//   recepient_wallet
-//   merkle_root
-//   arbitrar_approvals_count
-//   is_arbitrar_approved
-//   total_voting_power
-//   votes_for
-//   votes_against
-//   vote_threshold
-//   start_time
-//   end_time
-//   status
-//   snapshot_submitted
-//   proposal_type
-//   deadline
-//   slot
-//   bump
-// }
+model TokenTransferProposal {
+  proposal_id      String   @id
+  amount_required  BigInt
+  reason_hash      String
+  recepient_wallet String
+  deadline         DateTime
+}
 
-// Elect{
-//     proposal_id 
-//     property_system 
-//     total_authority_to_resign 
-//      authority_type : AuthorityType,
-//     status:ProposalStatus,
-//      merkle_root: [u8; 32],
-//      arbitrar_approvals_count: u8,
-//      is_initialized : bool,
-//      is_arbitrar_approved : bool,
-//      snapshot_submitted : bool,
-//      candidate_submission_deadline
-//      voting_for_authority_deadline 
-//      add_new_authority_deadline  
-//      challenge_new_authority_deadline
-//      is_finalize 
-//      slot 
-//       bump:u8,
-//       rm_voting_threshold
-//       rm_total_voting_power_gained
-// }
+model Elect {
+  proposal_id                      String        @id
+  total_authority_to_resign        Int
+  authority_type                   AuthorityType
+  is_initialized                   Boolean
+  candidate_submission_deadline    DateTime
+  voting_for_authority_deadline    DateTime
+  add_new_authority_deadline       DateTime
+  challenge_new_authority_deadline DateTime
+  is_finalize                      Boolean
+}
+
+model Proposals {
+  property_system       String
+  proposal_id           String
+  proposal_key          String                @id
+  merkle_root           String
+  arbitrar_approvals    String[]
+  is_arbitrar_approved  Boolean
+  total_voting_power    BigInt
+  votes_for             BigInt // use  as vote gained in challenge proposal //rm_total_voting_power_gained
+  votes_against         BigInt?
+  vote_threshold        Int //use as rm_voting_threshold
+  start_time            DateTime
+  end_time              DateTime //use as  voting_deadline 
+  status                ProposalStatus
+  snapshot_submitted    Boolean
+  proposal_type         ProposalType
+  slot                  Int
+  bump                  Int
+  created_at            DateTime              @default(now())
+  propertySellProposals PropertySellProposal?
+}

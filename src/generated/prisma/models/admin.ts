@@ -8,7 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from "@prisma/client/runtime/library"
+import type * as runtime from "@prisma/client/runtime/client"
 import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
@@ -130,7 +130,7 @@ export type AdminGroupByOutputType = {
   _max: AdminMaxAggregateOutputType | null
 }
 
-type GetAdminGroupByPayload<T extends adminGroupByArgs> = Prisma.PrismaPromise<
+export type GetAdminGroupByPayload<T extends adminGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<AdminGroupByOutputType, T['by']> &
       {
@@ -842,6 +842,11 @@ export type adminFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Skip the first `n` admins.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of admins.
+   */
   distinct?: Prisma.AdminScalarFieldEnum | Prisma.AdminScalarFieldEnum[]
 }
 

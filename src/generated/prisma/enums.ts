@@ -9,9 +9,92 @@
 * 🟢 You can import this file directly.
 */
 
+export const ProposalType = {
+  SELLPROPERTY: 'SELLPROPERTY',
+  BUYPROPERTY: 'BUYPROPERTY',
+  USESAFETY: 'USESAFETY',
+  USEREINVESTMENT: 'USEREINVESTMENT',
+  REVENUETHRESHOLDCHANGE: 'REVENUETHRESHOLDCHANGE',
+  CHALLLENGEAUTHORITY: 'CHALLLENGEAUTHORITY',
+  REMOVEAUTHORITY: 'REMOVEAUTHORITY',
+  PROPOSEREMOVEPROPOSAL: 'PROPOSEREMOVEPROPOSAL'
+} as const
+
+export type ProposalType = (typeof ProposalType)[keyof typeof ProposalType]
+
+
+export const FundType = {
+  safety: 'safety',
+  reinvestment: 'reinvestment'
+} as const
+
+export type FundType = (typeof FundType)[keyof typeof FundType]
+
+
+export const LeaseStatus = {
+  Active: 'Active',
+  Terminated: 'Terminated',
+  Expired: 'Expired'
+} as const
+
+export type LeaseStatus = (typeof LeaseStatus)[keyof typeof LeaseStatus]
+
+
+export const ReasonType = {
+  None: 'None',
+  Inactivity: 'Inactivity',
+  Other: 'Other',
+  InvalidDocuments: 'InvalidDocuments',
+  DuplicateIdentity: 'DuplicateIdentity',
+  Misconduct: 'Misconduct',
+  MaliciousVoting: 'MaliciousVoting',
+  Fraud: 'Fraud',
+  GovernanceDecision: 'GovernanceDecision'
+} as const
+
+export type ReasonType = (typeof ReasonType)[keyof typeof ReasonType]
+
+
+export const ProposalStatus = {
+  Draft: 'Draft',
+  Active: 'Active',
+  Passed: 'Passed',
+  Failed: 'Failed',
+  Rejected: 'Rejected',
+  Executed: 'Executed',
+  Pending: 'Pending',
+  Approved: 'Approved'
+} as const
+
+export type ProposalStatus = (typeof ProposalStatus)[keyof typeof ProposalStatus]
+
+
 export const GovernmentType = {
   COUNTRY: 'COUNTRY',
   STATE: 'STATE'
 } as const
 
 export type GovernmentType = (typeof GovernmentType)[keyof typeof GovernmentType]
+
+
+export const AuthorityType = {
+  TRUSTEE: 'TRUSTEE',
+  ARBITRATOR: 'ARBITRATOR'
+} as const
+
+export type AuthorityType = (typeof AuthorityType)[keyof typeof AuthorityType]
+
+
+export const ActionsHistory = {
+  None: 'None',
+  Inactivity: 'Inactivity',
+  Other: 'Other',
+  InvalidDocuments: 'InvalidDocuments',
+  DuplicateIdentity: 'DuplicateIdentity',
+  Misconduct: 'Misconduct',
+  MaliciousVoting: 'MaliciousVoting',
+  Fraud: 'Fraud',
+  GovernanceDecision: 'GovernanceDecision'
+} as const
+
+export type ActionsHistory = (typeof ActionsHistory)[keyof typeof ActionsHistory]

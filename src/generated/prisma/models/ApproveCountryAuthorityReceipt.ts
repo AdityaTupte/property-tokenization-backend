@@ -8,7 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from "@prisma/client/runtime/library"
+import type * as runtime from "@prisma/client/runtime/client"
 import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
@@ -196,7 +196,7 @@ export type ApproveCountryAuthorityReceiptGroupByOutputType = {
   _max: ApproveCountryAuthorityReceiptMaxAggregateOutputType | null
 }
 
-type GetApproveCountryAuthorityReceiptGroupByPayload<T extends ApproveCountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<
+export type GetApproveCountryAuthorityReceiptGroupByPayload<T extends ApproveCountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<ApproveCountryAuthorityReceiptGroupByOutputType, T['by']> &
       {
@@ -1173,6 +1173,11 @@ export type ApproveCountryAuthorityReceiptFindManyArgs<ExtArgs extends runtime.T
    * Skip the first `n` ApproveCountryAuthorityReceipts.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of ApproveCountryAuthorityReceipts.
+   */
   distinct?: Prisma.ApproveCountryAuthorityReceiptScalarFieldEnum | Prisma.ApproveCountryAuthorityReceiptScalarFieldEnum[]
 }
 

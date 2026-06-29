@@ -24,28 +24,30 @@ export const Decimal = runtime.Decimal
 
 
 export const NullTypes = {
-  DbNull: runtime.objectEnumValues.classes.DbNull as (new (secret: never) => typeof runtime.objectEnumValues.instances.DbNull),
-  JsonNull: runtime.objectEnumValues.classes.JsonNull as (new (secret: never) => typeof runtime.objectEnumValues.instances.JsonNull),
-  AnyNull: runtime.objectEnumValues.classes.AnyNull as (new (secret: never) => typeof runtime.objectEnumValues.instances.AnyNull),
+  DbNull: runtime.NullTypes.DbNull as (new (secret: never) => typeof runtime.DbNull),
+  JsonNull: runtime.NullTypes.JsonNull as (new (secret: never) => typeof runtime.JsonNull),
+  AnyNull: runtime.NullTypes.AnyNull as (new (secret: never) => typeof runtime.AnyNull),
 }
 /**
  * Helper for filtering JSON entries that have `null` on the database (empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const DbNull = runtime.objectEnumValues.instances.DbNull
+export const DbNull = runtime.DbNull
+
 /**
  * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const JsonNull = runtime.objectEnumValues.instances.JsonNull
+export const JsonNull = runtime.JsonNull
+
 /**
  * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-export const AnyNull = runtime.objectEnumValues.instances.AnyNull
+export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
@@ -59,7 +61,33 @@ export const ModelName = {
   ApproveStateAuthorityReceipt: 'ApproveStateAuthorityReceipt',
   StateProposal: 'StateProposal',
   StatePda: 'StatePda',
-  StateAuthorityReceipt: 'StateAuthorityReceipt'
+  StateAuthorityReceipt: 'StateAuthorityReceipt',
+  PropertySystemAccount: 'PropertySystemAccount',
+  DividendPda: 'DividendPda',
+  TrusteeRegistry: 'TrusteeRegistry',
+  ArbitrarRegistry: 'ArbitrarRegistry',
+  Threshold: 'Threshold',
+  Treasury: 'Treasury',
+  Fund: 'Fund',
+  CandiateProfile: 'CandiateProfile',
+  AuthorityCandidate: 'AuthorityCandidate',
+  PropertyProposal: 'PropertyProposal',
+  PropertyAccount: 'PropertyAccount',
+  SalaryClaim: 'SalaryClaim',
+  PropertySellProposal: 'PropertySellProposal',
+  PropertyBuyProposal: 'PropertyBuyProposal',
+  Lease: 'Lease',
+  ChallengeProposal: 'ChallengeProposal',
+  RankCounter: 'RankCounter',
+  Offenders: 'Offenders',
+  VotingForProposal: 'VotingForProposal',
+  VotingForCandiate: 'VotingForCandiate',
+  Resignation: 'Resignation',
+  RTChgProposal: 'RTChgProposal',
+  NewThresholdProposal: 'NewThresholdProposal',
+  TokenTransferProposal: 'TokenTransferProposal',
+  Elect: 'Elect',
+  Proposals: 'Proposals'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -218,6 +246,380 @@ export const StateAuthorityReceiptScalarFieldEnum = {
 export type StateAuthorityReceiptScalarFieldEnum = (typeof StateAuthorityReceiptScalarFieldEnum)[keyof typeof StateAuthorityReceiptScalarFieldEnum]
 
 
+export const PropertySystemAccountScalarFieldEnum = {
+  creator_pubky: 'creator_pubky',
+  property_system_id: 'property_system_id',
+  property_system_public_key: 'property_system_public_key',
+  governance_mint: 'governance_mint',
+  threshold: 'threshold',
+  treasury: 'treasury',
+  reinvestment: 'reinvestment',
+  safety: 'safety',
+  dividend: 'dividend',
+  trustee_registry: 'trustee_registry',
+  arbitrator_registry: 'arbitrator_registry',
+  total_properties: 'total_properties',
+  created_at: 'created_at',
+  ready_for_listing: 'ready_for_listing',
+  bump: 'bump'
+} as const
+
+export type PropertySystemAccountScalarFieldEnum = (typeof PropertySystemAccountScalarFieldEnum)[keyof typeof PropertySystemAccountScalarFieldEnum]
+
+
+export const DividendPdaScalarFieldEnum = {
+  dividend_pubkey: 'dividend_pubkey',
+  dividen_per_token: 'dividen_per_token',
+  last_updated_ts: 'last_updated_ts',
+  bump: 'bump'
+} as const
+
+export type DividendPdaScalarFieldEnum = (typeof DividendPdaScalarFieldEnum)[keyof typeof DividendPdaScalarFieldEnum]
+
+
+export const TrusteeRegistryScalarFieldEnum = {
+  trustee_registry_pubkey: 'trustee_registry_pubkey',
+  current_number_of_trustees: 'current_number_of_trustees',
+  total_trustees: 'total_trustees',
+  vote_threshold: 'vote_threshold',
+  claim_deadline_ts: 'claim_deadline_ts',
+  total_salary_allocated: 'total_salary_allocated',
+  bump: 'bump',
+  trustees: 'trustees'
+} as const
+
+export type TrusteeRegistryScalarFieldEnum = (typeof TrusteeRegistryScalarFieldEnum)[keyof typeof TrusteeRegistryScalarFieldEnum]
+
+
+export const ArbitrarRegistryScalarFieldEnum = {
+  arbitrar_registry_pubkey: 'arbitrar_registry_pubkey',
+  current_number_of_arbitrar: 'current_number_of_arbitrar',
+  total_arbitrar: 'total_arbitrar',
+  vote_threshold: 'vote_threshold',
+  claim_deadline_ts: 'claim_deadline_ts',
+  total_salary_allocated: 'total_salary_allocated',
+  bump: 'bump',
+  arbitrar: 'arbitrar'
+} as const
+
+export type ArbitrarRegistryScalarFieldEnum = (typeof ArbitrarRegistryScalarFieldEnum)[keyof typeof ArbitrarRegistryScalarFieldEnum]
+
+
+export const ThresholdScalarFieldEnum = {
+  threshold_pub_key: 'threshold_pub_key',
+  trustee_salary_threshold: 'trustee_salary_threshold',
+  arbitrator_salary_threshold: 'arbitrator_salary_threshold',
+  dividend_threshold: 'dividend_threshold',
+  reinvestment_threshold: 'reinvestment_threshold',
+  safety_threshold: 'safety_threshold'
+} as const
+
+export type ThresholdScalarFieldEnum = (typeof ThresholdScalarFieldEnum)[keyof typeof ThresholdScalarFieldEnum]
+
+
+export const TreasuryScalarFieldEnum = {
+  treasury_key: 'treasury_key',
+  last_distribution: 'last_distribution',
+  bump: 'bump'
+} as const
+
+export type TreasuryScalarFieldEnum = (typeof TreasuryScalarFieldEnum)[keyof typeof TreasuryScalarFieldEnum]
+
+
+export const FundScalarFieldEnum = {
+  id: 'id',
+  property_system_pubkey: 'property_system_pubkey',
+  fundtype: 'fundtype',
+  used: 'used'
+} as const
+
+export type FundScalarFieldEnum = (typeof FundScalarFieldEnum)[keyof typeof FundScalarFieldEnum]
+
+
+export const CandiateProfileScalarFieldEnum = {
+  candidate: 'candidate',
+  total_applied: 'total_applied',
+  total_selected_as_trustee: 'total_selected_as_trustee',
+  total_selected_as_arbitrar: 'total_selected_as_arbitrar',
+  is_blacklisted: 'is_blacklisted',
+  removal_count: 'removal_count',
+  actions_history: 'actions_history',
+  metadata_hash: 'metadata_hash',
+  bump: 'bump'
+} as const
+
+export type CandiateProfileScalarFieldEnum = (typeof CandiateProfileScalarFieldEnum)[keyof typeof CandiateProfileScalarFieldEnum]
+
+
+export const AuthorityCandidateScalarFieldEnum = {
+  authority_candidate: 'authority_candidate',
+  candidate: 'candidate',
+  proposal: 'proposal',
+  selected: 'selected',
+  selected_time: 'selected_time',
+  vote_gained: 'vote_gained',
+  is_finalized: 'is_finalized',
+  authority_type: 'authority_type',
+  bump: 'bump'
+} as const
+
+export type AuthorityCandidateScalarFieldEnum = (typeof AuthorityCandidateScalarFieldEnum)[keyof typeof AuthorityCandidateScalarFieldEnum]
+
+
+export const PropertyProposalScalarFieldEnum = {
+  property_id: 'property_id',
+  proposal_property_pubkey: 'proposal_property_pubkey',
+  property_system_pubkey: 'property_system_pubkey',
+  state_id: 'state_id',
+  state_pubkey: 'state_pubkey',
+  country_id: 'country_id',
+  country_pubkey: 'country_pubkey',
+  legal_doc_hash: 'legal_doc_hash',
+  issued_by: 'issued_by',
+  approval_count: 'approval_count',
+  approved: 'approved',
+  executed: 'executed',
+  bump: 'bump'
+} as const
+
+export type PropertyProposalScalarFieldEnum = (typeof PropertyProposalScalarFieldEnum)[keyof typeof PropertyProposalScalarFieldEnum]
+
+
+export const PropertyAccountScalarFieldEnum = {
+  property_id: 'property_id',
+  property_public_key: 'property_public_key',
+  is_leased: 'is_leased',
+  property_system: 'property_system',
+  history_of_owner: 'history_of_owner',
+  state_id: 'state_id',
+  state_pubkey: 'state_pubkey',
+  country_id: 'country_id',
+  country_pubkey: 'country_pubkey',
+  issued_at: 'issued_at',
+  issued_by: 'issued_by',
+  metadata: 'metadata',
+  bump: 'bump'
+} as const
+
+export type PropertyAccountScalarFieldEnum = (typeof PropertyAccountScalarFieldEnum)[keyof typeof PropertyAccountScalarFieldEnum]
+
+
+export const SalaryClaimScalarFieldEnum = {
+  id: 'id',
+  payer: 'payer',
+  from: 'from',
+  authority_type: 'authority_type',
+  receipt: 'receipt',
+  claim_time: 'claim_time',
+  amount: 'amount'
+} as const
+
+export type SalaryClaimScalarFieldEnum = (typeof SalaryClaimScalarFieldEnum)[keyof typeof SalaryClaimScalarFieldEnum]
+
+
+export const PropertySellProposalScalarFieldEnum = {
+  proposal_id: 'proposal_id',
+  proposal_key: 'proposal_key',
+  property_account: 'property_account',
+  sale_price: 'sale_price',
+  deposit_account_pda: 'deposit_account_pda',
+  transfer_deadline: 'transfer_deadline'
+} as const
+
+export type PropertySellProposalScalarFieldEnum = (typeof PropertySellProposalScalarFieldEnum)[keyof typeof PropertySellProposalScalarFieldEnum]
+
+
+export const PropertyBuyProposalScalarFieldEnum = {
+  id: 'id',
+  proposal_id: 'proposal_id',
+  proposal_key: 'proposal_key',
+  buyer: 'buyer',
+  buyer_wallet: 'buyer_wallet',
+  sell_proposal: 'sell_proposal',
+  property: 'property',
+  sale_price: 'sale_price',
+  payment_deadline: 'payment_deadline'
+} as const
+
+export type PropertyBuyProposalScalarFieldEnum = (typeof PropertyBuyProposalScalarFieldEnum)[keyof typeof PropertyBuyProposalScalarFieldEnum]
+
+
+export const LeaseScalarFieldEnum = {
+  property_system: 'property_system',
+  lease_id: 'lease_id',
+  is_arbitrar_approved: 'is_arbitrar_approved',
+  arbitrar_approval_count: 'arbitrar_approval_count',
+  initailized_at: 'initailized_at',
+  property: 'property',
+  lessee: 'lessee',
+  periodic_pay: 'periodic_pay',
+  late_payment_fee_per_day: 'late_payment_fee_per_day',
+  status: 'status',
+  rent_amount: 'rent_amount',
+  security_deposit: 'security_deposit',
+  last_payement: 'last_payement',
+  agreemenbt_hash: 'agreemenbt_hash',
+  lessee_acceptance_deadline: 'lessee_acceptance_deadline',
+  lease_end_time: 'lease_end_time',
+  neutral: 'neutral',
+  bump: 'bump'
+} as const
+
+export type LeaseScalarFieldEnum = (typeof LeaseScalarFieldEnum)[keyof typeof LeaseScalarFieldEnum]
+
+
+export const ChallengeProposalScalarFieldEnum = {
+  creator: 'creator',
+  proposal_id: 'proposal_id',
+  proposal_key: 'proposal_key',
+  trustee_offender_total_number: 'trustee_offender_total_number',
+  arbitrar_offender_total_number: 'arbitrar_offender_total_number',
+  required_vote_to_active: 'required_vote_to_active',
+  charges_hash: 'charges_hash',
+  evidence: 'evidence',
+  guilty: 'guilty',
+  result_time: 'result_time',
+  index: 'index'
+} as const
+
+export type ChallengeProposalScalarFieldEnum = (typeof ChallengeProposalScalarFieldEnum)[keyof typeof ChallengeProposalScalarFieldEnum]
+
+
+export const RankCounterScalarFieldEnum = {
+  proposal_id: 'proposal_id',
+  property_system: 'property_system',
+  current_rank: 'current_rank',
+  bump: 'bump'
+} as const
+
+export type RankCounterScalarFieldEnum = (typeof RankCounterScalarFieldEnum)[keyof typeof RankCounterScalarFieldEnum]
+
+
+export const OffendersScalarFieldEnum = {
+  id: 'id',
+  offender_key: 'offender_key',
+  proposal_key: 'proposal_key',
+  authority_type: 'authority_type',
+  is_finalized: 'is_finalized',
+  bump: 'bump'
+} as const
+
+export type OffendersScalarFieldEnum = (typeof OffendersScalarFieldEnum)[keyof typeof OffendersScalarFieldEnum]
+
+
+export const VotingForProposalScalarFieldEnum = {
+  proposal_key: 'proposal_key',
+  timestamp: 'timestamp',
+  signer: 'signer',
+  voting_power: 'voting_power'
+} as const
+
+export type VotingForProposalScalarFieldEnum = (typeof VotingForProposalScalarFieldEnum)[keyof typeof VotingForProposalScalarFieldEnum]
+
+
+export const VotingForCandiateScalarFieldEnum = {
+  proposal_key: 'proposal_key',
+  timestamp: 'timestamp',
+  signer: 'signer',
+  to_whom: 'to_whom'
+} as const
+
+export type VotingForCandiateScalarFieldEnum = (typeof VotingForCandiateScalarFieldEnum)[keyof typeof VotingForCandiateScalarFieldEnum]
+
+
+export const ResignationScalarFieldEnum = {
+  id: 'id',
+  authority: 'authority',
+  proposal: 'proposal',
+  property_system: 'property_system',
+  authority_type: 'authority_type',
+  time: 'time',
+  status: 'status',
+  bump: 'bump'
+} as const
+
+export type ResignationScalarFieldEnum = (typeof ResignationScalarFieldEnum)[keyof typeof ResignationScalarFieldEnum]
+
+
+export const RTChgProposalScalarFieldEnum = {
+  new_threshold: 'new_threshold',
+  proposal_id: 'proposal_id',
+  threshold_submission_deadline: 'threshold_submission_deadline',
+  voting_for_threshold_deadline: 'voting_for_threshold_deadline',
+  add_new_threshold_deadline: 'add_new_threshold_deadline',
+  challenge_new_threshold_deadline: 'challenge_new_threshold_deadline'
+} as const
+
+export type RTChgProposalScalarFieldEnum = (typeof RTChgProposalScalarFieldEnum)[keyof typeof RTChgProposalScalarFieldEnum]
+
+
+export const NewThresholdProposalScalarFieldEnum = {
+  property_system: 'property_system',
+  new_threshold: 'new_threshold',
+  proposal: 'proposal',
+  signer: 'signer',
+  vote_gained: 'vote_gained',
+  new_trustee_salary_threshold: 'new_trustee_salary_threshold',
+  new_arbitrator_salary_threshold: 'new_arbitrator_salary_threshold',
+  new_dividend_threshold: 'new_dividend_threshold',
+  new_reinvestment_threshold: 'new_reinvestment_threshold',
+  new_safety_threshold: 'new_safety_threshold',
+  bump: 'bump'
+} as const
+
+export type NewThresholdProposalScalarFieldEnum = (typeof NewThresholdProposalScalarFieldEnum)[keyof typeof NewThresholdProposalScalarFieldEnum]
+
+
+export const TokenTransferProposalScalarFieldEnum = {
+  proposal_id: 'proposal_id',
+  amount_required: 'amount_required',
+  reason_hash: 'reason_hash',
+  recepient_wallet: 'recepient_wallet',
+  deadline: 'deadline'
+} as const
+
+export type TokenTransferProposalScalarFieldEnum = (typeof TokenTransferProposalScalarFieldEnum)[keyof typeof TokenTransferProposalScalarFieldEnum]
+
+
+export const ElectScalarFieldEnum = {
+  proposal_id: 'proposal_id',
+  total_authority_to_resign: 'total_authority_to_resign',
+  authority_type: 'authority_type',
+  is_initialized: 'is_initialized',
+  candidate_submission_deadline: 'candidate_submission_deadline',
+  voting_for_authority_deadline: 'voting_for_authority_deadline',
+  add_new_authority_deadline: 'add_new_authority_deadline',
+  challenge_new_authority_deadline: 'challenge_new_authority_deadline',
+  is_finalize: 'is_finalize'
+} as const
+
+export type ElectScalarFieldEnum = (typeof ElectScalarFieldEnum)[keyof typeof ElectScalarFieldEnum]
+
+
+export const ProposalsScalarFieldEnum = {
+  property_system: 'property_system',
+  proposal_id: 'proposal_id',
+  proposal_key: 'proposal_key',
+  merkle_root: 'merkle_root',
+  arbitrar_approvals: 'arbitrar_approvals',
+  is_arbitrar_approved: 'is_arbitrar_approved',
+  total_voting_power: 'total_voting_power',
+  votes_for: 'votes_for',
+  votes_against: 'votes_against',
+  vote_threshold: 'vote_threshold',
+  start_time: 'start_time',
+  end_time: 'end_time',
+  status: 'status',
+  snapshot_submitted: 'snapshot_submitted',
+  proposal_type: 'proposal_type',
+  slot: 'slot',
+  bump: 'bump',
+  created_at: 'created_at'
+} as const
+
+export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof typeof ProposalsScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -232,4 +634,12 @@ export const QueryMode = {
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 

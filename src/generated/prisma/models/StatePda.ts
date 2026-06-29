@@ -8,7 +8,7 @@
  *
  * 🟢 You can import this file directly.
  */
-import type * as runtime from "@prisma/client/runtime/library"
+import type * as runtime from "@prisma/client/runtime/client"
 import type * as $Enums from "../enums.js"
 import type * as Prisma from "../internal/prismaNamespace.js"
 
@@ -254,7 +254,7 @@ export type StatePdaGroupByOutputType = {
   _max: StatePdaMaxAggregateOutputType | null
 }
 
-type GetStatePdaGroupByPayload<T extends StatePdaGroupByArgs> = Prisma.PrismaPromise<
+export type GetStatePdaGroupByPayload<T extends StatePdaGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<StatePdaGroupByOutputType, T['by']> &
       {
@@ -1323,6 +1323,11 @@ export type StatePdaFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    * Skip the first `n` StatePdas.
    */
   skip?: number
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+   * 
+   * Filter by unique combinations of StatePdas.
+   */
   distinct?: Prisma.StatePdaScalarFieldEnum | Prisma.StatePdaScalarFieldEnum[]
 }
 
