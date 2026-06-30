@@ -4,7 +4,7 @@ import type { StringValue } from "ms";
 // const prisma = new PrismaClient();
 import jwt from "jsonwebtoken";
 import { prisma } from "../prismaclient.js";
-import { User } from "@prisma/client";
+import type  {User} from "../generated/prisma/client.js";
 
 const user = prisma.$extends({
   query: {
@@ -29,18 +29,13 @@ const user = prisma.$extends({
         return await bcrypt.compare(password, hashPassword);
       },
 
-      generateAccessToken(,user: {
-        id: string;
-        email: string;
-        username: string;
-        fullname: string;
-      }): string {
+      generateAccessToken(user: Pick<User, "id" | "email" | "fullName" | "username">): string {
         return jwt.sign(
           {
             id: user.id,
             email: user.email,
-            username: user.username,
-            fullname: user.fullname,
+            username:user.username,
+            fullname: user.fullName,
           },
           process.env.ACCESS_TOKEN_SECRET!,
           {
@@ -49,10 +44,10 @@ const user = prisma.$extends({
         );
       },
 
-      generateRefreshToken(id: string) {
+      generateRefreshToken(user: Pick<User, "id">) {
         return jwt.sign(
           {
-            id: id,
+            id: user.id,
           },
           process.env.REFRESH_TOKEN_SECRET!,
           {
