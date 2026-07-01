@@ -1,0 +1,1506 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model AuthorityCandidate
+ *
+ */
+export type AuthorityCandidateModel = runtime.Types.Result.DefaultSelection<Prisma.$AuthorityCandidatePayload>;
+export type AggregateAuthorityCandidate = {
+    _count: AuthorityCandidateCountAggregateOutputType | null;
+    _avg: AuthorityCandidateAvgAggregateOutputType | null;
+    _sum: AuthorityCandidateSumAggregateOutputType | null;
+    _min: AuthorityCandidateMinAggregateOutputType | null;
+    _max: AuthorityCandidateMaxAggregateOutputType | null;
+};
+export type AuthorityCandidateAvgAggregateOutputType = {
+    vote_gained: number | null;
+    bump: number | null;
+};
+export type AuthorityCandidateSumAggregateOutputType = {
+    vote_gained: bigint | null;
+    bump: number | null;
+};
+export type AuthorityCandidateMinAggregateOutputType = {
+    authority_candidate: string | null;
+    candidate: string | null;
+    proposal: string | null;
+    selected: boolean | null;
+    selected_time: Date | null;
+    vote_gained: bigint | null;
+    is_finalized: boolean | null;
+    authority_type: $Enums.AuthorityType | null;
+    bump: number | null;
+};
+export type AuthorityCandidateMaxAggregateOutputType = {
+    authority_candidate: string | null;
+    candidate: string | null;
+    proposal: string | null;
+    selected: boolean | null;
+    selected_time: Date | null;
+    vote_gained: bigint | null;
+    is_finalized: boolean | null;
+    authority_type: $Enums.AuthorityType | null;
+    bump: number | null;
+};
+export type AuthorityCandidateCountAggregateOutputType = {
+    authority_candidate: number;
+    candidate: number;
+    proposal: number;
+    selected: number;
+    selected_time: number;
+    vote_gained: number;
+    is_finalized: number;
+    authority_type: number;
+    bump: number;
+    _all: number;
+};
+export type AuthorityCandidateAvgAggregateInputType = {
+    vote_gained?: true;
+    bump?: true;
+};
+export type AuthorityCandidateSumAggregateInputType = {
+    vote_gained?: true;
+    bump?: true;
+};
+export type AuthorityCandidateMinAggregateInputType = {
+    authority_candidate?: true;
+    candidate?: true;
+    proposal?: true;
+    selected?: true;
+    selected_time?: true;
+    vote_gained?: true;
+    is_finalized?: true;
+    authority_type?: true;
+    bump?: true;
+};
+export type AuthorityCandidateMaxAggregateInputType = {
+    authority_candidate?: true;
+    candidate?: true;
+    proposal?: true;
+    selected?: true;
+    selected_time?: true;
+    vote_gained?: true;
+    is_finalized?: true;
+    authority_type?: true;
+    bump?: true;
+};
+export type AuthorityCandidateCountAggregateInputType = {
+    authority_candidate?: true;
+    candidate?: true;
+    proposal?: true;
+    selected?: true;
+    selected_time?: true;
+    vote_gained?: true;
+    is_finalized?: true;
+    authority_type?: true;
+    bump?: true;
+    _all?: true;
+};
+export type AuthorityCandidateAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which AuthorityCandidate to aggregate.
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of AuthorityCandidates to fetch.
+     */
+    orderBy?: Prisma.AuthorityCandidateOrderByWithRelationInput | Prisma.AuthorityCandidateOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.AuthorityCandidateWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` AuthorityCandidates from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` AuthorityCandidates.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned AuthorityCandidates
+    **/
+    _count?: true | AuthorityCandidateCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: AuthorityCandidateAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: AuthorityCandidateSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: AuthorityCandidateMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: AuthorityCandidateMaxAggregateInputType;
+};
+export type GetAuthorityCandidateAggregateType<T extends AuthorityCandidateAggregateArgs> = {
+    [P in keyof T & keyof AggregateAuthorityCandidate]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateAuthorityCandidate[P]> : Prisma.GetScalarType<T[P], AggregateAuthorityCandidate[P]>;
+};
+export type AuthorityCandidateGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.AuthorityCandidateWhereInput;
+    orderBy?: Prisma.AuthorityCandidateOrderByWithAggregationInput | Prisma.AuthorityCandidateOrderByWithAggregationInput[];
+    by: Prisma.AuthorityCandidateScalarFieldEnum[] | Prisma.AuthorityCandidateScalarFieldEnum;
+    having?: Prisma.AuthorityCandidateScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: AuthorityCandidateCountAggregateInputType | true;
+    _avg?: AuthorityCandidateAvgAggregateInputType;
+    _sum?: AuthorityCandidateSumAggregateInputType;
+    _min?: AuthorityCandidateMinAggregateInputType;
+    _max?: AuthorityCandidateMaxAggregateInputType;
+};
+export type AuthorityCandidateGroupByOutputType = {
+    authority_candidate: string;
+    candidate: string;
+    proposal: string;
+    selected: boolean;
+    selected_time: Date;
+    vote_gained: bigint;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+    _count: AuthorityCandidateCountAggregateOutputType | null;
+    _avg: AuthorityCandidateAvgAggregateOutputType | null;
+    _sum: AuthorityCandidateSumAggregateOutputType | null;
+    _min: AuthorityCandidateMinAggregateOutputType | null;
+    _max: AuthorityCandidateMaxAggregateOutputType | null;
+};
+export type GetAuthorityCandidateGroupByPayload<T extends AuthorityCandidateGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<AuthorityCandidateGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof AuthorityCandidateGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], AuthorityCandidateGroupByOutputType[P]> : Prisma.GetScalarType<T[P], AuthorityCandidateGroupByOutputType[P]>;
+}>>;
+export type AuthorityCandidateWhereInput = {
+    AND?: Prisma.AuthorityCandidateWhereInput | Prisma.AuthorityCandidateWhereInput[];
+    OR?: Prisma.AuthorityCandidateWhereInput[];
+    NOT?: Prisma.AuthorityCandidateWhereInput | Prisma.AuthorityCandidateWhereInput[];
+    authority_candidate?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    candidate?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    proposal?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    selected?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean;
+    selected_time?: Prisma.DateTimeFilter<"AuthorityCandidate"> | Date | string;
+    vote_gained?: Prisma.BigIntFilter<"AuthorityCandidate"> | bigint | number;
+    is_finalized?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFilter<"AuthorityCandidate"> | $Enums.AuthorityType;
+    bump?: Prisma.IntFilter<"AuthorityCandidate"> | number;
+    candidate_profile?: Prisma.XOR<Prisma.CandiateProfileScalarRelationFilter, Prisma.CandiateProfileWhereInput>;
+    votingForCandiates?: Prisma.VotingForCandiateListRelationFilter;
+};
+export type AuthorityCandidateOrderByWithRelationInput = {
+    authority_candidate?: Prisma.SortOrder;
+    candidate?: Prisma.SortOrder;
+    proposal?: Prisma.SortOrder;
+    selected?: Prisma.SortOrder;
+    selected_time?: Prisma.SortOrder;
+    vote_gained?: Prisma.SortOrder;
+    is_finalized?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    candidate_profile?: Prisma.CandiateProfileOrderByWithRelationInput;
+    votingForCandiates?: Prisma.VotingForCandiateOrderByRelationAggregateInput;
+};
+export type AuthorityCandidateWhereUniqueInput = Prisma.AtLeast<{
+    authority_candidate?: string;
+    candidate_proposal?: Prisma.AuthorityCandidateCandidateProposalCompoundUniqueInput;
+    AND?: Prisma.AuthorityCandidateWhereInput | Prisma.AuthorityCandidateWhereInput[];
+    OR?: Prisma.AuthorityCandidateWhereInput[];
+    NOT?: Prisma.AuthorityCandidateWhereInput | Prisma.AuthorityCandidateWhereInput[];
+    candidate?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    proposal?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    selected?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean;
+    selected_time?: Prisma.DateTimeFilter<"AuthorityCandidate"> | Date | string;
+    vote_gained?: Prisma.BigIntFilter<"AuthorityCandidate"> | bigint | number;
+    is_finalized?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFilter<"AuthorityCandidate"> | $Enums.AuthorityType;
+    bump?: Prisma.IntFilter<"AuthorityCandidate"> | number;
+    candidate_profile?: Prisma.XOR<Prisma.CandiateProfileScalarRelationFilter, Prisma.CandiateProfileWhereInput>;
+    votingForCandiates?: Prisma.VotingForCandiateListRelationFilter;
+}, "candidate_proposal" | "authority_candidate">;
+export type AuthorityCandidateOrderByWithAggregationInput = {
+    authority_candidate?: Prisma.SortOrder;
+    candidate?: Prisma.SortOrder;
+    proposal?: Prisma.SortOrder;
+    selected?: Prisma.SortOrder;
+    selected_time?: Prisma.SortOrder;
+    vote_gained?: Prisma.SortOrder;
+    is_finalized?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    _count?: Prisma.AuthorityCandidateCountOrderByAggregateInput;
+    _avg?: Prisma.AuthorityCandidateAvgOrderByAggregateInput;
+    _max?: Prisma.AuthorityCandidateMaxOrderByAggregateInput;
+    _min?: Prisma.AuthorityCandidateMinOrderByAggregateInput;
+    _sum?: Prisma.AuthorityCandidateSumOrderByAggregateInput;
+};
+export type AuthorityCandidateScalarWhereWithAggregatesInput = {
+    AND?: Prisma.AuthorityCandidateScalarWhereWithAggregatesInput | Prisma.AuthorityCandidateScalarWhereWithAggregatesInput[];
+    OR?: Prisma.AuthorityCandidateScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.AuthorityCandidateScalarWhereWithAggregatesInput | Prisma.AuthorityCandidateScalarWhereWithAggregatesInput[];
+    authority_candidate?: Prisma.StringWithAggregatesFilter<"AuthorityCandidate"> | string;
+    candidate?: Prisma.StringWithAggregatesFilter<"AuthorityCandidate"> | string;
+    proposal?: Prisma.StringWithAggregatesFilter<"AuthorityCandidate"> | string;
+    selected?: Prisma.BoolWithAggregatesFilter<"AuthorityCandidate"> | boolean;
+    selected_time?: Prisma.DateTimeWithAggregatesFilter<"AuthorityCandidate"> | Date | string;
+    vote_gained?: Prisma.BigIntWithAggregatesFilter<"AuthorityCandidate"> | bigint | number;
+    is_finalized?: Prisma.BoolWithAggregatesFilter<"AuthorityCandidate"> | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeWithAggregatesFilter<"AuthorityCandidate"> | $Enums.AuthorityType;
+    bump?: Prisma.IntWithAggregatesFilter<"AuthorityCandidate"> | number;
+};
+export type AuthorityCandidateCreateInput = {
+    authority_candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+    candidate_profile: Prisma.CandiateProfileCreateNestedOneWithoutAuthorityCandidatesInput;
+    votingForCandiates?: Prisma.VotingForCandiateCreateNestedManyWithoutAuthority_candidateInput;
+};
+export type AuthorityCandidateUncheckedCreateInput = {
+    authority_candidate: string;
+    candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+    votingForCandiates?: Prisma.VotingForCandiateUncheckedCreateNestedManyWithoutAuthority_candidateInput;
+};
+export type AuthorityCandidateUpdateInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    candidate_profile?: Prisma.CandiateProfileUpdateOneRequiredWithoutAuthorityCandidatesNestedInput;
+    votingForCandiates?: Prisma.VotingForCandiateUpdateManyWithoutAuthority_candidateNestedInput;
+};
+export type AuthorityCandidateUncheckedUpdateInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    votingForCandiates?: Prisma.VotingForCandiateUncheckedUpdateManyWithoutAuthority_candidateNestedInput;
+};
+export type AuthorityCandidateCreateManyInput = {
+    authority_candidate: string;
+    candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+};
+export type AuthorityCandidateUpdateManyMutationInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type AuthorityCandidateUncheckedUpdateManyInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type AuthorityCandidateListRelationFilter = {
+    every?: Prisma.AuthorityCandidateWhereInput;
+    some?: Prisma.AuthorityCandidateWhereInput;
+    none?: Prisma.AuthorityCandidateWhereInput;
+};
+export type AuthorityCandidateOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type AuthorityCandidateCandidateProposalCompoundUniqueInput = {
+    candidate: string;
+    proposal: string;
+};
+export type AuthorityCandidateCountOrderByAggregateInput = {
+    authority_candidate?: Prisma.SortOrder;
+    candidate?: Prisma.SortOrder;
+    proposal?: Prisma.SortOrder;
+    selected?: Prisma.SortOrder;
+    selected_time?: Prisma.SortOrder;
+    vote_gained?: Prisma.SortOrder;
+    is_finalized?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type AuthorityCandidateAvgOrderByAggregateInput = {
+    vote_gained?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type AuthorityCandidateMaxOrderByAggregateInput = {
+    authority_candidate?: Prisma.SortOrder;
+    candidate?: Prisma.SortOrder;
+    proposal?: Prisma.SortOrder;
+    selected?: Prisma.SortOrder;
+    selected_time?: Prisma.SortOrder;
+    vote_gained?: Prisma.SortOrder;
+    is_finalized?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type AuthorityCandidateMinOrderByAggregateInput = {
+    authority_candidate?: Prisma.SortOrder;
+    candidate?: Prisma.SortOrder;
+    proposal?: Prisma.SortOrder;
+    selected?: Prisma.SortOrder;
+    selected_time?: Prisma.SortOrder;
+    vote_gained?: Prisma.SortOrder;
+    is_finalized?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type AuthorityCandidateSumOrderByAggregateInput = {
+    vote_gained?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type AuthorityCandidateScalarRelationFilter = {
+    is?: Prisma.AuthorityCandidateWhereInput;
+    isNot?: Prisma.AuthorityCandidateWhereInput;
+};
+export type AuthorityCandidateCreateNestedManyWithoutCandidate_profileInput = {
+    create?: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput> | Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput[] | Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput[];
+    connectOrCreate?: Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput | Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput[];
+    createMany?: Prisma.AuthorityCandidateCreateManyCandidate_profileInputEnvelope;
+    connect?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+};
+export type AuthorityCandidateUncheckedCreateNestedManyWithoutCandidate_profileInput = {
+    create?: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput> | Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput[] | Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput[];
+    connectOrCreate?: Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput | Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput[];
+    createMany?: Prisma.AuthorityCandidateCreateManyCandidate_profileInputEnvelope;
+    connect?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+};
+export type AuthorityCandidateUpdateManyWithoutCandidate_profileNestedInput = {
+    create?: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput> | Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput[] | Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput[];
+    connectOrCreate?: Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput | Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput[];
+    upsert?: Prisma.AuthorityCandidateUpsertWithWhereUniqueWithoutCandidate_profileInput | Prisma.AuthorityCandidateUpsertWithWhereUniqueWithoutCandidate_profileInput[];
+    createMany?: Prisma.AuthorityCandidateCreateManyCandidate_profileInputEnvelope;
+    set?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    disconnect?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    delete?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    connect?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    update?: Prisma.AuthorityCandidateUpdateWithWhereUniqueWithoutCandidate_profileInput | Prisma.AuthorityCandidateUpdateWithWhereUniqueWithoutCandidate_profileInput[];
+    updateMany?: Prisma.AuthorityCandidateUpdateManyWithWhereWithoutCandidate_profileInput | Prisma.AuthorityCandidateUpdateManyWithWhereWithoutCandidate_profileInput[];
+    deleteMany?: Prisma.AuthorityCandidateScalarWhereInput | Prisma.AuthorityCandidateScalarWhereInput[];
+};
+export type AuthorityCandidateUncheckedUpdateManyWithoutCandidate_profileNestedInput = {
+    create?: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput> | Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput[] | Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput[];
+    connectOrCreate?: Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput | Prisma.AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput[];
+    upsert?: Prisma.AuthorityCandidateUpsertWithWhereUniqueWithoutCandidate_profileInput | Prisma.AuthorityCandidateUpsertWithWhereUniqueWithoutCandidate_profileInput[];
+    createMany?: Prisma.AuthorityCandidateCreateManyCandidate_profileInputEnvelope;
+    set?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    disconnect?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    delete?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    connect?: Prisma.AuthorityCandidateWhereUniqueInput | Prisma.AuthorityCandidateWhereUniqueInput[];
+    update?: Prisma.AuthorityCandidateUpdateWithWhereUniqueWithoutCandidate_profileInput | Prisma.AuthorityCandidateUpdateWithWhereUniqueWithoutCandidate_profileInput[];
+    updateMany?: Prisma.AuthorityCandidateUpdateManyWithWhereWithoutCandidate_profileInput | Prisma.AuthorityCandidateUpdateManyWithWhereWithoutCandidate_profileInput[];
+    deleteMany?: Prisma.AuthorityCandidateScalarWhereInput | Prisma.AuthorityCandidateScalarWhereInput[];
+};
+export type EnumAuthorityTypeFieldUpdateOperationsInput = {
+    set?: $Enums.AuthorityType;
+};
+export type AuthorityCandidateCreateNestedOneWithoutVotingForCandiatesInput = {
+    create?: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUncheckedCreateWithoutVotingForCandiatesInput>;
+    connectOrCreate?: Prisma.AuthorityCandidateCreateOrConnectWithoutVotingForCandiatesInput;
+    connect?: Prisma.AuthorityCandidateWhereUniqueInput;
+};
+export type AuthorityCandidateUpdateOneRequiredWithoutVotingForCandiatesNestedInput = {
+    create?: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUncheckedCreateWithoutVotingForCandiatesInput>;
+    connectOrCreate?: Prisma.AuthorityCandidateCreateOrConnectWithoutVotingForCandiatesInput;
+    upsert?: Prisma.AuthorityCandidateUpsertWithoutVotingForCandiatesInput;
+    connect?: Prisma.AuthorityCandidateWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.AuthorityCandidateUpdateToOneWithWhereWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUpdateWithoutVotingForCandiatesInput>, Prisma.AuthorityCandidateUncheckedUpdateWithoutVotingForCandiatesInput>;
+};
+export type AuthorityCandidateCreateWithoutCandidate_profileInput = {
+    authority_candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+    votingForCandiates?: Prisma.VotingForCandiateCreateNestedManyWithoutAuthority_candidateInput;
+};
+export type AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput = {
+    authority_candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+    votingForCandiates?: Prisma.VotingForCandiateUncheckedCreateNestedManyWithoutAuthority_candidateInput;
+};
+export type AuthorityCandidateCreateOrConnectWithoutCandidate_profileInput = {
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+    create: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput>;
+};
+export type AuthorityCandidateCreateManyCandidate_profileInputEnvelope = {
+    data: Prisma.AuthorityCandidateCreateManyCandidate_profileInput | Prisma.AuthorityCandidateCreateManyCandidate_profileInput[];
+    skipDuplicates?: boolean;
+};
+export type AuthorityCandidateUpsertWithWhereUniqueWithoutCandidate_profileInput = {
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+    update: Prisma.XOR<Prisma.AuthorityCandidateUpdateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedUpdateWithoutCandidate_profileInput>;
+    create: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput>;
+};
+export type AuthorityCandidateUpdateWithWhereUniqueWithoutCandidate_profileInput = {
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+    data: Prisma.XOR<Prisma.AuthorityCandidateUpdateWithoutCandidate_profileInput, Prisma.AuthorityCandidateUncheckedUpdateWithoutCandidate_profileInput>;
+};
+export type AuthorityCandidateUpdateManyWithWhereWithoutCandidate_profileInput = {
+    where: Prisma.AuthorityCandidateScalarWhereInput;
+    data: Prisma.XOR<Prisma.AuthorityCandidateUpdateManyMutationInput, Prisma.AuthorityCandidateUncheckedUpdateManyWithoutCandidate_profileInput>;
+};
+export type AuthorityCandidateScalarWhereInput = {
+    AND?: Prisma.AuthorityCandidateScalarWhereInput | Prisma.AuthorityCandidateScalarWhereInput[];
+    OR?: Prisma.AuthorityCandidateScalarWhereInput[];
+    NOT?: Prisma.AuthorityCandidateScalarWhereInput | Prisma.AuthorityCandidateScalarWhereInput[];
+    authority_candidate?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    candidate?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    proposal?: Prisma.StringFilter<"AuthorityCandidate"> | string;
+    selected?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean;
+    selected_time?: Prisma.DateTimeFilter<"AuthorityCandidate"> | Date | string;
+    vote_gained?: Prisma.BigIntFilter<"AuthorityCandidate"> | bigint | number;
+    is_finalized?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFilter<"AuthorityCandidate"> | $Enums.AuthorityType;
+    bump?: Prisma.IntFilter<"AuthorityCandidate"> | number;
+};
+export type AuthorityCandidateCreateWithoutVotingForCandiatesInput = {
+    authority_candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+    candidate_profile: Prisma.CandiateProfileCreateNestedOneWithoutAuthorityCandidatesInput;
+};
+export type AuthorityCandidateUncheckedCreateWithoutVotingForCandiatesInput = {
+    authority_candidate: string;
+    candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+};
+export type AuthorityCandidateCreateOrConnectWithoutVotingForCandiatesInput = {
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+    create: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUncheckedCreateWithoutVotingForCandiatesInput>;
+};
+export type AuthorityCandidateUpsertWithoutVotingForCandiatesInput = {
+    update: Prisma.XOR<Prisma.AuthorityCandidateUpdateWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUncheckedUpdateWithoutVotingForCandiatesInput>;
+    create: Prisma.XOR<Prisma.AuthorityCandidateCreateWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUncheckedCreateWithoutVotingForCandiatesInput>;
+    where?: Prisma.AuthorityCandidateWhereInput;
+};
+export type AuthorityCandidateUpdateToOneWithWhereWithoutVotingForCandiatesInput = {
+    where?: Prisma.AuthorityCandidateWhereInput;
+    data: Prisma.XOR<Prisma.AuthorityCandidateUpdateWithoutVotingForCandiatesInput, Prisma.AuthorityCandidateUncheckedUpdateWithoutVotingForCandiatesInput>;
+};
+export type AuthorityCandidateUpdateWithoutVotingForCandiatesInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    candidate_profile?: Prisma.CandiateProfileUpdateOneRequiredWithoutAuthorityCandidatesNestedInput;
+};
+export type AuthorityCandidateUncheckedUpdateWithoutVotingForCandiatesInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type AuthorityCandidateCreateManyCandidate_profileInput = {
+    authority_candidate: string;
+    proposal: string;
+    selected?: boolean;
+    selected_time?: Date | string;
+    vote_gained: bigint | number;
+    is_finalized: boolean;
+    authority_type: $Enums.AuthorityType;
+    bump: number;
+};
+export type AuthorityCandidateUpdateWithoutCandidate_profileInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    votingForCandiates?: Prisma.VotingForCandiateUpdateManyWithoutAuthority_candidateNestedInput;
+};
+export type AuthorityCandidateUncheckedUpdateWithoutCandidate_profileInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    votingForCandiates?: Prisma.VotingForCandiateUncheckedUpdateManyWithoutAuthority_candidateNestedInput;
+};
+export type AuthorityCandidateUncheckedUpdateManyWithoutCandidate_profileInput = {
+    authority_candidate?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    selected?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    selected_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+/**
+ * Count Type AuthorityCandidateCountOutputType
+ */
+export type AuthorityCandidateCountOutputType = {
+    votingForCandiates: number;
+};
+export type AuthorityCandidateCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    votingForCandiates?: boolean | AuthorityCandidateCountOutputTypeCountVotingForCandiatesArgs;
+};
+/**
+ * AuthorityCandidateCountOutputType without action
+ */
+export type AuthorityCandidateCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidateCountOutputType
+     */
+    select?: Prisma.AuthorityCandidateCountOutputTypeSelect<ExtArgs> | null;
+};
+/**
+ * AuthorityCandidateCountOutputType without action
+ */
+export type AuthorityCandidateCountOutputTypeCountVotingForCandiatesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.VotingForCandiateWhereInput;
+};
+export type AuthorityCandidateSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    authority_candidate?: boolean;
+    candidate?: boolean;
+    proposal?: boolean;
+    selected?: boolean;
+    selected_time?: boolean;
+    vote_gained?: boolean;
+    is_finalized?: boolean;
+    authority_type?: boolean;
+    bump?: boolean;
+    candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>;
+    votingForCandiates?: boolean | Prisma.AuthorityCandidate$votingForCandiatesArgs<ExtArgs>;
+    _count?: boolean | Prisma.AuthorityCandidateCountOutputTypeDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["authorityCandidate"]>;
+export type AuthorityCandidateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    authority_candidate?: boolean;
+    candidate?: boolean;
+    proposal?: boolean;
+    selected?: boolean;
+    selected_time?: boolean;
+    vote_gained?: boolean;
+    is_finalized?: boolean;
+    authority_type?: boolean;
+    bump?: boolean;
+    candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["authorityCandidate"]>;
+export type AuthorityCandidateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    authority_candidate?: boolean;
+    candidate?: boolean;
+    proposal?: boolean;
+    selected?: boolean;
+    selected_time?: boolean;
+    vote_gained?: boolean;
+    is_finalized?: boolean;
+    authority_type?: boolean;
+    bump?: boolean;
+    candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["authorityCandidate"]>;
+export type AuthorityCandidateSelectScalar = {
+    authority_candidate?: boolean;
+    candidate?: boolean;
+    proposal?: boolean;
+    selected?: boolean;
+    selected_time?: boolean;
+    vote_gained?: boolean;
+    is_finalized?: boolean;
+    authority_type?: boolean;
+    bump?: boolean;
+};
+export type AuthorityCandidateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"authority_candidate" | "candidate" | "proposal" | "selected" | "selected_time" | "vote_gained" | "is_finalized" | "authority_type" | "bump", ExtArgs["result"]["authorityCandidate"]>;
+export type AuthorityCandidateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>;
+    votingForCandiates?: boolean | Prisma.AuthorityCandidate$votingForCandiatesArgs<ExtArgs>;
+    _count?: boolean | Prisma.AuthorityCandidateCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type AuthorityCandidateIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>;
+};
+export type AuthorityCandidateIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>;
+};
+export type $AuthorityCandidatePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "AuthorityCandidate";
+    objects: {
+        candidate_profile: Prisma.$CandiateProfilePayload<ExtArgs>;
+        votingForCandiates: Prisma.$VotingForCandiatePayload<ExtArgs>[];
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        authority_candidate: string;
+        candidate: string;
+        proposal: string;
+        selected: boolean;
+        selected_time: Date;
+        vote_gained: bigint;
+        is_finalized: boolean;
+        authority_type: $Enums.AuthorityType;
+        bump: number;
+    }, ExtArgs["result"]["authorityCandidate"]>;
+    composites: {};
+};
+export type AuthorityCandidateGetPayload<S extends boolean | null | undefined | AuthorityCandidateDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload, S>;
+export type AuthorityCandidateCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<AuthorityCandidateFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: AuthorityCandidateCountAggregateInputType | true;
+};
+export interface AuthorityCandidateDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['AuthorityCandidate'];
+        meta: {
+            name: 'AuthorityCandidate';
+        };
+    };
+    /**
+     * Find zero or one AuthorityCandidate that matches the filter.
+     * @param {AuthorityCandidateFindUniqueArgs} args - Arguments to find a AuthorityCandidate
+     * @example
+     * // Get one AuthorityCandidate
+     * const authorityCandidate = await prisma.authorityCandidate.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AuthorityCandidateFindUniqueArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateFindUniqueArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one AuthorityCandidate that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AuthorityCandidateFindUniqueOrThrowArgs} args - Arguments to find a AuthorityCandidate
+     * @example
+     * // Get one AuthorityCandidate
+     * const authorityCandidate = await prisma.authorityCandidate.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AuthorityCandidateFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first AuthorityCandidate that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateFindFirstArgs} args - Arguments to find a AuthorityCandidate
+     * @example
+     * // Get one AuthorityCandidate
+     * const authorityCandidate = await prisma.authorityCandidate.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AuthorityCandidateFindFirstArgs>(args?: Prisma.SelectSubset<T, AuthorityCandidateFindFirstArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first AuthorityCandidate that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateFindFirstOrThrowArgs} args - Arguments to find a AuthorityCandidate
+     * @example
+     * // Get one AuthorityCandidate
+     * const authorityCandidate = await prisma.authorityCandidate.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AuthorityCandidateFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, AuthorityCandidateFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more AuthorityCandidates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all AuthorityCandidates
+     * const authorityCandidates = await prisma.authorityCandidate.findMany()
+     *
+     * // Get first 10 AuthorityCandidates
+     * const authorityCandidates = await prisma.authorityCandidate.findMany({ take: 10 })
+     *
+     * // Only select the `authority_candidate`
+     * const authorityCandidateWithAuthority_candidateOnly = await prisma.authorityCandidate.findMany({ select: { authority_candidate: true } })
+     *
+     */
+    findMany<T extends AuthorityCandidateFindManyArgs>(args?: Prisma.SelectSubset<T, AuthorityCandidateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a AuthorityCandidate.
+     * @param {AuthorityCandidateCreateArgs} args - Arguments to create a AuthorityCandidate.
+     * @example
+     * // Create one AuthorityCandidate
+     * const AuthorityCandidate = await prisma.authorityCandidate.create({
+     *   data: {
+     *     // ... data to create a AuthorityCandidate
+     *   }
+     * })
+     *
+     */
+    create<T extends AuthorityCandidateCreateArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateCreateArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many AuthorityCandidates.
+     * @param {AuthorityCandidateCreateManyArgs} args - Arguments to create many AuthorityCandidates.
+     * @example
+     * // Create many AuthorityCandidates
+     * const authorityCandidate = await prisma.authorityCandidate.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends AuthorityCandidateCreateManyArgs>(args?: Prisma.SelectSubset<T, AuthorityCandidateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many AuthorityCandidates and returns the data saved in the database.
+     * @param {AuthorityCandidateCreateManyAndReturnArgs} args - Arguments to create many AuthorityCandidates.
+     * @example
+     * // Create many AuthorityCandidates
+     * const authorityCandidate = await prisma.authorityCandidate.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many AuthorityCandidates and only return the `authority_candidate`
+     * const authorityCandidateWithAuthority_candidateOnly = await prisma.authorityCandidate.createManyAndReturn({
+     *   select: { authority_candidate: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends AuthorityCandidateCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, AuthorityCandidateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a AuthorityCandidate.
+     * @param {AuthorityCandidateDeleteArgs} args - Arguments to delete one AuthorityCandidate.
+     * @example
+     * // Delete one AuthorityCandidate
+     * const AuthorityCandidate = await prisma.authorityCandidate.delete({
+     *   where: {
+     *     // ... filter to delete one AuthorityCandidate
+     *   }
+     * })
+     *
+     */
+    delete<T extends AuthorityCandidateDeleteArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateDeleteArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one AuthorityCandidate.
+     * @param {AuthorityCandidateUpdateArgs} args - Arguments to update one AuthorityCandidate.
+     * @example
+     * // Update one AuthorityCandidate
+     * const authorityCandidate = await prisma.authorityCandidate.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends AuthorityCandidateUpdateArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateUpdateArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more AuthorityCandidates.
+     * @param {AuthorityCandidateDeleteManyArgs} args - Arguments to filter AuthorityCandidates to delete.
+     * @example
+     * // Delete a few AuthorityCandidates
+     * const { count } = await prisma.authorityCandidate.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends AuthorityCandidateDeleteManyArgs>(args?: Prisma.SelectSubset<T, AuthorityCandidateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more AuthorityCandidates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many AuthorityCandidates
+     * const authorityCandidate = await prisma.authorityCandidate.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends AuthorityCandidateUpdateManyArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more AuthorityCandidates and returns the data updated in the database.
+     * @param {AuthorityCandidateUpdateManyAndReturnArgs} args - Arguments to update many AuthorityCandidates.
+     * @example
+     * // Update many AuthorityCandidates
+     * const authorityCandidate = await prisma.authorityCandidate.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more AuthorityCandidates and only return the `authority_candidate`
+     * const authorityCandidateWithAuthority_candidateOnly = await prisma.authorityCandidate.updateManyAndReturn({
+     *   select: { authority_candidate: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends AuthorityCandidateUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one AuthorityCandidate.
+     * @param {AuthorityCandidateUpsertArgs} args - Arguments to update or create a AuthorityCandidate.
+     * @example
+     * // Update or create a AuthorityCandidate
+     * const authorityCandidate = await prisma.authorityCandidate.upsert({
+     *   create: {
+     *     // ... data to create a AuthorityCandidate
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the AuthorityCandidate we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AuthorityCandidateUpsertArgs>(args: Prisma.SelectSubset<T, AuthorityCandidateUpsertArgs<ExtArgs>>): Prisma.Prisma__AuthorityCandidateClient<runtime.Types.Result.GetResult<Prisma.$AuthorityCandidatePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of AuthorityCandidates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateCountArgs} args - Arguments to filter AuthorityCandidates to count.
+     * @example
+     * // Count the number of AuthorityCandidates
+     * const count = await prisma.authorityCandidate.count({
+     *   where: {
+     *     // ... the filter for the AuthorityCandidates we want to count
+     *   }
+     * })
+    **/
+    count<T extends AuthorityCandidateCountArgs>(args?: Prisma.Subset<T, AuthorityCandidateCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], AuthorityCandidateCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a AuthorityCandidate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AuthorityCandidateAggregateArgs>(args: Prisma.Subset<T, AuthorityCandidateAggregateArgs>): Prisma.PrismaPromise<GetAuthorityCandidateAggregateType<T>>;
+    /**
+     * Group by AuthorityCandidate.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AuthorityCandidateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends AuthorityCandidateGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: AuthorityCandidateGroupByArgs['orderBy'];
+    } : {
+        orderBy?: AuthorityCandidateGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, AuthorityCandidateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAuthorityCandidateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the AuthorityCandidate model
+     */
+    readonly fields: AuthorityCandidateFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for AuthorityCandidate.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__AuthorityCandidateClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    candidate_profile<T extends Prisma.CandiateProfileDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.CandiateProfileDefaultArgs<ExtArgs>>): Prisma.Prisma__CandiateProfileClient<runtime.Types.Result.GetResult<Prisma.$CandiateProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    votingForCandiates<T extends Prisma.AuthorityCandidate$votingForCandiatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AuthorityCandidate$votingForCandiatesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VotingForCandiatePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the AuthorityCandidate model
+ */
+export interface AuthorityCandidateFieldRefs {
+    readonly authority_candidate: Prisma.FieldRef<"AuthorityCandidate", 'String'>;
+    readonly candidate: Prisma.FieldRef<"AuthorityCandidate", 'String'>;
+    readonly proposal: Prisma.FieldRef<"AuthorityCandidate", 'String'>;
+    readonly selected: Prisma.FieldRef<"AuthorityCandidate", 'Boolean'>;
+    readonly selected_time: Prisma.FieldRef<"AuthorityCandidate", 'DateTime'>;
+    readonly vote_gained: Prisma.FieldRef<"AuthorityCandidate", 'BigInt'>;
+    readonly is_finalized: Prisma.FieldRef<"AuthorityCandidate", 'Boolean'>;
+    readonly authority_type: Prisma.FieldRef<"AuthorityCandidate", 'AuthorityType'>;
+    readonly bump: Prisma.FieldRef<"AuthorityCandidate", 'Int'>;
+}
+/**
+ * AuthorityCandidate findUnique
+ */
+export type AuthorityCandidateFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * Filter, which AuthorityCandidate to fetch.
+     */
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+};
+/**
+ * AuthorityCandidate findUniqueOrThrow
+ */
+export type AuthorityCandidateFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * Filter, which AuthorityCandidate to fetch.
+     */
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+};
+/**
+ * AuthorityCandidate findFirst
+ */
+export type AuthorityCandidateFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * Filter, which AuthorityCandidate to fetch.
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of AuthorityCandidates to fetch.
+     */
+    orderBy?: Prisma.AuthorityCandidateOrderByWithRelationInput | Prisma.AuthorityCandidateOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for AuthorityCandidates.
+     */
+    cursor?: Prisma.AuthorityCandidateWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` AuthorityCandidates from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` AuthorityCandidates.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of AuthorityCandidates.
+     */
+    distinct?: Prisma.AuthorityCandidateScalarFieldEnum | Prisma.AuthorityCandidateScalarFieldEnum[];
+};
+/**
+ * AuthorityCandidate findFirstOrThrow
+ */
+export type AuthorityCandidateFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * Filter, which AuthorityCandidate to fetch.
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of AuthorityCandidates to fetch.
+     */
+    orderBy?: Prisma.AuthorityCandidateOrderByWithRelationInput | Prisma.AuthorityCandidateOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for AuthorityCandidates.
+     */
+    cursor?: Prisma.AuthorityCandidateWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` AuthorityCandidates from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` AuthorityCandidates.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of AuthorityCandidates.
+     */
+    distinct?: Prisma.AuthorityCandidateScalarFieldEnum | Prisma.AuthorityCandidateScalarFieldEnum[];
+};
+/**
+ * AuthorityCandidate findMany
+ */
+export type AuthorityCandidateFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * Filter, which AuthorityCandidates to fetch.
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of AuthorityCandidates to fetch.
+     */
+    orderBy?: Prisma.AuthorityCandidateOrderByWithRelationInput | Prisma.AuthorityCandidateOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing AuthorityCandidates.
+     */
+    cursor?: Prisma.AuthorityCandidateWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` AuthorityCandidates from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` AuthorityCandidates.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of AuthorityCandidates.
+     */
+    distinct?: Prisma.AuthorityCandidateScalarFieldEnum | Prisma.AuthorityCandidateScalarFieldEnum[];
+};
+/**
+ * AuthorityCandidate create
+ */
+export type AuthorityCandidateCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a AuthorityCandidate.
+     */
+    data: Prisma.XOR<Prisma.AuthorityCandidateCreateInput, Prisma.AuthorityCandidateUncheckedCreateInput>;
+};
+/**
+ * AuthorityCandidate createMany
+ */
+export type AuthorityCandidateCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many AuthorityCandidates.
+     */
+    data: Prisma.AuthorityCandidateCreateManyInput | Prisma.AuthorityCandidateCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * AuthorityCandidate createManyAndReturn
+ */
+export type AuthorityCandidateCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * The data used to create many AuthorityCandidates.
+     */
+    data: Prisma.AuthorityCandidateCreateManyInput | Prisma.AuthorityCandidateCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * AuthorityCandidate update
+ */
+export type AuthorityCandidateUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a AuthorityCandidate.
+     */
+    data: Prisma.XOR<Prisma.AuthorityCandidateUpdateInput, Prisma.AuthorityCandidateUncheckedUpdateInput>;
+    /**
+     * Choose, which AuthorityCandidate to update.
+     */
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+};
+/**
+ * AuthorityCandidate updateMany
+ */
+export type AuthorityCandidateUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update AuthorityCandidates.
+     */
+    data: Prisma.XOR<Prisma.AuthorityCandidateUpdateManyMutationInput, Prisma.AuthorityCandidateUncheckedUpdateManyInput>;
+    /**
+     * Filter which AuthorityCandidates to update
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * Limit how many AuthorityCandidates to update.
+     */
+    limit?: number;
+};
+/**
+ * AuthorityCandidate updateManyAndReturn
+ */
+export type AuthorityCandidateUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * The data used to update AuthorityCandidates.
+     */
+    data: Prisma.XOR<Prisma.AuthorityCandidateUpdateManyMutationInput, Prisma.AuthorityCandidateUncheckedUpdateManyInput>;
+    /**
+     * Filter which AuthorityCandidates to update
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * Limit how many AuthorityCandidates to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * AuthorityCandidate upsert
+ */
+export type AuthorityCandidateUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the AuthorityCandidate to update in case it exists.
+     */
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+    /**
+     * In case the AuthorityCandidate found by the `where` argument doesn't exist, create a new AuthorityCandidate with this data.
+     */
+    create: Prisma.XOR<Prisma.AuthorityCandidateCreateInput, Prisma.AuthorityCandidateUncheckedCreateInput>;
+    /**
+     * In case the AuthorityCandidate was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.AuthorityCandidateUpdateInput, Prisma.AuthorityCandidateUncheckedUpdateInput>;
+};
+/**
+ * AuthorityCandidate delete
+ */
+export type AuthorityCandidateDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+    /**
+     * Filter which AuthorityCandidate to delete.
+     */
+    where: Prisma.AuthorityCandidateWhereUniqueInput;
+};
+/**
+ * AuthorityCandidate deleteMany
+ */
+export type AuthorityCandidateDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which AuthorityCandidates to delete
+     */
+    where?: Prisma.AuthorityCandidateWhereInput;
+    /**
+     * Limit how many AuthorityCandidates to delete.
+     */
+    limit?: number;
+};
+/**
+ * AuthorityCandidate.votingForCandiates
+ */
+export type AuthorityCandidate$votingForCandiatesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VotingForCandiate
+     */
+    select?: Prisma.VotingForCandiateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the VotingForCandiate
+     */
+    omit?: Prisma.VotingForCandiateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.VotingForCandiateInclude<ExtArgs> | null;
+    where?: Prisma.VotingForCandiateWhereInput;
+    orderBy?: Prisma.VotingForCandiateOrderByWithRelationInput | Prisma.VotingForCandiateOrderByWithRelationInput[];
+    cursor?: Prisma.VotingForCandiateWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.VotingForCandiateScalarFieldEnum | Prisma.VotingForCandiateScalarFieldEnum[];
+};
+/**
+ * AuthorityCandidate without action
+ */
+export type AuthorityCandidateDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the AuthorityCandidate
+     */
+    select?: Prisma.AuthorityCandidateSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the AuthorityCandidate
+     */
+    omit?: Prisma.AuthorityCandidateOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.AuthorityCandidateInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=AuthorityCandidate.d.ts.map

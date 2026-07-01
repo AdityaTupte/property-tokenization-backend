@@ -188,11 +188,11 @@ export type UserGroupByOutputType = {
   username: string
   email: string
   avatar: string
-  coverImage: string
+  coverImage: string | null
   password: string
   id: string
-  signer: string
-  refreshToken: string
+  signer: string | null
+  refreshToken: string | null
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -223,11 +223,11 @@ export type UserWhereInput = {
   username?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   avatar?: Prisma.StringFilter<"User"> | string
-  coverImage?: Prisma.StringFilter<"User"> | string
+  coverImage?: Prisma.StringNullableFilter<"User"> | string | null
   password?: Prisma.StringFilter<"User"> | string
   id?: Prisma.StringFilter<"User"> | string
-  signer?: Prisma.StringFilter<"User"> | string
-  refreshToken?: Prisma.StringFilter<"User"> | string
+  signer?: Prisma.StringNullableFilter<"User"> | string | null
+  refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   candiateProfiles?: Prisma.XOR<Prisma.CandiateProfileNullableScalarRelationFilter, Prisma.CandiateProfileWhereInput> | null
@@ -238,17 +238,18 @@ export type UserOrderByWithRelationInput = {
   username?: Prisma.SortOrder
   email?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
-  coverImage?: Prisma.SortOrder
+  coverImage?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrder
   id?: Prisma.SortOrder
-  signer?: Prisma.SortOrder
-  refreshToken?: Prisma.SortOrder
+  signer?: Prisma.SortOrderInput | Prisma.SortOrder
+  refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   candiateProfiles?: Prisma.CandiateProfileOrderByWithRelationInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
+  username?: string
   email?: string
   id?: string
   signer?: string
@@ -256,26 +257,25 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   fullName?: Prisma.StringFilter<"User"> | string
-  username?: Prisma.StringFilter<"User"> | string
   avatar?: Prisma.StringFilter<"User"> | string
-  coverImage?: Prisma.StringFilter<"User"> | string
+  coverImage?: Prisma.StringNullableFilter<"User"> | string | null
   password?: Prisma.StringFilter<"User"> | string
-  refreshToken?: Prisma.StringFilter<"User"> | string
+  refreshToken?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   candiateProfiles?: Prisma.XOR<Prisma.CandiateProfileNullableScalarRelationFilter, Prisma.CandiateProfileWhereInput> | null
-}, "id" | "email" | "signer">
+}, "id" | "username" | "email" | "signer">
 
 export type UserOrderByWithAggregationInput = {
   fullName?: Prisma.SortOrder
   username?: Prisma.SortOrder
   email?: Prisma.SortOrder
   avatar?: Prisma.SortOrder
-  coverImage?: Prisma.SortOrder
+  coverImage?: Prisma.SortOrderInput | Prisma.SortOrder
   password?: Prisma.SortOrder
   id?: Prisma.SortOrder
-  signer?: Prisma.SortOrder
-  refreshToken?: Prisma.SortOrder
+  signer?: Prisma.SortOrderInput | Prisma.SortOrder
+  refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -291,11 +291,11 @@ export type UserScalarWhereWithAggregatesInput = {
   username?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   avatar?: Prisma.StringWithAggregatesFilter<"User"> | string
-  coverImage?: Prisma.StringWithAggregatesFilter<"User"> | string
+  coverImage?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
-  signer?: Prisma.StringWithAggregatesFilter<"User"> | string
-  refreshToken?: Prisma.StringWithAggregatesFilter<"User"> | string
+  signer?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  refreshToken?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -305,11 +305,11 @@ export type UserCreateInput = {
   username: string
   email: string
   avatar: string
-  coverImage: string
+  coverImage?: string | null
   password: string
   id?: string
-  signer: string
-  refreshToken: string
+  signer?: string | null
+  refreshToken?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   candiateProfiles?: Prisma.CandiateProfileCreateNestedOneWithoutUserInput
@@ -320,11 +320,11 @@ export type UserUncheckedCreateInput = {
   username: string
   email: string
   avatar: string
-  coverImage: string
+  coverImage?: string | null
   password: string
   id?: string
-  signer: string
-  refreshToken: string
+  signer?: string | null
+  refreshToken?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   candiateProfiles?: Prisma.CandiateProfileUncheckedCreateNestedOneWithoutUserInput
@@ -335,11 +335,11 @@ export type UserUpdateInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  coverImage?: Prisma.StringFieldUpdateOperationsInput | string
+  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  signer?: Prisma.StringFieldUpdateOperationsInput | string
-  refreshToken?: Prisma.StringFieldUpdateOperationsInput | string
+  signer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   candiateProfiles?: Prisma.CandiateProfileUpdateOneWithoutUserNestedInput
@@ -350,11 +350,11 @@ export type UserUncheckedUpdateInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  coverImage?: Prisma.StringFieldUpdateOperationsInput | string
+  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  signer?: Prisma.StringFieldUpdateOperationsInput | string
-  refreshToken?: Prisma.StringFieldUpdateOperationsInput | string
+  signer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   candiateProfiles?: Prisma.CandiateProfileUncheckedUpdateOneWithoutUserNestedInput
@@ -365,11 +365,11 @@ export type UserCreateManyInput = {
   username: string
   email: string
   avatar: string
-  coverImage: string
+  coverImage?: string | null
   password: string
   id?: string
-  signer: string
-  refreshToken: string
+  signer?: string | null
+  refreshToken?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -379,11 +379,11 @@ export type UserUpdateManyMutationInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  coverImage?: Prisma.StringFieldUpdateOperationsInput | string
+  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  signer?: Prisma.StringFieldUpdateOperationsInput | string
-  refreshToken?: Prisma.StringFieldUpdateOperationsInput | string
+  signer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -393,11 +393,11 @@ export type UserUncheckedUpdateManyInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  coverImage?: Prisma.StringFieldUpdateOperationsInput | string
+  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  signer?: Prisma.StringFieldUpdateOperationsInput | string
-  refreshToken?: Prisma.StringFieldUpdateOperationsInput | string
+  signer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -453,6 +453,10 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
@@ -476,11 +480,11 @@ export type UserCreateWithoutCandiateProfilesInput = {
   username: string
   email: string
   avatar: string
-  coverImage: string
+  coverImage?: string | null
   password: string
   id?: string
-  signer: string
-  refreshToken: string
+  signer?: string | null
+  refreshToken?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -490,11 +494,11 @@ export type UserUncheckedCreateWithoutCandiateProfilesInput = {
   username: string
   email: string
   avatar: string
-  coverImage: string
+  coverImage?: string | null
   password: string
   id?: string
-  signer: string
-  refreshToken: string
+  signer?: string | null
+  refreshToken?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -520,11 +524,11 @@ export type UserUpdateWithoutCandiateProfilesInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  coverImage?: Prisma.StringFieldUpdateOperationsInput | string
+  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  signer?: Prisma.StringFieldUpdateOperationsInput | string
-  refreshToken?: Prisma.StringFieldUpdateOperationsInput | string
+  signer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -534,11 +538,11 @@ export type UserUncheckedUpdateWithoutCandiateProfilesInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   avatar?: Prisma.StringFieldUpdateOperationsInput | string
-  coverImage?: Prisma.StringFieldUpdateOperationsInput | string
+  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   password?: Prisma.StringFieldUpdateOperationsInput | string
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  signer?: Prisma.StringFieldUpdateOperationsInput | string
-  refreshToken?: Prisma.StringFieldUpdateOperationsInput | string
+  signer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -619,11 +623,11 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     username: string
     email: string
     avatar: string
-    coverImage: string
+    coverImage: string | null
     password: string
     id: string
-    signer: string
-    refreshToken: string
+    signer: string | null
+    refreshToken: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>

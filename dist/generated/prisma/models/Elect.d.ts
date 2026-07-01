@@ -1,0 +1,1149 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model Elect
+ *
+ */
+export type ElectModel = runtime.Types.Result.DefaultSelection<Prisma.$ElectPayload>;
+export type AggregateElect = {
+    _count: ElectCountAggregateOutputType | null;
+    _avg: ElectAvgAggregateOutputType | null;
+    _sum: ElectSumAggregateOutputType | null;
+    _min: ElectMinAggregateOutputType | null;
+    _max: ElectMaxAggregateOutputType | null;
+};
+export type ElectAvgAggregateOutputType = {
+    total_authority_to_resign: number | null;
+};
+export type ElectSumAggregateOutputType = {
+    total_authority_to_resign: number | null;
+};
+export type ElectMinAggregateOutputType = {
+    proposal_id: string | null;
+    total_authority_to_resign: number | null;
+    authority_type: $Enums.AuthorityType | null;
+    is_initialized: boolean | null;
+    candidate_submission_deadline: Date | null;
+    voting_for_authority_deadline: Date | null;
+    add_new_authority_deadline: Date | null;
+    challenge_new_authority_deadline: Date | null;
+    is_finalize: boolean | null;
+};
+export type ElectMaxAggregateOutputType = {
+    proposal_id: string | null;
+    total_authority_to_resign: number | null;
+    authority_type: $Enums.AuthorityType | null;
+    is_initialized: boolean | null;
+    candidate_submission_deadline: Date | null;
+    voting_for_authority_deadline: Date | null;
+    add_new_authority_deadline: Date | null;
+    challenge_new_authority_deadline: Date | null;
+    is_finalize: boolean | null;
+};
+export type ElectCountAggregateOutputType = {
+    proposal_id: number;
+    total_authority_to_resign: number;
+    authority_type: number;
+    is_initialized: number;
+    candidate_submission_deadline: number;
+    voting_for_authority_deadline: number;
+    add_new_authority_deadline: number;
+    challenge_new_authority_deadline: number;
+    is_finalize: number;
+    _all: number;
+};
+export type ElectAvgAggregateInputType = {
+    total_authority_to_resign?: true;
+};
+export type ElectSumAggregateInputType = {
+    total_authority_to_resign?: true;
+};
+export type ElectMinAggregateInputType = {
+    proposal_id?: true;
+    total_authority_to_resign?: true;
+    authority_type?: true;
+    is_initialized?: true;
+    candidate_submission_deadline?: true;
+    voting_for_authority_deadline?: true;
+    add_new_authority_deadline?: true;
+    challenge_new_authority_deadline?: true;
+    is_finalize?: true;
+};
+export type ElectMaxAggregateInputType = {
+    proposal_id?: true;
+    total_authority_to_resign?: true;
+    authority_type?: true;
+    is_initialized?: true;
+    candidate_submission_deadline?: true;
+    voting_for_authority_deadline?: true;
+    add_new_authority_deadline?: true;
+    challenge_new_authority_deadline?: true;
+    is_finalize?: true;
+};
+export type ElectCountAggregateInputType = {
+    proposal_id?: true;
+    total_authority_to_resign?: true;
+    authority_type?: true;
+    is_initialized?: true;
+    candidate_submission_deadline?: true;
+    voting_for_authority_deadline?: true;
+    add_new_authority_deadline?: true;
+    challenge_new_authority_deadline?: true;
+    is_finalize?: true;
+    _all?: true;
+};
+export type ElectAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Elect to aggregate.
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Elects to fetch.
+     */
+    orderBy?: Prisma.ElectOrderByWithRelationInput | Prisma.ElectOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.ElectWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Elects from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Elects.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned Elects
+    **/
+    _count?: true | ElectCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: ElectAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: ElectSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: ElectMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: ElectMaxAggregateInputType;
+};
+export type GetElectAggregateType<T extends ElectAggregateArgs> = {
+    [P in keyof T & keyof AggregateElect]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateElect[P]> : Prisma.GetScalarType<T[P], AggregateElect[P]>;
+};
+export type ElectGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.ElectWhereInput;
+    orderBy?: Prisma.ElectOrderByWithAggregationInput | Prisma.ElectOrderByWithAggregationInput[];
+    by: Prisma.ElectScalarFieldEnum[] | Prisma.ElectScalarFieldEnum;
+    having?: Prisma.ElectScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: ElectCountAggregateInputType | true;
+    _avg?: ElectAvgAggregateInputType;
+    _sum?: ElectSumAggregateInputType;
+    _min?: ElectMinAggregateInputType;
+    _max?: ElectMaxAggregateInputType;
+};
+export type ElectGroupByOutputType = {
+    proposal_id: string;
+    total_authority_to_resign: number;
+    authority_type: $Enums.AuthorityType;
+    is_initialized: boolean;
+    candidate_submission_deadline: Date;
+    voting_for_authority_deadline: Date;
+    add_new_authority_deadline: Date;
+    challenge_new_authority_deadline: Date;
+    is_finalize: boolean;
+    _count: ElectCountAggregateOutputType | null;
+    _avg: ElectAvgAggregateOutputType | null;
+    _sum: ElectSumAggregateOutputType | null;
+    _min: ElectMinAggregateOutputType | null;
+    _max: ElectMaxAggregateOutputType | null;
+};
+export type GetElectGroupByPayload<T extends ElectGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ElectGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof ElectGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], ElectGroupByOutputType[P]> : Prisma.GetScalarType<T[P], ElectGroupByOutputType[P]>;
+}>>;
+export type ElectWhereInput = {
+    AND?: Prisma.ElectWhereInput | Prisma.ElectWhereInput[];
+    OR?: Prisma.ElectWhereInput[];
+    NOT?: Prisma.ElectWhereInput | Prisma.ElectWhereInput[];
+    proposal_id?: Prisma.StringFilter<"Elect"> | string;
+    total_authority_to_resign?: Prisma.IntFilter<"Elect"> | number;
+    authority_type?: Prisma.EnumAuthorityTypeFilter<"Elect"> | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolFilter<"Elect"> | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    is_finalize?: Prisma.BoolFilter<"Elect"> | boolean;
+};
+export type ElectOrderByWithRelationInput = {
+    proposal_id?: Prisma.SortOrder;
+    total_authority_to_resign?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    is_initialized?: Prisma.SortOrder;
+    candidate_submission_deadline?: Prisma.SortOrder;
+    voting_for_authority_deadline?: Prisma.SortOrder;
+    add_new_authority_deadline?: Prisma.SortOrder;
+    challenge_new_authority_deadline?: Prisma.SortOrder;
+    is_finalize?: Prisma.SortOrder;
+};
+export type ElectWhereUniqueInput = Prisma.AtLeast<{
+    proposal_id?: string;
+    AND?: Prisma.ElectWhereInput | Prisma.ElectWhereInput[];
+    OR?: Prisma.ElectWhereInput[];
+    NOT?: Prisma.ElectWhereInput | Prisma.ElectWhereInput[];
+    total_authority_to_resign?: Prisma.IntFilter<"Elect"> | number;
+    authority_type?: Prisma.EnumAuthorityTypeFilter<"Elect"> | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolFilter<"Elect"> | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeFilter<"Elect"> | Date | string;
+    is_finalize?: Prisma.BoolFilter<"Elect"> | boolean;
+}, "proposal_id">;
+export type ElectOrderByWithAggregationInput = {
+    proposal_id?: Prisma.SortOrder;
+    total_authority_to_resign?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    is_initialized?: Prisma.SortOrder;
+    candidate_submission_deadline?: Prisma.SortOrder;
+    voting_for_authority_deadline?: Prisma.SortOrder;
+    add_new_authority_deadline?: Prisma.SortOrder;
+    challenge_new_authority_deadline?: Prisma.SortOrder;
+    is_finalize?: Prisma.SortOrder;
+    _count?: Prisma.ElectCountOrderByAggregateInput;
+    _avg?: Prisma.ElectAvgOrderByAggregateInput;
+    _max?: Prisma.ElectMaxOrderByAggregateInput;
+    _min?: Prisma.ElectMinOrderByAggregateInput;
+    _sum?: Prisma.ElectSumOrderByAggregateInput;
+};
+export type ElectScalarWhereWithAggregatesInput = {
+    AND?: Prisma.ElectScalarWhereWithAggregatesInput | Prisma.ElectScalarWhereWithAggregatesInput[];
+    OR?: Prisma.ElectScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.ElectScalarWhereWithAggregatesInput | Prisma.ElectScalarWhereWithAggregatesInput[];
+    proposal_id?: Prisma.StringWithAggregatesFilter<"Elect"> | string;
+    total_authority_to_resign?: Prisma.IntWithAggregatesFilter<"Elect"> | number;
+    authority_type?: Prisma.EnumAuthorityTypeWithAggregatesFilter<"Elect"> | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolWithAggregatesFilter<"Elect"> | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeWithAggregatesFilter<"Elect"> | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeWithAggregatesFilter<"Elect"> | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeWithAggregatesFilter<"Elect"> | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeWithAggregatesFilter<"Elect"> | Date | string;
+    is_finalize?: Prisma.BoolWithAggregatesFilter<"Elect"> | boolean;
+};
+export type ElectCreateInput = {
+    proposal_id: string;
+    total_authority_to_resign: number;
+    authority_type: $Enums.AuthorityType;
+    is_initialized: boolean;
+    candidate_submission_deadline: Date | string;
+    voting_for_authority_deadline: Date | string;
+    add_new_authority_deadline: Date | string;
+    challenge_new_authority_deadline: Date | string;
+    is_finalize: boolean;
+};
+export type ElectUncheckedCreateInput = {
+    proposal_id: string;
+    total_authority_to_resign: number;
+    authority_type: $Enums.AuthorityType;
+    is_initialized: boolean;
+    candidate_submission_deadline: Date | string;
+    voting_for_authority_deadline: Date | string;
+    add_new_authority_deadline: Date | string;
+    challenge_new_authority_deadline: Date | string;
+    is_finalize: boolean;
+};
+export type ElectUpdateInput = {
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    total_authority_to_resign?: Prisma.IntFieldUpdateOperationsInput | number;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    is_finalize?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type ElectUncheckedUpdateInput = {
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    total_authority_to_resign?: Prisma.IntFieldUpdateOperationsInput | number;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    is_finalize?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type ElectCreateManyInput = {
+    proposal_id: string;
+    total_authority_to_resign: number;
+    authority_type: $Enums.AuthorityType;
+    is_initialized: boolean;
+    candidate_submission_deadline: Date | string;
+    voting_for_authority_deadline: Date | string;
+    add_new_authority_deadline: Date | string;
+    challenge_new_authority_deadline: Date | string;
+    is_finalize: boolean;
+};
+export type ElectUpdateManyMutationInput = {
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    total_authority_to_resign?: Prisma.IntFieldUpdateOperationsInput | number;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    is_finalize?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type ElectUncheckedUpdateManyInput = {
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    total_authority_to_resign?: Prisma.IntFieldUpdateOperationsInput | number;
+    authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType;
+    is_initialized?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    candidate_submission_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    voting_for_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    add_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    challenge_new_authority_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    is_finalize?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+};
+export type ElectCountOrderByAggregateInput = {
+    proposal_id?: Prisma.SortOrder;
+    total_authority_to_resign?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    is_initialized?: Prisma.SortOrder;
+    candidate_submission_deadline?: Prisma.SortOrder;
+    voting_for_authority_deadline?: Prisma.SortOrder;
+    add_new_authority_deadline?: Prisma.SortOrder;
+    challenge_new_authority_deadline?: Prisma.SortOrder;
+    is_finalize?: Prisma.SortOrder;
+};
+export type ElectAvgOrderByAggregateInput = {
+    total_authority_to_resign?: Prisma.SortOrder;
+};
+export type ElectMaxOrderByAggregateInput = {
+    proposal_id?: Prisma.SortOrder;
+    total_authority_to_resign?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    is_initialized?: Prisma.SortOrder;
+    candidate_submission_deadline?: Prisma.SortOrder;
+    voting_for_authority_deadline?: Prisma.SortOrder;
+    add_new_authority_deadline?: Prisma.SortOrder;
+    challenge_new_authority_deadline?: Prisma.SortOrder;
+    is_finalize?: Prisma.SortOrder;
+};
+export type ElectMinOrderByAggregateInput = {
+    proposal_id?: Prisma.SortOrder;
+    total_authority_to_resign?: Prisma.SortOrder;
+    authority_type?: Prisma.SortOrder;
+    is_initialized?: Prisma.SortOrder;
+    candidate_submission_deadline?: Prisma.SortOrder;
+    voting_for_authority_deadline?: Prisma.SortOrder;
+    add_new_authority_deadline?: Prisma.SortOrder;
+    challenge_new_authority_deadline?: Prisma.SortOrder;
+    is_finalize?: Prisma.SortOrder;
+};
+export type ElectSumOrderByAggregateInput = {
+    total_authority_to_resign?: Prisma.SortOrder;
+};
+export type ElectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    proposal_id?: boolean;
+    total_authority_to_resign?: boolean;
+    authority_type?: boolean;
+    is_initialized?: boolean;
+    candidate_submission_deadline?: boolean;
+    voting_for_authority_deadline?: boolean;
+    add_new_authority_deadline?: boolean;
+    challenge_new_authority_deadline?: boolean;
+    is_finalize?: boolean;
+}, ExtArgs["result"]["elect"]>;
+export type ElectSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    proposal_id?: boolean;
+    total_authority_to_resign?: boolean;
+    authority_type?: boolean;
+    is_initialized?: boolean;
+    candidate_submission_deadline?: boolean;
+    voting_for_authority_deadline?: boolean;
+    add_new_authority_deadline?: boolean;
+    challenge_new_authority_deadline?: boolean;
+    is_finalize?: boolean;
+}, ExtArgs["result"]["elect"]>;
+export type ElectSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    proposal_id?: boolean;
+    total_authority_to_resign?: boolean;
+    authority_type?: boolean;
+    is_initialized?: boolean;
+    candidate_submission_deadline?: boolean;
+    voting_for_authority_deadline?: boolean;
+    add_new_authority_deadline?: boolean;
+    challenge_new_authority_deadline?: boolean;
+    is_finalize?: boolean;
+}, ExtArgs["result"]["elect"]>;
+export type ElectSelectScalar = {
+    proposal_id?: boolean;
+    total_authority_to_resign?: boolean;
+    authority_type?: boolean;
+    is_initialized?: boolean;
+    candidate_submission_deadline?: boolean;
+    voting_for_authority_deadline?: boolean;
+    add_new_authority_deadline?: boolean;
+    challenge_new_authority_deadline?: boolean;
+    is_finalize?: boolean;
+};
+export type ElectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_id" | "total_authority_to_resign" | "authority_type" | "is_initialized" | "candidate_submission_deadline" | "voting_for_authority_deadline" | "add_new_authority_deadline" | "challenge_new_authority_deadline" | "is_finalize", ExtArgs["result"]["elect"]>;
+export type $ElectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "Elect";
+    objects: {};
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        proposal_id: string;
+        total_authority_to_resign: number;
+        authority_type: $Enums.AuthorityType;
+        is_initialized: boolean;
+        candidate_submission_deadline: Date;
+        voting_for_authority_deadline: Date;
+        add_new_authority_deadline: Date;
+        challenge_new_authority_deadline: Date;
+        is_finalize: boolean;
+    }, ExtArgs["result"]["elect"]>;
+    composites: {};
+};
+export type ElectGetPayload<S extends boolean | null | undefined | ElectDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ElectPayload, S>;
+export type ElectCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<ElectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: ElectCountAggregateInputType | true;
+};
+export interface ElectDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['Elect'];
+        meta: {
+            name: 'Elect';
+        };
+    };
+    /**
+     * Find zero or one Elect that matches the filter.
+     * @param {ElectFindUniqueArgs} args - Arguments to find a Elect
+     * @example
+     * // Get one Elect
+     * const elect = await prisma.elect.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ElectFindUniqueArgs>(args: Prisma.SelectSubset<T, ElectFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Elect that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ElectFindUniqueOrThrowArgs} args - Arguments to find a Elect
+     * @example
+     * // Get one Elect
+     * const elect = await prisma.elect.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ElectFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ElectFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Elect that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectFindFirstArgs} args - Arguments to find a Elect
+     * @example
+     * // Get one Elect
+     * const elect = await prisma.elect.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ElectFindFirstArgs>(args?: Prisma.SelectSubset<T, ElectFindFirstArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Elect that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectFindFirstOrThrowArgs} args - Arguments to find a Elect
+     * @example
+     * // Get one Elect
+     * const elect = await prisma.elect.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ElectFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ElectFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Elects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Elects
+     * const elects = await prisma.elect.findMany()
+     *
+     * // Get first 10 Elects
+     * const elects = await prisma.elect.findMany({ take: 10 })
+     *
+     * // Only select the `proposal_id`
+     * const electWithProposal_idOnly = await prisma.elect.findMany({ select: { proposal_id: true } })
+     *
+     */
+    findMany<T extends ElectFindManyArgs>(args?: Prisma.SelectSubset<T, ElectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Elect.
+     * @param {ElectCreateArgs} args - Arguments to create a Elect.
+     * @example
+     * // Create one Elect
+     * const Elect = await prisma.elect.create({
+     *   data: {
+     *     // ... data to create a Elect
+     *   }
+     * })
+     *
+     */
+    create<T extends ElectCreateArgs>(args: Prisma.SelectSubset<T, ElectCreateArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Elects.
+     * @param {ElectCreateManyArgs} args - Arguments to create many Elects.
+     * @example
+     * // Create many Elects
+     * const elect = await prisma.elect.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends ElectCreateManyArgs>(args?: Prisma.SelectSubset<T, ElectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Elects and returns the data saved in the database.
+     * @param {ElectCreateManyAndReturnArgs} args - Arguments to create many Elects.
+     * @example
+     * // Create many Elects
+     * const elect = await prisma.elect.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Elects and only return the `proposal_id`
+     * const electWithProposal_idOnly = await prisma.elect.createManyAndReturn({
+     *   select: { proposal_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends ElectCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ElectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Elect.
+     * @param {ElectDeleteArgs} args - Arguments to delete one Elect.
+     * @example
+     * // Delete one Elect
+     * const Elect = await prisma.elect.delete({
+     *   where: {
+     *     // ... filter to delete one Elect
+     *   }
+     * })
+     *
+     */
+    delete<T extends ElectDeleteArgs>(args: Prisma.SelectSubset<T, ElectDeleteArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Elect.
+     * @param {ElectUpdateArgs} args - Arguments to update one Elect.
+     * @example
+     * // Update one Elect
+     * const elect = await prisma.elect.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends ElectUpdateArgs>(args: Prisma.SelectSubset<T, ElectUpdateArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Elects.
+     * @param {ElectDeleteManyArgs} args - Arguments to filter Elects to delete.
+     * @example
+     * // Delete a few Elects
+     * const { count } = await prisma.elect.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends ElectDeleteManyArgs>(args?: Prisma.SelectSubset<T, ElectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Elects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Elects
+     * const elect = await prisma.elect.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends ElectUpdateManyArgs>(args: Prisma.SelectSubset<T, ElectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Elects and returns the data updated in the database.
+     * @param {ElectUpdateManyAndReturnArgs} args - Arguments to update many Elects.
+     * @example
+     * // Update many Elects
+     * const elect = await prisma.elect.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Elects and only return the `proposal_id`
+     * const electWithProposal_idOnly = await prisma.elect.updateManyAndReturn({
+     *   select: { proposal_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends ElectUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ElectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Elect.
+     * @param {ElectUpsertArgs} args - Arguments to update or create a Elect.
+     * @example
+     * // Update or create a Elect
+     * const elect = await prisma.elect.upsert({
+     *   create: {
+     *     // ... data to create a Elect
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Elect we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ElectUpsertArgs>(args: Prisma.SelectSubset<T, ElectUpsertArgs<ExtArgs>>): Prisma.Prisma__ElectClient<runtime.Types.Result.GetResult<Prisma.$ElectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Elects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectCountArgs} args - Arguments to filter Elects to count.
+     * @example
+     * // Count the number of Elects
+     * const count = await prisma.elect.count({
+     *   where: {
+     *     // ... the filter for the Elects we want to count
+     *   }
+     * })
+    **/
+    count<T extends ElectCountArgs>(args?: Prisma.Subset<T, ElectCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], ElectCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Elect.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ElectAggregateArgs>(args: Prisma.Subset<T, ElectAggregateArgs>): Prisma.PrismaPromise<GetElectAggregateType<T>>;
+    /**
+     * Group by Elect.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends ElectGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: ElectGroupByArgs['orderBy'];
+    } : {
+        orderBy?: ElectGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, ElectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetElectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the Elect model
+     */
+    readonly fields: ElectFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for Elect.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__ElectClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the Elect model
+ */
+export interface ElectFieldRefs {
+    readonly proposal_id: Prisma.FieldRef<"Elect", 'String'>;
+    readonly total_authority_to_resign: Prisma.FieldRef<"Elect", 'Int'>;
+    readonly authority_type: Prisma.FieldRef<"Elect", 'AuthorityType'>;
+    readonly is_initialized: Prisma.FieldRef<"Elect", 'Boolean'>;
+    readonly candidate_submission_deadline: Prisma.FieldRef<"Elect", 'DateTime'>;
+    readonly voting_for_authority_deadline: Prisma.FieldRef<"Elect", 'DateTime'>;
+    readonly add_new_authority_deadline: Prisma.FieldRef<"Elect", 'DateTime'>;
+    readonly challenge_new_authority_deadline: Prisma.FieldRef<"Elect", 'DateTime'>;
+    readonly is_finalize: Prisma.FieldRef<"Elect", 'Boolean'>;
+}
+/**
+ * Elect findUnique
+ */
+export type ElectFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * Filter, which Elect to fetch.
+     */
+    where: Prisma.ElectWhereUniqueInput;
+};
+/**
+ * Elect findUniqueOrThrow
+ */
+export type ElectFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * Filter, which Elect to fetch.
+     */
+    where: Prisma.ElectWhereUniqueInput;
+};
+/**
+ * Elect findFirst
+ */
+export type ElectFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * Filter, which Elect to fetch.
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Elects to fetch.
+     */
+    orderBy?: Prisma.ElectOrderByWithRelationInput | Prisma.ElectOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Elects.
+     */
+    cursor?: Prisma.ElectWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Elects from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Elects.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Elects.
+     */
+    distinct?: Prisma.ElectScalarFieldEnum | Prisma.ElectScalarFieldEnum[];
+};
+/**
+ * Elect findFirstOrThrow
+ */
+export type ElectFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * Filter, which Elect to fetch.
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Elects to fetch.
+     */
+    orderBy?: Prisma.ElectOrderByWithRelationInput | Prisma.ElectOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Elects.
+     */
+    cursor?: Prisma.ElectWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Elects from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Elects.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Elects.
+     */
+    distinct?: Prisma.ElectScalarFieldEnum | Prisma.ElectScalarFieldEnum[];
+};
+/**
+ * Elect findMany
+ */
+export type ElectFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * Filter, which Elects to fetch.
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Elects to fetch.
+     */
+    orderBy?: Prisma.ElectOrderByWithRelationInput | Prisma.ElectOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing Elects.
+     */
+    cursor?: Prisma.ElectWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Elects from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Elects.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Elects.
+     */
+    distinct?: Prisma.ElectScalarFieldEnum | Prisma.ElectScalarFieldEnum[];
+};
+/**
+ * Elect create
+ */
+export type ElectCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * The data needed to create a Elect.
+     */
+    data: Prisma.XOR<Prisma.ElectCreateInput, Prisma.ElectUncheckedCreateInput>;
+};
+/**
+ * Elect createMany
+ */
+export type ElectCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Elects.
+     */
+    data: Prisma.ElectCreateManyInput | Prisma.ElectCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Elect createManyAndReturn
+ */
+export type ElectCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * The data used to create many Elects.
+     */
+    data: Prisma.ElectCreateManyInput | Prisma.ElectCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Elect update
+ */
+export type ElectUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * The data needed to update a Elect.
+     */
+    data: Prisma.XOR<Prisma.ElectUpdateInput, Prisma.ElectUncheckedUpdateInput>;
+    /**
+     * Choose, which Elect to update.
+     */
+    where: Prisma.ElectWhereUniqueInput;
+};
+/**
+ * Elect updateMany
+ */
+export type ElectUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Elects.
+     */
+    data: Prisma.XOR<Prisma.ElectUpdateManyMutationInput, Prisma.ElectUncheckedUpdateManyInput>;
+    /**
+     * Filter which Elects to update
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * Limit how many Elects to update.
+     */
+    limit?: number;
+};
+/**
+ * Elect updateManyAndReturn
+ */
+export type ElectUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * The data used to update Elects.
+     */
+    data: Prisma.XOR<Prisma.ElectUpdateManyMutationInput, Prisma.ElectUncheckedUpdateManyInput>;
+    /**
+     * Filter which Elects to update
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * Limit how many Elects to update.
+     */
+    limit?: number;
+};
+/**
+ * Elect upsert
+ */
+export type ElectUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * The filter to search for the Elect to update in case it exists.
+     */
+    where: Prisma.ElectWhereUniqueInput;
+    /**
+     * In case the Elect found by the `where` argument doesn't exist, create a new Elect with this data.
+     */
+    create: Prisma.XOR<Prisma.ElectCreateInput, Prisma.ElectUncheckedCreateInput>;
+    /**
+     * In case the Elect was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.ElectUpdateInput, Prisma.ElectUncheckedUpdateInput>;
+};
+/**
+ * Elect delete
+ */
+export type ElectDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+    /**
+     * Filter which Elect to delete.
+     */
+    where: Prisma.ElectWhereUniqueInput;
+};
+/**
+ * Elect deleteMany
+ */
+export type ElectDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Elects to delete
+     */
+    where?: Prisma.ElectWhereInput;
+    /**
+     * Limit how many Elects to delete.
+     */
+    limit?: number;
+};
+/**
+ * Elect without action
+ */
+export type ElectDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Elect
+     */
+    select?: Prisma.ElectSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Elect
+     */
+    omit?: Prisma.ElectOmit<ExtArgs> | null;
+};
+//# sourceMappingURL=Elect.d.ts.map

@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model admin
@@ -98,7 +98,7 @@ export type AdminGroupByOutputType = {
     _min: AdminMinAggregateOutputType | null;
     _max: AdminMaxAggregateOutputType | null;
 };
-type GetAdminGroupByPayload<T extends adminGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<AdminGroupByOutputType, T['by']> & {
+export type GetAdminGroupByPayload<T extends adminGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<AdminGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof AdminGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], AdminGroupByOutputType[P]> : Prisma.GetScalarType<T[P], AdminGroupByOutputType[P]>;
 }>>;
 export type adminWhereInput = {
@@ -700,6 +700,11 @@ export type adminFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalA
      * Skip the first `n` admins.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of admins.
+     */
     distinct?: Prisma.AdminScalarFieldEnum | Prisma.AdminScalarFieldEnum[];
 };
 /**
@@ -878,5 +883,4 @@ export type adminDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
      */
     omit?: Prisma.adminOmit<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=admin.d.ts.map

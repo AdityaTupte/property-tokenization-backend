@@ -1,0 +1,1226 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model Threshold
+ *
+ */
+export type ThresholdModel = runtime.Types.Result.DefaultSelection<Prisma.$ThresholdPayload>;
+export type AggregateThreshold = {
+    _count: ThresholdCountAggregateOutputType | null;
+    _avg: ThresholdAvgAggregateOutputType | null;
+    _sum: ThresholdSumAggregateOutputType | null;
+    _min: ThresholdMinAggregateOutputType | null;
+    _max: ThresholdMaxAggregateOutputType | null;
+};
+export type ThresholdAvgAggregateOutputType = {
+    trustee_salary_threshold: number | null;
+    arbitrator_salary_threshold: number | null;
+    dividend_threshold: number | null;
+    reinvestment_threshold: number | null;
+    safety_threshold: number | null;
+};
+export type ThresholdSumAggregateOutputType = {
+    trustee_salary_threshold: number | null;
+    arbitrator_salary_threshold: number | null;
+    dividend_threshold: number | null;
+    reinvestment_threshold: number | null;
+    safety_threshold: number | null;
+};
+export type ThresholdMinAggregateOutputType = {
+    threshold_pub_key: string | null;
+    trustee_salary_threshold: number | null;
+    arbitrator_salary_threshold: number | null;
+    dividend_threshold: number | null;
+    reinvestment_threshold: number | null;
+    safety_threshold: number | null;
+};
+export type ThresholdMaxAggregateOutputType = {
+    threshold_pub_key: string | null;
+    trustee_salary_threshold: number | null;
+    arbitrator_salary_threshold: number | null;
+    dividend_threshold: number | null;
+    reinvestment_threshold: number | null;
+    safety_threshold: number | null;
+};
+export type ThresholdCountAggregateOutputType = {
+    threshold_pub_key: number;
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+    _all: number;
+};
+export type ThresholdAvgAggregateInputType = {
+    trustee_salary_threshold?: true;
+    arbitrator_salary_threshold?: true;
+    dividend_threshold?: true;
+    reinvestment_threshold?: true;
+    safety_threshold?: true;
+};
+export type ThresholdSumAggregateInputType = {
+    trustee_salary_threshold?: true;
+    arbitrator_salary_threshold?: true;
+    dividend_threshold?: true;
+    reinvestment_threshold?: true;
+    safety_threshold?: true;
+};
+export type ThresholdMinAggregateInputType = {
+    threshold_pub_key?: true;
+    trustee_salary_threshold?: true;
+    arbitrator_salary_threshold?: true;
+    dividend_threshold?: true;
+    reinvestment_threshold?: true;
+    safety_threshold?: true;
+};
+export type ThresholdMaxAggregateInputType = {
+    threshold_pub_key?: true;
+    trustee_salary_threshold?: true;
+    arbitrator_salary_threshold?: true;
+    dividend_threshold?: true;
+    reinvestment_threshold?: true;
+    safety_threshold?: true;
+};
+export type ThresholdCountAggregateInputType = {
+    threshold_pub_key?: true;
+    trustee_salary_threshold?: true;
+    arbitrator_salary_threshold?: true;
+    dividend_threshold?: true;
+    reinvestment_threshold?: true;
+    safety_threshold?: true;
+    _all?: true;
+};
+export type ThresholdAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Threshold to aggregate.
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Thresholds to fetch.
+     */
+    orderBy?: Prisma.ThresholdOrderByWithRelationInput | Prisma.ThresholdOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.ThresholdWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Thresholds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Thresholds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned Thresholds
+    **/
+    _count?: true | ThresholdCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: ThresholdAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: ThresholdSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: ThresholdMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: ThresholdMaxAggregateInputType;
+};
+export type GetThresholdAggregateType<T extends ThresholdAggregateArgs> = {
+    [P in keyof T & keyof AggregateThreshold]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateThreshold[P]> : Prisma.GetScalarType<T[P], AggregateThreshold[P]>;
+};
+export type ThresholdGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.ThresholdWhereInput;
+    orderBy?: Prisma.ThresholdOrderByWithAggregationInput | Prisma.ThresholdOrderByWithAggregationInput[];
+    by: Prisma.ThresholdScalarFieldEnum[] | Prisma.ThresholdScalarFieldEnum;
+    having?: Prisma.ThresholdScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: ThresholdCountAggregateInputType | true;
+    _avg?: ThresholdAvgAggregateInputType;
+    _sum?: ThresholdSumAggregateInputType;
+    _min?: ThresholdMinAggregateInputType;
+    _max?: ThresholdMaxAggregateInputType;
+};
+export type ThresholdGroupByOutputType = {
+    threshold_pub_key: string;
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+    _count: ThresholdCountAggregateOutputType | null;
+    _avg: ThresholdAvgAggregateOutputType | null;
+    _sum: ThresholdSumAggregateOutputType | null;
+    _min: ThresholdMinAggregateOutputType | null;
+    _max: ThresholdMaxAggregateOutputType | null;
+};
+export type GetThresholdGroupByPayload<T extends ThresholdGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ThresholdGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof ThresholdGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], ThresholdGroupByOutputType[P]> : Prisma.GetScalarType<T[P], ThresholdGroupByOutputType[P]>;
+}>>;
+export type ThresholdWhereInput = {
+    AND?: Prisma.ThresholdWhereInput | Prisma.ThresholdWhereInput[];
+    OR?: Prisma.ThresholdWhereInput[];
+    NOT?: Prisma.ThresholdWhereInput | Prisma.ThresholdWhereInput[];
+    threshold_pub_key?: Prisma.StringFilter<"Threshold"> | string;
+    trustee_salary_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    arbitrator_salary_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    dividend_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    reinvestment_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    safety_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+};
+export type ThresholdOrderByWithRelationInput = {
+    threshold_pub_key?: Prisma.SortOrder;
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+    property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput;
+};
+export type ThresholdWhereUniqueInput = Prisma.AtLeast<{
+    threshold_pub_key?: string;
+    AND?: Prisma.ThresholdWhereInput | Prisma.ThresholdWhereInput[];
+    OR?: Prisma.ThresholdWhereInput[];
+    NOT?: Prisma.ThresholdWhereInput | Prisma.ThresholdWhereInput[];
+    trustee_salary_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    arbitrator_salary_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    dividend_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    reinvestment_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    safety_threshold?: Prisma.IntFilter<"Threshold"> | number;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+}, "threshold_pub_key">;
+export type ThresholdOrderByWithAggregationInput = {
+    threshold_pub_key?: Prisma.SortOrder;
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+    _count?: Prisma.ThresholdCountOrderByAggregateInput;
+    _avg?: Prisma.ThresholdAvgOrderByAggregateInput;
+    _max?: Prisma.ThresholdMaxOrderByAggregateInput;
+    _min?: Prisma.ThresholdMinOrderByAggregateInput;
+    _sum?: Prisma.ThresholdSumOrderByAggregateInput;
+};
+export type ThresholdScalarWhereWithAggregatesInput = {
+    AND?: Prisma.ThresholdScalarWhereWithAggregatesInput | Prisma.ThresholdScalarWhereWithAggregatesInput[];
+    OR?: Prisma.ThresholdScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.ThresholdScalarWhereWithAggregatesInput | Prisma.ThresholdScalarWhereWithAggregatesInput[];
+    threshold_pub_key?: Prisma.StringWithAggregatesFilter<"Threshold"> | string;
+    trustee_salary_threshold?: Prisma.IntWithAggregatesFilter<"Threshold"> | number;
+    arbitrator_salary_threshold?: Prisma.IntWithAggregatesFilter<"Threshold"> | number;
+    dividend_threshold?: Prisma.IntWithAggregatesFilter<"Threshold"> | number;
+    reinvestment_threshold?: Prisma.IntWithAggregatesFilter<"Threshold"> | number;
+    safety_threshold?: Prisma.IntWithAggregatesFilter<"Threshold"> | number;
+};
+export type ThresholdCreateInput = {
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+    property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutThresholdsInput;
+};
+export type ThresholdUncheckedCreateInput = {
+    threshold_pub_key: string;
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+};
+export type ThresholdUpdateInput = {
+    trustee_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrator_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutThresholdsNestedInput;
+};
+export type ThresholdUncheckedUpdateInput = {
+    threshold_pub_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    trustee_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrator_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type ThresholdCreateManyInput = {
+    threshold_pub_key: string;
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+};
+export type ThresholdUpdateManyMutationInput = {
+    trustee_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrator_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type ThresholdUncheckedUpdateManyInput = {
+    threshold_pub_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    trustee_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrator_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type ThresholdNullableScalarRelationFilter = {
+    is?: Prisma.ThresholdWhereInput | null;
+    isNot?: Prisma.ThresholdWhereInput | null;
+};
+export type ThresholdCountOrderByAggregateInput = {
+    threshold_pub_key?: Prisma.SortOrder;
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+};
+export type ThresholdAvgOrderByAggregateInput = {
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+};
+export type ThresholdMaxOrderByAggregateInput = {
+    threshold_pub_key?: Prisma.SortOrder;
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+};
+export type ThresholdMinOrderByAggregateInput = {
+    threshold_pub_key?: Prisma.SortOrder;
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+};
+export type ThresholdSumOrderByAggregateInput = {
+    trustee_salary_threshold?: Prisma.SortOrder;
+    arbitrator_salary_threshold?: Prisma.SortOrder;
+    dividend_threshold?: Prisma.SortOrder;
+    reinvestment_threshold?: Prisma.SortOrder;
+    safety_threshold?: Prisma.SortOrder;
+};
+export type ThresholdCreateNestedOneWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.ThresholdCreateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ThresholdCreateOrConnectWithoutProperty_system_keyInput;
+    connect?: Prisma.ThresholdWhereUniqueInput;
+};
+export type ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.ThresholdCreateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ThresholdCreateOrConnectWithoutProperty_system_keyInput;
+    connect?: Prisma.ThresholdWhereUniqueInput;
+};
+export type ThresholdUpdateOneWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.ThresholdCreateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ThresholdCreateOrConnectWithoutProperty_system_keyInput;
+    upsert?: Prisma.ThresholdUpsertWithoutProperty_system_keyInput;
+    disconnect?: Prisma.ThresholdWhereInput | boolean;
+    delete?: Prisma.ThresholdWhereInput | boolean;
+    connect?: Prisma.ThresholdWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ThresholdUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.ThresholdUpdateWithoutProperty_system_keyInput>, Prisma.ThresholdUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.ThresholdCreateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ThresholdCreateOrConnectWithoutProperty_system_keyInput;
+    upsert?: Prisma.ThresholdUpsertWithoutProperty_system_keyInput;
+    disconnect?: Prisma.ThresholdWhereInput | boolean;
+    delete?: Prisma.ThresholdWhereInput | boolean;
+    connect?: Prisma.ThresholdWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ThresholdUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.ThresholdUpdateWithoutProperty_system_keyInput>, Prisma.ThresholdUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type ThresholdCreateWithoutProperty_system_keyInput = {
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+};
+export type ThresholdUncheckedCreateWithoutProperty_system_keyInput = {
+    trustee_salary_threshold: number;
+    arbitrator_salary_threshold: number;
+    dividend_threshold: number;
+    reinvestment_threshold: number;
+    safety_threshold: number;
+};
+export type ThresholdCreateOrConnectWithoutProperty_system_keyInput = {
+    where: Prisma.ThresholdWhereUniqueInput;
+    create: Prisma.XOR<Prisma.ThresholdCreateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedCreateWithoutProperty_system_keyInput>;
+};
+export type ThresholdUpsertWithoutProperty_system_keyInput = {
+    update: Prisma.XOR<Prisma.ThresholdUpdateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedUpdateWithoutProperty_system_keyInput>;
+    create: Prisma.XOR<Prisma.ThresholdCreateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedCreateWithoutProperty_system_keyInput>;
+    where?: Prisma.ThresholdWhereInput;
+};
+export type ThresholdUpdateToOneWithWhereWithoutProperty_system_keyInput = {
+    where?: Prisma.ThresholdWhereInput;
+    data: Prisma.XOR<Prisma.ThresholdUpdateWithoutProperty_system_keyInput, Prisma.ThresholdUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type ThresholdUpdateWithoutProperty_system_keyInput = {
+    trustee_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrator_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type ThresholdUncheckedUpdateWithoutProperty_system_keyInput = {
+    trustee_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrator_salary_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type ThresholdSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    threshold_pub_key?: boolean;
+    trustee_salary_threshold?: boolean;
+    arbitrator_salary_threshold?: boolean;
+    dividend_threshold?: boolean;
+    reinvestment_threshold?: boolean;
+    safety_threshold?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["threshold"]>;
+export type ThresholdSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    threshold_pub_key?: boolean;
+    trustee_salary_threshold?: boolean;
+    arbitrator_salary_threshold?: boolean;
+    dividend_threshold?: boolean;
+    reinvestment_threshold?: boolean;
+    safety_threshold?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["threshold"]>;
+export type ThresholdSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    threshold_pub_key?: boolean;
+    trustee_salary_threshold?: boolean;
+    arbitrator_salary_threshold?: boolean;
+    dividend_threshold?: boolean;
+    reinvestment_threshold?: boolean;
+    safety_threshold?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["threshold"]>;
+export type ThresholdSelectScalar = {
+    threshold_pub_key?: boolean;
+    trustee_salary_threshold?: boolean;
+    arbitrator_salary_threshold?: boolean;
+    dividend_threshold?: boolean;
+    reinvestment_threshold?: boolean;
+    safety_threshold?: boolean;
+};
+export type ThresholdOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"threshold_pub_key" | "trustee_salary_threshold" | "arbitrator_salary_threshold" | "dividend_threshold" | "reinvestment_threshold" | "safety_threshold", ExtArgs["result"]["threshold"]>;
+export type ThresholdInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type ThresholdIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type ThresholdIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type $ThresholdPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "Threshold";
+    objects: {
+        property_system_key: Prisma.$PropertySystemAccountPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        threshold_pub_key: string;
+        trustee_salary_threshold: number;
+        arbitrator_salary_threshold: number;
+        dividend_threshold: number;
+        reinvestment_threshold: number;
+        safety_threshold: number;
+    }, ExtArgs["result"]["threshold"]>;
+    composites: {};
+};
+export type ThresholdGetPayload<S extends boolean | null | undefined | ThresholdDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ThresholdPayload, S>;
+export type ThresholdCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<ThresholdFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: ThresholdCountAggregateInputType | true;
+};
+export interface ThresholdDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['Threshold'];
+        meta: {
+            name: 'Threshold';
+        };
+    };
+    /**
+     * Find zero or one Threshold that matches the filter.
+     * @param {ThresholdFindUniqueArgs} args - Arguments to find a Threshold
+     * @example
+     * // Get one Threshold
+     * const threshold = await prisma.threshold.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ThresholdFindUniqueArgs>(args: Prisma.SelectSubset<T, ThresholdFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Threshold that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ThresholdFindUniqueOrThrowArgs} args - Arguments to find a Threshold
+     * @example
+     * // Get one Threshold
+     * const threshold = await prisma.threshold.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ThresholdFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ThresholdFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Threshold that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdFindFirstArgs} args - Arguments to find a Threshold
+     * @example
+     * // Get one Threshold
+     * const threshold = await prisma.threshold.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ThresholdFindFirstArgs>(args?: Prisma.SelectSubset<T, ThresholdFindFirstArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Threshold that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdFindFirstOrThrowArgs} args - Arguments to find a Threshold
+     * @example
+     * // Get one Threshold
+     * const threshold = await prisma.threshold.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ThresholdFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ThresholdFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Thresholds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Thresholds
+     * const thresholds = await prisma.threshold.findMany()
+     *
+     * // Get first 10 Thresholds
+     * const thresholds = await prisma.threshold.findMany({ take: 10 })
+     *
+     * // Only select the `threshold_pub_key`
+     * const thresholdWithThreshold_pub_keyOnly = await prisma.threshold.findMany({ select: { threshold_pub_key: true } })
+     *
+     */
+    findMany<T extends ThresholdFindManyArgs>(args?: Prisma.SelectSubset<T, ThresholdFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Threshold.
+     * @param {ThresholdCreateArgs} args - Arguments to create a Threshold.
+     * @example
+     * // Create one Threshold
+     * const Threshold = await prisma.threshold.create({
+     *   data: {
+     *     // ... data to create a Threshold
+     *   }
+     * })
+     *
+     */
+    create<T extends ThresholdCreateArgs>(args: Prisma.SelectSubset<T, ThresholdCreateArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Thresholds.
+     * @param {ThresholdCreateManyArgs} args - Arguments to create many Thresholds.
+     * @example
+     * // Create many Thresholds
+     * const threshold = await prisma.threshold.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends ThresholdCreateManyArgs>(args?: Prisma.SelectSubset<T, ThresholdCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Thresholds and returns the data saved in the database.
+     * @param {ThresholdCreateManyAndReturnArgs} args - Arguments to create many Thresholds.
+     * @example
+     * // Create many Thresholds
+     * const threshold = await prisma.threshold.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Thresholds and only return the `threshold_pub_key`
+     * const thresholdWithThreshold_pub_keyOnly = await prisma.threshold.createManyAndReturn({
+     *   select: { threshold_pub_key: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends ThresholdCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ThresholdCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Threshold.
+     * @param {ThresholdDeleteArgs} args - Arguments to delete one Threshold.
+     * @example
+     * // Delete one Threshold
+     * const Threshold = await prisma.threshold.delete({
+     *   where: {
+     *     // ... filter to delete one Threshold
+     *   }
+     * })
+     *
+     */
+    delete<T extends ThresholdDeleteArgs>(args: Prisma.SelectSubset<T, ThresholdDeleteArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Threshold.
+     * @param {ThresholdUpdateArgs} args - Arguments to update one Threshold.
+     * @example
+     * // Update one Threshold
+     * const threshold = await prisma.threshold.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends ThresholdUpdateArgs>(args: Prisma.SelectSubset<T, ThresholdUpdateArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Thresholds.
+     * @param {ThresholdDeleteManyArgs} args - Arguments to filter Thresholds to delete.
+     * @example
+     * // Delete a few Thresholds
+     * const { count } = await prisma.threshold.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends ThresholdDeleteManyArgs>(args?: Prisma.SelectSubset<T, ThresholdDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Thresholds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Thresholds
+     * const threshold = await prisma.threshold.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends ThresholdUpdateManyArgs>(args: Prisma.SelectSubset<T, ThresholdUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Thresholds and returns the data updated in the database.
+     * @param {ThresholdUpdateManyAndReturnArgs} args - Arguments to update many Thresholds.
+     * @example
+     * // Update many Thresholds
+     * const threshold = await prisma.threshold.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Thresholds and only return the `threshold_pub_key`
+     * const thresholdWithThreshold_pub_keyOnly = await prisma.threshold.updateManyAndReturn({
+     *   select: { threshold_pub_key: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends ThresholdUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ThresholdUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Threshold.
+     * @param {ThresholdUpsertArgs} args - Arguments to update or create a Threshold.
+     * @example
+     * // Update or create a Threshold
+     * const threshold = await prisma.threshold.upsert({
+     *   create: {
+     *     // ... data to create a Threshold
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Threshold we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ThresholdUpsertArgs>(args: Prisma.SelectSubset<T, ThresholdUpsertArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Thresholds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdCountArgs} args - Arguments to filter Thresholds to count.
+     * @example
+     * // Count the number of Thresholds
+     * const count = await prisma.threshold.count({
+     *   where: {
+     *     // ... the filter for the Thresholds we want to count
+     *   }
+     * })
+    **/
+    count<T extends ThresholdCountArgs>(args?: Prisma.Subset<T, ThresholdCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], ThresholdCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Threshold.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ThresholdAggregateArgs>(args: Prisma.Subset<T, ThresholdAggregateArgs>): Prisma.PrismaPromise<GetThresholdAggregateType<T>>;
+    /**
+     * Group by Threshold.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ThresholdGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends ThresholdGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: ThresholdGroupByArgs['orderBy'];
+    } : {
+        orderBy?: ThresholdGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, ThresholdGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetThresholdGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the Threshold model
+     */
+    readonly fields: ThresholdFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for Threshold.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__ThresholdClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    property_system_key<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the Threshold model
+ */
+export interface ThresholdFieldRefs {
+    readonly threshold_pub_key: Prisma.FieldRef<"Threshold", 'String'>;
+    readonly trustee_salary_threshold: Prisma.FieldRef<"Threshold", 'Int'>;
+    readonly arbitrator_salary_threshold: Prisma.FieldRef<"Threshold", 'Int'>;
+    readonly dividend_threshold: Prisma.FieldRef<"Threshold", 'Int'>;
+    readonly reinvestment_threshold: Prisma.FieldRef<"Threshold", 'Int'>;
+    readonly safety_threshold: Prisma.FieldRef<"Threshold", 'Int'>;
+}
+/**
+ * Threshold findUnique
+ */
+export type ThresholdFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * Filter, which Threshold to fetch.
+     */
+    where: Prisma.ThresholdWhereUniqueInput;
+};
+/**
+ * Threshold findUniqueOrThrow
+ */
+export type ThresholdFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * Filter, which Threshold to fetch.
+     */
+    where: Prisma.ThresholdWhereUniqueInput;
+};
+/**
+ * Threshold findFirst
+ */
+export type ThresholdFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * Filter, which Threshold to fetch.
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Thresholds to fetch.
+     */
+    orderBy?: Prisma.ThresholdOrderByWithRelationInput | Prisma.ThresholdOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Thresholds.
+     */
+    cursor?: Prisma.ThresholdWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Thresholds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Thresholds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Thresholds.
+     */
+    distinct?: Prisma.ThresholdScalarFieldEnum | Prisma.ThresholdScalarFieldEnum[];
+};
+/**
+ * Threshold findFirstOrThrow
+ */
+export type ThresholdFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * Filter, which Threshold to fetch.
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Thresholds to fetch.
+     */
+    orderBy?: Prisma.ThresholdOrderByWithRelationInput | Prisma.ThresholdOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Thresholds.
+     */
+    cursor?: Prisma.ThresholdWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Thresholds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Thresholds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Thresholds.
+     */
+    distinct?: Prisma.ThresholdScalarFieldEnum | Prisma.ThresholdScalarFieldEnum[];
+};
+/**
+ * Threshold findMany
+ */
+export type ThresholdFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * Filter, which Thresholds to fetch.
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Thresholds to fetch.
+     */
+    orderBy?: Prisma.ThresholdOrderByWithRelationInput | Prisma.ThresholdOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing Thresholds.
+     */
+    cursor?: Prisma.ThresholdWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Thresholds from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Thresholds.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Thresholds.
+     */
+    distinct?: Prisma.ThresholdScalarFieldEnum | Prisma.ThresholdScalarFieldEnum[];
+};
+/**
+ * Threshold create
+ */
+export type ThresholdCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a Threshold.
+     */
+    data: Prisma.XOR<Prisma.ThresholdCreateInput, Prisma.ThresholdUncheckedCreateInput>;
+};
+/**
+ * Threshold createMany
+ */
+export type ThresholdCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Thresholds.
+     */
+    data: Prisma.ThresholdCreateManyInput | Prisma.ThresholdCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Threshold createManyAndReturn
+ */
+export type ThresholdCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * The data used to create many Thresholds.
+     */
+    data: Prisma.ThresholdCreateManyInput | Prisma.ThresholdCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * Threshold update
+ */
+export type ThresholdUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a Threshold.
+     */
+    data: Prisma.XOR<Prisma.ThresholdUpdateInput, Prisma.ThresholdUncheckedUpdateInput>;
+    /**
+     * Choose, which Threshold to update.
+     */
+    where: Prisma.ThresholdWhereUniqueInput;
+};
+/**
+ * Threshold updateMany
+ */
+export type ThresholdUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Thresholds.
+     */
+    data: Prisma.XOR<Prisma.ThresholdUpdateManyMutationInput, Prisma.ThresholdUncheckedUpdateManyInput>;
+    /**
+     * Filter which Thresholds to update
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * Limit how many Thresholds to update.
+     */
+    limit?: number;
+};
+/**
+ * Threshold updateManyAndReturn
+ */
+export type ThresholdUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * The data used to update Thresholds.
+     */
+    data: Prisma.XOR<Prisma.ThresholdUpdateManyMutationInput, Prisma.ThresholdUncheckedUpdateManyInput>;
+    /**
+     * Filter which Thresholds to update
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * Limit how many Thresholds to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * Threshold upsert
+ */
+export type ThresholdUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the Threshold to update in case it exists.
+     */
+    where: Prisma.ThresholdWhereUniqueInput;
+    /**
+     * In case the Threshold found by the `where` argument doesn't exist, create a new Threshold with this data.
+     */
+    create: Prisma.XOR<Prisma.ThresholdCreateInput, Prisma.ThresholdUncheckedCreateInput>;
+    /**
+     * In case the Threshold was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.ThresholdUpdateInput, Prisma.ThresholdUncheckedUpdateInput>;
+};
+/**
+ * Threshold delete
+ */
+export type ThresholdDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+    /**
+     * Filter which Threshold to delete.
+     */
+    where: Prisma.ThresholdWhereUniqueInput;
+};
+/**
+ * Threshold deleteMany
+ */
+export type ThresholdDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Thresholds to delete
+     */
+    where?: Prisma.ThresholdWhereInput;
+    /**
+     * Limit how many Thresholds to delete.
+     */
+    limit?: number;
+};
+/**
+ * Threshold without action
+ */
+export type ThresholdDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Threshold
+     */
+    select?: Prisma.ThresholdSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Threshold
+     */
+    omit?: Prisma.ThresholdOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ThresholdInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=Threshold.d.ts.map

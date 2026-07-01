@@ -1,0 +1,1434 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model Lease
+ *
+ */
+export type LeaseModel = runtime.Types.Result.DefaultSelection<Prisma.$LeasePayload>;
+export type AggregateLease = {
+    _count: LeaseCountAggregateOutputType | null;
+    _avg: LeaseAvgAggregateOutputType | null;
+    _sum: LeaseSumAggregateOutputType | null;
+    _min: LeaseMinAggregateOutputType | null;
+    _max: LeaseMaxAggregateOutputType | null;
+};
+export type LeaseAvgAggregateOutputType = {
+    lease_id: number | null;
+    late_payment_fee_per_day: number | null;
+    rent_amount: number | null;
+    security_deposit: number | null;
+    bump: number | null;
+};
+export type LeaseSumAggregateOutputType = {
+    lease_id: number | null;
+    late_payment_fee_per_day: bigint | null;
+    rent_amount: bigint | null;
+    security_deposit: bigint | null;
+    bump: number | null;
+};
+export type LeaseMinAggregateOutputType = {
+    property_system: string | null;
+    lease_id: number | null;
+    is_arbitrar_approved: boolean | null;
+    initailized_at: Date | null;
+    property: string | null;
+    lessee: string | null;
+    periodic_pay: Date | null;
+    late_payment_fee_per_day: bigint | null;
+    status: $Enums.LeaseStatus | null;
+    rent_amount: bigint | null;
+    security_deposit: bigint | null;
+    last_payement: Date | null;
+    agreemenbt_hash: string | null;
+    lessee_acceptance_deadline: Date | null;
+    lease_end_time: Date | null;
+    neutral: string | null;
+    bump: number | null;
+};
+export type LeaseMaxAggregateOutputType = {
+    property_system: string | null;
+    lease_id: number | null;
+    is_arbitrar_approved: boolean | null;
+    initailized_at: Date | null;
+    property: string | null;
+    lessee: string | null;
+    periodic_pay: Date | null;
+    late_payment_fee_per_day: bigint | null;
+    status: $Enums.LeaseStatus | null;
+    rent_amount: bigint | null;
+    security_deposit: bigint | null;
+    last_payement: Date | null;
+    agreemenbt_hash: string | null;
+    lessee_acceptance_deadline: Date | null;
+    lease_end_time: Date | null;
+    neutral: string | null;
+    bump: number | null;
+};
+export type LeaseCountAggregateOutputType = {
+    property_system: number;
+    lease_id: number;
+    is_arbitrar_approved: number;
+    arbitrar_approval_count: number;
+    initailized_at: number;
+    property: number;
+    lessee: number;
+    periodic_pay: number;
+    late_payment_fee_per_day: number;
+    status: number;
+    rent_amount: number;
+    security_deposit: number;
+    last_payement: number;
+    agreemenbt_hash: number;
+    lessee_acceptance_deadline: number;
+    lease_end_time: number;
+    neutral: number;
+    bump: number;
+    _all: number;
+};
+export type LeaseAvgAggregateInputType = {
+    lease_id?: true;
+    late_payment_fee_per_day?: true;
+    rent_amount?: true;
+    security_deposit?: true;
+    bump?: true;
+};
+export type LeaseSumAggregateInputType = {
+    lease_id?: true;
+    late_payment_fee_per_day?: true;
+    rent_amount?: true;
+    security_deposit?: true;
+    bump?: true;
+};
+export type LeaseMinAggregateInputType = {
+    property_system?: true;
+    lease_id?: true;
+    is_arbitrar_approved?: true;
+    initailized_at?: true;
+    property?: true;
+    lessee?: true;
+    periodic_pay?: true;
+    late_payment_fee_per_day?: true;
+    status?: true;
+    rent_amount?: true;
+    security_deposit?: true;
+    last_payement?: true;
+    agreemenbt_hash?: true;
+    lessee_acceptance_deadline?: true;
+    lease_end_time?: true;
+    neutral?: true;
+    bump?: true;
+};
+export type LeaseMaxAggregateInputType = {
+    property_system?: true;
+    lease_id?: true;
+    is_arbitrar_approved?: true;
+    initailized_at?: true;
+    property?: true;
+    lessee?: true;
+    periodic_pay?: true;
+    late_payment_fee_per_day?: true;
+    status?: true;
+    rent_amount?: true;
+    security_deposit?: true;
+    last_payement?: true;
+    agreemenbt_hash?: true;
+    lessee_acceptance_deadline?: true;
+    lease_end_time?: true;
+    neutral?: true;
+    bump?: true;
+};
+export type LeaseCountAggregateInputType = {
+    property_system?: true;
+    lease_id?: true;
+    is_arbitrar_approved?: true;
+    arbitrar_approval_count?: true;
+    initailized_at?: true;
+    property?: true;
+    lessee?: true;
+    periodic_pay?: true;
+    late_payment_fee_per_day?: true;
+    status?: true;
+    rent_amount?: true;
+    security_deposit?: true;
+    last_payement?: true;
+    agreemenbt_hash?: true;
+    lessee_acceptance_deadline?: true;
+    lease_end_time?: true;
+    neutral?: true;
+    bump?: true;
+    _all?: true;
+};
+export type LeaseAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Lease to aggregate.
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Leases to fetch.
+     */
+    orderBy?: Prisma.LeaseOrderByWithRelationInput | Prisma.LeaseOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.LeaseWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Leases from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Leases.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned Leases
+    **/
+    _count?: true | LeaseCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: LeaseAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: LeaseSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: LeaseMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: LeaseMaxAggregateInputType;
+};
+export type GetLeaseAggregateType<T extends LeaseAggregateArgs> = {
+    [P in keyof T & keyof AggregateLease]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateLease[P]> : Prisma.GetScalarType<T[P], AggregateLease[P]>;
+};
+export type LeaseGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.LeaseWhereInput;
+    orderBy?: Prisma.LeaseOrderByWithAggregationInput | Prisma.LeaseOrderByWithAggregationInput[];
+    by: Prisma.LeaseScalarFieldEnum[] | Prisma.LeaseScalarFieldEnum;
+    having?: Prisma.LeaseScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: LeaseCountAggregateInputType | true;
+    _avg?: LeaseAvgAggregateInputType;
+    _sum?: LeaseSumAggregateInputType;
+    _min?: LeaseMinAggregateInputType;
+    _max?: LeaseMaxAggregateInputType;
+};
+export type LeaseGroupByOutputType = {
+    property_system: string;
+    lease_id: number;
+    is_arbitrar_approved: boolean;
+    arbitrar_approval_count: string[];
+    initailized_at: Date;
+    property: string;
+    lessee: string;
+    periodic_pay: Date;
+    late_payment_fee_per_day: bigint;
+    status: $Enums.LeaseStatus;
+    rent_amount: bigint;
+    security_deposit: bigint;
+    last_payement: Date;
+    agreemenbt_hash: string;
+    lessee_acceptance_deadline: Date;
+    lease_end_time: Date;
+    neutral: string;
+    bump: number;
+    _count: LeaseCountAggregateOutputType | null;
+    _avg: LeaseAvgAggregateOutputType | null;
+    _sum: LeaseSumAggregateOutputType | null;
+    _min: LeaseMinAggregateOutputType | null;
+    _max: LeaseMaxAggregateOutputType | null;
+};
+export type GetLeaseGroupByPayload<T extends LeaseGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<LeaseGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof LeaseGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], LeaseGroupByOutputType[P]> : Prisma.GetScalarType<T[P], LeaseGroupByOutputType[P]>;
+}>>;
+export type LeaseWhereInput = {
+    AND?: Prisma.LeaseWhereInput | Prisma.LeaseWhereInput[];
+    OR?: Prisma.LeaseWhereInput[];
+    NOT?: Prisma.LeaseWhereInput | Prisma.LeaseWhereInput[];
+    property_system?: Prisma.StringFilter<"Lease"> | string;
+    lease_id?: Prisma.IntFilter<"Lease"> | number;
+    is_arbitrar_approved?: Prisma.BoolFilter<"Lease"> | boolean;
+    arbitrar_approval_count?: Prisma.StringNullableListFilter<"Lease">;
+    initailized_at?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    property?: Prisma.StringFilter<"Lease"> | string;
+    lessee?: Prisma.StringFilter<"Lease"> | string;
+    periodic_pay?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntFilter<"Lease"> | bigint | number;
+    status?: Prisma.EnumLeaseStatusFilter<"Lease"> | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntFilter<"Lease"> | bigint | number;
+    security_deposit?: Prisma.BigIntFilter<"Lease"> | bigint | number;
+    last_payement?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    agreemenbt_hash?: Prisma.StringFilter<"Lease"> | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    lease_end_time?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    neutral?: Prisma.StringFilter<"Lease"> | string;
+    bump?: Prisma.IntFilter<"Lease"> | number;
+};
+export type LeaseOrderByWithRelationInput = {
+    property_system?: Prisma.SortOrder;
+    lease_id?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    arbitrar_approval_count?: Prisma.SortOrder;
+    initailized_at?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    lessee?: Prisma.SortOrder;
+    periodic_pay?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    last_payement?: Prisma.SortOrder;
+    agreemenbt_hash?: Prisma.SortOrder;
+    lessee_acceptance_deadline?: Prisma.SortOrder;
+    lease_end_time?: Prisma.SortOrder;
+    neutral?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type LeaseWhereUniqueInput = Prisma.AtLeast<{
+    lease_id_property?: Prisma.LeaseLease_idPropertyCompoundUniqueInput;
+    AND?: Prisma.LeaseWhereInput | Prisma.LeaseWhereInput[];
+    OR?: Prisma.LeaseWhereInput[];
+    NOT?: Prisma.LeaseWhereInput | Prisma.LeaseWhereInput[];
+    property_system?: Prisma.StringFilter<"Lease"> | string;
+    lease_id?: Prisma.IntFilter<"Lease"> | number;
+    is_arbitrar_approved?: Prisma.BoolFilter<"Lease"> | boolean;
+    arbitrar_approval_count?: Prisma.StringNullableListFilter<"Lease">;
+    initailized_at?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    property?: Prisma.StringFilter<"Lease"> | string;
+    lessee?: Prisma.StringFilter<"Lease"> | string;
+    periodic_pay?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntFilter<"Lease"> | bigint | number;
+    status?: Prisma.EnumLeaseStatusFilter<"Lease"> | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntFilter<"Lease"> | bigint | number;
+    security_deposit?: Prisma.BigIntFilter<"Lease"> | bigint | number;
+    last_payement?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    agreemenbt_hash?: Prisma.StringFilter<"Lease"> | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    lease_end_time?: Prisma.DateTimeFilter<"Lease"> | Date | string;
+    neutral?: Prisma.StringFilter<"Lease"> | string;
+    bump?: Prisma.IntFilter<"Lease"> | number;
+}, "lease_id_property">;
+export type LeaseOrderByWithAggregationInput = {
+    property_system?: Prisma.SortOrder;
+    lease_id?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    arbitrar_approval_count?: Prisma.SortOrder;
+    initailized_at?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    lessee?: Prisma.SortOrder;
+    periodic_pay?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    last_payement?: Prisma.SortOrder;
+    agreemenbt_hash?: Prisma.SortOrder;
+    lessee_acceptance_deadline?: Prisma.SortOrder;
+    lease_end_time?: Prisma.SortOrder;
+    neutral?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    _count?: Prisma.LeaseCountOrderByAggregateInput;
+    _avg?: Prisma.LeaseAvgOrderByAggregateInput;
+    _max?: Prisma.LeaseMaxOrderByAggregateInput;
+    _min?: Prisma.LeaseMinOrderByAggregateInput;
+    _sum?: Prisma.LeaseSumOrderByAggregateInput;
+};
+export type LeaseScalarWhereWithAggregatesInput = {
+    AND?: Prisma.LeaseScalarWhereWithAggregatesInput | Prisma.LeaseScalarWhereWithAggregatesInput[];
+    OR?: Prisma.LeaseScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.LeaseScalarWhereWithAggregatesInput | Prisma.LeaseScalarWhereWithAggregatesInput[];
+    property_system?: Prisma.StringWithAggregatesFilter<"Lease"> | string;
+    lease_id?: Prisma.IntWithAggregatesFilter<"Lease"> | number;
+    is_arbitrar_approved?: Prisma.BoolWithAggregatesFilter<"Lease"> | boolean;
+    arbitrar_approval_count?: Prisma.StringNullableListFilter<"Lease">;
+    initailized_at?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string;
+    property?: Prisma.StringWithAggregatesFilter<"Lease"> | string;
+    lessee?: Prisma.StringWithAggregatesFilter<"Lease"> | string;
+    periodic_pay?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntWithAggregatesFilter<"Lease"> | bigint | number;
+    status?: Prisma.EnumLeaseStatusWithAggregatesFilter<"Lease"> | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntWithAggregatesFilter<"Lease"> | bigint | number;
+    security_deposit?: Prisma.BigIntWithAggregatesFilter<"Lease"> | bigint | number;
+    last_payement?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string;
+    agreemenbt_hash?: Prisma.StringWithAggregatesFilter<"Lease"> | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string;
+    lease_end_time?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string;
+    neutral?: Prisma.StringWithAggregatesFilter<"Lease"> | string;
+    bump?: Prisma.IntWithAggregatesFilter<"Lease"> | number;
+};
+export type LeaseCreateInput = {
+    property_system: string;
+    lease_id: number;
+    is_arbitrar_approved: boolean;
+    arbitrar_approval_count?: Prisma.LeaseCreatearbitrar_approval_countInput | string[];
+    initailized_at?: Date | string;
+    property: string;
+    lessee: string;
+    periodic_pay: Date | string;
+    late_payment_fee_per_day: bigint | number;
+    status: $Enums.LeaseStatus;
+    rent_amount: bigint | number;
+    security_deposit: bigint | number;
+    last_payement: Date | string;
+    agreemenbt_hash: string;
+    lessee_acceptance_deadline: Date | string;
+    lease_end_time: Date | string;
+    neutral: string;
+    bump: number;
+};
+export type LeaseUncheckedCreateInput = {
+    property_system: string;
+    lease_id: number;
+    is_arbitrar_approved: boolean;
+    arbitrar_approval_count?: Prisma.LeaseCreatearbitrar_approval_countInput | string[];
+    initailized_at?: Date | string;
+    property: string;
+    lessee: string;
+    periodic_pay: Date | string;
+    late_payment_fee_per_day: bigint | number;
+    status: $Enums.LeaseStatus;
+    rent_amount: bigint | number;
+    security_deposit: bigint | number;
+    last_payement: Date | string;
+    agreemenbt_hash: string;
+    lessee_acceptance_deadline: Date | string;
+    lease_end_time: Date | string;
+    neutral: string;
+    bump: number;
+};
+export type LeaseUpdateInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    lease_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    arbitrar_approval_count?: Prisma.LeaseUpdatearbitrar_approval_countInput | string[];
+    initailized_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee?: Prisma.StringFieldUpdateOperationsInput | string;
+    periodic_pay?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    status?: Prisma.EnumLeaseStatusFieldUpdateOperationsInput | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    security_deposit?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    last_payement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    agreemenbt_hash?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    neutral?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type LeaseUncheckedUpdateInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    lease_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    arbitrar_approval_count?: Prisma.LeaseUpdatearbitrar_approval_countInput | string[];
+    initailized_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee?: Prisma.StringFieldUpdateOperationsInput | string;
+    periodic_pay?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    status?: Prisma.EnumLeaseStatusFieldUpdateOperationsInput | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    security_deposit?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    last_payement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    agreemenbt_hash?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    neutral?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type LeaseCreateManyInput = {
+    property_system: string;
+    lease_id: number;
+    is_arbitrar_approved: boolean;
+    arbitrar_approval_count?: Prisma.LeaseCreatearbitrar_approval_countInput | string[];
+    initailized_at?: Date | string;
+    property: string;
+    lessee: string;
+    periodic_pay: Date | string;
+    late_payment_fee_per_day: bigint | number;
+    status: $Enums.LeaseStatus;
+    rent_amount: bigint | number;
+    security_deposit: bigint | number;
+    last_payement: Date | string;
+    agreemenbt_hash: string;
+    lessee_acceptance_deadline: Date | string;
+    lease_end_time: Date | string;
+    neutral: string;
+    bump: number;
+};
+export type LeaseUpdateManyMutationInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    lease_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    arbitrar_approval_count?: Prisma.LeaseUpdatearbitrar_approval_countInput | string[];
+    initailized_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee?: Prisma.StringFieldUpdateOperationsInput | string;
+    periodic_pay?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    status?: Prisma.EnumLeaseStatusFieldUpdateOperationsInput | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    security_deposit?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    last_payement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    agreemenbt_hash?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    neutral?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type LeaseUncheckedUpdateManyInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    lease_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    arbitrar_approval_count?: Prisma.LeaseUpdatearbitrar_approval_countInput | string[];
+    initailized_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee?: Prisma.StringFieldUpdateOperationsInput | string;
+    periodic_pay?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    late_payment_fee_per_day?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    status?: Prisma.EnumLeaseStatusFieldUpdateOperationsInput | $Enums.LeaseStatus;
+    rent_amount?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    security_deposit?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    last_payement?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    agreemenbt_hash?: Prisma.StringFieldUpdateOperationsInput | string;
+    lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    neutral?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type LeaseLease_idPropertyCompoundUniqueInput = {
+    lease_id: number;
+    property: string;
+};
+export type LeaseCountOrderByAggregateInput = {
+    property_system?: Prisma.SortOrder;
+    lease_id?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    arbitrar_approval_count?: Prisma.SortOrder;
+    initailized_at?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    lessee?: Prisma.SortOrder;
+    periodic_pay?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    last_payement?: Prisma.SortOrder;
+    agreemenbt_hash?: Prisma.SortOrder;
+    lessee_acceptance_deadline?: Prisma.SortOrder;
+    lease_end_time?: Prisma.SortOrder;
+    neutral?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type LeaseAvgOrderByAggregateInput = {
+    lease_id?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type LeaseMaxOrderByAggregateInput = {
+    property_system?: Prisma.SortOrder;
+    lease_id?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    initailized_at?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    lessee?: Prisma.SortOrder;
+    periodic_pay?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    last_payement?: Prisma.SortOrder;
+    agreemenbt_hash?: Prisma.SortOrder;
+    lessee_acceptance_deadline?: Prisma.SortOrder;
+    lease_end_time?: Prisma.SortOrder;
+    neutral?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type LeaseMinOrderByAggregateInput = {
+    property_system?: Prisma.SortOrder;
+    lease_id?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    initailized_at?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    lessee?: Prisma.SortOrder;
+    periodic_pay?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    last_payement?: Prisma.SortOrder;
+    agreemenbt_hash?: Prisma.SortOrder;
+    lessee_acceptance_deadline?: Prisma.SortOrder;
+    lease_end_time?: Prisma.SortOrder;
+    neutral?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type LeaseSumOrderByAggregateInput = {
+    lease_id?: Prisma.SortOrder;
+    late_payment_fee_per_day?: Prisma.SortOrder;
+    rent_amount?: Prisma.SortOrder;
+    security_deposit?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type LeaseCreatearbitrar_approval_countInput = {
+    set: string[];
+};
+export type LeaseUpdatearbitrar_approval_countInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type EnumLeaseStatusFieldUpdateOperationsInput = {
+    set?: $Enums.LeaseStatus;
+};
+export type LeaseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_system?: boolean;
+    lease_id?: boolean;
+    is_arbitrar_approved?: boolean;
+    arbitrar_approval_count?: boolean;
+    initailized_at?: boolean;
+    property?: boolean;
+    lessee?: boolean;
+    periodic_pay?: boolean;
+    late_payment_fee_per_day?: boolean;
+    status?: boolean;
+    rent_amount?: boolean;
+    security_deposit?: boolean;
+    last_payement?: boolean;
+    agreemenbt_hash?: boolean;
+    lessee_acceptance_deadline?: boolean;
+    lease_end_time?: boolean;
+    neutral?: boolean;
+    bump?: boolean;
+}, ExtArgs["result"]["lease"]>;
+export type LeaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_system?: boolean;
+    lease_id?: boolean;
+    is_arbitrar_approved?: boolean;
+    arbitrar_approval_count?: boolean;
+    initailized_at?: boolean;
+    property?: boolean;
+    lessee?: boolean;
+    periodic_pay?: boolean;
+    late_payment_fee_per_day?: boolean;
+    status?: boolean;
+    rent_amount?: boolean;
+    security_deposit?: boolean;
+    last_payement?: boolean;
+    agreemenbt_hash?: boolean;
+    lessee_acceptance_deadline?: boolean;
+    lease_end_time?: boolean;
+    neutral?: boolean;
+    bump?: boolean;
+}, ExtArgs["result"]["lease"]>;
+export type LeaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_system?: boolean;
+    lease_id?: boolean;
+    is_arbitrar_approved?: boolean;
+    arbitrar_approval_count?: boolean;
+    initailized_at?: boolean;
+    property?: boolean;
+    lessee?: boolean;
+    periodic_pay?: boolean;
+    late_payment_fee_per_day?: boolean;
+    status?: boolean;
+    rent_amount?: boolean;
+    security_deposit?: boolean;
+    last_payement?: boolean;
+    agreemenbt_hash?: boolean;
+    lessee_acceptance_deadline?: boolean;
+    lease_end_time?: boolean;
+    neutral?: boolean;
+    bump?: boolean;
+}, ExtArgs["result"]["lease"]>;
+export type LeaseSelectScalar = {
+    property_system?: boolean;
+    lease_id?: boolean;
+    is_arbitrar_approved?: boolean;
+    arbitrar_approval_count?: boolean;
+    initailized_at?: boolean;
+    property?: boolean;
+    lessee?: boolean;
+    periodic_pay?: boolean;
+    late_payment_fee_per_day?: boolean;
+    status?: boolean;
+    rent_amount?: boolean;
+    security_deposit?: boolean;
+    last_payement?: boolean;
+    agreemenbt_hash?: boolean;
+    lessee_acceptance_deadline?: boolean;
+    lease_end_time?: boolean;
+    neutral?: boolean;
+    bump?: boolean;
+};
+export type LeaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "lease_id" | "is_arbitrar_approved" | "arbitrar_approval_count" | "initailized_at" | "property" | "lessee" | "periodic_pay" | "late_payment_fee_per_day" | "status" | "rent_amount" | "security_deposit" | "last_payement" | "agreemenbt_hash" | "lessee_acceptance_deadline" | "lease_end_time" | "neutral" | "bump", ExtArgs["result"]["lease"]>;
+export type $LeasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "Lease";
+    objects: {};
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        property_system: string;
+        lease_id: number;
+        is_arbitrar_approved: boolean;
+        arbitrar_approval_count: string[];
+        initailized_at: Date;
+        property: string;
+        lessee: string;
+        periodic_pay: Date;
+        late_payment_fee_per_day: bigint;
+        status: $Enums.LeaseStatus;
+        rent_amount: bigint;
+        security_deposit: bigint;
+        last_payement: Date;
+        agreemenbt_hash: string;
+        lessee_acceptance_deadline: Date;
+        lease_end_time: Date;
+        neutral: string;
+        bump: number;
+    }, ExtArgs["result"]["lease"]>;
+    composites: {};
+};
+export type LeaseGetPayload<S extends boolean | null | undefined | LeaseDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$LeasePayload, S>;
+export type LeaseCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<LeaseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: LeaseCountAggregateInputType | true;
+};
+export interface LeaseDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['Lease'];
+        meta: {
+            name: 'Lease';
+        };
+    };
+    /**
+     * Find zero or one Lease that matches the filter.
+     * @param {LeaseFindUniqueArgs} args - Arguments to find a Lease
+     * @example
+     * // Get one Lease
+     * const lease = await prisma.lease.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends LeaseFindUniqueArgs>(args: Prisma.SelectSubset<T, LeaseFindUniqueArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Lease that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {LeaseFindUniqueOrThrowArgs} args - Arguments to find a Lease
+     * @example
+     * // Get one Lease
+     * const lease = await prisma.lease.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends LeaseFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, LeaseFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Lease that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseFindFirstArgs} args - Arguments to find a Lease
+     * @example
+     * // Get one Lease
+     * const lease = await prisma.lease.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends LeaseFindFirstArgs>(args?: Prisma.SelectSubset<T, LeaseFindFirstArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Lease that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseFindFirstOrThrowArgs} args - Arguments to find a Lease
+     * @example
+     * // Get one Lease
+     * const lease = await prisma.lease.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends LeaseFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, LeaseFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Leases that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Leases
+     * const leases = await prisma.lease.findMany()
+     *
+     * // Get first 10 Leases
+     * const leases = await prisma.lease.findMany({ take: 10 })
+     *
+     * // Only select the `property_system`
+     * const leaseWithProperty_systemOnly = await prisma.lease.findMany({ select: { property_system: true } })
+     *
+     */
+    findMany<T extends LeaseFindManyArgs>(args?: Prisma.SelectSubset<T, LeaseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Lease.
+     * @param {LeaseCreateArgs} args - Arguments to create a Lease.
+     * @example
+     * // Create one Lease
+     * const Lease = await prisma.lease.create({
+     *   data: {
+     *     // ... data to create a Lease
+     *   }
+     * })
+     *
+     */
+    create<T extends LeaseCreateArgs>(args: Prisma.SelectSubset<T, LeaseCreateArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Leases.
+     * @param {LeaseCreateManyArgs} args - Arguments to create many Leases.
+     * @example
+     * // Create many Leases
+     * const lease = await prisma.lease.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends LeaseCreateManyArgs>(args?: Prisma.SelectSubset<T, LeaseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Leases and returns the data saved in the database.
+     * @param {LeaseCreateManyAndReturnArgs} args - Arguments to create many Leases.
+     * @example
+     * // Create many Leases
+     * const lease = await prisma.lease.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Leases and only return the `property_system`
+     * const leaseWithProperty_systemOnly = await prisma.lease.createManyAndReturn({
+     *   select: { property_system: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends LeaseCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, LeaseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Lease.
+     * @param {LeaseDeleteArgs} args - Arguments to delete one Lease.
+     * @example
+     * // Delete one Lease
+     * const Lease = await prisma.lease.delete({
+     *   where: {
+     *     // ... filter to delete one Lease
+     *   }
+     * })
+     *
+     */
+    delete<T extends LeaseDeleteArgs>(args: Prisma.SelectSubset<T, LeaseDeleteArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Lease.
+     * @param {LeaseUpdateArgs} args - Arguments to update one Lease.
+     * @example
+     * // Update one Lease
+     * const lease = await prisma.lease.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends LeaseUpdateArgs>(args: Prisma.SelectSubset<T, LeaseUpdateArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Leases.
+     * @param {LeaseDeleteManyArgs} args - Arguments to filter Leases to delete.
+     * @example
+     * // Delete a few Leases
+     * const { count } = await prisma.lease.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends LeaseDeleteManyArgs>(args?: Prisma.SelectSubset<T, LeaseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Leases.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Leases
+     * const lease = await prisma.lease.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends LeaseUpdateManyArgs>(args: Prisma.SelectSubset<T, LeaseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Leases and returns the data updated in the database.
+     * @param {LeaseUpdateManyAndReturnArgs} args - Arguments to update many Leases.
+     * @example
+     * // Update many Leases
+     * const lease = await prisma.lease.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Leases and only return the `property_system`
+     * const leaseWithProperty_systemOnly = await prisma.lease.updateManyAndReturn({
+     *   select: { property_system: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends LeaseUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, LeaseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Lease.
+     * @param {LeaseUpsertArgs} args - Arguments to update or create a Lease.
+     * @example
+     * // Update or create a Lease
+     * const lease = await prisma.lease.upsert({
+     *   create: {
+     *     // ... data to create a Lease
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Lease we want to update
+     *   }
+     * })
+     */
+    upsert<T extends LeaseUpsertArgs>(args: Prisma.SelectSubset<T, LeaseUpsertArgs<ExtArgs>>): Prisma.Prisma__LeaseClient<runtime.Types.Result.GetResult<Prisma.$LeasePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Leases.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseCountArgs} args - Arguments to filter Leases to count.
+     * @example
+     * // Count the number of Leases
+     * const count = await prisma.lease.count({
+     *   where: {
+     *     // ... the filter for the Leases we want to count
+     *   }
+     * })
+    **/
+    count<T extends LeaseCountArgs>(args?: Prisma.Subset<T, LeaseCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], LeaseCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Lease.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends LeaseAggregateArgs>(args: Prisma.Subset<T, LeaseAggregateArgs>): Prisma.PrismaPromise<GetLeaseAggregateType<T>>;
+    /**
+     * Group by Lease.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {LeaseGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends LeaseGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: LeaseGroupByArgs['orderBy'];
+    } : {
+        orderBy?: LeaseGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, LeaseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetLeaseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the Lease model
+     */
+    readonly fields: LeaseFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for Lease.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__LeaseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the Lease model
+ */
+export interface LeaseFieldRefs {
+    readonly property_system: Prisma.FieldRef<"Lease", 'String'>;
+    readonly lease_id: Prisma.FieldRef<"Lease", 'Int'>;
+    readonly is_arbitrar_approved: Prisma.FieldRef<"Lease", 'Boolean'>;
+    readonly arbitrar_approval_count: Prisma.FieldRef<"Lease", 'String[]'>;
+    readonly initailized_at: Prisma.FieldRef<"Lease", 'DateTime'>;
+    readonly property: Prisma.FieldRef<"Lease", 'String'>;
+    readonly lessee: Prisma.FieldRef<"Lease", 'String'>;
+    readonly periodic_pay: Prisma.FieldRef<"Lease", 'DateTime'>;
+    readonly late_payment_fee_per_day: Prisma.FieldRef<"Lease", 'BigInt'>;
+    readonly status: Prisma.FieldRef<"Lease", 'LeaseStatus'>;
+    readonly rent_amount: Prisma.FieldRef<"Lease", 'BigInt'>;
+    readonly security_deposit: Prisma.FieldRef<"Lease", 'BigInt'>;
+    readonly last_payement: Prisma.FieldRef<"Lease", 'DateTime'>;
+    readonly agreemenbt_hash: Prisma.FieldRef<"Lease", 'String'>;
+    readonly lessee_acceptance_deadline: Prisma.FieldRef<"Lease", 'DateTime'>;
+    readonly lease_end_time: Prisma.FieldRef<"Lease", 'DateTime'>;
+    readonly neutral: Prisma.FieldRef<"Lease", 'String'>;
+    readonly bump: Prisma.FieldRef<"Lease", 'Int'>;
+}
+/**
+ * Lease findUnique
+ */
+export type LeaseFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * Filter, which Lease to fetch.
+     */
+    where: Prisma.LeaseWhereUniqueInput;
+};
+/**
+ * Lease findUniqueOrThrow
+ */
+export type LeaseFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * Filter, which Lease to fetch.
+     */
+    where: Prisma.LeaseWhereUniqueInput;
+};
+/**
+ * Lease findFirst
+ */
+export type LeaseFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * Filter, which Lease to fetch.
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Leases to fetch.
+     */
+    orderBy?: Prisma.LeaseOrderByWithRelationInput | Prisma.LeaseOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Leases.
+     */
+    cursor?: Prisma.LeaseWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Leases from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Leases.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Leases.
+     */
+    distinct?: Prisma.LeaseScalarFieldEnum | Prisma.LeaseScalarFieldEnum[];
+};
+/**
+ * Lease findFirstOrThrow
+ */
+export type LeaseFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * Filter, which Lease to fetch.
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Leases to fetch.
+     */
+    orderBy?: Prisma.LeaseOrderByWithRelationInput | Prisma.LeaseOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Leases.
+     */
+    cursor?: Prisma.LeaseWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Leases from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Leases.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Leases.
+     */
+    distinct?: Prisma.LeaseScalarFieldEnum | Prisma.LeaseScalarFieldEnum[];
+};
+/**
+ * Lease findMany
+ */
+export type LeaseFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * Filter, which Leases to fetch.
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Leases to fetch.
+     */
+    orderBy?: Prisma.LeaseOrderByWithRelationInput | Prisma.LeaseOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing Leases.
+     */
+    cursor?: Prisma.LeaseWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Leases from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Leases.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Leases.
+     */
+    distinct?: Prisma.LeaseScalarFieldEnum | Prisma.LeaseScalarFieldEnum[];
+};
+/**
+ * Lease create
+ */
+export type LeaseCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * The data needed to create a Lease.
+     */
+    data: Prisma.XOR<Prisma.LeaseCreateInput, Prisma.LeaseUncheckedCreateInput>;
+};
+/**
+ * Lease createMany
+ */
+export type LeaseCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Leases.
+     */
+    data: Prisma.LeaseCreateManyInput | Prisma.LeaseCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Lease createManyAndReturn
+ */
+export type LeaseCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * The data used to create many Leases.
+     */
+    data: Prisma.LeaseCreateManyInput | Prisma.LeaseCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Lease update
+ */
+export type LeaseUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * The data needed to update a Lease.
+     */
+    data: Prisma.XOR<Prisma.LeaseUpdateInput, Prisma.LeaseUncheckedUpdateInput>;
+    /**
+     * Choose, which Lease to update.
+     */
+    where: Prisma.LeaseWhereUniqueInput;
+};
+/**
+ * Lease updateMany
+ */
+export type LeaseUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Leases.
+     */
+    data: Prisma.XOR<Prisma.LeaseUpdateManyMutationInput, Prisma.LeaseUncheckedUpdateManyInput>;
+    /**
+     * Filter which Leases to update
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * Limit how many Leases to update.
+     */
+    limit?: number;
+};
+/**
+ * Lease updateManyAndReturn
+ */
+export type LeaseUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * The data used to update Leases.
+     */
+    data: Prisma.XOR<Prisma.LeaseUpdateManyMutationInput, Prisma.LeaseUncheckedUpdateManyInput>;
+    /**
+     * Filter which Leases to update
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * Limit how many Leases to update.
+     */
+    limit?: number;
+};
+/**
+ * Lease upsert
+ */
+export type LeaseUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * The filter to search for the Lease to update in case it exists.
+     */
+    where: Prisma.LeaseWhereUniqueInput;
+    /**
+     * In case the Lease found by the `where` argument doesn't exist, create a new Lease with this data.
+     */
+    create: Prisma.XOR<Prisma.LeaseCreateInput, Prisma.LeaseUncheckedCreateInput>;
+    /**
+     * In case the Lease was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.LeaseUpdateInput, Prisma.LeaseUncheckedUpdateInput>;
+};
+/**
+ * Lease delete
+ */
+export type LeaseDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+    /**
+     * Filter which Lease to delete.
+     */
+    where: Prisma.LeaseWhereUniqueInput;
+};
+/**
+ * Lease deleteMany
+ */
+export type LeaseDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Leases to delete
+     */
+    where?: Prisma.LeaseWhereInput;
+    /**
+     * Limit how many Leases to delete.
+     */
+    limit?: number;
+};
+/**
+ * Lease without action
+ */
+export type LeaseDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Lease
+     */
+    select?: Prisma.LeaseSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Lease
+     */
+    omit?: Prisma.LeaseOmit<ExtArgs> | null;
+};
+//# sourceMappingURL=Lease.d.ts.map

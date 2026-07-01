@@ -1,0 +1,1513 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model PropertyAccount
+ *
+ */
+export type PropertyAccountModel = runtime.Types.Result.DefaultSelection<Prisma.$PropertyAccountPayload>;
+export type AggregatePropertyAccount = {
+    _count: PropertyAccountCountAggregateOutputType | null;
+    _avg: PropertyAccountAvgAggregateOutputType | null;
+    _sum: PropertyAccountSumAggregateOutputType | null;
+    _min: PropertyAccountMinAggregateOutputType | null;
+    _max: PropertyAccountMaxAggregateOutputType | null;
+};
+export type PropertyAccountAvgAggregateOutputType = {
+    property_id: number | null;
+    state_id: number | null;
+    country_id: number | null;
+    bump: number | null;
+};
+export type PropertyAccountSumAggregateOutputType = {
+    property_id: number | null;
+    state_id: number | null;
+    country_id: number | null;
+    bump: number | null;
+};
+export type PropertyAccountMinAggregateOutputType = {
+    property_id: number | null;
+    property_public_key: string | null;
+    is_leased: boolean | null;
+    property_system: string | null;
+    state_id: number | null;
+    state_pubkey: string | null;
+    country_id: number | null;
+    country_pubkey: string | null;
+    issued_at: Date | null;
+    issued_by: string | null;
+    metadata: string | null;
+    bump: number | null;
+};
+export type PropertyAccountMaxAggregateOutputType = {
+    property_id: number | null;
+    property_public_key: string | null;
+    is_leased: boolean | null;
+    property_system: string | null;
+    state_id: number | null;
+    state_pubkey: string | null;
+    country_id: number | null;
+    country_pubkey: string | null;
+    issued_at: Date | null;
+    issued_by: string | null;
+    metadata: string | null;
+    bump: number | null;
+};
+export type PropertyAccountCountAggregateOutputType = {
+    property_id: number;
+    property_public_key: number;
+    is_leased: number;
+    property_system: number;
+    history_of_owner: number;
+    state_id: number;
+    state_pubkey: number;
+    country_id: number;
+    country_pubkey: number;
+    issued_at: number;
+    issued_by: number;
+    metadata: number;
+    bump: number;
+    _all: number;
+};
+export type PropertyAccountAvgAggregateInputType = {
+    property_id?: true;
+    state_id?: true;
+    country_id?: true;
+    bump?: true;
+};
+export type PropertyAccountSumAggregateInputType = {
+    property_id?: true;
+    state_id?: true;
+    country_id?: true;
+    bump?: true;
+};
+export type PropertyAccountMinAggregateInputType = {
+    property_id?: true;
+    property_public_key?: true;
+    is_leased?: true;
+    property_system?: true;
+    state_id?: true;
+    state_pubkey?: true;
+    country_id?: true;
+    country_pubkey?: true;
+    issued_at?: true;
+    issued_by?: true;
+    metadata?: true;
+    bump?: true;
+};
+export type PropertyAccountMaxAggregateInputType = {
+    property_id?: true;
+    property_public_key?: true;
+    is_leased?: true;
+    property_system?: true;
+    state_id?: true;
+    state_pubkey?: true;
+    country_id?: true;
+    country_pubkey?: true;
+    issued_at?: true;
+    issued_by?: true;
+    metadata?: true;
+    bump?: true;
+};
+export type PropertyAccountCountAggregateInputType = {
+    property_id?: true;
+    property_public_key?: true;
+    is_leased?: true;
+    property_system?: true;
+    history_of_owner?: true;
+    state_id?: true;
+    state_pubkey?: true;
+    country_id?: true;
+    country_pubkey?: true;
+    issued_at?: true;
+    issued_by?: true;
+    metadata?: true;
+    bump?: true;
+    _all?: true;
+};
+export type PropertyAccountAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which PropertyAccount to aggregate.
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyAccounts to fetch.
+     */
+    orderBy?: Prisma.PropertyAccountOrderByWithRelationInput | Prisma.PropertyAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.PropertyAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned PropertyAccounts
+    **/
+    _count?: true | PropertyAccountCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: PropertyAccountAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: PropertyAccountSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: PropertyAccountMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: PropertyAccountMaxAggregateInputType;
+};
+export type GetPropertyAccountAggregateType<T extends PropertyAccountAggregateArgs> = {
+    [P in keyof T & keyof AggregatePropertyAccount]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregatePropertyAccount[P]> : Prisma.GetScalarType<T[P], AggregatePropertyAccount[P]>;
+};
+export type PropertyAccountGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.PropertyAccountWhereInput;
+    orderBy?: Prisma.PropertyAccountOrderByWithAggregationInput | Prisma.PropertyAccountOrderByWithAggregationInput[];
+    by: Prisma.PropertyAccountScalarFieldEnum[] | Prisma.PropertyAccountScalarFieldEnum;
+    having?: Prisma.PropertyAccountScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: PropertyAccountCountAggregateInputType | true;
+    _avg?: PropertyAccountAvgAggregateInputType;
+    _sum?: PropertyAccountSumAggregateInputType;
+    _min?: PropertyAccountMinAggregateInputType;
+    _max?: PropertyAccountMaxAggregateInputType;
+};
+export type PropertyAccountGroupByOutputType = {
+    property_id: number;
+    property_public_key: string;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner: string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at: Date;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+    _count: PropertyAccountCountAggregateOutputType | null;
+    _avg: PropertyAccountAvgAggregateOutputType | null;
+    _sum: PropertyAccountSumAggregateOutputType | null;
+    _min: PropertyAccountMinAggregateOutputType | null;
+    _max: PropertyAccountMaxAggregateOutputType | null;
+};
+export type GetPropertyAccountGroupByPayload<T extends PropertyAccountGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<PropertyAccountGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof PropertyAccountGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], PropertyAccountGroupByOutputType[P]> : Prisma.GetScalarType<T[P], PropertyAccountGroupByOutputType[P]>;
+}>>;
+export type PropertyAccountWhereInput = {
+    AND?: Prisma.PropertyAccountWhereInput | Prisma.PropertyAccountWhereInput[];
+    OR?: Prisma.PropertyAccountWhereInput[];
+    NOT?: Prisma.PropertyAccountWhereInput | Prisma.PropertyAccountWhereInput[];
+    property_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    property_public_key?: Prisma.StringFilter<"PropertyAccount"> | string;
+    is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean;
+    property_system?: Prisma.StringFilter<"PropertyAccount"> | string;
+    history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">;
+    state_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string;
+    country_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string;
+    issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string;
+    issued_by?: Prisma.StringFilter<"PropertyAccount"> | string;
+    metadata?: Prisma.StringFilter<"PropertyAccount"> | string;
+    bump?: Prisma.IntFilter<"PropertyAccount"> | number;
+    property_system_ref?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+};
+export type PropertyAccountOrderByWithRelationInput = {
+    property_id?: Prisma.SortOrder;
+    property_public_key?: Prisma.SortOrder;
+    is_leased?: Prisma.SortOrder;
+    property_system?: Prisma.SortOrder;
+    history_of_owner?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_pubkey?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    issued_at?: Prisma.SortOrder;
+    issued_by?: Prisma.SortOrder;
+    metadata?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    property_system_ref?: Prisma.PropertySystemAccountOrderByWithRelationInput;
+};
+export type PropertyAccountWhereUniqueInput = Prisma.AtLeast<{
+    property_public_key?: string;
+    AND?: Prisma.PropertyAccountWhereInput | Prisma.PropertyAccountWhereInput[];
+    OR?: Prisma.PropertyAccountWhereInput[];
+    NOT?: Prisma.PropertyAccountWhereInput | Prisma.PropertyAccountWhereInput[];
+    property_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean;
+    property_system?: Prisma.StringFilter<"PropertyAccount"> | string;
+    history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">;
+    state_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string;
+    country_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string;
+    issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string;
+    issued_by?: Prisma.StringFilter<"PropertyAccount"> | string;
+    metadata?: Prisma.StringFilter<"PropertyAccount"> | string;
+    bump?: Prisma.IntFilter<"PropertyAccount"> | number;
+    property_system_ref?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+}, "property_public_key">;
+export type PropertyAccountOrderByWithAggregationInput = {
+    property_id?: Prisma.SortOrder;
+    property_public_key?: Prisma.SortOrder;
+    is_leased?: Prisma.SortOrder;
+    property_system?: Prisma.SortOrder;
+    history_of_owner?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_pubkey?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    issued_at?: Prisma.SortOrder;
+    issued_by?: Prisma.SortOrder;
+    metadata?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    _count?: Prisma.PropertyAccountCountOrderByAggregateInput;
+    _avg?: Prisma.PropertyAccountAvgOrderByAggregateInput;
+    _max?: Prisma.PropertyAccountMaxOrderByAggregateInput;
+    _min?: Prisma.PropertyAccountMinOrderByAggregateInput;
+    _sum?: Prisma.PropertyAccountSumOrderByAggregateInput;
+};
+export type PropertyAccountScalarWhereWithAggregatesInput = {
+    AND?: Prisma.PropertyAccountScalarWhereWithAggregatesInput | Prisma.PropertyAccountScalarWhereWithAggregatesInput[];
+    OR?: Prisma.PropertyAccountScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.PropertyAccountScalarWhereWithAggregatesInput | Prisma.PropertyAccountScalarWhereWithAggregatesInput[];
+    property_id?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number;
+    property_public_key?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string;
+    is_leased?: Prisma.BoolWithAggregatesFilter<"PropertyAccount"> | boolean;
+    property_system?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string;
+    history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">;
+    state_id?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number;
+    state_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string;
+    country_id?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number;
+    country_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string;
+    issued_at?: Prisma.DateTimeWithAggregatesFilter<"PropertyAccount"> | Date | string;
+    issued_by?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string;
+    metadata?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string;
+    bump?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number;
+};
+export type PropertyAccountCreateInput = {
+    property_id: number;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at?: Date | string;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+    property_system_ref: Prisma.PropertySystemAccountCreateNestedOneWithoutPropertyAccountsInput;
+};
+export type PropertyAccountUncheckedCreateInput = {
+    property_id: number;
+    property_public_key: string;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at?: Date | string;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+};
+export type PropertyAccountUpdateInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    property_system_ref?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutPropertyAccountsNestedInput;
+};
+export type PropertyAccountUncheckedUpdateInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    property_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type PropertyAccountCreateManyInput = {
+    property_id: number;
+    property_public_key: string;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at?: Date | string;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+};
+export type PropertyAccountUpdateManyMutationInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type PropertyAccountUncheckedUpdateManyInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    property_public_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type PropertyAccountListRelationFilter = {
+    every?: Prisma.PropertyAccountWhereInput;
+    some?: Prisma.PropertyAccountWhereInput;
+    none?: Prisma.PropertyAccountWhereInput;
+};
+export type PropertyAccountOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type PropertyAccountCountOrderByAggregateInput = {
+    property_id?: Prisma.SortOrder;
+    property_public_key?: Prisma.SortOrder;
+    is_leased?: Prisma.SortOrder;
+    property_system?: Prisma.SortOrder;
+    history_of_owner?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_pubkey?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    issued_at?: Prisma.SortOrder;
+    issued_by?: Prisma.SortOrder;
+    metadata?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type PropertyAccountAvgOrderByAggregateInput = {
+    property_id?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type PropertyAccountMaxOrderByAggregateInput = {
+    property_id?: Prisma.SortOrder;
+    property_public_key?: Prisma.SortOrder;
+    is_leased?: Prisma.SortOrder;
+    property_system?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_pubkey?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    issued_at?: Prisma.SortOrder;
+    issued_by?: Prisma.SortOrder;
+    metadata?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type PropertyAccountMinOrderByAggregateInput = {
+    property_id?: Prisma.SortOrder;
+    property_public_key?: Prisma.SortOrder;
+    is_leased?: Prisma.SortOrder;
+    property_system?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    state_pubkey?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    country_pubkey?: Prisma.SortOrder;
+    issued_at?: Prisma.SortOrder;
+    issued_by?: Prisma.SortOrder;
+    metadata?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type PropertyAccountSumOrderByAggregateInput = {
+    property_id?: Prisma.SortOrder;
+    state_id?: Prisma.SortOrder;
+    country_id?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type PropertyAccountCreateNestedManyWithoutProperty_system_refInput = {
+    create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput> | Prisma.PropertyAccountCreateWithoutProperty_system_refInput[] | Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput[];
+    connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput | Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput[];
+    createMany?: Prisma.PropertyAccountCreateManyProperty_system_refInputEnvelope;
+    connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+};
+export type PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput = {
+    create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput> | Prisma.PropertyAccountCreateWithoutProperty_system_refInput[] | Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput[];
+    connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput | Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput[];
+    createMany?: Prisma.PropertyAccountCreateManyProperty_system_refInputEnvelope;
+    connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+};
+export type PropertyAccountUpdateManyWithoutProperty_system_refNestedInput = {
+    create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput> | Prisma.PropertyAccountCreateWithoutProperty_system_refInput[] | Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput[];
+    connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput | Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput[];
+    upsert?: Prisma.PropertyAccountUpsertWithWhereUniqueWithoutProperty_system_refInput | Prisma.PropertyAccountUpsertWithWhereUniqueWithoutProperty_system_refInput[];
+    createMany?: Prisma.PropertyAccountCreateManyProperty_system_refInputEnvelope;
+    set?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    disconnect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    delete?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    update?: Prisma.PropertyAccountUpdateWithWhereUniqueWithoutProperty_system_refInput | Prisma.PropertyAccountUpdateWithWhereUniqueWithoutProperty_system_refInput[];
+    updateMany?: Prisma.PropertyAccountUpdateManyWithWhereWithoutProperty_system_refInput | Prisma.PropertyAccountUpdateManyWithWhereWithoutProperty_system_refInput[];
+    deleteMany?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[];
+};
+export type PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput = {
+    create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput> | Prisma.PropertyAccountCreateWithoutProperty_system_refInput[] | Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput[];
+    connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput | Prisma.PropertyAccountCreateOrConnectWithoutProperty_system_refInput[];
+    upsert?: Prisma.PropertyAccountUpsertWithWhereUniqueWithoutProperty_system_refInput | Prisma.PropertyAccountUpsertWithWhereUniqueWithoutProperty_system_refInput[];
+    createMany?: Prisma.PropertyAccountCreateManyProperty_system_refInputEnvelope;
+    set?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    disconnect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    delete?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[];
+    update?: Prisma.PropertyAccountUpdateWithWhereUniqueWithoutProperty_system_refInput | Prisma.PropertyAccountUpdateWithWhereUniqueWithoutProperty_system_refInput[];
+    updateMany?: Prisma.PropertyAccountUpdateManyWithWhereWithoutProperty_system_refInput | Prisma.PropertyAccountUpdateManyWithWhereWithoutProperty_system_refInput[];
+    deleteMany?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[];
+};
+export type PropertyAccountCreatehistory_of_ownerInput = {
+    set: string[];
+};
+export type PropertyAccountUpdatehistory_of_ownerInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type PropertyAccountCreateWithoutProperty_system_refInput = {
+    property_id: number;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at?: Date | string;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+};
+export type PropertyAccountUncheckedCreateWithoutProperty_system_refInput = {
+    property_id: number;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at?: Date | string;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+};
+export type PropertyAccountCreateOrConnectWithoutProperty_system_refInput = {
+    where: Prisma.PropertyAccountWhereUniqueInput;
+    create: Prisma.XOR<Prisma.PropertyAccountCreateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput>;
+};
+export type PropertyAccountCreateManyProperty_system_refInputEnvelope = {
+    data: Prisma.PropertyAccountCreateManyProperty_system_refInput | Prisma.PropertyAccountCreateManyProperty_system_refInput[];
+    skipDuplicates?: boolean;
+};
+export type PropertyAccountUpsertWithWhereUniqueWithoutProperty_system_refInput = {
+    where: Prisma.PropertyAccountWhereUniqueInput;
+    update: Prisma.XOR<Prisma.PropertyAccountUpdateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedUpdateWithoutProperty_system_refInput>;
+    create: Prisma.XOR<Prisma.PropertyAccountCreateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedCreateWithoutProperty_system_refInput>;
+};
+export type PropertyAccountUpdateWithWhereUniqueWithoutProperty_system_refInput = {
+    where: Prisma.PropertyAccountWhereUniqueInput;
+    data: Prisma.XOR<Prisma.PropertyAccountUpdateWithoutProperty_system_refInput, Prisma.PropertyAccountUncheckedUpdateWithoutProperty_system_refInput>;
+};
+export type PropertyAccountUpdateManyWithWhereWithoutProperty_system_refInput = {
+    where: Prisma.PropertyAccountScalarWhereInput;
+    data: Prisma.XOR<Prisma.PropertyAccountUpdateManyMutationInput, Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refInput>;
+};
+export type PropertyAccountScalarWhereInput = {
+    AND?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[];
+    OR?: Prisma.PropertyAccountScalarWhereInput[];
+    NOT?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[];
+    property_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    property_public_key?: Prisma.StringFilter<"PropertyAccount"> | string;
+    is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean;
+    property_system?: Prisma.StringFilter<"PropertyAccount"> | string;
+    history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">;
+    state_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string;
+    country_id?: Prisma.IntFilter<"PropertyAccount"> | number;
+    country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string;
+    issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string;
+    issued_by?: Prisma.StringFilter<"PropertyAccount"> | string;
+    metadata?: Prisma.StringFilter<"PropertyAccount"> | string;
+    bump?: Prisma.IntFilter<"PropertyAccount"> | number;
+};
+export type PropertyAccountCreateManyProperty_system_refInput = {
+    property_id: number;
+    is_leased: boolean;
+    property_system: string;
+    history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[];
+    state_id: number;
+    state_pubkey: string;
+    country_id: number;
+    country_pubkey: string;
+    issued_at?: Date | string;
+    issued_by: string;
+    metadata: string;
+    bump: number;
+};
+export type PropertyAccountUpdateWithoutProperty_system_refInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type PropertyAccountUncheckedUpdateWithoutProperty_system_refInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type PropertyAccountUncheckedUpdateManyWithoutProperty_system_refInput = {
+    property_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[];
+    state_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    country_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    issued_by?: Prisma.StringFieldUpdateOperationsInput | string;
+    metadata?: Prisma.StringFieldUpdateOperationsInput | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type PropertyAccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_id?: boolean;
+    property_public_key?: boolean;
+    is_leased?: boolean;
+    property_system?: boolean;
+    history_of_owner?: boolean;
+    state_id?: boolean;
+    state_pubkey?: boolean;
+    country_id?: boolean;
+    country_pubkey?: boolean;
+    issued_at?: boolean;
+    issued_by?: boolean;
+    metadata?: boolean;
+    bump?: boolean;
+    property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["propertyAccount"]>;
+export type PropertyAccountSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_id?: boolean;
+    property_public_key?: boolean;
+    is_leased?: boolean;
+    property_system?: boolean;
+    history_of_owner?: boolean;
+    state_id?: boolean;
+    state_pubkey?: boolean;
+    country_id?: boolean;
+    country_pubkey?: boolean;
+    issued_at?: boolean;
+    issued_by?: boolean;
+    metadata?: boolean;
+    bump?: boolean;
+    property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["propertyAccount"]>;
+export type PropertyAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_id?: boolean;
+    property_public_key?: boolean;
+    is_leased?: boolean;
+    property_system?: boolean;
+    history_of_owner?: boolean;
+    state_id?: boolean;
+    state_pubkey?: boolean;
+    country_id?: boolean;
+    country_pubkey?: boolean;
+    issued_at?: boolean;
+    issued_by?: boolean;
+    metadata?: boolean;
+    bump?: boolean;
+    property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["propertyAccount"]>;
+export type PropertyAccountSelectScalar = {
+    property_id?: boolean;
+    property_public_key?: boolean;
+    is_leased?: boolean;
+    property_system?: boolean;
+    history_of_owner?: boolean;
+    state_id?: boolean;
+    state_pubkey?: boolean;
+    country_id?: boolean;
+    country_pubkey?: boolean;
+    issued_at?: boolean;
+    issued_by?: boolean;
+    metadata?: boolean;
+    bump?: boolean;
+};
+export type PropertyAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "property_public_key" | "is_leased" | "property_system" | "history_of_owner" | "state_id" | "state_pubkey" | "country_id" | "country_pubkey" | "issued_at" | "issued_by" | "metadata" | "bump", ExtArgs["result"]["propertyAccount"]>;
+export type PropertyAccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type PropertyAccountIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type PropertyAccountIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type $PropertyAccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "PropertyAccount";
+    objects: {
+        property_system_ref: Prisma.$PropertySystemAccountPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        property_id: number;
+        property_public_key: string;
+        is_leased: boolean;
+        property_system: string;
+        history_of_owner: string[];
+        state_id: number;
+        state_pubkey: string;
+        country_id: number;
+        country_pubkey: string;
+        issued_at: Date;
+        issued_by: string;
+        metadata: string;
+        bump: number;
+    }, ExtArgs["result"]["propertyAccount"]>;
+    composites: {};
+};
+export type PropertyAccountGetPayload<S extends boolean | null | undefined | PropertyAccountDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload, S>;
+export type PropertyAccountCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<PropertyAccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: PropertyAccountCountAggregateInputType | true;
+};
+export interface PropertyAccountDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['PropertyAccount'];
+        meta: {
+            name: 'PropertyAccount';
+        };
+    };
+    /**
+     * Find zero or one PropertyAccount that matches the filter.
+     * @param {PropertyAccountFindUniqueArgs} args - Arguments to find a PropertyAccount
+     * @example
+     * // Get one PropertyAccount
+     * const propertyAccount = await prisma.propertyAccount.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PropertyAccountFindUniqueArgs>(args: Prisma.SelectSubset<T, PropertyAccountFindUniqueArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one PropertyAccount that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PropertyAccountFindUniqueOrThrowArgs} args - Arguments to find a PropertyAccount
+     * @example
+     * // Get one PropertyAccount
+     * const propertyAccount = await prisma.propertyAccount.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PropertyAccountFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, PropertyAccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first PropertyAccount that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountFindFirstArgs} args - Arguments to find a PropertyAccount
+     * @example
+     * // Get one PropertyAccount
+     * const propertyAccount = await prisma.propertyAccount.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PropertyAccountFindFirstArgs>(args?: Prisma.SelectSubset<T, PropertyAccountFindFirstArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first PropertyAccount that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountFindFirstOrThrowArgs} args - Arguments to find a PropertyAccount
+     * @example
+     * // Get one PropertyAccount
+     * const propertyAccount = await prisma.propertyAccount.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PropertyAccountFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, PropertyAccountFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more PropertyAccounts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PropertyAccounts
+     * const propertyAccounts = await prisma.propertyAccount.findMany()
+     *
+     * // Get first 10 PropertyAccounts
+     * const propertyAccounts = await prisma.propertyAccount.findMany({ take: 10 })
+     *
+     * // Only select the `property_id`
+     * const propertyAccountWithProperty_idOnly = await prisma.propertyAccount.findMany({ select: { property_id: true } })
+     *
+     */
+    findMany<T extends PropertyAccountFindManyArgs>(args?: Prisma.SelectSubset<T, PropertyAccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a PropertyAccount.
+     * @param {PropertyAccountCreateArgs} args - Arguments to create a PropertyAccount.
+     * @example
+     * // Create one PropertyAccount
+     * const PropertyAccount = await prisma.propertyAccount.create({
+     *   data: {
+     *     // ... data to create a PropertyAccount
+     *   }
+     * })
+     *
+     */
+    create<T extends PropertyAccountCreateArgs>(args: Prisma.SelectSubset<T, PropertyAccountCreateArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many PropertyAccounts.
+     * @param {PropertyAccountCreateManyArgs} args - Arguments to create many PropertyAccounts.
+     * @example
+     * // Create many PropertyAccounts
+     * const propertyAccount = await prisma.propertyAccount.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends PropertyAccountCreateManyArgs>(args?: Prisma.SelectSubset<T, PropertyAccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many PropertyAccounts and returns the data saved in the database.
+     * @param {PropertyAccountCreateManyAndReturnArgs} args - Arguments to create many PropertyAccounts.
+     * @example
+     * // Create many PropertyAccounts
+     * const propertyAccount = await prisma.propertyAccount.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many PropertyAccounts and only return the `property_id`
+     * const propertyAccountWithProperty_idOnly = await prisma.propertyAccount.createManyAndReturn({
+     *   select: { property_id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends PropertyAccountCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, PropertyAccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a PropertyAccount.
+     * @param {PropertyAccountDeleteArgs} args - Arguments to delete one PropertyAccount.
+     * @example
+     * // Delete one PropertyAccount
+     * const PropertyAccount = await prisma.propertyAccount.delete({
+     *   where: {
+     *     // ... filter to delete one PropertyAccount
+     *   }
+     * })
+     *
+     */
+    delete<T extends PropertyAccountDeleteArgs>(args: Prisma.SelectSubset<T, PropertyAccountDeleteArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one PropertyAccount.
+     * @param {PropertyAccountUpdateArgs} args - Arguments to update one PropertyAccount.
+     * @example
+     * // Update one PropertyAccount
+     * const propertyAccount = await prisma.propertyAccount.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends PropertyAccountUpdateArgs>(args: Prisma.SelectSubset<T, PropertyAccountUpdateArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more PropertyAccounts.
+     * @param {PropertyAccountDeleteManyArgs} args - Arguments to filter PropertyAccounts to delete.
+     * @example
+     * // Delete a few PropertyAccounts
+     * const { count } = await prisma.propertyAccount.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends PropertyAccountDeleteManyArgs>(args?: Prisma.SelectSubset<T, PropertyAccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more PropertyAccounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PropertyAccounts
+     * const propertyAccount = await prisma.propertyAccount.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends PropertyAccountUpdateManyArgs>(args: Prisma.SelectSubset<T, PropertyAccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more PropertyAccounts and returns the data updated in the database.
+     * @param {PropertyAccountUpdateManyAndReturnArgs} args - Arguments to update many PropertyAccounts.
+     * @example
+     * // Update many PropertyAccounts
+     * const propertyAccount = await prisma.propertyAccount.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more PropertyAccounts and only return the `property_id`
+     * const propertyAccountWithProperty_idOnly = await prisma.propertyAccount.updateManyAndReturn({
+     *   select: { property_id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends PropertyAccountUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, PropertyAccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one PropertyAccount.
+     * @param {PropertyAccountUpsertArgs} args - Arguments to update or create a PropertyAccount.
+     * @example
+     * // Update or create a PropertyAccount
+     * const propertyAccount = await prisma.propertyAccount.upsert({
+     *   create: {
+     *     // ... data to create a PropertyAccount
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PropertyAccount we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PropertyAccountUpsertArgs>(args: Prisma.SelectSubset<T, PropertyAccountUpsertArgs<ExtArgs>>): Prisma.Prisma__PropertyAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of PropertyAccounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountCountArgs} args - Arguments to filter PropertyAccounts to count.
+     * @example
+     * // Count the number of PropertyAccounts
+     * const count = await prisma.propertyAccount.count({
+     *   where: {
+     *     // ... the filter for the PropertyAccounts we want to count
+     *   }
+     * })
+    **/
+    count<T extends PropertyAccountCountArgs>(args?: Prisma.Subset<T, PropertyAccountCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], PropertyAccountCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a PropertyAccount.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PropertyAccountAggregateArgs>(args: Prisma.Subset<T, PropertyAccountAggregateArgs>): Prisma.PrismaPromise<GetPropertyAccountAggregateType<T>>;
+    /**
+     * Group by PropertyAccount.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyAccountGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends PropertyAccountGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: PropertyAccountGroupByArgs['orderBy'];
+    } : {
+        orderBy?: PropertyAccountGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, PropertyAccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPropertyAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the PropertyAccount model
+     */
+    readonly fields: PropertyAccountFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for PropertyAccount.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__PropertyAccountClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    property_system_ref<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the PropertyAccount model
+ */
+export interface PropertyAccountFieldRefs {
+    readonly property_id: Prisma.FieldRef<"PropertyAccount", 'Int'>;
+    readonly property_public_key: Prisma.FieldRef<"PropertyAccount", 'String'>;
+    readonly is_leased: Prisma.FieldRef<"PropertyAccount", 'Boolean'>;
+    readonly property_system: Prisma.FieldRef<"PropertyAccount", 'String'>;
+    readonly history_of_owner: Prisma.FieldRef<"PropertyAccount", 'String[]'>;
+    readonly state_id: Prisma.FieldRef<"PropertyAccount", 'Int'>;
+    readonly state_pubkey: Prisma.FieldRef<"PropertyAccount", 'String'>;
+    readonly country_id: Prisma.FieldRef<"PropertyAccount", 'Int'>;
+    readonly country_pubkey: Prisma.FieldRef<"PropertyAccount", 'String'>;
+    readonly issued_at: Prisma.FieldRef<"PropertyAccount", 'DateTime'>;
+    readonly issued_by: Prisma.FieldRef<"PropertyAccount", 'String'>;
+    readonly metadata: Prisma.FieldRef<"PropertyAccount", 'String'>;
+    readonly bump: Prisma.FieldRef<"PropertyAccount", 'Int'>;
+}
+/**
+ * PropertyAccount findUnique
+ */
+export type PropertyAccountFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which PropertyAccount to fetch.
+     */
+    where: Prisma.PropertyAccountWhereUniqueInput;
+};
+/**
+ * PropertyAccount findUniqueOrThrow
+ */
+export type PropertyAccountFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which PropertyAccount to fetch.
+     */
+    where: Prisma.PropertyAccountWhereUniqueInput;
+};
+/**
+ * PropertyAccount findFirst
+ */
+export type PropertyAccountFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which PropertyAccount to fetch.
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyAccounts to fetch.
+     */
+    orderBy?: Prisma.PropertyAccountOrderByWithRelationInput | Prisma.PropertyAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for PropertyAccounts.
+     */
+    cursor?: Prisma.PropertyAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of PropertyAccounts.
+     */
+    distinct?: Prisma.PropertyAccountScalarFieldEnum | Prisma.PropertyAccountScalarFieldEnum[];
+};
+/**
+ * PropertyAccount findFirstOrThrow
+ */
+export type PropertyAccountFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which PropertyAccount to fetch.
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyAccounts to fetch.
+     */
+    orderBy?: Prisma.PropertyAccountOrderByWithRelationInput | Prisma.PropertyAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for PropertyAccounts.
+     */
+    cursor?: Prisma.PropertyAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of PropertyAccounts.
+     */
+    distinct?: Prisma.PropertyAccountScalarFieldEnum | Prisma.PropertyAccountScalarFieldEnum[];
+};
+/**
+ * PropertyAccount findMany
+ */
+export type PropertyAccountFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which PropertyAccounts to fetch.
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyAccounts to fetch.
+     */
+    orderBy?: Prisma.PropertyAccountOrderByWithRelationInput | Prisma.PropertyAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing PropertyAccounts.
+     */
+    cursor?: Prisma.PropertyAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of PropertyAccounts.
+     */
+    distinct?: Prisma.PropertyAccountScalarFieldEnum | Prisma.PropertyAccountScalarFieldEnum[];
+};
+/**
+ * PropertyAccount create
+ */
+export type PropertyAccountCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a PropertyAccount.
+     */
+    data: Prisma.XOR<Prisma.PropertyAccountCreateInput, Prisma.PropertyAccountUncheckedCreateInput>;
+};
+/**
+ * PropertyAccount createMany
+ */
+export type PropertyAccountCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PropertyAccounts.
+     */
+    data: Prisma.PropertyAccountCreateManyInput | Prisma.PropertyAccountCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * PropertyAccount createManyAndReturn
+ */
+export type PropertyAccountCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * The data used to create many PropertyAccounts.
+     */
+    data: Prisma.PropertyAccountCreateManyInput | Prisma.PropertyAccountCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * PropertyAccount update
+ */
+export type PropertyAccountUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a PropertyAccount.
+     */
+    data: Prisma.XOR<Prisma.PropertyAccountUpdateInput, Prisma.PropertyAccountUncheckedUpdateInput>;
+    /**
+     * Choose, which PropertyAccount to update.
+     */
+    where: Prisma.PropertyAccountWhereUniqueInput;
+};
+/**
+ * PropertyAccount updateMany
+ */
+export type PropertyAccountUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PropertyAccounts.
+     */
+    data: Prisma.XOR<Prisma.PropertyAccountUpdateManyMutationInput, Prisma.PropertyAccountUncheckedUpdateManyInput>;
+    /**
+     * Filter which PropertyAccounts to update
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * Limit how many PropertyAccounts to update.
+     */
+    limit?: number;
+};
+/**
+ * PropertyAccount updateManyAndReturn
+ */
+export type PropertyAccountUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * The data used to update PropertyAccounts.
+     */
+    data: Prisma.XOR<Prisma.PropertyAccountUpdateManyMutationInput, Prisma.PropertyAccountUncheckedUpdateManyInput>;
+    /**
+     * Filter which PropertyAccounts to update
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * Limit how many PropertyAccounts to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * PropertyAccount upsert
+ */
+export type PropertyAccountUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the PropertyAccount to update in case it exists.
+     */
+    where: Prisma.PropertyAccountWhereUniqueInput;
+    /**
+     * In case the PropertyAccount found by the `where` argument doesn't exist, create a new PropertyAccount with this data.
+     */
+    create: Prisma.XOR<Prisma.PropertyAccountCreateInput, Prisma.PropertyAccountUncheckedCreateInput>;
+    /**
+     * In case the PropertyAccount was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.PropertyAccountUpdateInput, Prisma.PropertyAccountUncheckedUpdateInput>;
+};
+/**
+ * PropertyAccount delete
+ */
+export type PropertyAccountDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+    /**
+     * Filter which PropertyAccount to delete.
+     */
+    where: Prisma.PropertyAccountWhereUniqueInput;
+};
+/**
+ * PropertyAccount deleteMany
+ */
+export type PropertyAccountDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which PropertyAccounts to delete
+     */
+    where?: Prisma.PropertyAccountWhereInput;
+    /**
+     * Limit how many PropertyAccounts to delete.
+     */
+    limit?: number;
+};
+/**
+ * PropertyAccount without action
+ */
+export type PropertyAccountDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyAccount
+     */
+    select?: Prisma.PropertyAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyAccount
+     */
+    omit?: Prisma.PropertyAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertyAccountInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=PropertyAccount.d.ts.map

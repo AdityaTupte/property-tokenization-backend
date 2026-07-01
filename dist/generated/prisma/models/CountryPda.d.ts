@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model CountryPda
@@ -193,7 +193,7 @@ export type CountryPdaGroupByOutputType = {
     _min: CountryPdaMinAggregateOutputType | null;
     _max: CountryPdaMaxAggregateOutputType | null;
 };
-type GetCountryPdaGroupByPayload<T extends CountryPdaGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryPdaGroupByOutputType, T['by']> & {
+export type GetCountryPdaGroupByPayload<T extends CountryPdaGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryPdaGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof CountryPdaGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], CountryPdaGroupByOutputType[P]> : Prisma.GetScalarType<T[P], CountryPdaGroupByOutputType[P]>;
 }>>;
 export type CountryPdaWhereInput = {
@@ -1063,6 +1063,11 @@ export type CountryPdaFindManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
      * Skip the first `n` CountryPdas.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of CountryPdas.
+     */
     distinct?: Prisma.CountryPdaScalarFieldEnum | Prisma.CountryPdaScalarFieldEnum[];
 };
 /**
@@ -1279,5 +1284,4 @@ export type CountryPdaDefaultArgs<ExtArgs extends runtime.Types.Extensions.Inter
      */
     include?: Prisma.CountryPdaInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=CountryPda.d.ts.map

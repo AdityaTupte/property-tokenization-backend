@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model ApproveCountryAuthorityReceipt
@@ -160,7 +160,7 @@ export type ApproveCountryAuthorityReceiptGroupByOutputType = {
     _min: ApproveCountryAuthorityReceiptMinAggregateOutputType | null;
     _max: ApproveCountryAuthorityReceiptMaxAggregateOutputType | null;
 };
-type GetApproveCountryAuthorityReceiptGroupByPayload<T extends ApproveCountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ApproveCountryAuthorityReceiptGroupByOutputType, T['by']> & {
+export type GetApproveCountryAuthorityReceiptGroupByPayload<T extends ApproveCountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ApproveCountryAuthorityReceiptGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof ApproveCountryAuthorityReceiptGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], ApproveCountryAuthorityReceiptGroupByOutputType[P]> : Prisma.GetScalarType<T[P], ApproveCountryAuthorityReceiptGroupByOutputType[P]>;
 }>>;
 export type ApproveCountryAuthorityReceiptWhereInput = {
@@ -1006,6 +1006,11 @@ export type ApproveCountryAuthorityReceiptFindManyArgs<ExtArgs extends runtime.T
      * Skip the first `n` ApproveCountryAuthorityReceipts.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ApproveCountryAuthorityReceipts.
+     */
     distinct?: Prisma.ApproveCountryAuthorityReceiptScalarFieldEnum | Prisma.ApproveCountryAuthorityReceiptScalarFieldEnum[];
 };
 /**
@@ -1212,5 +1217,4 @@ export type ApproveCountryAuthorityReceiptDefaultArgs<ExtArgs extends runtime.Ty
      */
     include?: Prisma.ApproveCountryAuthorityReceiptInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=ApproveCountryAuthorityReceipt.d.ts.map

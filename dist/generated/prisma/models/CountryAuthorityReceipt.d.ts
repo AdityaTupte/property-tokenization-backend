@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model CountryAuthorityReceipt
@@ -145,7 +145,7 @@ export type CountryAuthorityReceiptGroupByOutputType = {
     _min: CountryAuthorityReceiptMinAggregateOutputType | null;
     _max: CountryAuthorityReceiptMaxAggregateOutputType | null;
 };
-type GetCountryAuthorityReceiptGroupByPayload<T extends CountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryAuthorityReceiptGroupByOutputType, T['by']> & {
+export type GetCountryAuthorityReceiptGroupByPayload<T extends CountryAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryAuthorityReceiptGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof CountryAuthorityReceiptGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], CountryAuthorityReceiptGroupByOutputType[P]> : Prisma.GetScalarType<T[P], CountryAuthorityReceiptGroupByOutputType[P]>;
 }>>;
 export type CountryAuthorityReceiptWhereInput = {
@@ -925,6 +925,11 @@ export type CountryAuthorityReceiptFindManyArgs<ExtArgs extends runtime.Types.Ex
      * Skip the first `n` CountryAuthorityReceipts.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of CountryAuthorityReceipts.
+     */
     distinct?: Prisma.CountryAuthorityReceiptScalarFieldEnum | Prisma.CountryAuthorityReceiptScalarFieldEnum[];
 };
 /**
@@ -1131,5 +1136,4 @@ export type CountryAuthorityReceiptDefaultArgs<ExtArgs extends runtime.Types.Ext
      */
     include?: Prisma.CountryAuthorityReceiptInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=CountryAuthorityReceipt.d.ts.map

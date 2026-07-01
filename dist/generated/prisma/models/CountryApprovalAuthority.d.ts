@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model CountryApprovalAuthority
@@ -163,7 +163,7 @@ export type CountryApprovalAuthorityGroupByOutputType = {
     _min: CountryApprovalAuthorityMinAggregateOutputType | null;
     _max: CountryApprovalAuthorityMaxAggregateOutputType | null;
 };
-type GetCountryApprovalAuthorityGroupByPayload<T extends CountryApprovalAuthorityGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryApprovalAuthorityGroupByOutputType, T['by']> & {
+export type GetCountryApprovalAuthorityGroupByPayload<T extends CountryApprovalAuthorityGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryApprovalAuthorityGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof CountryApprovalAuthorityGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], CountryApprovalAuthorityGroupByOutputType[P]> : Prisma.GetScalarType<T[P], CountryApprovalAuthorityGroupByOutputType[P]>;
 }>>;
 export type CountryApprovalAuthorityWhereInput = {
@@ -899,6 +899,11 @@ export type CountryApprovalAuthorityFindManyArgs<ExtArgs extends runtime.Types.E
      * Skip the first `n` CountryApprovalAuthorities.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of CountryApprovalAuthorities.
+     */
     distinct?: Prisma.CountryApprovalAuthorityScalarFieldEnum | Prisma.CountryApprovalAuthorityScalarFieldEnum[];
 };
 /**
@@ -1077,5 +1082,4 @@ export type CountryApprovalAuthorityDefaultArgs<ExtArgs extends runtime.Types.Ex
      */
     omit?: Prisma.CountryApprovalAuthorityOmit<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=CountryApprovalAuthority.d.ts.map

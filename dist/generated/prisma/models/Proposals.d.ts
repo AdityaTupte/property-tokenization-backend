@@ -1,0 +1,1625 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as $Enums from "../enums.js";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model Proposals
+ *
+ */
+export type ProposalsModel = runtime.Types.Result.DefaultSelection<Prisma.$ProposalsPayload>;
+export type AggregateProposals = {
+    _count: ProposalsCountAggregateOutputType | null;
+    _avg: ProposalsAvgAggregateOutputType | null;
+    _sum: ProposalsSumAggregateOutputType | null;
+    _min: ProposalsMinAggregateOutputType | null;
+    _max: ProposalsMaxAggregateOutputType | null;
+};
+export type ProposalsAvgAggregateOutputType = {
+    total_voting_power: number | null;
+    votes_for: number | null;
+    votes_against: number | null;
+    vote_threshold: number | null;
+    slot: number | null;
+    bump: number | null;
+};
+export type ProposalsSumAggregateOutputType = {
+    total_voting_power: bigint | null;
+    votes_for: bigint | null;
+    votes_against: bigint | null;
+    vote_threshold: number | null;
+    slot: number | null;
+    bump: number | null;
+};
+export type ProposalsMinAggregateOutputType = {
+    property_system: string | null;
+    proposal_id: string | null;
+    proposal_key: string | null;
+    merkle_root: string | null;
+    is_arbitrar_approved: boolean | null;
+    total_voting_power: bigint | null;
+    votes_for: bigint | null;
+    votes_against: bigint | null;
+    vote_threshold: number | null;
+    start_time: Date | null;
+    end_time: Date | null;
+    status: $Enums.ProposalStatus | null;
+    snapshot_submitted: boolean | null;
+    proposal_type: $Enums.ProposalType | null;
+    slot: number | null;
+    bump: number | null;
+    created_at: Date | null;
+};
+export type ProposalsMaxAggregateOutputType = {
+    property_system: string | null;
+    proposal_id: string | null;
+    proposal_key: string | null;
+    merkle_root: string | null;
+    is_arbitrar_approved: boolean | null;
+    total_voting_power: bigint | null;
+    votes_for: bigint | null;
+    votes_against: bigint | null;
+    vote_threshold: number | null;
+    start_time: Date | null;
+    end_time: Date | null;
+    status: $Enums.ProposalStatus | null;
+    snapshot_submitted: boolean | null;
+    proposal_type: $Enums.ProposalType | null;
+    slot: number | null;
+    bump: number | null;
+    created_at: Date | null;
+};
+export type ProposalsCountAggregateOutputType = {
+    property_system: number;
+    proposal_id: number;
+    proposal_key: number;
+    merkle_root: number;
+    arbitrar_approvals: number;
+    is_arbitrar_approved: number;
+    total_voting_power: number;
+    votes_for: number;
+    votes_against: number;
+    vote_threshold: number;
+    start_time: number;
+    end_time: number;
+    status: number;
+    snapshot_submitted: number;
+    proposal_type: number;
+    slot: number;
+    bump: number;
+    created_at: number;
+    _all: number;
+};
+export type ProposalsAvgAggregateInputType = {
+    total_voting_power?: true;
+    votes_for?: true;
+    votes_against?: true;
+    vote_threshold?: true;
+    slot?: true;
+    bump?: true;
+};
+export type ProposalsSumAggregateInputType = {
+    total_voting_power?: true;
+    votes_for?: true;
+    votes_against?: true;
+    vote_threshold?: true;
+    slot?: true;
+    bump?: true;
+};
+export type ProposalsMinAggregateInputType = {
+    property_system?: true;
+    proposal_id?: true;
+    proposal_key?: true;
+    merkle_root?: true;
+    is_arbitrar_approved?: true;
+    total_voting_power?: true;
+    votes_for?: true;
+    votes_against?: true;
+    vote_threshold?: true;
+    start_time?: true;
+    end_time?: true;
+    status?: true;
+    snapshot_submitted?: true;
+    proposal_type?: true;
+    slot?: true;
+    bump?: true;
+    created_at?: true;
+};
+export type ProposalsMaxAggregateInputType = {
+    property_system?: true;
+    proposal_id?: true;
+    proposal_key?: true;
+    merkle_root?: true;
+    is_arbitrar_approved?: true;
+    total_voting_power?: true;
+    votes_for?: true;
+    votes_against?: true;
+    vote_threshold?: true;
+    start_time?: true;
+    end_time?: true;
+    status?: true;
+    snapshot_submitted?: true;
+    proposal_type?: true;
+    slot?: true;
+    bump?: true;
+    created_at?: true;
+};
+export type ProposalsCountAggregateInputType = {
+    property_system?: true;
+    proposal_id?: true;
+    proposal_key?: true;
+    merkle_root?: true;
+    arbitrar_approvals?: true;
+    is_arbitrar_approved?: true;
+    total_voting_power?: true;
+    votes_for?: true;
+    votes_against?: true;
+    vote_threshold?: true;
+    start_time?: true;
+    end_time?: true;
+    status?: true;
+    snapshot_submitted?: true;
+    proposal_type?: true;
+    slot?: true;
+    bump?: true;
+    created_at?: true;
+    _all?: true;
+};
+export type ProposalsAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Proposals to aggregate.
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Proposals to fetch.
+     */
+    orderBy?: Prisma.ProposalsOrderByWithRelationInput | Prisma.ProposalsOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.ProposalsWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Proposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Proposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned Proposals
+    **/
+    _count?: true | ProposalsCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: ProposalsAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: ProposalsSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProposalsMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProposalsMaxAggregateInputType;
+};
+export type GetProposalsAggregateType<T extends ProposalsAggregateArgs> = {
+    [P in keyof T & keyof AggregateProposals]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateProposals[P]> : Prisma.GetScalarType<T[P], AggregateProposals[P]>;
+};
+export type ProposalsGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.ProposalsWhereInput;
+    orderBy?: Prisma.ProposalsOrderByWithAggregationInput | Prisma.ProposalsOrderByWithAggregationInput[];
+    by: Prisma.ProposalsScalarFieldEnum[] | Prisma.ProposalsScalarFieldEnum;
+    having?: Prisma.ProposalsScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: ProposalsCountAggregateInputType | true;
+    _avg?: ProposalsAvgAggregateInputType;
+    _sum?: ProposalsSumAggregateInputType;
+    _min?: ProposalsMinAggregateInputType;
+    _max?: ProposalsMaxAggregateInputType;
+};
+export type ProposalsGroupByOutputType = {
+    property_system: string;
+    proposal_id: string;
+    proposal_key: string;
+    merkle_root: string;
+    arbitrar_approvals: string[];
+    is_arbitrar_approved: boolean;
+    total_voting_power: bigint;
+    votes_for: bigint;
+    votes_against: bigint | null;
+    vote_threshold: number;
+    start_time: Date;
+    end_time: Date;
+    status: $Enums.ProposalStatus;
+    snapshot_submitted: boolean;
+    proposal_type: $Enums.ProposalType;
+    slot: number;
+    bump: number;
+    created_at: Date;
+    _count: ProposalsCountAggregateOutputType | null;
+    _avg: ProposalsAvgAggregateOutputType | null;
+    _sum: ProposalsSumAggregateOutputType | null;
+    _min: ProposalsMinAggregateOutputType | null;
+    _max: ProposalsMaxAggregateOutputType | null;
+};
+export type GetProposalsGroupByPayload<T extends ProposalsGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ProposalsGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof ProposalsGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], ProposalsGroupByOutputType[P]> : Prisma.GetScalarType<T[P], ProposalsGroupByOutputType[P]>;
+}>>;
+export type ProposalsWhereInput = {
+    AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[];
+    OR?: Prisma.ProposalsWhereInput[];
+    NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[];
+    property_system?: Prisma.StringFilter<"Proposals"> | string;
+    proposal_id?: Prisma.StringFilter<"Proposals"> | string;
+    proposal_key?: Prisma.StringFilter<"Proposals"> | string;
+    merkle_root?: Prisma.StringFilter<"Proposals"> | string;
+    arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">;
+    is_arbitrar_approved?: Prisma.BoolFilter<"Proposals"> | boolean;
+    total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number;
+    votes_for?: Prisma.BigIntFilter<"Proposals"> | bigint | number;
+    votes_against?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null;
+    vote_threshold?: Prisma.IntFilter<"Proposals"> | number;
+    start_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string;
+    end_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string;
+    status?: Prisma.EnumProposalStatusFilter<"Proposals"> | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFilter<"Proposals"> | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType;
+    slot?: Prisma.IntFilter<"Proposals"> | number;
+    bump?: Prisma.IntFilter<"Proposals"> | number;
+    created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string;
+    propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null;
+};
+export type ProposalsOrderByWithRelationInput = {
+    property_system?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    merkle_root?: Prisma.SortOrder;
+    arbitrar_approvals?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrderInput | Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    start_time?: Prisma.SortOrder;
+    end_time?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    snapshot_submitted?: Prisma.SortOrder;
+    proposal_type?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    propertySellProposals?: Prisma.PropertySellProposalOrderByWithRelationInput;
+};
+export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
+    proposal_key?: string;
+    AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[];
+    OR?: Prisma.ProposalsWhereInput[];
+    NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[];
+    property_system?: Prisma.StringFilter<"Proposals"> | string;
+    proposal_id?: Prisma.StringFilter<"Proposals"> | string;
+    merkle_root?: Prisma.StringFilter<"Proposals"> | string;
+    arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">;
+    is_arbitrar_approved?: Prisma.BoolFilter<"Proposals"> | boolean;
+    total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number;
+    votes_for?: Prisma.BigIntFilter<"Proposals"> | bigint | number;
+    votes_against?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null;
+    vote_threshold?: Prisma.IntFilter<"Proposals"> | number;
+    start_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string;
+    end_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string;
+    status?: Prisma.EnumProposalStatusFilter<"Proposals"> | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFilter<"Proposals"> | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType;
+    slot?: Prisma.IntFilter<"Proposals"> | number;
+    bump?: Prisma.IntFilter<"Proposals"> | number;
+    created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string;
+    propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null;
+}, "proposal_key">;
+export type ProposalsOrderByWithAggregationInput = {
+    property_system?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    merkle_root?: Prisma.SortOrder;
+    arbitrar_approvals?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrderInput | Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    start_time?: Prisma.SortOrder;
+    end_time?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    snapshot_submitted?: Prisma.SortOrder;
+    proposal_type?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+    _count?: Prisma.ProposalsCountOrderByAggregateInput;
+    _avg?: Prisma.ProposalsAvgOrderByAggregateInput;
+    _max?: Prisma.ProposalsMaxOrderByAggregateInput;
+    _min?: Prisma.ProposalsMinOrderByAggregateInput;
+    _sum?: Prisma.ProposalsSumOrderByAggregateInput;
+};
+export type ProposalsScalarWhereWithAggregatesInput = {
+    AND?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[];
+    OR?: Prisma.ProposalsScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[];
+    property_system?: Prisma.StringWithAggregatesFilter<"Proposals"> | string;
+    proposal_id?: Prisma.StringWithAggregatesFilter<"Proposals"> | string;
+    proposal_key?: Prisma.StringWithAggregatesFilter<"Proposals"> | string;
+    merkle_root?: Prisma.StringWithAggregatesFilter<"Proposals"> | string;
+    arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">;
+    is_arbitrar_approved?: Prisma.BoolWithAggregatesFilter<"Proposals"> | boolean;
+    total_voting_power?: Prisma.BigIntWithAggregatesFilter<"Proposals"> | bigint | number;
+    votes_for?: Prisma.BigIntWithAggregatesFilter<"Proposals"> | bigint | number;
+    votes_against?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null;
+    vote_threshold?: Prisma.IntWithAggregatesFilter<"Proposals"> | number;
+    start_time?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string;
+    end_time?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string;
+    status?: Prisma.EnumProposalStatusWithAggregatesFilter<"Proposals"> | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolWithAggregatesFilter<"Proposals"> | boolean;
+    proposal_type?: Prisma.EnumProposalTypeWithAggregatesFilter<"Proposals"> | $Enums.ProposalType;
+    slot?: Prisma.IntWithAggregatesFilter<"Proposals"> | number;
+    bump?: Prisma.IntWithAggregatesFilter<"Proposals"> | number;
+    created_at?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string;
+};
+export type ProposalsCreateInput = {
+    property_system: string;
+    proposal_id: string;
+    proposal_key: string;
+    merkle_root: string;
+    arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved: boolean;
+    total_voting_power: bigint | number;
+    votes_for: bigint | number;
+    votes_against?: bigint | number | null;
+    vote_threshold: number;
+    start_time: Date | string;
+    end_time: Date | string;
+    status: $Enums.ProposalStatus;
+    snapshot_submitted: boolean;
+    proposal_type: $Enums.ProposalType;
+    slot: number;
+    bump: number;
+    created_at?: Date | string;
+    propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput;
+};
+export type ProposalsUncheckedCreateInput = {
+    property_system: string;
+    proposal_id: string;
+    proposal_key: string;
+    merkle_root: string;
+    arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved: boolean;
+    total_voting_power: bigint | number;
+    votes_for: bigint | number;
+    votes_against?: bigint | number | null;
+    vote_threshold: number;
+    start_time: Date | string;
+    end_time: Date | string;
+    status: $Enums.ProposalStatus;
+    snapshot_submitted: boolean;
+    proposal_type: $Enums.ProposalType;
+    slot: number;
+    bump: number;
+    created_at?: Date | string;
+    propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput;
+};
+export type ProposalsUpdateInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    merkle_root?: Prisma.StringFieldUpdateOperationsInput | string;
+    arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType;
+    slot?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput;
+};
+export type ProposalsUncheckedUpdateInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    merkle_root?: Prisma.StringFieldUpdateOperationsInput | string;
+    arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType;
+    slot?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput;
+};
+export type ProposalsCreateManyInput = {
+    property_system: string;
+    proposal_id: string;
+    proposal_key: string;
+    merkle_root: string;
+    arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved: boolean;
+    total_voting_power: bigint | number;
+    votes_for: bigint | number;
+    votes_against?: bigint | number | null;
+    vote_threshold: number;
+    start_time: Date | string;
+    end_time: Date | string;
+    status: $Enums.ProposalStatus;
+    snapshot_submitted: boolean;
+    proposal_type: $Enums.ProposalType;
+    slot: number;
+    bump: number;
+    created_at?: Date | string;
+};
+export type ProposalsUpdateManyMutationInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    merkle_root?: Prisma.StringFieldUpdateOperationsInput | string;
+    arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType;
+    slot?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type ProposalsUncheckedUpdateManyInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    merkle_root?: Prisma.StringFieldUpdateOperationsInput | string;
+    arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType;
+    slot?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type ProposalsScalarRelationFilter = {
+    is?: Prisma.ProposalsWhereInput;
+    isNot?: Prisma.ProposalsWhereInput;
+};
+export type ProposalsCountOrderByAggregateInput = {
+    property_system?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    merkle_root?: Prisma.SortOrder;
+    arbitrar_approvals?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    start_time?: Prisma.SortOrder;
+    end_time?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    snapshot_submitted?: Prisma.SortOrder;
+    proposal_type?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+};
+export type ProposalsAvgOrderByAggregateInput = {
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type ProposalsMaxOrderByAggregateInput = {
+    property_system?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    merkle_root?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    start_time?: Prisma.SortOrder;
+    end_time?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    snapshot_submitted?: Prisma.SortOrder;
+    proposal_type?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+};
+export type ProposalsMinOrderByAggregateInput = {
+    property_system?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    merkle_root?: Prisma.SortOrder;
+    is_arbitrar_approved?: Prisma.SortOrder;
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    start_time?: Prisma.SortOrder;
+    end_time?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
+    snapshot_submitted?: Prisma.SortOrder;
+    proposal_type?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    created_at?: Prisma.SortOrder;
+};
+export type ProposalsSumOrderByAggregateInput = {
+    total_voting_power?: Prisma.SortOrder;
+    votes_for?: Prisma.SortOrder;
+    votes_against?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    slot?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type ProposalsCreateNestedOneWithoutPropertySellProposalsInput = {
+    create?: Prisma.XOR<Prisma.ProposalsCreateWithoutPropertySellProposalsInput, Prisma.ProposalsUncheckedCreateWithoutPropertySellProposalsInput>;
+    connectOrCreate?: Prisma.ProposalsCreateOrConnectWithoutPropertySellProposalsInput;
+    connect?: Prisma.ProposalsWhereUniqueInput;
+};
+export type ProposalsUpdateOneRequiredWithoutPropertySellProposalsNestedInput = {
+    create?: Prisma.XOR<Prisma.ProposalsCreateWithoutPropertySellProposalsInput, Prisma.ProposalsUncheckedCreateWithoutPropertySellProposalsInput>;
+    connectOrCreate?: Prisma.ProposalsCreateOrConnectWithoutPropertySellProposalsInput;
+    upsert?: Prisma.ProposalsUpsertWithoutPropertySellProposalsInput;
+    connect?: Prisma.ProposalsWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput, Prisma.ProposalsUpdateWithoutPropertySellProposalsInput>, Prisma.ProposalsUncheckedUpdateWithoutPropertySellProposalsInput>;
+};
+export type ProposalsCreatearbitrar_approvalsInput = {
+    set: string[];
+};
+export type ProposalsUpdatearbitrar_approvalsInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type NullableBigIntFieldUpdateOperationsInput = {
+    set?: bigint | number | null;
+    increment?: bigint | number;
+    decrement?: bigint | number;
+    multiply?: bigint | number;
+    divide?: bigint | number;
+};
+export type EnumProposalTypeFieldUpdateOperationsInput = {
+    set?: $Enums.ProposalType;
+};
+export type ProposalsCreateWithoutPropertySellProposalsInput = {
+    property_system: string;
+    proposal_id: string;
+    proposal_key: string;
+    merkle_root: string;
+    arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved: boolean;
+    total_voting_power: bigint | number;
+    votes_for: bigint | number;
+    votes_against?: bigint | number | null;
+    vote_threshold: number;
+    start_time: Date | string;
+    end_time: Date | string;
+    status: $Enums.ProposalStatus;
+    snapshot_submitted: boolean;
+    proposal_type: $Enums.ProposalType;
+    slot: number;
+    bump: number;
+    created_at?: Date | string;
+};
+export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
+    property_system: string;
+    proposal_id: string;
+    proposal_key: string;
+    merkle_root: string;
+    arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved: boolean;
+    total_voting_power: bigint | number;
+    votes_for: bigint | number;
+    votes_against?: bigint | number | null;
+    vote_threshold: number;
+    start_time: Date | string;
+    end_time: Date | string;
+    status: $Enums.ProposalStatus;
+    snapshot_submitted: boolean;
+    proposal_type: $Enums.ProposalType;
+    slot: number;
+    bump: number;
+    created_at?: Date | string;
+};
+export type ProposalsCreateOrConnectWithoutPropertySellProposalsInput = {
+    where: Prisma.ProposalsWhereUniqueInput;
+    create: Prisma.XOR<Prisma.ProposalsCreateWithoutPropertySellProposalsInput, Prisma.ProposalsUncheckedCreateWithoutPropertySellProposalsInput>;
+};
+export type ProposalsUpsertWithoutPropertySellProposalsInput = {
+    update: Prisma.XOR<Prisma.ProposalsUpdateWithoutPropertySellProposalsInput, Prisma.ProposalsUncheckedUpdateWithoutPropertySellProposalsInput>;
+    create: Prisma.XOR<Prisma.ProposalsCreateWithoutPropertySellProposalsInput, Prisma.ProposalsUncheckedCreateWithoutPropertySellProposalsInput>;
+    where?: Prisma.ProposalsWhereInput;
+};
+export type ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput = {
+    where?: Prisma.ProposalsWhereInput;
+    data: Prisma.XOR<Prisma.ProposalsUpdateWithoutPropertySellProposalsInput, Prisma.ProposalsUncheckedUpdateWithoutPropertySellProposalsInput>;
+};
+export type ProposalsUpdateWithoutPropertySellProposalsInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    merkle_root?: Prisma.StringFieldUpdateOperationsInput | string;
+    arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType;
+    slot?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
+    property_system?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_id?: Prisma.StringFieldUpdateOperationsInput | string;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    merkle_root?: Prisma.StringFieldUpdateOperationsInput | string;
+    arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[];
+    is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number;
+    votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus;
+    snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType;
+    slot?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_system?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    merkle_root?: boolean;
+    arbitrar_approvals?: boolean;
+    is_arbitrar_approved?: boolean;
+    total_voting_power?: boolean;
+    votes_for?: boolean;
+    votes_against?: boolean;
+    vote_threshold?: boolean;
+    start_time?: boolean;
+    end_time?: boolean;
+    status?: boolean;
+    snapshot_submitted?: boolean;
+    proposal_type?: boolean;
+    slot?: boolean;
+    bump?: boolean;
+    created_at?: boolean;
+    propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>;
+}, ExtArgs["result"]["proposals"]>;
+export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_system?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    merkle_root?: boolean;
+    arbitrar_approvals?: boolean;
+    is_arbitrar_approved?: boolean;
+    total_voting_power?: boolean;
+    votes_for?: boolean;
+    votes_against?: boolean;
+    vote_threshold?: boolean;
+    start_time?: boolean;
+    end_time?: boolean;
+    status?: boolean;
+    snapshot_submitted?: boolean;
+    proposal_type?: boolean;
+    slot?: boolean;
+    bump?: boolean;
+    created_at?: boolean;
+}, ExtArgs["result"]["proposals"]>;
+export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    property_system?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    merkle_root?: boolean;
+    arbitrar_approvals?: boolean;
+    is_arbitrar_approved?: boolean;
+    total_voting_power?: boolean;
+    votes_for?: boolean;
+    votes_against?: boolean;
+    vote_threshold?: boolean;
+    start_time?: boolean;
+    end_time?: boolean;
+    status?: boolean;
+    snapshot_submitted?: boolean;
+    proposal_type?: boolean;
+    slot?: boolean;
+    bump?: boolean;
+    created_at?: boolean;
+}, ExtArgs["result"]["proposals"]>;
+export type ProposalsSelectScalar = {
+    property_system?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    merkle_root?: boolean;
+    arbitrar_approvals?: boolean;
+    is_arbitrar_approved?: boolean;
+    total_voting_power?: boolean;
+    votes_for?: boolean;
+    votes_against?: boolean;
+    vote_threshold?: boolean;
+    start_time?: boolean;
+    end_time?: boolean;
+    status?: boolean;
+    snapshot_submitted?: boolean;
+    proposal_type?: boolean;
+    slot?: boolean;
+    bump?: boolean;
+    created_at?: boolean;
+};
+export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "proposal_id" | "proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "slot" | "bump" | "created_at", ExtArgs["result"]["proposals"]>;
+export type ProposalsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>;
+};
+export type ProposalsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
+export type ProposalsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {};
+export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "Proposals";
+    objects: {
+        propertySellProposals: Prisma.$PropertySellProposalPayload<ExtArgs> | null;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        property_system: string;
+        proposal_id: string;
+        proposal_key: string;
+        merkle_root: string;
+        arbitrar_approvals: string[];
+        is_arbitrar_approved: boolean;
+        total_voting_power: bigint;
+        votes_for: bigint;
+        votes_against: bigint | null;
+        vote_threshold: number;
+        start_time: Date;
+        end_time: Date;
+        status: $Enums.ProposalStatus;
+        snapshot_submitted: boolean;
+        proposal_type: $Enums.ProposalType;
+        slot: number;
+        bump: number;
+        created_at: Date;
+    }, ExtArgs["result"]["proposals"]>;
+    composites: {};
+};
+export type ProposalsGetPayload<S extends boolean | null | undefined | ProposalsDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ProposalsPayload, S>;
+export type ProposalsCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<ProposalsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: ProposalsCountAggregateInputType | true;
+};
+export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['Proposals'];
+        meta: {
+            name: 'Proposals';
+        };
+    };
+    /**
+     * Find zero or one Proposals that matches the filter.
+     * @param {ProposalsFindUniqueArgs} args - Arguments to find a Proposals
+     * @example
+     * // Get one Proposals
+     * const proposals = await prisma.proposals.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProposalsFindUniqueArgs>(args: Prisma.SelectSubset<T, ProposalsFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one Proposals that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProposalsFindUniqueOrThrowArgs} args - Arguments to find a Proposals
+     * @example
+     * // Get one Proposals
+     * const proposals = await prisma.proposals.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProposalsFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ProposalsFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Proposals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsFindFirstArgs} args - Arguments to find a Proposals
+     * @example
+     * // Get one Proposals
+     * const proposals = await prisma.proposals.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProposalsFindFirstArgs>(args?: Prisma.SelectSubset<T, ProposalsFindFirstArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first Proposals that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsFindFirstOrThrowArgs} args - Arguments to find a Proposals
+     * @example
+     * // Get one Proposals
+     * const proposals = await prisma.proposals.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProposalsFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ProposalsFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more Proposals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Proposals
+     * const proposals = await prisma.proposals.findMany()
+     *
+     * // Get first 10 Proposals
+     * const proposals = await prisma.proposals.findMany({ take: 10 })
+     *
+     * // Only select the `property_system`
+     * const proposalsWithProperty_systemOnly = await prisma.proposals.findMany({ select: { property_system: true } })
+     *
+     */
+    findMany<T extends ProposalsFindManyArgs>(args?: Prisma.SelectSubset<T, ProposalsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a Proposals.
+     * @param {ProposalsCreateArgs} args - Arguments to create a Proposals.
+     * @example
+     * // Create one Proposals
+     * const Proposals = await prisma.proposals.create({
+     *   data: {
+     *     // ... data to create a Proposals
+     *   }
+     * })
+     *
+     */
+    create<T extends ProposalsCreateArgs>(args: Prisma.SelectSubset<T, ProposalsCreateArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many Proposals.
+     * @param {ProposalsCreateManyArgs} args - Arguments to create many Proposals.
+     * @example
+     * // Create many Proposals
+     * const proposals = await prisma.proposals.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends ProposalsCreateManyArgs>(args?: Prisma.SelectSubset<T, ProposalsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many Proposals and returns the data saved in the database.
+     * @param {ProposalsCreateManyAndReturnArgs} args - Arguments to create many Proposals.
+     * @example
+     * // Create many Proposals
+     * const proposals = await prisma.proposals.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many Proposals and only return the `property_system`
+     * const proposalsWithProperty_systemOnly = await prisma.proposals.createManyAndReturn({
+     *   select: { property_system: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends ProposalsCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ProposalsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a Proposals.
+     * @param {ProposalsDeleteArgs} args - Arguments to delete one Proposals.
+     * @example
+     * // Delete one Proposals
+     * const Proposals = await prisma.proposals.delete({
+     *   where: {
+     *     // ... filter to delete one Proposals
+     *   }
+     * })
+     *
+     */
+    delete<T extends ProposalsDeleteArgs>(args: Prisma.SelectSubset<T, ProposalsDeleteArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one Proposals.
+     * @param {ProposalsUpdateArgs} args - Arguments to update one Proposals.
+     * @example
+     * // Update one Proposals
+     * const proposals = await prisma.proposals.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends ProposalsUpdateArgs>(args: Prisma.SelectSubset<T, ProposalsUpdateArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more Proposals.
+     * @param {ProposalsDeleteManyArgs} args - Arguments to filter Proposals to delete.
+     * @example
+     * // Delete a few Proposals
+     * const { count } = await prisma.proposals.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends ProposalsDeleteManyArgs>(args?: Prisma.SelectSubset<T, ProposalsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Proposals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Proposals
+     * const proposals = await prisma.proposals.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends ProposalsUpdateManyArgs>(args: Prisma.SelectSubset<T, ProposalsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more Proposals and returns the data updated in the database.
+     * @param {ProposalsUpdateManyAndReturnArgs} args - Arguments to update many Proposals.
+     * @example
+     * // Update many Proposals
+     * const proposals = await prisma.proposals.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more Proposals and only return the `property_system`
+     * const proposalsWithProperty_systemOnly = await prisma.proposals.updateManyAndReturn({
+     *   select: { property_system: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends ProposalsUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ProposalsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one Proposals.
+     * @param {ProposalsUpsertArgs} args - Arguments to update or create a Proposals.
+     * @example
+     * // Update or create a Proposals
+     * const proposals = await prisma.proposals.upsert({
+     *   create: {
+     *     // ... data to create a Proposals
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Proposals we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProposalsUpsertArgs>(args: Prisma.SelectSubset<T, ProposalsUpsertArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of Proposals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsCountArgs} args - Arguments to filter Proposals to count.
+     * @example
+     * // Count the number of Proposals
+     * const count = await prisma.proposals.count({
+     *   where: {
+     *     // ... the filter for the Proposals we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProposalsCountArgs>(args?: Prisma.Subset<T, ProposalsCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], ProposalsCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a Proposals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProposalsAggregateArgs>(args: Prisma.Subset<T, ProposalsAggregateArgs>): Prisma.PrismaPromise<GetProposalsAggregateType<T>>;
+    /**
+     * Group by Proposals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProposalsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends ProposalsGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: ProposalsGroupByArgs['orderBy'];
+    } : {
+        orderBy?: ProposalsGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, ProposalsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProposalsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the Proposals model
+     */
+    readonly fields: ProposalsFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for Proposals.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__ProposalsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    propertySellProposals<T extends Prisma.Proposals$propertySellProposalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Proposals$propertySellProposalsArgs<ExtArgs>>): Prisma.Prisma__PropertySellProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertySellProposalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the Proposals model
+ */
+export interface ProposalsFieldRefs {
+    readonly property_system: Prisma.FieldRef<"Proposals", 'String'>;
+    readonly proposal_id: Prisma.FieldRef<"Proposals", 'String'>;
+    readonly proposal_key: Prisma.FieldRef<"Proposals", 'String'>;
+    readonly merkle_root: Prisma.FieldRef<"Proposals", 'String'>;
+    readonly arbitrar_approvals: Prisma.FieldRef<"Proposals", 'String[]'>;
+    readonly is_arbitrar_approved: Prisma.FieldRef<"Proposals", 'Boolean'>;
+    readonly total_voting_power: Prisma.FieldRef<"Proposals", 'BigInt'>;
+    readonly votes_for: Prisma.FieldRef<"Proposals", 'BigInt'>;
+    readonly votes_against: Prisma.FieldRef<"Proposals", 'BigInt'>;
+    readonly vote_threshold: Prisma.FieldRef<"Proposals", 'Int'>;
+    readonly start_time: Prisma.FieldRef<"Proposals", 'DateTime'>;
+    readonly end_time: Prisma.FieldRef<"Proposals", 'DateTime'>;
+    readonly status: Prisma.FieldRef<"Proposals", 'ProposalStatus'>;
+    readonly snapshot_submitted: Prisma.FieldRef<"Proposals", 'Boolean'>;
+    readonly proposal_type: Prisma.FieldRef<"Proposals", 'ProposalType'>;
+    readonly slot: Prisma.FieldRef<"Proposals", 'Int'>;
+    readonly bump: Prisma.FieldRef<"Proposals", 'Int'>;
+    readonly created_at: Prisma.FieldRef<"Proposals", 'DateTime'>;
+}
+/**
+ * Proposals findUnique
+ */
+export type ProposalsFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * Filter, which Proposals to fetch.
+     */
+    where: Prisma.ProposalsWhereUniqueInput;
+};
+/**
+ * Proposals findUniqueOrThrow
+ */
+export type ProposalsFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * Filter, which Proposals to fetch.
+     */
+    where: Prisma.ProposalsWhereUniqueInput;
+};
+/**
+ * Proposals findFirst
+ */
+export type ProposalsFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * Filter, which Proposals to fetch.
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Proposals to fetch.
+     */
+    orderBy?: Prisma.ProposalsOrderByWithRelationInput | Prisma.ProposalsOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Proposals.
+     */
+    cursor?: Prisma.ProposalsWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Proposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Proposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Proposals.
+     */
+    distinct?: Prisma.ProposalsScalarFieldEnum | Prisma.ProposalsScalarFieldEnum[];
+};
+/**
+ * Proposals findFirstOrThrow
+ */
+export type ProposalsFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * Filter, which Proposals to fetch.
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Proposals to fetch.
+     */
+    orderBy?: Prisma.ProposalsOrderByWithRelationInput | Prisma.ProposalsOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for Proposals.
+     */
+    cursor?: Prisma.ProposalsWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Proposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Proposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Proposals.
+     */
+    distinct?: Prisma.ProposalsScalarFieldEnum | Prisma.ProposalsScalarFieldEnum[];
+};
+/**
+ * Proposals findMany
+ */
+export type ProposalsFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * Filter, which Proposals to fetch.
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of Proposals to fetch.
+     */
+    orderBy?: Prisma.ProposalsOrderByWithRelationInput | Prisma.ProposalsOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing Proposals.
+     */
+    cursor?: Prisma.ProposalsWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` Proposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` Proposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of Proposals.
+     */
+    distinct?: Prisma.ProposalsScalarFieldEnum | Prisma.ProposalsScalarFieldEnum[];
+};
+/**
+ * Proposals create
+ */
+export type ProposalsCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a Proposals.
+     */
+    data: Prisma.XOR<Prisma.ProposalsCreateInput, Prisma.ProposalsUncheckedCreateInput>;
+};
+/**
+ * Proposals createMany
+ */
+export type ProposalsCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Proposals.
+     */
+    data: Prisma.ProposalsCreateManyInput | Prisma.ProposalsCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Proposals createManyAndReturn
+ */
+export type ProposalsCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * The data used to create many Proposals.
+     */
+    data: Prisma.ProposalsCreateManyInput | Prisma.ProposalsCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * Proposals update
+ */
+export type ProposalsUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a Proposals.
+     */
+    data: Prisma.XOR<Prisma.ProposalsUpdateInput, Prisma.ProposalsUncheckedUpdateInput>;
+    /**
+     * Choose, which Proposals to update.
+     */
+    where: Prisma.ProposalsWhereUniqueInput;
+};
+/**
+ * Proposals updateMany
+ */
+export type ProposalsUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Proposals.
+     */
+    data: Prisma.XOR<Prisma.ProposalsUpdateManyMutationInput, Prisma.ProposalsUncheckedUpdateManyInput>;
+    /**
+     * Filter which Proposals to update
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * Limit how many Proposals to update.
+     */
+    limit?: number;
+};
+/**
+ * Proposals updateManyAndReturn
+ */
+export type ProposalsUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * The data used to update Proposals.
+     */
+    data: Prisma.XOR<Prisma.ProposalsUpdateManyMutationInput, Prisma.ProposalsUncheckedUpdateManyInput>;
+    /**
+     * Filter which Proposals to update
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * Limit how many Proposals to update.
+     */
+    limit?: number;
+};
+/**
+ * Proposals upsert
+ */
+export type ProposalsUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the Proposals to update in case it exists.
+     */
+    where: Prisma.ProposalsWhereUniqueInput;
+    /**
+     * In case the Proposals found by the `where` argument doesn't exist, create a new Proposals with this data.
+     */
+    create: Prisma.XOR<Prisma.ProposalsCreateInput, Prisma.ProposalsUncheckedCreateInput>;
+    /**
+     * In case the Proposals was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.ProposalsUpdateInput, Prisma.ProposalsUncheckedUpdateInput>;
+};
+/**
+ * Proposals delete
+ */
+export type ProposalsDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+    /**
+     * Filter which Proposals to delete.
+     */
+    where: Prisma.ProposalsWhereUniqueInput;
+};
+/**
+ * Proposals deleteMany
+ */
+export type ProposalsDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which Proposals to delete
+     */
+    where?: Prisma.ProposalsWhereInput;
+    /**
+     * Limit how many Proposals to delete.
+     */
+    limit?: number;
+};
+/**
+ * Proposals.propertySellProposals
+ */
+export type Proposals$propertySellProposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertySellProposal
+     */
+    select?: Prisma.PropertySellProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertySellProposal
+     */
+    omit?: Prisma.PropertySellProposalOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PropertySellProposalInclude<ExtArgs> | null;
+    where?: Prisma.PropertySellProposalWhereInput;
+};
+/**
+ * Proposals without action
+ */
+export type ProposalsDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Proposals
+     */
+    select?: Prisma.ProposalsSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Proposals
+     */
+    omit?: Prisma.ProposalsOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ProposalsInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=Proposals.d.ts.map

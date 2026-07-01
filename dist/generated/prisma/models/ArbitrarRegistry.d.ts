@@ -1,0 +1,1291 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model ArbitrarRegistry
+ *
+ */
+export type ArbitrarRegistryModel = runtime.Types.Result.DefaultSelection<Prisma.$ArbitrarRegistryPayload>;
+export type AggregateArbitrarRegistry = {
+    _count: ArbitrarRegistryCountAggregateOutputType | null;
+    _avg: ArbitrarRegistryAvgAggregateOutputType | null;
+    _sum: ArbitrarRegistrySumAggregateOutputType | null;
+    _min: ArbitrarRegistryMinAggregateOutputType | null;
+    _max: ArbitrarRegistryMaxAggregateOutputType | null;
+};
+export type ArbitrarRegistryAvgAggregateOutputType = {
+    current_number_of_arbitrar: number | null;
+    total_arbitrar: number | null;
+    vote_threshold: number | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type ArbitrarRegistrySumAggregateOutputType = {
+    current_number_of_arbitrar: number | null;
+    total_arbitrar: number | null;
+    vote_threshold: number | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type ArbitrarRegistryMinAggregateOutputType = {
+    arbitrar_registry_pubkey: string | null;
+    current_number_of_arbitrar: number | null;
+    total_arbitrar: number | null;
+    vote_threshold: number | null;
+    claim_deadline_ts: Date | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type ArbitrarRegistryMaxAggregateOutputType = {
+    arbitrar_registry_pubkey: string | null;
+    current_number_of_arbitrar: number | null;
+    total_arbitrar: number | null;
+    vote_threshold: number | null;
+    claim_deadline_ts: Date | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type ArbitrarRegistryCountAggregateOutputType = {
+    arbitrar_registry_pubkey: number;
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts: number;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar: number;
+    _all: number;
+};
+export type ArbitrarRegistryAvgAggregateInputType = {
+    current_number_of_arbitrar?: true;
+    total_arbitrar?: true;
+    vote_threshold?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type ArbitrarRegistrySumAggregateInputType = {
+    current_number_of_arbitrar?: true;
+    total_arbitrar?: true;
+    vote_threshold?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type ArbitrarRegistryMinAggregateInputType = {
+    arbitrar_registry_pubkey?: true;
+    current_number_of_arbitrar?: true;
+    total_arbitrar?: true;
+    vote_threshold?: true;
+    claim_deadline_ts?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type ArbitrarRegistryMaxAggregateInputType = {
+    arbitrar_registry_pubkey?: true;
+    current_number_of_arbitrar?: true;
+    total_arbitrar?: true;
+    vote_threshold?: true;
+    claim_deadline_ts?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type ArbitrarRegistryCountAggregateInputType = {
+    arbitrar_registry_pubkey?: true;
+    current_number_of_arbitrar?: true;
+    total_arbitrar?: true;
+    vote_threshold?: true;
+    claim_deadline_ts?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+    arbitrar?: true;
+    _all?: true;
+};
+export type ArbitrarRegistryAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArbitrarRegistry to aggregate.
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ArbitrarRegistries to fetch.
+     */
+    orderBy?: Prisma.ArbitrarRegistryOrderByWithRelationInput | Prisma.ArbitrarRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.ArbitrarRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ArbitrarRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ArbitrarRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned ArbitrarRegistries
+    **/
+    _count?: true | ArbitrarRegistryCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: ArbitrarRegistryAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: ArbitrarRegistrySumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: ArbitrarRegistryMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: ArbitrarRegistryMaxAggregateInputType;
+};
+export type GetArbitrarRegistryAggregateType<T extends ArbitrarRegistryAggregateArgs> = {
+    [P in keyof T & keyof AggregateArbitrarRegistry]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateArbitrarRegistry[P]> : Prisma.GetScalarType<T[P], AggregateArbitrarRegistry[P]>;
+};
+export type ArbitrarRegistryGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    orderBy?: Prisma.ArbitrarRegistryOrderByWithAggregationInput | Prisma.ArbitrarRegistryOrderByWithAggregationInput[];
+    by: Prisma.ArbitrarRegistryScalarFieldEnum[] | Prisma.ArbitrarRegistryScalarFieldEnum;
+    having?: Prisma.ArbitrarRegistryScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: ArbitrarRegistryCountAggregateInputType | true;
+    _avg?: ArbitrarRegistryAvgAggregateInputType;
+    _sum?: ArbitrarRegistrySumAggregateInputType;
+    _min?: ArbitrarRegistryMinAggregateInputType;
+    _max?: ArbitrarRegistryMaxAggregateInputType;
+};
+export type ArbitrarRegistryGroupByOutputType = {
+    arbitrar_registry_pubkey: string;
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts: Date;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar: string[];
+    _count: ArbitrarRegistryCountAggregateOutputType | null;
+    _avg: ArbitrarRegistryAvgAggregateOutputType | null;
+    _sum: ArbitrarRegistrySumAggregateOutputType | null;
+    _min: ArbitrarRegistryMinAggregateOutputType | null;
+    _max: ArbitrarRegistryMaxAggregateOutputType | null;
+};
+export type GetArbitrarRegistryGroupByPayload<T extends ArbitrarRegistryGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ArbitrarRegistryGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof ArbitrarRegistryGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], ArbitrarRegistryGroupByOutputType[P]> : Prisma.GetScalarType<T[P], ArbitrarRegistryGroupByOutputType[P]>;
+}>>;
+export type ArbitrarRegistryWhereInput = {
+    AND?: Prisma.ArbitrarRegistryWhereInput | Prisma.ArbitrarRegistryWhereInput[];
+    OR?: Prisma.ArbitrarRegistryWhereInput[];
+    NOT?: Prisma.ArbitrarRegistryWhereInput | Prisma.ArbitrarRegistryWhereInput[];
+    arbitrar_registry_pubkey?: Prisma.StringFilter<"ArbitrarRegistry"> | string;
+    current_number_of_arbitrar?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    total_arbitrar?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    vote_threshold?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    claim_deadline_ts?: Prisma.DateTimeFilter<"ArbitrarRegistry"> | Date | string;
+    total_salary_allocated?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    bump?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    arbitrar?: Prisma.StringNullableListFilter<"ArbitrarRegistry">;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+};
+export type ArbitrarRegistryOrderByWithRelationInput = {
+    arbitrar_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    arbitrar?: Prisma.SortOrder;
+    property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput;
+};
+export type ArbitrarRegistryWhereUniqueInput = Prisma.AtLeast<{
+    arbitrar_registry_pubkey?: string;
+    AND?: Prisma.ArbitrarRegistryWhereInput | Prisma.ArbitrarRegistryWhereInput[];
+    OR?: Prisma.ArbitrarRegistryWhereInput[];
+    NOT?: Prisma.ArbitrarRegistryWhereInput | Prisma.ArbitrarRegistryWhereInput[];
+    current_number_of_arbitrar?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    total_arbitrar?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    vote_threshold?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    claim_deadline_ts?: Prisma.DateTimeFilter<"ArbitrarRegistry"> | Date | string;
+    total_salary_allocated?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    bump?: Prisma.IntFilter<"ArbitrarRegistry"> | number;
+    arbitrar?: Prisma.StringNullableListFilter<"ArbitrarRegistry">;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+}, "arbitrar_registry_pubkey">;
+export type ArbitrarRegistryOrderByWithAggregationInput = {
+    arbitrar_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    arbitrar?: Prisma.SortOrder;
+    _count?: Prisma.ArbitrarRegistryCountOrderByAggregateInput;
+    _avg?: Prisma.ArbitrarRegistryAvgOrderByAggregateInput;
+    _max?: Prisma.ArbitrarRegistryMaxOrderByAggregateInput;
+    _min?: Prisma.ArbitrarRegistryMinOrderByAggregateInput;
+    _sum?: Prisma.ArbitrarRegistrySumOrderByAggregateInput;
+};
+export type ArbitrarRegistryScalarWhereWithAggregatesInput = {
+    AND?: Prisma.ArbitrarRegistryScalarWhereWithAggregatesInput | Prisma.ArbitrarRegistryScalarWhereWithAggregatesInput[];
+    OR?: Prisma.ArbitrarRegistryScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.ArbitrarRegistryScalarWhereWithAggregatesInput | Prisma.ArbitrarRegistryScalarWhereWithAggregatesInput[];
+    arbitrar_registry_pubkey?: Prisma.StringWithAggregatesFilter<"ArbitrarRegistry"> | string;
+    current_number_of_arbitrar?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number;
+    total_arbitrar?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number;
+    vote_threshold?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number;
+    claim_deadline_ts?: Prisma.DateTimeWithAggregatesFilter<"ArbitrarRegistry"> | Date | string;
+    total_salary_allocated?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number;
+    bump?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number;
+    arbitrar?: Prisma.StringNullableListFilter<"ArbitrarRegistry">;
+};
+export type ArbitrarRegistryCreateInput = {
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[];
+    property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutArbitrarRegistriesInput;
+};
+export type ArbitrarRegistryUncheckedCreateInput = {
+    arbitrar_registry_pubkey: string;
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[];
+};
+export type ArbitrarRegistryUpdateInput = {
+    current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[];
+    property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutArbitrarRegistriesNestedInput;
+};
+export type ArbitrarRegistryUncheckedUpdateInput = {
+    arbitrar_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[];
+};
+export type ArbitrarRegistryCreateManyInput = {
+    arbitrar_registry_pubkey: string;
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[];
+};
+export type ArbitrarRegistryUpdateManyMutationInput = {
+    current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[];
+};
+export type ArbitrarRegistryUncheckedUpdateManyInput = {
+    arbitrar_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[];
+};
+export type ArbitrarRegistryNullableScalarRelationFilter = {
+    is?: Prisma.ArbitrarRegistryWhereInput | null;
+    isNot?: Prisma.ArbitrarRegistryWhereInput | null;
+};
+export type ArbitrarRegistryCountOrderByAggregateInput = {
+    arbitrar_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    arbitrar?: Prisma.SortOrder;
+};
+export type ArbitrarRegistryAvgOrderByAggregateInput = {
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type ArbitrarRegistryMaxOrderByAggregateInput = {
+    arbitrar_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type ArbitrarRegistryMinOrderByAggregateInput = {
+    arbitrar_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type ArbitrarRegistrySumOrderByAggregateInput = {
+    current_number_of_arbitrar?: Prisma.SortOrder;
+    total_arbitrar?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ArbitrarRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    connect?: Prisma.ArbitrarRegistryWhereUniqueInput;
+};
+export type ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ArbitrarRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    connect?: Prisma.ArbitrarRegistryWhereUniqueInput;
+};
+export type ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ArbitrarRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    upsert?: Prisma.ArbitrarRegistryUpsertWithoutProperty_system_keyInput;
+    disconnect?: Prisma.ArbitrarRegistryWhereInput | boolean;
+    delete?: Prisma.ArbitrarRegistryWhereInput | boolean;
+    connect?: Prisma.ArbitrarRegistryWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ArbitrarRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUpdateWithoutProperty_system_keyInput>, Prisma.ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.ArbitrarRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    upsert?: Prisma.ArbitrarRegistryUpsertWithoutProperty_system_keyInput;
+    disconnect?: Prisma.ArbitrarRegistryWhereInput | boolean;
+    delete?: Prisma.ArbitrarRegistryWhereInput | boolean;
+    connect?: Prisma.ArbitrarRegistryWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.ArbitrarRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUpdateWithoutProperty_system_keyInput>, Prisma.ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type ArbitrarRegistryCreatearbitrarInput = {
+    set: string[];
+};
+export type ArbitrarRegistryUpdatearbitrarInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type ArbitrarRegistryCreateWithoutProperty_system_keyInput = {
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[];
+};
+export type ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput = {
+    current_number_of_arbitrar: number;
+    total_arbitrar: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[];
+};
+export type ArbitrarRegistryCreateOrConnectWithoutProperty_system_keyInput = {
+    where: Prisma.ArbitrarRegistryWhereUniqueInput;
+    create: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+};
+export type ArbitrarRegistryUpsertWithoutProperty_system_keyInput = {
+    update: Prisma.XOR<Prisma.ArbitrarRegistryUpdateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+    create: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    where?: Prisma.ArbitrarRegistryWhereInput;
+};
+export type ArbitrarRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput = {
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    data: Prisma.XOR<Prisma.ArbitrarRegistryUpdateWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type ArbitrarRegistryUpdateWithoutProperty_system_keyInput = {
+    current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[];
+};
+export type ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput = {
+    current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[];
+};
+export type ArbitrarRegistrySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    arbitrar_registry_pubkey?: boolean;
+    current_number_of_arbitrar?: boolean;
+    total_arbitrar?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    arbitrar?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["arbitrarRegistry"]>;
+export type ArbitrarRegistrySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    arbitrar_registry_pubkey?: boolean;
+    current_number_of_arbitrar?: boolean;
+    total_arbitrar?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    arbitrar?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["arbitrarRegistry"]>;
+export type ArbitrarRegistrySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    arbitrar_registry_pubkey?: boolean;
+    current_number_of_arbitrar?: boolean;
+    total_arbitrar?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    arbitrar?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["arbitrarRegistry"]>;
+export type ArbitrarRegistrySelectScalar = {
+    arbitrar_registry_pubkey?: boolean;
+    current_number_of_arbitrar?: boolean;
+    total_arbitrar?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    arbitrar?: boolean;
+};
+export type ArbitrarRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"arbitrar_registry_pubkey" | "current_number_of_arbitrar" | "total_arbitrar" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated" | "bump" | "arbitrar", ExtArgs["result"]["arbitrarRegistry"]>;
+export type ArbitrarRegistryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type ArbitrarRegistryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type ArbitrarRegistryIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type $ArbitrarRegistryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "ArbitrarRegistry";
+    objects: {
+        property_system_key: Prisma.$PropertySystemAccountPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        arbitrar_registry_pubkey: string;
+        current_number_of_arbitrar: number;
+        total_arbitrar: number;
+        vote_threshold: number;
+        claim_deadline_ts: Date;
+        total_salary_allocated: number;
+        bump: number;
+        arbitrar: string[];
+    }, ExtArgs["result"]["arbitrarRegistry"]>;
+    composites: {};
+};
+export type ArbitrarRegistryGetPayload<S extends boolean | null | undefined | ArbitrarRegistryDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload, S>;
+export type ArbitrarRegistryCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<ArbitrarRegistryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: ArbitrarRegistryCountAggregateInputType | true;
+};
+export interface ArbitrarRegistryDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['ArbitrarRegistry'];
+        meta: {
+            name: 'ArbitrarRegistry';
+        };
+    };
+    /**
+     * Find zero or one ArbitrarRegistry that matches the filter.
+     * @param {ArbitrarRegistryFindUniqueArgs} args - Arguments to find a ArbitrarRegistry
+     * @example
+     * // Get one ArbitrarRegistry
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ArbitrarRegistryFindUniqueArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one ArbitrarRegistry that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ArbitrarRegistryFindUniqueOrThrowArgs} args - Arguments to find a ArbitrarRegistry
+     * @example
+     * // Get one ArbitrarRegistry
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ArbitrarRegistryFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first ArbitrarRegistry that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryFindFirstArgs} args - Arguments to find a ArbitrarRegistry
+     * @example
+     * // Get one ArbitrarRegistry
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ArbitrarRegistryFindFirstArgs>(args?: Prisma.SelectSubset<T, ArbitrarRegistryFindFirstArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first ArbitrarRegistry that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryFindFirstOrThrowArgs} args - Arguments to find a ArbitrarRegistry
+     * @example
+     * // Get one ArbitrarRegistry
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ArbitrarRegistryFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ArbitrarRegistryFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more ArbitrarRegistries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ArbitrarRegistries
+     * const arbitrarRegistries = await prisma.arbitrarRegistry.findMany()
+     *
+     * // Get first 10 ArbitrarRegistries
+     * const arbitrarRegistries = await prisma.arbitrarRegistry.findMany({ take: 10 })
+     *
+     * // Only select the `arbitrar_registry_pubkey`
+     * const arbitrarRegistryWithArbitrar_registry_pubkeyOnly = await prisma.arbitrarRegistry.findMany({ select: { arbitrar_registry_pubkey: true } })
+     *
+     */
+    findMany<T extends ArbitrarRegistryFindManyArgs>(args?: Prisma.SelectSubset<T, ArbitrarRegistryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a ArbitrarRegistry.
+     * @param {ArbitrarRegistryCreateArgs} args - Arguments to create a ArbitrarRegistry.
+     * @example
+     * // Create one ArbitrarRegistry
+     * const ArbitrarRegistry = await prisma.arbitrarRegistry.create({
+     *   data: {
+     *     // ... data to create a ArbitrarRegistry
+     *   }
+     * })
+     *
+     */
+    create<T extends ArbitrarRegistryCreateArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryCreateArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many ArbitrarRegistries.
+     * @param {ArbitrarRegistryCreateManyArgs} args - Arguments to create many ArbitrarRegistries.
+     * @example
+     * // Create many ArbitrarRegistries
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends ArbitrarRegistryCreateManyArgs>(args?: Prisma.SelectSubset<T, ArbitrarRegistryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many ArbitrarRegistries and returns the data saved in the database.
+     * @param {ArbitrarRegistryCreateManyAndReturnArgs} args - Arguments to create many ArbitrarRegistries.
+     * @example
+     * // Create many ArbitrarRegistries
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many ArbitrarRegistries and only return the `arbitrar_registry_pubkey`
+     * const arbitrarRegistryWithArbitrar_registry_pubkeyOnly = await prisma.arbitrarRegistry.createManyAndReturn({
+     *   select: { arbitrar_registry_pubkey: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends ArbitrarRegistryCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ArbitrarRegistryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a ArbitrarRegistry.
+     * @param {ArbitrarRegistryDeleteArgs} args - Arguments to delete one ArbitrarRegistry.
+     * @example
+     * // Delete one ArbitrarRegistry
+     * const ArbitrarRegistry = await prisma.arbitrarRegistry.delete({
+     *   where: {
+     *     // ... filter to delete one ArbitrarRegistry
+     *   }
+     * })
+     *
+     */
+    delete<T extends ArbitrarRegistryDeleteArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryDeleteArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one ArbitrarRegistry.
+     * @param {ArbitrarRegistryUpdateArgs} args - Arguments to update one ArbitrarRegistry.
+     * @example
+     * // Update one ArbitrarRegistry
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends ArbitrarRegistryUpdateArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryUpdateArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more ArbitrarRegistries.
+     * @param {ArbitrarRegistryDeleteManyArgs} args - Arguments to filter ArbitrarRegistries to delete.
+     * @example
+     * // Delete a few ArbitrarRegistries
+     * const { count } = await prisma.arbitrarRegistry.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends ArbitrarRegistryDeleteManyArgs>(args?: Prisma.SelectSubset<T, ArbitrarRegistryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more ArbitrarRegistries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ArbitrarRegistries
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends ArbitrarRegistryUpdateManyArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more ArbitrarRegistries and returns the data updated in the database.
+     * @param {ArbitrarRegistryUpdateManyAndReturnArgs} args - Arguments to update many ArbitrarRegistries.
+     * @example
+     * // Update many ArbitrarRegistries
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more ArbitrarRegistries and only return the `arbitrar_registry_pubkey`
+     * const arbitrarRegistryWithArbitrar_registry_pubkeyOnly = await prisma.arbitrarRegistry.updateManyAndReturn({
+     *   select: { arbitrar_registry_pubkey: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends ArbitrarRegistryUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one ArbitrarRegistry.
+     * @param {ArbitrarRegistryUpsertArgs} args - Arguments to update or create a ArbitrarRegistry.
+     * @example
+     * // Update or create a ArbitrarRegistry
+     * const arbitrarRegistry = await prisma.arbitrarRegistry.upsert({
+     *   create: {
+     *     // ... data to create a ArbitrarRegistry
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ArbitrarRegistry we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ArbitrarRegistryUpsertArgs>(args: Prisma.SelectSubset<T, ArbitrarRegistryUpsertArgs<ExtArgs>>): Prisma.Prisma__ArbitrarRegistryClient<runtime.Types.Result.GetResult<Prisma.$ArbitrarRegistryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of ArbitrarRegistries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryCountArgs} args - Arguments to filter ArbitrarRegistries to count.
+     * @example
+     * // Count the number of ArbitrarRegistries
+     * const count = await prisma.arbitrarRegistry.count({
+     *   where: {
+     *     // ... the filter for the ArbitrarRegistries we want to count
+     *   }
+     * })
+    **/
+    count<T extends ArbitrarRegistryCountArgs>(args?: Prisma.Subset<T, ArbitrarRegistryCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], ArbitrarRegistryCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a ArbitrarRegistry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ArbitrarRegistryAggregateArgs>(args: Prisma.Subset<T, ArbitrarRegistryAggregateArgs>): Prisma.PrismaPromise<GetArbitrarRegistryAggregateType<T>>;
+    /**
+     * Group by ArbitrarRegistry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ArbitrarRegistryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends ArbitrarRegistryGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: ArbitrarRegistryGroupByArgs['orderBy'];
+    } : {
+        orderBy?: ArbitrarRegistryGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, ArbitrarRegistryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetArbitrarRegistryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the ArbitrarRegistry model
+     */
+    readonly fields: ArbitrarRegistryFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for ArbitrarRegistry.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__ArbitrarRegistryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    property_system_key<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the ArbitrarRegistry model
+ */
+export interface ArbitrarRegistryFieldRefs {
+    readonly arbitrar_registry_pubkey: Prisma.FieldRef<"ArbitrarRegistry", 'String'>;
+    readonly current_number_of_arbitrar: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>;
+    readonly total_arbitrar: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>;
+    readonly vote_threshold: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>;
+    readonly claim_deadline_ts: Prisma.FieldRef<"ArbitrarRegistry", 'DateTime'>;
+    readonly total_salary_allocated: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>;
+    readonly bump: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>;
+    readonly arbitrar: Prisma.FieldRef<"ArbitrarRegistry", 'String[]'>;
+}
+/**
+ * ArbitrarRegistry findUnique
+ */
+export type ArbitrarRegistryFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which ArbitrarRegistry to fetch.
+     */
+    where: Prisma.ArbitrarRegistryWhereUniqueInput;
+};
+/**
+ * ArbitrarRegistry findUniqueOrThrow
+ */
+export type ArbitrarRegistryFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which ArbitrarRegistry to fetch.
+     */
+    where: Prisma.ArbitrarRegistryWhereUniqueInput;
+};
+/**
+ * ArbitrarRegistry findFirst
+ */
+export type ArbitrarRegistryFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which ArbitrarRegistry to fetch.
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ArbitrarRegistries to fetch.
+     */
+    orderBy?: Prisma.ArbitrarRegistryOrderByWithRelationInput | Prisma.ArbitrarRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for ArbitrarRegistries.
+     */
+    cursor?: Prisma.ArbitrarRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ArbitrarRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ArbitrarRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ArbitrarRegistries.
+     */
+    distinct?: Prisma.ArbitrarRegistryScalarFieldEnum | Prisma.ArbitrarRegistryScalarFieldEnum[];
+};
+/**
+ * ArbitrarRegistry findFirstOrThrow
+ */
+export type ArbitrarRegistryFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which ArbitrarRegistry to fetch.
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ArbitrarRegistries to fetch.
+     */
+    orderBy?: Prisma.ArbitrarRegistryOrderByWithRelationInput | Prisma.ArbitrarRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for ArbitrarRegistries.
+     */
+    cursor?: Prisma.ArbitrarRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ArbitrarRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ArbitrarRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ArbitrarRegistries.
+     */
+    distinct?: Prisma.ArbitrarRegistryScalarFieldEnum | Prisma.ArbitrarRegistryScalarFieldEnum[];
+};
+/**
+ * ArbitrarRegistry findMany
+ */
+export type ArbitrarRegistryFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which ArbitrarRegistries to fetch.
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of ArbitrarRegistries to fetch.
+     */
+    orderBy?: Prisma.ArbitrarRegistryOrderByWithRelationInput | Prisma.ArbitrarRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing ArbitrarRegistries.
+     */
+    cursor?: Prisma.ArbitrarRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` ArbitrarRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` ArbitrarRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ArbitrarRegistries.
+     */
+    distinct?: Prisma.ArbitrarRegistryScalarFieldEnum | Prisma.ArbitrarRegistryScalarFieldEnum[];
+};
+/**
+ * ArbitrarRegistry create
+ */
+export type ArbitrarRegistryCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a ArbitrarRegistry.
+     */
+    data: Prisma.XOR<Prisma.ArbitrarRegistryCreateInput, Prisma.ArbitrarRegistryUncheckedCreateInput>;
+};
+/**
+ * ArbitrarRegistry createMany
+ */
+export type ArbitrarRegistryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ArbitrarRegistries.
+     */
+    data: Prisma.ArbitrarRegistryCreateManyInput | Prisma.ArbitrarRegistryCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * ArbitrarRegistry createManyAndReturn
+ */
+export type ArbitrarRegistryCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * The data used to create many ArbitrarRegistries.
+     */
+    data: Prisma.ArbitrarRegistryCreateManyInput | Prisma.ArbitrarRegistryCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * ArbitrarRegistry update
+ */
+export type ArbitrarRegistryUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a ArbitrarRegistry.
+     */
+    data: Prisma.XOR<Prisma.ArbitrarRegistryUpdateInput, Prisma.ArbitrarRegistryUncheckedUpdateInput>;
+    /**
+     * Choose, which ArbitrarRegistry to update.
+     */
+    where: Prisma.ArbitrarRegistryWhereUniqueInput;
+};
+/**
+ * ArbitrarRegistry updateMany
+ */
+export type ArbitrarRegistryUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ArbitrarRegistries.
+     */
+    data: Prisma.XOR<Prisma.ArbitrarRegistryUpdateManyMutationInput, Prisma.ArbitrarRegistryUncheckedUpdateManyInput>;
+    /**
+     * Filter which ArbitrarRegistries to update
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * Limit how many ArbitrarRegistries to update.
+     */
+    limit?: number;
+};
+/**
+ * ArbitrarRegistry updateManyAndReturn
+ */
+export type ArbitrarRegistryUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * The data used to update ArbitrarRegistries.
+     */
+    data: Prisma.XOR<Prisma.ArbitrarRegistryUpdateManyMutationInput, Prisma.ArbitrarRegistryUncheckedUpdateManyInput>;
+    /**
+     * Filter which ArbitrarRegistries to update
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * Limit how many ArbitrarRegistries to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * ArbitrarRegistry upsert
+ */
+export type ArbitrarRegistryUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the ArbitrarRegistry to update in case it exists.
+     */
+    where: Prisma.ArbitrarRegistryWhereUniqueInput;
+    /**
+     * In case the ArbitrarRegistry found by the `where` argument doesn't exist, create a new ArbitrarRegistry with this data.
+     */
+    create: Prisma.XOR<Prisma.ArbitrarRegistryCreateInput, Prisma.ArbitrarRegistryUncheckedCreateInput>;
+    /**
+     * In case the ArbitrarRegistry was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.ArbitrarRegistryUpdateInput, Prisma.ArbitrarRegistryUncheckedUpdateInput>;
+};
+/**
+ * ArbitrarRegistry delete
+ */
+export type ArbitrarRegistryDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter which ArbitrarRegistry to delete.
+     */
+    where: Prisma.ArbitrarRegistryWhereUniqueInput;
+};
+/**
+ * ArbitrarRegistry deleteMany
+ */
+export type ArbitrarRegistryDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which ArbitrarRegistries to delete
+     */
+    where?: Prisma.ArbitrarRegistryWhereInput;
+    /**
+     * Limit how many ArbitrarRegistries to delete.
+     */
+    limit?: number;
+};
+/**
+ * ArbitrarRegistry without action
+ */
+export type ArbitrarRegistryDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ArbitrarRegistry
+     */
+    select?: Prisma.ArbitrarRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the ArbitrarRegistry
+     */
+    omit?: Prisma.ArbitrarRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.ArbitrarRegistryInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=ArbitrarRegistry.d.ts.map

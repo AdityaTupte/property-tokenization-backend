@@ -1,0 +1,1291 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model TrusteeRegistry
+ *
+ */
+export type TrusteeRegistryModel = runtime.Types.Result.DefaultSelection<Prisma.$TrusteeRegistryPayload>;
+export type AggregateTrusteeRegistry = {
+    _count: TrusteeRegistryCountAggregateOutputType | null;
+    _avg: TrusteeRegistryAvgAggregateOutputType | null;
+    _sum: TrusteeRegistrySumAggregateOutputType | null;
+    _min: TrusteeRegistryMinAggregateOutputType | null;
+    _max: TrusteeRegistryMaxAggregateOutputType | null;
+};
+export type TrusteeRegistryAvgAggregateOutputType = {
+    current_number_of_trustees: number | null;
+    total_trustees: number | null;
+    vote_threshold: number | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type TrusteeRegistrySumAggregateOutputType = {
+    current_number_of_trustees: number | null;
+    total_trustees: number | null;
+    vote_threshold: number | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type TrusteeRegistryMinAggregateOutputType = {
+    trustee_registry_pubkey: string | null;
+    current_number_of_trustees: number | null;
+    total_trustees: number | null;
+    vote_threshold: number | null;
+    claim_deadline_ts: Date | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type TrusteeRegistryMaxAggregateOutputType = {
+    trustee_registry_pubkey: string | null;
+    current_number_of_trustees: number | null;
+    total_trustees: number | null;
+    vote_threshold: number | null;
+    claim_deadline_ts: Date | null;
+    total_salary_allocated: number | null;
+    bump: number | null;
+};
+export type TrusteeRegistryCountAggregateOutputType = {
+    trustee_registry_pubkey: number;
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts: number;
+    total_salary_allocated: number;
+    bump: number;
+    trustees: number;
+    _all: number;
+};
+export type TrusteeRegistryAvgAggregateInputType = {
+    current_number_of_trustees?: true;
+    total_trustees?: true;
+    vote_threshold?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type TrusteeRegistrySumAggregateInputType = {
+    current_number_of_trustees?: true;
+    total_trustees?: true;
+    vote_threshold?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type TrusteeRegistryMinAggregateInputType = {
+    trustee_registry_pubkey?: true;
+    current_number_of_trustees?: true;
+    total_trustees?: true;
+    vote_threshold?: true;
+    claim_deadline_ts?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type TrusteeRegistryMaxAggregateInputType = {
+    trustee_registry_pubkey?: true;
+    current_number_of_trustees?: true;
+    total_trustees?: true;
+    vote_threshold?: true;
+    claim_deadline_ts?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+};
+export type TrusteeRegistryCountAggregateInputType = {
+    trustee_registry_pubkey?: true;
+    current_number_of_trustees?: true;
+    total_trustees?: true;
+    vote_threshold?: true;
+    claim_deadline_ts?: true;
+    total_salary_allocated?: true;
+    bump?: true;
+    trustees?: true;
+    _all?: true;
+};
+export type TrusteeRegistryAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrusteeRegistry to aggregate.
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of TrusteeRegistries to fetch.
+     */
+    orderBy?: Prisma.TrusteeRegistryOrderByWithRelationInput | Prisma.TrusteeRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.TrusteeRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` TrusteeRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` TrusteeRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned TrusteeRegistries
+    **/
+    _count?: true | TrusteeRegistryCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: TrusteeRegistryAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: TrusteeRegistrySumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: TrusteeRegistryMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: TrusteeRegistryMaxAggregateInputType;
+};
+export type GetTrusteeRegistryAggregateType<T extends TrusteeRegistryAggregateArgs> = {
+    [P in keyof T & keyof AggregateTrusteeRegistry]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateTrusteeRegistry[P]> : Prisma.GetScalarType<T[P], AggregateTrusteeRegistry[P]>;
+};
+export type TrusteeRegistryGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.TrusteeRegistryWhereInput;
+    orderBy?: Prisma.TrusteeRegistryOrderByWithAggregationInput | Prisma.TrusteeRegistryOrderByWithAggregationInput[];
+    by: Prisma.TrusteeRegistryScalarFieldEnum[] | Prisma.TrusteeRegistryScalarFieldEnum;
+    having?: Prisma.TrusteeRegistryScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: TrusteeRegistryCountAggregateInputType | true;
+    _avg?: TrusteeRegistryAvgAggregateInputType;
+    _sum?: TrusteeRegistrySumAggregateInputType;
+    _min?: TrusteeRegistryMinAggregateInputType;
+    _max?: TrusteeRegistryMaxAggregateInputType;
+};
+export type TrusteeRegistryGroupByOutputType = {
+    trustee_registry_pubkey: string;
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts: Date;
+    total_salary_allocated: number;
+    bump: number;
+    trustees: string[];
+    _count: TrusteeRegistryCountAggregateOutputType | null;
+    _avg: TrusteeRegistryAvgAggregateOutputType | null;
+    _sum: TrusteeRegistrySumAggregateOutputType | null;
+    _min: TrusteeRegistryMinAggregateOutputType | null;
+    _max: TrusteeRegistryMaxAggregateOutputType | null;
+};
+export type GetTrusteeRegistryGroupByPayload<T extends TrusteeRegistryGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<TrusteeRegistryGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof TrusteeRegistryGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], TrusteeRegistryGroupByOutputType[P]> : Prisma.GetScalarType<T[P], TrusteeRegistryGroupByOutputType[P]>;
+}>>;
+export type TrusteeRegistryWhereInput = {
+    AND?: Prisma.TrusteeRegistryWhereInput | Prisma.TrusteeRegistryWhereInput[];
+    OR?: Prisma.TrusteeRegistryWhereInput[];
+    NOT?: Prisma.TrusteeRegistryWhereInput | Prisma.TrusteeRegistryWhereInput[];
+    trustee_registry_pubkey?: Prisma.StringFilter<"TrusteeRegistry"> | string;
+    current_number_of_trustees?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    total_trustees?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    vote_threshold?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    claim_deadline_ts?: Prisma.DateTimeFilter<"TrusteeRegistry"> | Date | string;
+    total_salary_allocated?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    bump?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    trustees?: Prisma.StringNullableListFilter<"TrusteeRegistry">;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+};
+export type TrusteeRegistryOrderByWithRelationInput = {
+    trustee_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    trustees?: Prisma.SortOrder;
+    property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput;
+};
+export type TrusteeRegistryWhereUniqueInput = Prisma.AtLeast<{
+    trustee_registry_pubkey?: string;
+    AND?: Prisma.TrusteeRegistryWhereInput | Prisma.TrusteeRegistryWhereInput[];
+    OR?: Prisma.TrusteeRegistryWhereInput[];
+    NOT?: Prisma.TrusteeRegistryWhereInput | Prisma.TrusteeRegistryWhereInput[];
+    current_number_of_trustees?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    total_trustees?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    vote_threshold?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    claim_deadline_ts?: Prisma.DateTimeFilter<"TrusteeRegistry"> | Date | string;
+    total_salary_allocated?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    bump?: Prisma.IntFilter<"TrusteeRegistry"> | number;
+    trustees?: Prisma.StringNullableListFilter<"TrusteeRegistry">;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+}, "trustee_registry_pubkey">;
+export type TrusteeRegistryOrderByWithAggregationInput = {
+    trustee_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    trustees?: Prisma.SortOrder;
+    _count?: Prisma.TrusteeRegistryCountOrderByAggregateInput;
+    _avg?: Prisma.TrusteeRegistryAvgOrderByAggregateInput;
+    _max?: Prisma.TrusteeRegistryMaxOrderByAggregateInput;
+    _min?: Prisma.TrusteeRegistryMinOrderByAggregateInput;
+    _sum?: Prisma.TrusteeRegistrySumOrderByAggregateInput;
+};
+export type TrusteeRegistryScalarWhereWithAggregatesInput = {
+    AND?: Prisma.TrusteeRegistryScalarWhereWithAggregatesInput | Prisma.TrusteeRegistryScalarWhereWithAggregatesInput[];
+    OR?: Prisma.TrusteeRegistryScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.TrusteeRegistryScalarWhereWithAggregatesInput | Prisma.TrusteeRegistryScalarWhereWithAggregatesInput[];
+    trustee_registry_pubkey?: Prisma.StringWithAggregatesFilter<"TrusteeRegistry"> | string;
+    current_number_of_trustees?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number;
+    total_trustees?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number;
+    vote_threshold?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number;
+    claim_deadline_ts?: Prisma.DateTimeWithAggregatesFilter<"TrusteeRegistry"> | Date | string;
+    total_salary_allocated?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number;
+    bump?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number;
+    trustees?: Prisma.StringNullableListFilter<"TrusteeRegistry">;
+};
+export type TrusteeRegistryCreateInput = {
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    trustees?: Prisma.TrusteeRegistryCreatetrusteesInput | string[];
+    property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutTrusteeRegistriesInput;
+};
+export type TrusteeRegistryUncheckedCreateInput = {
+    trustee_registry_pubkey: string;
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    trustees?: Prisma.TrusteeRegistryCreatetrusteesInput | string[];
+};
+export type TrusteeRegistryUpdateInput = {
+    current_number_of_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    trustees?: Prisma.TrusteeRegistryUpdatetrusteesInput | string[];
+    property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutTrusteeRegistriesNestedInput;
+};
+export type TrusteeRegistryUncheckedUpdateInput = {
+    trustee_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_number_of_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    trustees?: Prisma.TrusteeRegistryUpdatetrusteesInput | string[];
+};
+export type TrusteeRegistryCreateManyInput = {
+    trustee_registry_pubkey: string;
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    trustees?: Prisma.TrusteeRegistryCreatetrusteesInput | string[];
+};
+export type TrusteeRegistryUpdateManyMutationInput = {
+    current_number_of_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    trustees?: Prisma.TrusteeRegistryUpdatetrusteesInput | string[];
+};
+export type TrusteeRegistryUncheckedUpdateManyInput = {
+    trustee_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    current_number_of_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    trustees?: Prisma.TrusteeRegistryUpdatetrusteesInput | string[];
+};
+export type TrusteeRegistryNullableScalarRelationFilter = {
+    is?: Prisma.TrusteeRegistryWhereInput | null;
+    isNot?: Prisma.TrusteeRegistryWhereInput | null;
+};
+export type TrusteeRegistryCountOrderByAggregateInput = {
+    trustee_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    trustees?: Prisma.SortOrder;
+};
+export type TrusteeRegistryAvgOrderByAggregateInput = {
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type TrusteeRegistryMaxOrderByAggregateInput = {
+    trustee_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type TrusteeRegistryMinOrderByAggregateInput = {
+    trustee_registry_pubkey?: Prisma.SortOrder;
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    claim_deadline_ts?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type TrusteeRegistrySumOrderByAggregateInput = {
+    current_number_of_trustees?: Prisma.SortOrder;
+    total_trustees?: Prisma.SortOrder;
+    vote_threshold?: Prisma.SortOrder;
+    total_salary_allocated?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.TrusteeRegistryCreateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.TrusteeRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    connect?: Prisma.TrusteeRegistryWhereUniqueInput;
+};
+export type TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.TrusteeRegistryCreateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.TrusteeRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    connect?: Prisma.TrusteeRegistryWhereUniqueInput;
+};
+export type TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.TrusteeRegistryCreateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.TrusteeRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    upsert?: Prisma.TrusteeRegistryUpsertWithoutProperty_system_keyInput;
+    disconnect?: Prisma.TrusteeRegistryWhereInput | boolean;
+    delete?: Prisma.TrusteeRegistryWhereInput | boolean;
+    connect?: Prisma.TrusteeRegistryWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.TrusteeRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUpdateWithoutProperty_system_keyInput>, Prisma.TrusteeRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.TrusteeRegistryCreateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    connectOrCreate?: Prisma.TrusteeRegistryCreateOrConnectWithoutProperty_system_keyInput;
+    upsert?: Prisma.TrusteeRegistryUpsertWithoutProperty_system_keyInput;
+    disconnect?: Prisma.TrusteeRegistryWhereInput | boolean;
+    delete?: Prisma.TrusteeRegistryWhereInput | boolean;
+    connect?: Prisma.TrusteeRegistryWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.TrusteeRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUpdateWithoutProperty_system_keyInput>, Prisma.TrusteeRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type TrusteeRegistryCreatetrusteesInput = {
+    set: string[];
+};
+export type TrusteeRegistryUpdatetrusteesInput = {
+    set?: string[];
+    push?: string | string[];
+};
+export type TrusteeRegistryCreateWithoutProperty_system_keyInput = {
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    trustees?: Prisma.TrusteeRegistryCreatetrusteesInput | string[];
+};
+export type TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput = {
+    current_number_of_trustees: number;
+    total_trustees: number;
+    vote_threshold: number;
+    claim_deadline_ts?: Date | string;
+    total_salary_allocated: number;
+    bump: number;
+    trustees?: Prisma.TrusteeRegistryCreatetrusteesInput | string[];
+};
+export type TrusteeRegistryCreateOrConnectWithoutProperty_system_keyInput = {
+    where: Prisma.TrusteeRegistryWhereUniqueInput;
+    create: Prisma.XOR<Prisma.TrusteeRegistryCreateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+};
+export type TrusteeRegistryUpsertWithoutProperty_system_keyInput = {
+    update: Prisma.XOR<Prisma.TrusteeRegistryUpdateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+    create: Prisma.XOR<Prisma.TrusteeRegistryCreateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput>;
+    where?: Prisma.TrusteeRegistryWhereInput;
+};
+export type TrusteeRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput = {
+    where?: Prisma.TrusteeRegistryWhereInput;
+    data: Prisma.XOR<Prisma.TrusteeRegistryUpdateWithoutProperty_system_keyInput, Prisma.TrusteeRegistryUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type TrusteeRegistryUpdateWithoutProperty_system_keyInput = {
+    current_number_of_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    trustees?: Prisma.TrusteeRegistryUpdatetrusteesInput | string[];
+};
+export type TrusteeRegistryUncheckedUpdateWithoutProperty_system_keyInput = {
+    current_number_of_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    total_trustees?: Prisma.IntFieldUpdateOperationsInput | number;
+    vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number;
+    claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    trustees?: Prisma.TrusteeRegistryUpdatetrusteesInput | string[];
+};
+export type TrusteeRegistrySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    trustee_registry_pubkey?: boolean;
+    current_number_of_trustees?: boolean;
+    total_trustees?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    trustees?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["trusteeRegistry"]>;
+export type TrusteeRegistrySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    trustee_registry_pubkey?: boolean;
+    current_number_of_trustees?: boolean;
+    total_trustees?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    trustees?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["trusteeRegistry"]>;
+export type TrusteeRegistrySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    trustee_registry_pubkey?: boolean;
+    current_number_of_trustees?: boolean;
+    total_trustees?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    trustees?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["trusteeRegistry"]>;
+export type TrusteeRegistrySelectScalar = {
+    trustee_registry_pubkey?: boolean;
+    current_number_of_trustees?: boolean;
+    total_trustees?: boolean;
+    vote_threshold?: boolean;
+    claim_deadline_ts?: boolean;
+    total_salary_allocated?: boolean;
+    bump?: boolean;
+    trustees?: boolean;
+};
+export type TrusteeRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trustee_registry_pubkey" | "current_number_of_trustees" | "total_trustees" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated" | "bump" | "trustees", ExtArgs["result"]["trusteeRegistry"]>;
+export type TrusteeRegistryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type TrusteeRegistryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type TrusteeRegistryIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type $TrusteeRegistryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "TrusteeRegistry";
+    objects: {
+        property_system_key: Prisma.$PropertySystemAccountPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        trustee_registry_pubkey: string;
+        current_number_of_trustees: number;
+        total_trustees: number;
+        vote_threshold: number;
+        claim_deadline_ts: Date;
+        total_salary_allocated: number;
+        bump: number;
+        trustees: string[];
+    }, ExtArgs["result"]["trusteeRegistry"]>;
+    composites: {};
+};
+export type TrusteeRegistryGetPayload<S extends boolean | null | undefined | TrusteeRegistryDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload, S>;
+export type TrusteeRegistryCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<TrusteeRegistryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: TrusteeRegistryCountAggregateInputType | true;
+};
+export interface TrusteeRegistryDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['TrusteeRegistry'];
+        meta: {
+            name: 'TrusteeRegistry';
+        };
+    };
+    /**
+     * Find zero or one TrusteeRegistry that matches the filter.
+     * @param {TrusteeRegistryFindUniqueArgs} args - Arguments to find a TrusteeRegistry
+     * @example
+     * // Get one TrusteeRegistry
+     * const trusteeRegistry = await prisma.trusteeRegistry.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TrusteeRegistryFindUniqueArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryFindUniqueArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one TrusteeRegistry that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {TrusteeRegistryFindUniqueOrThrowArgs} args - Arguments to find a TrusteeRegistry
+     * @example
+     * // Get one TrusteeRegistry
+     * const trusteeRegistry = await prisma.trusteeRegistry.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TrusteeRegistryFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first TrusteeRegistry that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryFindFirstArgs} args - Arguments to find a TrusteeRegistry
+     * @example
+     * // Get one TrusteeRegistry
+     * const trusteeRegistry = await prisma.trusteeRegistry.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TrusteeRegistryFindFirstArgs>(args?: Prisma.SelectSubset<T, TrusteeRegistryFindFirstArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first TrusteeRegistry that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryFindFirstOrThrowArgs} args - Arguments to find a TrusteeRegistry
+     * @example
+     * // Get one TrusteeRegistry
+     * const trusteeRegistry = await prisma.trusteeRegistry.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TrusteeRegistryFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, TrusteeRegistryFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more TrusteeRegistries that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TrusteeRegistries
+     * const trusteeRegistries = await prisma.trusteeRegistry.findMany()
+     *
+     * // Get first 10 TrusteeRegistries
+     * const trusteeRegistries = await prisma.trusteeRegistry.findMany({ take: 10 })
+     *
+     * // Only select the `trustee_registry_pubkey`
+     * const trusteeRegistryWithTrustee_registry_pubkeyOnly = await prisma.trusteeRegistry.findMany({ select: { trustee_registry_pubkey: true } })
+     *
+     */
+    findMany<T extends TrusteeRegistryFindManyArgs>(args?: Prisma.SelectSubset<T, TrusteeRegistryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a TrusteeRegistry.
+     * @param {TrusteeRegistryCreateArgs} args - Arguments to create a TrusteeRegistry.
+     * @example
+     * // Create one TrusteeRegistry
+     * const TrusteeRegistry = await prisma.trusteeRegistry.create({
+     *   data: {
+     *     // ... data to create a TrusteeRegistry
+     *   }
+     * })
+     *
+     */
+    create<T extends TrusteeRegistryCreateArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryCreateArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many TrusteeRegistries.
+     * @param {TrusteeRegistryCreateManyArgs} args - Arguments to create many TrusteeRegistries.
+     * @example
+     * // Create many TrusteeRegistries
+     * const trusteeRegistry = await prisma.trusteeRegistry.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends TrusteeRegistryCreateManyArgs>(args?: Prisma.SelectSubset<T, TrusteeRegistryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many TrusteeRegistries and returns the data saved in the database.
+     * @param {TrusteeRegistryCreateManyAndReturnArgs} args - Arguments to create many TrusteeRegistries.
+     * @example
+     * // Create many TrusteeRegistries
+     * const trusteeRegistry = await prisma.trusteeRegistry.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many TrusteeRegistries and only return the `trustee_registry_pubkey`
+     * const trusteeRegistryWithTrustee_registry_pubkeyOnly = await prisma.trusteeRegistry.createManyAndReturn({
+     *   select: { trustee_registry_pubkey: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends TrusteeRegistryCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, TrusteeRegistryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a TrusteeRegistry.
+     * @param {TrusteeRegistryDeleteArgs} args - Arguments to delete one TrusteeRegistry.
+     * @example
+     * // Delete one TrusteeRegistry
+     * const TrusteeRegistry = await prisma.trusteeRegistry.delete({
+     *   where: {
+     *     // ... filter to delete one TrusteeRegistry
+     *   }
+     * })
+     *
+     */
+    delete<T extends TrusteeRegistryDeleteArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryDeleteArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one TrusteeRegistry.
+     * @param {TrusteeRegistryUpdateArgs} args - Arguments to update one TrusteeRegistry.
+     * @example
+     * // Update one TrusteeRegistry
+     * const trusteeRegistry = await prisma.trusteeRegistry.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends TrusteeRegistryUpdateArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryUpdateArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more TrusteeRegistries.
+     * @param {TrusteeRegistryDeleteManyArgs} args - Arguments to filter TrusteeRegistries to delete.
+     * @example
+     * // Delete a few TrusteeRegistries
+     * const { count } = await prisma.trusteeRegistry.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends TrusteeRegistryDeleteManyArgs>(args?: Prisma.SelectSubset<T, TrusteeRegistryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more TrusteeRegistries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TrusteeRegistries
+     * const trusteeRegistry = await prisma.trusteeRegistry.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends TrusteeRegistryUpdateManyArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more TrusteeRegistries and returns the data updated in the database.
+     * @param {TrusteeRegistryUpdateManyAndReturnArgs} args - Arguments to update many TrusteeRegistries.
+     * @example
+     * // Update many TrusteeRegistries
+     * const trusteeRegistry = await prisma.trusteeRegistry.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more TrusteeRegistries and only return the `trustee_registry_pubkey`
+     * const trusteeRegistryWithTrustee_registry_pubkeyOnly = await prisma.trusteeRegistry.updateManyAndReturn({
+     *   select: { trustee_registry_pubkey: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends TrusteeRegistryUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one TrusteeRegistry.
+     * @param {TrusteeRegistryUpsertArgs} args - Arguments to update or create a TrusteeRegistry.
+     * @example
+     * // Update or create a TrusteeRegistry
+     * const trusteeRegistry = await prisma.trusteeRegistry.upsert({
+     *   create: {
+     *     // ... data to create a TrusteeRegistry
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TrusteeRegistry we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TrusteeRegistryUpsertArgs>(args: Prisma.SelectSubset<T, TrusteeRegistryUpsertArgs<ExtArgs>>): Prisma.Prisma__TrusteeRegistryClient<runtime.Types.Result.GetResult<Prisma.$TrusteeRegistryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of TrusteeRegistries.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryCountArgs} args - Arguments to filter TrusteeRegistries to count.
+     * @example
+     * // Count the number of TrusteeRegistries
+     * const count = await prisma.trusteeRegistry.count({
+     *   where: {
+     *     // ... the filter for the TrusteeRegistries we want to count
+     *   }
+     * })
+    **/
+    count<T extends TrusteeRegistryCountArgs>(args?: Prisma.Subset<T, TrusteeRegistryCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], TrusteeRegistryCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a TrusteeRegistry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TrusteeRegistryAggregateArgs>(args: Prisma.Subset<T, TrusteeRegistryAggregateArgs>): Prisma.PrismaPromise<GetTrusteeRegistryAggregateType<T>>;
+    /**
+     * Group by TrusteeRegistry.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TrusteeRegistryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends TrusteeRegistryGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: TrusteeRegistryGroupByArgs['orderBy'];
+    } : {
+        orderBy?: TrusteeRegistryGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, TrusteeRegistryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTrusteeRegistryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the TrusteeRegistry model
+     */
+    readonly fields: TrusteeRegistryFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for TrusteeRegistry.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__TrusteeRegistryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    property_system_key<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the TrusteeRegistry model
+ */
+export interface TrusteeRegistryFieldRefs {
+    readonly trustee_registry_pubkey: Prisma.FieldRef<"TrusteeRegistry", 'String'>;
+    readonly current_number_of_trustees: Prisma.FieldRef<"TrusteeRegistry", 'Int'>;
+    readonly total_trustees: Prisma.FieldRef<"TrusteeRegistry", 'Int'>;
+    readonly vote_threshold: Prisma.FieldRef<"TrusteeRegistry", 'Int'>;
+    readonly claim_deadline_ts: Prisma.FieldRef<"TrusteeRegistry", 'DateTime'>;
+    readonly total_salary_allocated: Prisma.FieldRef<"TrusteeRegistry", 'Int'>;
+    readonly bump: Prisma.FieldRef<"TrusteeRegistry", 'Int'>;
+    readonly trustees: Prisma.FieldRef<"TrusteeRegistry", 'String[]'>;
+}
+/**
+ * TrusteeRegistry findUnique
+ */
+export type TrusteeRegistryFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which TrusteeRegistry to fetch.
+     */
+    where: Prisma.TrusteeRegistryWhereUniqueInput;
+};
+/**
+ * TrusteeRegistry findUniqueOrThrow
+ */
+export type TrusteeRegistryFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which TrusteeRegistry to fetch.
+     */
+    where: Prisma.TrusteeRegistryWhereUniqueInput;
+};
+/**
+ * TrusteeRegistry findFirst
+ */
+export type TrusteeRegistryFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which TrusteeRegistry to fetch.
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of TrusteeRegistries to fetch.
+     */
+    orderBy?: Prisma.TrusteeRegistryOrderByWithRelationInput | Prisma.TrusteeRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for TrusteeRegistries.
+     */
+    cursor?: Prisma.TrusteeRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` TrusteeRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` TrusteeRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of TrusteeRegistries.
+     */
+    distinct?: Prisma.TrusteeRegistryScalarFieldEnum | Prisma.TrusteeRegistryScalarFieldEnum[];
+};
+/**
+ * TrusteeRegistry findFirstOrThrow
+ */
+export type TrusteeRegistryFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which TrusteeRegistry to fetch.
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of TrusteeRegistries to fetch.
+     */
+    orderBy?: Prisma.TrusteeRegistryOrderByWithRelationInput | Prisma.TrusteeRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for TrusteeRegistries.
+     */
+    cursor?: Prisma.TrusteeRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` TrusteeRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` TrusteeRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of TrusteeRegistries.
+     */
+    distinct?: Prisma.TrusteeRegistryScalarFieldEnum | Prisma.TrusteeRegistryScalarFieldEnum[];
+};
+/**
+ * TrusteeRegistry findMany
+ */
+export type TrusteeRegistryFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter, which TrusteeRegistries to fetch.
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of TrusteeRegistries to fetch.
+     */
+    orderBy?: Prisma.TrusteeRegistryOrderByWithRelationInput | Prisma.TrusteeRegistryOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing TrusteeRegistries.
+     */
+    cursor?: Prisma.TrusteeRegistryWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` TrusteeRegistries from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` TrusteeRegistries.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of TrusteeRegistries.
+     */
+    distinct?: Prisma.TrusteeRegistryScalarFieldEnum | Prisma.TrusteeRegistryScalarFieldEnum[];
+};
+/**
+ * TrusteeRegistry create
+ */
+export type TrusteeRegistryCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a TrusteeRegistry.
+     */
+    data: Prisma.XOR<Prisma.TrusteeRegistryCreateInput, Prisma.TrusteeRegistryUncheckedCreateInput>;
+};
+/**
+ * TrusteeRegistry createMany
+ */
+export type TrusteeRegistryCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TrusteeRegistries.
+     */
+    data: Prisma.TrusteeRegistryCreateManyInput | Prisma.TrusteeRegistryCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * TrusteeRegistry createManyAndReturn
+ */
+export type TrusteeRegistryCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * The data used to create many TrusteeRegistries.
+     */
+    data: Prisma.TrusteeRegistryCreateManyInput | Prisma.TrusteeRegistryCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * TrusteeRegistry update
+ */
+export type TrusteeRegistryUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a TrusteeRegistry.
+     */
+    data: Prisma.XOR<Prisma.TrusteeRegistryUpdateInput, Prisma.TrusteeRegistryUncheckedUpdateInput>;
+    /**
+     * Choose, which TrusteeRegistry to update.
+     */
+    where: Prisma.TrusteeRegistryWhereUniqueInput;
+};
+/**
+ * TrusteeRegistry updateMany
+ */
+export type TrusteeRegistryUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TrusteeRegistries.
+     */
+    data: Prisma.XOR<Prisma.TrusteeRegistryUpdateManyMutationInput, Prisma.TrusteeRegistryUncheckedUpdateManyInput>;
+    /**
+     * Filter which TrusteeRegistries to update
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * Limit how many TrusteeRegistries to update.
+     */
+    limit?: number;
+};
+/**
+ * TrusteeRegistry updateManyAndReturn
+ */
+export type TrusteeRegistryUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * The data used to update TrusteeRegistries.
+     */
+    data: Prisma.XOR<Prisma.TrusteeRegistryUpdateManyMutationInput, Prisma.TrusteeRegistryUncheckedUpdateManyInput>;
+    /**
+     * Filter which TrusteeRegistries to update
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * Limit how many TrusteeRegistries to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * TrusteeRegistry upsert
+ */
+export type TrusteeRegistryUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the TrusteeRegistry to update in case it exists.
+     */
+    where: Prisma.TrusteeRegistryWhereUniqueInput;
+    /**
+     * In case the TrusteeRegistry found by the `where` argument doesn't exist, create a new TrusteeRegistry with this data.
+     */
+    create: Prisma.XOR<Prisma.TrusteeRegistryCreateInput, Prisma.TrusteeRegistryUncheckedCreateInput>;
+    /**
+     * In case the TrusteeRegistry was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.TrusteeRegistryUpdateInput, Prisma.TrusteeRegistryUncheckedUpdateInput>;
+};
+/**
+ * TrusteeRegistry delete
+ */
+export type TrusteeRegistryDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+    /**
+     * Filter which TrusteeRegistry to delete.
+     */
+    where: Prisma.TrusteeRegistryWhereUniqueInput;
+};
+/**
+ * TrusteeRegistry deleteMany
+ */
+export type TrusteeRegistryDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which TrusteeRegistries to delete
+     */
+    where?: Prisma.TrusteeRegistryWhereInput;
+    /**
+     * Limit how many TrusteeRegistries to delete.
+     */
+    limit?: number;
+};
+/**
+ * TrusteeRegistry without action
+ */
+export type TrusteeRegistryDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TrusteeRegistry
+     */
+    select?: Prisma.TrusteeRegistrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the TrusteeRegistry
+     */
+    omit?: Prisma.TrusteeRegistryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.TrusteeRegistryInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=TrusteeRegistry.d.ts.map

@@ -1,0 +1,1185 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model DividendPda
+ *
+ */
+export type DividendPdaModel = runtime.Types.Result.DefaultSelection<Prisma.$DividendPdaPayload>;
+export type AggregateDividendPda = {
+    _count: DividendPdaCountAggregateOutputType | null;
+    _avg: DividendPdaAvgAggregateOutputType | null;
+    _sum: DividendPdaSumAggregateOutputType | null;
+    _min: DividendPdaMinAggregateOutputType | null;
+    _max: DividendPdaMaxAggregateOutputType | null;
+};
+export type DividendPdaAvgAggregateOutputType = {
+    dividen_per_token: number | null;
+    bump: number | null;
+};
+export type DividendPdaSumAggregateOutputType = {
+    dividen_per_token: number | null;
+    bump: number | null;
+};
+export type DividendPdaMinAggregateOutputType = {
+    dividend_pubkey: string | null;
+    dividen_per_token: number | null;
+    last_updated_ts: Date | null;
+    bump: number | null;
+};
+export type DividendPdaMaxAggregateOutputType = {
+    dividend_pubkey: string | null;
+    dividen_per_token: number | null;
+    last_updated_ts: Date | null;
+    bump: number | null;
+};
+export type DividendPdaCountAggregateOutputType = {
+    dividend_pubkey: number;
+    dividen_per_token: number;
+    last_updated_ts: number;
+    bump: number;
+    _all: number;
+};
+export type DividendPdaAvgAggregateInputType = {
+    dividen_per_token?: true;
+    bump?: true;
+};
+export type DividendPdaSumAggregateInputType = {
+    dividen_per_token?: true;
+    bump?: true;
+};
+export type DividendPdaMinAggregateInputType = {
+    dividend_pubkey?: true;
+    dividen_per_token?: true;
+    last_updated_ts?: true;
+    bump?: true;
+};
+export type DividendPdaMaxAggregateInputType = {
+    dividend_pubkey?: true;
+    dividen_per_token?: true;
+    last_updated_ts?: true;
+    bump?: true;
+};
+export type DividendPdaCountAggregateInputType = {
+    dividend_pubkey?: true;
+    dividen_per_token?: true;
+    last_updated_ts?: true;
+    bump?: true;
+    _all?: true;
+};
+export type DividendPdaAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which DividendPda to aggregate.
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DividendPdas to fetch.
+     */
+    orderBy?: Prisma.DividendPdaOrderByWithRelationInput | Prisma.DividendPdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.DividendPdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DividendPdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DividendPdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned DividendPdas
+    **/
+    _count?: true | DividendPdaCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: DividendPdaAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: DividendPdaSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: DividendPdaMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: DividendPdaMaxAggregateInputType;
+};
+export type GetDividendPdaAggregateType<T extends DividendPdaAggregateArgs> = {
+    [P in keyof T & keyof AggregateDividendPda]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateDividendPda[P]> : Prisma.GetScalarType<T[P], AggregateDividendPda[P]>;
+};
+export type DividendPdaGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.DividendPdaWhereInput;
+    orderBy?: Prisma.DividendPdaOrderByWithAggregationInput | Prisma.DividendPdaOrderByWithAggregationInput[];
+    by: Prisma.DividendPdaScalarFieldEnum[] | Prisma.DividendPdaScalarFieldEnum;
+    having?: Prisma.DividendPdaScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: DividendPdaCountAggregateInputType | true;
+    _avg?: DividendPdaAvgAggregateInputType;
+    _sum?: DividendPdaSumAggregateInputType;
+    _min?: DividendPdaMinAggregateInputType;
+    _max?: DividendPdaMaxAggregateInputType;
+};
+export type DividendPdaGroupByOutputType = {
+    dividend_pubkey: string;
+    dividen_per_token: number;
+    last_updated_ts: Date;
+    bump: number;
+    _count: DividendPdaCountAggregateOutputType | null;
+    _avg: DividendPdaAvgAggregateOutputType | null;
+    _sum: DividendPdaSumAggregateOutputType | null;
+    _min: DividendPdaMinAggregateOutputType | null;
+    _max: DividendPdaMaxAggregateOutputType | null;
+};
+export type GetDividendPdaGroupByPayload<T extends DividendPdaGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<DividendPdaGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof DividendPdaGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], DividendPdaGroupByOutputType[P]> : Prisma.GetScalarType<T[P], DividendPdaGroupByOutputType[P]>;
+}>>;
+export type DividendPdaWhereInput = {
+    AND?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[];
+    OR?: Prisma.DividendPdaWhereInput[];
+    NOT?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[];
+    dividend_pubkey?: Prisma.StringFilter<"DividendPda"> | string;
+    dividen_per_token?: Prisma.IntFilter<"DividendPda"> | number;
+    last_updated_ts?: Prisma.DateTimeFilter<"DividendPda"> | Date | string;
+    bump?: Prisma.IntFilter<"DividendPda"> | number;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+};
+export type DividendPdaOrderByWithRelationInput = {
+    dividend_pubkey?: Prisma.SortOrder;
+    dividen_per_token?: Prisma.SortOrder;
+    last_updated_ts?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput;
+};
+export type DividendPdaWhereUniqueInput = Prisma.AtLeast<{
+    dividend_pubkey?: string;
+    AND?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[];
+    OR?: Prisma.DividendPdaWhereInput[];
+    NOT?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[];
+    dividen_per_token?: Prisma.IntFilter<"DividendPda"> | number;
+    last_updated_ts?: Prisma.DateTimeFilter<"DividendPda"> | Date | string;
+    bump?: Prisma.IntFilter<"DividendPda"> | number;
+    property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>;
+}, "dividend_pubkey">;
+export type DividendPdaOrderByWithAggregationInput = {
+    dividend_pubkey?: Prisma.SortOrder;
+    dividen_per_token?: Prisma.SortOrder;
+    last_updated_ts?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+    _count?: Prisma.DividendPdaCountOrderByAggregateInput;
+    _avg?: Prisma.DividendPdaAvgOrderByAggregateInput;
+    _max?: Prisma.DividendPdaMaxOrderByAggregateInput;
+    _min?: Prisma.DividendPdaMinOrderByAggregateInput;
+    _sum?: Prisma.DividendPdaSumOrderByAggregateInput;
+};
+export type DividendPdaScalarWhereWithAggregatesInput = {
+    AND?: Prisma.DividendPdaScalarWhereWithAggregatesInput | Prisma.DividendPdaScalarWhereWithAggregatesInput[];
+    OR?: Prisma.DividendPdaScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.DividendPdaScalarWhereWithAggregatesInput | Prisma.DividendPdaScalarWhereWithAggregatesInput[];
+    dividend_pubkey?: Prisma.StringWithAggregatesFilter<"DividendPda"> | string;
+    dividen_per_token?: Prisma.IntWithAggregatesFilter<"DividendPda"> | number;
+    last_updated_ts?: Prisma.DateTimeWithAggregatesFilter<"DividendPda"> | Date | string;
+    bump?: Prisma.IntWithAggregatesFilter<"DividendPda"> | number;
+};
+export type DividendPdaCreateInput = {
+    dividen_per_token: number;
+    last_updated_ts?: Date | string;
+    bump: number;
+    property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutDividendPdasInput;
+};
+export type DividendPdaUncheckedCreateInput = {
+    dividend_pubkey: string;
+    dividen_per_token: number;
+    last_updated_ts?: Date | string;
+    bump: number;
+};
+export type DividendPdaUpdateInput = {
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+    property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutDividendPdasNestedInput;
+};
+export type DividendPdaUncheckedUpdateInput = {
+    dividend_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type DividendPdaCreateManyInput = {
+    dividend_pubkey: string;
+    dividen_per_token: number;
+    last_updated_ts?: Date | string;
+    bump: number;
+};
+export type DividendPdaUpdateManyMutationInput = {
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type DividendPdaUncheckedUpdateManyInput = {
+    dividend_pubkey?: Prisma.StringFieldUpdateOperationsInput | string;
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type DividendPdaListRelationFilter = {
+    every?: Prisma.DividendPdaWhereInput;
+    some?: Prisma.DividendPdaWhereInput;
+    none?: Prisma.DividendPdaWhereInput;
+};
+export type DividendPdaOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type DividendPdaCountOrderByAggregateInput = {
+    dividend_pubkey?: Prisma.SortOrder;
+    dividen_per_token?: Prisma.SortOrder;
+    last_updated_ts?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type DividendPdaAvgOrderByAggregateInput = {
+    dividen_per_token?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type DividendPdaMaxOrderByAggregateInput = {
+    dividend_pubkey?: Prisma.SortOrder;
+    dividen_per_token?: Prisma.SortOrder;
+    last_updated_ts?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type DividendPdaMinOrderByAggregateInput = {
+    dividend_pubkey?: Prisma.SortOrder;
+    dividen_per_token?: Prisma.SortOrder;
+    last_updated_ts?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type DividendPdaSumOrderByAggregateInput = {
+    dividen_per_token?: Prisma.SortOrder;
+    bump?: Prisma.SortOrder;
+};
+export type DividendPdaCreateNestedManyWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.DividendPdaCreateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput> | Prisma.DividendPdaCreateWithoutProperty_system_keyInput[] | Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput[];
+    connectOrCreate?: Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput | Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput[];
+    createMany?: Prisma.DividendPdaCreateManyProperty_system_keyInputEnvelope;
+    connect?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+};
+export type DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput = {
+    create?: Prisma.XOR<Prisma.DividendPdaCreateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput> | Prisma.DividendPdaCreateWithoutProperty_system_keyInput[] | Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput[];
+    connectOrCreate?: Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput | Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput[];
+    createMany?: Prisma.DividendPdaCreateManyProperty_system_keyInputEnvelope;
+    connect?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+};
+export type DividendPdaUpdateManyWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.DividendPdaCreateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput> | Prisma.DividendPdaCreateWithoutProperty_system_keyInput[] | Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput[];
+    connectOrCreate?: Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput | Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput[];
+    upsert?: Prisma.DividendPdaUpsertWithWhereUniqueWithoutProperty_system_keyInput | Prisma.DividendPdaUpsertWithWhereUniqueWithoutProperty_system_keyInput[];
+    createMany?: Prisma.DividendPdaCreateManyProperty_system_keyInputEnvelope;
+    set?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    disconnect?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    delete?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    connect?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    update?: Prisma.DividendPdaUpdateWithWhereUniqueWithoutProperty_system_keyInput | Prisma.DividendPdaUpdateWithWhereUniqueWithoutProperty_system_keyInput[];
+    updateMany?: Prisma.DividendPdaUpdateManyWithWhereWithoutProperty_system_keyInput | Prisma.DividendPdaUpdateManyWithWhereWithoutProperty_system_keyInput[];
+    deleteMany?: Prisma.DividendPdaScalarWhereInput | Prisma.DividendPdaScalarWhereInput[];
+};
+export type DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput = {
+    create?: Prisma.XOR<Prisma.DividendPdaCreateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput> | Prisma.DividendPdaCreateWithoutProperty_system_keyInput[] | Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput[];
+    connectOrCreate?: Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput | Prisma.DividendPdaCreateOrConnectWithoutProperty_system_keyInput[];
+    upsert?: Prisma.DividendPdaUpsertWithWhereUniqueWithoutProperty_system_keyInput | Prisma.DividendPdaUpsertWithWhereUniqueWithoutProperty_system_keyInput[];
+    createMany?: Prisma.DividendPdaCreateManyProperty_system_keyInputEnvelope;
+    set?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    disconnect?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    delete?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    connect?: Prisma.DividendPdaWhereUniqueInput | Prisma.DividendPdaWhereUniqueInput[];
+    update?: Prisma.DividendPdaUpdateWithWhereUniqueWithoutProperty_system_keyInput | Prisma.DividendPdaUpdateWithWhereUniqueWithoutProperty_system_keyInput[];
+    updateMany?: Prisma.DividendPdaUpdateManyWithWhereWithoutProperty_system_keyInput | Prisma.DividendPdaUpdateManyWithWhereWithoutProperty_system_keyInput[];
+    deleteMany?: Prisma.DividendPdaScalarWhereInput | Prisma.DividendPdaScalarWhereInput[];
+};
+export type DividendPdaCreateWithoutProperty_system_keyInput = {
+    dividen_per_token: number;
+    last_updated_ts?: Date | string;
+    bump: number;
+};
+export type DividendPdaUncheckedCreateWithoutProperty_system_keyInput = {
+    dividen_per_token: number;
+    last_updated_ts?: Date | string;
+    bump: number;
+};
+export type DividendPdaCreateOrConnectWithoutProperty_system_keyInput = {
+    where: Prisma.DividendPdaWhereUniqueInput;
+    create: Prisma.XOR<Prisma.DividendPdaCreateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput>;
+};
+export type DividendPdaCreateManyProperty_system_keyInputEnvelope = {
+    data: Prisma.DividendPdaCreateManyProperty_system_keyInput | Prisma.DividendPdaCreateManyProperty_system_keyInput[];
+    skipDuplicates?: boolean;
+};
+export type DividendPdaUpsertWithWhereUniqueWithoutProperty_system_keyInput = {
+    where: Prisma.DividendPdaWhereUniqueInput;
+    update: Prisma.XOR<Prisma.DividendPdaUpdateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedUpdateWithoutProperty_system_keyInput>;
+    create: Prisma.XOR<Prisma.DividendPdaCreateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedCreateWithoutProperty_system_keyInput>;
+};
+export type DividendPdaUpdateWithWhereUniqueWithoutProperty_system_keyInput = {
+    where: Prisma.DividendPdaWhereUniqueInput;
+    data: Prisma.XOR<Prisma.DividendPdaUpdateWithoutProperty_system_keyInput, Prisma.DividendPdaUncheckedUpdateWithoutProperty_system_keyInput>;
+};
+export type DividendPdaUpdateManyWithWhereWithoutProperty_system_keyInput = {
+    where: Prisma.DividendPdaScalarWhereInput;
+    data: Prisma.XOR<Prisma.DividendPdaUpdateManyMutationInput, Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyInput>;
+};
+export type DividendPdaScalarWhereInput = {
+    AND?: Prisma.DividendPdaScalarWhereInput | Prisma.DividendPdaScalarWhereInput[];
+    OR?: Prisma.DividendPdaScalarWhereInput[];
+    NOT?: Prisma.DividendPdaScalarWhereInput | Prisma.DividendPdaScalarWhereInput[];
+    dividend_pubkey?: Prisma.StringFilter<"DividendPda"> | string;
+    dividen_per_token?: Prisma.IntFilter<"DividendPda"> | number;
+    last_updated_ts?: Prisma.DateTimeFilter<"DividendPda"> | Date | string;
+    bump?: Prisma.IntFilter<"DividendPda"> | number;
+};
+export type DividendPdaCreateManyProperty_system_keyInput = {
+    dividen_per_token: number;
+    last_updated_ts?: Date | string;
+    bump: number;
+};
+export type DividendPdaUpdateWithoutProperty_system_keyInput = {
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type DividendPdaUncheckedUpdateWithoutProperty_system_keyInput = {
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type DividendPdaUncheckedUpdateManyWithoutProperty_system_keyInput = {
+    dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number;
+    last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    bump?: Prisma.IntFieldUpdateOperationsInput | number;
+};
+export type DividendPdaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    dividend_pubkey?: boolean;
+    dividen_per_token?: boolean;
+    last_updated_ts?: boolean;
+    bump?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["dividendPda"]>;
+export type DividendPdaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    dividend_pubkey?: boolean;
+    dividen_per_token?: boolean;
+    last_updated_ts?: boolean;
+    bump?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["dividendPda"]>;
+export type DividendPdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    dividend_pubkey?: boolean;
+    dividen_per_token?: boolean;
+    last_updated_ts?: boolean;
+    bump?: boolean;
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["dividendPda"]>;
+export type DividendPdaSelectScalar = {
+    dividend_pubkey?: boolean;
+    dividen_per_token?: boolean;
+    last_updated_ts?: boolean;
+    bump?: boolean;
+};
+export type DividendPdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"dividend_pubkey" | "dividen_per_token" | "last_updated_ts" | "bump", ExtArgs["result"]["dividendPda"]>;
+export type DividendPdaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type DividendPdaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type DividendPdaIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>;
+};
+export type $DividendPdaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "DividendPda";
+    objects: {
+        property_system_key: Prisma.$PropertySystemAccountPayload<ExtArgs>;
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        dividend_pubkey: string;
+        dividen_per_token: number;
+        last_updated_ts: Date;
+        bump: number;
+    }, ExtArgs["result"]["dividendPda"]>;
+    composites: {};
+};
+export type DividendPdaGetPayload<S extends boolean | null | undefined | DividendPdaDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload, S>;
+export type DividendPdaCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<DividendPdaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: DividendPdaCountAggregateInputType | true;
+};
+export interface DividendPdaDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['DividendPda'];
+        meta: {
+            name: 'DividendPda';
+        };
+    };
+    /**
+     * Find zero or one DividendPda that matches the filter.
+     * @param {DividendPdaFindUniqueArgs} args - Arguments to find a DividendPda
+     * @example
+     * // Get one DividendPda
+     * const dividendPda = await prisma.dividendPda.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DividendPdaFindUniqueArgs>(args: Prisma.SelectSubset<T, DividendPdaFindUniqueArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one DividendPda that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DividendPdaFindUniqueOrThrowArgs} args - Arguments to find a DividendPda
+     * @example
+     * // Get one DividendPda
+     * const dividendPda = await prisma.dividendPda.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DividendPdaFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, DividendPdaFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first DividendPda that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaFindFirstArgs} args - Arguments to find a DividendPda
+     * @example
+     * // Get one DividendPda
+     * const dividendPda = await prisma.dividendPda.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DividendPdaFindFirstArgs>(args?: Prisma.SelectSubset<T, DividendPdaFindFirstArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first DividendPda that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaFindFirstOrThrowArgs} args - Arguments to find a DividendPda
+     * @example
+     * // Get one DividendPda
+     * const dividendPda = await prisma.dividendPda.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DividendPdaFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, DividendPdaFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more DividendPdas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DividendPdas
+     * const dividendPdas = await prisma.dividendPda.findMany()
+     *
+     * // Get first 10 DividendPdas
+     * const dividendPdas = await prisma.dividendPda.findMany({ take: 10 })
+     *
+     * // Only select the `dividend_pubkey`
+     * const dividendPdaWithDividend_pubkeyOnly = await prisma.dividendPda.findMany({ select: { dividend_pubkey: true } })
+     *
+     */
+    findMany<T extends DividendPdaFindManyArgs>(args?: Prisma.SelectSubset<T, DividendPdaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a DividendPda.
+     * @param {DividendPdaCreateArgs} args - Arguments to create a DividendPda.
+     * @example
+     * // Create one DividendPda
+     * const DividendPda = await prisma.dividendPda.create({
+     *   data: {
+     *     // ... data to create a DividendPda
+     *   }
+     * })
+     *
+     */
+    create<T extends DividendPdaCreateArgs>(args: Prisma.SelectSubset<T, DividendPdaCreateArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many DividendPdas.
+     * @param {DividendPdaCreateManyArgs} args - Arguments to create many DividendPdas.
+     * @example
+     * // Create many DividendPdas
+     * const dividendPda = await prisma.dividendPda.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends DividendPdaCreateManyArgs>(args?: Prisma.SelectSubset<T, DividendPdaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many DividendPdas and returns the data saved in the database.
+     * @param {DividendPdaCreateManyAndReturnArgs} args - Arguments to create many DividendPdas.
+     * @example
+     * // Create many DividendPdas
+     * const dividendPda = await prisma.dividendPda.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many DividendPdas and only return the `dividend_pubkey`
+     * const dividendPdaWithDividend_pubkeyOnly = await prisma.dividendPda.createManyAndReturn({
+     *   select: { dividend_pubkey: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends DividendPdaCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, DividendPdaCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a DividendPda.
+     * @param {DividendPdaDeleteArgs} args - Arguments to delete one DividendPda.
+     * @example
+     * // Delete one DividendPda
+     * const DividendPda = await prisma.dividendPda.delete({
+     *   where: {
+     *     // ... filter to delete one DividendPda
+     *   }
+     * })
+     *
+     */
+    delete<T extends DividendPdaDeleteArgs>(args: Prisma.SelectSubset<T, DividendPdaDeleteArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one DividendPda.
+     * @param {DividendPdaUpdateArgs} args - Arguments to update one DividendPda.
+     * @example
+     * // Update one DividendPda
+     * const dividendPda = await prisma.dividendPda.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends DividendPdaUpdateArgs>(args: Prisma.SelectSubset<T, DividendPdaUpdateArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more DividendPdas.
+     * @param {DividendPdaDeleteManyArgs} args - Arguments to filter DividendPdas to delete.
+     * @example
+     * // Delete a few DividendPdas
+     * const { count } = await prisma.dividendPda.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends DividendPdaDeleteManyArgs>(args?: Prisma.SelectSubset<T, DividendPdaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more DividendPdas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DividendPdas
+     * const dividendPda = await prisma.dividendPda.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends DividendPdaUpdateManyArgs>(args: Prisma.SelectSubset<T, DividendPdaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more DividendPdas and returns the data updated in the database.
+     * @param {DividendPdaUpdateManyAndReturnArgs} args - Arguments to update many DividendPdas.
+     * @example
+     * // Update many DividendPdas
+     * const dividendPda = await prisma.dividendPda.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more DividendPdas and only return the `dividend_pubkey`
+     * const dividendPdaWithDividend_pubkeyOnly = await prisma.dividendPda.updateManyAndReturn({
+     *   select: { dividend_pubkey: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends DividendPdaUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, DividendPdaUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one DividendPda.
+     * @param {DividendPdaUpsertArgs} args - Arguments to update or create a DividendPda.
+     * @example
+     * // Update or create a DividendPda
+     * const dividendPda = await prisma.dividendPda.upsert({
+     *   create: {
+     *     // ... data to create a DividendPda
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DividendPda we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DividendPdaUpsertArgs>(args: Prisma.SelectSubset<T, DividendPdaUpsertArgs<ExtArgs>>): Prisma.Prisma__DividendPdaClient<runtime.Types.Result.GetResult<Prisma.$DividendPdaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of DividendPdas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaCountArgs} args - Arguments to filter DividendPdas to count.
+     * @example
+     * // Count the number of DividendPdas
+     * const count = await prisma.dividendPda.count({
+     *   where: {
+     *     // ... the filter for the DividendPdas we want to count
+     *   }
+     * })
+    **/
+    count<T extends DividendPdaCountArgs>(args?: Prisma.Subset<T, DividendPdaCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], DividendPdaCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a DividendPda.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DividendPdaAggregateArgs>(args: Prisma.Subset<T, DividendPdaAggregateArgs>): Prisma.PrismaPromise<GetDividendPdaAggregateType<T>>;
+    /**
+     * Group by DividendPda.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DividendPdaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends DividendPdaGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: DividendPdaGroupByArgs['orderBy'];
+    } : {
+        orderBy?: DividendPdaGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, DividendPdaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDividendPdaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the DividendPda model
+     */
+    readonly fields: DividendPdaFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for DividendPda.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__DividendPdaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    property_system_key<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the DividendPda model
+ */
+export interface DividendPdaFieldRefs {
+    readonly dividend_pubkey: Prisma.FieldRef<"DividendPda", 'String'>;
+    readonly dividen_per_token: Prisma.FieldRef<"DividendPda", 'Int'>;
+    readonly last_updated_ts: Prisma.FieldRef<"DividendPda", 'DateTime'>;
+    readonly bump: Prisma.FieldRef<"DividendPda", 'Int'>;
+}
+/**
+ * DividendPda findUnique
+ */
+export type DividendPdaFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which DividendPda to fetch.
+     */
+    where: Prisma.DividendPdaWhereUniqueInput;
+};
+/**
+ * DividendPda findUniqueOrThrow
+ */
+export type DividendPdaFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which DividendPda to fetch.
+     */
+    where: Prisma.DividendPdaWhereUniqueInput;
+};
+/**
+ * DividendPda findFirst
+ */
+export type DividendPdaFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which DividendPda to fetch.
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DividendPdas to fetch.
+     */
+    orderBy?: Prisma.DividendPdaOrderByWithRelationInput | Prisma.DividendPdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for DividendPdas.
+     */
+    cursor?: Prisma.DividendPdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DividendPdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DividendPdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of DividendPdas.
+     */
+    distinct?: Prisma.DividendPdaScalarFieldEnum | Prisma.DividendPdaScalarFieldEnum[];
+};
+/**
+ * DividendPda findFirstOrThrow
+ */
+export type DividendPdaFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which DividendPda to fetch.
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DividendPdas to fetch.
+     */
+    orderBy?: Prisma.DividendPdaOrderByWithRelationInput | Prisma.DividendPdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for DividendPdas.
+     */
+    cursor?: Prisma.DividendPdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DividendPdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DividendPdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of DividendPdas.
+     */
+    distinct?: Prisma.DividendPdaScalarFieldEnum | Prisma.DividendPdaScalarFieldEnum[];
+};
+/**
+ * DividendPda findMany
+ */
+export type DividendPdaFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * Filter, which DividendPdas to fetch.
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DividendPdas to fetch.
+     */
+    orderBy?: Prisma.DividendPdaOrderByWithRelationInput | Prisma.DividendPdaOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing DividendPdas.
+     */
+    cursor?: Prisma.DividendPdaWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DividendPdas from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DividendPdas.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of DividendPdas.
+     */
+    distinct?: Prisma.DividendPdaScalarFieldEnum | Prisma.DividendPdaScalarFieldEnum[];
+};
+/**
+ * DividendPda create
+ */
+export type DividendPdaCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a DividendPda.
+     */
+    data: Prisma.XOR<Prisma.DividendPdaCreateInput, Prisma.DividendPdaUncheckedCreateInput>;
+};
+/**
+ * DividendPda createMany
+ */
+export type DividendPdaCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DividendPdas.
+     */
+    data: Prisma.DividendPdaCreateManyInput | Prisma.DividendPdaCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * DividendPda createManyAndReturn
+ */
+export type DividendPdaCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * The data used to create many DividendPdas.
+     */
+    data: Prisma.DividendPdaCreateManyInput | Prisma.DividendPdaCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * DividendPda update
+ */
+export type DividendPdaUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a DividendPda.
+     */
+    data: Prisma.XOR<Prisma.DividendPdaUpdateInput, Prisma.DividendPdaUncheckedUpdateInput>;
+    /**
+     * Choose, which DividendPda to update.
+     */
+    where: Prisma.DividendPdaWhereUniqueInput;
+};
+/**
+ * DividendPda updateMany
+ */
+export type DividendPdaUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DividendPdas.
+     */
+    data: Prisma.XOR<Prisma.DividendPdaUpdateManyMutationInput, Prisma.DividendPdaUncheckedUpdateManyInput>;
+    /**
+     * Filter which DividendPdas to update
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * Limit how many DividendPdas to update.
+     */
+    limit?: number;
+};
+/**
+ * DividendPda updateManyAndReturn
+ */
+export type DividendPdaUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * The data used to update DividendPdas.
+     */
+    data: Prisma.XOR<Prisma.DividendPdaUpdateManyMutationInput, Prisma.DividendPdaUncheckedUpdateManyInput>;
+    /**
+     * Filter which DividendPdas to update
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * Limit how many DividendPdas to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * DividendPda upsert
+ */
+export type DividendPdaUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the DividendPda to update in case it exists.
+     */
+    where: Prisma.DividendPdaWhereUniqueInput;
+    /**
+     * In case the DividendPda found by the `where` argument doesn't exist, create a new DividendPda with this data.
+     */
+    create: Prisma.XOR<Prisma.DividendPdaCreateInput, Prisma.DividendPdaUncheckedCreateInput>;
+    /**
+     * In case the DividendPda was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.DividendPdaUpdateInput, Prisma.DividendPdaUncheckedUpdateInput>;
+};
+/**
+ * DividendPda delete
+ */
+export type DividendPdaDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+    /**
+     * Filter which DividendPda to delete.
+     */
+    where: Prisma.DividendPdaWhereUniqueInput;
+};
+/**
+ * DividendPda deleteMany
+ */
+export type DividendPdaDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which DividendPdas to delete
+     */
+    where?: Prisma.DividendPdaWhereInput;
+    /**
+     * Limit how many DividendPdas to delete.
+     */
+    limit?: number;
+};
+/**
+ * DividendPda without action
+ */
+export type DividendPdaDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DividendPda
+     */
+    select?: Prisma.DividendPdaSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DividendPda
+     */
+    omit?: Prisma.DividendPdaOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DividendPdaInclude<ExtArgs> | null;
+};
+//# sourceMappingURL=DividendPda.d.ts.map

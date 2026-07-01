@@ -9,9 +9,64 @@
 * 🟢 You can import this file directly.
 */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GovernmentType = void 0;
+exports.ActionsHistory = exports.AuthorityType = exports.GovernmentType = exports.ProposalStatus = exports.ReasonType = exports.LeaseStatus = exports.FundType = exports.ProposalType = void 0;
+exports.ProposalType = {
+    SELLPROPERTY: 'SELLPROPERTY',
+    BUYPROPERTY: 'BUYPROPERTY',
+    USESAFETY: 'USESAFETY',
+    USEREINVESTMENT: 'USEREINVESTMENT',
+    REVENUETHRESHOLDCHANGE: 'REVENUETHRESHOLDCHANGE',
+    CHALLLENGEAUTHORITY: 'CHALLLENGEAUTHORITY',
+    REMOVEAUTHORITY: 'REMOVEAUTHORITY',
+    PROPOSEREMOVEPROPOSAL: 'PROPOSEREMOVEPROPOSAL'
+};
+exports.FundType = {
+    safety: 'safety',
+    reinvestment: 'reinvestment'
+};
+exports.LeaseStatus = {
+    Active: 'Active',
+    Terminated: 'Terminated',
+    Expired: 'Expired'
+};
+exports.ReasonType = {
+    None: 'None',
+    Inactivity: 'Inactivity',
+    Other: 'Other',
+    InvalidDocuments: 'InvalidDocuments',
+    DuplicateIdentity: 'DuplicateIdentity',
+    Misconduct: 'Misconduct',
+    MaliciousVoting: 'MaliciousVoting',
+    Fraud: 'Fraud',
+    GovernanceDecision: 'GovernanceDecision'
+};
+exports.ProposalStatus = {
+    Draft: 'Draft',
+    Active: 'Active',
+    Passed: 'Passed',
+    Failed: 'Failed',
+    Rejected: 'Rejected',
+    Executed: 'Executed',
+    Pending: 'Pending',
+    Approved: 'Approved'
+};
 exports.GovernmentType = {
     COUNTRY: 'COUNTRY',
     STATE: 'STATE'
+};
+exports.AuthorityType = {
+    TRUSTEE: 'TRUSTEE',
+    ARBITRATOR: 'ARBITRATOR'
+};
+exports.ActionsHistory = {
+    None: 'None',
+    Inactivity: 'Inactivity',
+    Other: 'Other',
+    InvalidDocuments: 'InvalidDocuments',
+    DuplicateIdentity: 'DuplicateIdentity',
+    Misconduct: 'Misconduct',
+    MaliciousVoting: 'MaliciousVoting',
+    Fraud: 'Fraud',
+    GovernanceDecision: 'GovernanceDecision'
 };
 //# sourceMappingURL=enums.js.map

@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model CountryProposal
@@ -196,7 +196,7 @@ export type CountryProposalGroupByOutputType = {
     _min: CountryProposalMinAggregateOutputType | null;
     _max: CountryProposalMaxAggregateOutputType | null;
 };
-type GetCountryProposalGroupByPayload<T extends CountryProposalGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryProposalGroupByOutputType, T['by']> & {
+export type GetCountryProposalGroupByPayload<T extends CountryProposalGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<CountryProposalGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof CountryProposalGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], CountryProposalGroupByOutputType[P]> : Prisma.GetScalarType<T[P], CountryProposalGroupByOutputType[P]>;
 }>>;
 export type CountryProposalWhereInput = {
@@ -1118,6 +1118,11 @@ export type CountryProposalFindManyArgs<ExtArgs extends runtime.Types.Extensions
      * Skip the first `n` CountryProposals.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of CountryProposals.
+     */
     distinct?: Prisma.CountryProposalScalarFieldEnum | Prisma.CountryProposalScalarFieldEnum[];
 };
 /**
@@ -1339,5 +1344,4 @@ export type CountryProposalDefaultArgs<ExtArgs extends runtime.Types.Extensions.
      */
     include?: Prisma.CountryProposalInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=CountryProposal.d.ts.map

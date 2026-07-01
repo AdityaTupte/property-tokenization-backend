@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model StateProposal
@@ -199,7 +199,7 @@ export type StateProposalGroupByOutputType = {
     _min: StateProposalMinAggregateOutputType | null;
     _max: StateProposalMaxAggregateOutputType | null;
 };
-type GetStateProposalGroupByPayload<T extends StateProposalGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<StateProposalGroupByOutputType, T['by']> & {
+export type GetStateProposalGroupByPayload<T extends StateProposalGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<StateProposalGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof StateProposalGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], StateProposalGroupByOutputType[P]> : Prisma.GetScalarType<T[P], StateProposalGroupByOutputType[P]>;
 }>>;
 export type StateProposalWhereInput = {
@@ -1146,6 +1146,11 @@ export type StateProposalFindManyArgs<ExtArgs extends runtime.Types.Extensions.I
      * Skip the first `n` StateProposals.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of StateProposals.
+     */
     distinct?: Prisma.StateProposalScalarFieldEnum | Prisma.StateProposalScalarFieldEnum[];
 };
 /**
@@ -1367,5 +1372,4 @@ export type StateProposalDefaultArgs<ExtArgs extends runtime.Types.Extensions.In
      */
     include?: Prisma.StateProposalInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=StateProposal.d.ts.map

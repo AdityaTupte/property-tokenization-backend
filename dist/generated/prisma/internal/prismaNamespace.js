@@ -48,8 +48,9 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defineExtension = exports.QueryMode = exports.SortOrder = exports.StateAuthorityReceiptScalarFieldEnum = exports.StatePdaScalarFieldEnum = exports.StateProposalScalarFieldEnum = exports.ApproveStateAuthorityReceiptScalarFieldEnum = exports.CountryAuthorityReceiptScalarFieldEnum = exports.CountryPdaScalarFieldEnum = exports.CountryProposalScalarFieldEnum = exports.ApproveCountryAuthorityReceiptScalarFieldEnum = exports.CountryApprovalAuthorityScalarFieldEnum = exports.AdminScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
-const runtime = __importStar(require("@prisma/client/runtime/library"));
+exports.VotingForCandiateScalarFieldEnum = exports.VotingForProposalScalarFieldEnum = exports.OffendersScalarFieldEnum = exports.RankCounterScalarFieldEnum = exports.ChallengeProposalScalarFieldEnum = exports.LeaseScalarFieldEnum = exports.PropertyBuyProposalScalarFieldEnum = exports.PropertySellProposalScalarFieldEnum = exports.SalaryClaimScalarFieldEnum = exports.PropertyAccountScalarFieldEnum = exports.PropertyProposalScalarFieldEnum = exports.AuthorityCandidateScalarFieldEnum = exports.CandiateProfileScalarFieldEnum = exports.FundScalarFieldEnum = exports.TreasuryScalarFieldEnum = exports.ThresholdScalarFieldEnum = exports.ArbitrarRegistryScalarFieldEnum = exports.TrusteeRegistryScalarFieldEnum = exports.DividendPdaScalarFieldEnum = exports.PropertySystemAccountScalarFieldEnum = exports.StateAuthorityReceiptScalarFieldEnum = exports.StatePdaScalarFieldEnum = exports.StateProposalScalarFieldEnum = exports.ApproveStateAuthorityReceiptScalarFieldEnum = exports.CountryAuthorityReceiptScalarFieldEnum = exports.CountryPdaScalarFieldEnum = exports.CountryProposalScalarFieldEnum = exports.ApproveCountryAuthorityReceiptScalarFieldEnum = exports.CountryApprovalAuthorityScalarFieldEnum = exports.AdminScalarFieldEnum = exports.UserScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
+exports.defineExtension = exports.NullsOrder = exports.QueryMode = exports.SortOrder = exports.ProposalsScalarFieldEnum = exports.ElectScalarFieldEnum = exports.TokenTransferProposalScalarFieldEnum = exports.NewThresholdProposalScalarFieldEnum = exports.RTChgProposalScalarFieldEnum = exports.ResignationScalarFieldEnum = void 0;
+const runtime = __importStar(require("@prisma/client/runtime/client"));
 const class_js_1 = require("./class.js");
 /**
  * Prisma Errors
@@ -73,36 +74,36 @@ exports.Sql = runtime.Sql;
 exports.Decimal = runtime.Decimal;
 exports.getExtensionContext = runtime.Extensions.getExtensionContext;
 /**
- * Prisma Client JS version: 6.19.3
- * Query Engine version: c2990dca591cba766e3b7ef5d9e8a84796e47ab7
+ * Prisma Client JS version: 7.8.0
+ * Query Engine version: 3c6e192761c0362d496ed980de936e2f3cebcd3a
  */
 exports.prismaVersion = {
-    client: "6.19.3",
-    engine: "c2990dca591cba766e3b7ef5d9e8a84796e47ab7"
+    client: "7.8.0",
+    engine: "3c6e192761c0362d496ed980de936e2f3cebcd3a"
 };
 exports.NullTypes = {
-    DbNull: runtime.objectEnumValues.classes.DbNull,
-    JsonNull: runtime.objectEnumValues.classes.JsonNull,
-    AnyNull: runtime.objectEnumValues.classes.AnyNull,
+    DbNull: runtime.NullTypes.DbNull,
+    JsonNull: runtime.NullTypes.JsonNull,
+    AnyNull: runtime.NullTypes.AnyNull,
 };
 /**
  * Helper for filtering JSON entries that have `null` on the database (empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-exports.DbNull = runtime.objectEnumValues.instances.DbNull;
+exports.DbNull = runtime.DbNull;
 /**
  * Helper for filtering JSON entries that have JSON `null` values (not empty on the db)
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-exports.JsonNull = runtime.objectEnumValues.instances.JsonNull;
+exports.JsonNull = runtime.JsonNull;
 /**
  * Helper for filtering JSON entries that are `Prisma.DbNull` or `Prisma.JsonNull`
  *
  * @see https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-json-fields#filtering-on-a-json-field
  */
-exports.AnyNull = runtime.objectEnumValues.instances.AnyNull;
+exports.AnyNull = runtime.AnyNull;
 exports.ModelName = {
     User: 'User',
     admin: 'admin',
@@ -114,7 +115,33 @@ exports.ModelName = {
     ApproveStateAuthorityReceipt: 'ApproveStateAuthorityReceipt',
     StateProposal: 'StateProposal',
     StatePda: 'StatePda',
-    StateAuthorityReceipt: 'StateAuthorityReceipt'
+    StateAuthorityReceipt: 'StateAuthorityReceipt',
+    PropertySystemAccount: 'PropertySystemAccount',
+    DividendPda: 'DividendPda',
+    TrusteeRegistry: 'TrusteeRegistry',
+    ArbitrarRegistry: 'ArbitrarRegistry',
+    Threshold: 'Threshold',
+    Treasury: 'Treasury',
+    Fund: 'Fund',
+    CandiateProfile: 'CandiateProfile',
+    AuthorityCandidate: 'AuthorityCandidate',
+    PropertyProposal: 'PropertyProposal',
+    PropertyAccount: 'PropertyAccount',
+    SalaryClaim: 'SalaryClaim',
+    PropertySellProposal: 'PropertySellProposal',
+    PropertyBuyProposal: 'PropertyBuyProposal',
+    Lease: 'Lease',
+    ChallengeProposal: 'ChallengeProposal',
+    RankCounter: 'RankCounter',
+    Offenders: 'Offenders',
+    VotingForProposal: 'VotingForProposal',
+    VotingForCandiate: 'VotingForCandiate',
+    Resignation: 'Resignation',
+    RTChgProposal: 'RTChgProposal',
+    NewThresholdProposal: 'NewThresholdProposal',
+    TokenTransferProposal: 'TokenTransferProposal',
+    Elect: 'Elect',
+    Proposals: 'Proposals'
 };
 /**
  * Enums
@@ -221,6 +248,276 @@ exports.StateAuthorityReceiptScalarFieldEnum = {
     bump: 'bump',
     signer: 'signer'
 };
+exports.PropertySystemAccountScalarFieldEnum = {
+    creator_pubky: 'creator_pubky',
+    property_system_id: 'property_system_id',
+    property_system_public_key: 'property_system_public_key',
+    governance_mint: 'governance_mint',
+    threshold: 'threshold',
+    treasury: 'treasury',
+    reinvestment: 'reinvestment',
+    safety: 'safety',
+    dividend: 'dividend',
+    trustee_registry: 'trustee_registry',
+    arbitrator_registry: 'arbitrator_registry',
+    total_properties: 'total_properties',
+    created_at: 'created_at',
+    ready_for_listing: 'ready_for_listing',
+    bump: 'bump'
+};
+exports.DividendPdaScalarFieldEnum = {
+    dividend_pubkey: 'dividend_pubkey',
+    dividen_per_token: 'dividen_per_token',
+    last_updated_ts: 'last_updated_ts',
+    bump: 'bump'
+};
+exports.TrusteeRegistryScalarFieldEnum = {
+    trustee_registry_pubkey: 'trustee_registry_pubkey',
+    current_number_of_trustees: 'current_number_of_trustees',
+    total_trustees: 'total_trustees',
+    vote_threshold: 'vote_threshold',
+    claim_deadline_ts: 'claim_deadline_ts',
+    total_salary_allocated: 'total_salary_allocated',
+    bump: 'bump',
+    trustees: 'trustees'
+};
+exports.ArbitrarRegistryScalarFieldEnum = {
+    arbitrar_registry_pubkey: 'arbitrar_registry_pubkey',
+    current_number_of_arbitrar: 'current_number_of_arbitrar',
+    total_arbitrar: 'total_arbitrar',
+    vote_threshold: 'vote_threshold',
+    claim_deadline_ts: 'claim_deadline_ts',
+    total_salary_allocated: 'total_salary_allocated',
+    bump: 'bump',
+    arbitrar: 'arbitrar'
+};
+exports.ThresholdScalarFieldEnum = {
+    threshold_pub_key: 'threshold_pub_key',
+    trustee_salary_threshold: 'trustee_salary_threshold',
+    arbitrator_salary_threshold: 'arbitrator_salary_threshold',
+    dividend_threshold: 'dividend_threshold',
+    reinvestment_threshold: 'reinvestment_threshold',
+    safety_threshold: 'safety_threshold'
+};
+exports.TreasuryScalarFieldEnum = {
+    treasury_key: 'treasury_key',
+    last_distribution: 'last_distribution',
+    bump: 'bump'
+};
+exports.FundScalarFieldEnum = {
+    id: 'id',
+    property_system_pubkey: 'property_system_pubkey',
+    fundtype: 'fundtype',
+    used: 'used'
+};
+exports.CandiateProfileScalarFieldEnum = {
+    candidate: 'candidate',
+    total_applied: 'total_applied',
+    total_selected_as_trustee: 'total_selected_as_trustee',
+    total_selected_as_arbitrar: 'total_selected_as_arbitrar',
+    is_blacklisted: 'is_blacklisted',
+    removal_count: 'removal_count',
+    actions_history: 'actions_history',
+    metadata_hash: 'metadata_hash',
+    bump: 'bump'
+};
+exports.AuthorityCandidateScalarFieldEnum = {
+    authority_candidate: 'authority_candidate',
+    candidate: 'candidate',
+    proposal: 'proposal',
+    selected: 'selected',
+    selected_time: 'selected_time',
+    vote_gained: 'vote_gained',
+    is_finalized: 'is_finalized',
+    authority_type: 'authority_type',
+    bump: 'bump'
+};
+exports.PropertyProposalScalarFieldEnum = {
+    property_id: 'property_id',
+    proposal_property_pubkey: 'proposal_property_pubkey',
+    property_system_pubkey: 'property_system_pubkey',
+    state_id: 'state_id',
+    state_pubkey: 'state_pubkey',
+    country_id: 'country_id',
+    country_pubkey: 'country_pubkey',
+    legal_doc_hash: 'legal_doc_hash',
+    issued_by: 'issued_by',
+    approval_count: 'approval_count',
+    approved: 'approved',
+    executed: 'executed',
+    bump: 'bump'
+};
+exports.PropertyAccountScalarFieldEnum = {
+    property_id: 'property_id',
+    property_public_key: 'property_public_key',
+    is_leased: 'is_leased',
+    property_system: 'property_system',
+    history_of_owner: 'history_of_owner',
+    state_id: 'state_id',
+    state_pubkey: 'state_pubkey',
+    country_id: 'country_id',
+    country_pubkey: 'country_pubkey',
+    issued_at: 'issued_at',
+    issued_by: 'issued_by',
+    metadata: 'metadata',
+    bump: 'bump'
+};
+exports.SalaryClaimScalarFieldEnum = {
+    id: 'id',
+    payer: 'payer',
+    from: 'from',
+    authority_type: 'authority_type',
+    receipt: 'receipt',
+    claim_time: 'claim_time',
+    amount: 'amount'
+};
+exports.PropertySellProposalScalarFieldEnum = {
+    proposal_id: 'proposal_id',
+    proposal_key: 'proposal_key',
+    property_account: 'property_account',
+    sale_price: 'sale_price',
+    deposit_account_pda: 'deposit_account_pda',
+    transfer_deadline: 'transfer_deadline'
+};
+exports.PropertyBuyProposalScalarFieldEnum = {
+    id: 'id',
+    proposal_id: 'proposal_id',
+    proposal_key: 'proposal_key',
+    buyer: 'buyer',
+    buyer_wallet: 'buyer_wallet',
+    sell_proposal: 'sell_proposal',
+    property: 'property',
+    sale_price: 'sale_price',
+    payment_deadline: 'payment_deadline'
+};
+exports.LeaseScalarFieldEnum = {
+    property_system: 'property_system',
+    lease_id: 'lease_id',
+    is_arbitrar_approved: 'is_arbitrar_approved',
+    arbitrar_approval_count: 'arbitrar_approval_count',
+    initailized_at: 'initailized_at',
+    property: 'property',
+    lessee: 'lessee',
+    periodic_pay: 'periodic_pay',
+    late_payment_fee_per_day: 'late_payment_fee_per_day',
+    status: 'status',
+    rent_amount: 'rent_amount',
+    security_deposit: 'security_deposit',
+    last_payement: 'last_payement',
+    agreemenbt_hash: 'agreemenbt_hash',
+    lessee_acceptance_deadline: 'lessee_acceptance_deadline',
+    lease_end_time: 'lease_end_time',
+    neutral: 'neutral',
+    bump: 'bump'
+};
+exports.ChallengeProposalScalarFieldEnum = {
+    creator: 'creator',
+    proposal_id: 'proposal_id',
+    proposal_key: 'proposal_key',
+    trustee_offender_total_number: 'trustee_offender_total_number',
+    arbitrar_offender_total_number: 'arbitrar_offender_total_number',
+    required_vote_to_active: 'required_vote_to_active',
+    charges_hash: 'charges_hash',
+    evidence: 'evidence',
+    guilty: 'guilty',
+    result_time: 'result_time',
+    index: 'index'
+};
+exports.RankCounterScalarFieldEnum = {
+    proposal_id: 'proposal_id',
+    property_system: 'property_system',
+    current_rank: 'current_rank',
+    bump: 'bump'
+};
+exports.OffendersScalarFieldEnum = {
+    id: 'id',
+    offender_key: 'offender_key',
+    proposal_key: 'proposal_key',
+    authority_type: 'authority_type',
+    is_finalized: 'is_finalized',
+    bump: 'bump'
+};
+exports.VotingForProposalScalarFieldEnum = {
+    proposal_key: 'proposal_key',
+    timestamp: 'timestamp',
+    signer: 'signer',
+    voting_power: 'voting_power'
+};
+exports.VotingForCandiateScalarFieldEnum = {
+    proposal_key: 'proposal_key',
+    timestamp: 'timestamp',
+    signer: 'signer',
+    to_whom: 'to_whom'
+};
+exports.ResignationScalarFieldEnum = {
+    id: 'id',
+    authority: 'authority',
+    proposal: 'proposal',
+    property_system: 'property_system',
+    authority_type: 'authority_type',
+    time: 'time',
+    status: 'status',
+    bump: 'bump'
+};
+exports.RTChgProposalScalarFieldEnum = {
+    new_threshold: 'new_threshold',
+    proposal_id: 'proposal_id',
+    threshold_submission_deadline: 'threshold_submission_deadline',
+    voting_for_threshold_deadline: 'voting_for_threshold_deadline',
+    add_new_threshold_deadline: 'add_new_threshold_deadline',
+    challenge_new_threshold_deadline: 'challenge_new_threshold_deadline'
+};
+exports.NewThresholdProposalScalarFieldEnum = {
+    property_system: 'property_system',
+    new_threshold: 'new_threshold',
+    proposal: 'proposal',
+    signer: 'signer',
+    vote_gained: 'vote_gained',
+    new_trustee_salary_threshold: 'new_trustee_salary_threshold',
+    new_arbitrator_salary_threshold: 'new_arbitrator_salary_threshold',
+    new_dividend_threshold: 'new_dividend_threshold',
+    new_reinvestment_threshold: 'new_reinvestment_threshold',
+    new_safety_threshold: 'new_safety_threshold',
+    bump: 'bump'
+};
+exports.TokenTransferProposalScalarFieldEnum = {
+    proposal_id: 'proposal_id',
+    amount_required: 'amount_required',
+    reason_hash: 'reason_hash',
+    recepient_wallet: 'recepient_wallet',
+    deadline: 'deadline'
+};
+exports.ElectScalarFieldEnum = {
+    proposal_id: 'proposal_id',
+    total_authority_to_resign: 'total_authority_to_resign',
+    authority_type: 'authority_type',
+    is_initialized: 'is_initialized',
+    candidate_submission_deadline: 'candidate_submission_deadline',
+    voting_for_authority_deadline: 'voting_for_authority_deadline',
+    add_new_authority_deadline: 'add_new_authority_deadline',
+    challenge_new_authority_deadline: 'challenge_new_authority_deadline',
+    is_finalize: 'is_finalize'
+};
+exports.ProposalsScalarFieldEnum = {
+    property_system: 'property_system',
+    proposal_id: 'proposal_id',
+    proposal_key: 'proposal_key',
+    merkle_root: 'merkle_root',
+    arbitrar_approvals: 'arbitrar_approvals',
+    is_arbitrar_approved: 'is_arbitrar_approved',
+    total_voting_power: 'total_voting_power',
+    votes_for: 'votes_for',
+    votes_against: 'votes_against',
+    vote_threshold: 'vote_threshold',
+    start_time: 'start_time',
+    end_time: 'end_time',
+    status: 'status',
+    snapshot_submitted: 'snapshot_submitted',
+    proposal_type: 'proposal_type',
+    slot: 'slot',
+    bump: 'bump',
+    created_at: 'created_at'
+};
 exports.SortOrder = {
     asc: 'asc',
     desc: 'desc'
@@ -228,6 +525,10 @@ exports.SortOrder = {
 exports.QueryMode = {
     default: 'default',
     insensitive: 'insensitive'
+};
+exports.NullsOrder = {
+    first: 'first',
+    last: 'last'
 };
 exports.defineExtension = runtime.Extensions.defineExtension;
 //# sourceMappingURL=prismaNamespace.js.map

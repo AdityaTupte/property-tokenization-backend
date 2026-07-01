@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model StatePda
@@ -218,7 +218,7 @@ export type StatePdaGroupByOutputType = {
     _min: StatePdaMinAggregateOutputType | null;
     _max: StatePdaMaxAggregateOutputType | null;
 };
-type GetStatePdaGroupByPayload<T extends StatePdaGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<StatePdaGroupByOutputType, T['by']> & {
+export type GetStatePdaGroupByPayload<T extends StatePdaGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<StatePdaGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof StatePdaGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], StatePdaGroupByOutputType[P]> : Prisma.GetScalarType<T[P], StatePdaGroupByOutputType[P]>;
 }>>;
 export type StatePdaWhereInput = {
@@ -1165,6 +1165,11 @@ export type StatePdaFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
      * Skip the first `n` StatePdas.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of StatePdas.
+     */
     distinct?: Prisma.StatePdaScalarFieldEnum | Prisma.StatePdaScalarFieldEnum[];
 };
 /**
@@ -1381,5 +1386,4 @@ export type StatePdaDefaultArgs<ExtArgs extends runtime.Types.Extensions.Interna
      */
     include?: Prisma.StatePdaInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=StatePda.d.ts.map

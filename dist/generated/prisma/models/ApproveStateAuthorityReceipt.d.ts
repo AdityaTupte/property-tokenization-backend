@@ -1,4 +1,4 @@
-import type * as runtime from "@prisma/client/runtime/library";
+import type * as runtime from "@prisma/client/runtime/client";
 import type * as Prisma from "../internal/prismaNamespace.js";
 /**
  * Model ApproveStateAuthorityReceipt
@@ -160,7 +160,7 @@ export type ApproveStateAuthorityReceiptGroupByOutputType = {
     _min: ApproveStateAuthorityReceiptMinAggregateOutputType | null;
     _max: ApproveStateAuthorityReceiptMaxAggregateOutputType | null;
 };
-type GetApproveStateAuthorityReceiptGroupByPayload<T extends ApproveStateAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ApproveStateAuthorityReceiptGroupByOutputType, T['by']> & {
+export type GetApproveStateAuthorityReceiptGroupByPayload<T extends ApproveStateAuthorityReceiptGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<ApproveStateAuthorityReceiptGroupByOutputType, T['by']> & {
     [P in ((keyof T) & (keyof ApproveStateAuthorityReceiptGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], ApproveStateAuthorityReceiptGroupByOutputType[P]> : Prisma.GetScalarType<T[P], ApproveStateAuthorityReceiptGroupByOutputType[P]>;
 }>>;
 export type ApproveStateAuthorityReceiptWhereInput = {
@@ -1006,6 +1006,11 @@ export type ApproveStateAuthorityReceiptFindManyArgs<ExtArgs extends runtime.Typ
      * Skip the first `n` ApproveStateAuthorityReceipts.
      */
     skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of ApproveStateAuthorityReceipts.
+     */
     distinct?: Prisma.ApproveStateAuthorityReceiptScalarFieldEnum | Prisma.ApproveStateAuthorityReceiptScalarFieldEnum[];
 };
 /**
@@ -1212,5 +1217,4 @@ export type ApproveStateAuthorityReceiptDefaultArgs<ExtArgs extends runtime.Type
      */
     include?: Prisma.ApproveStateAuthorityReceiptInclude<ExtArgs> | null;
 };
-export {};
 //# sourceMappingURL=ApproveStateAuthorityReceipt.d.ts.map

@@ -1,0 +1,1160 @@
+import type * as runtime from "@prisma/client/runtime/client";
+import type * as Prisma from "../internal/prismaNamespace.js";
+/**
+ * Model PropertyBuyProposal
+ *
+ */
+export type PropertyBuyProposalModel = runtime.Types.Result.DefaultSelection<Prisma.$PropertyBuyProposalPayload>;
+export type AggregatePropertyBuyProposal = {
+    _count: PropertyBuyProposalCountAggregateOutputType | null;
+    _avg: PropertyBuyProposalAvgAggregateOutputType | null;
+    _sum: PropertyBuyProposalSumAggregateOutputType | null;
+    _min: PropertyBuyProposalMinAggregateOutputType | null;
+    _max: PropertyBuyProposalMaxAggregateOutputType | null;
+};
+export type PropertyBuyProposalAvgAggregateOutputType = {
+    id: number | null;
+    proposal_id: number | null;
+    sale_price: number | null;
+};
+export type PropertyBuyProposalSumAggregateOutputType = {
+    id: number | null;
+    proposal_id: number | null;
+    sale_price: number | null;
+};
+export type PropertyBuyProposalMinAggregateOutputType = {
+    id: number | null;
+    proposal_id: number | null;
+    proposal_key: string | null;
+    buyer: string | null;
+    buyer_wallet: string | null;
+    sell_proposal: string | null;
+    property: string | null;
+    sale_price: number | null;
+    payment_deadline: Date | null;
+};
+export type PropertyBuyProposalMaxAggregateOutputType = {
+    id: number | null;
+    proposal_id: number | null;
+    proposal_key: string | null;
+    buyer: string | null;
+    buyer_wallet: string | null;
+    sell_proposal: string | null;
+    property: string | null;
+    sale_price: number | null;
+    payment_deadline: Date | null;
+};
+export type PropertyBuyProposalCountAggregateOutputType = {
+    id: number;
+    proposal_id: number;
+    proposal_key: number;
+    buyer: number;
+    buyer_wallet: number;
+    sell_proposal: number;
+    property: number;
+    sale_price: number;
+    payment_deadline: number;
+    _all: number;
+};
+export type PropertyBuyProposalAvgAggregateInputType = {
+    id?: true;
+    proposal_id?: true;
+    sale_price?: true;
+};
+export type PropertyBuyProposalSumAggregateInputType = {
+    id?: true;
+    proposal_id?: true;
+    sale_price?: true;
+};
+export type PropertyBuyProposalMinAggregateInputType = {
+    id?: true;
+    proposal_id?: true;
+    proposal_key?: true;
+    buyer?: true;
+    buyer_wallet?: true;
+    sell_proposal?: true;
+    property?: true;
+    sale_price?: true;
+    payment_deadline?: true;
+};
+export type PropertyBuyProposalMaxAggregateInputType = {
+    id?: true;
+    proposal_id?: true;
+    proposal_key?: true;
+    buyer?: true;
+    buyer_wallet?: true;
+    sell_proposal?: true;
+    property?: true;
+    sale_price?: true;
+    payment_deadline?: true;
+};
+export type PropertyBuyProposalCountAggregateInputType = {
+    id?: true;
+    proposal_id?: true;
+    proposal_key?: true;
+    buyer?: true;
+    buyer_wallet?: true;
+    sell_proposal?: true;
+    property?: true;
+    sale_price?: true;
+    payment_deadline?: true;
+    _all?: true;
+};
+export type PropertyBuyProposalAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which PropertyBuyProposal to aggregate.
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyBuyProposals to fetch.
+     */
+    orderBy?: Prisma.PropertyBuyProposalOrderByWithRelationInput | Prisma.PropertyBuyProposalOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.PropertyBuyProposalWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyBuyProposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyBuyProposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned PropertyBuyProposals
+    **/
+    _count?: true | PropertyBuyProposalCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: PropertyBuyProposalAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: PropertyBuyProposalSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: PropertyBuyProposalMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: PropertyBuyProposalMaxAggregateInputType;
+};
+export type GetPropertyBuyProposalAggregateType<T extends PropertyBuyProposalAggregateArgs> = {
+    [P in keyof T & keyof AggregatePropertyBuyProposal]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregatePropertyBuyProposal[P]> : Prisma.GetScalarType<T[P], AggregatePropertyBuyProposal[P]>;
+};
+export type PropertyBuyProposalGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    orderBy?: Prisma.PropertyBuyProposalOrderByWithAggregationInput | Prisma.PropertyBuyProposalOrderByWithAggregationInput[];
+    by: Prisma.PropertyBuyProposalScalarFieldEnum[] | Prisma.PropertyBuyProposalScalarFieldEnum;
+    having?: Prisma.PropertyBuyProposalScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: PropertyBuyProposalCountAggregateInputType | true;
+    _avg?: PropertyBuyProposalAvgAggregateInputType;
+    _sum?: PropertyBuyProposalSumAggregateInputType;
+    _min?: PropertyBuyProposalMinAggregateInputType;
+    _max?: PropertyBuyProposalMaxAggregateInputType;
+};
+export type PropertyBuyProposalGroupByOutputType = {
+    id: number;
+    proposal_id: number;
+    proposal_key: string;
+    buyer: string;
+    buyer_wallet: string;
+    sell_proposal: string;
+    property: string;
+    sale_price: number;
+    payment_deadline: Date;
+    _count: PropertyBuyProposalCountAggregateOutputType | null;
+    _avg: PropertyBuyProposalAvgAggregateOutputType | null;
+    _sum: PropertyBuyProposalSumAggregateOutputType | null;
+    _min: PropertyBuyProposalMinAggregateOutputType | null;
+    _max: PropertyBuyProposalMaxAggregateOutputType | null;
+};
+export type GetPropertyBuyProposalGroupByPayload<T extends PropertyBuyProposalGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<PropertyBuyProposalGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof PropertyBuyProposalGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], PropertyBuyProposalGroupByOutputType[P]> : Prisma.GetScalarType<T[P], PropertyBuyProposalGroupByOutputType[P]>;
+}>>;
+export type PropertyBuyProposalWhereInput = {
+    AND?: Prisma.PropertyBuyProposalWhereInput | Prisma.PropertyBuyProposalWhereInput[];
+    OR?: Prisma.PropertyBuyProposalWhereInput[];
+    NOT?: Prisma.PropertyBuyProposalWhereInput | Prisma.PropertyBuyProposalWhereInput[];
+    id?: Prisma.IntFilter<"PropertyBuyProposal"> | number;
+    proposal_id?: Prisma.IntFilter<"PropertyBuyProposal"> | number;
+    proposal_key?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    buyer?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    buyer_wallet?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    sell_proposal?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    property?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    sale_price?: Prisma.IntFilter<"PropertyBuyProposal"> | number;
+    payment_deadline?: Prisma.DateTimeFilter<"PropertyBuyProposal"> | Date | string;
+};
+export type PropertyBuyProposalOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    buyer?: Prisma.SortOrder;
+    buyer_wallet?: Prisma.SortOrder;
+    sell_proposal?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+    payment_deadline?: Prisma.SortOrder;
+};
+export type PropertyBuyProposalWhereUniqueInput = Prisma.AtLeast<{
+    proposal_key?: string;
+    AND?: Prisma.PropertyBuyProposalWhereInput | Prisma.PropertyBuyProposalWhereInput[];
+    OR?: Prisma.PropertyBuyProposalWhereInput[];
+    NOT?: Prisma.PropertyBuyProposalWhereInput | Prisma.PropertyBuyProposalWhereInput[];
+    id?: Prisma.IntFilter<"PropertyBuyProposal"> | number;
+    proposal_id?: Prisma.IntFilter<"PropertyBuyProposal"> | number;
+    buyer?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    buyer_wallet?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    sell_proposal?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    property?: Prisma.StringFilter<"PropertyBuyProposal"> | string;
+    sale_price?: Prisma.IntFilter<"PropertyBuyProposal"> | number;
+    payment_deadline?: Prisma.DateTimeFilter<"PropertyBuyProposal"> | Date | string;
+}, "proposal_key">;
+export type PropertyBuyProposalOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    buyer?: Prisma.SortOrder;
+    buyer_wallet?: Prisma.SortOrder;
+    sell_proposal?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+    payment_deadline?: Prisma.SortOrder;
+    _count?: Prisma.PropertyBuyProposalCountOrderByAggregateInput;
+    _avg?: Prisma.PropertyBuyProposalAvgOrderByAggregateInput;
+    _max?: Prisma.PropertyBuyProposalMaxOrderByAggregateInput;
+    _min?: Prisma.PropertyBuyProposalMinOrderByAggregateInput;
+    _sum?: Prisma.PropertyBuyProposalSumOrderByAggregateInput;
+};
+export type PropertyBuyProposalScalarWhereWithAggregatesInput = {
+    AND?: Prisma.PropertyBuyProposalScalarWhereWithAggregatesInput | Prisma.PropertyBuyProposalScalarWhereWithAggregatesInput[];
+    OR?: Prisma.PropertyBuyProposalScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.PropertyBuyProposalScalarWhereWithAggregatesInput | Prisma.PropertyBuyProposalScalarWhereWithAggregatesInput[];
+    id?: Prisma.IntWithAggregatesFilter<"PropertyBuyProposal"> | number;
+    proposal_id?: Prisma.IntWithAggregatesFilter<"PropertyBuyProposal"> | number;
+    proposal_key?: Prisma.StringWithAggregatesFilter<"PropertyBuyProposal"> | string;
+    buyer?: Prisma.StringWithAggregatesFilter<"PropertyBuyProposal"> | string;
+    buyer_wallet?: Prisma.StringWithAggregatesFilter<"PropertyBuyProposal"> | string;
+    sell_proposal?: Prisma.StringWithAggregatesFilter<"PropertyBuyProposal"> | string;
+    property?: Prisma.StringWithAggregatesFilter<"PropertyBuyProposal"> | string;
+    sale_price?: Prisma.IntWithAggregatesFilter<"PropertyBuyProposal"> | number;
+    payment_deadline?: Prisma.DateTimeWithAggregatesFilter<"PropertyBuyProposal"> | Date | string;
+};
+export type PropertyBuyProposalCreateInput = {
+    id?: number;
+    proposal_id: number;
+    proposal_key: string;
+    buyer: string;
+    buyer_wallet: string;
+    sell_proposal: string;
+    property: string;
+    sale_price: number;
+    payment_deadline: Date | string;
+};
+export type PropertyBuyProposalUncheckedCreateInput = {
+    id?: number;
+    proposal_id: number;
+    proposal_key: string;
+    buyer: string;
+    buyer_wallet: string;
+    sell_proposal: string;
+    property: string;
+    sale_price: number;
+    payment_deadline: Date | string;
+};
+export type PropertyBuyProposalUpdateInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer_wallet?: Prisma.StringFieldUpdateOperationsInput | string;
+    sell_proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    sale_price?: Prisma.IntFieldUpdateOperationsInput | number;
+    payment_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type PropertyBuyProposalUncheckedUpdateInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer_wallet?: Prisma.StringFieldUpdateOperationsInput | string;
+    sell_proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    sale_price?: Prisma.IntFieldUpdateOperationsInput | number;
+    payment_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type PropertyBuyProposalCreateManyInput = {
+    id?: number;
+    proposal_id: number;
+    proposal_key: string;
+    buyer: string;
+    buyer_wallet: string;
+    sell_proposal: string;
+    property: string;
+    sale_price: number;
+    payment_deadline: Date | string;
+};
+export type PropertyBuyProposalUpdateManyMutationInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer_wallet?: Prisma.StringFieldUpdateOperationsInput | string;
+    sell_proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    sale_price?: Prisma.IntFieldUpdateOperationsInput | number;
+    payment_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type PropertyBuyProposalUncheckedUpdateManyInput = {
+    id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_id?: Prisma.IntFieldUpdateOperationsInput | number;
+    proposal_key?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer?: Prisma.StringFieldUpdateOperationsInput | string;
+    buyer_wallet?: Prisma.StringFieldUpdateOperationsInput | string;
+    sell_proposal?: Prisma.StringFieldUpdateOperationsInput | string;
+    property?: Prisma.StringFieldUpdateOperationsInput | string;
+    sale_price?: Prisma.IntFieldUpdateOperationsInput | number;
+    payment_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type PropertyBuyProposalCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    buyer?: Prisma.SortOrder;
+    buyer_wallet?: Prisma.SortOrder;
+    sell_proposal?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+    payment_deadline?: Prisma.SortOrder;
+};
+export type PropertyBuyProposalAvgOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+};
+export type PropertyBuyProposalMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    buyer?: Prisma.SortOrder;
+    buyer_wallet?: Prisma.SortOrder;
+    sell_proposal?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+    payment_deadline?: Prisma.SortOrder;
+};
+export type PropertyBuyProposalMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    proposal_key?: Prisma.SortOrder;
+    buyer?: Prisma.SortOrder;
+    buyer_wallet?: Prisma.SortOrder;
+    sell_proposal?: Prisma.SortOrder;
+    property?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+    payment_deadline?: Prisma.SortOrder;
+};
+export type PropertyBuyProposalSumOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    proposal_id?: Prisma.SortOrder;
+    sale_price?: Prisma.SortOrder;
+};
+export type PropertyBuyProposalSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    buyer?: boolean;
+    buyer_wallet?: boolean;
+    sell_proposal?: boolean;
+    property?: boolean;
+    sale_price?: boolean;
+    payment_deadline?: boolean;
+}, ExtArgs["result"]["propertyBuyProposal"]>;
+export type PropertyBuyProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    buyer?: boolean;
+    buyer_wallet?: boolean;
+    sell_proposal?: boolean;
+    property?: boolean;
+    sale_price?: boolean;
+    payment_deadline?: boolean;
+}, ExtArgs["result"]["propertyBuyProposal"]>;
+export type PropertyBuyProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    buyer?: boolean;
+    buyer_wallet?: boolean;
+    sell_proposal?: boolean;
+    property?: boolean;
+    sale_price?: boolean;
+    payment_deadline?: boolean;
+}, ExtArgs["result"]["propertyBuyProposal"]>;
+export type PropertyBuyProposalSelectScalar = {
+    id?: boolean;
+    proposal_id?: boolean;
+    proposal_key?: boolean;
+    buyer?: boolean;
+    buyer_wallet?: boolean;
+    sell_proposal?: boolean;
+    property?: boolean;
+    sale_price?: boolean;
+    payment_deadline?: boolean;
+};
+export type PropertyBuyProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "proposal_id" | "proposal_key" | "buyer" | "buyer_wallet" | "sell_proposal" | "property" | "sale_price" | "payment_deadline", ExtArgs["result"]["propertyBuyProposal"]>;
+export type $PropertyBuyProposalPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "PropertyBuyProposal";
+    objects: {};
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: number;
+        proposal_id: number;
+        proposal_key: string;
+        buyer: string;
+        buyer_wallet: string;
+        sell_proposal: string;
+        property: string;
+        sale_price: number;
+        payment_deadline: Date;
+    }, ExtArgs["result"]["propertyBuyProposal"]>;
+    composites: {};
+};
+export type PropertyBuyProposalGetPayload<S extends boolean | null | undefined | PropertyBuyProposalDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload, S>;
+export type PropertyBuyProposalCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<PropertyBuyProposalFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: PropertyBuyProposalCountAggregateInputType | true;
+};
+export interface PropertyBuyProposalDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['PropertyBuyProposal'];
+        meta: {
+            name: 'PropertyBuyProposal';
+        };
+    };
+    /**
+     * Find zero or one PropertyBuyProposal that matches the filter.
+     * @param {PropertyBuyProposalFindUniqueArgs} args - Arguments to find a PropertyBuyProposal
+     * @example
+     * // Get one PropertyBuyProposal
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PropertyBuyProposalFindUniqueArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalFindUniqueArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one PropertyBuyProposal that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PropertyBuyProposalFindUniqueOrThrowArgs} args - Arguments to find a PropertyBuyProposal
+     * @example
+     * // Get one PropertyBuyProposal
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PropertyBuyProposalFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first PropertyBuyProposal that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalFindFirstArgs} args - Arguments to find a PropertyBuyProposal
+     * @example
+     * // Get one PropertyBuyProposal
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PropertyBuyProposalFindFirstArgs>(args?: Prisma.SelectSubset<T, PropertyBuyProposalFindFirstArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first PropertyBuyProposal that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalFindFirstOrThrowArgs} args - Arguments to find a PropertyBuyProposal
+     * @example
+     * // Get one PropertyBuyProposal
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PropertyBuyProposalFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, PropertyBuyProposalFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more PropertyBuyProposals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PropertyBuyProposals
+     * const propertyBuyProposals = await prisma.propertyBuyProposal.findMany()
+     *
+     * // Get first 10 PropertyBuyProposals
+     * const propertyBuyProposals = await prisma.propertyBuyProposal.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const propertyBuyProposalWithIdOnly = await prisma.propertyBuyProposal.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends PropertyBuyProposalFindManyArgs>(args?: Prisma.SelectSubset<T, PropertyBuyProposalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a PropertyBuyProposal.
+     * @param {PropertyBuyProposalCreateArgs} args - Arguments to create a PropertyBuyProposal.
+     * @example
+     * // Create one PropertyBuyProposal
+     * const PropertyBuyProposal = await prisma.propertyBuyProposal.create({
+     *   data: {
+     *     // ... data to create a PropertyBuyProposal
+     *   }
+     * })
+     *
+     */
+    create<T extends PropertyBuyProposalCreateArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalCreateArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many PropertyBuyProposals.
+     * @param {PropertyBuyProposalCreateManyArgs} args - Arguments to create many PropertyBuyProposals.
+     * @example
+     * // Create many PropertyBuyProposals
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends PropertyBuyProposalCreateManyArgs>(args?: Prisma.SelectSubset<T, PropertyBuyProposalCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many PropertyBuyProposals and returns the data saved in the database.
+     * @param {PropertyBuyProposalCreateManyAndReturnArgs} args - Arguments to create many PropertyBuyProposals.
+     * @example
+     * // Create many PropertyBuyProposals
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many PropertyBuyProposals and only return the `id`
+     * const propertyBuyProposalWithIdOnly = await prisma.propertyBuyProposal.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends PropertyBuyProposalCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, PropertyBuyProposalCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a PropertyBuyProposal.
+     * @param {PropertyBuyProposalDeleteArgs} args - Arguments to delete one PropertyBuyProposal.
+     * @example
+     * // Delete one PropertyBuyProposal
+     * const PropertyBuyProposal = await prisma.propertyBuyProposal.delete({
+     *   where: {
+     *     // ... filter to delete one PropertyBuyProposal
+     *   }
+     * })
+     *
+     */
+    delete<T extends PropertyBuyProposalDeleteArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalDeleteArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one PropertyBuyProposal.
+     * @param {PropertyBuyProposalUpdateArgs} args - Arguments to update one PropertyBuyProposal.
+     * @example
+     * // Update one PropertyBuyProposal
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends PropertyBuyProposalUpdateArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalUpdateArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more PropertyBuyProposals.
+     * @param {PropertyBuyProposalDeleteManyArgs} args - Arguments to filter PropertyBuyProposals to delete.
+     * @example
+     * // Delete a few PropertyBuyProposals
+     * const { count } = await prisma.propertyBuyProposal.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends PropertyBuyProposalDeleteManyArgs>(args?: Prisma.SelectSubset<T, PropertyBuyProposalDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more PropertyBuyProposals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PropertyBuyProposals
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends PropertyBuyProposalUpdateManyArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more PropertyBuyProposals and returns the data updated in the database.
+     * @param {PropertyBuyProposalUpdateManyAndReturnArgs} args - Arguments to update many PropertyBuyProposals.
+     * @example
+     * // Update many PropertyBuyProposals
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more PropertyBuyProposals and only return the `id`
+     * const propertyBuyProposalWithIdOnly = await prisma.propertyBuyProposal.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends PropertyBuyProposalUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one PropertyBuyProposal.
+     * @param {PropertyBuyProposalUpsertArgs} args - Arguments to update or create a PropertyBuyProposal.
+     * @example
+     * // Update or create a PropertyBuyProposal
+     * const propertyBuyProposal = await prisma.propertyBuyProposal.upsert({
+     *   create: {
+     *     // ... data to create a PropertyBuyProposal
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PropertyBuyProposal we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PropertyBuyProposalUpsertArgs>(args: Prisma.SelectSubset<T, PropertyBuyProposalUpsertArgs<ExtArgs>>): Prisma.Prisma__PropertyBuyProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertyBuyProposalPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of PropertyBuyProposals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalCountArgs} args - Arguments to filter PropertyBuyProposals to count.
+     * @example
+     * // Count the number of PropertyBuyProposals
+     * const count = await prisma.propertyBuyProposal.count({
+     *   where: {
+     *     // ... the filter for the PropertyBuyProposals we want to count
+     *   }
+     * })
+    **/
+    count<T extends PropertyBuyProposalCountArgs>(args?: Prisma.Subset<T, PropertyBuyProposalCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], PropertyBuyProposalCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a PropertyBuyProposal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PropertyBuyProposalAggregateArgs>(args: Prisma.Subset<T, PropertyBuyProposalAggregateArgs>): Prisma.PrismaPromise<GetPropertyBuyProposalAggregateType<T>>;
+    /**
+     * Group by PropertyBuyProposal.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PropertyBuyProposalGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends PropertyBuyProposalGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: PropertyBuyProposalGroupByArgs['orderBy'];
+    } : {
+        orderBy?: PropertyBuyProposalGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, PropertyBuyProposalGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPropertyBuyProposalGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the PropertyBuyProposal model
+     */
+    readonly fields: PropertyBuyProposalFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for PropertyBuyProposal.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__PropertyBuyProposalClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the PropertyBuyProposal model
+ */
+export interface PropertyBuyProposalFieldRefs {
+    readonly id: Prisma.FieldRef<"PropertyBuyProposal", 'Int'>;
+    readonly proposal_id: Prisma.FieldRef<"PropertyBuyProposal", 'Int'>;
+    readonly proposal_key: Prisma.FieldRef<"PropertyBuyProposal", 'String'>;
+    readonly buyer: Prisma.FieldRef<"PropertyBuyProposal", 'String'>;
+    readonly buyer_wallet: Prisma.FieldRef<"PropertyBuyProposal", 'String'>;
+    readonly sell_proposal: Prisma.FieldRef<"PropertyBuyProposal", 'String'>;
+    readonly property: Prisma.FieldRef<"PropertyBuyProposal", 'String'>;
+    readonly sale_price: Prisma.FieldRef<"PropertyBuyProposal", 'Int'>;
+    readonly payment_deadline: Prisma.FieldRef<"PropertyBuyProposal", 'DateTime'>;
+}
+/**
+ * PropertyBuyProposal findUnique
+ */
+export type PropertyBuyProposalFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * Filter, which PropertyBuyProposal to fetch.
+     */
+    where: Prisma.PropertyBuyProposalWhereUniqueInput;
+};
+/**
+ * PropertyBuyProposal findUniqueOrThrow
+ */
+export type PropertyBuyProposalFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * Filter, which PropertyBuyProposal to fetch.
+     */
+    where: Prisma.PropertyBuyProposalWhereUniqueInput;
+};
+/**
+ * PropertyBuyProposal findFirst
+ */
+export type PropertyBuyProposalFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * Filter, which PropertyBuyProposal to fetch.
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyBuyProposals to fetch.
+     */
+    orderBy?: Prisma.PropertyBuyProposalOrderByWithRelationInput | Prisma.PropertyBuyProposalOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for PropertyBuyProposals.
+     */
+    cursor?: Prisma.PropertyBuyProposalWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyBuyProposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyBuyProposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of PropertyBuyProposals.
+     */
+    distinct?: Prisma.PropertyBuyProposalScalarFieldEnum | Prisma.PropertyBuyProposalScalarFieldEnum[];
+};
+/**
+ * PropertyBuyProposal findFirstOrThrow
+ */
+export type PropertyBuyProposalFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * Filter, which PropertyBuyProposal to fetch.
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyBuyProposals to fetch.
+     */
+    orderBy?: Prisma.PropertyBuyProposalOrderByWithRelationInput | Prisma.PropertyBuyProposalOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for PropertyBuyProposals.
+     */
+    cursor?: Prisma.PropertyBuyProposalWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyBuyProposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyBuyProposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of PropertyBuyProposals.
+     */
+    distinct?: Prisma.PropertyBuyProposalScalarFieldEnum | Prisma.PropertyBuyProposalScalarFieldEnum[];
+};
+/**
+ * PropertyBuyProposal findMany
+ */
+export type PropertyBuyProposalFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * Filter, which PropertyBuyProposals to fetch.
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of PropertyBuyProposals to fetch.
+     */
+    orderBy?: Prisma.PropertyBuyProposalOrderByWithRelationInput | Prisma.PropertyBuyProposalOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing PropertyBuyProposals.
+     */
+    cursor?: Prisma.PropertyBuyProposalWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` PropertyBuyProposals from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` PropertyBuyProposals.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of PropertyBuyProposals.
+     */
+    distinct?: Prisma.PropertyBuyProposalScalarFieldEnum | Prisma.PropertyBuyProposalScalarFieldEnum[];
+};
+/**
+ * PropertyBuyProposal create
+ */
+export type PropertyBuyProposalCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * The data needed to create a PropertyBuyProposal.
+     */
+    data: Prisma.XOR<Prisma.PropertyBuyProposalCreateInput, Prisma.PropertyBuyProposalUncheckedCreateInput>;
+};
+/**
+ * PropertyBuyProposal createMany
+ */
+export type PropertyBuyProposalCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PropertyBuyProposals.
+     */
+    data: Prisma.PropertyBuyProposalCreateManyInput | Prisma.PropertyBuyProposalCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * PropertyBuyProposal createManyAndReturn
+ */
+export type PropertyBuyProposalCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * The data used to create many PropertyBuyProposals.
+     */
+    data: Prisma.PropertyBuyProposalCreateManyInput | Prisma.PropertyBuyProposalCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * PropertyBuyProposal update
+ */
+export type PropertyBuyProposalUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * The data needed to update a PropertyBuyProposal.
+     */
+    data: Prisma.XOR<Prisma.PropertyBuyProposalUpdateInput, Prisma.PropertyBuyProposalUncheckedUpdateInput>;
+    /**
+     * Choose, which PropertyBuyProposal to update.
+     */
+    where: Prisma.PropertyBuyProposalWhereUniqueInput;
+};
+/**
+ * PropertyBuyProposal updateMany
+ */
+export type PropertyBuyProposalUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PropertyBuyProposals.
+     */
+    data: Prisma.XOR<Prisma.PropertyBuyProposalUpdateManyMutationInput, Prisma.PropertyBuyProposalUncheckedUpdateManyInput>;
+    /**
+     * Filter which PropertyBuyProposals to update
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * Limit how many PropertyBuyProposals to update.
+     */
+    limit?: number;
+};
+/**
+ * PropertyBuyProposal updateManyAndReturn
+ */
+export type PropertyBuyProposalUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * The data used to update PropertyBuyProposals.
+     */
+    data: Prisma.XOR<Prisma.PropertyBuyProposalUpdateManyMutationInput, Prisma.PropertyBuyProposalUncheckedUpdateManyInput>;
+    /**
+     * Filter which PropertyBuyProposals to update
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * Limit how many PropertyBuyProposals to update.
+     */
+    limit?: number;
+};
+/**
+ * PropertyBuyProposal upsert
+ */
+export type PropertyBuyProposalUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * The filter to search for the PropertyBuyProposal to update in case it exists.
+     */
+    where: Prisma.PropertyBuyProposalWhereUniqueInput;
+    /**
+     * In case the PropertyBuyProposal found by the `where` argument doesn't exist, create a new PropertyBuyProposal with this data.
+     */
+    create: Prisma.XOR<Prisma.PropertyBuyProposalCreateInput, Prisma.PropertyBuyProposalUncheckedCreateInput>;
+    /**
+     * In case the PropertyBuyProposal was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.PropertyBuyProposalUpdateInput, Prisma.PropertyBuyProposalUncheckedUpdateInput>;
+};
+/**
+ * PropertyBuyProposal delete
+ */
+export type PropertyBuyProposalDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+    /**
+     * Filter which PropertyBuyProposal to delete.
+     */
+    where: Prisma.PropertyBuyProposalWhereUniqueInput;
+};
+/**
+ * PropertyBuyProposal deleteMany
+ */
+export type PropertyBuyProposalDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which PropertyBuyProposals to delete
+     */
+    where?: Prisma.PropertyBuyProposalWhereInput;
+    /**
+     * Limit how many PropertyBuyProposals to delete.
+     */
+    limit?: number;
+};
+/**
+ * PropertyBuyProposal without action
+ */
+export type PropertyBuyProposalDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PropertyBuyProposal
+     */
+    select?: Prisma.PropertyBuyProposalSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PropertyBuyProposal
+     */
+    omit?: Prisma.PropertyBuyProposalOmit<ExtArgs> | null;
+};
+//# sourceMappingURL=PropertyBuyProposal.d.ts.map

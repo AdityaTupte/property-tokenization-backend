@@ -65,14 +65,14 @@ enum AuthorityType {
 
 model User {
   fullName         String           @db.VarChar(100)
-  username         String           @db.VarChar(100)
+  username         String           @unique @db.VarChar(100) 
   email            String           @unique @db.VarChar(100)
   avatar           String
-  coverImage       String
+  coverImage       String?
   password         String           @db.VarChar(100)
   id               String           @id @default(uuid())
-  signer           String           @unique
-  refreshToken     String
+  signer           String?           @unique
+  refreshToken     String?
   createdAt        DateTime         @default(now())
   updatedAt        DateTime         @updatedAt
   candiateProfiles CandiateProfile?
