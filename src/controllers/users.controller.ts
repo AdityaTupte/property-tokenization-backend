@@ -153,7 +153,8 @@ const loginUser = asyncHandler(
     req:Request<{},{},Pick<RegisterUserBody, "email" | "username" | "password">>,
     res :Response
   )=>{
-
+   
+    
     const {email,username,password } = req.body
 
     if(!username && !email) {
@@ -200,7 +201,7 @@ const loginUser = asyncHandler(
 
     const options ={
       httpOnly :true,
-      secure:true
+      secure:false
     }
 
     return res
@@ -237,9 +238,11 @@ const logoutUser = asyncHandler(
 
     const options = {
         httpOnly: true,
-        secure: true
+        secure: false
     }
 
+ 
+    
     return res.status(200)
     .clearCookie("accessToken", options)
     .clearCookie("refreshToken", options)
