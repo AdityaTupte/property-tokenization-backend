@@ -6,7 +6,8 @@ import jwt from "jsonwebtoken";
 import { prisma } from "../prismaclient.js";
 import type  {User} from "../generated/prisma/client.js";
 
-const user = prisma.$extends({
+
+export const UserDb = prisma.$extends({
   query: {
     user: {
       async create({ args, query }) {
@@ -35,7 +36,7 @@ const user = prisma.$extends({
             id: user.id,
             email: user.email,
             username:user.username,
-            fullname: user.fullName,
+            fullName: user.fullName,
           },
           process.env.ACCESS_TOKEN_SECRET!,
           {
@@ -44,7 +45,7 @@ const user = prisma.$extends({
         );
       },
 
-      generateRefreshToken(user: Pick<User, "id">) {
+      generateRefreshToken(user: Pick<User, "id">):string {
         return jwt.sign(
           {
             id: user.id,

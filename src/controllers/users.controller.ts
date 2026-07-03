@@ -6,6 +6,38 @@ import asyncHandler from "../utils/AsyncHandler.js";
 import type { Request, Response } from "express";
 import { uploadOnCloudinary } from "../utils/Cloudianry.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
+import { UserDb } from "../models/usermethods.js";
+import type  {User} from "../generated/prisma/client.js";
+import type { AuthRequest } from "../middlewares/auth.iddleware.js";
+
+
+const generateAccessTokenAndRefreshToken = async(
+    user : Pick<User, "id" | "email" | "fullName" | "username">
+):Promise<{ accessToken: string; refreshToken: string }> =>{
+
+  try {
+
+    const accessToken = UserDb.user.generateAccessToken(user)
+     const refreshToken = UserDb.user.generateRefreshToken(user)
+    
+    const response = await UserDb.user.update({
+      where:{
+        id:user.id
+      },
+      data :{
+        refreshToken:refreshToken
+      }
+    })
+
+    return {accessToken , refreshToken}
+
+  } catch (error) {
+      throw new ApiError(500, "Something went wrong while generating referesh and access token")
+
+  }
+
+}
+
 
 const registerUser = asyncHandler(
   async (req: Request<{}, {}, RegisterUserBody>, res: Response) => {
@@ -49,6 +81,7 @@ const registerUser = asyncHandler(
 
     let avatarLocalPath;
 
+    
     if (req.files && Array.isArray(files.avatar) && files.avatar.length > 0) {
       avatarLocalPath = files?.avatar[0]?.path;
     }
@@ -70,15 +103,15 @@ const registerUser = asyncHandler(
     const avatar = await uploadOnCloudinary(avatarLocalPath);
 
     if (!avatar) {
-      throw new ApiError(400, "Avatar file is required");
+      throw new ApiError(400, "Avatar file is required asdrjnb");
     }
 
     let coverimage;
     if (coverImageLocalPath) {
-      coverimage = await uploadOnCloudinary(avatarLocalPath);
+      coverimage = await uploadOnCloudinary(coverImageLocalPath);
     }
 
-    const user = await prisma.user.create({
+    const user = await UserDb.user.create({
       data: {
         fullName: fullName,
         username: username.toLowerCase(),
@@ -88,8 +121,9 @@ const registerUser = asyncHandler(
         coverImage: coverimage?.url || "",
       },
     });
+  
 
-    const createdUser = await prisma.user.findFirst({
+    const createdUser = await UserDb.user.findFirst({
       where: {
         id: user.id,
       },
@@ -112,4 +146,110 @@ const registerUser = asyncHandler(
   }
 );
 
-export { registerUser };
+
+
+const loginUser = asyncHandler(
+  async(
+    req:Request<{},{},Pick<RegisterUserBody, "email" | "username" | "password">>,
+    res :Response
+  )=>{
+
+    const {email,username,password } = req.body
+
+    if(!username && !email) {
+      throw new ApiError (400,"username or emial is required")
+    }
+
+    const user = await UserDb.user.findFirst({
+        where:{
+          OR: [{ username: username }, { email: email }],
+        },
+        select :{
+          email:true,
+          fullName:true,
+          username:true,
+          password:true,
+          id:true
+        }
+    })
+
+    if(!user){
+       throw new ApiError(404, "User does not exist")
+    }
+
+    const isPasswordvalid = await UserDb.user.isPasswordcorrect(
+      password,
+      user.password
+    )
+
+    if (!isPasswordvalid) {
+       throw new ApiError(401, "Invalid user credentials")
+    }
+
+    const {accessToken,refreshToken} = await generateAccessTokenAndRefreshToken(user)
+    
+    const loggedInUser= await UserDb.user.findFirst({
+        where:{
+          OR: [{ username: username }, { email: email }],
+        },
+        omit:{
+          password:true,
+          refreshToken:true
+        }
+    })
+
+    const options ={
+      httpOnly :true,
+      secure:true
+    }
+
+    return res
+    .status(200)
+    .cookie("accessToken",accessToken,options)
+    .cookie("refreshToken",refreshToken,options)
+    .json(
+      new ApiResponse(
+        200,
+        {
+          user :loggedInUser,accessToken,refreshToken
+        },
+        "user logged In Successfully"
+      )
+    )
+
+  }
+
+)
+
+const logoutUser = asyncHandler(
+  async(req:AuthRequest,res) =>{
+
+    await UserDb.user.update(
+      {
+        where:{
+          id:req.user?.id
+        },
+        data:{
+          refreshToken:undefined
+        }
+      }
+    )
+
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+
+    return res.status(200)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
+    .json(new ApiResponse(200, {}, "User logged Out"))
+
+  }
+)
+
+export {
+   registerUser,
+  loginUser ,
+  logoutUser
+  };
