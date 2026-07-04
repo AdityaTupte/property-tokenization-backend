@@ -1,6 +1,6 @@
 import { prisma } from "../prismaclient.js";
-import type { MulterFiles } from "../types/multer.interface.js";
-import type { RegisterUserBody } from "../types/user.types.js";
+import type { MulterFiles } from "../types&interface/multer.interface.js";
+import type { RefreshTokenPayload, RegisterUserBody } from "../types&interface/user.types&interface.js";
 import { ApiError } from "../utils/ApiError.js";
 import asyncHandler from "../utils/AsyncHandler.js";
 import type { Request, Response } from "express";
@@ -9,7 +9,8 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { UserDb } from "../models/usermethods.js";
 import type  {User} from "../generated/prisma/client.js";
 import type { AuthRequest } from "../middlewares/auth.iddleware.js";
-
+import jwt, { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken"
+import { options } from "../utils/cookiesOption.js";
 
 const generateAccessTokenAndRefreshToken = async(
     user : Pick<User, "id" | "email" | "fullName" | "username">
@@ -199,10 +200,7 @@ const loginUser = asyncHandler(
         }
     })
 
-    const options ={
-      httpOnly :true,
-      secure:false
-    }
+    options
 
     return res
     .status(200)
@@ -236,10 +234,7 @@ const logoutUser = asyncHandler(
       }
     )
 
-    const options = {
-        httpOnly: true,
-        secure: false
-    }
+    options
 
  
     
@@ -251,8 +246,82 @@ const logoutUser = asyncHandler(
   }
 )
 
+
+const refereshAccessToken = asyncHandler(
+  async (
+    req:Request,
+    res:Response,
+  ) =>{
+    
+    const incomingrefreshToken = req.cookies.refreshToken || req.body.refreshToken 
+
+    if(!incomingrefreshToken){
+
+      throw new ApiError(401,"unauthorized request")
+
+    }
+
+    try {
+      
+      const decodedToken = jwt.verify(
+        incomingrefreshToken,
+        process.env.REFRESH_TOKEN_SECRET!
+      ) as RefreshTokenPayload
+
+      const user = await UserDb.user.findUnique(
+        {
+          where:{
+            id:decodedToken?.id
+          }
+        }
+      )
+
+      if(!user){
+         throw new ApiError(401, "Invalid refresh token")
+      }
+
+      if (incomingrefreshToken !== user.refreshToken){
+        throw new ApiError(401, "Refresh token is expired or used")
+      }
+
+      
+       options
+
+          const {accessToken, refreshToken} = await generateAccessTokenAndRefreshToken(user)
+
+          return res
+        .status(200)
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .json(
+            new ApiResponse(
+                200, 
+                {accessToken, refreshToken: refreshToken},
+                "Access token refreshed"
+            )
+        )
+
+    } catch (error) {
+     if (error instanceof TokenExpiredError) {
+    throw new ApiError(401, "Refresh token has expired");
+  }
+
+  if (error instanceof JsonWebTokenError) {
+    throw new ApiError(401, "Invalid refresh token");
+  }
+
+  if (error instanceof ApiError) {
+    throw error;
+  }
+
+  throw new ApiError(500, "Internal server error");
+    }
+  }
+)
+
 export {
    registerUser,
   loginUser ,
-  logoutUser
+  logoutUser,
+  refereshAccessToken
   };
