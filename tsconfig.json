@@ -8,12 +8,12 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "es2022",
+    "target": "es2025",
     // "types": [],
     // For nodejs:
     "lib": ["esnext"],
-    "types": ["node"],
+    // "types": ["node"],
     // and npm install -D @types/node
 
     // Other Outputs
@@ -23,7 +23,7 @@
     
 
 
-     "moduleResolution": "nodenext", 
+     "moduleResolution": "Bundler", 
      "esModuleInterop": true,
     "ignoreDeprecations": "6.0",
 

@@ -16,19 +16,19 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon dist/db/databaseconnection.js",
-    "dev": "nodemon --watch src --ext ts --exec tsx src/db/databaseconnection.ts "
+    "dev": "nodemon --watch src --ext ts --exec tsx src/index.ts "  
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^25.9.3",
+    "@types/node": "^25.9.5",
     "@types/pg": "^8.20.0",
     "nodemon": "^3.1.14",
     "prisma": "^7.8.0",
     "tsx": "^4.22.4",
-    "typescript": "^6.0.3"
+    "typescript": "^5.6.0"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
@@ -41,6 +41,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "helius-sdk": "^3.0.0",
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
     "pg": "^8.21.0",

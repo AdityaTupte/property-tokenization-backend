@@ -11,7 +11,7 @@ import { uploadOnCloudinary } from "../utils/Cloudianry.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { UserDb } from "../models/usermethods.js";
 import type { User } from "../generated/prisma/client.js";
-import type { AuthRequest } from "../middlewares/auth.iddleware.js";
+import type { AuthRequest } from "../middlewares/auth.middleware.js";
 import jwt from "jsonwebtoken";
 import fs from "fs";
 import { options } from "../utils/cookiesOption.js";
@@ -360,17 +360,11 @@ const changeCurrentPassword = asyncHandler(
   }
 );
 
-const getCurrentUser = asyncHandler(async(
-  req:AuthRequest,
-  res:Response) => {
-    return res
+const getCurrentUser = asyncHandler(async (req: AuthRequest, res: Response) => {
+  return res
     .status(200)
-    .json(new ApiResponse(
-        200,
-        req.user,
-        "User fetched successfully"
-    ))
-})
+    .json(new ApiResponse(200, req.user, "User fetched successfully"));
+});
 
 export {
   registerUser,
@@ -378,5 +372,5 @@ export {
   logoutUser,
   refereshAccessToken,
   changeCurrentPassword,
-  getCurrentUser
+  getCurrentUser,
 };
