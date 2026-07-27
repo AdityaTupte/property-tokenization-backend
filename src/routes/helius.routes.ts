@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { heliusRawDataAccept } from "../helius/heliusWebhookInstructionHandler";
+import { heliusRaWDataHandler } from "../helius/heliusWebhookInstructionHandler";
 
 
 
@@ -7,7 +7,7 @@ import { heliusRawDataAccept } from "../helius/heliusWebhookInstructionHandler";
 
 
 
-router.route("/senddata").post(heliusRawDataAccept);
+router.route("/senddata").post(heliusRaWDataHandler);
 
 
 export default router;

@@ -16,7 +16,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon dist/db/databaseconnection.js",
-    "dev": "nodemon --watch src --ext ts --exec tsx src/index.ts "  
+    "dev": "nodemon --watch src --ext ts --exec tsx src/index.ts "
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
@@ -45,6 +45,7 @@
     "jsonwebtoken": "^9.0.3",
     "multer": "^2.2.0",
     "pg": "^8.21.0",
-    "prettier": "^3.8.4"
+    "prettier": "^3.8.4",
+    "zod": "^4.4.3"
   }
 }
