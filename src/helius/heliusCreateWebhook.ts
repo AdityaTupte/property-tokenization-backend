@@ -25,7 +25,6 @@ import { helius } from "./heliusConnection";
       webhookType:"rawDevnet",
       transactionTypes:["ANY"],
       authHeader: "Bearer my-secret-token",
-      encoding:"base64",
       txnStatus:"success"
     });
     console.log("Created webhook:", webhook);
