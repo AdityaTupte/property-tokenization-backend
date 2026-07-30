@@ -1,17 +1,19 @@
 import z from "zod";
 
-export const instructionsSchema  = z.array(
-                z.object({
+
+export const instructionsSchema  = z.object({
                     accounts: z.array(z.number()),
                     data: z.string(),
                     programIdIndex: z.number(),
                     stackHeight: z.number().optional(),
                 })
-            ) 
+
 
 export const messageSchema = z.object({
                 accountKeys : z.array(z.string()),
-                instructions : instructionsSchema             
+                instructions : z.array(
+                instructionsSchema
+            )            
             })
 
 export const HeliusWebhookSchema = z.object({

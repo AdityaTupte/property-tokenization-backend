@@ -1,13 +1,15 @@
-import { messageSchema } from "../schemaValidation/heliusWebhookDataSchema";
+import instructionsSchema, { messageSchema } from "../schemaValidation/heliusWebhookDataSchema";
 import z from "zod";
 import { ApiError } from "../utils/ApiError";
 import bs58 from "bs58";
-import { InstructionRegistry } from "../idl/generated/instructionRegistry";
+import { InstructionRegistry } from "../idl.schema/generated/instructionRegistry";
 import { parse } from "node:path";
+import { solanaInstructionHandler } from "./instructionHandlerForSolanaProgram";
 
-type Instructions = z.infer<typeof messageSchema>;
+export type messageSchema = z.infer<typeof messageSchema>;
+export type Instructions = z.infer<typeof instructionsSchema>;
 
-export const FindProgramIdIndex = (message: Instructions) => {
+export const FindProgramIdIndex = (message: messageSchema) => {
   const uniqueProgramIdIndex = [
     ...new Set(
       message.instructions.map((instruction) => instruction.programIdIndex)
@@ -33,7 +35,7 @@ export const FindProgramIdIndex = (message: Instructions) => {
 }
 
 
-  encodedData.forEach(element => {
+  encodedData.forEach((element :Instructions) => {
     
     const  bytes = bs58.decode(element.data);
 
@@ -46,11 +48,10 @@ export const FindProgramIdIndex = (message: Instructions) => {
     if (!parser) {
     throw new Error("Unknown instruction");
 }
-      console.log(parser.name);
-      
+    const decode = solanaInstructionHandler(parser.name);
 
-    // const args = bytes.slice(8);
 
+    decode(message,element);
 
   });
   
