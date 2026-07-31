@@ -334,6 +334,10 @@ const changeCurrentPassword = asyncHandler(
       },
     });
 
+    const { password } = user;
+
+  
+
     const isPasswordvalid = await UserDb.user.isPasswordcorrect(
       oldPassword,
       user.password

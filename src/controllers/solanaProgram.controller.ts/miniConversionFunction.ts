@@ -1,18 +1,20 @@
 import { PublicKey } from "@solana/web3.js";
-import {BN} from "bn.js";
+import * as anchor from "@coral-xyz/anchor";
+import type { propertySystemAccountType } from "../../types&interface/PdaTypes/propertySystem";
+import { BN } from "bn.js";
 
-export function ConversionFunction<T extends Record<string, any>>(account: T) {
-  return Object.fromEntries(
-    Object.entries(account).map(([key, value]) => {
-      if (value instanceof PublicKey) {
-        return [key, value.toBase58()];
+export function ConversionFunction ( data: Record<string, unknown>)  {
+
+    return   Object.entries(data).map(
+      ([key,val]: [string,unknown] )  =>{
+          if(anchor.BN.isBN(val)) return val.toNumber();
+
+          if(val instanceof anchor.web3.PublicKey) return val.toString();
+
       }
+    )
 
-      if (BN.isBN(value)) {
-        return [key, value.toNumber()]; 
-      }
+     ;
 
-      return [key, value];
-    })
-  );
-}
+
+}  

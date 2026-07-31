@@ -12,7 +12,7 @@ export const UserDb = prisma.$extends({
     user: {
       async create({ args, query }) {
         const data = args.data;
-
+          
         if (typeof data.password === "string" && data.password) {
           data.password = await bcrypt.hash(data.password, 10);
         }

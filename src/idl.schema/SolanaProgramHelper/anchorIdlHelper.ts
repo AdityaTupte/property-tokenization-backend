@@ -6,7 +6,7 @@
     import type { PropertyTokenization } from "./property_tokenization";
 
     const connection = new Connection(
-  "https://api.devnet.solana.com",
+  "http://localhost:8899",
   "confirmed"
 );
 

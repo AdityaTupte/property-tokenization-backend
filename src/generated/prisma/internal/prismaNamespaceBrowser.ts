@@ -17,8 +17,8 @@
 
 import * as runtime from "@prisma/client/runtime/index-browser"
 
-export type * from '../models.js'
-export type * from './prismaNamespace.js'
+export type * from '../models'
+export type * from './prismaNamespace'
 
 export const Decimal = runtime.Decimal
 
@@ -51,6 +51,7 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
+  tranasction_history: 'tranasction_history',
   User: 'User',
   admin: 'admin',
   CountryApprovalAuthority: 'CountryApprovalAuthority',
@@ -64,6 +65,8 @@ export const ModelName = {
   StateAuthorityReceipt: 'StateAuthorityReceipt',
   PropertySystemAccount: 'PropertySystemAccount',
   DividendPda: 'DividendPda',
+  Trustees: 'Trustees',
+  Arbitrar: 'Arbitrar',
   TrusteeRegistry: 'TrusteeRegistry',
   ArbitrarRegistry: 'ArbitrarRegistry',
   Threshold: 'Threshold',
@@ -104,6 +107,16 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 } as const)
 
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
+
+
+export const Tranasction_historyScalarFieldEnum = {
+  id: 'id',
+  tranasction_id: 'tranasction_id',
+  account_type: 'account_type',
+  account_pubkey: 'account_pubkey'
+} as const
+
+export type Tranasction_historyScalarFieldEnum = (typeof Tranasction_historyScalarFieldEnum)[keyof typeof Tranasction_historyScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {
@@ -277,6 +290,24 @@ export const DividendPdaScalarFieldEnum = {
 export type DividendPdaScalarFieldEnum = (typeof DividendPdaScalarFieldEnum)[keyof typeof DividendPdaScalarFieldEnum]
 
 
+export const TrusteesScalarFieldEnum = {
+  version: 'version',
+  public_key: 'public_key',
+  trustee_registry_pubkey: 'trustee_registry_pubkey'
+} as const
+
+export type TrusteesScalarFieldEnum = (typeof TrusteesScalarFieldEnum)[keyof typeof TrusteesScalarFieldEnum]
+
+
+export const ArbitrarScalarFieldEnum = {
+  version: 'version',
+  public_key: 'public_key',
+  arbitrar_registry_pubkey: 'arbitrar_registry_pubkey'
+} as const
+
+export type ArbitrarScalarFieldEnum = (typeof ArbitrarScalarFieldEnum)[keyof typeof ArbitrarScalarFieldEnum]
+
+
 export const TrusteeRegistryScalarFieldEnum = {
   trustee_registry_pubkey: 'trustee_registry_pubkey',
   current_number_of_trustees: 'current_number_of_trustees',
@@ -284,8 +315,7 @@ export const TrusteeRegistryScalarFieldEnum = {
   vote_threshold: 'vote_threshold',
   claim_deadline_ts: 'claim_deadline_ts',
   total_salary_allocated: 'total_salary_allocated',
-  bump: 'bump',
-  trustees: 'trustees'
+  bump: 'bump'
 } as const
 
 export type TrusteeRegistryScalarFieldEnum = (typeof TrusteeRegistryScalarFieldEnum)[keyof typeof TrusteeRegistryScalarFieldEnum]
@@ -298,8 +328,7 @@ export const ArbitrarRegistryScalarFieldEnum = {
   vote_threshold: 'vote_threshold',
   claim_deadline_ts: 'claim_deadline_ts',
   total_salary_allocated: 'total_salary_allocated',
-  bump: 'bump',
-  arbitrar: 'arbitrar'
+  bump: 'bump'
 } as const
 
 export type ArbitrarRegistryScalarFieldEnum = (typeof ArbitrarRegistryScalarFieldEnum)[keyof typeof ArbitrarRegistryScalarFieldEnum]

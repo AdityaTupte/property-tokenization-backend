@@ -2,6 +2,7 @@ import * as anchor from "@coral-xyz/anchor";
 import { program } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { type Address} from "@solana/kit";
 import { ApiError } from "../../../utils/ApiError.js";
+import { ConversionFunction } from "../miniConversionFunction";
 
 
 // const [governanceMint] = anchor.web3.PublicKey.findProgramAddressSync(
@@ -21,13 +22,9 @@ import { ApiError } from "../../../utils/ApiError.js";
 export const propertySystemPda = async (public_key:Address) => {
  try {
    
-  //  const account =  await program.account.propertySystemAccount.fetch(public_key);
-   console.log("AAALU");
-   
-   console.log(program.provider.connection.rpcEndpoint);
-   
+   const account  =  await program.account.propertySystemAccount.fetch(public_key);
 
-  //  return account;  
+    return account
  
  } catch (error) {
 

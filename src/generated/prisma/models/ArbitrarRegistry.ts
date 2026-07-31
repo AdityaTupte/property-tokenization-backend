@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.js"
-import type * as Prisma from "../internal/prismaNamespace.js"
+import type * as $Enums from "../enums"
+import type * as Prisma from "../internal/prismaNamespace"
 
 /**
  * Model ArbitrarRegistry
@@ -70,7 +70,6 @@ export type ArbitrarRegistryCountAggregateOutputType = {
   claim_deadline_ts: number
   total_salary_allocated: number
   bump: number
-  arbitrar: number
   _all: number
 }
 
@@ -119,7 +118,6 @@ export type ArbitrarRegistryCountAggregateInputType = {
   claim_deadline_ts?: true
   total_salary_allocated?: true
   bump?: true
-  arbitrar?: true
   _all?: true
 }
 
@@ -217,7 +215,6 @@ export type ArbitrarRegistryGroupByOutputType = {
   claim_deadline_ts: Date
   total_salary_allocated: number
   bump: number
-  arbitrar: string[]
   _count: ArbitrarRegistryCountAggregateOutputType | null
   _avg: ArbitrarRegistryAvgAggregateOutputType | null
   _sum: ArbitrarRegistrySumAggregateOutputType | null
@@ -251,8 +248,8 @@ export type ArbitrarRegistryWhereInput = {
   claim_deadline_ts?: Prisma.DateTimeFilter<"ArbitrarRegistry"> | Date | string
   total_salary_allocated?: Prisma.IntFilter<"ArbitrarRegistry"> | number
   bump?: Prisma.IntFilter<"ArbitrarRegistry"> | number
-  arbitrar?: Prisma.StringNullableListFilter<"ArbitrarRegistry">
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
+  arbitrars?: Prisma.ArbitrarListRelationFilter
 }
 
 export type ArbitrarRegistryOrderByWithRelationInput = {
@@ -263,8 +260,8 @@ export type ArbitrarRegistryOrderByWithRelationInput = {
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
   bump?: Prisma.SortOrder
-  arbitrar?: Prisma.SortOrder
   property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput
+  arbitrars?: Prisma.ArbitrarOrderByRelationAggregateInput
 }
 
 export type ArbitrarRegistryWhereUniqueInput = Prisma.AtLeast<{
@@ -278,8 +275,8 @@ export type ArbitrarRegistryWhereUniqueInput = Prisma.AtLeast<{
   claim_deadline_ts?: Prisma.DateTimeFilter<"ArbitrarRegistry"> | Date | string
   total_salary_allocated?: Prisma.IntFilter<"ArbitrarRegistry"> | number
   bump?: Prisma.IntFilter<"ArbitrarRegistry"> | number
-  arbitrar?: Prisma.StringNullableListFilter<"ArbitrarRegistry">
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
+  arbitrars?: Prisma.ArbitrarListRelationFilter
 }, "arbitrar_registry_pubkey">
 
 export type ArbitrarRegistryOrderByWithAggregationInput = {
@@ -290,7 +287,6 @@ export type ArbitrarRegistryOrderByWithAggregationInput = {
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
   bump?: Prisma.SortOrder
-  arbitrar?: Prisma.SortOrder
   _count?: Prisma.ArbitrarRegistryCountOrderByAggregateInput
   _avg?: Prisma.ArbitrarRegistryAvgOrderByAggregateInput
   _max?: Prisma.ArbitrarRegistryMaxOrderByAggregateInput
@@ -309,7 +305,6 @@ export type ArbitrarRegistryScalarWhereWithAggregatesInput = {
   claim_deadline_ts?: Prisma.DateTimeWithAggregatesFilter<"ArbitrarRegistry"> | Date | string
   total_salary_allocated?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number
   bump?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number
-  arbitrar?: Prisma.StringNullableListFilter<"ArbitrarRegistry">
 }
 
 export type ArbitrarRegistryCreateInput = {
@@ -319,8 +314,8 @@ export type ArbitrarRegistryCreateInput = {
   claim_deadline_ts?: Date | string
   total_salary_allocated: number
   bump: number
-  arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[]
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutArbitrarRegistriesInput
+  arbitrars?: Prisma.ArbitrarCreateNestedManyWithoutRegistryInput
 }
 
 export type ArbitrarRegistryUncheckedCreateInput = {
@@ -331,7 +326,7 @@ export type ArbitrarRegistryUncheckedCreateInput = {
   claim_deadline_ts?: Date | string
   total_salary_allocated: number
   bump: number
-  arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[]
+  arbitrars?: Prisma.ArbitrarUncheckedCreateNestedManyWithoutRegistryInput
 }
 
 export type ArbitrarRegistryUpdateInput = {
@@ -341,8 +336,8 @@ export type ArbitrarRegistryUpdateInput = {
   claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
-  arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[]
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutArbitrarRegistriesNestedInput
+  arbitrars?: Prisma.ArbitrarUpdateManyWithoutRegistryNestedInput
 }
 
 export type ArbitrarRegistryUncheckedUpdateInput = {
@@ -353,7 +348,7 @@ export type ArbitrarRegistryUncheckedUpdateInput = {
   claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
-  arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[]
+  arbitrars?: Prisma.ArbitrarUncheckedUpdateManyWithoutRegistryNestedInput
 }
 
 export type ArbitrarRegistryCreateManyInput = {
@@ -364,7 +359,6 @@ export type ArbitrarRegistryCreateManyInput = {
   claim_deadline_ts?: Date | string
   total_salary_allocated: number
   bump: number
-  arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[]
 }
 
 export type ArbitrarRegistryUpdateManyMutationInput = {
@@ -374,7 +368,6 @@ export type ArbitrarRegistryUpdateManyMutationInput = {
   claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
-  arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[]
 }
 
 export type ArbitrarRegistryUncheckedUpdateManyInput = {
@@ -385,12 +378,16 @@ export type ArbitrarRegistryUncheckedUpdateManyInput = {
   claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
-  arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[]
 }
 
 export type ArbitrarRegistryNullableScalarRelationFilter = {
   is?: Prisma.ArbitrarRegistryWhereInput | null
   isNot?: Prisma.ArbitrarRegistryWhereInput | null
+}
+
+export type ArbitrarRegistryScalarRelationFilter = {
+  is?: Prisma.ArbitrarRegistryWhereInput
+  isNot?: Prisma.ArbitrarRegistryWhereInput
 }
 
 export type ArbitrarRegistryCountOrderByAggregateInput = {
@@ -401,7 +398,6 @@ export type ArbitrarRegistryCountOrderByAggregateInput = {
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
   bump?: Prisma.SortOrder
-  arbitrar?: Prisma.SortOrder
 }
 
 export type ArbitrarRegistryAvgOrderByAggregateInput = {
@@ -472,13 +468,18 @@ export type ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedIn
   update?: Prisma.XOR<Prisma.XOR<Prisma.ArbitrarRegistryUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.ArbitrarRegistryUpdateWithoutProperty_system_keyInput>, Prisma.ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput>
 }
 
-export type ArbitrarRegistryCreatearbitrarInput = {
-  set: string[]
+export type ArbitrarRegistryCreateNestedOneWithoutArbitrarsInput = {
+  create?: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutArbitrarsInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutArbitrarsInput>
+  connectOrCreate?: Prisma.ArbitrarRegistryCreateOrConnectWithoutArbitrarsInput
+  connect?: Prisma.ArbitrarRegistryWhereUniqueInput
 }
 
-export type ArbitrarRegistryUpdatearbitrarInput = {
-  set?: string[]
-  push?: string | string[]
+export type ArbitrarRegistryUpdateOneRequiredWithoutArbitrarsNestedInput = {
+  create?: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutArbitrarsInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutArbitrarsInput>
+  connectOrCreate?: Prisma.ArbitrarRegistryCreateOrConnectWithoutArbitrarsInput
+  upsert?: Prisma.ArbitrarRegistryUpsertWithoutArbitrarsInput
+  connect?: Prisma.ArbitrarRegistryWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ArbitrarRegistryUpdateToOneWithWhereWithoutArbitrarsInput, Prisma.ArbitrarRegistryUpdateWithoutArbitrarsInput>, Prisma.ArbitrarRegistryUncheckedUpdateWithoutArbitrarsInput>
 }
 
 export type ArbitrarRegistryCreateWithoutProperty_system_keyInput = {
@@ -488,7 +489,7 @@ export type ArbitrarRegistryCreateWithoutProperty_system_keyInput = {
   claim_deadline_ts?: Date | string
   total_salary_allocated: number
   bump: number
-  arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[]
+  arbitrars?: Prisma.ArbitrarCreateNestedManyWithoutRegistryInput
 }
 
 export type ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput = {
@@ -498,7 +499,7 @@ export type ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput = {
   claim_deadline_ts?: Date | string
   total_salary_allocated: number
   bump: number
-  arbitrar?: Prisma.ArbitrarRegistryCreatearbitrarInput | string[]
+  arbitrars?: Prisma.ArbitrarUncheckedCreateNestedManyWithoutRegistryInput
 }
 
 export type ArbitrarRegistryCreateOrConnectWithoutProperty_system_keyInput = {
@@ -524,7 +525,7 @@ export type ArbitrarRegistryUpdateWithoutProperty_system_keyInput = {
   claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
-  arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[]
+  arbitrars?: Prisma.ArbitrarUpdateManyWithoutRegistryNestedInput
 }
 
 export type ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput = {
@@ -534,9 +535,94 @@ export type ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput = {
   claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
-  arbitrar?: Prisma.ArbitrarRegistryUpdatearbitrarInput | string[]
+  arbitrars?: Prisma.ArbitrarUncheckedUpdateManyWithoutRegistryNestedInput
 }
 
+export type ArbitrarRegistryCreateWithoutArbitrarsInput = {
+  current_number_of_arbitrar: number
+  total_arbitrar: number
+  vote_threshold: number
+  claim_deadline_ts?: Date | string
+  total_salary_allocated: number
+  bump: number
+  property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutArbitrarRegistriesInput
+}
+
+export type ArbitrarRegistryUncheckedCreateWithoutArbitrarsInput = {
+  arbitrar_registry_pubkey: string
+  current_number_of_arbitrar: number
+  total_arbitrar: number
+  vote_threshold: number
+  claim_deadline_ts?: Date | string
+  total_salary_allocated: number
+  bump: number
+}
+
+export type ArbitrarRegistryCreateOrConnectWithoutArbitrarsInput = {
+  where: Prisma.ArbitrarRegistryWhereUniqueInput
+  create: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutArbitrarsInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutArbitrarsInput>
+}
+
+export type ArbitrarRegistryUpsertWithoutArbitrarsInput = {
+  update: Prisma.XOR<Prisma.ArbitrarRegistryUpdateWithoutArbitrarsInput, Prisma.ArbitrarRegistryUncheckedUpdateWithoutArbitrarsInput>
+  create: Prisma.XOR<Prisma.ArbitrarRegistryCreateWithoutArbitrarsInput, Prisma.ArbitrarRegistryUncheckedCreateWithoutArbitrarsInput>
+  where?: Prisma.ArbitrarRegistryWhereInput
+}
+
+export type ArbitrarRegistryUpdateToOneWithWhereWithoutArbitrarsInput = {
+  where?: Prisma.ArbitrarRegistryWhereInput
+  data: Prisma.XOR<Prisma.ArbitrarRegistryUpdateWithoutArbitrarsInput, Prisma.ArbitrarRegistryUncheckedUpdateWithoutArbitrarsInput>
+}
+
+export type ArbitrarRegistryUpdateWithoutArbitrarsInput = {
+  current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number
+  total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number
+  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
+  claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutArbitrarRegistriesNestedInput
+}
+
+export type ArbitrarRegistryUncheckedUpdateWithoutArbitrarsInput = {
+  arbitrar_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  current_number_of_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number
+  total_arbitrar?: Prisma.IntFieldUpdateOperationsInput | number
+  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
+  claim_deadline_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  total_salary_allocated?: Prisma.IntFieldUpdateOperationsInput | number
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+
+/**
+ * Count Type ArbitrarRegistryCountOutputType
+ */
+
+export type ArbitrarRegistryCountOutputType = {
+  arbitrars: number
+}
+
+export type ArbitrarRegistryCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  arbitrars?: boolean | ArbitrarRegistryCountOutputTypeCountArbitrarsArgs
+}
+
+/**
+ * ArbitrarRegistryCountOutputType without action
+ */
+export type ArbitrarRegistryCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ArbitrarRegistryCountOutputType
+   */
+  select?: Prisma.ArbitrarRegistryCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * ArbitrarRegistryCountOutputType without action
+ */
+export type ArbitrarRegistryCountOutputTypeCountArbitrarsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ArbitrarWhereInput
+}
 
 
 export type ArbitrarRegistrySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -547,8 +633,9 @@ export type ArbitrarRegistrySelect<ExtArgs extends runtime.Types.Extensions.Inte
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
   bump?: boolean
-  arbitrar?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  arbitrars?: boolean | Prisma.ArbitrarRegistry$arbitrarsArgs<ExtArgs>
+  _count?: boolean | Prisma.ArbitrarRegistryCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrarRegistry"]>
 
 export type ArbitrarRegistrySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -559,7 +646,6 @@ export type ArbitrarRegistrySelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
   bump?: boolean
-  arbitrar?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrarRegistry"]>
 
@@ -571,7 +657,6 @@ export type ArbitrarRegistrySelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
   bump?: boolean
-  arbitrar?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrarRegistry"]>
 
@@ -583,12 +668,13 @@ export type ArbitrarRegistrySelectScalar = {
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
   bump?: boolean
-  arbitrar?: boolean
 }
 
-export type ArbitrarRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"arbitrar_registry_pubkey" | "current_number_of_arbitrar" | "total_arbitrar" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated" | "bump" | "arbitrar", ExtArgs["result"]["arbitrarRegistry"]>
+export type ArbitrarRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"arbitrar_registry_pubkey" | "current_number_of_arbitrar" | "total_arbitrar" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated" | "bump", ExtArgs["result"]["arbitrarRegistry"]>
 export type ArbitrarRegistryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  arbitrars?: boolean | Prisma.ArbitrarRegistry$arbitrarsArgs<ExtArgs>
+  _count?: boolean | Prisma.ArbitrarRegistryCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ArbitrarRegistryIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
@@ -601,6 +687,7 @@ export type $ArbitrarRegistryPayload<ExtArgs extends runtime.Types.Extensions.In
   name: "ArbitrarRegistry"
   objects: {
     property_system_key: Prisma.$PropertySystemAccountPayload<ExtArgs>
+    arbitrars: Prisma.$ArbitrarPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     arbitrar_registry_pubkey: string
@@ -610,7 +697,6 @@ export type $ArbitrarRegistryPayload<ExtArgs extends runtime.Types.Extensions.In
     claim_deadline_ts: Date
     total_salary_allocated: number
     bump: number
-    arbitrar: string[]
   }, ExtArgs["result"]["arbitrarRegistry"]>
   composites: {}
 }
@@ -1006,6 +1092,7 @@ readonly fields: ArbitrarRegistryFieldRefs;
 export interface Prisma__ArbitrarRegistryClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   property_system_key<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  arbitrars<T extends Prisma.ArbitrarRegistry$arbitrarsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ArbitrarRegistry$arbitrarsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArbitrarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1042,7 +1129,6 @@ export interface ArbitrarRegistryFieldRefs {
   readonly claim_deadline_ts: Prisma.FieldRef<"ArbitrarRegistry", 'DateTime'>
   readonly total_salary_allocated: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>
   readonly bump: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>
-  readonly arbitrar: Prisma.FieldRef<"ArbitrarRegistry", 'String[]'>
 }
     
 
@@ -1441,6 +1527,30 @@ export type ArbitrarRegistryDeleteManyArgs<ExtArgs extends runtime.Types.Extensi
    * Limit how many ArbitrarRegistries to delete.
    */
   limit?: number
+}
+
+/**
+ * ArbitrarRegistry.arbitrars
+ */
+export type ArbitrarRegistry$arbitrarsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Arbitrar
+   */
+  select?: Prisma.ArbitrarSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Arbitrar
+   */
+  omit?: Prisma.ArbitrarOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ArbitrarInclude<ExtArgs> | null
+  where?: Prisma.ArbitrarWhereInput
+  orderBy?: Prisma.ArbitrarOrderByWithRelationInput | Prisma.ArbitrarOrderByWithRelationInput[]
+  cursor?: Prisma.ArbitrarWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ArbitrarScalarFieldEnum | Prisma.ArbitrarScalarFieldEnum[]
 }
 
 /**

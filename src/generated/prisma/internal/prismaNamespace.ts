@@ -16,10 +16,10 @@
  */
 
 import * as runtime from "@prisma/client/runtime/client"
-import type * as Prisma from "../models.js"
-import { type PrismaClient } from "./class.js"
+import type * as Prisma from "../models"
+import { type PrismaClient } from "./class"
 
-export type * from '../models.js'
+export type * from '../models'
 
 export type DMMF = typeof runtime.DMMF
 
@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.8.0
- * Query Engine version: 3c6e192761c0362d496ed980de936e2f3cebcd3a
+ * Prisma Client JS version: 7.9.1
+ * Query Engine version: e922089b7d7502aff4249d5da3420f6fa55fc6ad
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.8.0",
-  engine: "3c6e192761c0362d496ed980de936e2f3cebcd3a"
+  client: "7.9.1",
+  engine: "e922089b7d7502aff4249d5da3420f6fa55fc6ad"
 }
 
 /**
@@ -156,6 +156,19 @@ export type Subset<T, U> = {
 };
 
 /**
+ * Resolved type of the argument passed to the `PrismaClient` constructor.
+ *
+ * When called without a narrower options type (the common case), this resolves
+ * to `PrismaClientOptions` directly, which produces a clear TypeScript error
+ * message (`not assignable to parameter of type 'PrismaClientOptions'`) when
+ * the argument is missing or incomplete. When the user supplies a narrower
+ * options type (e.g. via a literal), it falls back to `Subset` to keep
+ * filtering out unknown properties.
+ */
+export type PrismaClientConstructorArgs<Options extends PrismaClientOptions> =
+  [PrismaClientOptions] extends [Options] ? PrismaClientOptions : Subset<Options, PrismaClientOptions>;
+
+/**
  * SelectSubset
  * @desc From `T` pick properties that exist in `U`. Simple version of Intersection.
  * Additionally, it validates, if both select and include are present. If the case, it errors.
@@ -187,7 +200,7 @@ type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 export type XOR<T, U> =
   T extends object ?
   U extends object ?
-    (Without<T, U> & U) | (Without<U, T> & T)
+    ((Without<T, U> & U) | (Without<U, T> & T)) & object
   : U : T
 
 
@@ -384,6 +397,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  tranasction_history: 'tranasction_history',
   User: 'User',
   admin: 'admin',
   CountryApprovalAuthority: 'CountryApprovalAuthority',
@@ -397,6 +411,8 @@ export const ModelName = {
   StateAuthorityReceipt: 'StateAuthorityReceipt',
   PropertySystemAccount: 'PropertySystemAccount',
   DividendPda: 'DividendPda',
+  Trustees: 'Trustees',
+  Arbitrar: 'Arbitrar',
   TrusteeRegistry: 'TrusteeRegistry',
   ArbitrarRegistry: 'ArbitrarRegistry',
   Threshold: 'Threshold',
@@ -436,10 +452,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
+    modelProps: "tranasction_history" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    tranasction_history: {
+      payload: Prisma.$tranasction_historyPayload<ExtArgs>
+      fields: Prisma.tranasction_historyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.tranasction_historyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.tranasction_historyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>
+        }
+        findFirst: {
+          args: Prisma.tranasction_historyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.tranasction_historyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>
+        }
+        findMany: {
+          args: Prisma.tranasction_historyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>[]
+        }
+        create: {
+          args: Prisma.tranasction_historyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>
+        }
+        createMany: {
+          args: Prisma.tranasction_historyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.tranasction_historyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>[]
+        }
+        delete: {
+          args: Prisma.tranasction_historyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>
+        }
+        update: {
+          args: Prisma.tranasction_historyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>
+        }
+        deleteMany: {
+          args: Prisma.tranasction_historyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.tranasction_historyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.tranasction_historyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>[]
+        }
+        upsert: {
+          args: Prisma.tranasction_historyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$tranasction_historyPayload>
+        }
+        aggregate: {
+          args: Prisma.Tranasction_historyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTranasction_history>
+        }
+        groupBy: {
+          args: Prisma.tranasction_historyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tranasction_historyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.tranasction_historyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Tranasction_historyCountAggregateOutputType> | number
+        }
+      }
+    }
     User: {
       payload: Prisma.$UserPayload<ExtArgs>
       fields: Prisma.UserFieldRefs
@@ -1399,6 +1489,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.DividendPdaCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.DividendPdaCountAggregateOutputType> | number
+        }
+      }
+    }
+    Trustees: {
+      payload: Prisma.$TrusteesPayload<ExtArgs>
+      fields: Prisma.TrusteesFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TrusteesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TrusteesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>
+        }
+        findFirst: {
+          args: Prisma.TrusteesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TrusteesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>
+        }
+        findMany: {
+          args: Prisma.TrusteesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>[]
+        }
+        create: {
+          args: Prisma.TrusteesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>
+        }
+        createMany: {
+          args: Prisma.TrusteesCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TrusteesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>[]
+        }
+        delete: {
+          args: Prisma.TrusteesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>
+        }
+        update: {
+          args: Prisma.TrusteesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>
+        }
+        deleteMany: {
+          args: Prisma.TrusteesDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TrusteesUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TrusteesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>[]
+        }
+        upsert: {
+          args: Prisma.TrusteesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TrusteesPayload>
+        }
+        aggregate: {
+          args: Prisma.TrusteesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTrustees>
+        }
+        groupBy: {
+          args: Prisma.TrusteesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrusteesGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TrusteesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TrusteesCountAggregateOutputType> | number
+        }
+      }
+    }
+    Arbitrar: {
+      payload: Prisma.$ArbitrarPayload<ExtArgs>
+      fields: Prisma.ArbitrarFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ArbitrarFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ArbitrarFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>
+        }
+        findFirst: {
+          args: Prisma.ArbitrarFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ArbitrarFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>
+        }
+        findMany: {
+          args: Prisma.ArbitrarFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>[]
+        }
+        create: {
+          args: Prisma.ArbitrarCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>
+        }
+        createMany: {
+          args: Prisma.ArbitrarCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ArbitrarCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>[]
+        }
+        delete: {
+          args: Prisma.ArbitrarDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>
+        }
+        update: {
+          args: Prisma.ArbitrarUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>
+        }
+        deleteMany: {
+          args: Prisma.ArbitrarDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ArbitrarUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ArbitrarUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>[]
+        }
+        upsert: {
+          args: Prisma.ArbitrarUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArbitrarPayload>
+        }
+        aggregate: {
+          args: Prisma.ArbitrarAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArbitrar>
+        }
+        groupBy: {
+          args: Prisma.ArbitrarGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArbitrarGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ArbitrarCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArbitrarCountAggregateOutputType> | number
         }
       }
     }
@@ -3217,6 +3455,16 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const Tranasction_historyScalarFieldEnum = {
+  id: 'id',
+  tranasction_id: 'tranasction_id',
+  account_type: 'account_type',
+  account_pubkey: 'account_pubkey'
+} as const
+
+export type Tranasction_historyScalarFieldEnum = (typeof Tranasction_historyScalarFieldEnum)[keyof typeof Tranasction_historyScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   fullName: 'fullName',
   username: 'username',
@@ -3388,6 +3636,24 @@ export const DividendPdaScalarFieldEnum = {
 export type DividendPdaScalarFieldEnum = (typeof DividendPdaScalarFieldEnum)[keyof typeof DividendPdaScalarFieldEnum]
 
 
+export const TrusteesScalarFieldEnum = {
+  version: 'version',
+  public_key: 'public_key',
+  trustee_registry_pubkey: 'trustee_registry_pubkey'
+} as const
+
+export type TrusteesScalarFieldEnum = (typeof TrusteesScalarFieldEnum)[keyof typeof TrusteesScalarFieldEnum]
+
+
+export const ArbitrarScalarFieldEnum = {
+  version: 'version',
+  public_key: 'public_key',
+  arbitrar_registry_pubkey: 'arbitrar_registry_pubkey'
+} as const
+
+export type ArbitrarScalarFieldEnum = (typeof ArbitrarScalarFieldEnum)[keyof typeof ArbitrarScalarFieldEnum]
+
+
 export const TrusteeRegistryScalarFieldEnum = {
   trustee_registry_pubkey: 'trustee_registry_pubkey',
   current_number_of_trustees: 'current_number_of_trustees',
@@ -3395,8 +3661,7 @@ export const TrusteeRegistryScalarFieldEnum = {
   vote_threshold: 'vote_threshold',
   claim_deadline_ts: 'claim_deadline_ts',
   total_salary_allocated: 'total_salary_allocated',
-  bump: 'bump',
-  trustees: 'trustees'
+  bump: 'bump'
 } as const
 
 export type TrusteeRegistryScalarFieldEnum = (typeof TrusteeRegistryScalarFieldEnum)[keyof typeof TrusteeRegistryScalarFieldEnum]
@@ -3409,8 +3674,7 @@ export const ArbitrarRegistryScalarFieldEnum = {
   vote_threshold: 'vote_threshold',
   claim_deadline_ts: 'claim_deadline_ts',
   total_salary_allocated: 'total_salary_allocated',
-  bump: 'bump',
-  arbitrar: 'arbitrar'
+  bump: 'bump'
 } as const
 
 export type ArbitrarRegistryScalarFieldEnum = (typeof ArbitrarRegistryScalarFieldEnum)[keyof typeof ArbitrarRegistryScalarFieldEnum]
@@ -3776,6 +4040,20 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'AccoutType'
+ */
+export type EnumAccoutTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccoutType'>
+    
+
+
+/**
+ * Reference to a field of type 'AccoutType[]'
+ */
+export type ListEnumAccoutTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AccoutType[]'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -3945,19 +4223,10 @@ export type BatchPayload = {
 export const defineExtension = runtime.Extensions.defineExtension as unknown as runtime.Types.Extensions.ExtendsHook<"define", TypeMapCb, runtime.Types.Extensions.DefaultArgs>
 export type DefaultPrismaClient = PrismaClient
 export type ErrorFormat = 'pretty' | 'colorless' | 'minimal'
-export type PrismaClientOptions = ({
-  /**
-   * Instance of a Driver Adapter, e.g., like one provided by `@prisma/adapter-pg`.
-   */
-  adapter: runtime.SqlDriverAdapterFactory
-  accelerateUrl?: never
-} | {
-  /**
-   * Prisma Accelerate URL allowing the client to connect through Accelerate instead of a direct database.
-   */
-  accelerateUrl: string
-  adapter?: never
-}) & {
+/**
+ * Options common to all variants of `PrismaClientOptions`, regardless of whether you connect to your database through a driver adapter or through Prisma Accelerate.
+ */
+export interface PrismaClientBaseOptions {
   /**
    * @default "colorless"
    */
@@ -4044,7 +4313,58 @@ export type PrismaClientOptions = ({
    */
   queryPlanCacheMaxSize?: number
 }
+
+/**
+ * `PrismaClient` options for connecting to your database through Prisma Accelerate instead of a driver adapter.
+ * 
+ * Learn more: https://pris.ly/d/accelerate
+ */
+export interface PrismaClientOptionsWithAccelerateUrl extends PrismaClientBaseOptions {
+  /**
+   * The Prisma Accelerate connection URL. Use this option to connect to your database through Prisma Accelerate instead of using a driver adapter to connect directly.
+   * 
+   * Learn more: https://pris.ly/d/accelerate
+   */
+  accelerateUrl: string
+  adapter?: never
+}
+
+/**
+ * `PrismaClient` options for connecting to your database through a driver adapter. This is the common case in Prisma 7.
+ * 
+ * Learn more: https://pris.ly/d/driver-adapters
+ */
+export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions {
+  /**
+   * A driver adapter that PrismaClient uses to connect to your database, such as the ones provided by `@prisma/adapter-pg`, `@prisma/adapter-libsql`, `@prisma/adapter-planetscale`, etc.
+   * 
+   * A driver adapter is **required** unless you connect to your database through Prisma Accelerate (in which case use `accelerateUrl` instead).
+   * 
+   * Learn more: https://pris.ly/d/driver-adapters
+   * 
+   * @example
+   * ```ts
+   * import { PrismaPg } from '@prisma/adapter-pg'
+   * import { PrismaClient } from './generated/prisma/client'
+   * 
+   * const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
+   * const prisma = new PrismaClient({ adapter })
+   * ```
+   */
+  adapter: runtime.SqlDriverAdapterFactory
+  accelerateUrl?: never
+}
+
+/**
+ * Options passed to the `PrismaClient` constructor.
+ * 
+ * A driver adapter (or, alternatively, a Prisma Accelerate URL) is **required**. See {@link PrismaClientOptionsWithAdapter} and {@link PrismaClientOptionsWithAccelerateUrl} for the two variants. All other properties live in {@link PrismaClientBaseOptions} and are optional.
+ * 
+ * Learn more about driver adapters: https://pris.ly/d/driver-adapters
+ */
+export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
+  tranasction_history?: Prisma.tranasction_historyOmit
   user?: Prisma.UserOmit
   admin?: Prisma.adminOmit
   countryApprovalAuthority?: Prisma.CountryApprovalAuthorityOmit
@@ -4058,6 +4378,8 @@ export type GlobalOmitConfig = {
   stateAuthorityReceipt?: Prisma.StateAuthorityReceiptOmit
   propertySystemAccount?: Prisma.PropertySystemAccountOmit
   dividendPda?: Prisma.DividendPdaOmit
+  trustees?: Prisma.TrusteesOmit
+  arbitrar?: Prisma.ArbitrarOmit
   trusteeRegistry?: Prisma.TrusteeRegistryOmit
   arbitrarRegistry?: Prisma.ArbitrarRegistryOmit
   threshold?: Prisma.ThresholdOmit

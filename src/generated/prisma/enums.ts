@@ -85,6 +85,13 @@ export const AuthorityType = {
 export type AuthorityType = (typeof AuthorityType)[keyof typeof AuthorityType]
 
 
+export const AccoutType = {
+  PROPERTY_SYSTEM: 'PROPERTY_SYSTEM'
+} as const
+
+export type AccoutType = (typeof AccoutType)[keyof typeof AccoutType]
+
+
 export const ActionsHistory = {
   None: 'None',
   Inactivity: 'Inactivity',

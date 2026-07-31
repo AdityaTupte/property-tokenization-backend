@@ -13,10 +13,15 @@
  * 🟢 You can import this file directly.
  */
 
-import * as Prisma from './internal/prismaNamespaceBrowser.js'
+import * as Prisma from './internal/prismaNamespaceBrowser'
 export { Prisma }
-export * as $Enums from './enums.js'
-export * from './enums.js';
+export * as $Enums from './enums'
+export * from './enums';
+/**
+ * Model tranasction_history
+ * 
+ */
+export type tranasction_history = Prisma.tranasction_historyModel
 /**
  * Model User
  * 
@@ -82,6 +87,16 @@ export type PropertySystemAccount = Prisma.PropertySystemAccountModel
  * 
  */
 export type DividendPda = Prisma.DividendPdaModel
+/**
+ * Model Trustees
+ * 
+ */
+export type Trustees = Prisma.TrusteesModel
+/**
+ * Model Arbitrar
+ * 
+ */
+export type Arbitrar = Prisma.ArbitrarModel
 /**
  * Model TrusteeRegistry
  * 

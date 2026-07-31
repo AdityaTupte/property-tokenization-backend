@@ -9,8 +9,8 @@
  * 🟢 You can import this file directly.
  */
 import type * as runtime from "@prisma/client/runtime/client"
-import type * as $Enums from "../enums.js"
-import type * as Prisma from "../internal/prismaNamespace.js"
+import type * as $Enums from "../enums"
+import type * as Prisma from "../internal/prismaNamespace"
 
 /**
  * Model PropertySystemAccount
@@ -420,7 +420,7 @@ export type PropertySystemAccountCreateInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
@@ -444,7 +444,7 @@ export type PropertySystemAccountUncheckedCreateInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
@@ -516,7 +516,7 @@ export type PropertySystemAccountCreateManyInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
 }
@@ -725,7 +725,7 @@ export type PropertySystemAccountCreateWithoutDividendPdasInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
@@ -748,7 +748,7 @@ export type PropertySystemAccountUncheckedCreateWithoutDividendPdasInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -833,7 +833,7 @@ export type PropertySystemAccountCreateWithoutTrusteeRegistriesInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
@@ -856,7 +856,7 @@ export type PropertySystemAccountUncheckedCreateWithoutTrusteeRegistriesInput = 
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
@@ -941,7 +941,7 @@ export type PropertySystemAccountCreateWithoutArbitrarRegistriesInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
@@ -964,7 +964,7 @@ export type PropertySystemAccountUncheckedCreateWithoutArbitrarRegistriesInput =
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
@@ -1049,7 +1049,7 @@ export type PropertySystemAccountCreateWithoutThresholdsInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
@@ -1072,7 +1072,7 @@ export type PropertySystemAccountUncheckedCreateWithoutThresholdsInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
@@ -1157,7 +1157,7 @@ export type PropertySystemAccountCreateWithoutTreasuriesInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
@@ -1180,7 +1180,7 @@ export type PropertySystemAccountUncheckedCreateWithoutTreasuriesInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
@@ -1265,7 +1265,7 @@ export type PropertySystemAccountCreateWithoutPropertyAccountsInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
@@ -1288,7 +1288,7 @@ export type PropertySystemAccountUncheckedCreateWithoutPropertyAccountsInput = {
   trustee_registry: string
   arbitrator_registry: string
   total_properties: number
-  created_at?: Date | string
+  created_at: Date | string
   ready_for_listing: boolean
   bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput

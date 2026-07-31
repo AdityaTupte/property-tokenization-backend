@@ -76,19 +76,19 @@ enum AccoutType {
 //   @@unique([signer,tranasction_id])
 // }
 
-model history {
-  action         String
-  tranasction_id String @unique
-  users          user[]
-}
+// model history {
+//   action         String
+//   tranasction_id String @unique
+//   users          user[]
+// }
 
-model user {
-  id            String  @id @default(uuid())
-  signer        String
-  updown        String
-  transactionid String
-  tra_history   history @relation(fields: [transactionid], references: [tranasction_id])
-}
+// model user {
+//   id            String  @id @default(uuid())
+//   signer        String
+//   updown        String
+//   transactionid String
+//   tra_history   history @relation(fields: [transactionid], references: [tranasction_id])
+// }
 
 model tranasction_history {
   id             String
@@ -238,7 +238,7 @@ model PropertySystemAccount {
   arbitrator_registry        String            @unique
   total_properties           Int
   // total_token_supply         BigInt
-  created_at                 DateTime          @default(now())
+  created_at                 DateTime          
   ready_for_listing          Boolean
   bump                       Int
   dividendPdas               DividendPda[]
