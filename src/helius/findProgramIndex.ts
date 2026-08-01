@@ -9,7 +9,7 @@ import { solanaInstructionHandler } from "./instructionHandlerForSolanaProgram";
 export type messageSchema = z.infer<typeof messageSchema>;
 export type Instructions = z.infer<typeof instructionsSchema>;
 
-export const FindProgramIdIndex = (message: messageSchema) => {
+export const FindProgramIdIndex = async (message: messageSchema) => {
   const uniqueProgramIdIndex = [
     ...new Set(
       message.instructions.map((instruction) => instruction.programIdIndex)
@@ -35,24 +35,22 @@ export const FindProgramIdIndex = (message: messageSchema) => {
 }
 
 
-  encodedData.forEach((element :Instructions) => {
-    
-    const  bytes = bs58.decode(element.data);
+  for (const element of encodedData) {
+  const bytes = bs58.decode(element.data);
 
-    const discriminator = Buffer
-                              .from(bytes.slice(0,8))
-                              .toString("hex");
+  const discriminator = Buffer
+    .from(bytes.slice(0, 8))
+    .toString("hex");
 
-    const parser = InstructionRegistry.get(discriminator);
-    
-    if (!parser) {
-    throw new Error("Unknown instruction");
+  const parser = InstructionRegistry.get(discriminator);
+
+  if (!parser) {
+    throw new ApiError(400, "Unknown instruction");
+  }
+
+  const decode =  solanaInstructionHandler(parser.name);
+
+  await decode(message, element);
 }
-    const decode = solanaInstructionHandler(parser.name);
-
-
-    decode(message,element);
-
-  });
   
 };

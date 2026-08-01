@@ -238,7 +238,7 @@ model PropertySystemAccount {
   arbitrator_registry        String            @unique
   total_properties           Int
   // total_token_supply         BigInt
-  created_at                 DateTime          
+  created_at                 DateTime
   ready_for_listing          Boolean
   bump                       Int
   dividendPdas               DividendPda[]
@@ -247,6 +247,7 @@ model PropertySystemAccount {
   thresholds                 Threshold?
   treasuries                 Treasury?
   propertyAccounts           PropertyAccount[]
+  funds                      Fund[]
 }
 
 model DividendPda {
@@ -311,16 +312,19 @@ model Threshold {
 
 model Treasury {
   treasury_key        String                @id
-  last_distribution   DateTime              @default(now())
+  last_distribution   DateTime?
   bump                Int
   property_system_key PropertySystemAccount @relation(fields: [treasury_key], references: [treasury])
 }
 
 model Fund {
-  id                     Int      @id
+  id                     String                @id @default(uuid())
   property_system_pubkey String
+  fundKey                String
   fundtype               FundType
   used                   BigInt
+  propertySystem         PropertySystemAccount @relation(fields: [property_system_pubkey], references: [property_system_public_key])
+  @@unique([property_system_pubkey,fundtype])
 }
 
 enum ActionsHistory {

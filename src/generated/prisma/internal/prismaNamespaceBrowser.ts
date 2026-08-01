@@ -358,6 +358,7 @@ export type TreasuryScalarFieldEnum = (typeof TreasuryScalarFieldEnum)[keyof typ
 export const FundScalarFieldEnum = {
   id: 'id',
   property_system_pubkey: 'property_system_pubkey',
+  fundKey: 'fundKey',
   fundtype: 'fundtype',
   used: 'used'
 } as const

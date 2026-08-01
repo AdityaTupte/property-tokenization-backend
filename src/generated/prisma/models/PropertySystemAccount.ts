@@ -310,6 +310,7 @@ export type PropertySystemAccountWhereInput = {
   thresholds?: Prisma.XOR<Prisma.ThresholdNullableScalarRelationFilter, Prisma.ThresholdWhereInput> | null
   treasuries?: Prisma.XOR<Prisma.TreasuryNullableScalarRelationFilter, Prisma.TreasuryWhereInput> | null
   propertyAccounts?: Prisma.PropertyAccountListRelationFilter
+  funds?: Prisma.FundListRelationFilter
 }
 
 export type PropertySystemAccountOrderByWithRelationInput = {
@@ -334,6 +335,7 @@ export type PropertySystemAccountOrderByWithRelationInput = {
   thresholds?: Prisma.ThresholdOrderByWithRelationInput
   treasuries?: Prisma.TreasuryOrderByWithRelationInput
   propertyAccounts?: Prisma.PropertyAccountOrderByRelationAggregateInput
+  funds?: Prisma.FundOrderByRelationAggregateInput
 }
 
 export type PropertySystemAccountWhereUniqueInput = Prisma.AtLeast<{
@@ -361,6 +363,7 @@ export type PropertySystemAccountWhereUniqueInput = Prisma.AtLeast<{
   thresholds?: Prisma.XOR<Prisma.ThresholdNullableScalarRelationFilter, Prisma.ThresholdWhereInput> | null
   treasuries?: Prisma.XOR<Prisma.TreasuryNullableScalarRelationFilter, Prisma.TreasuryWhereInput> | null
   propertyAccounts?: Prisma.PropertyAccountListRelationFilter
+  funds?: Prisma.FundListRelationFilter
 }, "property_system_public_key" | "governance_mint" | "threshold" | "treasury" | "reinvestment" | "safety" | "dividend" | "trustee_registry" | "arbitrator_registry">
 
 export type PropertySystemAccountOrderByWithAggregationInput = {
@@ -429,6 +432,7 @@ export type PropertySystemAccountCreateInput = {
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateInput = {
@@ -453,6 +457,7 @@ export type PropertySystemAccountUncheckedCreateInput = {
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUpdateInput = {
@@ -477,6 +482,7 @@ export type PropertySystemAccountUpdateInput = {
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateInput = {
@@ -501,6 +507,7 @@ export type PropertySystemAccountUncheckedUpdateInput = {
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountCreateManyInput = {
@@ -698,6 +705,20 @@ export type PropertySystemAccountUpdateOneRequiredWithoutTreasuriesNestedInput =
   update?: Prisma.XOR<Prisma.XOR<Prisma.PropertySystemAccountUpdateToOneWithWhereWithoutTreasuriesInput, Prisma.PropertySystemAccountUpdateWithoutTreasuriesInput>, Prisma.PropertySystemAccountUncheckedUpdateWithoutTreasuriesInput>
 }
 
+export type PropertySystemAccountCreateNestedOneWithoutFundsInput = {
+  create?: Prisma.XOR<Prisma.PropertySystemAccountCreateWithoutFundsInput, Prisma.PropertySystemAccountUncheckedCreateWithoutFundsInput>
+  connectOrCreate?: Prisma.PropertySystemAccountCreateOrConnectWithoutFundsInput
+  connect?: Prisma.PropertySystemAccountWhereUniqueInput
+}
+
+export type PropertySystemAccountUpdateOneRequiredWithoutFundsNestedInput = {
+  create?: Prisma.XOR<Prisma.PropertySystemAccountCreateWithoutFundsInput, Prisma.PropertySystemAccountUncheckedCreateWithoutFundsInput>
+  connectOrCreate?: Prisma.PropertySystemAccountCreateOrConnectWithoutFundsInput
+  upsert?: Prisma.PropertySystemAccountUpsertWithoutFundsInput
+  connect?: Prisma.PropertySystemAccountWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PropertySystemAccountUpdateToOneWithWhereWithoutFundsInput, Prisma.PropertySystemAccountUpdateWithoutFundsInput>, Prisma.PropertySystemAccountUncheckedUpdateWithoutFundsInput>
+}
+
 export type PropertySystemAccountCreateNestedOneWithoutPropertyAccountsInput = {
   create?: Prisma.XOR<Prisma.PropertySystemAccountCreateWithoutPropertyAccountsInput, Prisma.PropertySystemAccountUncheckedCreateWithoutPropertyAccountsInput>
   connectOrCreate?: Prisma.PropertySystemAccountCreateOrConnectWithoutPropertyAccountsInput
@@ -733,6 +754,7 @@ export type PropertySystemAccountCreateWithoutDividendPdasInput = {
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateWithoutDividendPdasInput = {
@@ -756,6 +778,7 @@ export type PropertySystemAccountUncheckedCreateWithoutDividendPdasInput = {
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountCreateOrConnectWithoutDividendPdasInput = {
@@ -795,6 +818,7 @@ export type PropertySystemAccountUpdateWithoutDividendPdasInput = {
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateWithoutDividendPdasInput = {
@@ -818,6 +842,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutDividendPdasInput = {
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountCreateWithoutTrusteeRegistriesInput = {
@@ -841,6 +866,7 @@ export type PropertySystemAccountCreateWithoutTrusteeRegistriesInput = {
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateWithoutTrusteeRegistriesInput = {
@@ -864,6 +890,7 @@ export type PropertySystemAccountUncheckedCreateWithoutTrusteeRegistriesInput = 
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountCreateOrConnectWithoutTrusteeRegistriesInput = {
@@ -903,6 +930,7 @@ export type PropertySystemAccountUpdateWithoutTrusteeRegistriesInput = {
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateWithoutTrusteeRegistriesInput = {
@@ -926,6 +954,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutTrusteeRegistriesInput = 
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountCreateWithoutArbitrarRegistriesInput = {
@@ -949,6 +978,7 @@ export type PropertySystemAccountCreateWithoutArbitrarRegistriesInput = {
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateWithoutArbitrarRegistriesInput = {
@@ -972,6 +1002,7 @@ export type PropertySystemAccountUncheckedCreateWithoutArbitrarRegistriesInput =
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountCreateOrConnectWithoutArbitrarRegistriesInput = {
@@ -1011,6 +1042,7 @@ export type PropertySystemAccountUpdateWithoutArbitrarRegistriesInput = {
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateWithoutArbitrarRegistriesInput = {
@@ -1034,6 +1066,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutArbitrarRegistriesInput =
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountCreateWithoutThresholdsInput = {
@@ -1057,6 +1090,7 @@ export type PropertySystemAccountCreateWithoutThresholdsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateWithoutThresholdsInput = {
@@ -1080,6 +1114,7 @@ export type PropertySystemAccountUncheckedCreateWithoutThresholdsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountCreateOrConnectWithoutThresholdsInput = {
@@ -1119,6 +1154,7 @@ export type PropertySystemAccountUpdateWithoutThresholdsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateWithoutThresholdsInput = {
@@ -1142,6 +1178,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutThresholdsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountCreateWithoutTreasuriesInput = {
@@ -1165,6 +1202,7 @@ export type PropertySystemAccountCreateWithoutTreasuriesInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateWithoutTreasuriesInput = {
@@ -1188,6 +1226,7 @@ export type PropertySystemAccountUncheckedCreateWithoutTreasuriesInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountCreateOrConnectWithoutTreasuriesInput = {
@@ -1227,6 +1266,7 @@ export type PropertySystemAccountUpdateWithoutTreasuriesInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateWithoutTreasuriesInput = {
@@ -1249,6 +1289,119 @@ export type PropertySystemAccountUncheckedUpdateWithoutTreasuriesInput = {
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
+  propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
+}
+
+export type PropertySystemAccountCreateWithoutFundsInput = {
+  creator_pubky: string
+  property_system_id: number
+  property_system_public_key: string
+  governance_mint: string
+  threshold: string
+  treasury: string
+  reinvestment: string
+  safety: string
+  dividend: string
+  trustee_registry: string
+  arbitrator_registry: string
+  total_properties: number
+  created_at: Date | string
+  ready_for_listing: boolean
+  bump: number
+  dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
+  trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
+  arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
+  thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
+  treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
+  propertyAccounts?: Prisma.PropertyAccountCreateNestedManyWithoutProperty_system_refInput
+}
+
+export type PropertySystemAccountUncheckedCreateWithoutFundsInput = {
+  creator_pubky: string
+  property_system_id: number
+  property_system_public_key: string
+  governance_mint: string
+  threshold: string
+  treasury: string
+  reinvestment: string
+  safety: string
+  dividend: string
+  trustee_registry: string
+  arbitrator_registry: string
+  total_properties: number
+  created_at: Date | string
+  ready_for_listing: boolean
+  bump: number
+  dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
+  trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
+  arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
+  thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
+  treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
+  propertyAccounts?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutProperty_system_refInput
+}
+
+export type PropertySystemAccountCreateOrConnectWithoutFundsInput = {
+  where: Prisma.PropertySystemAccountWhereUniqueInput
+  create: Prisma.XOR<Prisma.PropertySystemAccountCreateWithoutFundsInput, Prisma.PropertySystemAccountUncheckedCreateWithoutFundsInput>
+}
+
+export type PropertySystemAccountUpsertWithoutFundsInput = {
+  update: Prisma.XOR<Prisma.PropertySystemAccountUpdateWithoutFundsInput, Prisma.PropertySystemAccountUncheckedUpdateWithoutFundsInput>
+  create: Prisma.XOR<Prisma.PropertySystemAccountCreateWithoutFundsInput, Prisma.PropertySystemAccountUncheckedCreateWithoutFundsInput>
+  where?: Prisma.PropertySystemAccountWhereInput
+}
+
+export type PropertySystemAccountUpdateToOneWithWhereWithoutFundsInput = {
+  where?: Prisma.PropertySystemAccountWhereInput
+  data: Prisma.XOR<Prisma.PropertySystemAccountUpdateWithoutFundsInput, Prisma.PropertySystemAccountUncheckedUpdateWithoutFundsInput>
+}
+
+export type PropertySystemAccountUpdateWithoutFundsInput = {
+  creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
+  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
+  governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
+  threshold?: Prisma.StringFieldUpdateOperationsInput | string
+  treasury?: Prisma.StringFieldUpdateOperationsInput | string
+  reinvestment?: Prisma.StringFieldUpdateOperationsInput | string
+  safety?: Prisma.StringFieldUpdateOperationsInput | string
+  dividend?: Prisma.StringFieldUpdateOperationsInput | string
+  trustee_registry?: Prisma.StringFieldUpdateOperationsInput | string
+  arbitrator_registry?: Prisma.StringFieldUpdateOperationsInput | string
+  total_properties?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
+  trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
+  arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
+  thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
+  treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
+  propertyAccounts?: Prisma.PropertyAccountUpdateManyWithoutProperty_system_refNestedInput
+}
+
+export type PropertySystemAccountUncheckedUpdateWithoutFundsInput = {
+  creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
+  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
+  governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
+  threshold?: Prisma.StringFieldUpdateOperationsInput | string
+  treasury?: Prisma.StringFieldUpdateOperationsInput | string
+  reinvestment?: Prisma.StringFieldUpdateOperationsInput | string
+  safety?: Prisma.StringFieldUpdateOperationsInput | string
+  dividend?: Prisma.StringFieldUpdateOperationsInput | string
+  trustee_registry?: Prisma.StringFieldUpdateOperationsInput | string
+  arbitrator_registry?: Prisma.StringFieldUpdateOperationsInput | string
+  total_properties?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
+  trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
+  arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
+  thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
+  treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   propertyAccounts?: Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refNestedInput
 }
 
@@ -1273,6 +1426,7 @@ export type PropertySystemAccountCreateWithoutPropertyAccountsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryCreateNestedOneWithoutProperty_system_keyInput
+  funds?: Prisma.FundCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountUncheckedCreateWithoutPropertyAccountsInput = {
@@ -1296,6 +1450,7 @@ export type PropertySystemAccountUncheckedCreateWithoutPropertyAccountsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
   treasuries?: Prisma.TreasuryUncheckedCreateNestedOneWithoutProperty_system_keyInput
+  funds?: Prisma.FundUncheckedCreateNestedManyWithoutPropertySystemInput
 }
 
 export type PropertySystemAccountCreateOrConnectWithoutPropertyAccountsInput = {
@@ -1335,6 +1490,7 @@ export type PropertySystemAccountUpdateWithoutPropertyAccountsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUpdateOneWithoutProperty_system_keyNestedInput
+  funds?: Prisma.FundUpdateManyWithoutPropertySystemNestedInput
 }
 
 export type PropertySystemAccountUncheckedUpdateWithoutPropertyAccountsInput = {
@@ -1358,6 +1514,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutPropertyAccountsInput = {
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   treasuries?: Prisma.TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
+  funds?: Prisma.FundUncheckedUpdateManyWithoutPropertySystemNestedInput
 }
 
 
@@ -1368,11 +1525,13 @@ export type PropertySystemAccountUncheckedUpdateWithoutPropertyAccountsInput = {
 export type PropertySystemAccountCountOutputType = {
   dividendPdas: number
   propertyAccounts: number
+  funds: number
 }
 
 export type PropertySystemAccountCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dividendPdas?: boolean | PropertySystemAccountCountOutputTypeCountDividendPdasArgs
   propertyAccounts?: boolean | PropertySystemAccountCountOutputTypeCountPropertyAccountsArgs
+  funds?: boolean | PropertySystemAccountCountOutputTypeCountFundsArgs
 }
 
 /**
@@ -1399,6 +1558,13 @@ export type PropertySystemAccountCountOutputTypeCountPropertyAccountsArgs<ExtArg
   where?: Prisma.PropertyAccountWhereInput
 }
 
+/**
+ * PropertySystemAccountCountOutputType without action
+ */
+export type PropertySystemAccountCountOutputTypeCountFundsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.FundWhereInput
+}
+
 
 export type PropertySystemAccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   creator_pubky?: boolean
@@ -1422,6 +1588,7 @@ export type PropertySystemAccountSelect<ExtArgs extends runtime.Types.Extensions
   thresholds?: boolean | Prisma.PropertySystemAccount$thresholdsArgs<ExtArgs>
   treasuries?: boolean | Prisma.PropertySystemAccount$treasuriesArgs<ExtArgs>
   propertyAccounts?: boolean | Prisma.PropertySystemAccount$propertyAccountsArgs<ExtArgs>
+  funds?: boolean | Prisma.PropertySystemAccount$fundsArgs<ExtArgs>
   _count?: boolean | Prisma.PropertySystemAccountCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertySystemAccount"]>
 
@@ -1487,6 +1654,7 @@ export type PropertySystemAccountInclude<ExtArgs extends runtime.Types.Extension
   thresholds?: boolean | Prisma.PropertySystemAccount$thresholdsArgs<ExtArgs>
   treasuries?: boolean | Prisma.PropertySystemAccount$treasuriesArgs<ExtArgs>
   propertyAccounts?: boolean | Prisma.PropertySystemAccount$propertyAccountsArgs<ExtArgs>
+  funds?: boolean | Prisma.PropertySystemAccount$fundsArgs<ExtArgs>
   _count?: boolean | Prisma.PropertySystemAccountCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PropertySystemAccountIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1501,6 +1669,7 @@ export type $PropertySystemAccountPayload<ExtArgs extends runtime.Types.Extensio
     thresholds: Prisma.$ThresholdPayload<ExtArgs> | null
     treasuries: Prisma.$TreasuryPayload<ExtArgs> | null
     propertyAccounts: Prisma.$PropertyAccountPayload<ExtArgs>[]
+    funds: Prisma.$FundPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     creator_pubky: string
@@ -1918,6 +2087,7 @@ export interface Prisma__PropertySystemAccountClient<T, Null = never, ExtArgs ex
   thresholds<T extends Prisma.PropertySystemAccount$thresholdsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccount$thresholdsArgs<ExtArgs>>): Prisma.Prisma__ThresholdClient<runtime.Types.Result.GetResult<Prisma.$ThresholdPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   treasuries<T extends Prisma.PropertySystemAccount$treasuriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccount$treasuriesArgs<ExtArgs>>): Prisma.Prisma__TreasuryClient<runtime.Types.Result.GetResult<Prisma.$TreasuryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   propertyAccounts<T extends Prisma.PropertySystemAccount$propertyAccountsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccount$propertyAccountsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  funds<T extends Prisma.PropertySystemAccount$fundsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccount$fundsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2476,6 +2646,30 @@ export type PropertySystemAccount$propertyAccountsArgs<ExtArgs extends runtime.T
   take?: number
   skip?: number
   distinct?: Prisma.PropertyAccountScalarFieldEnum | Prisma.PropertyAccountScalarFieldEnum[]
+}
+
+/**
+ * PropertySystemAccount.funds
+ */
+export type PropertySystemAccount$fundsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Fund
+   */
+  select?: Prisma.FundSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Fund
+   */
+  omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
+  where?: Prisma.FundWhereInput
+  orderBy?: Prisma.FundOrderByWithRelationInput | Prisma.FundOrderByWithRelationInput[]
+  cursor?: Prisma.FundWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.FundScalarFieldEnum | Prisma.FundScalarFieldEnum[]
 }
 
 /**

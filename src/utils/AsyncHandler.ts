@@ -1,5 +1,6 @@
 import type { NextFunction,Response,RequestHandler, Request } from "express"
 import { ApiError } from "./ApiError.js";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/client";
 
 
 const asyncHandler =
@@ -20,6 +21,8 @@ const asyncHandler =
         });
         return;
   }
+      // if(error instanceof PrismaClientKnownRequestError)
+  
 
         res.status(500).json({
             success:false,

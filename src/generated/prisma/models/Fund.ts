@@ -27,25 +27,25 @@ export type AggregateFund = {
 }
 
 export type FundAvgAggregateOutputType = {
-  id: number | null
   used: number | null
 }
 
 export type FundSumAggregateOutputType = {
-  id: number | null
   used: bigint | null
 }
 
 export type FundMinAggregateOutputType = {
-  id: number | null
+  id: string | null
   property_system_pubkey: string | null
+  fundKey: string | null
   fundtype: $Enums.FundType | null
   used: bigint | null
 }
 
 export type FundMaxAggregateOutputType = {
-  id: number | null
+  id: string | null
   property_system_pubkey: string | null
+  fundKey: string | null
   fundtype: $Enums.FundType | null
   used: bigint | null
 }
@@ -53,6 +53,7 @@ export type FundMaxAggregateOutputType = {
 export type FundCountAggregateOutputType = {
   id: number
   property_system_pubkey: number
+  fundKey: number
   fundtype: number
   used: number
   _all: number
@@ -60,18 +61,17 @@ export type FundCountAggregateOutputType = {
 
 
 export type FundAvgAggregateInputType = {
-  id?: true
   used?: true
 }
 
 export type FundSumAggregateInputType = {
-  id?: true
   used?: true
 }
 
 export type FundMinAggregateInputType = {
   id?: true
   property_system_pubkey?: true
+  fundKey?: true
   fundtype?: true
   used?: true
 }
@@ -79,6 +79,7 @@ export type FundMinAggregateInputType = {
 export type FundMaxAggregateInputType = {
   id?: true
   property_system_pubkey?: true
+  fundKey?: true
   fundtype?: true
   used?: true
 }
@@ -86,6 +87,7 @@ export type FundMaxAggregateInputType = {
 export type FundCountAggregateInputType = {
   id?: true
   property_system_pubkey?: true
+  fundKey?: true
   fundtype?: true
   used?: true
   _all?: true
@@ -178,8 +180,9 @@ export type FundGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 }
 
 export type FundGroupByOutputType = {
-  id: number
+  id: string
   property_system_pubkey: string
+  fundKey: string
   fundtype: $Enums.FundType
   used: bigint
   _count: FundCountAggregateOutputType | null
@@ -208,32 +211,40 @@ export type FundWhereInput = {
   AND?: Prisma.FundWhereInput | Prisma.FundWhereInput[]
   OR?: Prisma.FundWhereInput[]
   NOT?: Prisma.FundWhereInput | Prisma.FundWhereInput[]
-  id?: Prisma.IntFilter<"Fund"> | number
+  id?: Prisma.StringFilter<"Fund"> | string
   property_system_pubkey?: Prisma.StringFilter<"Fund"> | string
+  fundKey?: Prisma.StringFilter<"Fund"> | string
   fundtype?: Prisma.EnumFundTypeFilter<"Fund"> | $Enums.FundType
   used?: Prisma.BigIntFilter<"Fund"> | bigint | number
+  propertySystem?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
 }
 
 export type FundOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
+  fundKey?: Prisma.SortOrder
   fundtype?: Prisma.SortOrder
   used?: Prisma.SortOrder
+  propertySystem?: Prisma.PropertySystemAccountOrderByWithRelationInput
 }
 
 export type FundWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
+  property_system_pubkey_fundtype?: Prisma.FundProperty_system_pubkeyFundtypeCompoundUniqueInput
   AND?: Prisma.FundWhereInput | Prisma.FundWhereInput[]
   OR?: Prisma.FundWhereInput[]
   NOT?: Prisma.FundWhereInput | Prisma.FundWhereInput[]
   property_system_pubkey?: Prisma.StringFilter<"Fund"> | string
+  fundKey?: Prisma.StringFilter<"Fund"> | string
   fundtype?: Prisma.EnumFundTypeFilter<"Fund"> | $Enums.FundType
   used?: Prisma.BigIntFilter<"Fund"> | bigint | number
-}, "id">
+  propertySystem?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
+}, "id" | "property_system_pubkey_fundtype">
 
 export type FundOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
+  fundKey?: Prisma.SortOrder
   fundtype?: Prisma.SortOrder
   used?: Prisma.SortOrder
   _count?: Prisma.FundCountOrderByAggregateInput
@@ -247,76 +258,99 @@ export type FundScalarWhereWithAggregatesInput = {
   AND?: Prisma.FundScalarWhereWithAggregatesInput | Prisma.FundScalarWhereWithAggregatesInput[]
   OR?: Prisma.FundScalarWhereWithAggregatesInput[]
   NOT?: Prisma.FundScalarWhereWithAggregatesInput | Prisma.FundScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Fund"> | number
+  id?: Prisma.StringWithAggregatesFilter<"Fund"> | string
   property_system_pubkey?: Prisma.StringWithAggregatesFilter<"Fund"> | string
+  fundKey?: Prisma.StringWithAggregatesFilter<"Fund"> | string
   fundtype?: Prisma.EnumFundTypeWithAggregatesFilter<"Fund"> | $Enums.FundType
   used?: Prisma.BigIntWithAggregatesFilter<"Fund"> | bigint | number
 }
 
 export type FundCreateInput = {
-  id: number
-  property_system_pubkey: string
+  id?: string
+  fundKey: string
   fundtype: $Enums.FundType
   used: bigint | number
+  propertySystem: Prisma.PropertySystemAccountCreateNestedOneWithoutFundsInput
 }
 
 export type FundUncheckedCreateInput = {
-  id: number
+  id?: string
   property_system_pubkey: string
+  fundKey: string
   fundtype: $Enums.FundType
   used: bigint | number
 }
 
 export type FundUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
   fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
   used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  propertySystem?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutFundsNestedInput
 }
 
 export type FundUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
   fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
   used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
 }
 
 export type FundCreateManyInput = {
-  id: number
+  id?: string
   property_system_pubkey: string
+  fundKey: string
   fundtype: $Enums.FundType
   used: bigint | number
 }
 
 export type FundUpdateManyMutationInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
   fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
   used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
 }
 
 export type FundUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
   fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
   used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+}
+
+export type FundListRelationFilter = {
+  every?: Prisma.FundWhereInput
+  some?: Prisma.FundWhereInput
+  none?: Prisma.FundWhereInput
+}
+
+export type FundOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type FundProperty_system_pubkeyFundtypeCompoundUniqueInput = {
+  property_system_pubkey: string
+  fundtype: $Enums.FundType
 }
 
 export type FundCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
+  fundKey?: Prisma.SortOrder
   fundtype?: Prisma.SortOrder
   used?: Prisma.SortOrder
 }
 
 export type FundAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   used?: Prisma.SortOrder
 }
 
 export type FundMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
+  fundKey?: Prisma.SortOrder
   fundtype?: Prisma.SortOrder
   used?: Prisma.SortOrder
 }
@@ -324,13 +358,55 @@ export type FundMaxOrderByAggregateInput = {
 export type FundMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
+  fundKey?: Prisma.SortOrder
   fundtype?: Prisma.SortOrder
   used?: Prisma.SortOrder
 }
 
 export type FundSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   used?: Prisma.SortOrder
+}
+
+export type FundCreateNestedManyWithoutPropertySystemInput = {
+  create?: Prisma.XOR<Prisma.FundCreateWithoutPropertySystemInput, Prisma.FundUncheckedCreateWithoutPropertySystemInput> | Prisma.FundCreateWithoutPropertySystemInput[] | Prisma.FundUncheckedCreateWithoutPropertySystemInput[]
+  connectOrCreate?: Prisma.FundCreateOrConnectWithoutPropertySystemInput | Prisma.FundCreateOrConnectWithoutPropertySystemInput[]
+  createMany?: Prisma.FundCreateManyPropertySystemInputEnvelope
+  connect?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+}
+
+export type FundUncheckedCreateNestedManyWithoutPropertySystemInput = {
+  create?: Prisma.XOR<Prisma.FundCreateWithoutPropertySystemInput, Prisma.FundUncheckedCreateWithoutPropertySystemInput> | Prisma.FundCreateWithoutPropertySystemInput[] | Prisma.FundUncheckedCreateWithoutPropertySystemInput[]
+  connectOrCreate?: Prisma.FundCreateOrConnectWithoutPropertySystemInput | Prisma.FundCreateOrConnectWithoutPropertySystemInput[]
+  createMany?: Prisma.FundCreateManyPropertySystemInputEnvelope
+  connect?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+}
+
+export type FundUpdateManyWithoutPropertySystemNestedInput = {
+  create?: Prisma.XOR<Prisma.FundCreateWithoutPropertySystemInput, Prisma.FundUncheckedCreateWithoutPropertySystemInput> | Prisma.FundCreateWithoutPropertySystemInput[] | Prisma.FundUncheckedCreateWithoutPropertySystemInput[]
+  connectOrCreate?: Prisma.FundCreateOrConnectWithoutPropertySystemInput | Prisma.FundCreateOrConnectWithoutPropertySystemInput[]
+  upsert?: Prisma.FundUpsertWithWhereUniqueWithoutPropertySystemInput | Prisma.FundUpsertWithWhereUniqueWithoutPropertySystemInput[]
+  createMany?: Prisma.FundCreateManyPropertySystemInputEnvelope
+  set?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  disconnect?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  delete?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  connect?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  update?: Prisma.FundUpdateWithWhereUniqueWithoutPropertySystemInput | Prisma.FundUpdateWithWhereUniqueWithoutPropertySystemInput[]
+  updateMany?: Prisma.FundUpdateManyWithWhereWithoutPropertySystemInput | Prisma.FundUpdateManyWithWhereWithoutPropertySystemInput[]
+  deleteMany?: Prisma.FundScalarWhereInput | Prisma.FundScalarWhereInput[]
+}
+
+export type FundUncheckedUpdateManyWithoutPropertySystemNestedInput = {
+  create?: Prisma.XOR<Prisma.FundCreateWithoutPropertySystemInput, Prisma.FundUncheckedCreateWithoutPropertySystemInput> | Prisma.FundCreateWithoutPropertySystemInput[] | Prisma.FundUncheckedCreateWithoutPropertySystemInput[]
+  connectOrCreate?: Prisma.FundCreateOrConnectWithoutPropertySystemInput | Prisma.FundCreateOrConnectWithoutPropertySystemInput[]
+  upsert?: Prisma.FundUpsertWithWhereUniqueWithoutPropertySystemInput | Prisma.FundUpsertWithWhereUniqueWithoutPropertySystemInput[]
+  createMany?: Prisma.FundCreateManyPropertySystemInputEnvelope
+  set?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  disconnect?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  delete?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  connect?: Prisma.FundWhereUniqueInput | Prisma.FundWhereUniqueInput[]
+  update?: Prisma.FundUpdateWithWhereUniqueWithoutPropertySystemInput | Prisma.FundUpdateWithWhereUniqueWithoutPropertySystemInput[]
+  updateMany?: Prisma.FundUpdateManyWithWhereWithoutPropertySystemInput | Prisma.FundUpdateManyWithWhereWithoutPropertySystemInput[]
+  deleteMany?: Prisma.FundScalarWhereInput | Prisma.FundScalarWhereInput[]
 }
 
 export type EnumFundTypeFieldUpdateOperationsInput = {
@@ -345,44 +421,142 @@ export type BigIntFieldUpdateOperationsInput = {
   divide?: bigint | number
 }
 
+export type FundCreateWithoutPropertySystemInput = {
+  id?: string
+  fundKey: string
+  fundtype: $Enums.FundType
+  used: bigint | number
+}
+
+export type FundUncheckedCreateWithoutPropertySystemInput = {
+  id?: string
+  fundKey: string
+  fundtype: $Enums.FundType
+  used: bigint | number
+}
+
+export type FundCreateOrConnectWithoutPropertySystemInput = {
+  where: Prisma.FundWhereUniqueInput
+  create: Prisma.XOR<Prisma.FundCreateWithoutPropertySystemInput, Prisma.FundUncheckedCreateWithoutPropertySystemInput>
+}
+
+export type FundCreateManyPropertySystemInputEnvelope = {
+  data: Prisma.FundCreateManyPropertySystemInput | Prisma.FundCreateManyPropertySystemInput[]
+  skipDuplicates?: boolean
+}
+
+export type FundUpsertWithWhereUniqueWithoutPropertySystemInput = {
+  where: Prisma.FundWhereUniqueInput
+  update: Prisma.XOR<Prisma.FundUpdateWithoutPropertySystemInput, Prisma.FundUncheckedUpdateWithoutPropertySystemInput>
+  create: Prisma.XOR<Prisma.FundCreateWithoutPropertySystemInput, Prisma.FundUncheckedCreateWithoutPropertySystemInput>
+}
+
+export type FundUpdateWithWhereUniqueWithoutPropertySystemInput = {
+  where: Prisma.FundWhereUniqueInput
+  data: Prisma.XOR<Prisma.FundUpdateWithoutPropertySystemInput, Prisma.FundUncheckedUpdateWithoutPropertySystemInput>
+}
+
+export type FundUpdateManyWithWhereWithoutPropertySystemInput = {
+  where: Prisma.FundScalarWhereInput
+  data: Prisma.XOR<Prisma.FundUpdateManyMutationInput, Prisma.FundUncheckedUpdateManyWithoutPropertySystemInput>
+}
+
+export type FundScalarWhereInput = {
+  AND?: Prisma.FundScalarWhereInput | Prisma.FundScalarWhereInput[]
+  OR?: Prisma.FundScalarWhereInput[]
+  NOT?: Prisma.FundScalarWhereInput | Prisma.FundScalarWhereInput[]
+  id?: Prisma.StringFilter<"Fund"> | string
+  property_system_pubkey?: Prisma.StringFilter<"Fund"> | string
+  fundKey?: Prisma.StringFilter<"Fund"> | string
+  fundtype?: Prisma.EnumFundTypeFilter<"Fund"> | $Enums.FundType
+  used?: Prisma.BigIntFilter<"Fund"> | bigint | number
+}
+
+export type FundCreateManyPropertySystemInput = {
+  id?: string
+  fundKey: string
+  fundtype: $Enums.FundType
+  used: bigint | number
+}
+
+export type FundUpdateWithoutPropertySystemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
+  fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
+  used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+}
+
+export type FundUncheckedUpdateWithoutPropertySystemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
+  fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
+  used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+}
+
+export type FundUncheckedUpdateManyWithoutPropertySystemInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  fundKey?: Prisma.StringFieldUpdateOperationsInput | string
+  fundtype?: Prisma.EnumFundTypeFieldUpdateOperationsInput | $Enums.FundType
+  used?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+}
+
 
 
 export type FundSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   property_system_pubkey?: boolean
+  fundKey?: boolean
   fundtype?: boolean
   used?: boolean
+  propertySystem?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fund"]>
 
 export type FundSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   property_system_pubkey?: boolean
+  fundKey?: boolean
   fundtype?: boolean
   used?: boolean
+  propertySystem?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fund"]>
 
 export type FundSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   property_system_pubkey?: boolean
+  fundKey?: boolean
   fundtype?: boolean
   used?: boolean
+  propertySystem?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["fund"]>
 
 export type FundSelectScalar = {
   id?: boolean
   property_system_pubkey?: boolean
+  fundKey?: boolean
   fundtype?: boolean
   used?: boolean
 }
 
-export type FundOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "property_system_pubkey" | "fundtype" | "used", ExtArgs["result"]["fund"]>
+export type FundOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "property_system_pubkey" | "fundKey" | "fundtype" | "used", ExtArgs["result"]["fund"]>
+export type FundInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  propertySystem?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+}
+export type FundIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  propertySystem?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+}
+export type FundIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  propertySystem?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+}
 
 export type $FundPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Fund"
-  objects: {}
+  objects: {
+    propertySystem: Prisma.$PropertySystemAccountPayload<ExtArgs>
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    id: string
     property_system_pubkey: string
+    fundKey: string
     fundtype: $Enums.FundType
     used: bigint
   }, ExtArgs["result"]["fund"]>
@@ -779,6 +953,7 @@ readonly fields: FundFieldRefs;
  */
 export interface Prisma__FundClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  propertySystem<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -808,8 +983,9 @@ export interface Prisma__FundClient<T, Null = never, ExtArgs extends runtime.Typ
  * Fields of the Fund model
  */
 export interface FundFieldRefs {
-  readonly id: Prisma.FieldRef<"Fund", 'Int'>
+  readonly id: Prisma.FieldRef<"Fund", 'String'>
   readonly property_system_pubkey: Prisma.FieldRef<"Fund", 'String'>
+  readonly fundKey: Prisma.FieldRef<"Fund", 'String'>
   readonly fundtype: Prisma.FieldRef<"Fund", 'FundType'>
   readonly used: Prisma.FieldRef<"Fund", 'BigInt'>
 }
@@ -829,6 +1005,10 @@ export type FundFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
+  /**
    * Filter, which Fund to fetch.
    */
   where: Prisma.FundWhereUniqueInput
@@ -847,6 +1027,10 @@ export type FundFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.I
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
+  /**
    * Filter, which Fund to fetch.
    */
   where: Prisma.FundWhereUniqueInput
@@ -864,6 +1048,10 @@ export type FundFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    * Omit specific fields from the Fund
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
   /**
    * Filter, which Fund to fetch.
    */
@@ -913,6 +1101,10 @@ export type FundFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.In
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
+  /**
    * Filter, which Fund to fetch.
    */
   where?: Prisma.FundWhereInput
@@ -960,6 +1152,10 @@ export type FundFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
    * Omit specific fields from the Fund
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
   /**
    * Filter, which Funds to fetch.
    */
@@ -1009,6 +1205,10 @@ export type FundCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
+  /**
    * The data needed to create a Fund.
    */
   data: Prisma.XOR<Prisma.FundCreateInput, Prisma.FundUncheckedCreateInput>
@@ -1042,6 +1242,10 @@ export type FundCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    */
   data: Prisma.FundCreateManyInput | Prisma.FundCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1056,6 +1260,10 @@ export type FundUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the Fund
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
   /**
    * The data needed to update a Fund.
    */
@@ -1108,6 +1316,10 @@ export type FundUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions
    * Limit how many Funds to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1122,6 +1334,10 @@ export type FundUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the Fund
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
   /**
    * The filter to search for the Fund to update in case it exists.
    */
@@ -1148,6 +1364,10 @@ export type FundDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs
    * Omit specific fields from the Fund
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
   /**
    * Filter which Fund to delete.
    */
@@ -1180,4 +1400,8 @@ export type FundDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
    * Omit specific fields from the Fund
    */
   omit?: Prisma.FundOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.FundInclude<ExtArgs> | null
 }

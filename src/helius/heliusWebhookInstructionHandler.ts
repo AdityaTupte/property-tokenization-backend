@@ -13,7 +13,7 @@ export const heliusRaWDataHandler = asyncHandler(
       throw new ApiError(400, "check your json schema");
     }
 
-    FindProgramIdIndex(webhookSchema.data.transaction.transaction.message);
+   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message);
 
     return res.status(200).json(
       new ApiResponse(
