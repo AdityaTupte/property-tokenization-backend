@@ -27,32 +27,32 @@ export type AggregateDividendPda = {
 }
 
 export type DividendPdaAvgAggregateOutputType = {
-  dividen_per_token: number | null
+  dividend_per_token: number | null
   bump: number | null
 }
 
 export type DividendPdaSumAggregateOutputType = {
-  dividen_per_token: number | null
+  dividend_per_token: bigint | null
   bump: number | null
 }
 
 export type DividendPdaMinAggregateOutputType = {
   dividend_pubkey: string | null
-  dividen_per_token: number | null
+  dividend_per_token: bigint | null
   last_updated_ts: Date | null
   bump: number | null
 }
 
 export type DividendPdaMaxAggregateOutputType = {
   dividend_pubkey: string | null
-  dividen_per_token: number | null
+  dividend_per_token: bigint | null
   last_updated_ts: Date | null
   bump: number | null
 }
 
 export type DividendPdaCountAggregateOutputType = {
   dividend_pubkey: number
-  dividen_per_token: number
+  dividend_per_token: number
   last_updated_ts: number
   bump: number
   _all: number
@@ -60,32 +60,32 @@ export type DividendPdaCountAggregateOutputType = {
 
 
 export type DividendPdaAvgAggregateInputType = {
-  dividen_per_token?: true
+  dividend_per_token?: true
   bump?: true
 }
 
 export type DividendPdaSumAggregateInputType = {
-  dividen_per_token?: true
+  dividend_per_token?: true
   bump?: true
 }
 
 export type DividendPdaMinAggregateInputType = {
   dividend_pubkey?: true
-  dividen_per_token?: true
+  dividend_per_token?: true
   last_updated_ts?: true
   bump?: true
 }
 
 export type DividendPdaMaxAggregateInputType = {
   dividend_pubkey?: true
-  dividen_per_token?: true
+  dividend_per_token?: true
   last_updated_ts?: true
   bump?: true
 }
 
 export type DividendPdaCountAggregateInputType = {
   dividend_pubkey?: true
-  dividen_per_token?: true
+  dividend_per_token?: true
   last_updated_ts?: true
   bump?: true
   _all?: true
@@ -179,8 +179,8 @@ export type DividendPdaGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export type DividendPdaGroupByOutputType = {
   dividend_pubkey: string
-  dividen_per_token: number
-  last_updated_ts: Date
+  dividend_per_token: bigint
+  last_updated_ts: Date | null
   bump: number
   _count: DividendPdaCountAggregateOutputType | null
   _avg: DividendPdaAvgAggregateOutputType | null
@@ -209,16 +209,16 @@ export type DividendPdaWhereInput = {
   OR?: Prisma.DividendPdaWhereInput[]
   NOT?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[]
   dividend_pubkey?: Prisma.StringFilter<"DividendPda"> | string
-  dividen_per_token?: Prisma.IntFilter<"DividendPda"> | number
-  last_updated_ts?: Prisma.DateTimeFilter<"DividendPda"> | Date | string
+  dividend_per_token?: Prisma.BigIntFilter<"DividendPda"> | bigint | number
+  last_updated_ts?: Prisma.DateTimeNullableFilter<"DividendPda"> | Date | string | null
   bump?: Prisma.IntFilter<"DividendPda"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
 }
 
 export type DividendPdaOrderByWithRelationInput = {
   dividend_pubkey?: Prisma.SortOrder
-  dividen_per_token?: Prisma.SortOrder
-  last_updated_ts?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
+  last_updated_ts?: Prisma.SortOrderInput | Prisma.SortOrder
   bump?: Prisma.SortOrder
   property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput
 }
@@ -228,16 +228,16 @@ export type DividendPdaWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[]
   OR?: Prisma.DividendPdaWhereInput[]
   NOT?: Prisma.DividendPdaWhereInput | Prisma.DividendPdaWhereInput[]
-  dividen_per_token?: Prisma.IntFilter<"DividendPda"> | number
-  last_updated_ts?: Prisma.DateTimeFilter<"DividendPda"> | Date | string
+  dividend_per_token?: Prisma.BigIntFilter<"DividendPda"> | bigint | number
+  last_updated_ts?: Prisma.DateTimeNullableFilter<"DividendPda"> | Date | string | null
   bump?: Prisma.IntFilter<"DividendPda"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
 }, "dividend_pubkey">
 
 export type DividendPdaOrderByWithAggregationInput = {
   dividend_pubkey?: Prisma.SortOrder
-  dividen_per_token?: Prisma.SortOrder
-  last_updated_ts?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
+  last_updated_ts?: Prisma.SortOrderInput | Prisma.SortOrder
   bump?: Prisma.SortOrder
   _count?: Prisma.DividendPdaCountOrderByAggregateInput
   _avg?: Prisma.DividendPdaAvgOrderByAggregateInput
@@ -251,56 +251,56 @@ export type DividendPdaScalarWhereWithAggregatesInput = {
   OR?: Prisma.DividendPdaScalarWhereWithAggregatesInput[]
   NOT?: Prisma.DividendPdaScalarWhereWithAggregatesInput | Prisma.DividendPdaScalarWhereWithAggregatesInput[]
   dividend_pubkey?: Prisma.StringWithAggregatesFilter<"DividendPda"> | string
-  dividen_per_token?: Prisma.IntWithAggregatesFilter<"DividendPda"> | number
-  last_updated_ts?: Prisma.DateTimeWithAggregatesFilter<"DividendPda"> | Date | string
+  dividend_per_token?: Prisma.BigIntWithAggregatesFilter<"DividendPda"> | bigint | number
+  last_updated_ts?: Prisma.DateTimeNullableWithAggregatesFilter<"DividendPda"> | Date | string | null
   bump?: Prisma.IntWithAggregatesFilter<"DividendPda"> | number
 }
 
 export type DividendPdaCreateInput = {
-  dividen_per_token: number
-  last_updated_ts?: Date | string
+  dividend_per_token: bigint | number
+  last_updated_ts?: Date | string | null
   bump: number
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutDividendPdasInput
 }
 
 export type DividendPdaUncheckedCreateInput = {
   dividend_pubkey: string
-  dividen_per_token: number
-  last_updated_ts?: Date | string
+  dividend_per_token: bigint | number
+  last_updated_ts?: Date | string | null
   bump: number
 }
 
 export type DividendPdaUpdateInput = {
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutDividendPdasNestedInput
 }
 
 export type DividendPdaUncheckedUpdateInput = {
   dividend_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type DividendPdaCreateManyInput = {
   dividend_pubkey: string
-  dividen_per_token: number
-  last_updated_ts?: Date | string
+  dividend_per_token: bigint | number
+  last_updated_ts?: Date | string | null
   bump: number
 }
 
 export type DividendPdaUpdateManyMutationInput = {
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type DividendPdaUncheckedUpdateManyInput = {
   dividend_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -316,32 +316,32 @@ export type DividendPdaOrderByRelationAggregateInput = {
 
 export type DividendPdaCountOrderByAggregateInput = {
   dividend_pubkey?: Prisma.SortOrder
-  dividen_per_token?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
   last_updated_ts?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
 export type DividendPdaAvgOrderByAggregateInput = {
-  dividen_per_token?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
 export type DividendPdaMaxOrderByAggregateInput = {
   dividend_pubkey?: Prisma.SortOrder
-  dividen_per_token?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
   last_updated_ts?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
 export type DividendPdaMinOrderByAggregateInput = {
   dividend_pubkey?: Prisma.SortOrder
-  dividen_per_token?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
   last_updated_ts?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
 export type DividendPdaSumOrderByAggregateInput = {
-  dividen_per_token?: Prisma.SortOrder
+  dividend_per_token?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
@@ -387,15 +387,27 @@ export type DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput 
   deleteMany?: Prisma.DividendPdaScalarWhereInput | Prisma.DividendPdaScalarWhereInput[]
 }
 
+export type BigIntFieldUpdateOperationsInput = {
+  set?: bigint | number
+  increment?: bigint | number
+  decrement?: bigint | number
+  multiply?: bigint | number
+  divide?: bigint | number
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
 export type DividendPdaCreateWithoutProperty_system_keyInput = {
-  dividen_per_token: number
-  last_updated_ts?: Date | string
+  dividend_per_token: bigint | number
+  last_updated_ts?: Date | string | null
   bump: number
 }
 
 export type DividendPdaUncheckedCreateWithoutProperty_system_keyInput = {
-  dividen_per_token: number
-  last_updated_ts?: Date | string
+  dividend_per_token: bigint | number
+  last_updated_ts?: Date | string | null
   bump: number
 }
 
@@ -430,32 +442,32 @@ export type DividendPdaScalarWhereInput = {
   OR?: Prisma.DividendPdaScalarWhereInput[]
   NOT?: Prisma.DividendPdaScalarWhereInput | Prisma.DividendPdaScalarWhereInput[]
   dividend_pubkey?: Prisma.StringFilter<"DividendPda"> | string
-  dividen_per_token?: Prisma.IntFilter<"DividendPda"> | number
-  last_updated_ts?: Prisma.DateTimeFilter<"DividendPda"> | Date | string
+  dividend_per_token?: Prisma.BigIntFilter<"DividendPda"> | bigint | number
+  last_updated_ts?: Prisma.DateTimeNullableFilter<"DividendPda"> | Date | string | null
   bump?: Prisma.IntFilter<"DividendPda"> | number
 }
 
 export type DividendPdaCreateManyProperty_system_keyInput = {
-  dividen_per_token: number
-  last_updated_ts?: Date | string
+  dividend_per_token: bigint | number
+  last_updated_ts?: Date | string | null
   bump: number
 }
 
 export type DividendPdaUpdateWithoutProperty_system_keyInput = {
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type DividendPdaUncheckedUpdateWithoutProperty_system_keyInput = {
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type DividendPdaUncheckedUpdateManyWithoutProperty_system_keyInput = {
-  dividen_per_token?: Prisma.IntFieldUpdateOperationsInput | number
-  last_updated_ts?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dividend_per_token?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  last_updated_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
@@ -463,7 +475,7 @@ export type DividendPdaUncheckedUpdateManyWithoutProperty_system_keyInput = {
 
 export type DividendPdaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   dividend_pubkey?: boolean
-  dividen_per_token?: boolean
+  dividend_per_token?: boolean
   last_updated_ts?: boolean
   bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
@@ -471,7 +483,7 @@ export type DividendPdaSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 
 export type DividendPdaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   dividend_pubkey?: boolean
-  dividen_per_token?: boolean
+  dividend_per_token?: boolean
   last_updated_ts?: boolean
   bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
@@ -479,7 +491,7 @@ export type DividendPdaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type DividendPdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   dividend_pubkey?: boolean
-  dividen_per_token?: boolean
+  dividend_per_token?: boolean
   last_updated_ts?: boolean
   bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
@@ -487,12 +499,12 @@ export type DividendPdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 
 export type DividendPdaSelectScalar = {
   dividend_pubkey?: boolean
-  dividen_per_token?: boolean
+  dividend_per_token?: boolean
   last_updated_ts?: boolean
   bump?: boolean
 }
 
-export type DividendPdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"dividend_pubkey" | "dividen_per_token" | "last_updated_ts" | "bump", ExtArgs["result"]["dividendPda"]>
+export type DividendPdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"dividend_pubkey" | "dividend_per_token" | "last_updated_ts" | "bump", ExtArgs["result"]["dividendPda"]>
 export type DividendPdaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }
@@ -510,8 +522,8 @@ export type $DividendPdaPayload<ExtArgs extends runtime.Types.Extensions.Interna
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     dividend_pubkey: string
-    dividen_per_token: number
-    last_updated_ts: Date
+    dividend_per_token: bigint
+    last_updated_ts: Date | null
     bump: number
   }, ExtArgs["result"]["dividendPda"]>
   composites: {}
@@ -938,7 +950,7 @@ export interface Prisma__DividendPdaClient<T, Null = never, ExtArgs extends runt
  */
 export interface DividendPdaFieldRefs {
   readonly dividend_pubkey: Prisma.FieldRef<"DividendPda", 'String'>
-  readonly dividen_per_token: Prisma.FieldRef<"DividendPda", 'Int'>
+  readonly dividend_per_token: Prisma.FieldRef<"DividendPda", 'BigInt'>
   readonly last_updated_ts: Prisma.FieldRef<"DividendPda", 'DateTime'>
   readonly bump: Prisma.FieldRef<"DividendPda", 'Int'>
 }

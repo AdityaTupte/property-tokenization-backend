@@ -252,8 +252,8 @@ model PropertySystemAccount {
 
 model DividendPda {
   dividend_pubkey     String                @id
-  dividen_per_token   Int
-  last_updated_ts     DateTime              @default(now())
+  dividend_per_token   BigInt
+  last_updated_ts     DateTime?              
   bump                Int
   property_system_key PropertySystemAccount @relation(fields: [dividend_pubkey], references: [dividend])
 }

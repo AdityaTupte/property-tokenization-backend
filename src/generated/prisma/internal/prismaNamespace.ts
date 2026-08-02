@@ -3628,7 +3628,7 @@ export type PropertySystemAccountScalarFieldEnum = (typeof PropertySystemAccount
 
 export const DividendPdaScalarFieldEnum = {
   dividend_pubkey: 'dividend_pubkey',
-  dividen_per_token: 'dividen_per_token',
+  dividend_per_token: 'dividend_per_token',
   last_updated_ts: 'last_updated_ts',
   bump: 'bump'
 } as const
@@ -4090,20 +4090,6 @@ export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'FundType'
- */
-export type EnumFundTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FundType'>
-    
-
-
-/**
- * Reference to a field of type 'FundType[]'
- */
-export type ListEnumFundTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FundType[]'>
-    
-
-
-/**
  * Reference to a field of type 'BigInt'
  */
 export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
@@ -4114,6 +4100,20 @@ export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'BigInt[]'
  */
 export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+/**
+ * Reference to a field of type 'FundType'
+ */
+export type EnumFundTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FundType'>
+    
+
+
+/**
+ * Reference to a field of type 'FundType[]'
+ */
+export type ListEnumFundTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FundType[]'>
     
 
 

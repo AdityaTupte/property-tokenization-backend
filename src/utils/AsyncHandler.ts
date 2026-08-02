@@ -1,6 +1,7 @@
 import type { NextFunction,Response,RequestHandler, Request } from "express"
 import { ApiError } from "./ApiError.js";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/client";
+import { PrismaClientKnownRequestError, PrismaClientValidationError } from "@prisma/client/runtime/client";
+
 
 
 const asyncHandler =
@@ -21,7 +22,43 @@ const asyncHandler =
         });
         return;
   }
-      // if(error instanceof PrismaClientKnownRequestError)
+
+      if (error instanceof PrismaClientKnownRequestError) {
+      switch (error.code) {
+        case "P2002":
+
+        res.status(409).json({
+          message:error.meta,
+          success: false,
+          cause:error.cause 
+        })
+         break
+        case "P2003":
+          res.status(400).json({
+          message:error.meta,
+          success: false,
+          cause:error.cause
+        })
+          break
+        case "P2025":
+          res.status(404).json({
+          message:error.meta,
+          success: false,
+          cause:error.cause
+        })
+         break
+        default:
+          res.status(400).json({
+          message:`Database error code: ${error.code}`  
+        })
+      }
+      return;
+    }
+
+    if (error instanceof PrismaClientValidationError) {
+      throw { status: 400, message: "Invalid data format or missing required fields." };
+    }
+     
   
 
         res.status(500).json({

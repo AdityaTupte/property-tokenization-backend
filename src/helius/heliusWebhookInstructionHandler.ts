@@ -19,9 +19,9 @@ export const heliusRaWDataHandler = asyncHandler(
       new ApiResponse(
         200,
         {
-          zod: true,
+         message:"instruction Parse SuccessFully"
         },
-        "thankyou"
+       
       )
     );
   }

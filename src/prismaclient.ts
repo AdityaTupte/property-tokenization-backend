@@ -20,6 +20,11 @@ const adapter = new PrismaPg({
 
 export const prisma = new PrismaClient({ adapter });
 
+// prisma.$on("query", (e) => {
+//   console.log(`${e.duration} ms`);
+//   console.log(e.query);
+// });
+
 export const connectionDB = async () => {
   try {
     await prisma.$connect();

@@ -18,7 +18,7 @@ export const heliusConnection =async () => {
       limit: 50,
       sortBy: { sortBy: "created", sortDirection: "asc" },}
     );
-  console.log(assets);
+  // console.log(assets);
   } catch (error) {
     console.error("Error:", error);
   }

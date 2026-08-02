@@ -344,10 +344,6 @@ export type TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TreasuryUpdateToOneWithWhereWithoutProperty_system_keyInput, Prisma.TreasuryUpdateWithoutProperty_system_keyInput>, Prisma.TreasuryUncheckedUpdateWithoutProperty_system_keyInput>
 }
 
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Date | string | null
-}
-
 export type TreasuryCreateWithoutProperty_system_keyInput = {
   last_distribution?: Date | string | null
   bump: number

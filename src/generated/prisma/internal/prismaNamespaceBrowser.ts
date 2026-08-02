@@ -282,7 +282,7 @@ export type PropertySystemAccountScalarFieldEnum = (typeof PropertySystemAccount
 
 export const DividendPdaScalarFieldEnum = {
   dividend_pubkey: 'dividend_pubkey',
-  dividen_per_token: 'dividen_per_token',
+  dividend_per_token: 'dividend_per_token',
   last_updated_ts: 'last_updated_ts',
   bump: 'bump'
 } as const

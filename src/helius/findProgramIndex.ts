@@ -3,7 +3,6 @@ import z from "zod";
 import { ApiError } from "../utils/ApiError";
 import bs58 from "bs58";
 import { InstructionRegistry } from "../idl.schema/generated/instructionRegistry";
-import { parse } from "node:path";
 import { solanaInstructionHandler } from "./instructionHandlerForSolanaProgram";
 
 export type messageSchema = z.infer<typeof messageSchema>;
