@@ -49,3 +49,32 @@ export type ReinvestmentType =  {
  bump: number;
 }
 
+
+export type trusteeRegistry ={
+
+   
+ propertySystemAccount: anchor.web3.PublicKey;
+ currentNumberOfTrustees: number;
+ totalTrustees: number;
+ voteThreshold: number;
+ claimDeadlineTs: anchor.BN;
+ totalSalaryAllocated: anchor.BN;
+ bump: number;
+}
+
+
+export type arbitratorRegistry = {
+
+  
+ propertySystemAccount: anchor.web3.PublicKey;
+ currentNumberOfArbitrators: number;
+ totalArbitrators: number;
+ voteThreshold: number;
+ claimDeadlineTs: anchor.BN;
+ totalSalaryAllocated: anchor.BN;
+ bump: number;
+
+
+}
+
+

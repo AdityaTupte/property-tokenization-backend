@@ -2,16 +2,10 @@ import type {
   Instructions,
   messageSchema,
 } from "../../../helius/findProgramIndex";
-
 import { address } from "@solana/kit";
-
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
-import type { PropertySystemAccount } from "../../../generated/prisma/client";
-// import { prisma } from "../../../prismaclient";
 import { GenericPda } from "../../../utils/genericPda";
-
 import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
 
 export const handleCreatePropertySystem = async (
   message: messageSchema,
@@ -71,6 +65,26 @@ export const handleCreatePropertySystem = async (
     "reinvestmentPda",
     reinvestmentAddress
   )) as PdaTypes.ReinvestmentType;
+
+  
+  const trusteeRegistryAddress = address(
+    message.accountKeys.at(instruction.accounts[7]!)!
+  );
+
+  const trusteeRegistryaccount:PdaTypes.trusteeRegistry  = await GenericPda(
+    "trusteeRegistry",
+    trusteeRegistryAddress
+  ) as PdaTypes.trusteeRegistry
+
+
+  const AribtrarRegistryAddress = address(
+    message.accountKeys.at(instruction.accounts[8]!)!
+  );
+
+  const AribtratorRegistryaccount:PdaTypes.arbitratorRegistry  = await GenericPda(
+    "arbitratorRegistry",
+    AribtrarRegistryAddress
+  ) as PdaTypes.arbitratorRegistry
 
   const transaction = await prisma.$transaction(async (tx) => {
     await tx.propertySystemAccount.create({
@@ -144,5 +158,36 @@ export const handleCreatePropertySystem = async (
             : null,
       },
     });
+
+    await tx.trusteeRegistry.create({
+      data:{
+        trustee_registry_pubkey :propertySystemAccount.trusteeRegistry.toString(),
+        current_number_of_trustees:trusteeRegistryaccount.currentNumberOfTrustees,
+        total_trustees:trusteeRegistryaccount.totalTrustees,
+        total_salary_allocated:BigInt(trusteeRegistryaccount.totalSalaryAllocated.toString()),
+        vote_threshold:trusteeRegistryaccount.voteThreshold,
+        bump:trusteeRegistryaccount.bump,
+        claim_deadline_ts:trusteeRegistryaccount.claimDeadlineTs.toNumber() !== 0
+            ? new Date(trusteeRegistryaccount.claimDeadlineTs.toNumber() * 1000)
+            : null,
+      }
+    })
+
+
+    await tx.arbitrarRegistry.create({
+      data:{
+       arbitrar_registry_pubkey:propertySystemAccount.arbitratorRegistry.toString(),
+       current_number_of_arbitrar:AribtratorRegistryaccount.currentNumberOfArbitrators,
+       total_arbitrar:AribtratorRegistryaccount.totalArbitrators,
+       total_salary_allocated:BigInt(AribtratorRegistryaccount.totalSalaryAllocated.toString()),
+       vote_threshold:AribtratorRegistryaccount.voteThreshold,
+       bump:AribtratorRegistryaccount.bump,
+       claim_deadline_ts:AribtratorRegistryaccount.claimDeadlineTs.toNumber() !== 0 
+       ? new Date(AribtratorRegistryaccount.claimDeadlineTs.toNumber())
+       : null
+      }
+    })
+
+
   });
 };

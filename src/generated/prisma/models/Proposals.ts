@@ -694,14 +694,6 @@ export type ProposalsUpdatearbitrar_approvalsInput = {
   push?: string | string[]
 }
 
-export type NullableBigIntFieldUpdateOperationsInput = {
-  set?: bigint | number | null
-  increment?: bigint | number
-  decrement?: bigint | number
-  multiply?: bigint | number
-  divide?: bigint | number
-}
-
 export type EnumProposalTypeFieldUpdateOperationsInput = {
   set?: $Enums.ProposalType
 }

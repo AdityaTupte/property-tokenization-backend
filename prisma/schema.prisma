@@ -259,21 +259,19 @@ model DividendPda {
 }
 
 model Trustees {
-  version                 Int             @default(autoincrement())
   public_key              String
   trustee_registry_pubkey String
   registry                TrusteeRegistry @relation(fields: [trustee_registry_pubkey], references: [trustee_registry_pubkey])
 
-  @@unique([version, public_key, trustee_registry_pubkey])
+  @@id([ public_key, trustee_registry_pubkey])
 }
 
 model Arbitrar {
-  version                  Int              @default(autoincrement())
   public_key               String
   arbitrar_registry_pubkey String
   registry                 ArbitrarRegistry @relation(fields: [arbitrar_registry_pubkey], references: [arbitrar_registry_pubkey])
 
-  @@unique([version, public_key, arbitrar_registry_pubkey])
+  @@id([ public_key, arbitrar_registry_pubkey])
 }
 
 model TrusteeRegistry {
@@ -281,8 +279,8 @@ model TrusteeRegistry {
   current_number_of_trustees Int
   total_trustees             Int
   vote_threshold             Int
-  claim_deadline_ts          DateTime              @default(now())
-  total_salary_allocated     Int
+  claim_deadline_ts          DateTime?             
+  total_salary_allocated     BigInt?
   bump                       Int
   property_system_key        PropertySystemAccount @relation(fields: [trustee_registry_pubkey], references: [trustee_registry])
   trustees                   Trustees[]
@@ -293,8 +291,8 @@ model ArbitrarRegistry {
   current_number_of_arbitrar Int
   total_arbitrar             Int
   vote_threshold             Int
-  claim_deadline_ts          DateTime              @default(now())
-  total_salary_allocated     Int
+  claim_deadline_ts          DateTime?              @default(now())
+  total_salary_allocated     BigInt?
   bump                       Int
   property_system_key        PropertySystemAccount @relation(fields: [arbitrar_registry_pubkey], references: [arbitrator_registry])
   arbitrars                  Arbitrar[]

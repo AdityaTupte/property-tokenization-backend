@@ -3,9 +3,11 @@ import { ApiError } from "../utils/ApiError";
 import type { InstructionHandler } from "../types&interface/solanaInstrcution.type";
 
 import { handleCreatePropertySystem } from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/createPropertySystem.controller";
+import { handleAddTrustee } from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/addTrustee.controller";
 
 const instructionMap: Record<string, InstructionHandler> = {
   create_property_system: handleCreatePropertySystem,
+  add_trustee : handleAddTrustee
 };
 
 export const solanaInstructionHandler =  (
@@ -16,4 +18,5 @@ export const solanaInstructionHandler =  (
   if (!handler) throw new ApiError(500, "No instructionHandler Available");
 
   return handler;
+
 };
