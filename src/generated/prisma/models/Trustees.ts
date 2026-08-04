@@ -20,62 +20,38 @@ export type TrusteesModel = runtime.Types.Result.DefaultSelection<Prisma.$Truste
 
 export type AggregateTrustees = {
   _count: TrusteesCountAggregateOutputType | null
-  _avg: TrusteesAvgAggregateOutputType | null
-  _sum: TrusteesSumAggregateOutputType | null
   _min: TrusteesMinAggregateOutputType | null
   _max: TrusteesMaxAggregateOutputType | null
 }
 
-export type TrusteesAvgAggregateOutputType = {
-  version: number | null
-}
-
-export type TrusteesSumAggregateOutputType = {
-  version: number | null
-}
-
 export type TrusteesMinAggregateOutputType = {
-  version: number | null
   public_key: string | null
   trustee_registry_pubkey: string | null
 }
 
 export type TrusteesMaxAggregateOutputType = {
-  version: number | null
   public_key: string | null
   trustee_registry_pubkey: string | null
 }
 
 export type TrusteesCountAggregateOutputType = {
-  version: number
   public_key: number
   trustee_registry_pubkey: number
   _all: number
 }
 
 
-export type TrusteesAvgAggregateInputType = {
-  version?: true
-}
-
-export type TrusteesSumAggregateInputType = {
-  version?: true
-}
-
 export type TrusteesMinAggregateInputType = {
-  version?: true
   public_key?: true
   trustee_registry_pubkey?: true
 }
 
 export type TrusteesMaxAggregateInputType = {
-  version?: true
   public_key?: true
   trustee_registry_pubkey?: true
 }
 
 export type TrusteesCountAggregateInputType = {
-  version?: true
   public_key?: true
   trustee_registry_pubkey?: true
   _all?: true
@@ -119,18 +95,6 @@ export type TrusteesAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: TrusteesAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: TrusteesSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: TrusteesMinAggregateInputType
@@ -161,19 +125,14 @@ export type TrusteesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: TrusteesCountAggregateInputType | true
-  _avg?: TrusteesAvgAggregateInputType
-  _sum?: TrusteesSumAggregateInputType
   _min?: TrusteesMinAggregateInputType
   _max?: TrusteesMaxAggregateInputType
 }
 
 export type TrusteesGroupByOutputType = {
-  version: number
   public_key: string
   trustee_registry_pubkey: string
   _count: TrusteesCountAggregateOutputType | null
-  _avg: TrusteesAvgAggregateOutputType | null
-  _sum: TrusteesSumAggregateOutputType | null
   _min: TrusteesMinAggregateOutputType | null
   _max: TrusteesMaxAggregateOutputType | null
 }
@@ -197,121 +156,95 @@ export type TrusteesWhereInput = {
   AND?: Prisma.TrusteesWhereInput | Prisma.TrusteesWhereInput[]
   OR?: Prisma.TrusteesWhereInput[]
   NOT?: Prisma.TrusteesWhereInput | Prisma.TrusteesWhereInput[]
-  version?: Prisma.IntFilter<"Trustees"> | number
   public_key?: Prisma.StringFilter<"Trustees"> | string
   trustee_registry_pubkey?: Prisma.StringFilter<"Trustees"> | string
   registry?: Prisma.XOR<Prisma.TrusteeRegistryScalarRelationFilter, Prisma.TrusteeRegistryWhereInput>
 }
 
 export type TrusteesOrderByWithRelationInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   trustee_registry_pubkey?: Prisma.SortOrder
   registry?: Prisma.TrusteeRegistryOrderByWithRelationInput
 }
 
 export type TrusteesWhereUniqueInput = Prisma.AtLeast<{
-  version_public_key_trustee_registry_pubkey?: Prisma.TrusteesVersionPublic_keyTrustee_registry_pubkeyCompoundUniqueInput
+  public_key_trustee_registry_pubkey?: Prisma.TrusteesPublic_keyTrustee_registry_pubkeyCompoundUniqueInput
   AND?: Prisma.TrusteesWhereInput | Prisma.TrusteesWhereInput[]
   OR?: Prisma.TrusteesWhereInput[]
   NOT?: Prisma.TrusteesWhereInput | Prisma.TrusteesWhereInput[]
-  version?: Prisma.IntFilter<"Trustees"> | number
   public_key?: Prisma.StringFilter<"Trustees"> | string
   trustee_registry_pubkey?: Prisma.StringFilter<"Trustees"> | string
   registry?: Prisma.XOR<Prisma.TrusteeRegistryScalarRelationFilter, Prisma.TrusteeRegistryWhereInput>
-}, "version_public_key_trustee_registry_pubkey">
+}, "public_key_trustee_registry_pubkey">
 
 export type TrusteesOrderByWithAggregationInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   trustee_registry_pubkey?: Prisma.SortOrder
   _count?: Prisma.TrusteesCountOrderByAggregateInput
-  _avg?: Prisma.TrusteesAvgOrderByAggregateInput
   _max?: Prisma.TrusteesMaxOrderByAggregateInput
   _min?: Prisma.TrusteesMinOrderByAggregateInput
-  _sum?: Prisma.TrusteesSumOrderByAggregateInput
 }
 
 export type TrusteesScalarWhereWithAggregatesInput = {
   AND?: Prisma.TrusteesScalarWhereWithAggregatesInput | Prisma.TrusteesScalarWhereWithAggregatesInput[]
   OR?: Prisma.TrusteesScalarWhereWithAggregatesInput[]
   NOT?: Prisma.TrusteesScalarWhereWithAggregatesInput | Prisma.TrusteesScalarWhereWithAggregatesInput[]
-  version?: Prisma.IntWithAggregatesFilter<"Trustees"> | number
   public_key?: Prisma.StringWithAggregatesFilter<"Trustees"> | string
   trustee_registry_pubkey?: Prisma.StringWithAggregatesFilter<"Trustees"> | string
 }
 
 export type TrusteesCreateInput = {
-  version?: number
   public_key: string
   registry: Prisma.TrusteeRegistryCreateNestedOneWithoutTrusteesInput
 }
 
 export type TrusteesUncheckedCreateInput = {
-  version?: number
   public_key: string
   trustee_registry_pubkey: string
 }
 
 export type TrusteesUpdateInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   registry?: Prisma.TrusteeRegistryUpdateOneRequiredWithoutTrusteesNestedInput
 }
 
 export type TrusteesUncheckedUpdateInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   trustee_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TrusteesCreateManyInput = {
-  version?: number
   public_key: string
   trustee_registry_pubkey: string
 }
 
 export type TrusteesUpdateManyMutationInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TrusteesUncheckedUpdateManyInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   trustee_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type TrusteesVersionPublic_keyTrustee_registry_pubkeyCompoundUniqueInput = {
-  version: number
+export type TrusteesPublic_keyTrustee_registry_pubkeyCompoundUniqueInput = {
   public_key: string
   trustee_registry_pubkey: string
 }
 
 export type TrusteesCountOrderByAggregateInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   trustee_registry_pubkey?: Prisma.SortOrder
 }
 
-export type TrusteesAvgOrderByAggregateInput = {
-  version?: Prisma.SortOrder
-}
-
 export type TrusteesMaxOrderByAggregateInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   trustee_registry_pubkey?: Prisma.SortOrder
 }
 
 export type TrusteesMinOrderByAggregateInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   trustee_registry_pubkey?: Prisma.SortOrder
-}
-
-export type TrusteesSumOrderByAggregateInput = {
-  version?: Prisma.SortOrder
 }
 
 export type TrusteesListRelationFilter = {
@@ -367,12 +300,10 @@ export type TrusteesUncheckedUpdateManyWithoutRegistryNestedInput = {
 }
 
 export type TrusteesCreateWithoutRegistryInput = {
-  version?: number
   public_key: string
 }
 
 export type TrusteesUncheckedCreateWithoutRegistryInput = {
-  version?: number
   public_key: string
 }
 
@@ -406,61 +337,52 @@ export type TrusteesScalarWhereInput = {
   AND?: Prisma.TrusteesScalarWhereInput | Prisma.TrusteesScalarWhereInput[]
   OR?: Prisma.TrusteesScalarWhereInput[]
   NOT?: Prisma.TrusteesScalarWhereInput | Prisma.TrusteesScalarWhereInput[]
-  version?: Prisma.IntFilter<"Trustees"> | number
   public_key?: Prisma.StringFilter<"Trustees"> | string
   trustee_registry_pubkey?: Prisma.StringFilter<"Trustees"> | string
 }
 
 export type TrusteesCreateManyRegistryInput = {
-  version?: number
   public_key: string
 }
 
 export type TrusteesUpdateWithoutRegistryInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TrusteesUncheckedUpdateWithoutRegistryInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type TrusteesUncheckedUpdateManyWithoutRegistryInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
 
 export type TrusteesSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  version?: boolean
   public_key?: boolean
   trustee_registry_pubkey?: boolean
   registry?: boolean | Prisma.TrusteeRegistryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trustees"]>
 
 export type TrusteesSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  version?: boolean
   public_key?: boolean
   trustee_registry_pubkey?: boolean
   registry?: boolean | Prisma.TrusteeRegistryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trustees"]>
 
 export type TrusteesSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  version?: boolean
   public_key?: boolean
   trustee_registry_pubkey?: boolean
   registry?: boolean | Prisma.TrusteeRegistryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trustees"]>
 
 export type TrusteesSelectScalar = {
-  version?: boolean
   public_key?: boolean
   trustee_registry_pubkey?: boolean
 }
 
-export type TrusteesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"version" | "public_key" | "trustee_registry_pubkey", ExtArgs["result"]["trustees"]>
+export type TrusteesOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "trustee_registry_pubkey", ExtArgs["result"]["trustees"]>
 export type TrusteesInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   registry?: boolean | Prisma.TrusteeRegistryDefaultArgs<ExtArgs>
 }
@@ -477,7 +399,6 @@ export type $TrusteesPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     registry: Prisma.$TrusteeRegistryPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    version: number
     public_key: string
     trustee_registry_pubkey: string
   }, ExtArgs["result"]["trustees"]>
@@ -563,8 +484,8 @@ export interface TrusteesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * // Get first 10 Trustees
    * const trustees = await prisma.trustees.findMany({ take: 10 })
    * 
-   * // Only select the `version`
-   * const trusteesWithVersionOnly = await prisma.trustees.findMany({ select: { version: true } })
+   * // Only select the `public_key`
+   * const trusteesWithPublic_keyOnly = await prisma.trustees.findMany({ select: { public_key: true } })
    * 
    */
   findMany<T extends TrusteesFindManyArgs>(args?: Prisma.SelectSubset<T, TrusteesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TrusteesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -608,9 +529,9 @@ export interface TrusteesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   ]
    * })
    * 
-   * // Create many Trustees and only return the `version`
-   * const trusteesWithVersionOnly = await prisma.trustees.createManyAndReturn({
-   *   select: { version: true },
+   * // Create many Trustees and only return the `public_key`
+   * const trusteesWithPublic_keyOnly = await prisma.trustees.createManyAndReturn({
+   *   select: { public_key: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -699,9 +620,9 @@ export interface TrusteesDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   ]
    * })
    * 
-   * // Update zero or more Trustees and only return the `version`
-   * const trusteesWithVersionOnly = await prisma.trustees.updateManyAndReturn({
-   *   select: { version: true },
+   * // Update zero or more Trustees and only return the `public_key`
+   * const trusteesWithPublic_keyOnly = await prisma.trustees.updateManyAndReturn({
+   *   select: { public_key: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -904,7 +825,6 @@ export interface Prisma__TrusteesClient<T, Null = never, ExtArgs extends runtime
  * Fields of the Trustees model
  */
 export interface TrusteesFieldRefs {
-  readonly version: Prisma.FieldRef<"Trustees", 'Int'>
   readonly public_key: Prisma.FieldRef<"Trustees", 'String'>
   readonly trustee_registry_pubkey: Prisma.FieldRef<"Trustees", 'String'>
 }

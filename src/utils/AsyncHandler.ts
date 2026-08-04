@@ -49,6 +49,7 @@ const asyncHandler =
          break
         default:
           res.status(400).json({
+          error:error,
           message:`Database error code: ${error.code}`  
         })
       }

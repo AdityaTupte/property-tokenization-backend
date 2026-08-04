@@ -291,7 +291,6 @@ export type DividendPdaScalarFieldEnum = (typeof DividendPdaScalarFieldEnum)[key
 
 
 export const TrusteesScalarFieldEnum = {
-  version: 'version',
   public_key: 'public_key',
   trustee_registry_pubkey: 'trustee_registry_pubkey'
 } as const
@@ -300,7 +299,6 @@ export type TrusteesScalarFieldEnum = (typeof TrusteesScalarFieldEnum)[keyof typ
 
 
 export const ArbitrarScalarFieldEnum = {
-  version: 'version',
   public_key: 'public_key',
   arbitrar_registry_pubkey: 'arbitrar_registry_pubkey'
 } as const

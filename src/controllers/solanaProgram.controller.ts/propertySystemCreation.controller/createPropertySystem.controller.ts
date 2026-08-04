@@ -86,6 +86,9 @@ export const handleCreatePropertySystem = async (
     AribtrarRegistryAddress
   ) as PdaTypes.arbitratorRegistry
 
+  console.log(trusteeRegistryaccount);
+  
+
   const transaction = await prisma.$transaction(async (tx) => {
     await tx.propertySystemAccount.create({
       data: {
@@ -190,4 +193,7 @@ export const handleCreatePropertySystem = async (
 
 
   });
+
+
+
 };

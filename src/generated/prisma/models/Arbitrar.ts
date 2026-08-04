@@ -20,62 +20,38 @@ export type ArbitrarModel = runtime.Types.Result.DefaultSelection<Prisma.$Arbitr
 
 export type AggregateArbitrar = {
   _count: ArbitrarCountAggregateOutputType | null
-  _avg: ArbitrarAvgAggregateOutputType | null
-  _sum: ArbitrarSumAggregateOutputType | null
   _min: ArbitrarMinAggregateOutputType | null
   _max: ArbitrarMaxAggregateOutputType | null
 }
 
-export type ArbitrarAvgAggregateOutputType = {
-  version: number | null
-}
-
-export type ArbitrarSumAggregateOutputType = {
-  version: number | null
-}
-
 export type ArbitrarMinAggregateOutputType = {
-  version: number | null
   public_key: string | null
   arbitrar_registry_pubkey: string | null
 }
 
 export type ArbitrarMaxAggregateOutputType = {
-  version: number | null
   public_key: string | null
   arbitrar_registry_pubkey: string | null
 }
 
 export type ArbitrarCountAggregateOutputType = {
-  version: number
   public_key: number
   arbitrar_registry_pubkey: number
   _all: number
 }
 
 
-export type ArbitrarAvgAggregateInputType = {
-  version?: true
-}
-
-export type ArbitrarSumAggregateInputType = {
-  version?: true
-}
-
 export type ArbitrarMinAggregateInputType = {
-  version?: true
   public_key?: true
   arbitrar_registry_pubkey?: true
 }
 
 export type ArbitrarMaxAggregateInputType = {
-  version?: true
   public_key?: true
   arbitrar_registry_pubkey?: true
 }
 
 export type ArbitrarCountAggregateInputType = {
-  version?: true
   public_key?: true
   arbitrar_registry_pubkey?: true
   _all?: true
@@ -119,18 +95,6 @@ export type ArbitrarAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: ArbitrarAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: ArbitrarSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: ArbitrarMinAggregateInputType
@@ -161,19 +125,14 @@ export type ArbitrarGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: ArbitrarCountAggregateInputType | true
-  _avg?: ArbitrarAvgAggregateInputType
-  _sum?: ArbitrarSumAggregateInputType
   _min?: ArbitrarMinAggregateInputType
   _max?: ArbitrarMaxAggregateInputType
 }
 
 export type ArbitrarGroupByOutputType = {
-  version: number
   public_key: string
   arbitrar_registry_pubkey: string
   _count: ArbitrarCountAggregateOutputType | null
-  _avg: ArbitrarAvgAggregateOutputType | null
-  _sum: ArbitrarSumAggregateOutputType | null
   _min: ArbitrarMinAggregateOutputType | null
   _max: ArbitrarMaxAggregateOutputType | null
 }
@@ -197,121 +156,95 @@ export type ArbitrarWhereInput = {
   AND?: Prisma.ArbitrarWhereInput | Prisma.ArbitrarWhereInput[]
   OR?: Prisma.ArbitrarWhereInput[]
   NOT?: Prisma.ArbitrarWhereInput | Prisma.ArbitrarWhereInput[]
-  version?: Prisma.IntFilter<"Arbitrar"> | number
   public_key?: Prisma.StringFilter<"Arbitrar"> | string
   arbitrar_registry_pubkey?: Prisma.StringFilter<"Arbitrar"> | string
   registry?: Prisma.XOR<Prisma.ArbitrarRegistryScalarRelationFilter, Prisma.ArbitrarRegistryWhereInput>
 }
 
 export type ArbitrarOrderByWithRelationInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   arbitrar_registry_pubkey?: Prisma.SortOrder
   registry?: Prisma.ArbitrarRegistryOrderByWithRelationInput
 }
 
 export type ArbitrarWhereUniqueInput = Prisma.AtLeast<{
-  version_public_key_arbitrar_registry_pubkey?: Prisma.ArbitrarVersionPublic_keyArbitrar_registry_pubkeyCompoundUniqueInput
+  public_key_arbitrar_registry_pubkey?: Prisma.ArbitrarPublic_keyArbitrar_registry_pubkeyCompoundUniqueInput
   AND?: Prisma.ArbitrarWhereInput | Prisma.ArbitrarWhereInput[]
   OR?: Prisma.ArbitrarWhereInput[]
   NOT?: Prisma.ArbitrarWhereInput | Prisma.ArbitrarWhereInput[]
-  version?: Prisma.IntFilter<"Arbitrar"> | number
   public_key?: Prisma.StringFilter<"Arbitrar"> | string
   arbitrar_registry_pubkey?: Prisma.StringFilter<"Arbitrar"> | string
   registry?: Prisma.XOR<Prisma.ArbitrarRegistryScalarRelationFilter, Prisma.ArbitrarRegistryWhereInput>
-}, "version_public_key_arbitrar_registry_pubkey">
+}, "public_key_arbitrar_registry_pubkey">
 
 export type ArbitrarOrderByWithAggregationInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   arbitrar_registry_pubkey?: Prisma.SortOrder
   _count?: Prisma.ArbitrarCountOrderByAggregateInput
-  _avg?: Prisma.ArbitrarAvgOrderByAggregateInput
   _max?: Prisma.ArbitrarMaxOrderByAggregateInput
   _min?: Prisma.ArbitrarMinOrderByAggregateInput
-  _sum?: Prisma.ArbitrarSumOrderByAggregateInput
 }
 
 export type ArbitrarScalarWhereWithAggregatesInput = {
   AND?: Prisma.ArbitrarScalarWhereWithAggregatesInput | Prisma.ArbitrarScalarWhereWithAggregatesInput[]
   OR?: Prisma.ArbitrarScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ArbitrarScalarWhereWithAggregatesInput | Prisma.ArbitrarScalarWhereWithAggregatesInput[]
-  version?: Prisma.IntWithAggregatesFilter<"Arbitrar"> | number
   public_key?: Prisma.StringWithAggregatesFilter<"Arbitrar"> | string
   arbitrar_registry_pubkey?: Prisma.StringWithAggregatesFilter<"Arbitrar"> | string
 }
 
 export type ArbitrarCreateInput = {
-  version?: number
   public_key: string
   registry: Prisma.ArbitrarRegistryCreateNestedOneWithoutArbitrarsInput
 }
 
 export type ArbitrarUncheckedCreateInput = {
-  version?: number
   public_key: string
   arbitrar_registry_pubkey: string
 }
 
 export type ArbitrarUpdateInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   registry?: Prisma.ArbitrarRegistryUpdateOneRequiredWithoutArbitrarsNestedInput
 }
 
 export type ArbitrarUncheckedUpdateInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArbitrarCreateManyInput = {
-  version?: number
   public_key: string
   arbitrar_registry_pubkey: string
 }
 
 export type ArbitrarUpdateManyMutationInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArbitrarUncheckedUpdateManyInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_registry_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
-export type ArbitrarVersionPublic_keyArbitrar_registry_pubkeyCompoundUniqueInput = {
-  version: number
+export type ArbitrarPublic_keyArbitrar_registry_pubkeyCompoundUniqueInput = {
   public_key: string
   arbitrar_registry_pubkey: string
 }
 
 export type ArbitrarCountOrderByAggregateInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   arbitrar_registry_pubkey?: Prisma.SortOrder
 }
 
-export type ArbitrarAvgOrderByAggregateInput = {
-  version?: Prisma.SortOrder
-}
-
 export type ArbitrarMaxOrderByAggregateInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   arbitrar_registry_pubkey?: Prisma.SortOrder
 }
 
 export type ArbitrarMinOrderByAggregateInput = {
-  version?: Prisma.SortOrder
   public_key?: Prisma.SortOrder
   arbitrar_registry_pubkey?: Prisma.SortOrder
-}
-
-export type ArbitrarSumOrderByAggregateInput = {
-  version?: Prisma.SortOrder
 }
 
 export type ArbitrarListRelationFilter = {
@@ -367,12 +300,10 @@ export type ArbitrarUncheckedUpdateManyWithoutRegistryNestedInput = {
 }
 
 export type ArbitrarCreateWithoutRegistryInput = {
-  version?: number
   public_key: string
 }
 
 export type ArbitrarUncheckedCreateWithoutRegistryInput = {
-  version?: number
   public_key: string
 }
 
@@ -406,61 +337,52 @@ export type ArbitrarScalarWhereInput = {
   AND?: Prisma.ArbitrarScalarWhereInput | Prisma.ArbitrarScalarWhereInput[]
   OR?: Prisma.ArbitrarScalarWhereInput[]
   NOT?: Prisma.ArbitrarScalarWhereInput | Prisma.ArbitrarScalarWhereInput[]
-  version?: Prisma.IntFilter<"Arbitrar"> | number
   public_key?: Prisma.StringFilter<"Arbitrar"> | string
   arbitrar_registry_pubkey?: Prisma.StringFilter<"Arbitrar"> | string
 }
 
 export type ArbitrarCreateManyRegistryInput = {
-  version?: number
   public_key: string
 }
 
 export type ArbitrarUpdateWithoutRegistryInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArbitrarUncheckedUpdateWithoutRegistryInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ArbitrarUncheckedUpdateManyWithoutRegistryInput = {
-  version?: Prisma.IntFieldUpdateOperationsInput | number
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
 
 export type ArbitrarSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  version?: boolean
   public_key?: boolean
   arbitrar_registry_pubkey?: boolean
   registry?: boolean | Prisma.ArbitrarRegistryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrar"]>
 
 export type ArbitrarSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  version?: boolean
   public_key?: boolean
   arbitrar_registry_pubkey?: boolean
   registry?: boolean | Prisma.ArbitrarRegistryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrar"]>
 
 export type ArbitrarSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  version?: boolean
   public_key?: boolean
   arbitrar_registry_pubkey?: boolean
   registry?: boolean | Prisma.ArbitrarRegistryDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrar"]>
 
 export type ArbitrarSelectScalar = {
-  version?: boolean
   public_key?: boolean
   arbitrar_registry_pubkey?: boolean
 }
 
-export type ArbitrarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"version" | "public_key" | "arbitrar_registry_pubkey", ExtArgs["result"]["arbitrar"]>
+export type ArbitrarOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "arbitrar_registry_pubkey", ExtArgs["result"]["arbitrar"]>
 export type ArbitrarInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   registry?: boolean | Prisma.ArbitrarRegistryDefaultArgs<ExtArgs>
 }
@@ -477,7 +399,6 @@ export type $ArbitrarPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     registry: Prisma.$ArbitrarRegistryPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    version: number
     public_key: string
     arbitrar_registry_pubkey: string
   }, ExtArgs["result"]["arbitrar"]>
@@ -563,8 +484,8 @@ export interface ArbitrarDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    * // Get first 10 Arbitrars
    * const arbitrars = await prisma.arbitrar.findMany({ take: 10 })
    * 
-   * // Only select the `version`
-   * const arbitrarWithVersionOnly = await prisma.arbitrar.findMany({ select: { version: true } })
+   * // Only select the `public_key`
+   * const arbitrarWithPublic_keyOnly = await prisma.arbitrar.findMany({ select: { public_key: true } })
    * 
    */
   findMany<T extends ArbitrarFindManyArgs>(args?: Prisma.SelectSubset<T, ArbitrarFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArbitrarPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -608,9 +529,9 @@ export interface ArbitrarDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   ]
    * })
    * 
-   * // Create many Arbitrars and only return the `version`
-   * const arbitrarWithVersionOnly = await prisma.arbitrar.createManyAndReturn({
-   *   select: { version: true },
+   * // Create many Arbitrars and only return the `public_key`
+   * const arbitrarWithPublic_keyOnly = await prisma.arbitrar.createManyAndReturn({
+   *   select: { public_key: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -699,9 +620,9 @@ export interface ArbitrarDelegate<ExtArgs extends runtime.Types.Extensions.Inter
    *   ]
    * })
    * 
-   * // Update zero or more Arbitrars and only return the `version`
-   * const arbitrarWithVersionOnly = await prisma.arbitrar.updateManyAndReturn({
-   *   select: { version: true },
+   * // Update zero or more Arbitrars and only return the `public_key`
+   * const arbitrarWithPublic_keyOnly = await prisma.arbitrar.updateManyAndReturn({
+   *   select: { public_key: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -904,7 +825,6 @@ export interface Prisma__ArbitrarClient<T, Null = never, ExtArgs extends runtime
  * Fields of the Arbitrar model
  */
 export interface ArbitrarFieldRefs {
-  readonly version: Prisma.FieldRef<"Arbitrar", 'Int'>
   readonly public_key: Prisma.FieldRef<"Arbitrar", 'String'>
   readonly arbitrar_registry_pubkey: Prisma.FieldRef<"Arbitrar", 'String'>
 }
