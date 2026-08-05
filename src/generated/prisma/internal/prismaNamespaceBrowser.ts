@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   tranasction_history: 'tranasction_history',
+  Signature: 'Signature',
   User: 'User',
   admin: 'admin',
   CountryApprovalAuthority: 'CountryApprovalAuthority',
@@ -117,6 +118,13 @@ export const Tranasction_historyScalarFieldEnum = {
 } as const
 
 export type Tranasction_historyScalarFieldEnum = (typeof Tranasction_historyScalarFieldEnum)[keyof typeof Tranasction_historyScalarFieldEnum]
+
+
+export const SignatureScalarFieldEnum = {
+  signature: 'signature'
+} as const
+
+export type SignatureScalarFieldEnum = (typeof SignatureScalarFieldEnum)[keyof typeof SignatureScalarFieldEnum]
 
 
 export const UserScalarFieldEnum = {

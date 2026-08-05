@@ -398,6 +398,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   tranasction_history: 'tranasction_history',
+  Signature: 'Signature',
   User: 'User',
   admin: 'admin',
   CountryApprovalAuthority: 'CountryApprovalAuthority',
@@ -452,7 +453,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -527,6 +528,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.tranasction_historyCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.Tranasction_historyCountAggregateOutputType> | number
+        }
+      }
+    }
+    Signature: {
+      payload: Prisma.$SignaturePayload<ExtArgs>
+      fields: Prisma.SignatureFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SignatureFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SignatureFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>
+        }
+        findFirst: {
+          args: Prisma.SignatureFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SignatureFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>
+        }
+        findMany: {
+          args: Prisma.SignatureFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>[]
+        }
+        create: {
+          args: Prisma.SignatureCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>
+        }
+        createMany: {
+          args: Prisma.SignatureCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SignatureCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>[]
+        }
+        delete: {
+          args: Prisma.SignatureDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>
+        }
+        update: {
+          args: Prisma.SignatureUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>
+        }
+        deleteMany: {
+          args: Prisma.SignatureDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SignatureUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SignatureUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>[]
+        }
+        upsert: {
+          args: Prisma.SignatureUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SignaturePayload>
+        }
+        aggregate: {
+          args: Prisma.SignatureAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSignature>
+        }
+        groupBy: {
+          args: Prisma.SignatureGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SignatureGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SignatureCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SignatureCountAggregateOutputType> | number
         }
       }
     }
@@ -3465,6 +3540,13 @@ export const Tranasction_historyScalarFieldEnum = {
 export type Tranasction_historyScalarFieldEnum = (typeof Tranasction_historyScalarFieldEnum)[keyof typeof Tranasction_historyScalarFieldEnum]
 
 
+export const SignatureScalarFieldEnum = {
+  signature: 'signature'
+} as const
+
+export type SignatureScalarFieldEnum = (typeof SignatureScalarFieldEnum)[keyof typeof SignatureScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   fullName: 'fullName',
   username: 'username',
@@ -4364,6 +4446,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   tranasction_history?: Prisma.tranasction_historyOmit
+  signature?: Prisma.SignatureOmit
   user?: Prisma.UserOmit
   admin?: Prisma.adminOmit
   countryApprovalAuthority?: Prisma.CountryApprovalAuthorityOmit

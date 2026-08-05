@@ -4,6 +4,8 @@ import { HeliusWebhookSchema } from "../schemaValidation/heliusWebhookDataSchema
 import { ApiError } from "../utils/ApiError";
 import { ApiResponse } from "../utils/ApiResponse";
 import { FindProgramIdIndex } from "./findProgramIndex";
+import { prisma } from "../prismaclient";
+import { TransactionContext } from "../utils/solanaDbHandler";
 
 export const heliusRaWDataHandler = asyncHandler(
   async (req: Request, res: Response) => {
@@ -13,7 +15,25 @@ export const heliusRaWDataHandler = asyncHandler(
       throw new ApiError(400, "check your json schema");
     }
 
-   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message);
+    prisma.signature.findUniqueOrThrow({
+      where:{
+        signature:webhookSchema.data.signature
+      }
+    })
+
+      const ctx = new TransactionContext();
+
+      ctx.add(async(tx) =>{
+
+        tx.signature.create({
+          data:{
+            signature:webhookSchema.data.signature
+          }
+        })
+
+      })
+
+   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,ctx);
 
     return res.status(200).json(
       new ApiResponse(
@@ -21,7 +41,6 @@ export const heliusRaWDataHandler = asyncHandler(
         {
          message:"instruction Parse SuccessFully"
         },
-       
       )
     );
   }

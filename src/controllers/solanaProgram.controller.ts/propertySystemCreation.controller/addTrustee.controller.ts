@@ -6,9 +6,11 @@ import { ApiError } from "../../../utils/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
+import type { TransactionContext } from "../../../utils/solanaDbHandler";
 export const handleAddTrustee = async(
     message:messageSchema,
-    instruction:Instructions
+    instruction:Instructions,
+    ctx:TransactionContext
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);
@@ -49,7 +51,7 @@ if(!trusteeRegistiyAvailable) throw new ApiError(404,"trusteeRegistry realted to
 
 }
 
-     await prisma.$transaction(async(tx) =>{
+     ctx.add(async(tx) =>{
             
         await tx.trusteeRegistry.update({
             where:{

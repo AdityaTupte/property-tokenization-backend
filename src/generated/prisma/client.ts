@@ -47,6 +47,11 @@ export { Prisma }
  */
 export type tranasction_history = Prisma.tranasction_historyModel
 /**
+ * Model Signature
+ * 
+ */
+export type Signature = Prisma.SignatureModel
+/**
  * Model User
  * 
  */

@@ -4,11 +4,13 @@ import { ApiError } from "../utils/ApiError";
 import bs58 from "bs58";
 import { InstructionRegistry } from "../idl.schema/generated/instructionRegistry";
 import { solanaInstructionHandler } from "./instructionHandlerForSolanaProgram";
+import type { TransactionContext } from "../utils/solanaDbHandler";
+
 
 export type messageSchema = z.infer<typeof messageSchema>;
 export type Instructions = z.infer<typeof instructionsSchema>;
 
-export const FindProgramIdIndex = async (message: messageSchema) => {
+export const FindProgramIdIndex = async (message: messageSchema,ctx:TransactionContext) => {
   const uniqueProgramIdIndex = [
     ...new Set(
       message.instructions.map((instruction) => instruction.programIdIndex)
@@ -33,7 +35,6 @@ export const FindProgramIdIndex = async (message: messageSchema) => {
   throw new ApiError(404, "Program instruction not found in transaction");
 }
 
-
   for (const element of encodedData) {
   const bytes = bs58.decode(element.data);
 
@@ -49,7 +50,10 @@ export const FindProgramIdIndex = async (message: messageSchema) => {
 
   const decode =  solanaInstructionHandler(parser.name);
 
-  await decode(message, element);
+  await decode(message, element,ctx);
 }
+
+
+
   
 };

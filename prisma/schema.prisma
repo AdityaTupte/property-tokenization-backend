@@ -101,6 +101,13 @@ model tranasction_history {
   @@unique([tranasction_id, account_pubkey])
 }
 
+
+model Signature{
+
+  signature String @id 
+
+}
+
 model User {
   fullName         String           @db.VarChar(100)
   username         String           @unique @db.VarChar(100)

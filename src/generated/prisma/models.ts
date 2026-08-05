@@ -9,6 +9,7 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/tranasction_history'
+export type * from './models/Signature'
 export type * from './models/User'
 export type * from './models/admin'
 export type * from './models/CountryApprovalAuthority'

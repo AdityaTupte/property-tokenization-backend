@@ -6,10 +6,12 @@ import { address } from "@solana/kit";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import { GenericPda } from "../../../utils/genericPda";
 import { prisma } from "../../../prismaclient";
+import type { TransactionContext } from "../../../utils/solanaDbHandler";
 
 export const handleCreatePropertySystem = async (
   message: messageSchema,
-  instruction: Instructions
+  instruction: Instructions,
+  ctx:TransactionContext
 ) => {
   const propertySystemAddress = address(
     message.accountKeys.at(instruction.accounts[1]!)!
@@ -86,10 +88,10 @@ export const handleCreatePropertySystem = async (
     AribtrarRegistryAddress
   ) as PdaTypes.arbitratorRegistry
 
-  console.log(trusteeRegistryaccount);
+
   
 
-  const transaction = await prisma.$transaction(async (tx) => {
+  ctx.add(async (tx) => {
     await tx.propertySystemAccount.create({
       data: {
         creator_pubky: propertySystemAccount.creator.toString(),
