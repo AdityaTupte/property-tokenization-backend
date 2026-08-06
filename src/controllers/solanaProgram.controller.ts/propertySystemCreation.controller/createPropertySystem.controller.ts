@@ -5,7 +5,7 @@ import type {
 import { address } from "@solana/kit";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import { GenericPda } from "../../../utils/genericPda";
-import { prisma } from "../../../prismaclient";
+
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 
 export const handleCreatePropertySystem = async (
@@ -17,7 +17,7 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[1]!)!
   );
 
-  const propertySystemAccount: PdaTypes.propertySystemAccountType =
+  const propertySystemAccount =
     (await GenericPda(
       "propertySystemAccount",
       propertySystemAddress
@@ -27,7 +27,7 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[3]!)!
   );
 
-  const treasuryAccount: PdaTypes.treasuryType = (await GenericPda(
+  const treasuryAccount= (await GenericPda(
     "treasuryPda",
     treasuryAddress
   )) as PdaTypes.treasuryType;
@@ -36,7 +36,7 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[2]!)!
   );
 
-  const thresholdAccount: PdaTypes.thresholdType = (await GenericPda(
+  const thresholdAccount= (await GenericPda(
     "threshold",
     thresholdAddress
   )) as PdaTypes.thresholdType;
@@ -45,7 +45,7 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[6]!)!
   );
 
-  const dividendAccount: PdaTypes.dividendType = (await GenericPda(
+  const dividendAccount = (await GenericPda(
     "dividendPda",
     dividendAddress
   )) as PdaTypes.dividendType;
@@ -54,7 +54,7 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[5]!)!
   );
 
-  const safetyAccount: PdaTypes.safetyType = (await GenericPda(
+  const safetyAccount = (await GenericPda(
     "safetyPda",
     safetyAddress
   )) as PdaTypes.safetyType;
@@ -63,7 +63,7 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[4]!)!
   );
 
-  const reinvestmentAccount: PdaTypes.ReinvestmentType = (await GenericPda(
+  const reinvestmentAccount = (await GenericPda(
     "reinvestmentPda",
     reinvestmentAddress
   )) as PdaTypes.ReinvestmentType;
@@ -73,20 +73,20 @@ export const handleCreatePropertySystem = async (
     message.accountKeys.at(instruction.accounts[7]!)!
   );
 
-  const trusteeRegistryaccount:PdaTypes.trusteeRegistry  = await GenericPda(
+  const trusteeRegistryaccount  = await GenericPda(
     "trusteeRegistry",
     trusteeRegistryAddress
-  ) as PdaTypes.trusteeRegistry
+  ) as PdaTypes.trusteeRegistryType
 
 
   const AribtrarRegistryAddress = address(
     message.accountKeys.at(instruction.accounts[8]!)!
   );
 
-  const AribtratorRegistryaccount:PdaTypes.arbitratorRegistry  = await GenericPda(
+  const AribtratorRegistryaccount = await GenericPda(
     "arbitratorRegistry",
     AribtrarRegistryAddress
-  ) as PdaTypes.arbitratorRegistry
+  ) as PdaTypes.arbitratorRegistryType
 
 
   

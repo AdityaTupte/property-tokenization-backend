@@ -1,7 +1,6 @@
 import { address } from "@solana/kit";
 import type { Instructions, messageSchema } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
-import { error } from "node:console";
 import { ApiError } from "../../../utils/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
 
@@ -19,10 +18,10 @@ export const handleAddTrustee = async(
 
     const newTrustee =  address(message.accountKeys[instruction.accounts[3]!]!);
 
-     const trusteeRegistryaccount:PdaTypes.trusteeRegistry  = await GenericPda(
+     const trusteeRegistryaccount = await GenericPda(
         "trusteeRegistry",
         trustee_registry
-      ) as PdaTypes.trusteeRegistry
+      ) as PdaTypes.trusteeRegistryType
     
     
     const trusteeRegistiyAvailable = await prisma.trusteeRegistry.findFirst({
@@ -34,7 +33,7 @@ export const handleAddTrustee = async(
         },    
     })
 
-if(!trusteeRegistiyAvailable) throw new ApiError(404,"trusteeRegistry realted to the property System Not found");
+if(!trusteeRegistiyAvailable) throw new ApiError(404,"trusteeRegistry related to the property System Not found");
 
 
     let hasTrusteeCountChanged = (trusteeRegistiyAvailable.current_number_of_trustees === trusteeRegistryaccount.currentNumberOfTrustees )

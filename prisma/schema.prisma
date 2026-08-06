@@ -128,7 +128,7 @@ model admin {
 }
 
 model CountryApprovalAuthority {
-  id            String   @id @default(uuid())
+  id            Int   @id 
   authority     String[]
   threshold     Int
   bump          Int
@@ -137,7 +137,7 @@ model CountryApprovalAuthority {
 }
 
 model ApproveCountryAuthorityReceipt {
-  id            Int             @id @default(autoincrement())
+  id            String             @id @default(uuid())
   proposal_key  String
   approval_time DateTime        @default(now())
   signer        String

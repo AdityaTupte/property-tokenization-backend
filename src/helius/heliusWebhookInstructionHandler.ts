@@ -15,17 +15,19 @@ export const heliusRaWDataHandler = asyncHandler(
       throw new ApiError(400, "check your json schema");
     }
 
-    prisma.signature.findUniqueOrThrow({
+    const signature = await  prisma.signature.findFirst({
       where:{
         signature:webhookSchema.data.signature
       }
     })
 
+    if(signature) throw new ApiError(400,"Since the signature is already provided, signature parsing is not required.")
+
       const ctx = new TransactionContext();
 
-      ctx.add(async(tx) =>{
+     ctx.add(async(tx) =>{
 
-        tx.signature.create({
+      await  tx.signature.create({
           data:{
             signature:webhookSchema.data.signature
           }
@@ -33,7 +35,11 @@ export const heliusRaWDataHandler = asyncHandler(
 
       })
 
+      
+
    await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,ctx);
+
+  await ctx.execute();
 
     return res.status(200).json(
       new ApiResponse(

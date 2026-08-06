@@ -27,17 +27,19 @@ export type AggregateCountryApprovalAuthority = {
 }
 
 export type CountryApprovalAuthorityAvgAggregateOutputType = {
+  id: number | null
   threshold: number | null
   bump: number | null
 }
 
 export type CountryApprovalAuthoritySumAggregateOutputType = {
+  id: number | null
   threshold: number | null
   bump: number | null
 }
 
 export type CountryApprovalAuthorityMinAggregateOutputType = {
-  id: string | null
+  id: number | null
   threshold: number | null
   bump: number | null
   created_time: Date | null
@@ -45,7 +47,7 @@ export type CountryApprovalAuthorityMinAggregateOutputType = {
 }
 
 export type CountryApprovalAuthorityMaxAggregateOutputType = {
-  id: string | null
+  id: number | null
   threshold: number | null
   bump: number | null
   created_time: Date | null
@@ -64,11 +66,13 @@ export type CountryApprovalAuthorityCountAggregateOutputType = {
 
 
 export type CountryApprovalAuthorityAvgAggregateInputType = {
+  id?: true
   threshold?: true
   bump?: true
 }
 
 export type CountryApprovalAuthoritySumAggregateInputType = {
+  id?: true
   threshold?: true
   bump?: true
 }
@@ -186,7 +190,7 @@ export type CountryApprovalAuthorityGroupByArgs<ExtArgs extends runtime.Types.Ex
 }
 
 export type CountryApprovalAuthorityGroupByOutputType = {
-  id: string
+  id: number
   authority: string[]
   threshold: number
   bump: number
@@ -218,7 +222,7 @@ export type CountryApprovalAuthorityWhereInput = {
   AND?: Prisma.CountryApprovalAuthorityWhereInput | Prisma.CountryApprovalAuthorityWhereInput[]
   OR?: Prisma.CountryApprovalAuthorityWhereInput[]
   NOT?: Prisma.CountryApprovalAuthorityWhereInput | Prisma.CountryApprovalAuthorityWhereInput[]
-  id?: Prisma.StringFilter<"CountryApprovalAuthority"> | string
+  id?: Prisma.IntFilter<"CountryApprovalAuthority"> | number
   authority?: Prisma.StringNullableListFilter<"CountryApprovalAuthority">
   threshold?: Prisma.IntFilter<"CountryApprovalAuthority"> | number
   bump?: Prisma.IntFilter<"CountryApprovalAuthority"> | number
@@ -236,7 +240,7 @@ export type CountryApprovalAuthorityOrderByWithRelationInput = {
 }
 
 export type CountryApprovalAuthorityWhereUniqueInput = Prisma.AtLeast<{
-  id?: string
+  id?: number
   AND?: Prisma.CountryApprovalAuthorityWhereInput | Prisma.CountryApprovalAuthorityWhereInput[]
   OR?: Prisma.CountryApprovalAuthorityWhereInput[]
   NOT?: Prisma.CountryApprovalAuthorityWhereInput | Prisma.CountryApprovalAuthorityWhereInput[]
@@ -265,7 +269,7 @@ export type CountryApprovalAuthorityScalarWhereWithAggregatesInput = {
   AND?: Prisma.CountryApprovalAuthorityScalarWhereWithAggregatesInput | Prisma.CountryApprovalAuthorityScalarWhereWithAggregatesInput[]
   OR?: Prisma.CountryApprovalAuthorityScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CountryApprovalAuthorityScalarWhereWithAggregatesInput | Prisma.CountryApprovalAuthorityScalarWhereWithAggregatesInput[]
-  id?: Prisma.StringWithAggregatesFilter<"CountryApprovalAuthority"> | string
+  id?: Prisma.IntWithAggregatesFilter<"CountryApprovalAuthority"> | number
   authority?: Prisma.StringNullableListFilter<"CountryApprovalAuthority">
   threshold?: Prisma.IntWithAggregatesFilter<"CountryApprovalAuthority"> | number
   bump?: Prisma.IntWithAggregatesFilter<"CountryApprovalAuthority"> | number
@@ -274,7 +278,7 @@ export type CountryApprovalAuthorityScalarWhereWithAggregatesInput = {
 }
 
 export type CountryApprovalAuthorityCreateInput = {
-  id?: string
+  id: number
   authority?: Prisma.CountryApprovalAuthorityCreateauthorityInput | string[]
   threshold: number
   bump: number
@@ -283,7 +287,7 @@ export type CountryApprovalAuthorityCreateInput = {
 }
 
 export type CountryApprovalAuthorityUncheckedCreateInput = {
-  id?: string
+  id: number
   authority?: Prisma.CountryApprovalAuthorityCreateauthorityInput | string[]
   threshold: number
   bump: number
@@ -292,7 +296,7 @@ export type CountryApprovalAuthorityUncheckedCreateInput = {
 }
 
 export type CountryApprovalAuthorityUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   authority?: Prisma.CountryApprovalAuthorityUpdateauthorityInput | string[]
   threshold?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
@@ -301,7 +305,7 @@ export type CountryApprovalAuthorityUpdateInput = {
 }
 
 export type CountryApprovalAuthorityUncheckedUpdateInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   authority?: Prisma.CountryApprovalAuthorityUpdateauthorityInput | string[]
   threshold?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
@@ -310,7 +314,7 @@ export type CountryApprovalAuthorityUncheckedUpdateInput = {
 }
 
 export type CountryApprovalAuthorityCreateManyInput = {
-  id?: string
+  id: number
   authority?: Prisma.CountryApprovalAuthorityCreateauthorityInput | string[]
   threshold: number
   bump: number
@@ -319,7 +323,7 @@ export type CountryApprovalAuthorityCreateManyInput = {
 }
 
 export type CountryApprovalAuthorityUpdateManyMutationInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   authority?: Prisma.CountryApprovalAuthorityUpdateauthorityInput | string[]
   threshold?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
@@ -328,7 +332,7 @@ export type CountryApprovalAuthorityUpdateManyMutationInput = {
 }
 
 export type CountryApprovalAuthorityUncheckedUpdateManyInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   authority?: Prisma.CountryApprovalAuthorityUpdateauthorityInput | string[]
   threshold?: Prisma.IntFieldUpdateOperationsInput | number
   bump?: Prisma.IntFieldUpdateOperationsInput | number
@@ -354,6 +358,7 @@ export type CountryApprovalAuthorityCountOrderByAggregateInput = {
 }
 
 export type CountryApprovalAuthorityAvgOrderByAggregateInput = {
+  id?: Prisma.SortOrder
   threshold?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
@@ -375,6 +380,7 @@ export type CountryApprovalAuthorityMinOrderByAggregateInput = {
 }
 
 export type CountryApprovalAuthoritySumOrderByAggregateInput = {
+  id?: Prisma.SortOrder
   threshold?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
@@ -383,17 +389,17 @@ export type CountryApprovalAuthorityCreateauthorityInput = {
   set: string[]
 }
 
-export type CountryApprovalAuthorityUpdateauthorityInput = {
-  set?: string[]
-  push?: string | string[]
-}
-
 export type IntFieldUpdateOperationsInput = {
   set?: number
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type CountryApprovalAuthorityUpdateauthorityInput = {
+  set?: string[]
+  push?: string | string[]
 }
 
 
@@ -440,7 +446,7 @@ export type $CountryApprovalAuthorityPayload<ExtArgs extends runtime.Types.Exten
   name: "CountryApprovalAuthority"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: string
+    id: number
     authority: string[]
     threshold: number
     bump: number
@@ -869,7 +875,7 @@ export interface Prisma__CountryApprovalAuthorityClient<T, Null = never, ExtArgs
  * Fields of the CountryApprovalAuthority model
  */
 export interface CountryApprovalAuthorityFieldRefs {
-  readonly id: Prisma.FieldRef<"CountryApprovalAuthority", 'String'>
+  readonly id: Prisma.FieldRef<"CountryApprovalAuthority", 'Int'>
   readonly authority: Prisma.FieldRef<"CountryApprovalAuthority", 'String[]'>
   readonly threshold: Prisma.FieldRef<"CountryApprovalAuthority", 'Int'>
   readonly bump: Prisma.FieldRef<"CountryApprovalAuthority", 'Int'>

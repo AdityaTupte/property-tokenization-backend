@@ -26,7 +26,6 @@ const asyncHandler =
       if (error instanceof PrismaClientKnownRequestError) {
       switch (error.code) {
         case "P2002":
-
         res.status(409).json({
           message:error.meta,
           success: false,

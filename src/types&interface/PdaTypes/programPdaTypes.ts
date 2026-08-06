@@ -50,7 +50,7 @@ export type ReinvestmentType =  {
 }
 
 
-export type trusteeRegistry ={
+export type trusteeRegistryType ={
 
    
  propertySystemAccount: anchor.web3.PublicKey;
@@ -63,7 +63,7 @@ export type trusteeRegistry ={
 }
 
 
-export type arbitratorRegistry = {
+export type arbitratorRegistryType = {
 
   
  propertySystemAccount: anchor.web3.PublicKey;
@@ -75,6 +75,39 @@ export type arbitratorRegistry = {
  bump: number;
 
 
+}
+
+export type  CountryApproveAuthorityType = {
+ authority: anchor.web3.PublicKey[];
+ threshold: number;
+ bump: number;
+}
+
+
+export type countryProposalType  = {
+ countryId: number;
+ countryName: number[];
+ countryPdaThreshold: number;
+ approvals: number;
+ approved: boolean;
+ executed: boolean;
+ totalAuthority: number;
+ bump: number;
+}
+
+
+export type approveCountryAuthorityReceiptType = {
+ countryProposal: anchor.web3.PublicKey;
+ bump: number;
+}
+
+
+export type countryPdaType = {
+ countryId: number;
+ countryName: number[];
+ threshold: number;
+ totalAuthority: number;
+ bump: number;
 }
 
 
