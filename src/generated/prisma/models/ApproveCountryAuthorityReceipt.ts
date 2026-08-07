@@ -27,17 +27,15 @@ export type AggregateApproveCountryAuthorityReceipt = {
 }
 
 export type ApproveCountryAuthorityReceiptAvgAggregateOutputType = {
-  id: number | null
   bump: number | null
 }
 
 export type ApproveCountryAuthorityReceiptSumAggregateOutputType = {
-  id: number | null
   bump: number | null
 }
 
 export type ApproveCountryAuthorityReceiptMinAggregateOutputType = {
-  id: number | null
+  id: string | null
   proposal_key: string | null
   approval_time: Date | null
   signer: string | null
@@ -45,7 +43,7 @@ export type ApproveCountryAuthorityReceiptMinAggregateOutputType = {
 }
 
 export type ApproveCountryAuthorityReceiptMaxAggregateOutputType = {
-  id: number | null
+  id: string | null
   proposal_key: string | null
   approval_time: Date | null
   signer: string | null
@@ -63,12 +61,10 @@ export type ApproveCountryAuthorityReceiptCountAggregateOutputType = {
 
 
 export type ApproveCountryAuthorityReceiptAvgAggregateInputType = {
-  id?: true
   bump?: true
 }
 
 export type ApproveCountryAuthorityReceiptSumAggregateInputType = {
-  id?: true
   bump?: true
 }
 
@@ -184,7 +180,7 @@ export type ApproveCountryAuthorityReceiptGroupByArgs<ExtArgs extends runtime.Ty
 }
 
 export type ApproveCountryAuthorityReceiptGroupByOutputType = {
-  id: number
+  id: string
   proposal_key: string
   approval_time: Date
   signer: string
@@ -215,7 +211,7 @@ export type ApproveCountryAuthorityReceiptWhereInput = {
   AND?: Prisma.ApproveCountryAuthorityReceiptWhereInput | Prisma.ApproveCountryAuthorityReceiptWhereInput[]
   OR?: Prisma.ApproveCountryAuthorityReceiptWhereInput[]
   NOT?: Prisma.ApproveCountryAuthorityReceiptWhereInput | Prisma.ApproveCountryAuthorityReceiptWhereInput[]
-  id?: Prisma.IntFilter<"ApproveCountryAuthorityReceipt"> | number
+  id?: Prisma.StringFilter<"ApproveCountryAuthorityReceipt"> | string
   proposal_key?: Prisma.StringFilter<"ApproveCountryAuthorityReceipt"> | string
   approval_time?: Prisma.DateTimeFilter<"ApproveCountryAuthorityReceipt"> | Date | string
   signer?: Prisma.StringFilter<"ApproveCountryAuthorityReceipt"> | string
@@ -233,7 +229,7 @@ export type ApproveCountryAuthorityReceiptOrderByWithRelationInput = {
 }
 
 export type ApproveCountryAuthorityReceiptWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
   proposal_key_signer?: Prisma.ApproveCountryAuthorityReceiptProposal_keySignerCompoundUniqueInput
   AND?: Prisma.ApproveCountryAuthorityReceiptWhereInput | Prisma.ApproveCountryAuthorityReceiptWhereInput[]
   OR?: Prisma.ApproveCountryAuthorityReceiptWhereInput[]
@@ -262,7 +258,7 @@ export type ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput = {
   AND?: Prisma.ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput[]
   OR?: Prisma.ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"ApproveCountryAuthorityReceipt"> | number
+  id?: Prisma.StringWithAggregatesFilter<"ApproveCountryAuthorityReceipt"> | string
   proposal_key?: Prisma.StringWithAggregatesFilter<"ApproveCountryAuthorityReceipt"> | string
   approval_time?: Prisma.DateTimeWithAggregatesFilter<"ApproveCountryAuthorityReceipt"> | Date | string
   signer?: Prisma.StringWithAggregatesFilter<"ApproveCountryAuthorityReceipt"> | string
@@ -270,6 +266,7 @@ export type ApproveCountryAuthorityReceiptScalarWhereWithAggregatesInput = {
 }
 
 export type ApproveCountryAuthorityReceiptCreateInput = {
+  id?: string
   approval_time?: Date | string
   signer: string
   bump: number
@@ -277,7 +274,7 @@ export type ApproveCountryAuthorityReceiptCreateInput = {
 }
 
 export type ApproveCountryAuthorityReceiptUncheckedCreateInput = {
-  id?: number
+  id?: string
   proposal_key: string
   approval_time?: Date | string
   signer: string
@@ -285,6 +282,7 @@ export type ApproveCountryAuthorityReceiptUncheckedCreateInput = {
 }
 
 export type ApproveCountryAuthorityReceiptUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
@@ -292,7 +290,7 @@ export type ApproveCountryAuthorityReceiptUpdateInput = {
 }
 
 export type ApproveCountryAuthorityReceiptUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
@@ -300,7 +298,7 @@ export type ApproveCountryAuthorityReceiptUncheckedUpdateInput = {
 }
 
 export type ApproveCountryAuthorityReceiptCreateManyInput = {
-  id?: number
+  id?: string
   proposal_key: string
   approval_time?: Date | string
   signer: string
@@ -308,13 +306,14 @@ export type ApproveCountryAuthorityReceiptCreateManyInput = {
 }
 
 export type ApproveCountryAuthorityReceiptUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ApproveCountryAuthorityReceiptUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
@@ -335,7 +334,6 @@ export type ApproveCountryAuthorityReceiptCountOrderByAggregateInput = {
 }
 
 export type ApproveCountryAuthorityReceiptAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
@@ -356,7 +354,6 @@ export type ApproveCountryAuthorityReceiptMinOrderByAggregateInput = {
 }
 
 export type ApproveCountryAuthorityReceiptSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
@@ -413,13 +410,14 @@ export type ApproveCountryAuthorityReceiptUncheckedUpdateManyWithoutProposalNest
 }
 
 export type ApproveCountryAuthorityReceiptCreateWithoutProposalInput = {
+  id?: string
   approval_time?: Date | string
   signer: string
   bump: number
 }
 
 export type ApproveCountryAuthorityReceiptUncheckedCreateWithoutProposalInput = {
-  id?: number
+  id?: string
   approval_time?: Date | string
   signer: string
   bump: number
@@ -455,7 +453,7 @@ export type ApproveCountryAuthorityReceiptScalarWhereInput = {
   AND?: Prisma.ApproveCountryAuthorityReceiptScalarWhereInput | Prisma.ApproveCountryAuthorityReceiptScalarWhereInput[]
   OR?: Prisma.ApproveCountryAuthorityReceiptScalarWhereInput[]
   NOT?: Prisma.ApproveCountryAuthorityReceiptScalarWhereInput | Prisma.ApproveCountryAuthorityReceiptScalarWhereInput[]
-  id?: Prisma.IntFilter<"ApproveCountryAuthorityReceipt"> | number
+  id?: Prisma.StringFilter<"ApproveCountryAuthorityReceipt"> | string
   proposal_key?: Prisma.StringFilter<"ApproveCountryAuthorityReceipt"> | string
   approval_time?: Prisma.DateTimeFilter<"ApproveCountryAuthorityReceipt"> | Date | string
   signer?: Prisma.StringFilter<"ApproveCountryAuthorityReceipt"> | string
@@ -463,27 +461,28 @@ export type ApproveCountryAuthorityReceiptScalarWhereInput = {
 }
 
 export type ApproveCountryAuthorityReceiptCreateManyProposalInput = {
-  id?: number
+  id?: string
   approval_time?: Date | string
   signer: string
   bump: number
 }
 
 export type ApproveCountryAuthorityReceiptUpdateWithoutProposalInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ApproveCountryAuthorityReceiptUncheckedUpdateWithoutProposalInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ApproveCountryAuthorityReceiptUncheckedUpdateManyWithoutProposalInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   approval_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
@@ -543,7 +542,7 @@ export type $ApproveCountryAuthorityReceiptPayload<ExtArgs extends runtime.Types
     proposal: Prisma.$CountryProposalPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    id: string
     proposal_key: string
     approval_time: Date
     signer: string
@@ -972,7 +971,7 @@ export interface Prisma__ApproveCountryAuthorityReceiptClient<T, Null = never, E
  * Fields of the ApproveCountryAuthorityReceipt model
  */
 export interface ApproveCountryAuthorityReceiptFieldRefs {
-  readonly id: Prisma.FieldRef<"ApproveCountryAuthorityReceipt", 'Int'>
+  readonly id: Prisma.FieldRef<"ApproveCountryAuthorityReceipt", 'String'>
   readonly proposal_key: Prisma.FieldRef<"ApproveCountryAuthorityReceipt", 'String'>
   readonly approval_time: Prisma.FieldRef<"ApproveCountryAuthorityReceipt", 'DateTime'>
   readonly signer: Prisma.FieldRef<"ApproveCountryAuthorityReceipt", 'String'>

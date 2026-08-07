@@ -5,9 +5,8 @@ import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
-export const handleApproveCountryProposal = async(
+
+export const handleExecuteCountryProposal = async(
     message:messageSchema,
     instruction:Instructions,
     ctx:TransactionContext
@@ -25,7 +24,6 @@ export const handleApproveCountryProposal = async(
 
 
     ctx.add(async (tx) =>{
-
 
         await tx.countryProposal.update({
             where:{

@@ -3625,8 +3625,8 @@ export type CountryPdaScalarFieldEnum = (typeof CountryPdaScalarFieldEnum)[keyof
 
 export const CountryAuthorityReceiptScalarFieldEnum = {
   public_key: 'public_key',
-  country_created_time: 'country_created_time',
-  bump: 'bump',
+  created_time: 'created_time',
+  updated_time: 'updated_time',
   signer: 'signer'
 } as const
 

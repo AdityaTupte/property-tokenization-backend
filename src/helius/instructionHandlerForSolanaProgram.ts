@@ -1,15 +1,19 @@
 import { ApiError } from "../utils/ApiError";
 
 import type { InstructionHandler } from "../types&interface/solanaInstrcution.type";
+import * as country from "../controllers/solanaProgram.controller.ts/countryCreation.controller/countryImportLIb" 
+import * as propertySystem from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/propertySystemImporLib"
 
-import { handleCreatePropertySystem } from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/createPropertySystem.controller";
-import { handleAddTrustee } from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/addTrustee.controller";
-import { handleAddArbitrator } from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/addArbitrator.controller";
 
 const instructionMap: Record<string, InstructionHandler> = {
-  create_property_system: handleCreatePropertySystem,
-  add_trustee : handleAddTrustee,
-  add_arbitrator: handleAddArbitrator
+  create_property_system: propertySystem.handleCreatePropertySystem,
+  add_trustee :  propertySystem.handleAddTrustee,
+  add_arbitrator:  propertySystem.handleAddArbitrator,
+  create_country_proposal:country.handleCreateCountryProposal,
+  create_approve_country_authority:country.handlerCreateAuthorityToApproveCountry,
+  approve_country:country.handleApproveCountryProposal,
+  execute_country_propsal:country.handleExecuteCountryProposal,
+  add_country_authority:country.handleAddAuthorityForCountry
 };
 
 export const solanaInstructionHandler =  (

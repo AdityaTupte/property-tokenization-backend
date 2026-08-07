@@ -20,65 +20,47 @@ export type CountryAuthorityReceiptModel = runtime.Types.Result.DefaultSelection
 
 export type AggregateCountryAuthorityReceipt = {
   _count: CountryAuthorityReceiptCountAggregateOutputType | null
-  _avg: CountryAuthorityReceiptAvgAggregateOutputType | null
-  _sum: CountryAuthorityReceiptSumAggregateOutputType | null
   _min: CountryAuthorityReceiptMinAggregateOutputType | null
   _max: CountryAuthorityReceiptMaxAggregateOutputType | null
 }
 
-export type CountryAuthorityReceiptAvgAggregateOutputType = {
-  bump: number | null
-}
-
-export type CountryAuthorityReceiptSumAggregateOutputType = {
-  bump: number | null
-}
-
 export type CountryAuthorityReceiptMinAggregateOutputType = {
   public_key: string | null
-  country_created_time: Date | null
-  bump: number | null
+  created_time: Date | null
+  updated_time: Date | null
 }
 
 export type CountryAuthorityReceiptMaxAggregateOutputType = {
   public_key: string | null
-  country_created_time: Date | null
-  bump: number | null
+  created_time: Date | null
+  updated_time: Date | null
 }
 
 export type CountryAuthorityReceiptCountAggregateOutputType = {
   public_key: number
-  country_created_time: number
-  bump: number
+  created_time: number
+  updated_time: number
   signer: number
   _all: number
 }
 
 
-export type CountryAuthorityReceiptAvgAggregateInputType = {
-  bump?: true
-}
-
-export type CountryAuthorityReceiptSumAggregateInputType = {
-  bump?: true
-}
-
 export type CountryAuthorityReceiptMinAggregateInputType = {
   public_key?: true
-  country_created_time?: true
-  bump?: true
+  created_time?: true
+  updated_time?: true
 }
 
 export type CountryAuthorityReceiptMaxAggregateInputType = {
   public_key?: true
-  country_created_time?: true
-  bump?: true
+  created_time?: true
+  updated_time?: true
 }
 
 export type CountryAuthorityReceiptCountAggregateInputType = {
   public_key?: true
-  country_created_time?: true
-  bump?: true
+  created_time?: true
+  updated_time?: true
   signer?: true
   _all?: true
 }
@@ -121,18 +103,6 @@ export type CountryAuthorityReceiptAggregateArgs<ExtArgs extends runtime.Types.E
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: CountryAuthorityReceiptAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: CountryAuthorityReceiptSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: CountryAuthorityReceiptMinAggregateInputType
@@ -163,20 +133,16 @@ export type CountryAuthorityReceiptGroupByArgs<ExtArgs extends runtime.Types.Ext
   take?: number
   skip?: number
   _count?: CountryAuthorityReceiptCountAggregateInputType | true
-  _avg?: CountryAuthorityReceiptAvgAggregateInputType
-  _sum?: CountryAuthorityReceiptSumAggregateInputType
   _min?: CountryAuthorityReceiptMinAggregateInputType
   _max?: CountryAuthorityReceiptMaxAggregateInputType
 }
 
 export type CountryAuthorityReceiptGroupByOutputType = {
   public_key: string
-  country_created_time: Date
-  bump: number
+  created_time: Date
+  updated_time: Date
   signer: string[]
   _count: CountryAuthorityReceiptCountAggregateOutputType | null
-  _avg: CountryAuthorityReceiptAvgAggregateOutputType | null
-  _sum: CountryAuthorityReceiptSumAggregateOutputType | null
   _min: CountryAuthorityReceiptMinAggregateOutputType | null
   _max: CountryAuthorityReceiptMaxAggregateOutputType | null
 }
@@ -201,16 +167,16 @@ export type CountryAuthorityReceiptWhereInput = {
   OR?: Prisma.CountryAuthorityReceiptWhereInput[]
   NOT?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[]
   public_key?: Prisma.StringFilter<"CountryAuthorityReceipt"> | string
-  country_created_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string
-  bump?: Prisma.IntFilter<"CountryAuthorityReceipt"> | number
+  created_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string
+  updated_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string
   signer?: Prisma.StringNullableListFilter<"CountryAuthorityReceipt">
   country?: Prisma.XOR<Prisma.CountryPdaScalarRelationFilter, Prisma.CountryPdaWhereInput>
 }
 
 export type CountryAuthorityReceiptOrderByWithRelationInput = {
   public_key?: Prisma.SortOrder
-  country_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
+  created_time?: Prisma.SortOrder
+  updated_time?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   country?: Prisma.CountryPdaOrderByWithRelationInput
 }
@@ -220,22 +186,20 @@ export type CountryAuthorityReceiptWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[]
   OR?: Prisma.CountryAuthorityReceiptWhereInput[]
   NOT?: Prisma.CountryAuthorityReceiptWhereInput | Prisma.CountryAuthorityReceiptWhereInput[]
-  country_created_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string
-  bump?: Prisma.IntFilter<"CountryAuthorityReceipt"> | number
+  created_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string
+  updated_time?: Prisma.DateTimeFilter<"CountryAuthorityReceipt"> | Date | string
   signer?: Prisma.StringNullableListFilter<"CountryAuthorityReceipt">
   country?: Prisma.XOR<Prisma.CountryPdaScalarRelationFilter, Prisma.CountryPdaWhereInput>
 }, "public_key">
 
 export type CountryAuthorityReceiptOrderByWithAggregationInput = {
   public_key?: Prisma.SortOrder
-  country_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
+  created_time?: Prisma.SortOrder
+  updated_time?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   _count?: Prisma.CountryAuthorityReceiptCountOrderByAggregateInput
-  _avg?: Prisma.CountryAuthorityReceiptAvgOrderByAggregateInput
   _max?: Prisma.CountryAuthorityReceiptMaxOrderByAggregateInput
   _min?: Prisma.CountryAuthorityReceiptMinOrderByAggregateInput
-  _sum?: Prisma.CountryAuthorityReceiptSumOrderByAggregateInput
 }
 
 export type CountryAuthorityReceiptScalarWhereWithAggregatesInput = {
@@ -243,56 +207,56 @@ export type CountryAuthorityReceiptScalarWhereWithAggregatesInput = {
   OR?: Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput[]
   NOT?: Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.CountryAuthorityReceiptScalarWhereWithAggregatesInput[]
   public_key?: Prisma.StringWithAggregatesFilter<"CountryAuthorityReceipt"> | string
-  country_created_time?: Prisma.DateTimeWithAggregatesFilter<"CountryAuthorityReceipt"> | Date | string
-  bump?: Prisma.IntWithAggregatesFilter<"CountryAuthorityReceipt"> | number
+  created_time?: Prisma.DateTimeWithAggregatesFilter<"CountryAuthorityReceipt"> | Date | string
+  updated_time?: Prisma.DateTimeWithAggregatesFilter<"CountryAuthorityReceipt"> | Date | string
   signer?: Prisma.StringNullableListFilter<"CountryAuthorityReceipt">
 }
 
 export type CountryAuthorityReceiptCreateInput = {
-  country_created_time?: Date | string
-  bump: number
+  created_time?: Date | string
+  updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
   country: Prisma.CountryPdaCreateNestedOneWithoutAuthorityInput
 }
 
 export type CountryAuthorityReceiptUncheckedCreateInput = {
   public_key: string
-  country_created_time?: Date | string
-  bump: number
+  created_time?: Date | string
+  updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
 }
 
 export type CountryAuthorityReceiptUpdateInput = {
-  country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[]
   country?: Prisma.CountryPdaUpdateOneRequiredWithoutAuthorityNestedInput
 }
 
 export type CountryAuthorityReceiptUncheckedUpdateInput = {
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
-  country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[]
 }
 
 export type CountryAuthorityReceiptCreateManyInput = {
   public_key: string
-  country_created_time?: Date | string
-  bump: number
+  created_time?: Date | string
+  updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
 }
 
 export type CountryAuthorityReceiptUpdateManyMutationInput = {
-  country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[]
 }
 
 export type CountryAuthorityReceiptUncheckedUpdateManyInput = {
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
-  country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[]
 }
 
@@ -303,29 +267,21 @@ export type CountryAuthorityReceiptNullableScalarRelationFilter = {
 
 export type CountryAuthorityReceiptCountOrderByAggregateInput = {
   public_key?: Prisma.SortOrder
-  country_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
+  created_time?: Prisma.SortOrder
+  updated_time?: Prisma.SortOrder
   signer?: Prisma.SortOrder
-}
-
-export type CountryAuthorityReceiptAvgOrderByAggregateInput = {
-  bump?: Prisma.SortOrder
 }
 
 export type CountryAuthorityReceiptMaxOrderByAggregateInput = {
   public_key?: Prisma.SortOrder
-  country_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
+  created_time?: Prisma.SortOrder
+  updated_time?: Prisma.SortOrder
 }
 
 export type CountryAuthorityReceiptMinOrderByAggregateInput = {
   public_key?: Prisma.SortOrder
-  country_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
-}
-
-export type CountryAuthorityReceiptSumOrderByAggregateInput = {
-  bump?: Prisma.SortOrder
+  created_time?: Prisma.SortOrder
+  updated_time?: Prisma.SortOrder
 }
 
 export type CountryAuthorityReceiptCreateNestedOneWithoutCountryInput = {
@@ -370,14 +326,14 @@ export type CountryAuthorityReceiptUpdatesignerInput = {
 }
 
 export type CountryAuthorityReceiptCreateWithoutCountryInput = {
-  country_created_time?: Date | string
-  bump: number
+  created_time?: Date | string
+  updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
 }
 
 export type CountryAuthorityReceiptUncheckedCreateWithoutCountryInput = {
-  country_created_time?: Date | string
-  bump: number
+  created_time?: Date | string
+  updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
 }
 
@@ -398,14 +354,14 @@ export type CountryAuthorityReceiptUpdateToOneWithWhereWithoutCountryInput = {
 }
 
 export type CountryAuthorityReceiptUpdateWithoutCountryInput = {
-  country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[]
 }
 
 export type CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput = {
-  country_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.CountryAuthorityReceiptUpdatesignerInput | string[]
 }
 
@@ -413,36 +369,36 @@ export type CountryAuthorityReceiptUncheckedUpdateWithoutCountryInput = {
 
 export type CountryAuthorityReceiptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   public_key?: boolean
-  country_created_time?: boolean
-  bump?: boolean
+  created_time?: boolean
+  updated_time?: boolean
   signer?: boolean
   country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["countryAuthorityReceipt"]>
 
 export type CountryAuthorityReceiptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   public_key?: boolean
-  country_created_time?: boolean
-  bump?: boolean
+  created_time?: boolean
+  updated_time?: boolean
   signer?: boolean
   country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["countryAuthorityReceipt"]>
 
 export type CountryAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   public_key?: boolean
-  country_created_time?: boolean
-  bump?: boolean
+  created_time?: boolean
+  updated_time?: boolean
   signer?: boolean
   country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["countryAuthorityReceipt"]>
 
 export type CountryAuthorityReceiptSelectScalar = {
   public_key?: boolean
-  country_created_time?: boolean
-  bump?: boolean
+  created_time?: boolean
+  updated_time?: boolean
   signer?: boolean
 }
 
-export type CountryAuthorityReceiptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "country_created_time" | "bump" | "signer", ExtArgs["result"]["countryAuthorityReceipt"]>
+export type CountryAuthorityReceiptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "created_time" | "updated_time" | "signer", ExtArgs["result"]["countryAuthorityReceipt"]>
 export type CountryAuthorityReceiptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   country?: boolean | Prisma.CountryPdaDefaultArgs<ExtArgs>
 }
@@ -460,8 +416,8 @@ export type $CountryAuthorityReceiptPayload<ExtArgs extends runtime.Types.Extens
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     public_key: string
-    country_created_time: Date
-    bump: number
+    created_time: Date
+    updated_time: Date
     signer: string[]
   }, ExtArgs["result"]["countryAuthorityReceipt"]>
   composites: {}
@@ -888,8 +844,8 @@ export interface Prisma__CountryAuthorityReceiptClient<T, Null = never, ExtArgs 
  */
 export interface CountryAuthorityReceiptFieldRefs {
   readonly public_key: Prisma.FieldRef<"CountryAuthorityReceipt", 'String'>
-  readonly country_created_time: Prisma.FieldRef<"CountryAuthorityReceipt", 'DateTime'>
-  readonly bump: Prisma.FieldRef<"CountryAuthorityReceipt", 'Int'>
+  readonly created_time: Prisma.FieldRef<"CountryAuthorityReceipt", 'DateTime'>
+  readonly updated_time: Prisma.FieldRef<"CountryAuthorityReceipt", 'DateTime'>
   readonly signer: Prisma.FieldRef<"CountryAuthorityReceipt", 'String[]'>
 }
     

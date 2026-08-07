@@ -1,7 +1,6 @@
 import { address } from "@solana/kit";
 import type { Instructions, messageSchema } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
-import { error } from "node:console";
 import { ApiError } from "../../../utils/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
 
