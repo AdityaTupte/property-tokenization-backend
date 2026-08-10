@@ -28,15 +28,11 @@ export type AggregatePropertyProposal = {
 
 export type PropertyProposalAvgAggregateOutputType = {
   property_id: number | null
-  state_id: number | null
-  country_id: number | null
   bump: number | null
 }
 
 export type PropertyProposalSumAggregateOutputType = {
   property_id: number | null
-  state_id: number | null
-  country_id: number | null
   bump: number | null
 }
 
@@ -44,10 +40,7 @@ export type PropertyProposalMinAggregateOutputType = {
   property_id: number | null
   proposal_property_pubkey: string | null
   property_system_pubkey: string | null
-  state_id: number | null
   state_pubkey: string | null
-  country_id: number | null
-  country_pubkey: string | null
   legal_doc_hash: string | null
   issued_by: string | null
   approved: boolean | null
@@ -59,10 +52,7 @@ export type PropertyProposalMaxAggregateOutputType = {
   property_id: number | null
   proposal_property_pubkey: string | null
   property_system_pubkey: string | null
-  state_id: number | null
   state_pubkey: string | null
-  country_id: number | null
-  country_pubkey: string | null
   legal_doc_hash: string | null
   issued_by: string | null
   approved: boolean | null
@@ -74,10 +64,7 @@ export type PropertyProposalCountAggregateOutputType = {
   property_id: number
   proposal_property_pubkey: number
   property_system_pubkey: number
-  state_id: number
   state_pubkey: number
-  country_id: number
-  country_pubkey: number
   legal_doc_hash: number
   issued_by: number
   approval_count: number
@@ -90,15 +77,11 @@ export type PropertyProposalCountAggregateOutputType = {
 
 export type PropertyProposalAvgAggregateInputType = {
   property_id?: true
-  state_id?: true
-  country_id?: true
   bump?: true
 }
 
 export type PropertyProposalSumAggregateInputType = {
   property_id?: true
-  state_id?: true
-  country_id?: true
   bump?: true
 }
 
@@ -106,10 +89,7 @@ export type PropertyProposalMinAggregateInputType = {
   property_id?: true
   proposal_property_pubkey?: true
   property_system_pubkey?: true
-  state_id?: true
   state_pubkey?: true
-  country_id?: true
-  country_pubkey?: true
   legal_doc_hash?: true
   issued_by?: true
   approved?: true
@@ -121,10 +101,7 @@ export type PropertyProposalMaxAggregateInputType = {
   property_id?: true
   proposal_property_pubkey?: true
   property_system_pubkey?: true
-  state_id?: true
   state_pubkey?: true
-  country_id?: true
-  country_pubkey?: true
   legal_doc_hash?: true
   issued_by?: true
   approved?: true
@@ -136,10 +113,7 @@ export type PropertyProposalCountAggregateInputType = {
   property_id?: true
   proposal_property_pubkey?: true
   property_system_pubkey?: true
-  state_id?: true
   state_pubkey?: true
-  country_id?: true
-  country_pubkey?: true
   legal_doc_hash?: true
   issued_by?: true
   approval_count?: true
@@ -239,10 +213,7 @@ export type PropertyProposalGroupByOutputType = {
   property_id: number
   proposal_property_pubkey: string
   property_system_pubkey: string
-  state_id: number
   state_pubkey: string
-  country_id: number
-  country_pubkey: string
   legal_doc_hash: string
   issued_by: string
   approval_count: string[]
@@ -278,10 +249,7 @@ export type PropertyProposalWhereInput = {
   property_id?: Prisma.IntFilter<"PropertyProposal"> | number
   proposal_property_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
   property_system_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
-  state_id?: Prisma.IntFilter<"PropertyProposal"> | number
   state_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
-  country_id?: Prisma.IntFilter<"PropertyProposal"> | number
-  country_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
   legal_doc_hash?: Prisma.StringFilter<"PropertyProposal"> | string
   issued_by?: Prisma.StringFilter<"PropertyProposal"> | string
   approval_count?: Prisma.StringNullableListFilter<"PropertyProposal">
@@ -294,10 +262,7 @@ export type PropertyProposalOrderByWithRelationInput = {
   property_id?: Prisma.SortOrder
   proposal_property_pubkey?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
-  country_pubkey?: Prisma.SortOrder
   legal_doc_hash?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   approval_count?: Prisma.SortOrder
@@ -313,10 +278,7 @@ export type PropertyProposalWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.PropertyProposalWhereInput | Prisma.PropertyProposalWhereInput[]
   property_id?: Prisma.IntFilter<"PropertyProposal"> | number
   property_system_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
-  state_id?: Prisma.IntFilter<"PropertyProposal"> | number
   state_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
-  country_id?: Prisma.IntFilter<"PropertyProposal"> | number
-  country_pubkey?: Prisma.StringFilter<"PropertyProposal"> | string
   legal_doc_hash?: Prisma.StringFilter<"PropertyProposal"> | string
   issued_by?: Prisma.StringFilter<"PropertyProposal"> | string
   approval_count?: Prisma.StringNullableListFilter<"PropertyProposal">
@@ -329,10 +291,7 @@ export type PropertyProposalOrderByWithAggregationInput = {
   property_id?: Prisma.SortOrder
   proposal_property_pubkey?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
-  country_pubkey?: Prisma.SortOrder
   legal_doc_hash?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   approval_count?: Prisma.SortOrder
@@ -353,10 +312,7 @@ export type PropertyProposalScalarWhereWithAggregatesInput = {
   property_id?: Prisma.IntWithAggregatesFilter<"PropertyProposal"> | number
   proposal_property_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyProposal"> | string
   property_system_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyProposal"> | string
-  state_id?: Prisma.IntWithAggregatesFilter<"PropertyProposal"> | number
   state_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyProposal"> | string
-  country_id?: Prisma.IntWithAggregatesFilter<"PropertyProposal"> | number
-  country_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyProposal"> | string
   legal_doc_hash?: Prisma.StringWithAggregatesFilter<"PropertyProposal"> | string
   issued_by?: Prisma.StringWithAggregatesFilter<"PropertyProposal"> | string
   approval_count?: Prisma.StringNullableListFilter<"PropertyProposal">
@@ -369,10 +325,7 @@ export type PropertyProposalCreateInput = {
   property_id: number
   proposal_property_pubkey: string
   property_system_pubkey: string
-  state_id: number
   state_pubkey: string
-  country_id: number
-  country_pubkey: string
   legal_doc_hash: string
   issued_by: string
   approval_count?: Prisma.PropertyProposalCreateapproval_countInput | string[]
@@ -385,10 +338,7 @@ export type PropertyProposalUncheckedCreateInput = {
   property_id: number
   proposal_property_pubkey: string
   property_system_pubkey: string
-  state_id: number
   state_pubkey: string
-  country_id: number
-  country_pubkey: string
   legal_doc_hash: string
   issued_by: string
   approval_count?: Prisma.PropertyProposalCreateapproval_countInput | string[]
@@ -401,10 +351,7 @@ export type PropertyProposalUpdateInput = {
   property_id?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_property_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
-  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legal_doc_hash?: Prisma.StringFieldUpdateOperationsInput | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
@@ -417,10 +364,7 @@ export type PropertyProposalUncheckedUpdateInput = {
   property_id?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_property_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
-  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legal_doc_hash?: Prisma.StringFieldUpdateOperationsInput | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
@@ -433,10 +377,7 @@ export type PropertyProposalCreateManyInput = {
   property_id: number
   proposal_property_pubkey: string
   property_system_pubkey: string
-  state_id: number
   state_pubkey: string
-  country_id: number
-  country_pubkey: string
   legal_doc_hash: string
   issued_by: string
   approval_count?: Prisma.PropertyProposalCreateapproval_countInput | string[]
@@ -449,10 +390,7 @@ export type PropertyProposalUpdateManyMutationInput = {
   property_id?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_property_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
-  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legal_doc_hash?: Prisma.StringFieldUpdateOperationsInput | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
@@ -465,10 +403,7 @@ export type PropertyProposalUncheckedUpdateManyInput = {
   property_id?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_property_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   property_system_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
-  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legal_doc_hash?: Prisma.StringFieldUpdateOperationsInput | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
@@ -481,10 +416,7 @@ export type PropertyProposalCountOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
   proposal_property_pubkey?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
-  country_pubkey?: Prisma.SortOrder
   legal_doc_hash?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   approval_count?: Prisma.SortOrder
@@ -495,8 +427,6 @@ export type PropertyProposalCountOrderByAggregateInput = {
 
 export type PropertyProposalAvgOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
@@ -504,10 +434,7 @@ export type PropertyProposalMaxOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
   proposal_property_pubkey?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
-  country_pubkey?: Prisma.SortOrder
   legal_doc_hash?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   approved?: Prisma.SortOrder
@@ -519,10 +446,7 @@ export type PropertyProposalMinOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
   proposal_property_pubkey?: Prisma.SortOrder
   property_system_pubkey?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
-  country_pubkey?: Prisma.SortOrder
   legal_doc_hash?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   approved?: Prisma.SortOrder
@@ -532,8 +456,6 @@ export type PropertyProposalMinOrderByAggregateInput = {
 
 export type PropertyProposalSumOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
@@ -552,10 +474,7 @@ export type PropertyProposalSelect<ExtArgs extends runtime.Types.Extensions.Inte
   property_id?: boolean
   proposal_property_pubkey?: boolean
   property_system_pubkey?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
-  country_pubkey?: boolean
   legal_doc_hash?: boolean
   issued_by?: boolean
   approval_count?: boolean
@@ -568,10 +487,7 @@ export type PropertyProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   property_id?: boolean
   proposal_property_pubkey?: boolean
   property_system_pubkey?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
-  country_pubkey?: boolean
   legal_doc_hash?: boolean
   issued_by?: boolean
   approval_count?: boolean
@@ -584,10 +500,7 @@ export type PropertyProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   property_id?: boolean
   proposal_property_pubkey?: boolean
   property_system_pubkey?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
-  country_pubkey?: boolean
   legal_doc_hash?: boolean
   issued_by?: boolean
   approval_count?: boolean
@@ -600,10 +513,7 @@ export type PropertyProposalSelectScalar = {
   property_id?: boolean
   proposal_property_pubkey?: boolean
   property_system_pubkey?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
-  country_pubkey?: boolean
   legal_doc_hash?: boolean
   issued_by?: boolean
   approval_count?: boolean
@@ -612,7 +522,7 @@ export type PropertyProposalSelectScalar = {
   bump?: boolean
 }
 
-export type PropertyProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "proposal_property_pubkey" | "property_system_pubkey" | "state_id" | "state_pubkey" | "country_id" | "country_pubkey" | "legal_doc_hash" | "issued_by" | "approval_count" | "approved" | "executed" | "bump", ExtArgs["result"]["propertyProposal"]>
+export type PropertyProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "proposal_property_pubkey" | "property_system_pubkey" | "state_pubkey" | "legal_doc_hash" | "issued_by" | "approval_count" | "approved" | "executed" | "bump", ExtArgs["result"]["propertyProposal"]>
 
 export type $PropertyProposalPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PropertyProposal"
@@ -621,10 +531,7 @@ export type $PropertyProposalPayload<ExtArgs extends runtime.Types.Extensions.In
     property_id: number
     proposal_property_pubkey: string
     property_system_pubkey: string
-    state_id: number
     state_pubkey: string
-    country_id: number
-    country_pubkey: string
     legal_doc_hash: string
     issued_by: string
     approval_count: string[]
@@ -1057,10 +964,7 @@ export interface PropertyProposalFieldRefs {
   readonly property_id: Prisma.FieldRef<"PropertyProposal", 'Int'>
   readonly proposal_property_pubkey: Prisma.FieldRef<"PropertyProposal", 'String'>
   readonly property_system_pubkey: Prisma.FieldRef<"PropertyProposal", 'String'>
-  readonly state_id: Prisma.FieldRef<"PropertyProposal", 'Int'>
   readonly state_pubkey: Prisma.FieldRef<"PropertyProposal", 'String'>
-  readonly country_id: Prisma.FieldRef<"PropertyProposal", 'Int'>
-  readonly country_pubkey: Prisma.FieldRef<"PropertyProposal", 'String'>
   readonly legal_doc_hash: Prisma.FieldRef<"PropertyProposal", 'String'>
   readonly issued_by: Prisma.FieldRef<"PropertyProposal", 'String'>
   readonly approval_count: Prisma.FieldRef<"PropertyProposal", 'String[]'>

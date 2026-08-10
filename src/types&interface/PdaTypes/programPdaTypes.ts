@@ -143,3 +143,17 @@ export type StatePdaType = {
  bump: number;
 }
 
+export type PropertyProposalType =  {
+ propertyId: anchor.BN;
+ propertySystemPubkey: anchor.web3.PublicKey;
+ stateId: number;
+ statePubkey: anchor.web3.PublicKey;
+ countryId: number;
+ countryPubkey: anchor.web3.PublicKey;
+ legalDocHash: number[];
+ issuedBy: anchor.web3.PublicKey;
+ approvalCount: number;
+ approved: boolean;
+ executed: boolean;
+ bump: number;
+}

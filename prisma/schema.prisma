@@ -384,13 +384,10 @@ model PropertyProposal {
   property_id              Int
   proposal_property_pubkey String   @id
   property_system_pubkey   String
-  state_id                 Int
   state_pubkey             String
-  country_id               Int
-  country_pubkey           String
   legal_doc_hash           String
   issued_by                String
-  approval_count           String[]
+  approval_count           String[] 
   approved                 Boolean
   executed                 Boolean
   bump                     Int
