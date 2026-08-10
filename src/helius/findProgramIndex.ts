@@ -10,7 +10,7 @@ import type { TransactionContext } from "../utils/solanaDbHandler";
 export type messageSchema = z.infer<typeof messageSchema>;
 export type Instructions = z.infer<typeof instructionsSchema>;
 
-export const FindProgramIdIndex = async (message: messageSchema,ctx:TransactionContext) => {
+export const FindProgramIdIndex = async (message: messageSchema,ctx:TransactionContext,BlockTime:number) => {
   const uniqueProgramIdIndex = [
     ...new Set(
       message.instructions.map((instruction) => instruction.programIdIndex)
@@ -50,7 +50,7 @@ export const FindProgramIdIndex = async (message: messageSchema,ctx:TransactionC
 
   const decode =  solanaInstructionHandler(parser.name);
 
-  await decode(message, element,ctx);
+  await decode(message, element,ctx,BlockTime);
 }
 
 

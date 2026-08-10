@@ -216,11 +216,11 @@ export type CountryAuthorityReceiptCreateInput = {
   created_time?: Date | string
   updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
-  country: Prisma.CountryPdaCreateNestedOneWithoutAuthorityInput
+  country?: Prisma.CountryPdaCreateNestedOneWithoutAuthorityInput
 }
 
 export type CountryAuthorityReceiptUncheckedCreateInput = {
-  public_key: string
+  public_key?: string
   created_time?: Date | string
   updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]
@@ -241,7 +241,7 @@ export type CountryAuthorityReceiptUncheckedUpdateInput = {
 }
 
 export type CountryAuthorityReceiptCreateManyInput = {
-  public_key: string
+  public_key?: string
   created_time?: Date | string
   updated_time?: Date | string
   signer?: Prisma.CountryAuthorityReceiptCreatesignerInput | string[]

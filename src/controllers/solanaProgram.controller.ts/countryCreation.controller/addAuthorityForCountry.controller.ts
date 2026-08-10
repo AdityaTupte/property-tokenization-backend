@@ -3,11 +3,13 @@ import type { Instructions, messageSchema } from "../../../helius/findProgramInd
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
 
-export const handleAddAuthorityForCountry = async(
+export const handleAddAuthorityForCountry:InstructionHandler = async(
     message:messageSchema,
     instruction:Instructions,
-    ctx:TransactionContext
+    ctx:TransactionContext,
+    _BlockTime:number
 ) => {
 
 

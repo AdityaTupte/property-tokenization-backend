@@ -111,3 +111,35 @@ export type countryPdaType = {
 }
 
 
+
+export type StateProposalType =  {
+ stateId: number;
+ stateName: number[];
+ stateTotalAuthorities: number;
+ stateAuthorityThreshold: number;
+ countryId: number;
+ countryPubkey: anchor.web3.PublicKey;
+ approval: number;
+ approved: boolean;
+ executed: boolean;
+ bump: number;
+}
+
+
+export type approveStateAuthorityReceiptType = {
+ proposal: anchor.web3.PublicKey;
+ bump: number;
+}
+
+
+
+export type StatePdaType = {
+ stateId: number;
+ stateName: number[];
+ countryId: number;
+ countryPubkey:  anchor.web3.PublicKey;
+ totalAuthorities: number;
+ threshold: number;
+ bump: number;
+}
+

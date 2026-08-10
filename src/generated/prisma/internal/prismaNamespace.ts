@@ -3645,7 +3645,6 @@ export type ApproveStateAuthorityReceiptScalarFieldEnum = (typeof ApproveStateAu
 
 
 export const StateProposalScalarFieldEnum = {
-  proposal_creator_id: 'proposal_creator_id',
   proposal_public_key: 'proposal_public_key',
   state_id: 'state_id',
   state_name: 'state_name',
@@ -3670,8 +3669,7 @@ export const StatePdaScalarFieldEnum = {
   state_authority_threshold: 'state_authority_threshold',
   country_pubkey: 'country_pubkey',
   state_bump: 'state_bump',
-  state_created_time: 'state_created_time',
-  bump: 'bump'
+  state_created_time: 'state_created_time'
 } as const
 
 export type StatePdaScalarFieldEnum = (typeof StatePdaScalarFieldEnum)[keyof typeof StatePdaScalarFieldEnum]
@@ -3680,7 +3678,6 @@ export type StatePdaScalarFieldEnum = (typeof StatePdaScalarFieldEnum)[keyof typ
 export const StateAuthorityReceiptScalarFieldEnum = {
   public_key: 'public_key',
   state_created_time: 'state_created_time',
-  bump: 'bump',
   signer: 'signer'
 } as const
 

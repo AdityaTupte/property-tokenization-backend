@@ -39,7 +39,6 @@ export type StateProposalSumAggregateOutputType = {
 }
 
 export type StateProposalMinAggregateOutputType = {
-  proposal_creator_id: string | null
   proposal_public_key: string | null
   state_id: number | null
   state_name: string | null
@@ -52,7 +51,6 @@ export type StateProposalMinAggregateOutputType = {
 }
 
 export type StateProposalMaxAggregateOutputType = {
-  proposal_creator_id: string | null
   proposal_public_key: string | null
   state_id: number | null
   state_name: string | null
@@ -65,7 +63,6 @@ export type StateProposalMaxAggregateOutputType = {
 }
 
 export type StateProposalCountAggregateOutputType = {
-  proposal_creator_id: number
   proposal_public_key: number
   state_id: number
   state_name: number
@@ -92,7 +89,6 @@ export type StateProposalSumAggregateInputType = {
 }
 
 export type StateProposalMinAggregateInputType = {
-  proposal_creator_id?: true
   proposal_public_key?: true
   state_id?: true
   state_name?: true
@@ -105,7 +101,6 @@ export type StateProposalMinAggregateInputType = {
 }
 
 export type StateProposalMaxAggregateInputType = {
-  proposal_creator_id?: true
   proposal_public_key?: true
   state_id?: true
   state_name?: true
@@ -118,7 +113,6 @@ export type StateProposalMaxAggregateInputType = {
 }
 
 export type StateProposalCountAggregateInputType = {
-  proposal_creator_id?: true
   proposal_public_key?: true
   state_id?: true
   state_name?: true
@@ -218,7 +212,6 @@ export type StateProposalGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 }
 
 export type StateProposalGroupByOutputType = {
-  proposal_creator_id: string
   proposal_public_key: string
   state_id: number
   state_name: string
@@ -254,7 +247,6 @@ export type StateProposalWhereInput = {
   AND?: Prisma.StateProposalWhereInput | Prisma.StateProposalWhereInput[]
   OR?: Prisma.StateProposalWhereInput[]
   NOT?: Prisma.StateProposalWhereInput | Prisma.StateProposalWhereInput[]
-  proposal_creator_id?: Prisma.StringFilter<"StateProposal"> | string
   proposal_public_key?: Prisma.StringFilter<"StateProposal"> | string
   state_id?: Prisma.IntFilter<"StateProposal"> | number
   state_name?: Prisma.StringFilter<"StateProposal"> | string
@@ -268,7 +260,6 @@ export type StateProposalWhereInput = {
 }
 
 export type StateProposalOrderByWithRelationInput = {
-  proposal_creator_id?: Prisma.SortOrder
   proposal_public_key?: Prisma.SortOrder
   state_id?: Prisma.SortOrder
   state_name?: Prisma.SortOrder
@@ -283,11 +274,9 @@ export type StateProposalOrderByWithRelationInput = {
 
 export type StateProposalWhereUniqueInput = Prisma.AtLeast<{
   proposal_public_key?: string
-  proposal_creator_id_proposal_public_key?: Prisma.StateProposalProposal_creator_idProposal_public_keyCompoundUniqueInput
   AND?: Prisma.StateProposalWhereInput | Prisma.StateProposalWhereInput[]
   OR?: Prisma.StateProposalWhereInput[]
   NOT?: Prisma.StateProposalWhereInput | Prisma.StateProposalWhereInput[]
-  proposal_creator_id?: Prisma.StringFilter<"StateProposal"> | string
   state_id?: Prisma.IntFilter<"StateProposal"> | number
   state_name?: Prisma.StringFilter<"StateProposal"> | string
   state_total_authorities?: Prisma.IntFilter<"StateProposal"> | number
@@ -297,10 +286,9 @@ export type StateProposalWhereUniqueInput = Prisma.AtLeast<{
   proposal_bump?: Prisma.IntFilter<"StateProposal"> | number
   propsal_created_time?: Prisma.DateTimeFilter<"StateProposal"> | Date | string
   approval?: Prisma.ApproveStateAuthorityReceiptListRelationFilter
-}, "proposal_creator_id_proposal_public_key" | "proposal_public_key">
+}, "proposal_public_key" | "proposal_public_key">
 
 export type StateProposalOrderByWithAggregationInput = {
-  proposal_creator_id?: Prisma.SortOrder
   proposal_public_key?: Prisma.SortOrder
   state_id?: Prisma.SortOrder
   state_name?: Prisma.SortOrder
@@ -321,7 +309,6 @@ export type StateProposalScalarWhereWithAggregatesInput = {
   AND?: Prisma.StateProposalScalarWhereWithAggregatesInput | Prisma.StateProposalScalarWhereWithAggregatesInput[]
   OR?: Prisma.StateProposalScalarWhereWithAggregatesInput[]
   NOT?: Prisma.StateProposalScalarWhereWithAggregatesInput | Prisma.StateProposalScalarWhereWithAggregatesInput[]
-  proposal_creator_id?: Prisma.StringWithAggregatesFilter<"StateProposal"> | string
   proposal_public_key?: Prisma.StringWithAggregatesFilter<"StateProposal"> | string
   state_id?: Prisma.IntWithAggregatesFilter<"StateProposal"> | number
   state_name?: Prisma.StringWithAggregatesFilter<"StateProposal"> | string
@@ -334,7 +321,6 @@ export type StateProposalScalarWhereWithAggregatesInput = {
 }
 
 export type StateProposalCreateInput = {
-  proposal_creator_id: string
   proposal_public_key: string
   state_id: number
   state_name: string
@@ -348,7 +334,6 @@ export type StateProposalCreateInput = {
 }
 
 export type StateProposalUncheckedCreateInput = {
-  proposal_creator_id: string
   proposal_public_key: string
   state_id: number
   state_name: string
@@ -362,7 +347,6 @@ export type StateProposalUncheckedCreateInput = {
 }
 
 export type StateProposalUpdateInput = {
-  proposal_creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -376,7 +360,6 @@ export type StateProposalUpdateInput = {
 }
 
 export type StateProposalUncheckedUpdateInput = {
-  proposal_creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -390,7 +373,6 @@ export type StateProposalUncheckedUpdateInput = {
 }
 
 export type StateProposalCreateManyInput = {
-  proposal_creator_id: string
   proposal_public_key: string
   state_id: number
   state_name: string
@@ -403,7 +385,6 @@ export type StateProposalCreateManyInput = {
 }
 
 export type StateProposalUpdateManyMutationInput = {
-  proposal_creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -416,7 +397,6 @@ export type StateProposalUpdateManyMutationInput = {
 }
 
 export type StateProposalUncheckedUpdateManyInput = {
-  proposal_creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -433,13 +413,7 @@ export type StateProposalScalarRelationFilter = {
   isNot?: Prisma.StateProposalWhereInput
 }
 
-export type StateProposalProposal_creator_idProposal_public_keyCompoundUniqueInput = {
-  proposal_creator_id: string
-  proposal_public_key: string
-}
-
 export type StateProposalCountOrderByAggregateInput = {
-  proposal_creator_id?: Prisma.SortOrder
   proposal_public_key?: Prisma.SortOrder
   state_id?: Prisma.SortOrder
   state_name?: Prisma.SortOrder
@@ -458,7 +432,6 @@ export type StateProposalAvgOrderByAggregateInput = {
 }
 
 export type StateProposalMaxOrderByAggregateInput = {
-  proposal_creator_id?: Prisma.SortOrder
   proposal_public_key?: Prisma.SortOrder
   state_id?: Prisma.SortOrder
   state_name?: Prisma.SortOrder
@@ -471,7 +444,6 @@ export type StateProposalMaxOrderByAggregateInput = {
 }
 
 export type StateProposalMinOrderByAggregateInput = {
-  proposal_creator_id?: Prisma.SortOrder
   proposal_public_key?: Prisma.SortOrder
   state_id?: Prisma.SortOrder
   state_name?: Prisma.SortOrder
@@ -504,7 +476,6 @@ export type StateProposalUpdateOneRequiredWithoutApprovalNestedInput = {
 }
 
 export type StateProposalCreateWithoutApprovalInput = {
-  proposal_creator_id: string
   proposal_public_key: string
   state_id: number
   state_name: string
@@ -517,7 +488,6 @@ export type StateProposalCreateWithoutApprovalInput = {
 }
 
 export type StateProposalUncheckedCreateWithoutApprovalInput = {
-  proposal_creator_id: string
   proposal_public_key: string
   state_id: number
   state_name: string
@@ -546,7 +516,6 @@ export type StateProposalUpdateToOneWithWhereWithoutApprovalInput = {
 }
 
 export type StateProposalUpdateWithoutApprovalInput = {
-  proposal_creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -559,7 +528,6 @@ export type StateProposalUpdateWithoutApprovalInput = {
 }
 
 export type StateProposalUncheckedUpdateWithoutApprovalInput = {
-  proposal_creator_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_name?: Prisma.StringFieldUpdateOperationsInput | string
@@ -603,7 +571,6 @@ export type StateProposalCountOutputTypeCountApprovalArgs<ExtArgs extends runtim
 
 
 export type StateProposalSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  proposal_creator_id?: boolean
   proposal_public_key?: boolean
   state_id?: boolean
   state_name?: boolean
@@ -618,7 +585,6 @@ export type StateProposalSelect<ExtArgs extends runtime.Types.Extensions.Interna
 }, ExtArgs["result"]["stateProposal"]>
 
 export type StateProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  proposal_creator_id?: boolean
   proposal_public_key?: boolean
   state_id?: boolean
   state_name?: boolean
@@ -631,7 +597,6 @@ export type StateProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types
 }, ExtArgs["result"]["stateProposal"]>
 
 export type StateProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  proposal_creator_id?: boolean
   proposal_public_key?: boolean
   state_id?: boolean
   state_name?: boolean
@@ -644,7 +609,6 @@ export type StateProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
 }, ExtArgs["result"]["stateProposal"]>
 
 export type StateProposalSelectScalar = {
-  proposal_creator_id?: boolean
   proposal_public_key?: boolean
   state_id?: boolean
   state_name?: boolean
@@ -656,7 +620,7 @@ export type StateProposalSelectScalar = {
   propsal_created_time?: boolean
 }
 
-export type StateProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_creator_id" | "proposal_public_key" | "state_id" | "state_name" | "state_total_authorities" | "country_pubkey" | "approved" | "executed" | "proposal_bump" | "propsal_created_time", ExtArgs["result"]["stateProposal"]>
+export type StateProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_public_key" | "state_id" | "state_name" | "state_total_authorities" | "country_pubkey" | "approved" | "executed" | "proposal_bump" | "propsal_created_time", ExtArgs["result"]["stateProposal"]>
 export type StateProposalInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   approval?: boolean | Prisma.StateProposal$approvalArgs<ExtArgs>
   _count?: boolean | Prisma.StateProposalCountOutputTypeDefaultArgs<ExtArgs>
@@ -670,7 +634,6 @@ export type $StateProposalPayload<ExtArgs extends runtime.Types.Extensions.Inter
     approval: Prisma.$ApproveStateAuthorityReceiptPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    proposal_creator_id: string
     proposal_public_key: string
     state_id: number
     state_name: string
@@ -763,8 +726,8 @@ export interface StateProposalDelegate<ExtArgs extends runtime.Types.Extensions.
    * // Get first 10 StateProposals
    * const stateProposals = await prisma.stateProposal.findMany({ take: 10 })
    * 
-   * // Only select the `proposal_creator_id`
-   * const stateProposalWithProposal_creator_idOnly = await prisma.stateProposal.findMany({ select: { proposal_creator_id: true } })
+   * // Only select the `proposal_public_key`
+   * const stateProposalWithProposal_public_keyOnly = await prisma.stateProposal.findMany({ select: { proposal_public_key: true } })
    * 
    */
   findMany<T extends StateProposalFindManyArgs>(args?: Prisma.SelectSubset<T, StateProposalFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$StateProposalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -808,9 +771,9 @@ export interface StateProposalDelegate<ExtArgs extends runtime.Types.Extensions.
    *   ]
    * })
    * 
-   * // Create many StateProposals and only return the `proposal_creator_id`
-   * const stateProposalWithProposal_creator_idOnly = await prisma.stateProposal.createManyAndReturn({
-   *   select: { proposal_creator_id: true },
+   * // Create many StateProposals and only return the `proposal_public_key`
+   * const stateProposalWithProposal_public_keyOnly = await prisma.stateProposal.createManyAndReturn({
+   *   select: { proposal_public_key: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -899,9 +862,9 @@ export interface StateProposalDelegate<ExtArgs extends runtime.Types.Extensions.
    *   ]
    * })
    * 
-   * // Update zero or more StateProposals and only return the `proposal_creator_id`
-   * const stateProposalWithProposal_creator_idOnly = await prisma.stateProposal.updateManyAndReturn({
-   *   select: { proposal_creator_id: true },
+   * // Update zero or more StateProposals and only return the `proposal_public_key`
+   * const stateProposalWithProposal_public_keyOnly = await prisma.stateProposal.updateManyAndReturn({
+   *   select: { proposal_public_key: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -1104,7 +1067,6 @@ export interface Prisma__StateProposalClient<T, Null = never, ExtArgs extends ru
  * Fields of the StateProposal model
  */
 export interface StateProposalFieldRefs {
-  readonly proposal_creator_id: Prisma.FieldRef<"StateProposal", 'String'>
   readonly proposal_public_key: Prisma.FieldRef<"StateProposal", 'String'>
   readonly state_id: Prisma.FieldRef<"StateProposal", 'Int'>
   readonly state_name: Prisma.FieldRef<"StateProposal", 'String'>

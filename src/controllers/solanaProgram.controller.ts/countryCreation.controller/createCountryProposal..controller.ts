@@ -5,10 +5,12 @@ import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-export const handleCreateCountryProposal = async(
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+export const handleCreateCountryProposal:InstructionHandler = async(
     message:messageSchema,
     instruction:Instructions,
-    ctx:TransactionContext
+    ctx:TransactionContext,
+    BlockTime:number,
 ) => {
 
     const proposal = address(message.accountKeys[instruction.accounts[1]!]!)
@@ -16,6 +18,9 @@ export const handleCreateCountryProposal = async(
     const proposalAccount  = await GenericPda("proposalCountryPda",proposal) as PdaTypes.countryProposalType 
 
     const countryBuffer =  Buffer.from(proposalAccount.countryName)
+
+    const cleanCountryName = countryBuffer.toString().replace(/\0/g, '').trim();
+        
 
     ctx.add( async(tx) =>{
 
@@ -29,7 +34,8 @@ export const handleCreateCountryProposal = async(
                 approved:proposalAccount.approved,
                 executed:proposalAccount.executed,
                 proposal_bump:proposalAccount.bump,
-                country_name:countryBuffer.toString()
+                country_name:cleanCountryName,
+                proposal_created_time:new Date(BlockTime)
             }
 
         })

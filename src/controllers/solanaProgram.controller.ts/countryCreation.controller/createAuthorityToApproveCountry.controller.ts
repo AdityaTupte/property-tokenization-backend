@@ -4,10 +4,12 @@ import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-export const handlerCreateAuthorityToApproveCountry = async(
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+export const handlerCreateAuthorityToApproveCountry:InstructionHandler = async(
     message:messageSchema,
     instruction:Instructions,
-    ctx:TransactionContext
+    ctx:TransactionContext,
+    _BlockTime:number,
 ) => {
 
     const AuthorityToApproveCountryAddress = address(message.accountKeys[instruction.accounts[1]!]!)

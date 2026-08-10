@@ -32,7 +32,6 @@ export type StatePdaAvgAggregateOutputType = {
   state_total_authorities: number | null
   state_authority_threshold: number | null
   state_bump: number | null
-  bump: number | null
 }
 
 export type StatePdaSumAggregateOutputType = {
@@ -41,7 +40,6 @@ export type StatePdaSumAggregateOutputType = {
   state_total_authorities: number | null
   state_authority_threshold: number | null
   state_bump: number | null
-  bump: number | null
 }
 
 export type StatePdaMinAggregateOutputType = {
@@ -55,7 +53,6 @@ export type StatePdaMinAggregateOutputType = {
   country_pubkey: string | null
   state_bump: number | null
   state_created_time: Date | null
-  bump: number | null
 }
 
 export type StatePdaMaxAggregateOutputType = {
@@ -69,7 +66,6 @@ export type StatePdaMaxAggregateOutputType = {
   country_pubkey: string | null
   state_bump: number | null
   state_created_time: Date | null
-  bump: number | null
 }
 
 export type StatePdaCountAggregateOutputType = {
@@ -83,7 +79,6 @@ export type StatePdaCountAggregateOutputType = {
   country_pubkey: number
   state_bump: number
   state_created_time: number
-  bump: number
   _all: number
 }
 
@@ -94,7 +89,6 @@ export type StatePdaAvgAggregateInputType = {
   state_total_authorities?: true
   state_authority_threshold?: true
   state_bump?: true
-  bump?: true
 }
 
 export type StatePdaSumAggregateInputType = {
@@ -103,7 +97,6 @@ export type StatePdaSumAggregateInputType = {
   state_total_authorities?: true
   state_authority_threshold?: true
   state_bump?: true
-  bump?: true
 }
 
 export type StatePdaMinAggregateInputType = {
@@ -117,7 +110,6 @@ export type StatePdaMinAggregateInputType = {
   country_pubkey?: true
   state_bump?: true
   state_created_time?: true
-  bump?: true
 }
 
 export type StatePdaMaxAggregateInputType = {
@@ -131,7 +123,6 @@ export type StatePdaMaxAggregateInputType = {
   country_pubkey?: true
   state_bump?: true
   state_created_time?: true
-  bump?: true
 }
 
 export type StatePdaCountAggregateInputType = {
@@ -145,7 +136,6 @@ export type StatePdaCountAggregateInputType = {
   country_pubkey?: true
   state_bump?: true
   state_created_time?: true
-  bump?: true
   _all?: true
 }
 
@@ -246,7 +236,6 @@ export type StatePdaGroupByOutputType = {
   country_pubkey: string
   state_bump: number
   state_created_time: Date
-  bump: number
   _count: StatePdaCountAggregateOutputType | null
   _avg: StatePdaAvgAggregateOutputType | null
   _sum: StatePdaSumAggregateOutputType | null
@@ -283,7 +272,6 @@ export type StatePdaWhereInput = {
   country_pubkey?: Prisma.StringFilter<"StatePda"> | string
   state_bump?: Prisma.IntFilter<"StatePda"> | number
   state_created_time?: Prisma.DateTimeFilter<"StatePda"> | Date | string
-  bump?: Prisma.IntFilter<"StatePda"> | number
   stateAuthorityReceipts?: Prisma.XOR<Prisma.StateAuthorityReceiptNullableScalarRelationFilter, Prisma.StateAuthorityReceiptWhereInput> | null
 }
 
@@ -298,7 +286,6 @@ export type StatePdaOrderByWithRelationInput = {
   country_pubkey?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptOrderByWithRelationInput
 }
 
@@ -316,7 +303,6 @@ export type StatePdaWhereUniqueInput = Prisma.AtLeast<{
   country_pubkey?: Prisma.StringFilter<"StatePda"> | string
   state_bump?: Prisma.IntFilter<"StatePda"> | number
   state_created_time?: Prisma.DateTimeFilter<"StatePda"> | Date | string
-  bump?: Prisma.IntFilter<"StatePda"> | number
   stateAuthorityReceipts?: Prisma.XOR<Prisma.StateAuthorityReceiptNullableScalarRelationFilter, Prisma.StateAuthorityReceiptWhereInput> | null
 }, "state_public_key">
 
@@ -331,7 +317,6 @@ export type StatePdaOrderByWithAggregationInput = {
   country_pubkey?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.StatePdaCountOrderByAggregateInput
   _avg?: Prisma.StatePdaAvgOrderByAggregateInput
   _max?: Prisma.StatePdaMaxOrderByAggregateInput
@@ -353,7 +338,6 @@ export type StatePdaScalarWhereWithAggregatesInput = {
   country_pubkey?: Prisma.StringWithAggregatesFilter<"StatePda"> | string
   state_bump?: Prisma.IntWithAggregatesFilter<"StatePda"> | number
   state_created_time?: Prisma.DateTimeWithAggregatesFilter<"StatePda"> | Date | string
-  bump?: Prisma.IntWithAggregatesFilter<"StatePda"> | number
 }
 
 export type StatePdaCreateInput = {
@@ -367,7 +351,6 @@ export type StatePdaCreateInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  bump: number
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptCreateNestedOneWithoutStateInput
 }
 
@@ -382,7 +365,6 @@ export type StatePdaUncheckedCreateInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  bump: number
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUncheckedCreateNestedOneWithoutStateInput
 }
 
@@ -397,7 +379,6 @@ export type StatePdaUpdateInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUpdateOneWithoutStateNestedInput
 }
 
@@ -412,7 +393,6 @@ export type StatePdaUncheckedUpdateInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUncheckedUpdateOneWithoutStateNestedInput
 }
 
@@ -427,7 +407,6 @@ export type StatePdaCreateManyInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  bump: number
 }
 
 export type StatePdaUpdateManyMutationInput = {
@@ -441,7 +420,6 @@ export type StatePdaUpdateManyMutationInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type StatePdaUncheckedUpdateManyInput = {
@@ -455,7 +433,6 @@ export type StatePdaUncheckedUpdateManyInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type StatePdaCountOrderByAggregateInput = {
@@ -469,7 +446,6 @@ export type StatePdaCountOrderByAggregateInput = {
   country_pubkey?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type StatePdaAvgOrderByAggregateInput = {
@@ -478,7 +454,6 @@ export type StatePdaAvgOrderByAggregateInput = {
   state_total_authorities?: Prisma.SortOrder
   state_authority_threshold?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type StatePdaMaxOrderByAggregateInput = {
@@ -492,7 +467,6 @@ export type StatePdaMaxOrderByAggregateInput = {
   country_pubkey?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type StatePdaMinOrderByAggregateInput = {
@@ -506,7 +480,6 @@ export type StatePdaMinOrderByAggregateInput = {
   country_pubkey?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type StatePdaSumOrderByAggregateInput = {
@@ -515,7 +488,6 @@ export type StatePdaSumOrderByAggregateInput = {
   state_total_authorities?: Prisma.SortOrder
   state_authority_threshold?: Prisma.SortOrder
   state_bump?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type StatePdaScalarRelationFilter = {
@@ -548,7 +520,6 @@ export type StatePdaCreateWithoutStateAuthorityReceiptsInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  bump: number
 }
 
 export type StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput = {
@@ -562,7 +533,6 @@ export type StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  bump: number
 }
 
 export type StatePdaCreateOrConnectWithoutStateAuthorityReceiptsInput = {
@@ -592,7 +562,6 @@ export type StatePdaUpdateWithoutStateAuthorityReceiptsInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput = {
@@ -606,7 +575,6 @@ export type StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -622,7 +590,6 @@ export type StatePdaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   country_pubkey?: boolean
   state_bump?: boolean
   state_created_time?: boolean
-  bump?: boolean
   stateAuthorityReceipts?: boolean | Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>
 }, ExtArgs["result"]["statePda"]>
 
@@ -637,7 +604,6 @@ export type StatePdaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   country_pubkey?: boolean
   state_bump?: boolean
   state_created_time?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["statePda"]>
 
 export type StatePdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -651,7 +617,6 @@ export type StatePdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   country_pubkey?: boolean
   state_bump?: boolean
   state_created_time?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["statePda"]>
 
 export type StatePdaSelectScalar = {
@@ -665,10 +630,9 @@ export type StatePdaSelectScalar = {
   country_pubkey?: boolean
   state_bump?: boolean
   state_created_time?: boolean
-  bump?: boolean
 }
 
-export type StatePdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"state_public_key" | "proposal_public_key" | "current_total_authority" | "state_id" | "state_name" | "state_total_authorities" | "state_authority_threshold" | "country_pubkey" | "state_bump" | "state_created_time" | "bump", ExtArgs["result"]["statePda"]>
+export type StatePdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"state_public_key" | "proposal_public_key" | "current_total_authority" | "state_id" | "state_name" | "state_total_authorities" | "state_authority_threshold" | "country_pubkey" | "state_bump" | "state_created_time", ExtArgs["result"]["statePda"]>
 export type StatePdaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   stateAuthorityReceipts?: boolean | Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>
 }
@@ -691,7 +655,6 @@ export type $StatePdaPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     country_pubkey: string
     state_bump: number
     state_created_time: Date
-    bump: number
   }, ExtArgs["result"]["statePda"]>
   composites: {}
 }
@@ -1126,7 +1089,6 @@ export interface StatePdaFieldRefs {
   readonly country_pubkey: Prisma.FieldRef<"StatePda", 'String'>
   readonly state_bump: Prisma.FieldRef<"StatePda", 'Int'>
   readonly state_created_time: Prisma.FieldRef<"StatePda", 'DateTime'>
-  readonly bump: Prisma.FieldRef<"StatePda", 'Int'>
 }
     
 

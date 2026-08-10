@@ -170,7 +170,7 @@ model CountryPda {
 }
 
 model CountryAuthorityReceipt {
-  public_key   String     @id
+  public_key   String          @id @default(uuid())
   created_time DateTime   @default(now())
   updated_time DateTime   @updatedAt
   signer       String[]
@@ -189,8 +189,18 @@ model ApproveStateAuthorityReceipt {
   @@unique([proposal_key, signer])
 }
 
+// model ApproveCountryAuthorityReceipt {
+//   id            String          @id @default(uuid())
+//   proposal_key  String
+//   approval_time DateTime        @default(now())
+//   signer        String
+//   bump          Int
+//   proposal      CountryProposal @relation(fields: [proposal_key], references: [proposal_public_key])
+
+//   @@unique([proposal_key, signer])
+// }
+
 model StateProposal {
-  proposal_creator_id     String
   proposal_public_key     String                         @unique
   state_id                Int
   state_name              String
@@ -202,7 +212,7 @@ model StateProposal {
   proposal_bump           Int
   propsal_created_time    DateTime                       @default(now())
 
-  @@id([proposal_creator_id, proposal_public_key])
+  @@id([proposal_public_key])
 }
 
 model StatePda {
@@ -216,14 +226,12 @@ model StatePda {
   country_pubkey            String
   state_bump                Int
   state_created_time        DateTime               @default(now())
-  bump                      Int
   stateAuthorityReceipts    StateAuthorityReceipt?
 }
 
 model StateAuthorityReceipt {
   public_key         String   @id
   state_created_time DateTime @default(now())
-  bump               Int
   signer             String[]
   state              StatePda @relation(fields: [public_key], references: [state_public_key])
 }

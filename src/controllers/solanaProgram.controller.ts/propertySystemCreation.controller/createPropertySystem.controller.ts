@@ -7,11 +7,13 @@ import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaType
 import { GenericPda } from "../../../utils/genericPda";
 
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
 
-export const handleCreatePropertySystem = async (
+export const handleCreatePropertySystem:InstructionHandler = async (
   message: messageSchema,
   instruction: Instructions,
-  ctx:TransactionContext
+  ctx:TransactionContext,
+  _BlockTime:number
 ) => {
   const propertySystemAddress = address(
     message.accountKeys.at(instruction.accounts[1]!)!
@@ -97,8 +99,7 @@ export const handleCreatePropertySystem = async (
         creator_pubky: propertySystemAccount.creator.toString(),
         property_system_id: propertySystemAccount.propertySystemId.toNumber(),
         property_system_public_key: propertySystemAddress,
-        arbitrator_registry:
-          propertySystemAccount.arbitratorRegistry.toString(),
+        arbitrator_registry:propertySystemAccount.arbitratorRegistry.toString(),
         treasury: propertySystemAccount.treasury.toString(),
         governance_mint: propertySystemAccount.governanceMint.toString(),
         trustee_registry: propertySystemAccount.trusteeRegistry.toString(),

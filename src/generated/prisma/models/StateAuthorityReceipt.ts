@@ -20,65 +20,41 @@ export type StateAuthorityReceiptModel = runtime.Types.Result.DefaultSelection<P
 
 export type AggregateStateAuthorityReceipt = {
   _count: StateAuthorityReceiptCountAggregateOutputType | null
-  _avg: StateAuthorityReceiptAvgAggregateOutputType | null
-  _sum: StateAuthorityReceiptSumAggregateOutputType | null
   _min: StateAuthorityReceiptMinAggregateOutputType | null
   _max: StateAuthorityReceiptMaxAggregateOutputType | null
-}
-
-export type StateAuthorityReceiptAvgAggregateOutputType = {
-  bump: number | null
-}
-
-export type StateAuthorityReceiptSumAggregateOutputType = {
-  bump: number | null
 }
 
 export type StateAuthorityReceiptMinAggregateOutputType = {
   public_key: string | null
   state_created_time: Date | null
-  bump: number | null
 }
 
 export type StateAuthorityReceiptMaxAggregateOutputType = {
   public_key: string | null
   state_created_time: Date | null
-  bump: number | null
 }
 
 export type StateAuthorityReceiptCountAggregateOutputType = {
   public_key: number
   state_created_time: number
-  bump: number
   signer: number
   _all: number
 }
 
 
-export type StateAuthorityReceiptAvgAggregateInputType = {
-  bump?: true
-}
-
-export type StateAuthorityReceiptSumAggregateInputType = {
-  bump?: true
-}
-
 export type StateAuthorityReceiptMinAggregateInputType = {
   public_key?: true
   state_created_time?: true
-  bump?: true
 }
 
 export type StateAuthorityReceiptMaxAggregateInputType = {
   public_key?: true
   state_created_time?: true
-  bump?: true
 }
 
 export type StateAuthorityReceiptCountAggregateInputType = {
   public_key?: true
   state_created_time?: true
-  bump?: true
   signer?: true
   _all?: true
 }
@@ -121,18 +97,6 @@ export type StateAuthorityReceiptAggregateArgs<ExtArgs extends runtime.Types.Ext
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: StateAuthorityReceiptAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: StateAuthorityReceiptSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: StateAuthorityReceiptMinAggregateInputType
@@ -163,8 +127,6 @@ export type StateAuthorityReceiptGroupByArgs<ExtArgs extends runtime.Types.Exten
   take?: number
   skip?: number
   _count?: StateAuthorityReceiptCountAggregateInputType | true
-  _avg?: StateAuthorityReceiptAvgAggregateInputType
-  _sum?: StateAuthorityReceiptSumAggregateInputType
   _min?: StateAuthorityReceiptMinAggregateInputType
   _max?: StateAuthorityReceiptMaxAggregateInputType
 }
@@ -172,11 +134,8 @@ export type StateAuthorityReceiptGroupByArgs<ExtArgs extends runtime.Types.Exten
 export type StateAuthorityReceiptGroupByOutputType = {
   public_key: string
   state_created_time: Date
-  bump: number
   signer: string[]
   _count: StateAuthorityReceiptCountAggregateOutputType | null
-  _avg: StateAuthorityReceiptAvgAggregateOutputType | null
-  _sum: StateAuthorityReceiptSumAggregateOutputType | null
   _min: StateAuthorityReceiptMinAggregateOutputType | null
   _max: StateAuthorityReceiptMaxAggregateOutputType | null
 }
@@ -202,7 +161,6 @@ export type StateAuthorityReceiptWhereInput = {
   NOT?: Prisma.StateAuthorityReceiptWhereInput | Prisma.StateAuthorityReceiptWhereInput[]
   public_key?: Prisma.StringFilter<"StateAuthorityReceipt"> | string
   state_created_time?: Prisma.DateTimeFilter<"StateAuthorityReceipt"> | Date | string
-  bump?: Prisma.IntFilter<"StateAuthorityReceipt"> | number
   signer?: Prisma.StringNullableListFilter<"StateAuthorityReceipt">
   state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>
 }
@@ -210,7 +168,6 @@ export type StateAuthorityReceiptWhereInput = {
 export type StateAuthorityReceiptOrderByWithRelationInput = {
   public_key?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   state?: Prisma.StatePdaOrderByWithRelationInput
 }
@@ -221,7 +178,6 @@ export type StateAuthorityReceiptWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.StateAuthorityReceiptWhereInput[]
   NOT?: Prisma.StateAuthorityReceiptWhereInput | Prisma.StateAuthorityReceiptWhereInput[]
   state_created_time?: Prisma.DateTimeFilter<"StateAuthorityReceipt"> | Date | string
-  bump?: Prisma.IntFilter<"StateAuthorityReceipt"> | number
   signer?: Prisma.StringNullableListFilter<"StateAuthorityReceipt">
   state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>
 }, "public_key">
@@ -229,13 +185,10 @@ export type StateAuthorityReceiptWhereUniqueInput = Prisma.AtLeast<{
 export type StateAuthorityReceiptOrderByWithAggregationInput = {
   public_key?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   _count?: Prisma.StateAuthorityReceiptCountOrderByAggregateInput
-  _avg?: Prisma.StateAuthorityReceiptAvgOrderByAggregateInput
   _max?: Prisma.StateAuthorityReceiptMaxOrderByAggregateInput
   _min?: Prisma.StateAuthorityReceiptMinOrderByAggregateInput
-  _sum?: Prisma.StateAuthorityReceiptSumOrderByAggregateInput
 }
 
 export type StateAuthorityReceiptScalarWhereWithAggregatesInput = {
@@ -244,13 +197,11 @@ export type StateAuthorityReceiptScalarWhereWithAggregatesInput = {
   NOT?: Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput | Prisma.StateAuthorityReceiptScalarWhereWithAggregatesInput[]
   public_key?: Prisma.StringWithAggregatesFilter<"StateAuthorityReceipt"> | string
   state_created_time?: Prisma.DateTimeWithAggregatesFilter<"StateAuthorityReceipt"> | Date | string
-  bump?: Prisma.IntWithAggregatesFilter<"StateAuthorityReceipt"> | number
   signer?: Prisma.StringNullableListFilter<"StateAuthorityReceipt">
 }
 
 export type StateAuthorityReceiptCreateInput = {
   state_created_time?: Date | string
-  bump: number
   signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[]
   state: Prisma.StatePdaCreateNestedOneWithoutStateAuthorityReceiptsInput
 }
@@ -258,13 +209,11 @@ export type StateAuthorityReceiptCreateInput = {
 export type StateAuthorityReceiptUncheckedCreateInput = {
   public_key: string
   state_created_time?: Date | string
-  bump: number
   signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[]
 }
 
 export type StateAuthorityReceiptUpdateInput = {
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[]
   state?: Prisma.StatePdaUpdateOneRequiredWithoutStateAuthorityReceiptsNestedInput
 }
@@ -272,27 +221,23 @@ export type StateAuthorityReceiptUpdateInput = {
 export type StateAuthorityReceiptUncheckedUpdateInput = {
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[]
 }
 
 export type StateAuthorityReceiptCreateManyInput = {
   public_key: string
   state_created_time?: Date | string
-  bump: number
   signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[]
 }
 
 export type StateAuthorityReceiptUpdateManyMutationInput = {
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[]
 }
 
 export type StateAuthorityReceiptUncheckedUpdateManyInput = {
   public_key?: Prisma.StringFieldUpdateOperationsInput | string
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[]
 }
 
@@ -304,28 +249,17 @@ export type StateAuthorityReceiptNullableScalarRelationFilter = {
 export type StateAuthorityReceiptCountOrderByAggregateInput = {
   public_key?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   signer?: Prisma.SortOrder
-}
-
-export type StateAuthorityReceiptAvgOrderByAggregateInput = {
-  bump?: Prisma.SortOrder
 }
 
 export type StateAuthorityReceiptMaxOrderByAggregateInput = {
   public_key?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type StateAuthorityReceiptMinOrderByAggregateInput = {
   public_key?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
-}
-
-export type StateAuthorityReceiptSumOrderByAggregateInput = {
-  bump?: Prisma.SortOrder
 }
 
 export type StateAuthorityReceiptCreateNestedOneWithoutStateInput = {
@@ -371,13 +305,11 @@ export type StateAuthorityReceiptUpdatesignerInput = {
 
 export type StateAuthorityReceiptCreateWithoutStateInput = {
   state_created_time?: Date | string
-  bump: number
   signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[]
 }
 
 export type StateAuthorityReceiptUncheckedCreateWithoutStateInput = {
   state_created_time?: Date | string
-  bump: number
   signer?: Prisma.StateAuthorityReceiptCreatesignerInput | string[]
 }
 
@@ -399,13 +331,11 @@ export type StateAuthorityReceiptUpdateToOneWithWhereWithoutStateInput = {
 
 export type StateAuthorityReceiptUpdateWithoutStateInput = {
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[]
 }
 
 export type StateAuthorityReceiptUncheckedUpdateWithoutStateInput = {
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   signer?: Prisma.StateAuthorityReceiptUpdatesignerInput | string[]
 }
 
@@ -414,7 +344,6 @@ export type StateAuthorityReceiptUncheckedUpdateWithoutStateInput = {
 export type StateAuthorityReceiptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   public_key?: boolean
   state_created_time?: boolean
-  bump?: boolean
   signer?: boolean
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stateAuthorityReceipt"]>
@@ -422,7 +351,6 @@ export type StateAuthorityReceiptSelect<ExtArgs extends runtime.Types.Extensions
 export type StateAuthorityReceiptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   public_key?: boolean
   state_created_time?: boolean
-  bump?: boolean
   signer?: boolean
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stateAuthorityReceipt"]>
@@ -430,7 +358,6 @@ export type StateAuthorityReceiptSelectCreateManyAndReturn<ExtArgs extends runti
 export type StateAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   public_key?: boolean
   state_created_time?: boolean
-  bump?: boolean
   signer?: boolean
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["stateAuthorityReceipt"]>
@@ -438,11 +365,10 @@ export type StateAuthorityReceiptSelectUpdateManyAndReturn<ExtArgs extends runti
 export type StateAuthorityReceiptSelectScalar = {
   public_key?: boolean
   state_created_time?: boolean
-  bump?: boolean
   signer?: boolean
 }
 
-export type StateAuthorityReceiptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "state_created_time" | "bump" | "signer", ExtArgs["result"]["stateAuthorityReceipt"]>
+export type StateAuthorityReceiptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"public_key" | "state_created_time" | "signer", ExtArgs["result"]["stateAuthorityReceipt"]>
 export type StateAuthorityReceiptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }
@@ -461,7 +387,6 @@ export type $StateAuthorityReceiptPayload<ExtArgs extends runtime.Types.Extensio
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     public_key: string
     state_created_time: Date
-    bump: number
     signer: string[]
   }, ExtArgs["result"]["stateAuthorityReceipt"]>
   composites: {}
@@ -889,7 +814,6 @@ export interface Prisma__StateAuthorityReceiptClient<T, Null = never, ExtArgs ex
 export interface StateAuthorityReceiptFieldRefs {
   readonly public_key: Prisma.FieldRef<"StateAuthorityReceipt", 'String'>
   readonly state_created_time: Prisma.FieldRef<"StateAuthorityReceipt", 'DateTime'>
-  readonly bump: Prisma.FieldRef<"StateAuthorityReceipt", 'Int'>
   readonly signer: Prisma.FieldRef<"StateAuthorityReceipt", 'String[]'>
 }
     

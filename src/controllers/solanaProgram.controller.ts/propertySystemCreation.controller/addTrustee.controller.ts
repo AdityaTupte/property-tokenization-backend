@@ -6,7 +6,8 @@ import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-export const handleAddTrustee = async(
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+export const handleAddTrustee:InstructionHandler = async(
     message:messageSchema,
     instruction:Instructions,
     ctx:TransactionContext

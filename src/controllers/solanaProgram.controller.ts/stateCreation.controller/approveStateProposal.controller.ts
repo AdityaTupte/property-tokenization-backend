@@ -8,18 +8,18 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
-export const handleApproveCountryProposal:InstructionHandler = async(
+export const handleApproveStateProposal:InstructionHandler = async(
     message:messageSchema,
     instruction:Instructions,
     ctx:TransactionContext,
-    _BlockTime:number,
+    _BlockTime:number
 ) => {
 
     const proposal = address(message.accountKeys[instruction.accounts[0]!]!)
 
     const proposalAccount : PdaTypes.countryProposalType = await GenericPda("proposalCountryPda",proposal) as PdaTypes.countryProposalType
 
-   const CountryProposalApprovedFieldDb = await prisma.countryProposal.findUnique({
+   const StateProposalApprovedFieldDb = await prisma.stateProposal.findUnique({
     where:{
         proposal_public_key:proposal.toString(),
    },
@@ -27,41 +27,42 @@ export const handleApproveCountryProposal:InstructionHandler = async(
     approved:true,
    }
 })
-    if(!CountryProposalApprovedFieldDb) throw new ApiError(404,"Country Proposal Not Found")
+    if(!StateProposalApprovedFieldDb) throw new ApiError(404,"State Proposal Not Found")
 
-    const NotChanged = CountryProposalApprovedFieldDb.approved === proposalAccount.approved
+    const NotChanged = StateProposalApprovedFieldDb.approved === proposalAccount.approved
 
-    const signer  =  address(message.accountKeys[instruction.accounts[3]!]!)
+    const signer  =  address(message.accountKeys[instruction.accounts[2]!]!)
 
-    const receiptAddress  =  address(message.accountKeys[instruction.accounts[2]!]!)
+    const receiptAddress  =  address(message.accountKeys[instruction.accounts[4]!]!)
 
-    const receiptAccount= await GenericPda("approveCountryAuthorityReceipt",receiptAddress) as PdaTypes.approveCountryAuthorityReceiptType
+    const receiptAccount= await GenericPda("stateProposalAprroveReceipt",receiptAddress) as PdaTypes.approveStateAuthorityReceiptType
 
 
-    ctx.add( async(tx) =>{
+    ctx.add(async (tx) => {
 
-        await tx.countryProposal.update({
 
+        tx.stateProposal.update({
             where:{
-                proposal_public_key:proposal.toString(),
+                proposal_public_key:proposal.toString()
             },
 
-             data:{   
-                approved:NotChanged?undefined:proposalAccount.approved,
-        }
-    })
-
-        await tx.approveCountryAuthorityReceipt.create({
             data:{
-                proposal_key:proposal.toString(),
-                signer:signer.toString(),
+                approved: NotChanged?undefined:proposalAccount.approved
+            }
+        })
+
+
+        tx.approveStateAuthorityReceipt.create({
+            data:{
+                signer:signer,
                 bump:receiptAccount.bump,
+                proposal_key:proposal.toString(),
+                // approval_time:
             }
         })
 
 
     })
-
 
 
 }
