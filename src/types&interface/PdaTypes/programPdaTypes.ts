@@ -157,3 +157,68 @@ export type PropertyProposalType =  {
  executed: boolean;
  bump: number;
 }
+
+
+
+export type PropertyAccountType =   {
+ propertyId: anchor.BN;
+ isLeased: boolean;
+ propertySystem: anchor.web3.PublicKey;
+ stateId: number;
+ statePubkey: anchor.web3.PublicKey;
+ countryId: number;
+ countryPubkey: anchor.web3.PublicKey;
+ issuedAt: anchor.BN;
+ issuedBy: anchor.web3.PublicKey;
+ metadata: anchor.web3.PublicKey;
+ bump: number;
+}
+
+export type StatusVariant = 
+  | { draft: Record<string, never> }
+  | { active: Record<string, never> }
+  | { passed: Record<string, never> }
+  | { failed: Record<string, never> }
+  | { rejected: Record<string, never> }
+  | { executed: Record<string, never> }
+  | { pending: Record<string, never> }
+  | { approved: Record<string, never> };
+
+
+  export type ProposalVariant = 
+  | { SELLPROPERTY: Record<string, never> }
+  | { BUYPROPERTY: Record<string, never> }
+  | { USESAFETY: Record<string, never> }
+  | { USEREINVESTMENT: Record<string, never> }
+  | { REVENUETHRESHOLDCHANGE: Record<string, never> }
+  | { CHALLLENGEAUTHORITY: Record<string, never> }
+  | { REMOVEAUTHORITY: Record<string, never> }
+  | { PROPOSEREMOVEPROPOSAL: Record<string, never> };
+
+
+
+export type propertySellProposalType = {
+ proposalId: anchor.BN;
+ propertyAccount: anchor.web3.PublicKey;
+ salePrice: anchor.BN;
+ propertySystemAccount: anchor.web3.PublicKey;
+ depositAccountPda: anchor.web3.PublicKey;
+ merkleRoot: number[];
+ arbitrarApprovalsCount: number;
+ isArbitrarApproved: boolean;
+ totalVotingPower: anchor.BN;
+ votesFor: anchor.BN;
+ votesAgainst: anchor.BN;
+ voteThreshold: anchor.BN;
+ startTime: anchor.BN;
+ endTime: anchor.BN;
+ transferDeadline: anchor.BN;
+ status:StatusVariant;
+ snapshotSubmitted: boolean;
+ proposalType:ProposalVariant,
+ slot: anchor.BN;
+ bump: number;
+}
+
+
+

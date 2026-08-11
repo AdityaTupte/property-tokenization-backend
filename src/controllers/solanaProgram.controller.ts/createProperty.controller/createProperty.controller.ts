@@ -4,7 +4,7 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
 import { GenericPda } from "../../../utils/genericPda";
-import { sign } from "node:crypto";
+
 
 export const handleCreateProperty:InstructionHandler = async(
     message:messageSchema,
@@ -38,7 +38,7 @@ export const handleCreateProperty:InstructionHandler = async(
                 executed:PropertyProposalPda.executed,
                 bump:PropertyProposalPda.bump,
                 proposal_property_pubkey:PropertyProposalAddress
-            }
+            } 
             
         })
 

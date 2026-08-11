@@ -32,7 +32,6 @@ export type ProposalsAvgAggregateOutputType = {
   votes_against: number | null
   vote_threshold: number | null
   slot: number | null
-  bump: number | null
 }
 
 export type ProposalsSumAggregateOutputType = {
@@ -41,12 +40,9 @@ export type ProposalsSumAggregateOutputType = {
   votes_against: bigint | null
   vote_threshold: number | null
   slot: number | null
-  bump: number | null
 }
 
 export type ProposalsMinAggregateOutputType = {
-  property_system: string | null
-  proposal_id: string | null
   proposal_key: string | null
   merkle_root: string | null
   is_arbitrar_approved: boolean | null
@@ -60,13 +56,10 @@ export type ProposalsMinAggregateOutputType = {
   snapshot_submitted: boolean | null
   proposal_type: $Enums.ProposalType | null
   slot: number | null
-  bump: number | null
   created_at: Date | null
 }
 
 export type ProposalsMaxAggregateOutputType = {
-  property_system: string | null
-  proposal_id: string | null
   proposal_key: string | null
   merkle_root: string | null
   is_arbitrar_approved: boolean | null
@@ -80,13 +73,10 @@ export type ProposalsMaxAggregateOutputType = {
   snapshot_submitted: boolean | null
   proposal_type: $Enums.ProposalType | null
   slot: number | null
-  bump: number | null
   created_at: Date | null
 }
 
 export type ProposalsCountAggregateOutputType = {
-  property_system: number
-  proposal_id: number
   proposal_key: number
   merkle_root: number
   arbitrar_approvals: number
@@ -101,7 +91,6 @@ export type ProposalsCountAggregateOutputType = {
   snapshot_submitted: number
   proposal_type: number
   slot: number
-  bump: number
   created_at: number
   _all: number
 }
@@ -113,7 +102,6 @@ export type ProposalsAvgAggregateInputType = {
   votes_against?: true
   vote_threshold?: true
   slot?: true
-  bump?: true
 }
 
 export type ProposalsSumAggregateInputType = {
@@ -122,12 +110,9 @@ export type ProposalsSumAggregateInputType = {
   votes_against?: true
   vote_threshold?: true
   slot?: true
-  bump?: true
 }
 
 export type ProposalsMinAggregateInputType = {
-  property_system?: true
-  proposal_id?: true
   proposal_key?: true
   merkle_root?: true
   is_arbitrar_approved?: true
@@ -141,13 +126,10 @@ export type ProposalsMinAggregateInputType = {
   snapshot_submitted?: true
   proposal_type?: true
   slot?: true
-  bump?: true
   created_at?: true
 }
 
 export type ProposalsMaxAggregateInputType = {
-  property_system?: true
-  proposal_id?: true
   proposal_key?: true
   merkle_root?: true
   is_arbitrar_approved?: true
@@ -161,13 +143,10 @@ export type ProposalsMaxAggregateInputType = {
   snapshot_submitted?: true
   proposal_type?: true
   slot?: true
-  bump?: true
   created_at?: true
 }
 
 export type ProposalsCountAggregateInputType = {
-  property_system?: true
-  proposal_id?: true
   proposal_key?: true
   merkle_root?: true
   arbitrar_approvals?: true
@@ -182,7 +161,6 @@ export type ProposalsCountAggregateInputType = {
   snapshot_submitted?: true
   proposal_type?: true
   slot?: true
-  bump?: true
   created_at?: true
   _all?: true
 }
@@ -274,8 +252,6 @@ export type ProposalsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 export type ProposalsGroupByOutputType = {
-  property_system: string
-  proposal_id: string
   proposal_key: string
   merkle_root: string
   arbitrar_approvals: string[]
@@ -290,7 +266,6 @@ export type ProposalsGroupByOutputType = {
   snapshot_submitted: boolean
   proposal_type: $Enums.ProposalType
   slot: number
-  bump: number
   created_at: Date
   _count: ProposalsCountAggregateOutputType | null
   _avg: ProposalsAvgAggregateOutputType | null
@@ -318,8 +293,6 @@ export type ProposalsWhereInput = {
   AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
-  property_system?: Prisma.StringFilter<"Proposals"> | string
-  proposal_id?: Prisma.StringFilter<"Proposals"> | string
   proposal_key?: Prisma.StringFilter<"Proposals"> | string
   merkle_root?: Prisma.StringFilter<"Proposals"> | string
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
@@ -334,14 +307,11 @@ export type ProposalsWhereInput = {
   snapshot_submitted?: Prisma.BoolFilter<"Proposals"> | boolean
   proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType
   slot?: Prisma.IntFilter<"Proposals"> | number
-  bump?: Prisma.IntFilter<"Proposals"> | number
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }
 
 export type ProposalsOrderByWithRelationInput = {
-  property_system?: Prisma.SortOrder
-  proposal_id?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
@@ -356,7 +326,6 @@ export type ProposalsOrderByWithRelationInput = {
   snapshot_submitted?: Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   propertySellProposals?: Prisma.PropertySellProposalOrderByWithRelationInput
 }
@@ -366,8 +335,6 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
-  property_system?: Prisma.StringFilter<"Proposals"> | string
-  proposal_id?: Prisma.StringFilter<"Proposals"> | string
   merkle_root?: Prisma.StringFilter<"Proposals"> | string
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolFilter<"Proposals"> | boolean
@@ -381,14 +348,11 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   snapshot_submitted?: Prisma.BoolFilter<"Proposals"> | boolean
   proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType
   slot?: Prisma.IntFilter<"Proposals"> | number
-  bump?: Prisma.IntFilter<"Proposals"> | number
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }, "proposal_key">
 
 export type ProposalsOrderByWithAggregationInput = {
-  property_system?: Prisma.SortOrder
-  proposal_id?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
@@ -403,7 +367,6 @@ export type ProposalsOrderByWithAggregationInput = {
   snapshot_submitted?: Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.ProposalsCountOrderByAggregateInput
   _avg?: Prisma.ProposalsAvgOrderByAggregateInput
@@ -416,8 +379,6 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   AND?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[]
   OR?: Prisma.ProposalsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[]
-  property_system?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
-  proposal_id?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
   proposal_key?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
   merkle_root?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
@@ -432,13 +393,10 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   snapshot_submitted?: Prisma.BoolWithAggregatesFilter<"Proposals"> | boolean
   proposal_type?: Prisma.EnumProposalTypeWithAggregatesFilter<"Proposals"> | $Enums.ProposalType
   slot?: Prisma.IntWithAggregatesFilter<"Proposals"> | number
-  bump?: Prisma.IntWithAggregatesFilter<"Proposals"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
 }
 
 export type ProposalsCreateInput = {
-  property_system: string
-  proposal_id: string
   proposal_key: string
   merkle_root: string
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -453,14 +411,11 @@ export type ProposalsCreateInput = {
   snapshot_submitted: boolean
   proposal_type: $Enums.ProposalType
   slot: number
-  bump: number
   created_at?: Date | string
   propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
 }
 
 export type ProposalsUncheckedCreateInput = {
-  property_system: string
-  proposal_id: string
   proposal_key: string
   merkle_root: string
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -475,14 +430,11 @@ export type ProposalsUncheckedCreateInput = {
   snapshot_submitted: boolean
   proposal_type: $Enums.ProposalType
   slot: number
-  bump: number
   created_at?: Date | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
 }
 
 export type ProposalsUpdateInput = {
-  property_system?: Prisma.StringFieldUpdateOperationsInput | string
-  proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -497,14 +449,11 @@ export type ProposalsUpdateInput = {
   snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   slot?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
 }
 
 export type ProposalsUncheckedUpdateInput = {
-  property_system?: Prisma.StringFieldUpdateOperationsInput | string
-  proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -519,14 +468,11 @@ export type ProposalsUncheckedUpdateInput = {
   snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   slot?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
 }
 
 export type ProposalsCreateManyInput = {
-  property_system: string
-  proposal_id: string
   proposal_key: string
   merkle_root: string
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -541,13 +487,10 @@ export type ProposalsCreateManyInput = {
   snapshot_submitted: boolean
   proposal_type: $Enums.ProposalType
   slot: number
-  bump: number
   created_at?: Date | string
 }
 
 export type ProposalsUpdateManyMutationInput = {
-  property_system?: Prisma.StringFieldUpdateOperationsInput | string
-  proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -562,13 +505,10 @@ export type ProposalsUpdateManyMutationInput = {
   snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   slot?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProposalsUncheckedUpdateManyInput = {
-  property_system?: Prisma.StringFieldUpdateOperationsInput | string
-  proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -583,7 +523,6 @@ export type ProposalsUncheckedUpdateManyInput = {
   snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   slot?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -593,8 +532,6 @@ export type ProposalsScalarRelationFilter = {
 }
 
 export type ProposalsCountOrderByAggregateInput = {
-  property_system?: Prisma.SortOrder
-  proposal_id?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
@@ -609,7 +546,6 @@ export type ProposalsCountOrderByAggregateInput = {
   snapshot_submitted?: Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -619,12 +555,9 @@ export type ProposalsAvgOrderByAggregateInput = {
   votes_against?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ProposalsMaxOrderByAggregateInput = {
-  property_system?: Prisma.SortOrder
-  proposal_id?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   is_arbitrar_approved?: Prisma.SortOrder
@@ -638,13 +571,10 @@ export type ProposalsMaxOrderByAggregateInput = {
   snapshot_submitted?: Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type ProposalsMinOrderByAggregateInput = {
-  property_system?: Prisma.SortOrder
-  proposal_id?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   is_arbitrar_approved?: Prisma.SortOrder
@@ -658,7 +588,6 @@ export type ProposalsMinOrderByAggregateInput = {
   snapshot_submitted?: Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -668,7 +597,6 @@ export type ProposalsSumOrderByAggregateInput = {
   votes_against?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   slot?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ProposalsCreateNestedOneWithoutPropertySellProposalsInput = {
@@ -699,8 +627,6 @@ export type EnumProposalTypeFieldUpdateOperationsInput = {
 }
 
 export type ProposalsCreateWithoutPropertySellProposalsInput = {
-  property_system: string
-  proposal_id: string
   proposal_key: string
   merkle_root: string
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -715,13 +641,10 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
   snapshot_submitted: boolean
   proposal_type: $Enums.ProposalType
   slot: number
-  bump: number
   created_at?: Date | string
 }
 
 export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
-  property_system: string
-  proposal_id: string
   proposal_key: string
   merkle_root: string
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -736,7 +659,6 @@ export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   snapshot_submitted: boolean
   proposal_type: $Enums.ProposalType
   slot: number
-  bump: number
   created_at?: Date | string
 }
 
@@ -757,8 +679,6 @@ export type ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput = {
 }
 
 export type ProposalsUpdateWithoutPropertySellProposalsInput = {
-  property_system?: Prisma.StringFieldUpdateOperationsInput | string
-  proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -773,13 +693,10 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   slot?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
-  property_system?: Prisma.StringFieldUpdateOperationsInput | string
-  proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -794,15 +711,12 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   slot?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
 
 export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  property_system?: boolean
-  proposal_id?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -817,14 +731,11 @@ export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   snapshot_submitted?: boolean
   proposal_type?: boolean
   slot?: boolean
-  bump?: boolean
   created_at?: boolean
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  property_system?: boolean
-  proposal_id?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -839,13 +750,10 @@ export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   snapshot_submitted?: boolean
   proposal_type?: boolean
   slot?: boolean
-  bump?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
-  property_system?: boolean
-  proposal_id?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -860,13 +768,10 @@ export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   snapshot_submitted?: boolean
   proposal_type?: boolean
   slot?: boolean
-  bump?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectScalar = {
-  property_system?: boolean
-  proposal_id?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -881,11 +786,10 @@ export type ProposalsSelectScalar = {
   snapshot_submitted?: boolean
   proposal_type?: boolean
   slot?: boolean
-  bump?: boolean
   created_at?: boolean
 }
 
-export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "proposal_id" | "proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "slot" | "bump" | "created_at", ExtArgs["result"]["proposals"]>
+export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "slot" | "created_at", ExtArgs["result"]["proposals"]>
 export type ProposalsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
 }
@@ -898,8 +802,6 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     propertySellProposals: Prisma.$PropertySellProposalPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    property_system: string
-    proposal_id: string
     proposal_key: string
     merkle_root: string
     arbitrar_approvals: string[]
@@ -914,7 +816,6 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     snapshot_submitted: boolean
     proposal_type: $Enums.ProposalType
     slot: number
-    bump: number
     created_at: Date
   }, ExtArgs["result"]["proposals"]>
   composites: {}
@@ -999,8 +900,8 @@ export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * // Get first 10 Proposals
    * const proposals = await prisma.proposals.findMany({ take: 10 })
    * 
-   * // Only select the `property_system`
-   * const proposalsWithProperty_systemOnly = await prisma.proposals.findMany({ select: { property_system: true } })
+   * // Only select the `proposal_key`
+   * const proposalsWithProposal_keyOnly = await prisma.proposals.findMany({ select: { proposal_key: true } })
    * 
    */
   findMany<T extends ProposalsFindManyArgs>(args?: Prisma.SelectSubset<T, ProposalsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -1044,9 +945,9 @@ export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   ]
    * })
    * 
-   * // Create many Proposals and only return the `property_system`
-   * const proposalsWithProperty_systemOnly = await prisma.proposals.createManyAndReturn({
-   *   select: { property_system: true },
+   * // Create many Proposals and only return the `proposal_key`
+   * const proposalsWithProposal_keyOnly = await prisma.proposals.createManyAndReturn({
+   *   select: { proposal_key: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -1135,9 +1036,9 @@ export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   ]
    * })
    * 
-   * // Update zero or more Proposals and only return the `property_system`
-   * const proposalsWithProperty_systemOnly = await prisma.proposals.updateManyAndReturn({
-   *   select: { property_system: true },
+   * // Update zero or more Proposals and only return the `proposal_key`
+   * const proposalsWithProposal_keyOnly = await prisma.proposals.updateManyAndReturn({
+   *   select: { proposal_key: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -1340,8 +1241,6 @@ export interface Prisma__ProposalsClient<T, Null = never, ExtArgs extends runtim
  * Fields of the Proposals model
  */
 export interface ProposalsFieldRefs {
-  readonly property_system: Prisma.FieldRef<"Proposals", 'String'>
-  readonly proposal_id: Prisma.FieldRef<"Proposals", 'String'>
   readonly proposal_key: Prisma.FieldRef<"Proposals", 'String'>
   readonly merkle_root: Prisma.FieldRef<"Proposals", 'String'>
   readonly arbitrar_approvals: Prisma.FieldRef<"Proposals", 'String[]'>
@@ -1356,7 +1255,6 @@ export interface ProposalsFieldRefs {
   readonly snapshot_submitted: Prisma.FieldRef<"Proposals", 'Boolean'>
   readonly proposal_type: Prisma.FieldRef<"Proposals", 'ProposalType'>
   readonly slot: Prisma.FieldRef<"Proposals", 'Int'>
-  readonly bump: Prisma.FieldRef<"Proposals", 'Int'>
   readonly created_at: Prisma.FieldRef<"Proposals", 'DateTime'>
 }
     

@@ -38,6 +38,7 @@ export type PropertySellProposalSumAggregateOutputType = {
 
 export type PropertySellProposalMinAggregateOutputType = {
   proposal_id: number | null
+  property_system: string | null
   proposal_key: string | null
   property_account: string | null
   sale_price: bigint | null
@@ -47,6 +48,7 @@ export type PropertySellProposalMinAggregateOutputType = {
 
 export type PropertySellProposalMaxAggregateOutputType = {
   proposal_id: number | null
+  property_system: string | null
   proposal_key: string | null
   property_account: string | null
   sale_price: bigint | null
@@ -56,6 +58,7 @@ export type PropertySellProposalMaxAggregateOutputType = {
 
 export type PropertySellProposalCountAggregateOutputType = {
   proposal_id: number
+  property_system: number
   proposal_key: number
   property_account: number
   sale_price: number
@@ -77,6 +80,7 @@ export type PropertySellProposalSumAggregateInputType = {
 
 export type PropertySellProposalMinAggregateInputType = {
   proposal_id?: true
+  property_system?: true
   proposal_key?: true
   property_account?: true
   sale_price?: true
@@ -86,6 +90,7 @@ export type PropertySellProposalMinAggregateInputType = {
 
 export type PropertySellProposalMaxAggregateInputType = {
   proposal_id?: true
+  property_system?: true
   proposal_key?: true
   property_account?: true
   sale_price?: true
@@ -95,6 +100,7 @@ export type PropertySellProposalMaxAggregateInputType = {
 
 export type PropertySellProposalCountAggregateInputType = {
   proposal_id?: true
+  property_system?: true
   proposal_key?: true
   property_account?: true
   sale_price?: true
@@ -191,6 +197,7 @@ export type PropertySellProposalGroupByArgs<ExtArgs extends runtime.Types.Extens
 
 export type PropertySellProposalGroupByOutputType = {
   proposal_id: number
+  property_system: string
   proposal_key: string
   property_account: string
   sale_price: bigint
@@ -223,6 +230,7 @@ export type PropertySellProposalWhereInput = {
   OR?: Prisma.PropertySellProposalWhereInput[]
   NOT?: Prisma.PropertySellProposalWhereInput | Prisma.PropertySellProposalWhereInput[]
   proposal_id?: Prisma.IntFilter<"PropertySellProposal"> | number
+  property_system?: Prisma.StringFilter<"PropertySellProposal"> | string
   proposal_key?: Prisma.StringFilter<"PropertySellProposal"> | string
   property_account?: Prisma.StringFilter<"PropertySellProposal"> | string
   sale_price?: Prisma.BigIntFilter<"PropertySellProposal"> | bigint | number
@@ -233,6 +241,7 @@ export type PropertySellProposalWhereInput = {
 
 export type PropertySellProposalOrderByWithRelationInput = {
   proposal_id?: Prisma.SortOrder
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
@@ -247,6 +256,7 @@ export type PropertySellProposalWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.PropertySellProposalWhereInput[]
   NOT?: Prisma.PropertySellProposalWhereInput | Prisma.PropertySellProposalWhereInput[]
   proposal_id?: Prisma.IntFilter<"PropertySellProposal"> | number
+  property_system?: Prisma.StringFilter<"PropertySellProposal"> | string
   property_account?: Prisma.StringFilter<"PropertySellProposal"> | string
   sale_price?: Prisma.BigIntFilter<"PropertySellProposal"> | bigint | number
   deposit_account_pda?: Prisma.StringFilter<"PropertySellProposal"> | string
@@ -256,6 +266,7 @@ export type PropertySellProposalWhereUniqueInput = Prisma.AtLeast<{
 
 export type PropertySellProposalOrderByWithAggregationInput = {
   proposal_id?: Prisma.SortOrder
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
@@ -273,6 +284,7 @@ export type PropertySellProposalScalarWhereWithAggregatesInput = {
   OR?: Prisma.PropertySellProposalScalarWhereWithAggregatesInput[]
   NOT?: Prisma.PropertySellProposalScalarWhereWithAggregatesInput | Prisma.PropertySellProposalScalarWhereWithAggregatesInput[]
   proposal_id?: Prisma.IntWithAggregatesFilter<"PropertySellProposal"> | number
+  property_system?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
   proposal_key?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
   property_account?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
   sale_price?: Prisma.BigIntWithAggregatesFilter<"PropertySellProposal"> | bigint | number
@@ -282,6 +294,7 @@ export type PropertySellProposalScalarWhereWithAggregatesInput = {
 
 export type PropertySellProposalCreateInput = {
   proposal_id: number
+  property_system: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
@@ -291,6 +304,7 @@ export type PropertySellProposalCreateInput = {
 
 export type PropertySellProposalUncheckedCreateInput = {
   proposal_id: number
+  property_system: string
   proposal_key: string
   property_account: string
   sale_price: bigint | number
@@ -300,6 +314,7 @@ export type PropertySellProposalUncheckedCreateInput = {
 
 export type PropertySellProposalUpdateInput = {
   proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
@@ -309,6 +324,7 @@ export type PropertySellProposalUpdateInput = {
 
 export type PropertySellProposalUncheckedUpdateInput = {
   proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -318,6 +334,7 @@ export type PropertySellProposalUncheckedUpdateInput = {
 
 export type PropertySellProposalCreateManyInput = {
   proposal_id: number
+  property_system: string
   proposal_key: string
   property_account: string
   sale_price: bigint | number
@@ -327,6 +344,7 @@ export type PropertySellProposalCreateManyInput = {
 
 export type PropertySellProposalUpdateManyMutationInput = {
   proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
@@ -335,6 +353,7 @@ export type PropertySellProposalUpdateManyMutationInput = {
 
 export type PropertySellProposalUncheckedUpdateManyInput = {
   proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -344,6 +363,7 @@ export type PropertySellProposalUncheckedUpdateManyInput = {
 
 export type PropertySellProposalCountOrderByAggregateInput = {
   proposal_id?: Prisma.SortOrder
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
@@ -358,6 +378,7 @@ export type PropertySellProposalAvgOrderByAggregateInput = {
 
 export type PropertySellProposalMaxOrderByAggregateInput = {
   proposal_id?: Prisma.SortOrder
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
@@ -367,6 +388,7 @@ export type PropertySellProposalMaxOrderByAggregateInput = {
 
 export type PropertySellProposalMinOrderByAggregateInput = {
   proposal_id?: Prisma.SortOrder
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
@@ -418,6 +440,7 @@ export type PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput = {
 
 export type PropertySellProposalCreateWithoutProposalInput = {
   proposal_id: number
+  property_system: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
@@ -426,6 +449,7 @@ export type PropertySellProposalCreateWithoutProposalInput = {
 
 export type PropertySellProposalUncheckedCreateWithoutProposalInput = {
   proposal_id: number
+  property_system: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
@@ -450,6 +474,7 @@ export type PropertySellProposalUpdateToOneWithWhereWithoutProposalInput = {
 
 export type PropertySellProposalUpdateWithoutProposalInput = {
   proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
@@ -458,6 +483,7 @@ export type PropertySellProposalUpdateWithoutProposalInput = {
 
 export type PropertySellProposalUncheckedUpdateWithoutProposalInput = {
   proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
@@ -468,6 +494,7 @@ export type PropertySellProposalUncheckedUpdateWithoutProposalInput = {
 
 export type PropertySellProposalSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_id?: boolean
+  property_system?: boolean
   proposal_key?: boolean
   property_account?: boolean
   sale_price?: boolean
@@ -478,6 +505,7 @@ export type PropertySellProposalSelect<ExtArgs extends runtime.Types.Extensions.
 
 export type PropertySellProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_id?: boolean
+  property_system?: boolean
   proposal_key?: boolean
   property_account?: boolean
   sale_price?: boolean
@@ -488,6 +516,7 @@ export type PropertySellProposalSelectCreateManyAndReturn<ExtArgs extends runtim
 
 export type PropertySellProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_id?: boolean
+  property_system?: boolean
   proposal_key?: boolean
   property_account?: boolean
   sale_price?: boolean
@@ -498,6 +527,7 @@ export type PropertySellProposalSelectUpdateManyAndReturn<ExtArgs extends runtim
 
 export type PropertySellProposalSelectScalar = {
   proposal_id?: boolean
+  property_system?: boolean
   proposal_key?: boolean
   property_account?: boolean
   sale_price?: boolean
@@ -505,7 +535,7 @@ export type PropertySellProposalSelectScalar = {
   transfer_deadline?: boolean
 }
 
-export type PropertySellProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_id" | "proposal_key" | "property_account" | "sale_price" | "deposit_account_pda" | "transfer_deadline", ExtArgs["result"]["propertySellProposal"]>
+export type PropertySellProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_id" | "property_system" | "proposal_key" | "property_account" | "sale_price" | "deposit_account_pda" | "transfer_deadline", ExtArgs["result"]["propertySellProposal"]>
 export type PropertySellProposalInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
 }
@@ -523,6 +553,7 @@ export type $PropertySellProposalPayload<ExtArgs extends runtime.Types.Extension
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     proposal_id: number
+    property_system: string
     proposal_key: string
     property_account: string
     sale_price: bigint
@@ -953,6 +984,7 @@ export interface Prisma__PropertySellProposalClient<T, Null = never, ExtArgs ext
  */
 export interface PropertySellProposalFieldRefs {
   readonly proposal_id: Prisma.FieldRef<"PropertySellProposal", 'Int'>
+  readonly property_system: Prisma.FieldRef<"PropertySellProposal", 'String'>
   readonly proposal_key: Prisma.FieldRef<"PropertySellProposal", 'String'>
   readonly property_account: Prisma.FieldRef<"PropertySellProposal", 'String'>
   readonly sale_price: Prisma.FieldRef<"PropertySellProposal", 'BigInt'>

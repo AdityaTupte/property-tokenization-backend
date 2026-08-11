@@ -77,6 +77,7 @@ export const ModelName = {
   AuthorityCandidate: 'AuthorityCandidate',
   PropertyProposal: 'PropertyProposal',
   PropertyAccount: 'PropertyAccount',
+  PropertyMetdata: 'PropertyMetdata',
   SalaryClaim: 'SalaryClaim',
   PropertySellProposal: 'PropertySellProposal',
   PropertyBuyProposal: 'PropertyBuyProposal',
@@ -421,9 +422,7 @@ export const PropertyAccountScalarFieldEnum = {
   is_leased: 'is_leased',
   property_system: 'property_system',
   history_of_owner: 'history_of_owner',
-  state_id: 'state_id',
   state_pubkey: 'state_pubkey',
-  country_id: 'country_id',
   country_pubkey: 'country_pubkey',
   issued_at: 'issued_at',
   issued_by: 'issued_by',
@@ -432,6 +431,15 @@ export const PropertyAccountScalarFieldEnum = {
 } as const
 
 export type PropertyAccountScalarFieldEnum = (typeof PropertyAccountScalarFieldEnum)[keyof typeof PropertyAccountScalarFieldEnum]
+
+
+export const PropertyMetdataScalarFieldEnum = {
+  propertySystem: 'propertySystem',
+  legalDocURI: 'legalDocURI',
+  MetadataLastUpdated: 'MetadataLastUpdated'
+} as const
+
+export type PropertyMetdataScalarFieldEnum = (typeof PropertyMetdataScalarFieldEnum)[keyof typeof PropertyMetdataScalarFieldEnum]
 
 
 export const SalaryClaimScalarFieldEnum = {
@@ -449,6 +457,7 @@ export type SalaryClaimScalarFieldEnum = (typeof SalaryClaimScalarFieldEnum)[key
 
 export const PropertySellProposalScalarFieldEnum = {
   proposal_id: 'proposal_id',
+  property_system: 'property_system',
   proposal_key: 'proposal_key',
   property_account: 'property_account',
   sale_price: 'sale_price',
@@ -627,8 +636,6 @@ export type ElectScalarFieldEnum = (typeof ElectScalarFieldEnum)[keyof typeof El
 
 
 export const ProposalsScalarFieldEnum = {
-  property_system: 'property_system',
-  proposal_id: 'proposal_id',
   proposal_key: 'proposal_key',
   merkle_root: 'merkle_root',
   arbitrar_approvals: 'arbitrar_approvals',
@@ -643,7 +650,6 @@ export const ProposalsScalarFieldEnum = {
   snapshot_submitted: 'snapshot_submitted',
   proposal_type: 'proposal_type',
   slot: 'slot',
-  bump: 'bump',
   created_at: 'created_at'
 } as const
 

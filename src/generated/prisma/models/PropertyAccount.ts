@@ -28,15 +28,11 @@ export type AggregatePropertyAccount = {
 
 export type PropertyAccountAvgAggregateOutputType = {
   property_id: number | null
-  state_id: number | null
-  country_id: number | null
   bump: number | null
 }
 
 export type PropertyAccountSumAggregateOutputType = {
   property_id: number | null
-  state_id: number | null
-  country_id: number | null
   bump: number | null
 }
 
@@ -45,9 +41,7 @@ export type PropertyAccountMinAggregateOutputType = {
   property_public_key: string | null
   is_leased: boolean | null
   property_system: string | null
-  state_id: number | null
   state_pubkey: string | null
-  country_id: number | null
   country_pubkey: string | null
   issued_at: Date | null
   issued_by: string | null
@@ -60,9 +54,7 @@ export type PropertyAccountMaxAggregateOutputType = {
   property_public_key: string | null
   is_leased: boolean | null
   property_system: string | null
-  state_id: number | null
   state_pubkey: string | null
-  country_id: number | null
   country_pubkey: string | null
   issued_at: Date | null
   issued_by: string | null
@@ -76,9 +68,7 @@ export type PropertyAccountCountAggregateOutputType = {
   is_leased: number
   property_system: number
   history_of_owner: number
-  state_id: number
   state_pubkey: number
-  country_id: number
   country_pubkey: number
   issued_at: number
   issued_by: number
@@ -90,15 +80,11 @@ export type PropertyAccountCountAggregateOutputType = {
 
 export type PropertyAccountAvgAggregateInputType = {
   property_id?: true
-  state_id?: true
-  country_id?: true
   bump?: true
 }
 
 export type PropertyAccountSumAggregateInputType = {
   property_id?: true
-  state_id?: true
-  country_id?: true
   bump?: true
 }
 
@@ -107,9 +93,7 @@ export type PropertyAccountMinAggregateInputType = {
   property_public_key?: true
   is_leased?: true
   property_system?: true
-  state_id?: true
   state_pubkey?: true
-  country_id?: true
   country_pubkey?: true
   issued_at?: true
   issued_by?: true
@@ -122,9 +106,7 @@ export type PropertyAccountMaxAggregateInputType = {
   property_public_key?: true
   is_leased?: true
   property_system?: true
-  state_id?: true
   state_pubkey?: true
-  country_id?: true
   country_pubkey?: true
   issued_at?: true
   issued_by?: true
@@ -138,9 +120,7 @@ export type PropertyAccountCountAggregateInputType = {
   is_leased?: true
   property_system?: true
   history_of_owner?: true
-  state_id?: true
   state_pubkey?: true
-  country_id?: true
   country_pubkey?: true
   issued_at?: true
   issued_by?: true
@@ -241,9 +221,7 @@ export type PropertyAccountGroupByOutputType = {
   is_leased: boolean
   property_system: string
   history_of_owner: string[]
-  state_id: number
   state_pubkey: string
-  country_id: number
   country_pubkey: string
   issued_at: Date
   issued_by: string
@@ -280,15 +258,14 @@ export type PropertyAccountWhereInput = {
   is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean
   property_system?: Prisma.StringFilter<"PropertyAccount"> | string
   history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">
-  state_id?: Prisma.IntFilter<"PropertyAccount"> | number
   state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
-  country_id?: Prisma.IntFilter<"PropertyAccount"> | number
   country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
   issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
   metadata?: Prisma.StringFilter<"PropertyAccount"> | string
   bump?: Prisma.IntFilter<"PropertyAccount"> | number
   property_system_ref?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
+  state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>
 }
 
 export type PropertyAccountOrderByWithRelationInput = {
@@ -297,15 +274,14 @@ export type PropertyAccountOrderByWithRelationInput = {
   is_leased?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   history_of_owner?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   country_pubkey?: Prisma.SortOrder
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
   bump?: Prisma.SortOrder
   property_system_ref?: Prisma.PropertySystemAccountOrderByWithRelationInput
+  state?: Prisma.StatePdaOrderByWithRelationInput
 }
 
 export type PropertyAccountWhereUniqueInput = Prisma.AtLeast<{
@@ -317,15 +293,14 @@ export type PropertyAccountWhereUniqueInput = Prisma.AtLeast<{
   is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean
   property_system?: Prisma.StringFilter<"PropertyAccount"> | string
   history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">
-  state_id?: Prisma.IntFilter<"PropertyAccount"> | number
   state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
-  country_id?: Prisma.IntFilter<"PropertyAccount"> | number
   country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
   issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
   metadata?: Prisma.StringFilter<"PropertyAccount"> | string
   bump?: Prisma.IntFilter<"PropertyAccount"> | number
   property_system_ref?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
+  state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>
 }, "property_public_key">
 
 export type PropertyAccountOrderByWithAggregationInput = {
@@ -334,9 +309,7 @@ export type PropertyAccountOrderByWithAggregationInput = {
   is_leased?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   history_of_owner?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   country_pubkey?: Prisma.SortOrder
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
@@ -358,9 +331,7 @@ export type PropertyAccountScalarWhereWithAggregatesInput = {
   is_leased?: Prisma.BoolWithAggregatesFilter<"PropertyAccount"> | boolean
   property_system?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string
   history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">
-  state_id?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number
   state_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string
-  country_id?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number
   country_pubkey?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string
   issued_at?: Prisma.DateTimeWithAggregatesFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string
@@ -373,15 +344,13 @@ export type PropertyAccountCreateInput = {
   is_leased: boolean
   property_system: string
   history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
-  state_id: number
-  state_pubkey: string
-  country_id: number
   country_pubkey: string
   issued_at?: Date | string
   issued_by: string
   metadata: string
   bump: number
   property_system_ref: Prisma.PropertySystemAccountCreateNestedOneWithoutPropertyAccountsInput
+  state: Prisma.StatePdaCreateNestedOneWithoutPropertyInput
 }
 
 export type PropertyAccountUncheckedCreateInput = {
@@ -390,9 +359,7 @@ export type PropertyAccountUncheckedCreateInput = {
   is_leased: boolean
   property_system: string
   history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
-  state_id: number
   state_pubkey: string
-  country_id: number
   country_pubkey: string
   issued_at?: Date | string
   issued_by: string
@@ -405,15 +372,13 @@ export type PropertyAccountUpdateInput = {
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
-  state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_ref?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutPropertyAccountsNestedInput
+  state?: Prisma.StatePdaUpdateOneRequiredWithoutPropertyNestedInput
 }
 
 export type PropertyAccountUncheckedUpdateInput = {
@@ -422,9 +387,7 @@ export type PropertyAccountUncheckedUpdateInput = {
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
@@ -438,9 +401,7 @@ export type PropertyAccountCreateManyInput = {
   is_leased: boolean
   property_system: string
   history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
-  state_id: number
   state_pubkey: string
-  country_id: number
   country_pubkey: string
   issued_at?: Date | string
   issued_by: string
@@ -453,9 +414,6 @@ export type PropertyAccountUpdateManyMutationInput = {
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
-  state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
@@ -469,9 +427,7 @@ export type PropertyAccountUncheckedUpdateManyInput = {
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
@@ -495,9 +451,7 @@ export type PropertyAccountCountOrderByAggregateInput = {
   is_leased?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   history_of_owner?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   country_pubkey?: Prisma.SortOrder
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
@@ -507,8 +461,6 @@ export type PropertyAccountCountOrderByAggregateInput = {
 
 export type PropertyAccountAvgOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   bump?: Prisma.SortOrder
 }
 
@@ -517,9 +469,7 @@ export type PropertyAccountMaxOrderByAggregateInput = {
   property_public_key?: Prisma.SortOrder
   is_leased?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   country_pubkey?: Prisma.SortOrder
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
@@ -532,9 +482,7 @@ export type PropertyAccountMinOrderByAggregateInput = {
   property_public_key?: Prisma.SortOrder
   is_leased?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   country_pubkey?: Prisma.SortOrder
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
@@ -544,9 +492,49 @@ export type PropertyAccountMinOrderByAggregateInput = {
 
 export type PropertyAccountSumOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  state_id?: Prisma.SortOrder
-  country_id?: Prisma.SortOrder
   bump?: Prisma.SortOrder
+}
+
+export type PropertyAccountCreateNestedManyWithoutStateInput = {
+  create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutStateInput, Prisma.PropertyAccountUncheckedCreateWithoutStateInput> | Prisma.PropertyAccountCreateWithoutStateInput[] | Prisma.PropertyAccountUncheckedCreateWithoutStateInput[]
+  connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutStateInput | Prisma.PropertyAccountCreateOrConnectWithoutStateInput[]
+  createMany?: Prisma.PropertyAccountCreateManyStateInputEnvelope
+  connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+}
+
+export type PropertyAccountUncheckedCreateNestedManyWithoutStateInput = {
+  create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutStateInput, Prisma.PropertyAccountUncheckedCreateWithoutStateInput> | Prisma.PropertyAccountCreateWithoutStateInput[] | Prisma.PropertyAccountUncheckedCreateWithoutStateInput[]
+  connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutStateInput | Prisma.PropertyAccountCreateOrConnectWithoutStateInput[]
+  createMany?: Prisma.PropertyAccountCreateManyStateInputEnvelope
+  connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+}
+
+export type PropertyAccountUpdateManyWithoutStateNestedInput = {
+  create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutStateInput, Prisma.PropertyAccountUncheckedCreateWithoutStateInput> | Prisma.PropertyAccountCreateWithoutStateInput[] | Prisma.PropertyAccountUncheckedCreateWithoutStateInput[]
+  connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutStateInput | Prisma.PropertyAccountCreateOrConnectWithoutStateInput[]
+  upsert?: Prisma.PropertyAccountUpsertWithWhereUniqueWithoutStateInput | Prisma.PropertyAccountUpsertWithWhereUniqueWithoutStateInput[]
+  createMany?: Prisma.PropertyAccountCreateManyStateInputEnvelope
+  set?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  disconnect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  delete?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  update?: Prisma.PropertyAccountUpdateWithWhereUniqueWithoutStateInput | Prisma.PropertyAccountUpdateWithWhereUniqueWithoutStateInput[]
+  updateMany?: Prisma.PropertyAccountUpdateManyWithWhereWithoutStateInput | Prisma.PropertyAccountUpdateManyWithWhereWithoutStateInput[]
+  deleteMany?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[]
+}
+
+export type PropertyAccountUncheckedUpdateManyWithoutStateNestedInput = {
+  create?: Prisma.XOR<Prisma.PropertyAccountCreateWithoutStateInput, Prisma.PropertyAccountUncheckedCreateWithoutStateInput> | Prisma.PropertyAccountCreateWithoutStateInput[] | Prisma.PropertyAccountUncheckedCreateWithoutStateInput[]
+  connectOrCreate?: Prisma.PropertyAccountCreateOrConnectWithoutStateInput | Prisma.PropertyAccountCreateOrConnectWithoutStateInput[]
+  upsert?: Prisma.PropertyAccountUpsertWithWhereUniqueWithoutStateInput | Prisma.PropertyAccountUpsertWithWhereUniqueWithoutStateInput[]
+  createMany?: Prisma.PropertyAccountCreateManyStateInputEnvelope
+  set?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  disconnect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  delete?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  connect?: Prisma.PropertyAccountWhereUniqueInput | Prisma.PropertyAccountWhereUniqueInput[]
+  update?: Prisma.PropertyAccountUpdateWithWhereUniqueWithoutStateInput | Prisma.PropertyAccountUpdateWithWhereUniqueWithoutStateInput[]
+  updateMany?: Prisma.PropertyAccountUpdateManyWithWhereWithoutStateInput | Prisma.PropertyAccountUpdateManyWithWhereWithoutStateInput[]
+  deleteMany?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[]
 }
 
 export type PropertyAccountCreateNestedManyWithoutProperty_system_refInput = {
@@ -600,14 +588,25 @@ export type PropertyAccountUpdatehistory_of_ownerInput = {
   push?: string | string[]
 }
 
-export type PropertyAccountCreateWithoutProperty_system_refInput = {
+export type PropertyAccountCreateWithoutStateInput = {
   property_id: number
   is_leased: boolean
   property_system: string
   history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
-  state_id: number
-  state_pubkey: string
-  country_id: number
+  country_pubkey: string
+  issued_at?: Date | string
+  issued_by: string
+  metadata: string
+  bump: number
+  property_system_ref: Prisma.PropertySystemAccountCreateNestedOneWithoutPropertyAccountsInput
+}
+
+export type PropertyAccountUncheckedCreateWithoutStateInput = {
+  property_id: number
+  property_public_key: string
+  is_leased: boolean
+  property_system: string
+  history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
   country_pubkey: string
   issued_at?: Date | string
   issued_by: string
@@ -615,14 +614,68 @@ export type PropertyAccountCreateWithoutProperty_system_refInput = {
   bump: number
 }
 
+export type PropertyAccountCreateOrConnectWithoutStateInput = {
+  where: Prisma.PropertyAccountWhereUniqueInput
+  create: Prisma.XOR<Prisma.PropertyAccountCreateWithoutStateInput, Prisma.PropertyAccountUncheckedCreateWithoutStateInput>
+}
+
+export type PropertyAccountCreateManyStateInputEnvelope = {
+  data: Prisma.PropertyAccountCreateManyStateInput | Prisma.PropertyAccountCreateManyStateInput[]
+  skipDuplicates?: boolean
+}
+
+export type PropertyAccountUpsertWithWhereUniqueWithoutStateInput = {
+  where: Prisma.PropertyAccountWhereUniqueInput
+  update: Prisma.XOR<Prisma.PropertyAccountUpdateWithoutStateInput, Prisma.PropertyAccountUncheckedUpdateWithoutStateInput>
+  create: Prisma.XOR<Prisma.PropertyAccountCreateWithoutStateInput, Prisma.PropertyAccountUncheckedCreateWithoutStateInput>
+}
+
+export type PropertyAccountUpdateWithWhereUniqueWithoutStateInput = {
+  where: Prisma.PropertyAccountWhereUniqueInput
+  data: Prisma.XOR<Prisma.PropertyAccountUpdateWithoutStateInput, Prisma.PropertyAccountUncheckedUpdateWithoutStateInput>
+}
+
+export type PropertyAccountUpdateManyWithWhereWithoutStateInput = {
+  where: Prisma.PropertyAccountScalarWhereInput
+  data: Prisma.XOR<Prisma.PropertyAccountUpdateManyMutationInput, Prisma.PropertyAccountUncheckedUpdateManyWithoutStateInput>
+}
+
+export type PropertyAccountScalarWhereInput = {
+  AND?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[]
+  OR?: Prisma.PropertyAccountScalarWhereInput[]
+  NOT?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[]
+  property_id?: Prisma.IntFilter<"PropertyAccount"> | number
+  property_public_key?: Prisma.StringFilter<"PropertyAccount"> | string
+  is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean
+  property_system?: Prisma.StringFilter<"PropertyAccount"> | string
+  history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">
+  state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
+  country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
+  issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
+  issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
+  metadata?: Prisma.StringFilter<"PropertyAccount"> | string
+  bump?: Prisma.IntFilter<"PropertyAccount"> | number
+}
+
+export type PropertyAccountCreateWithoutProperty_system_refInput = {
+  property_id: number
+  is_leased: boolean
+  property_system: string
+  history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
+  country_pubkey: string
+  issued_at?: Date | string
+  issued_by: string
+  metadata: string
+  bump: number
+  state: Prisma.StatePdaCreateNestedOneWithoutPropertyInput
+}
+
 export type PropertyAccountUncheckedCreateWithoutProperty_system_refInput = {
   property_id: number
   is_leased: boolean
   property_system: string
   history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
-  state_id: number
   state_pubkey: string
-  country_id: number
   country_pubkey: string
   issued_at?: Date | string
   issued_by: string
@@ -656,23 +709,56 @@ export type PropertyAccountUpdateManyWithWhereWithoutProperty_system_refInput = 
   data: Prisma.XOR<Prisma.PropertyAccountUpdateManyMutationInput, Prisma.PropertyAccountUncheckedUpdateManyWithoutProperty_system_refInput>
 }
 
-export type PropertyAccountScalarWhereInput = {
-  AND?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[]
-  OR?: Prisma.PropertyAccountScalarWhereInput[]
-  NOT?: Prisma.PropertyAccountScalarWhereInput | Prisma.PropertyAccountScalarWhereInput[]
-  property_id?: Prisma.IntFilter<"PropertyAccount"> | number
-  property_public_key?: Prisma.StringFilter<"PropertyAccount"> | string
-  is_leased?: Prisma.BoolFilter<"PropertyAccount"> | boolean
-  property_system?: Prisma.StringFilter<"PropertyAccount"> | string
-  history_of_owner?: Prisma.StringNullableListFilter<"PropertyAccount">
-  state_id?: Prisma.IntFilter<"PropertyAccount"> | number
-  state_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
-  country_id?: Prisma.IntFilter<"PropertyAccount"> | number
-  country_pubkey?: Prisma.StringFilter<"PropertyAccount"> | string
-  issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
-  issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
-  metadata?: Prisma.StringFilter<"PropertyAccount"> | string
-  bump?: Prisma.IntFilter<"PropertyAccount"> | number
+export type PropertyAccountCreateManyStateInput = {
+  property_id: number
+  property_public_key: string
+  is_leased: boolean
+  property_system: string
+  history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
+  country_pubkey: string
+  issued_at?: Date | string
+  issued_by: string
+  metadata: string
+  bump: number
+}
+
+export type PropertyAccountUpdateWithoutStateInput = {
+  property_id?: Prisma.IntFieldUpdateOperationsInput | number
+  is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
+  history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
+  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  issued_by?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.StringFieldUpdateOperationsInput | string
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_ref?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutPropertyAccountsNestedInput
+}
+
+export type PropertyAccountUncheckedUpdateWithoutStateInput = {
+  property_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_public_key?: Prisma.StringFieldUpdateOperationsInput | string
+  is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
+  history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
+  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  issued_by?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.StringFieldUpdateOperationsInput | string
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
+}
+
+export type PropertyAccountUncheckedUpdateManyWithoutStateInput = {
+  property_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_public_key?: Prisma.StringFieldUpdateOperationsInput | string
+  is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
+  history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
+  country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
+  issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  issued_by?: Prisma.StringFieldUpdateOperationsInput | string
+  metadata?: Prisma.StringFieldUpdateOperationsInput | string
+  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountCreateManyProperty_system_refInput = {
@@ -680,9 +766,7 @@ export type PropertyAccountCreateManyProperty_system_refInput = {
   is_leased: boolean
   property_system: string
   history_of_owner?: Prisma.PropertyAccountCreatehistory_of_ownerInput | string[]
-  state_id: number
   state_pubkey: string
-  country_id: number
   country_pubkey: string
   issued_at?: Date | string
   issued_by: string
@@ -695,14 +779,12 @@ export type PropertyAccountUpdateWithoutProperty_system_refInput = {
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
-  state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
   bump?: Prisma.IntFieldUpdateOperationsInput | number
+  state?: Prisma.StatePdaUpdateOneRequiredWithoutPropertyNestedInput
 }
 
 export type PropertyAccountUncheckedUpdateWithoutProperty_system_refInput = {
@@ -710,9 +792,7 @@ export type PropertyAccountUncheckedUpdateWithoutProperty_system_refInput = {
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
@@ -725,9 +805,7 @@ export type PropertyAccountUncheckedUpdateManyWithoutProperty_system_refInput = 
   is_leased?: Prisma.BoolFieldUpdateOperationsInput | boolean
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyAccountUpdatehistory_of_ownerInput | string[]
-  state_id?: Prisma.IntFieldUpdateOperationsInput | number
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
-  country_id?: Prisma.IntFieldUpdateOperationsInput | number
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
@@ -743,15 +821,14 @@ export type PropertyAccountSelect<ExtArgs extends runtime.Types.Extensions.Inter
   is_leased?: boolean
   property_system?: boolean
   history_of_owner?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
   country_pubkey?: boolean
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
   bump?: boolean
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertyAccount"]>
 
 export type PropertyAccountSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -760,15 +837,14 @@ export type PropertyAccountSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   is_leased?: boolean
   property_system?: boolean
   history_of_owner?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
   country_pubkey?: boolean
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
   bump?: boolean
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertyAccount"]>
 
 export type PropertyAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -777,15 +853,14 @@ export type PropertyAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   is_leased?: boolean
   property_system?: boolean
   history_of_owner?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
   country_pubkey?: boolean
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
   bump?: boolean
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertyAccount"]>
 
 export type PropertyAccountSelectScalar = {
@@ -794,9 +869,7 @@ export type PropertyAccountSelectScalar = {
   is_leased?: boolean
   property_system?: boolean
   history_of_owner?: boolean
-  state_id?: boolean
   state_pubkey?: boolean
-  country_id?: boolean
   country_pubkey?: boolean
   issued_at?: boolean
   issued_by?: boolean
@@ -804,21 +877,25 @@ export type PropertyAccountSelectScalar = {
   bump?: boolean
 }
 
-export type PropertyAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "property_public_key" | "is_leased" | "property_system" | "history_of_owner" | "state_id" | "state_pubkey" | "country_id" | "country_pubkey" | "issued_at" | "issued_by" | "metadata" | "bump", ExtArgs["result"]["propertyAccount"]>
+export type PropertyAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "property_public_key" | "is_leased" | "property_system" | "history_of_owner" | "state_pubkey" | "country_pubkey" | "issued_at" | "issued_by" | "metadata" | "bump", ExtArgs["result"]["propertyAccount"]>
 export type PropertyAccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }
 export type PropertyAccountIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }
 export type PropertyAccountIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
+  state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }
 
 export type $PropertyAccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PropertyAccount"
   objects: {
     property_system_ref: Prisma.$PropertySystemAccountPayload<ExtArgs>
+    state: Prisma.$StatePdaPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     property_id: number
@@ -826,9 +903,7 @@ export type $PropertyAccountPayload<ExtArgs extends runtime.Types.Extensions.Int
     is_leased: boolean
     property_system: string
     history_of_owner: string[]
-    state_id: number
     state_pubkey: string
-    country_id: number
     country_pubkey: string
     issued_at: Date
     issued_by: string
@@ -1229,6 +1304,7 @@ readonly fields: PropertyAccountFieldRefs;
 export interface Prisma__PropertyAccountClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   property_system_ref<T extends Prisma.PropertySystemAccountDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PropertySystemAccountDefaultArgs<ExtArgs>>): Prisma.Prisma__PropertySystemAccountClient<runtime.Types.Result.GetResult<Prisma.$PropertySystemAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  state<T extends Prisma.StatePdaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StatePdaDefaultArgs<ExtArgs>>): Prisma.Prisma__StatePdaClient<runtime.Types.Result.GetResult<Prisma.$StatePdaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1263,9 +1339,7 @@ export interface PropertyAccountFieldRefs {
   readonly is_leased: Prisma.FieldRef<"PropertyAccount", 'Boolean'>
   readonly property_system: Prisma.FieldRef<"PropertyAccount", 'String'>
   readonly history_of_owner: Prisma.FieldRef<"PropertyAccount", 'String[]'>
-  readonly state_id: Prisma.FieldRef<"PropertyAccount", 'Int'>
   readonly state_pubkey: Prisma.FieldRef<"PropertyAccount", 'String'>
-  readonly country_id: Prisma.FieldRef<"PropertyAccount", 'Int'>
   readonly country_pubkey: Prisma.FieldRef<"PropertyAccount", 'String'>
   readonly issued_at: Prisma.FieldRef<"PropertyAccount", 'DateTime'>
   readonly issued_by: Prisma.FieldRef<"PropertyAccount", 'String'>

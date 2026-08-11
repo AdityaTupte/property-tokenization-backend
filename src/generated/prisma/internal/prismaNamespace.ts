@@ -423,6 +423,7 @@ export const ModelName = {
   AuthorityCandidate: 'AuthorityCandidate',
   PropertyProposal: 'PropertyProposal',
   PropertyAccount: 'PropertyAccount',
+  PropertyMetdata: 'PropertyMetdata',
   SalaryClaim: 'SalaryClaim',
   PropertySellProposal: 'PropertySellProposal',
   PropertyBuyProposal: 'PropertyBuyProposal',
@@ -453,7 +454,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "propertyMetdata" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2381,6 +2382,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PropertyMetdata: {
+      payload: Prisma.$PropertyMetdataPayload<ExtArgs>
+      fields: Prisma.PropertyMetdataFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PropertyMetdataFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PropertyMetdataFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
+        }
+        findFirst: {
+          args: Prisma.PropertyMetdataFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PropertyMetdataFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
+        }
+        findMany: {
+          args: Prisma.PropertyMetdataFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>[]
+        }
+        create: {
+          args: Prisma.PropertyMetdataCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
+        }
+        createMany: {
+          args: Prisma.PropertyMetdataCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PropertyMetdataCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>[]
+        }
+        delete: {
+          args: Prisma.PropertyMetdataDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
+        }
+        update: {
+          args: Prisma.PropertyMetdataUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
+        }
+        deleteMany: {
+          args: Prisma.PropertyMetdataDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PropertyMetdataUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PropertyMetdataUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>[]
+        }
+        upsert: {
+          args: Prisma.PropertyMetdataUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
+        }
+        aggregate: {
+          args: Prisma.PropertyMetdataAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePropertyMetdata>
+        }
+        groupBy: {
+          args: Prisma.PropertyMetdataGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PropertyMetdataGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PropertyMetdataCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PropertyMetdataCountAggregateOutputType> | number
+        }
+      }
+    }
     SalaryClaim: {
       payload: Prisma.$SalaryClaimPayload<ExtArgs>
       fields: Prisma.SalaryClaimFieldRefs
@@ -3841,9 +3916,7 @@ export const PropertyAccountScalarFieldEnum = {
   is_leased: 'is_leased',
   property_system: 'property_system',
   history_of_owner: 'history_of_owner',
-  state_id: 'state_id',
   state_pubkey: 'state_pubkey',
-  country_id: 'country_id',
   country_pubkey: 'country_pubkey',
   issued_at: 'issued_at',
   issued_by: 'issued_by',
@@ -3852,6 +3925,15 @@ export const PropertyAccountScalarFieldEnum = {
 } as const
 
 export type PropertyAccountScalarFieldEnum = (typeof PropertyAccountScalarFieldEnum)[keyof typeof PropertyAccountScalarFieldEnum]
+
+
+export const PropertyMetdataScalarFieldEnum = {
+  propertySystem: 'propertySystem',
+  legalDocURI: 'legalDocURI',
+  MetadataLastUpdated: 'MetadataLastUpdated'
+} as const
+
+export type PropertyMetdataScalarFieldEnum = (typeof PropertyMetdataScalarFieldEnum)[keyof typeof PropertyMetdataScalarFieldEnum]
 
 
 export const SalaryClaimScalarFieldEnum = {
@@ -3869,6 +3951,7 @@ export type SalaryClaimScalarFieldEnum = (typeof SalaryClaimScalarFieldEnum)[key
 
 export const PropertySellProposalScalarFieldEnum = {
   proposal_id: 'proposal_id',
+  property_system: 'property_system',
   proposal_key: 'proposal_key',
   property_account: 'property_account',
   sale_price: 'sale_price',
@@ -4047,8 +4130,6 @@ export type ElectScalarFieldEnum = (typeof ElectScalarFieldEnum)[keyof typeof El
 
 
 export const ProposalsScalarFieldEnum = {
-  property_system: 'property_system',
-  proposal_id: 'proposal_id',
   proposal_key: 'proposal_key',
   merkle_root: 'merkle_root',
   arbitrar_approvals: 'arbitrar_approvals',
@@ -4063,7 +4144,6 @@ export const ProposalsScalarFieldEnum = {
   snapshot_submitted: 'snapshot_submitted',
   proposal_type: 'proposal_type',
   slot: 'slot',
-  bump: 'bump',
   created_at: 'created_at'
 } as const
 
@@ -4465,6 +4545,7 @@ export type GlobalOmitConfig = {
   authorityCandidate?: Prisma.AuthorityCandidateOmit
   propertyProposal?: Prisma.PropertyProposalOmit
   propertyAccount?: Prisma.PropertyAccountOmit
+  propertyMetdata?: Prisma.PropertyMetdataOmit
   salaryClaim?: Prisma.SalaryClaimOmit
   propertySellProposal?: Prisma.PropertySellProposalOmit
   propertyBuyProposal?: Prisma.PropertyBuyProposalOmit

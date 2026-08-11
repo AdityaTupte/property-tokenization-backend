@@ -148,6 +148,11 @@ export type PropertyProposal = Prisma.PropertyProposalModel
  */
 export type PropertyAccount = Prisma.PropertyAccountModel
 /**
+ * Model PropertyMetdata
+ * 
+ */
+export type PropertyMetdata = Prisma.PropertyMetdataModel
+/**
  * Model SalaryClaim
  * 
  */

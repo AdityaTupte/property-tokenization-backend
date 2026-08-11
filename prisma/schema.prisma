@@ -170,7 +170,7 @@ model CountryPda {
 }
 
 model CountryAuthorityReceipt {
-  public_key   String          @id @default(uuid())
+  public_key   String     @id @default(uuid())
   created_time DateTime   @default(now())
   updated_time DateTime   @updatedAt
   signer       String[]
@@ -227,6 +227,7 @@ model StatePda {
   state_bump                Int
   state_created_time        DateTime               @default(now())
   stateAuthorityReceipts    StateAuthorityReceipt?
+  property                  PropertyAccount[]
 }
 
 model StateAuthorityReceipt {
@@ -387,7 +388,7 @@ model PropertyProposal {
   state_pubkey             String
   legal_doc_hash           String
   issued_by                String
-  approval_count           String[] 
+  approval_count           String[]
   approved                 Boolean
   executed                 Boolean
   bump                     Int
@@ -399,16 +400,22 @@ model PropertyAccount {
   is_leased           Boolean
   property_system     String
   history_of_owner    String[]
-  state_id            Int
   state_pubkey        String
-  country_id          Int
   country_pubkey      String
   issued_at           DateTime              @default(now())
   issued_by           String
   metadata            String
   bump                Int
   property_system_ref PropertySystemAccount @relation(fields: [property_public_key], references: [property_system_public_key])
+  state StatePda @relation(fields: [state_pubkey], references: [state_public_key])
 }
+
+model PropertyMetdata{
+    propertySystem String @id
+    legalDocURI String 
+    MetadataLastUpdated DateTime
+}
+
 
 model SalaryClaim {
   id             Int           @default(autoincrement())
@@ -424,6 +431,7 @@ model SalaryClaim {
 
 model PropertySellProposal {
   proposal_id         Int
+  property_system       String
   proposal_key        String    @id
   property_account    String
   sale_price          BigInt
@@ -575,8 +583,6 @@ model Elect {
 }
 
 model Proposals {
-  property_system       String
-  proposal_id           String
   proposal_key          String                @id
   merkle_root           String
   arbitrar_approvals    String[]
@@ -591,7 +597,6 @@ model Proposals {
   snapshot_submitted    Boolean
   proposal_type         ProposalType
   slot                  Int
-  bump                  Int
   created_at            DateTime              @default(now())
   propertySellProposals PropertySellProposal?
 }
