@@ -90,6 +90,7 @@ export type ProposalsCountAggregateOutputType = {
   status: number
   snapshot_submitted: number
   proposal_type: number
+  deleted: number
   slot: number
   created_at: number
   _all: number
@@ -160,6 +161,7 @@ export type ProposalsCountAggregateInputType = {
   status?: true
   snapshot_submitted?: true
   proposal_type?: true
+  deleted?: true
   slot?: true
   created_at?: true
   _all?: true
@@ -253,19 +255,20 @@ export type ProposalsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 
 export type ProposalsGroupByOutputType = {
   proposal_key: string
-  merkle_root: string
+  merkle_root: string | null
   arbitrar_approvals: string[]
-  is_arbitrar_approved: boolean
-  total_voting_power: bigint
-  votes_for: bigint
+  is_arbitrar_approved: boolean | null
+  total_voting_power: bigint | null
+  votes_for: bigint | null
   votes_against: bigint | null
-  vote_threshold: number
-  start_time: Date
-  end_time: Date
+  vote_threshold: number | null
+  start_time: Date | null
+  end_time: Date | null
   status: $Enums.ProposalStatus
-  snapshot_submitted: boolean
+  snapshot_submitted: boolean | null
   proposal_type: $Enums.ProposalType
-  slot: number
+  deleted: runtime.JsonValue | null
+  slot: number | null
   created_at: Date
   _count: ProposalsCountAggregateOutputType | null
   _avg: ProposalsAvgAggregateOutputType | null
@@ -294,38 +297,40 @@ export type ProposalsWhereInput = {
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   proposal_key?: Prisma.StringFilter<"Proposals"> | string
-  merkle_root?: Prisma.StringFilter<"Proposals"> | string
+  merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
-  is_arbitrar_approved?: Prisma.BoolFilter<"Proposals"> | boolean
-  total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number
-  votes_for?: Prisma.BigIntFilter<"Proposals"> | bigint | number
+  is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
+  total_voting_power?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
+  votes_for?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   votes_against?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
-  vote_threshold?: Prisma.IntFilter<"Proposals"> | number
-  start_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string
-  end_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string
+  vote_threshold?: Prisma.IntNullableFilter<"Proposals"> | number | null
+  start_time?: Prisma.DateTimeNullableFilter<"Proposals"> | Date | string | null
+  end_time?: Prisma.DateTimeNullableFilter<"Proposals"> | Date | string | null
   status?: Prisma.EnumProposalStatusFilter<"Proposals"> | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFilter<"Proposals"> | boolean
+  snapshot_submitted?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType
-  slot?: Prisma.IntFilter<"Proposals"> | number
+  deleted?: Prisma.JsonNullableFilter<"Proposals">
+  slot?: Prisma.IntNullableFilter<"Proposals"> | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }
 
 export type ProposalsOrderByWithRelationInput = {
   proposal_key?: Prisma.SortOrder
-  merkle_root?: Prisma.SortOrder
+  merkle_root?: Prisma.SortOrderInput | Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
-  is_arbitrar_approved?: Prisma.SortOrder
-  total_voting_power?: Prisma.SortOrder
-  votes_for?: Prisma.SortOrder
+  is_arbitrar_approved?: Prisma.SortOrderInput | Prisma.SortOrder
+  total_voting_power?: Prisma.SortOrderInput | Prisma.SortOrder
+  votes_for?: Prisma.SortOrderInput | Prisma.SortOrder
   votes_against?: Prisma.SortOrderInput | Prisma.SortOrder
-  vote_threshold?: Prisma.SortOrder
-  start_time?: Prisma.SortOrder
-  end_time?: Prisma.SortOrder
+  vote_threshold?: Prisma.SortOrderInput | Prisma.SortOrder
+  start_time?: Prisma.SortOrderInput | Prisma.SortOrder
+  end_time?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  snapshot_submitted?: Prisma.SortOrder
+  snapshot_submitted?: Prisma.SortOrderInput | Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
-  slot?: Prisma.SortOrder
+  deleted?: Prisma.SortOrderInput | Prisma.SortOrder
+  slot?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   propertySellProposals?: Prisma.PropertySellProposalOrderByWithRelationInput
 }
@@ -335,38 +340,40 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
-  merkle_root?: Prisma.StringFilter<"Proposals"> | string
+  merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
-  is_arbitrar_approved?: Prisma.BoolFilter<"Proposals"> | boolean
-  total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number
-  votes_for?: Prisma.BigIntFilter<"Proposals"> | bigint | number
+  is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
+  total_voting_power?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
+  votes_for?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   votes_against?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
-  vote_threshold?: Prisma.IntFilter<"Proposals"> | number
-  start_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string
-  end_time?: Prisma.DateTimeFilter<"Proposals"> | Date | string
+  vote_threshold?: Prisma.IntNullableFilter<"Proposals"> | number | null
+  start_time?: Prisma.DateTimeNullableFilter<"Proposals"> | Date | string | null
+  end_time?: Prisma.DateTimeNullableFilter<"Proposals"> | Date | string | null
   status?: Prisma.EnumProposalStatusFilter<"Proposals"> | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFilter<"Proposals"> | boolean
+  snapshot_submitted?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType
-  slot?: Prisma.IntFilter<"Proposals"> | number
+  deleted?: Prisma.JsonNullableFilter<"Proposals">
+  slot?: Prisma.IntNullableFilter<"Proposals"> | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }, "proposal_key">
 
 export type ProposalsOrderByWithAggregationInput = {
   proposal_key?: Prisma.SortOrder
-  merkle_root?: Prisma.SortOrder
+  merkle_root?: Prisma.SortOrderInput | Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
-  is_arbitrar_approved?: Prisma.SortOrder
-  total_voting_power?: Prisma.SortOrder
-  votes_for?: Prisma.SortOrder
+  is_arbitrar_approved?: Prisma.SortOrderInput | Prisma.SortOrder
+  total_voting_power?: Prisma.SortOrderInput | Prisma.SortOrder
+  votes_for?: Prisma.SortOrderInput | Prisma.SortOrder
   votes_against?: Prisma.SortOrderInput | Prisma.SortOrder
-  vote_threshold?: Prisma.SortOrder
-  start_time?: Prisma.SortOrder
-  end_time?: Prisma.SortOrder
+  vote_threshold?: Prisma.SortOrderInput | Prisma.SortOrder
+  start_time?: Prisma.SortOrderInput | Prisma.SortOrder
+  end_time?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  snapshot_submitted?: Prisma.SortOrder
+  snapshot_submitted?: Prisma.SortOrderInput | Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
-  slot?: Prisma.SortOrder
+  deleted?: Prisma.SortOrderInput | Prisma.SortOrder
+  slot?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.ProposalsCountOrderByAggregateInput
   _avg?: Prisma.ProposalsAvgOrderByAggregateInput
@@ -380,149 +387,157 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   OR?: Prisma.ProposalsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[]
   proposal_key?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
-  merkle_root?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
+  merkle_root?: Prisma.StringNullableWithAggregatesFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
-  is_arbitrar_approved?: Prisma.BoolWithAggregatesFilter<"Proposals"> | boolean
-  total_voting_power?: Prisma.BigIntWithAggregatesFilter<"Proposals"> | bigint | number
-  votes_for?: Prisma.BigIntWithAggregatesFilter<"Proposals"> | bigint | number
+  is_arbitrar_approved?: Prisma.BoolNullableWithAggregatesFilter<"Proposals"> | boolean | null
+  total_voting_power?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
+  votes_for?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
   votes_against?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
-  vote_threshold?: Prisma.IntWithAggregatesFilter<"Proposals"> | number
-  start_time?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
-  end_time?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
+  vote_threshold?: Prisma.IntNullableWithAggregatesFilter<"Proposals"> | number | null
+  start_time?: Prisma.DateTimeNullableWithAggregatesFilter<"Proposals"> | Date | string | null
+  end_time?: Prisma.DateTimeNullableWithAggregatesFilter<"Proposals"> | Date | string | null
   status?: Prisma.EnumProposalStatusWithAggregatesFilter<"Proposals"> | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolWithAggregatesFilter<"Proposals"> | boolean
+  snapshot_submitted?: Prisma.BoolNullableWithAggregatesFilter<"Proposals"> | boolean | null
   proposal_type?: Prisma.EnumProposalTypeWithAggregatesFilter<"Proposals"> | $Enums.ProposalType
-  slot?: Prisma.IntWithAggregatesFilter<"Proposals"> | number
+  deleted?: Prisma.JsonNullableWithAggregatesFilter<"Proposals">
+  slot?: Prisma.IntNullableWithAggregatesFilter<"Proposals"> | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
 }
 
 export type ProposalsCreateInput = {
   proposal_key: string
-  merkle_root: string
+  merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved: boolean
-  total_voting_power: bigint | number
-  votes_for: bigint | number
+  is_arbitrar_approved?: boolean | null
+  total_voting_power?: bigint | number | null
+  votes_for?: bigint | number | null
   votes_against?: bigint | number | null
-  vote_threshold: number
-  start_time: Date | string
-  end_time: Date | string
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
   status: $Enums.ProposalStatus
-  snapshot_submitted: boolean
+  snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
-  slot: number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: number | null
   created_at?: Date | string
   propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
 }
 
 export type ProposalsUncheckedCreateInput = {
   proposal_key: string
-  merkle_root: string
+  merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved: boolean
-  total_voting_power: bigint | number
-  votes_for: bigint | number
+  is_arbitrar_approved?: boolean | null
+  total_voting_power?: bigint | number | null
+  votes_for?: bigint | number | null
   votes_against?: bigint | number | null
-  vote_threshold: number
-  start_time: Date | string
-  end_time: Date | string
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
   status: $Enums.ProposalStatus
-  snapshot_submitted: boolean
+  snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
-  slot: number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: number | null
   created_at?: Date | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
 }
 
 export type ProposalsUpdateInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
-  slot?: Prisma.IntFieldUpdateOperationsInput | number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
 }
 
 export type ProposalsUncheckedUpdateInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
-  slot?: Prisma.IntFieldUpdateOperationsInput | number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
 }
 
 export type ProposalsCreateManyInput = {
   proposal_key: string
-  merkle_root: string
+  merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved: boolean
-  total_voting_power: bigint | number
-  votes_for: bigint | number
+  is_arbitrar_approved?: boolean | null
+  total_voting_power?: bigint | number | null
+  votes_for?: bigint | number | null
   votes_against?: bigint | number | null
-  vote_threshold: number
-  start_time: Date | string
-  end_time: Date | string
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
   status: $Enums.ProposalStatus
-  snapshot_submitted: boolean
+  snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
-  slot: number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: number | null
   created_at?: Date | string
 }
 
 export type ProposalsUpdateManyMutationInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
-  slot?: Prisma.IntFieldUpdateOperationsInput | number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProposalsUncheckedUpdateManyInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
-  slot?: Prisma.IntFieldUpdateOperationsInput | number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -545,6 +560,7 @@ export type ProposalsCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   snapshot_submitted?: Prisma.SortOrder
   proposal_type?: Prisma.SortOrder
+  deleted?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -622,43 +638,57 @@ export type ProposalsUpdatearbitrar_approvalsInput = {
   push?: string | string[]
 }
 
+export type NullableBoolFieldUpdateOperationsInput = {
+  set?: boolean | null
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type EnumProposalTypeFieldUpdateOperationsInput = {
   set?: $Enums.ProposalType
 }
 
 export type ProposalsCreateWithoutPropertySellProposalsInput = {
   proposal_key: string
-  merkle_root: string
+  merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved: boolean
-  total_voting_power: bigint | number
-  votes_for: bigint | number
+  is_arbitrar_approved?: boolean | null
+  total_voting_power?: bigint | number | null
+  votes_for?: bigint | number | null
   votes_against?: bigint | number | null
-  vote_threshold: number
-  start_time: Date | string
-  end_time: Date | string
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
   status: $Enums.ProposalStatus
-  snapshot_submitted: boolean
+  snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
-  slot: number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: number | null
   created_at?: Date | string
 }
 
 export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   proposal_key: string
-  merkle_root: string
+  merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved: boolean
-  total_voting_power: bigint | number
-  votes_for: bigint | number
+  is_arbitrar_approved?: boolean | null
+  total_voting_power?: bigint | number | null
+  votes_for?: bigint | number | null
   votes_against?: bigint | number | null
-  vote_threshold: number
-  start_time: Date | string
-  end_time: Date | string
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
   status: $Enums.ProposalStatus
-  snapshot_submitted: boolean
+  snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
-  slot: number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: number | null
   created_at?: Date | string
 }
 
@@ -680,37 +710,39 @@ export type ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput = {
 
 export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
-  slot?: Prisma.IntFieldUpdateOperationsInput | number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
-  is_arbitrar_approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  votes_for?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  snapshot_submitted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
-  slot?: Prisma.IntFieldUpdateOperationsInput | number
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -730,6 +762,7 @@ export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   status?: boolean
   snapshot_submitted?: boolean
   proposal_type?: boolean
+  deleted?: boolean
   slot?: boolean
   created_at?: boolean
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
@@ -749,6 +782,7 @@ export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   status?: boolean
   snapshot_submitted?: boolean
   proposal_type?: boolean
+  deleted?: boolean
   slot?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["proposals"]>
@@ -767,6 +801,7 @@ export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   status?: boolean
   snapshot_submitted?: boolean
   proposal_type?: boolean
+  deleted?: boolean
   slot?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["proposals"]>
@@ -785,11 +820,12 @@ export type ProposalsSelectScalar = {
   status?: boolean
   snapshot_submitted?: boolean
   proposal_type?: boolean
+  deleted?: boolean
   slot?: boolean
   created_at?: boolean
 }
 
-export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "slot" | "created_at", ExtArgs["result"]["proposals"]>
+export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "deleted" | "slot" | "created_at", ExtArgs["result"]["proposals"]>
 export type ProposalsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
 }
@@ -803,19 +839,20 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     proposal_key: string
-    merkle_root: string
+    merkle_root: string | null
     arbitrar_approvals: string[]
-    is_arbitrar_approved: boolean
-    total_voting_power: bigint
-    votes_for: bigint
+    is_arbitrar_approved: boolean | null
+    total_voting_power: bigint | null
+    votes_for: bigint | null
     votes_against: bigint | null
-    vote_threshold: number
-    start_time: Date
-    end_time: Date
+    vote_threshold: number | null
+    start_time: Date | null
+    end_time: Date | null
     status: $Enums.ProposalStatus
-    snapshot_submitted: boolean
+    snapshot_submitted: boolean | null
     proposal_type: $Enums.ProposalType
-    slot: number
+    deleted: runtime.JsonValue | null
+    slot: number | null
     created_at: Date
   }, ExtArgs["result"]["proposals"]>
   composites: {}
@@ -1254,6 +1291,7 @@ export interface ProposalsFieldRefs {
   readonly status: Prisma.FieldRef<"Proposals", 'ProposalStatus'>
   readonly snapshot_submitted: Prisma.FieldRef<"Proposals", 'Boolean'>
   readonly proposal_type: Prisma.FieldRef<"Proposals", 'ProposalType'>
+  readonly deleted: Prisma.FieldRef<"Proposals", 'Json'>
   readonly slot: Prisma.FieldRef<"Proposals", 'Int'>
   readonly created_at: Prisma.FieldRef<"Proposals", 'DateTime'>
 }

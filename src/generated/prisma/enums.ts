@@ -63,7 +63,8 @@ export const ProposalStatus = {
   Rejected: 'Rejected',
   Executed: 'Executed',
   Pending: 'Pending',
-  Approved: 'Approved'
+  Approved: 'Approved',
+  Deleted: 'Deleted'
 } as const
 
 export type ProposalStatus = (typeof ProposalStatus)[keyof typeof ProposalStatus]

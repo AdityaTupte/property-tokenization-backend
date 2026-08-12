@@ -39,12 +39,6 @@ export const handleSellPropertyProposal: InstructionHandler = async (
     message.accountKeys[instruction.accounts[4]!]!
   ).toString();
 
-  const merkleRootHex =
-    "0x" + Buffer.from(ProposalAccount.merkleRoot).toString("hex");
-
-  const statusKey = Object.keys(ProposalAccount.status)[0] as any;
-
-  const ProposalType = Object.keys(ProposalAccount.proposalType)[0] as any;
 
   ctx.add(async (tx) => {
     tx.propertySellProposal.create({
@@ -64,19 +58,10 @@ export const handleSellPropertyProposal: InstructionHandler = async (
     tx.proposals.create({
       data: {
         proposal_key: proposalAddress.toString(),
-        merkle_root: merkleRootHex,
-        is_arbitrar_approved: false,
-        total_voting_power: BigInt(ProposalAccount.totalVotingPower.toString()),
-        votes_for: 0,
-        votes_against: 0,
-        vote_threshold: ProposalAccount.voteThreshold.toNumber(),
-        start_time: new Date(ProposalAccount.startTime.toString()),
-        end_time: new Date(ProposalAccount.endTime.toString()),
-        status: statusKey,
-        snapshot_submitted: false,
-        proposal_type: ProposalType,
-        slot: ProposalAccount.slot.toNumber(),
-        created_at: new Date(BlockTime),
+        status: "Draft",
+        proposal_type: "SELLPROPERTY",
+        total_voting_power:BigInt(ProposalAccount.totalVotingPower.toString()),
+         created_at: new Date(BlockTime),
       },
     });
   });

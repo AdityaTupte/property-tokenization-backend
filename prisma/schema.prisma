@@ -51,6 +51,7 @@ enum ProposalStatus {
   Executed
   Pending
   Approved
+  Deleted
 }
 
 enum GovernmentType {
@@ -584,19 +585,20 @@ model Elect {
 
 model Proposals {
   proposal_key          String                @id
-  merkle_root           String
+  merkle_root           String?
   arbitrar_approvals    String[]
-  is_arbitrar_approved  Boolean
-  total_voting_power    BigInt
-  votes_for             BigInt // use  as vote gained in challenge proposal //rm_total_voting_power_gained
+  is_arbitrar_approved  Boolean?
+  total_voting_power    BigInt?
+  votes_for             BigInt ?// use  as vote gained in challenge proposal //rm_total_voting_power_gained
   votes_against         BigInt?
-  vote_threshold        Int //use as rm_voting_threshold
-  start_time            DateTime
-  end_time              DateTime //use as  voting_deadline 
+  vote_threshold        Int? //use as rm_voting_threshold
+  start_time            DateTime?
+  end_time              DateTime? //use as  voting_deadline 
   status                ProposalStatus
-  snapshot_submitted    Boolean
+  snapshot_submitted    Boolean?
   proposal_type         ProposalType
-  slot                  Int
+  deleted               Json?
+  slot                  Int?
   created_at            DateTime              @default(now())
   propertySellProposals PropertySellProposal?
 }
