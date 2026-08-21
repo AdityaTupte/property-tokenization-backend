@@ -1,17 +1,16 @@
 import type {
-  Instructions,
+  instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
 import { address } from "@solana/kit";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import { GenericPda } from "../../../utils/genericPda";
-
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
 
 export const handleCreatePropertySystem:InstructionHandler = async (
   message: messageSchema,
-  instruction: Instructions,
+  instruction: instructionsSchema,
   ctx:TransactionContext,
   _BlockTime:number
 ) => {

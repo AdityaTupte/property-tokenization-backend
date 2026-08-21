@@ -1,5 +1,5 @@
 import { address } from "@solana/kit";
-import type { Instructions, messageSchema } from "../../../helius/findProgramIndex";
+import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
@@ -7,7 +7,7 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 
 export const handleAddAuthorityForCountry:InstructionHandler = async(
     message:messageSchema,
-    instruction:Instructions,
+    instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number
 ) => {
