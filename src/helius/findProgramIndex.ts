@@ -1,19 +1,20 @@
-import instructionsSchema, { messageSchema } from "../schemaValidation/heliusWebhookDataSchema";
+import instructionsSchema, {
+  messageSchema,
+} from "../schemaValidation/heliusWebhookDataSchema";
 import z from "zod";
 import { ApiError } from "../utils/ApiError";
 import bs58 from "bs58";
 import { InstructionRegistry } from "../idl.schema/generated/instructionRegistry";
-import { solanaInstructionHandler } from "./instructionHandlerForSolanaProgram";
-import type { TransactionContext } from "../utils/solanaDbHandler";
-import { instructionProducer } from "../kafka/producer";
+import { instructionProducer } from "../kafka/Producers/Instruction.Producers"; 
 import type { InstructionNameAndData } from "../types&interface/instructionData.Interface";
-
-
 
 export type messageSchema = z.infer<typeof messageSchema>;
 export type instructionsSchema = z.infer<typeof instructionsSchema>;
 
-export const FindProgramIdIndex = async (message: messageSchema,ctx:TransactionContext,BlockTime:number) => {
+export const FindProgramIdIndex = async (
+  message: messageSchema,
+  BlockTime: number
+) => {
   const uniqueProgramIdIndex = [
     ...new Set(
       message.instructions.map((instruction) => instruction.programIdIndex)
@@ -35,37 +36,33 @@ export const FindProgramIdIndex = async (message: messageSchema,ctx:TransactionC
   );
 
   if (encodedData.length === 0) {
-  throw new ApiError(404, "Program instruction not found in transaction");
-}
+    throw new ApiError(404, "Program instruction not found in transaction");
+  }
 
-  const event: InstructionNameAndData[] = []
-
+  const event: InstructionNameAndData[] = [];
 
   for (const element of encodedData) {
-  const bytes = bs58.decode(element.data);
+    const bytes = bs58.decode(element.data);
 
-  const discriminator = Buffer
-    .from(bytes.slice(0, 8))
-    .toString("hex");
+    const discriminator = Buffer.from(bytes.slice(0, 8)).toString("hex");
 
-  const parser = InstructionRegistry.get(discriminator);
+    const parser = InstructionRegistry.get(discriminator);
 
-  if (!parser) {
-    throw new ApiError(400, "Unknown instruction");
+    if (!parser) {
+      throw new ApiError(400, "Unknown instruction");
+    }
+    const name = parser.name;
+    const ele: instructionsSchema = element;
+    event.push({ name: name, data: ele });
+
+    // const decode =  solanaInstructionHandler(parser.name);
+
+    // await decode(message, element,ctx,BlockTime);
   }
-  const name = parser.name
-  const ele :instructionsSchema = element
-  event.push({name:name,data:ele})
-  
 
-  // const decode =  solanaInstructionHandler(parser.name);
-
-
-  // await decode(message, element,ctx,BlockTime);
-
-}
-
-await instructionProducer({transaction:message,InstructionNameAndData:event,blockTime:BlockTime});
-
-  
+  await instructionProducer({
+    transaction: message,
+    InstructionNameAndData: event,
+    blockTime: BlockTime,
+  });
 };

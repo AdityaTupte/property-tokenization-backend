@@ -3,7 +3,7 @@ import { helius } from "./heliusConnection";
 
   export const createwebhook = async () => {
 
-  try {
+  
 
     const webhooks = await helius.webhooks.getAll();
 
@@ -28,8 +28,5 @@ import { helius } from "./heliusConnection";
       txnStatus:"success"
     });
     console.log("Created webhook:", webhook);
-  } catch (error) {
-    console.error("Error:", error);
-    
-  }
+  
 };

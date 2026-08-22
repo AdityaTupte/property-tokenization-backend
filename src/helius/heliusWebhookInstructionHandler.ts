@@ -23,23 +23,33 @@ export const heliusRaWDataHandler = asyncHandler(
 
     if(signature) throw new ApiError(400,"Since the signature is already provided, signature parsing is not required.")
 
-      const ctx = new TransactionContext();
-
-     ctx.add(async(tx) =>{
-
-      await  tx.signature.create({
-          data:{
-            signature:webhookSchema.data.signature
-          }
-        })
-
-      })
-
       
 
-   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,ctx,webhookSchema.data.transaction.blockTime);
+    
+      
 
-  await ctx.execute();
+   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,webhookSchema.data.transaction.blockTime);
+
+
+
+  
+    
+
+
+
+  //  const ctx = new TransactionContext();
+
+  //    ctx.add(async(tx) =>{
+
+  //     await  tx.signature.create({
+  //         data:{
+  //           signature:webhookSchema.data.signature
+  //         }
+  //       })
+
+  //     })
+
+  // await ctx.execute();
 
     return res.status(200).json(
       new ApiResponse(
