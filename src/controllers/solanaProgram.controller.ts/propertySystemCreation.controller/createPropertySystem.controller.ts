@@ -3,109 +3,96 @@ import type {
   messageSchema,
 } from "../../../helius/findProgramIndex";
 import { address } from "@solana/kit";
-import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
-import { GenericPda } from "../../../utils/genericPda";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
+import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";
 
 export const handleCreatePropertySystem:InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx:TransactionContext,
-  _BlockTime:number
+  BlockTime:number
 ) => {
+
+  const bytes = Buffer.from(bs58.decode(instruction.data));
+
+  const decodedData = decoder.decode(bytes)
+
+  const argument = create_property_systemSchema.parse(decodedData?.data)
+
   const propertySystemAddress = address(
     message.accountKeys.at(instruction.accounts[1]!)!
   );
+  
 
-  const propertySystemAccount =
-    (await GenericPda(
-      "propertySystemAccount",
-      propertySystemAddress
-    )) as PdaTypes.propertySystemAccountType;
+  const creator_pubky = address(
+    message.accountKeys.at(instruction.accounts[0]!)!
+  );
+
+  const governance_mint = address(
+    message.accountKeys.at(instruction.accounts[9]!)!
+  );
+
+
 
   const treasuryAddress = address(
     message.accountKeys.at(instruction.accounts[3]!)!
   );
 
-  const treasuryAccount= (await GenericPda(
-    "treasuryPda",
-    treasuryAddress
-  )) as PdaTypes.treasuryType;
+
 
   const thresholdAddress = address(
     message.accountKeys.at(instruction.accounts[2]!)!
   );
 
-  const thresholdAccount= (await GenericPda(
-    "threshold",
-    thresholdAddress
-  )) as PdaTypes.thresholdType;
-
   const dividendAddress = address(
     message.accountKeys.at(instruction.accounts[6]!)!
   );
 
-  const dividendAccount = (await GenericPda(
-    "dividendPda",
-    dividendAddress
-  )) as PdaTypes.dividendType;
+  
 
   const safetyAddress = address(
     message.accountKeys.at(instruction.accounts[5]!)!
   );
 
-  const safetyAccount = (await GenericPda(
-    "safetyPda",
-    safetyAddress
-  )) as PdaTypes.safetyType;
-
+  
   const reinvestmentAddress = address(
     message.accountKeys.at(instruction.accounts[4]!)!
   );
 
-  const reinvestmentAccount = (await GenericPda(
-    "reinvestmentPda",
-    reinvestmentAddress
-  )) as PdaTypes.ReinvestmentType;
 
   
   const trusteeRegistryAddress = address(
     message.accountKeys.at(instruction.accounts[7]!)!
   );
 
-  const trusteeRegistryaccount  = await GenericPda(
-    "trusteeRegistry",
-    trusteeRegistryAddress
-  ) as PdaTypes.trusteeRegistryType
+ 
 
 
   const AribtrarRegistryAddress = address(
     message.accountKeys.at(instruction.accounts[8]!)!
   );
 
-  const AribtratorRegistryaccount = await GenericPda(
-    "arbitratorRegistry",
-    AribtrarRegistryAddress
-  ) as PdaTypes.arbitratorRegistryType
 
 
+  
   
 
   ctx.add(async (tx) => {
     await tx.propertySystemAccount.create({
       data: {
-        creator_pubky: propertySystemAccount.creator.toString(),
-        property_system_id: propertySystemAccount.propertySystemId.toNumber(),
+        creator_pubky: creator_pubky.toString(),
+        property_system_id: argument.system_id,
         property_system_public_key: propertySystemAddress,
-        arbitrator_registry:propertySystemAccount.arbitratorRegistry.toString(),
-        treasury: propertySystemAccount.treasury.toString(),
-        governance_mint: propertySystemAccount.governanceMint.toString(),
-        trustee_registry: propertySystemAccount.trusteeRegistry.toString(),
-        ready_for_listing: propertySystemAccount.readyForListing,
-        bump: propertySystemAccount.bump,
+        arbitrator_registry:AribtrarRegistryAddress.toString(),
+        treasury: treasuryAddress.toString(),
+        governance_mint: governance_mint.toString(),
+        trustee_registry: trusteeRegistryAddress.toString(),
+        ready_for_listing: false,
         total_properties: 0,
-        created_at: new Date(propertySystemAccount.createdAt.toNumber() * 1000),
+        created_at: new Date(BlockTime * 1000), 
         dividend: dividendAddress,
         reinvestment: reinvestmentAddress,
         safety: safetyAddress,
@@ -116,23 +103,19 @@ export const handleCreatePropertySystem:InstructionHandler = async (
     await tx.dividendPda.create({
       data: {
         dividend_pubkey: dividendAddress,
-        dividend_per_token: BigInt(dividendAccount.dividendPerToken.toString()),
-        last_updated_ts:
-          dividendAccount.lastUpdatedTs.toNumber() !== 0
-            ? new Date(dividendAccount.lastUpdatedTs.toNumber() * 1000)
-            : null,
-        bump: dividendAccount.bump,
+        dividend_per_token: 0,
+        last_updated_ts: null,
       },
     });
 
     await tx.threshold.create({
       data: {
         threshold_pub_key: thresholdAddress,
-        dividend_threshold: thresholdAccount.dividendThreshold,
-        reinvestment_threshold: thresholdAccount.reinvestmentThreshold,
-        safety_threshold: thresholdAccount.safetyThreshold,
-        trustee_salary_threshold: thresholdAccount.trusteeSalaryThreshold,
-        arbitrator_salary_threshold: thresholdAccount.arbitratorSalaryThreshold,
+        dividend_threshold: argument.dividend_threshold,
+        reinvestment_threshold: argument.reinvestment_threshold,
+        safety_threshold: argument.safety_threshold,
+        trustee_salary_threshold: argument.trustee_salary_threshold,
+        arbitrator_salary_threshold: argument.arbitrator_salary_threshold,
       },
     });
 
@@ -142,13 +125,13 @@ export const handleCreatePropertySystem:InstructionHandler = async (
           fundtype: "reinvestment",
           fundKey: reinvestmentAddress.toString(),
           property_system_pubkey: propertySystemAddress,
-          used: BigInt(reinvestmentAccount.reinvestementUsed.toString()),
+          used: 0,
         },
         {
           fundtype: "safety",
           fundKey: safetyAddress.toString(),
           property_system_pubkey: propertySystemAddress,
-          used: BigInt(safetyAccount.safetyFundUsed.toString()),
+          used: 0,
         },
       ],
     });
@@ -156,40 +139,30 @@ export const handleCreatePropertySystem:InstructionHandler = async (
     await tx.treasury.create({
       data: {
         treasury_key: treasuryAddress.toString(),
-        bump: treasuryAccount.bump,
-        last_distribution:
-          treasuryAccount.lastDistributionTs.toNumber() !== 0
-            ? new Date(treasuryAccount.lastDistributionTs.toNumber() * 1000)
-            : null,
+        last_distribution: null,
       },
     });
 
     await tx.trusteeRegistry.create({
       data:{
-        trustee_registry_pubkey :propertySystemAccount.trusteeRegistry.toString(),
-        current_number_of_trustees:trusteeRegistryaccount.currentNumberOfTrustees,
-        total_trustees:trusteeRegistryaccount.totalTrustees,
-        total_salary_allocated:BigInt(trusteeRegistryaccount.totalSalaryAllocated.toString()),
-        vote_threshold:trusteeRegistryaccount.voteThreshold,
-        bump:trusteeRegistryaccount.bump,
-        claim_deadline_ts:trusteeRegistryaccount.claimDeadlineTs.toNumber() !== 0
-            ? new Date(trusteeRegistryaccount.claimDeadlineTs.toNumber() * 1000)
-            : null,
+        trustee_registry_pubkey :trusteeRegistryAddress.toString(),
+        current_number_of_trustees:0,
+        total_trustees:argument.total_trustees,
+        total_salary_allocated:0,
+        vote_threshold:argument.trustee_vote_threshold,
+        claim_deadline_ts: null,
       }
     })
 
 
     await tx.arbitrarRegistry.create({
       data:{
-       arbitrar_registry_pubkey:propertySystemAccount.arbitratorRegistry.toString(),
-       current_number_of_arbitrar:AribtratorRegistryaccount.currentNumberOfArbitrators,
-       total_arbitrar:AribtratorRegistryaccount.totalArbitrators,
-       total_salary_allocated:BigInt(AribtratorRegistryaccount.totalSalaryAllocated.toString()),
-       vote_threshold:AribtratorRegistryaccount.voteThreshold,
-       bump:AribtratorRegistryaccount.bump,
-       claim_deadline_ts:AribtratorRegistryaccount.claimDeadlineTs.toNumber() !== 0 
-       ? new Date(AribtratorRegistryaccount.claimDeadlineTs.toNumber())
-       : null
+       arbitrar_registry_pubkey:AribtrarRegistryAddress.toString(),
+       current_number_of_arbitrar:0,
+       total_arbitrar:argument.total_arbitrar,
+       total_salary_allocated:0,
+       vote_threshold:argument.arbitrar_vote_threshold,
+       claim_deadline_ts: null
       }
     })
 

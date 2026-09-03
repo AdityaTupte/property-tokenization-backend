@@ -28,12 +28,10 @@ export type AggregatePropertyAccount = {
 
 export type PropertyAccountAvgAggregateOutputType = {
   property_id: number | null
-  bump: number | null
 }
 
 export type PropertyAccountSumAggregateOutputType = {
   property_id: number | null
-  bump: number | null
 }
 
 export type PropertyAccountMinAggregateOutputType = {
@@ -46,7 +44,6 @@ export type PropertyAccountMinAggregateOutputType = {
   issued_at: Date | null
   issued_by: string | null
   metadata: string | null
-  bump: number | null
 }
 
 export type PropertyAccountMaxAggregateOutputType = {
@@ -59,7 +56,6 @@ export type PropertyAccountMaxAggregateOutputType = {
   issued_at: Date | null
   issued_by: string | null
   metadata: string | null
-  bump: number | null
 }
 
 export type PropertyAccountCountAggregateOutputType = {
@@ -73,19 +69,16 @@ export type PropertyAccountCountAggregateOutputType = {
   issued_at: number
   issued_by: number
   metadata: number
-  bump: number
   _all: number
 }
 
 
 export type PropertyAccountAvgAggregateInputType = {
   property_id?: true
-  bump?: true
 }
 
 export type PropertyAccountSumAggregateInputType = {
   property_id?: true
-  bump?: true
 }
 
 export type PropertyAccountMinAggregateInputType = {
@@ -98,7 +91,6 @@ export type PropertyAccountMinAggregateInputType = {
   issued_at?: true
   issued_by?: true
   metadata?: true
-  bump?: true
 }
 
 export type PropertyAccountMaxAggregateInputType = {
@@ -111,7 +103,6 @@ export type PropertyAccountMaxAggregateInputType = {
   issued_at?: true
   issued_by?: true
   metadata?: true
-  bump?: true
 }
 
 export type PropertyAccountCountAggregateInputType = {
@@ -125,7 +116,6 @@ export type PropertyAccountCountAggregateInputType = {
   issued_at?: true
   issued_by?: true
   metadata?: true
-  bump?: true
   _all?: true
 }
 
@@ -226,7 +216,6 @@ export type PropertyAccountGroupByOutputType = {
   issued_at: Date
   issued_by: string
   metadata: string
-  bump: number
   _count: PropertyAccountCountAggregateOutputType | null
   _avg: PropertyAccountAvgAggregateOutputType | null
   _sum: PropertyAccountSumAggregateOutputType | null
@@ -263,7 +252,6 @@ export type PropertyAccountWhereInput = {
   issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
   metadata?: Prisma.StringFilter<"PropertyAccount"> | string
-  bump?: Prisma.IntFilter<"PropertyAccount"> | number
   property_system_ref?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
   state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>
 }
@@ -279,7 +267,6 @@ export type PropertyAccountOrderByWithRelationInput = {
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   property_system_ref?: Prisma.PropertySystemAccountOrderByWithRelationInput
   state?: Prisma.StatePdaOrderByWithRelationInput
 }
@@ -298,7 +285,6 @@ export type PropertyAccountWhereUniqueInput = Prisma.AtLeast<{
   issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
   metadata?: Prisma.StringFilter<"PropertyAccount"> | string
-  bump?: Prisma.IntFilter<"PropertyAccount"> | number
   property_system_ref?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
   state?: Prisma.XOR<Prisma.StatePdaScalarRelationFilter, Prisma.StatePdaWhereInput>
 }, "property_public_key">
@@ -314,7 +300,6 @@ export type PropertyAccountOrderByWithAggregationInput = {
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.PropertyAccountCountOrderByAggregateInput
   _avg?: Prisma.PropertyAccountAvgOrderByAggregateInput
   _max?: Prisma.PropertyAccountMaxOrderByAggregateInput
@@ -336,7 +321,6 @@ export type PropertyAccountScalarWhereWithAggregatesInput = {
   issued_at?: Prisma.DateTimeWithAggregatesFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string
   metadata?: Prisma.StringWithAggregatesFilter<"PropertyAccount"> | string
-  bump?: Prisma.IntWithAggregatesFilter<"PropertyAccount"> | number
 }
 
 export type PropertyAccountCreateInput = {
@@ -348,7 +332,6 @@ export type PropertyAccountCreateInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
   property_system_ref: Prisma.PropertySystemAccountCreateNestedOneWithoutPropertyAccountsInput
   state: Prisma.StatePdaCreateNestedOneWithoutPropertyInput
 }
@@ -364,7 +347,6 @@ export type PropertyAccountUncheckedCreateInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
 }
 
 export type PropertyAccountUpdateInput = {
@@ -376,7 +358,6 @@ export type PropertyAccountUpdateInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_ref?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutPropertyAccountsNestedInput
   state?: Prisma.StatePdaUpdateOneRequiredWithoutPropertyNestedInput
 }
@@ -392,7 +373,6 @@ export type PropertyAccountUncheckedUpdateInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountCreateManyInput = {
@@ -406,7 +386,6 @@ export type PropertyAccountCreateManyInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
 }
 
 export type PropertyAccountUpdateManyMutationInput = {
@@ -418,7 +397,6 @@ export type PropertyAccountUpdateManyMutationInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountUncheckedUpdateManyInput = {
@@ -432,7 +410,6 @@ export type PropertyAccountUncheckedUpdateManyInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountListRelationFilter = {
@@ -456,12 +433,10 @@ export type PropertyAccountCountOrderByAggregateInput = {
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyAccountAvgOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyAccountMaxOrderByAggregateInput = {
@@ -474,7 +449,6 @@ export type PropertyAccountMaxOrderByAggregateInput = {
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyAccountMinOrderByAggregateInput = {
@@ -487,12 +461,10 @@ export type PropertyAccountMinOrderByAggregateInput = {
   issued_at?: Prisma.SortOrder
   issued_by?: Prisma.SortOrder
   metadata?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyAccountSumOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyAccountCreateNestedManyWithoutStateInput = {
@@ -597,7 +569,6 @@ export type PropertyAccountCreateWithoutStateInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
   property_system_ref: Prisma.PropertySystemAccountCreateNestedOneWithoutPropertyAccountsInput
 }
 
@@ -611,7 +582,6 @@ export type PropertyAccountUncheckedCreateWithoutStateInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
 }
 
 export type PropertyAccountCreateOrConnectWithoutStateInput = {
@@ -654,7 +624,6 @@ export type PropertyAccountScalarWhereInput = {
   issued_at?: Prisma.DateTimeFilter<"PropertyAccount"> | Date | string
   issued_by?: Prisma.StringFilter<"PropertyAccount"> | string
   metadata?: Prisma.StringFilter<"PropertyAccount"> | string
-  bump?: Prisma.IntFilter<"PropertyAccount"> | number
 }
 
 export type PropertyAccountCreateWithoutProperty_system_refInput = {
@@ -666,7 +635,6 @@ export type PropertyAccountCreateWithoutProperty_system_refInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
   state: Prisma.StatePdaCreateNestedOneWithoutPropertyInput
 }
 
@@ -680,7 +648,6 @@ export type PropertyAccountUncheckedCreateWithoutProperty_system_refInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
 }
 
 export type PropertyAccountCreateOrConnectWithoutProperty_system_refInput = {
@@ -719,7 +686,6 @@ export type PropertyAccountCreateManyStateInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
 }
 
 export type PropertyAccountUpdateWithoutStateInput = {
@@ -731,7 +697,6 @@ export type PropertyAccountUpdateWithoutStateInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_ref?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutPropertyAccountsNestedInput
 }
 
@@ -745,7 +710,6 @@ export type PropertyAccountUncheckedUpdateWithoutStateInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountUncheckedUpdateManyWithoutStateInput = {
@@ -758,7 +722,6 @@ export type PropertyAccountUncheckedUpdateManyWithoutStateInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountCreateManyProperty_system_refInput = {
@@ -771,7 +734,6 @@ export type PropertyAccountCreateManyProperty_system_refInput = {
   issued_at?: Date | string
   issued_by: string
   metadata: string
-  bump: number
 }
 
 export type PropertyAccountUpdateWithoutProperty_system_refInput = {
@@ -783,7 +745,6 @@ export type PropertyAccountUpdateWithoutProperty_system_refInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   state?: Prisma.StatePdaUpdateOneRequiredWithoutPropertyNestedInput
 }
 
@@ -797,7 +758,6 @@ export type PropertyAccountUncheckedUpdateWithoutProperty_system_refInput = {
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyAccountUncheckedUpdateManyWithoutProperty_system_refInput = {
@@ -810,7 +770,6 @@ export type PropertyAccountUncheckedUpdateManyWithoutProperty_system_refInput = 
   issued_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   metadata?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -826,7 +785,6 @@ export type PropertyAccountSelect<ExtArgs extends runtime.Types.Extensions.Inter
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
-  bump?: boolean
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertyAccount"]>
@@ -842,7 +800,6 @@ export type PropertyAccountSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
-  bump?: boolean
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertyAccount"]>
@@ -858,7 +815,6 @@ export type PropertyAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
-  bump?: boolean
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["propertyAccount"]>
@@ -874,10 +830,9 @@ export type PropertyAccountSelectScalar = {
   issued_at?: boolean
   issued_by?: boolean
   metadata?: boolean
-  bump?: boolean
 }
 
-export type PropertyAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "property_public_key" | "is_leased" | "property_system" | "history_of_owner" | "state_pubkey" | "country_pubkey" | "issued_at" | "issued_by" | "metadata" | "bump", ExtArgs["result"]["propertyAccount"]>
+export type PropertyAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "property_public_key" | "is_leased" | "property_system" | "history_of_owner" | "state_pubkey" | "country_pubkey" | "issued_at" | "issued_by" | "metadata", ExtArgs["result"]["propertyAccount"]>
 export type PropertyAccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_ref?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   state?: boolean | Prisma.StatePdaDefaultArgs<ExtArgs>
@@ -908,7 +863,6 @@ export type $PropertyAccountPayload<ExtArgs extends runtime.Types.Extensions.Int
     issued_at: Date
     issued_by: string
     metadata: string
-    bump: number
   }, ExtArgs["result"]["propertyAccount"]>
   composites: {}
 }
@@ -1344,7 +1298,6 @@ export interface PropertyAccountFieldRefs {
   readonly issued_at: Prisma.FieldRef<"PropertyAccount", 'DateTime'>
   readonly issued_by: Prisma.FieldRef<"PropertyAccount", 'String'>
   readonly metadata: Prisma.FieldRef<"PropertyAccount", 'String'>
-  readonly bump: Prisma.FieldRef<"PropertyAccount", 'Int'>
 }
     
 

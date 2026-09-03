@@ -28,12 +28,10 @@ export type AggregateOffenders = {
 
 export type OffendersAvgAggregateOutputType = {
   id: number | null
-  bump: number | null
 }
 
 export type OffendersSumAggregateOutputType = {
   id: number | null
-  bump: number | null
 }
 
 export type OffendersMinAggregateOutputType = {
@@ -41,7 +39,6 @@ export type OffendersMinAggregateOutputType = {
   proposal_key: string | null
   authority_type: $Enums.AuthorityType | null
   is_finalized: boolean | null
-  bump: number | null
 }
 
 export type OffendersMaxAggregateOutputType = {
@@ -49,7 +46,6 @@ export type OffendersMaxAggregateOutputType = {
   proposal_key: string | null
   authority_type: $Enums.AuthorityType | null
   is_finalized: boolean | null
-  bump: number | null
 }
 
 export type OffendersCountAggregateOutputType = {
@@ -58,19 +54,16 @@ export type OffendersCountAggregateOutputType = {
   proposal_key: number
   authority_type: number
   is_finalized: number
-  bump: number
   _all: number
 }
 
 
 export type OffendersAvgAggregateInputType = {
   id?: true
-  bump?: true
 }
 
 export type OffendersSumAggregateInputType = {
   id?: true
-  bump?: true
 }
 
 export type OffendersMinAggregateInputType = {
@@ -78,7 +71,6 @@ export type OffendersMinAggregateInputType = {
   proposal_key?: true
   authority_type?: true
   is_finalized?: true
-  bump?: true
 }
 
 export type OffendersMaxAggregateInputType = {
@@ -86,7 +78,6 @@ export type OffendersMaxAggregateInputType = {
   proposal_key?: true
   authority_type?: true
   is_finalized?: true
-  bump?: true
 }
 
 export type OffendersCountAggregateInputType = {
@@ -95,7 +86,6 @@ export type OffendersCountAggregateInputType = {
   proposal_key?: true
   authority_type?: true
   is_finalized?: true
-  bump?: true
   _all?: true
 }
 
@@ -191,7 +181,6 @@ export type OffendersGroupByOutputType = {
   proposal_key: string
   authority_type: $Enums.AuthorityType
   is_finalized: boolean
-  bump: number
   _count: OffendersCountAggregateOutputType | null
   _avg: OffendersAvgAggregateOutputType | null
   _sum: OffendersSumAggregateOutputType | null
@@ -223,7 +212,6 @@ export type OffendersWhereInput = {
   proposal_key?: Prisma.StringFilter<"Offenders"> | string
   authority_type?: Prisma.EnumAuthorityTypeFilter<"Offenders"> | $Enums.AuthorityType
   is_finalized?: Prisma.BoolFilter<"Offenders"> | boolean
-  bump?: Prisma.IntFilter<"Offenders"> | number
 }
 
 export type OffendersOrderByWithRelationInput = {
@@ -232,7 +220,6 @@ export type OffendersOrderByWithRelationInput = {
   proposal_key?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type OffendersWhereUniqueInput = Prisma.AtLeast<{
@@ -244,7 +231,6 @@ export type OffendersWhereUniqueInput = Prisma.AtLeast<{
   offender_key?: Prisma.StringNullableListFilter<"Offenders">
   authority_type?: Prisma.EnumAuthorityTypeFilter<"Offenders"> | $Enums.AuthorityType
   is_finalized?: Prisma.BoolFilter<"Offenders"> | boolean
-  bump?: Prisma.IntFilter<"Offenders"> | number
 }, "proposal_key">
 
 export type OffendersOrderByWithAggregationInput = {
@@ -253,7 +239,6 @@ export type OffendersOrderByWithAggregationInput = {
   proposal_key?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.OffendersCountOrderByAggregateInput
   _avg?: Prisma.OffendersAvgOrderByAggregateInput
   _max?: Prisma.OffendersMaxOrderByAggregateInput
@@ -270,7 +255,6 @@ export type OffendersScalarWhereWithAggregatesInput = {
   proposal_key?: Prisma.StringWithAggregatesFilter<"Offenders"> | string
   authority_type?: Prisma.EnumAuthorityTypeWithAggregatesFilter<"Offenders"> | $Enums.AuthorityType
   is_finalized?: Prisma.BoolWithAggregatesFilter<"Offenders"> | boolean
-  bump?: Prisma.IntWithAggregatesFilter<"Offenders"> | number
 }
 
 export type OffendersCreateInput = {
@@ -279,7 +263,6 @@ export type OffendersCreateInput = {
   proposal_key: string
   authority_type: $Enums.AuthorityType
   is_finalized: boolean
-  bump: number
 }
 
 export type OffendersUncheckedCreateInput = {
@@ -288,7 +271,6 @@ export type OffendersUncheckedCreateInput = {
   proposal_key: string
   authority_type: $Enums.AuthorityType
   is_finalized: boolean
-  bump: number
 }
 
 export type OffendersUpdateInput = {
@@ -297,7 +279,6 @@ export type OffendersUpdateInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OffendersUncheckedUpdateInput = {
@@ -306,7 +287,6 @@ export type OffendersUncheckedUpdateInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OffendersCreateManyInput = {
@@ -315,7 +295,6 @@ export type OffendersCreateManyInput = {
   proposal_key: string
   authority_type: $Enums.AuthorityType
   is_finalized: boolean
-  bump: number
 }
 
 export type OffendersUpdateManyMutationInput = {
@@ -324,7 +303,6 @@ export type OffendersUpdateManyMutationInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OffendersUncheckedUpdateManyInput = {
@@ -333,7 +311,6 @@ export type OffendersUncheckedUpdateManyInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type OffendersCountOrderByAggregateInput = {
@@ -342,12 +319,10 @@ export type OffendersCountOrderByAggregateInput = {
   proposal_key?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type OffendersAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type OffendersMaxOrderByAggregateInput = {
@@ -355,7 +330,6 @@ export type OffendersMaxOrderByAggregateInput = {
   proposal_key?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type OffendersMinOrderByAggregateInput = {
@@ -363,12 +337,10 @@ export type OffendersMinOrderByAggregateInput = {
   proposal_key?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type OffendersSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type OffendersCreateoffender_keyInput = {
@@ -388,7 +360,6 @@ export type OffendersSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   proposal_key?: boolean
   authority_type?: boolean
   is_finalized?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["offenders"]>
 
 export type OffendersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -397,7 +368,6 @@ export type OffendersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   proposal_key?: boolean
   authority_type?: boolean
   is_finalized?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["offenders"]>
 
 export type OffendersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -406,7 +376,6 @@ export type OffendersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   proposal_key?: boolean
   authority_type?: boolean
   is_finalized?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["offenders"]>
 
 export type OffendersSelectScalar = {
@@ -415,10 +384,9 @@ export type OffendersSelectScalar = {
   proposal_key?: boolean
   authority_type?: boolean
   is_finalized?: boolean
-  bump?: boolean
 }
 
-export type OffendersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "offender_key" | "proposal_key" | "authority_type" | "is_finalized" | "bump", ExtArgs["result"]["offenders"]>
+export type OffendersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "offender_key" | "proposal_key" | "authority_type" | "is_finalized", ExtArgs["result"]["offenders"]>
 
 export type $OffendersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Offenders"
@@ -429,7 +397,6 @@ export type $OffendersPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     proposal_key: string
     authority_type: $Enums.AuthorityType
     is_finalized: boolean
-    bump: number
   }, ExtArgs["result"]["offenders"]>
   composites: {}
 }
@@ -858,7 +825,6 @@ export interface OffendersFieldRefs {
   readonly proposal_key: Prisma.FieldRef<"Offenders", 'String'>
   readonly authority_type: Prisma.FieldRef<"Offenders", 'AuthorityType'>
   readonly is_finalized: Prisma.FieldRef<"Offenders", 'Boolean'>
-  readonly bump: Prisma.FieldRef<"Offenders", 'Int'>
 }
     
 

@@ -31,7 +31,6 @@ export type LeaseAvgAggregateOutputType = {
   late_payment_fee_per_day: number | null
   rent_amount: number | null
   security_deposit: number | null
-  bump: number | null
 }
 
 export type LeaseSumAggregateOutputType = {
@@ -39,7 +38,6 @@ export type LeaseSumAggregateOutputType = {
   late_payment_fee_per_day: bigint | null
   rent_amount: bigint | null
   security_deposit: bigint | null
-  bump: number | null
 }
 
 export type LeaseMinAggregateOutputType = {
@@ -59,7 +57,6 @@ export type LeaseMinAggregateOutputType = {
   lessee_acceptance_deadline: Date | null
   lease_end_time: Date | null
   neutral: string | null
-  bump: number | null
 }
 
 export type LeaseMaxAggregateOutputType = {
@@ -79,7 +76,6 @@ export type LeaseMaxAggregateOutputType = {
   lessee_acceptance_deadline: Date | null
   lease_end_time: Date | null
   neutral: string | null
-  bump: number | null
 }
 
 export type LeaseCountAggregateOutputType = {
@@ -100,7 +96,6 @@ export type LeaseCountAggregateOutputType = {
   lessee_acceptance_deadline: number
   lease_end_time: number
   neutral: number
-  bump: number
   _all: number
 }
 
@@ -110,7 +105,6 @@ export type LeaseAvgAggregateInputType = {
   late_payment_fee_per_day?: true
   rent_amount?: true
   security_deposit?: true
-  bump?: true
 }
 
 export type LeaseSumAggregateInputType = {
@@ -118,7 +112,6 @@ export type LeaseSumAggregateInputType = {
   late_payment_fee_per_day?: true
   rent_amount?: true
   security_deposit?: true
-  bump?: true
 }
 
 export type LeaseMinAggregateInputType = {
@@ -138,7 +131,6 @@ export type LeaseMinAggregateInputType = {
   lessee_acceptance_deadline?: true
   lease_end_time?: true
   neutral?: true
-  bump?: true
 }
 
 export type LeaseMaxAggregateInputType = {
@@ -158,7 +150,6 @@ export type LeaseMaxAggregateInputType = {
   lessee_acceptance_deadline?: true
   lease_end_time?: true
   neutral?: true
-  bump?: true
 }
 
 export type LeaseCountAggregateInputType = {
@@ -179,7 +170,6 @@ export type LeaseCountAggregateInputType = {
   lessee_acceptance_deadline?: true
   lease_end_time?: true
   neutral?: true
-  bump?: true
   _all?: true
 }
 
@@ -287,7 +277,6 @@ export type LeaseGroupByOutputType = {
   lessee_acceptance_deadline: Date
   lease_end_time: Date
   neutral: string
-  bump: number
   _count: LeaseCountAggregateOutputType | null
   _avg: LeaseAvgAggregateOutputType | null
   _sum: LeaseSumAggregateOutputType | null
@@ -331,7 +320,6 @@ export type LeaseWhereInput = {
   lessee_acceptance_deadline?: Prisma.DateTimeFilter<"Lease"> | Date | string
   lease_end_time?: Prisma.DateTimeFilter<"Lease"> | Date | string
   neutral?: Prisma.StringFilter<"Lease"> | string
-  bump?: Prisma.IntFilter<"Lease"> | number
 }
 
 export type LeaseOrderByWithRelationInput = {
@@ -352,7 +340,6 @@ export type LeaseOrderByWithRelationInput = {
   lessee_acceptance_deadline?: Prisma.SortOrder
   lease_end_time?: Prisma.SortOrder
   neutral?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type LeaseWhereUniqueInput = Prisma.AtLeast<{
@@ -377,7 +364,6 @@ export type LeaseWhereUniqueInput = Prisma.AtLeast<{
   lessee_acceptance_deadline?: Prisma.DateTimeFilter<"Lease"> | Date | string
   lease_end_time?: Prisma.DateTimeFilter<"Lease"> | Date | string
   neutral?: Prisma.StringFilter<"Lease"> | string
-  bump?: Prisma.IntFilter<"Lease"> | number
 }, "lease_id_property">
 
 export type LeaseOrderByWithAggregationInput = {
@@ -398,7 +384,6 @@ export type LeaseOrderByWithAggregationInput = {
   lessee_acceptance_deadline?: Prisma.SortOrder
   lease_end_time?: Prisma.SortOrder
   neutral?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.LeaseCountOrderByAggregateInput
   _avg?: Prisma.LeaseAvgOrderByAggregateInput
   _max?: Prisma.LeaseMaxOrderByAggregateInput
@@ -427,7 +412,6 @@ export type LeaseScalarWhereWithAggregatesInput = {
   lessee_acceptance_deadline?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string
   lease_end_time?: Prisma.DateTimeWithAggregatesFilter<"Lease"> | Date | string
   neutral?: Prisma.StringWithAggregatesFilter<"Lease"> | string
-  bump?: Prisma.IntWithAggregatesFilter<"Lease"> | number
 }
 
 export type LeaseCreateInput = {
@@ -448,7 +432,6 @@ export type LeaseCreateInput = {
   lessee_acceptance_deadline: Date | string
   lease_end_time: Date | string
   neutral: string
-  bump: number
 }
 
 export type LeaseUncheckedCreateInput = {
@@ -469,7 +452,6 @@ export type LeaseUncheckedCreateInput = {
   lessee_acceptance_deadline: Date | string
   lease_end_time: Date | string
   neutral: string
-  bump: number
 }
 
 export type LeaseUpdateInput = {
@@ -490,7 +472,6 @@ export type LeaseUpdateInput = {
   lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   neutral?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type LeaseUncheckedUpdateInput = {
@@ -511,7 +492,6 @@ export type LeaseUncheckedUpdateInput = {
   lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   neutral?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type LeaseCreateManyInput = {
@@ -532,7 +512,6 @@ export type LeaseCreateManyInput = {
   lessee_acceptance_deadline: Date | string
   lease_end_time: Date | string
   neutral: string
-  bump: number
 }
 
 export type LeaseUpdateManyMutationInput = {
@@ -553,7 +532,6 @@ export type LeaseUpdateManyMutationInput = {
   lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   neutral?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type LeaseUncheckedUpdateManyInput = {
@@ -574,7 +552,6 @@ export type LeaseUncheckedUpdateManyInput = {
   lessee_acceptance_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   lease_end_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   neutral?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type LeaseLease_idPropertyCompoundUniqueInput = {
@@ -600,7 +577,6 @@ export type LeaseCountOrderByAggregateInput = {
   lessee_acceptance_deadline?: Prisma.SortOrder
   lease_end_time?: Prisma.SortOrder
   neutral?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type LeaseAvgOrderByAggregateInput = {
@@ -608,7 +584,6 @@ export type LeaseAvgOrderByAggregateInput = {
   late_payment_fee_per_day?: Prisma.SortOrder
   rent_amount?: Prisma.SortOrder
   security_deposit?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type LeaseMaxOrderByAggregateInput = {
@@ -628,7 +603,6 @@ export type LeaseMaxOrderByAggregateInput = {
   lessee_acceptance_deadline?: Prisma.SortOrder
   lease_end_time?: Prisma.SortOrder
   neutral?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type LeaseMinOrderByAggregateInput = {
@@ -648,7 +622,6 @@ export type LeaseMinOrderByAggregateInput = {
   lessee_acceptance_deadline?: Prisma.SortOrder
   lease_end_time?: Prisma.SortOrder
   neutral?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type LeaseSumOrderByAggregateInput = {
@@ -656,7 +629,6 @@ export type LeaseSumOrderByAggregateInput = {
   late_payment_fee_per_day?: Prisma.SortOrder
   rent_amount?: Prisma.SortOrder
   security_deposit?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type LeaseCreatearbitrar_approval_countInput = {
@@ -692,7 +664,6 @@ export type LeaseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   lessee_acceptance_deadline?: boolean
   lease_end_time?: boolean
   neutral?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["lease"]>
 
 export type LeaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -713,7 +684,6 @@ export type LeaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   lessee_acceptance_deadline?: boolean
   lease_end_time?: boolean
   neutral?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["lease"]>
 
 export type LeaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -734,7 +704,6 @@ export type LeaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   lessee_acceptance_deadline?: boolean
   lease_end_time?: boolean
   neutral?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["lease"]>
 
 export type LeaseSelectScalar = {
@@ -755,10 +724,9 @@ export type LeaseSelectScalar = {
   lessee_acceptance_deadline?: boolean
   lease_end_time?: boolean
   neutral?: boolean
-  bump?: boolean
 }
 
-export type LeaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "lease_id" | "is_arbitrar_approved" | "arbitrar_approval_count" | "initailized_at" | "property" | "lessee" | "periodic_pay" | "late_payment_fee_per_day" | "status" | "rent_amount" | "security_deposit" | "last_payement" | "agreemenbt_hash" | "lessee_acceptance_deadline" | "lease_end_time" | "neutral" | "bump", ExtArgs["result"]["lease"]>
+export type LeaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "lease_id" | "is_arbitrar_approved" | "arbitrar_approval_count" | "initailized_at" | "property" | "lessee" | "periodic_pay" | "late_payment_fee_per_day" | "status" | "rent_amount" | "security_deposit" | "last_payement" | "agreemenbt_hash" | "lessee_acceptance_deadline" | "lease_end_time" | "neutral", ExtArgs["result"]["lease"]>
 
 export type $LeasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Lease"
@@ -781,7 +749,6 @@ export type $LeasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     lessee_acceptance_deadline: Date
     lease_end_time: Date
     neutral: string
-    bump: number
   }, ExtArgs["result"]["lease"]>
   composites: {}
 }
@@ -1222,7 +1189,6 @@ export interface LeaseFieldRefs {
   readonly lessee_acceptance_deadline: Prisma.FieldRef<"Lease", 'DateTime'>
   readonly lease_end_time: Prisma.FieldRef<"Lease", 'DateTime'>
   readonly neutral: Prisma.FieldRef<"Lease", 'String'>
-  readonly bump: Prisma.FieldRef<"Lease", 'Int'>
 }
     
 

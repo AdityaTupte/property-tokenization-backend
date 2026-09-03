@@ -31,7 +31,6 @@ export type ArbitrarRegistryAvgAggregateOutputType = {
   total_arbitrar: number | null
   vote_threshold: number | null
   total_salary_allocated: number | null
-  bump: number | null
 }
 
 export type ArbitrarRegistrySumAggregateOutputType = {
@@ -39,7 +38,6 @@ export type ArbitrarRegistrySumAggregateOutputType = {
   total_arbitrar: number | null
   vote_threshold: number | null
   total_salary_allocated: bigint | null
-  bump: number | null
 }
 
 export type ArbitrarRegistryMinAggregateOutputType = {
@@ -49,7 +47,6 @@ export type ArbitrarRegistryMinAggregateOutputType = {
   vote_threshold: number | null
   claim_deadline_ts: Date | null
   total_salary_allocated: bigint | null
-  bump: number | null
 }
 
 export type ArbitrarRegistryMaxAggregateOutputType = {
@@ -59,7 +56,6 @@ export type ArbitrarRegistryMaxAggregateOutputType = {
   vote_threshold: number | null
   claim_deadline_ts: Date | null
   total_salary_allocated: bigint | null
-  bump: number | null
 }
 
 export type ArbitrarRegistryCountAggregateOutputType = {
@@ -69,7 +65,6 @@ export type ArbitrarRegistryCountAggregateOutputType = {
   vote_threshold: number
   claim_deadline_ts: number
   total_salary_allocated: number
-  bump: number
   _all: number
 }
 
@@ -79,7 +74,6 @@ export type ArbitrarRegistryAvgAggregateInputType = {
   total_arbitrar?: true
   vote_threshold?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type ArbitrarRegistrySumAggregateInputType = {
@@ -87,7 +81,6 @@ export type ArbitrarRegistrySumAggregateInputType = {
   total_arbitrar?: true
   vote_threshold?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type ArbitrarRegistryMinAggregateInputType = {
@@ -97,7 +90,6 @@ export type ArbitrarRegistryMinAggregateInputType = {
   vote_threshold?: true
   claim_deadline_ts?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type ArbitrarRegistryMaxAggregateInputType = {
@@ -107,7 +99,6 @@ export type ArbitrarRegistryMaxAggregateInputType = {
   vote_threshold?: true
   claim_deadline_ts?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type ArbitrarRegistryCountAggregateInputType = {
@@ -117,7 +108,6 @@ export type ArbitrarRegistryCountAggregateInputType = {
   vote_threshold?: true
   claim_deadline_ts?: true
   total_salary_allocated?: true
-  bump?: true
   _all?: true
 }
 
@@ -214,7 +204,6 @@ export type ArbitrarRegistryGroupByOutputType = {
   vote_threshold: number
   claim_deadline_ts: Date | null
   total_salary_allocated: bigint | null
-  bump: number
   _count: ArbitrarRegistryCountAggregateOutputType | null
   _avg: ArbitrarRegistryAvgAggregateOutputType | null
   _sum: ArbitrarRegistrySumAggregateOutputType | null
@@ -247,7 +236,6 @@ export type ArbitrarRegistryWhereInput = {
   vote_threshold?: Prisma.IntFilter<"ArbitrarRegistry"> | number
   claim_deadline_ts?: Prisma.DateTimeNullableFilter<"ArbitrarRegistry"> | Date | string | null
   total_salary_allocated?: Prisma.BigIntNullableFilter<"ArbitrarRegistry"> | bigint | number | null
-  bump?: Prisma.IntFilter<"ArbitrarRegistry"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
   arbitrars?: Prisma.ArbitrarListRelationFilter
 }
@@ -259,7 +247,6 @@ export type ArbitrarRegistryOrderByWithRelationInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrderInput | Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrderInput | Prisma.SortOrder
-  bump?: Prisma.SortOrder
   property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput
   arbitrars?: Prisma.ArbitrarOrderByRelationAggregateInput
 }
@@ -274,7 +261,6 @@ export type ArbitrarRegistryWhereUniqueInput = Prisma.AtLeast<{
   vote_threshold?: Prisma.IntFilter<"ArbitrarRegistry"> | number
   claim_deadline_ts?: Prisma.DateTimeNullableFilter<"ArbitrarRegistry"> | Date | string | null
   total_salary_allocated?: Prisma.BigIntNullableFilter<"ArbitrarRegistry"> | bigint | number | null
-  bump?: Prisma.IntFilter<"ArbitrarRegistry"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
   arbitrars?: Prisma.ArbitrarListRelationFilter
 }, "arbitrar_registry_pubkey">
@@ -286,7 +272,6 @@ export type ArbitrarRegistryOrderByWithAggregationInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrderInput | Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrderInput | Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.ArbitrarRegistryCountOrderByAggregateInput
   _avg?: Prisma.ArbitrarRegistryAvgOrderByAggregateInput
   _max?: Prisma.ArbitrarRegistryMaxOrderByAggregateInput
@@ -304,7 +289,6 @@ export type ArbitrarRegistryScalarWhereWithAggregatesInput = {
   vote_threshold?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number
   claim_deadline_ts?: Prisma.DateTimeNullableWithAggregatesFilter<"ArbitrarRegistry"> | Date | string | null
   total_salary_allocated?: Prisma.BigIntNullableWithAggregatesFilter<"ArbitrarRegistry"> | bigint | number | null
-  bump?: Prisma.IntWithAggregatesFilter<"ArbitrarRegistry"> | number
 }
 
 export type ArbitrarRegistryCreateInput = {
@@ -313,7 +297,6 @@ export type ArbitrarRegistryCreateInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutArbitrarRegistriesInput
   arbitrars?: Prisma.ArbitrarCreateNestedManyWithoutRegistryInput
 }
@@ -325,7 +308,6 @@ export type ArbitrarRegistryUncheckedCreateInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   arbitrars?: Prisma.ArbitrarUncheckedCreateNestedManyWithoutRegistryInput
 }
 
@@ -335,7 +317,6 @@ export type ArbitrarRegistryUpdateInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutArbitrarRegistriesNestedInput
   arbitrars?: Prisma.ArbitrarUpdateManyWithoutRegistryNestedInput
 }
@@ -347,7 +328,6 @@ export type ArbitrarRegistryUncheckedUpdateInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   arbitrars?: Prisma.ArbitrarUncheckedUpdateManyWithoutRegistryNestedInput
 }
 
@@ -358,7 +338,6 @@ export type ArbitrarRegistryCreateManyInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
 }
 
 export type ArbitrarRegistryUpdateManyMutationInput = {
@@ -367,7 +346,6 @@ export type ArbitrarRegistryUpdateManyMutationInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ArbitrarRegistryUncheckedUpdateManyInput = {
@@ -377,7 +355,6 @@ export type ArbitrarRegistryUncheckedUpdateManyInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ArbitrarRegistryNullableScalarRelationFilter = {
@@ -397,7 +374,6 @@ export type ArbitrarRegistryCountOrderByAggregateInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ArbitrarRegistryAvgOrderByAggregateInput = {
@@ -405,7 +381,6 @@ export type ArbitrarRegistryAvgOrderByAggregateInput = {
   total_arbitrar?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ArbitrarRegistryMaxOrderByAggregateInput = {
@@ -415,7 +390,6 @@ export type ArbitrarRegistryMaxOrderByAggregateInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ArbitrarRegistryMinOrderByAggregateInput = {
@@ -425,7 +399,6 @@ export type ArbitrarRegistryMinOrderByAggregateInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ArbitrarRegistrySumOrderByAggregateInput = {
@@ -433,7 +406,6 @@ export type ArbitrarRegistrySumOrderByAggregateInput = {
   total_arbitrar?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput = {
@@ -488,7 +460,6 @@ export type ArbitrarRegistryCreateWithoutProperty_system_keyInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   arbitrars?: Prisma.ArbitrarCreateNestedManyWithoutRegistryInput
 }
 
@@ -498,7 +469,6 @@ export type ArbitrarRegistryUncheckedCreateWithoutProperty_system_keyInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   arbitrars?: Prisma.ArbitrarUncheckedCreateNestedManyWithoutRegistryInput
 }
 
@@ -524,7 +494,6 @@ export type ArbitrarRegistryUpdateWithoutProperty_system_keyInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   arbitrars?: Prisma.ArbitrarUpdateManyWithoutRegistryNestedInput
 }
 
@@ -534,7 +503,6 @@ export type ArbitrarRegistryUncheckedUpdateWithoutProperty_system_keyInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   arbitrars?: Prisma.ArbitrarUncheckedUpdateManyWithoutRegistryNestedInput
 }
 
@@ -544,7 +512,6 @@ export type ArbitrarRegistryCreateWithoutArbitrarsInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutArbitrarRegistriesInput
 }
 
@@ -555,7 +522,6 @@ export type ArbitrarRegistryUncheckedCreateWithoutArbitrarsInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
 }
 
 export type ArbitrarRegistryCreateOrConnectWithoutArbitrarsInput = {
@@ -580,7 +546,6 @@ export type ArbitrarRegistryUpdateWithoutArbitrarsInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutArbitrarRegistriesNestedInput
 }
 
@@ -591,7 +556,6 @@ export type ArbitrarRegistryUncheckedUpdateWithoutArbitrarsInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -632,7 +596,6 @@ export type ArbitrarRegistrySelect<ExtArgs extends runtime.Types.Extensions.Inte
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   arbitrars?: boolean | Prisma.ArbitrarRegistry$arbitrarsArgs<ExtArgs>
   _count?: boolean | Prisma.ArbitrarRegistryCountOutputTypeDefaultArgs<ExtArgs>
@@ -645,7 +608,6 @@ export type ArbitrarRegistrySelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrarRegistry"]>
 
@@ -656,7 +618,6 @@ export type ArbitrarRegistrySelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["arbitrarRegistry"]>
 
@@ -667,10 +628,9 @@ export type ArbitrarRegistrySelectScalar = {
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
 }
 
-export type ArbitrarRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"arbitrar_registry_pubkey" | "current_number_of_arbitrar" | "total_arbitrar" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated" | "bump", ExtArgs["result"]["arbitrarRegistry"]>
+export type ArbitrarRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"arbitrar_registry_pubkey" | "current_number_of_arbitrar" | "total_arbitrar" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated", ExtArgs["result"]["arbitrarRegistry"]>
 export type ArbitrarRegistryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   arbitrars?: boolean | Prisma.ArbitrarRegistry$arbitrarsArgs<ExtArgs>
@@ -696,7 +656,6 @@ export type $ArbitrarRegistryPayload<ExtArgs extends runtime.Types.Extensions.In
     vote_threshold: number
     claim_deadline_ts: Date | null
     total_salary_allocated: bigint | null
-    bump: number
   }, ExtArgs["result"]["arbitrarRegistry"]>
   composites: {}
 }
@@ -1128,7 +1087,6 @@ export interface ArbitrarRegistryFieldRefs {
   readonly vote_threshold: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>
   readonly claim_deadline_ts: Prisma.FieldRef<"ArbitrarRegistry", 'DateTime'>
   readonly total_salary_allocated: Prisma.FieldRef<"ArbitrarRegistry", 'BigInt'>
-  readonly bump: Prisma.FieldRef<"ArbitrarRegistry", 'Int'>
 }
     
 

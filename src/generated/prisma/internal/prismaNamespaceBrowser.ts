@@ -156,7 +156,6 @@ export const CountryApprovalAuthorityScalarFieldEnum = {
   id: 'id',
   authority: 'authority',
   threshold: 'threshold',
-  bump: 'bump',
   created_time: 'created_time',
   last_modified: 'last_modified'
 } as const
@@ -168,8 +167,7 @@ export const ApproveCountryAuthorityReceiptScalarFieldEnum = {
   id: 'id',
   proposal_key: 'proposal_key',
   approval_time: 'approval_time',
-  signer: 'signer',
-  bump: 'bump'
+  signer: 'signer'
 } as const
 
 export type ApproveCountryAuthorityReceiptScalarFieldEnum = (typeof ApproveCountryAuthorityReceiptScalarFieldEnum)[keyof typeof ApproveCountryAuthorityReceiptScalarFieldEnum]
@@ -183,7 +181,6 @@ export const CountryProposalScalarFieldEnum = {
   country_name: 'country_name',
   approved: 'approved',
   executed: 'executed',
-  proposal_bump: 'proposal_bump',
   proposal_created_time: 'proposal_created_time'
 } as const
 
@@ -218,8 +215,7 @@ export const ApproveStateAuthorityReceiptScalarFieldEnum = {
   id: 'id',
   proposal_key: 'proposal_key',
   approval_time: 'approval_time',
-  signer: 'signer',
-  bump: 'bump'
+  signer: 'signer'
 } as const
 
 export type ApproveStateAuthorityReceiptScalarFieldEnum = (typeof ApproveStateAuthorityReceiptScalarFieldEnum)[keyof typeof ApproveStateAuthorityReceiptScalarFieldEnum]
@@ -279,8 +275,7 @@ export const PropertySystemAccountScalarFieldEnum = {
   arbitrator_registry: 'arbitrator_registry',
   total_properties: 'total_properties',
   created_at: 'created_at',
-  ready_for_listing: 'ready_for_listing',
-  bump: 'bump'
+  ready_for_listing: 'ready_for_listing'
 } as const
 
 export type PropertySystemAccountScalarFieldEnum = (typeof PropertySystemAccountScalarFieldEnum)[keyof typeof PropertySystemAccountScalarFieldEnum]
@@ -289,8 +284,7 @@ export type PropertySystemAccountScalarFieldEnum = (typeof PropertySystemAccount
 export const DividendPdaScalarFieldEnum = {
   dividend_pubkey: 'dividend_pubkey',
   dividend_per_token: 'dividend_per_token',
-  last_updated_ts: 'last_updated_ts',
-  bump: 'bump'
+  last_updated_ts: 'last_updated_ts'
 } as const
 
 export type DividendPdaScalarFieldEnum = (typeof DividendPdaScalarFieldEnum)[keyof typeof DividendPdaScalarFieldEnum]
@@ -318,8 +312,7 @@ export const TrusteeRegistryScalarFieldEnum = {
   total_trustees: 'total_trustees',
   vote_threshold: 'vote_threshold',
   claim_deadline_ts: 'claim_deadline_ts',
-  total_salary_allocated: 'total_salary_allocated',
-  bump: 'bump'
+  total_salary_allocated: 'total_salary_allocated'
 } as const
 
 export type TrusteeRegistryScalarFieldEnum = (typeof TrusteeRegistryScalarFieldEnum)[keyof typeof TrusteeRegistryScalarFieldEnum]
@@ -331,8 +324,7 @@ export const ArbitrarRegistryScalarFieldEnum = {
   total_arbitrar: 'total_arbitrar',
   vote_threshold: 'vote_threshold',
   claim_deadline_ts: 'claim_deadline_ts',
-  total_salary_allocated: 'total_salary_allocated',
-  bump: 'bump'
+  total_salary_allocated: 'total_salary_allocated'
 } as const
 
 export type ArbitrarRegistryScalarFieldEnum = (typeof ArbitrarRegistryScalarFieldEnum)[keyof typeof ArbitrarRegistryScalarFieldEnum]
@@ -352,8 +344,7 @@ export type ThresholdScalarFieldEnum = (typeof ThresholdScalarFieldEnum)[keyof t
 
 export const TreasuryScalarFieldEnum = {
   treasury_key: 'treasury_key',
-  last_distribution: 'last_distribution',
-  bump: 'bump'
+  last_distribution: 'last_distribution'
 } as const
 
 export type TreasuryScalarFieldEnum = (typeof TreasuryScalarFieldEnum)[keyof typeof TreasuryScalarFieldEnum]
@@ -378,8 +369,7 @@ export const CandiateProfileScalarFieldEnum = {
   is_blacklisted: 'is_blacklisted',
   removal_count: 'removal_count',
   actions_history: 'actions_history',
-  metadata_hash: 'metadata_hash',
-  bump: 'bump'
+  metadata_hash: 'metadata_hash'
 } as const
 
 export type CandiateProfileScalarFieldEnum = (typeof CandiateProfileScalarFieldEnum)[keyof typeof CandiateProfileScalarFieldEnum]
@@ -393,8 +383,7 @@ export const AuthorityCandidateScalarFieldEnum = {
   selected_time: 'selected_time',
   vote_gained: 'vote_gained',
   is_finalized: 'is_finalized',
-  authority_type: 'authority_type',
-  bump: 'bump'
+  authority_type: 'authority_type'
 } as const
 
 export type AuthorityCandidateScalarFieldEnum = (typeof AuthorityCandidateScalarFieldEnum)[keyof typeof AuthorityCandidateScalarFieldEnum]
@@ -409,8 +398,7 @@ export const PropertyProposalScalarFieldEnum = {
   issued_by: 'issued_by',
   approval_count: 'approval_count',
   approved: 'approved',
-  executed: 'executed',
-  bump: 'bump'
+  executed: 'executed'
 } as const
 
 export type PropertyProposalScalarFieldEnum = (typeof PropertyProposalScalarFieldEnum)[keyof typeof PropertyProposalScalarFieldEnum]
@@ -426,8 +414,7 @@ export const PropertyAccountScalarFieldEnum = {
   country_pubkey: 'country_pubkey',
   issued_at: 'issued_at',
   issued_by: 'issued_by',
-  metadata: 'metadata',
-  bump: 'bump'
+  metadata: 'metadata'
 } as const
 
 export type PropertyAccountScalarFieldEnum = (typeof PropertyAccountScalarFieldEnum)[keyof typeof PropertyAccountScalarFieldEnum]
@@ -500,8 +487,7 @@ export const LeaseScalarFieldEnum = {
   agreemenbt_hash: 'agreemenbt_hash',
   lessee_acceptance_deadline: 'lessee_acceptance_deadline',
   lease_end_time: 'lease_end_time',
-  neutral: 'neutral',
-  bump: 'bump'
+  neutral: 'neutral'
 } as const
 
 export type LeaseScalarFieldEnum = (typeof LeaseScalarFieldEnum)[keyof typeof LeaseScalarFieldEnum]
@@ -527,8 +513,7 @@ export type ChallengeProposalScalarFieldEnum = (typeof ChallengeProposalScalarFi
 export const RankCounterScalarFieldEnum = {
   proposal_id: 'proposal_id',
   property_system: 'property_system',
-  current_rank: 'current_rank',
-  bump: 'bump'
+  current_rank: 'current_rank'
 } as const
 
 export type RankCounterScalarFieldEnum = (typeof RankCounterScalarFieldEnum)[keyof typeof RankCounterScalarFieldEnum]
@@ -539,8 +524,7 @@ export const OffendersScalarFieldEnum = {
   offender_key: 'offender_key',
   proposal_key: 'proposal_key',
   authority_type: 'authority_type',
-  is_finalized: 'is_finalized',
-  bump: 'bump'
+  is_finalized: 'is_finalized'
 } as const
 
 export type OffendersScalarFieldEnum = (typeof OffendersScalarFieldEnum)[keyof typeof OffendersScalarFieldEnum]
@@ -573,8 +557,7 @@ export const ResignationScalarFieldEnum = {
   property_system: 'property_system',
   authority_type: 'authority_type',
   time: 'time',
-  status: 'status',
-  bump: 'bump'
+  status: 'status'
 } as const
 
 export type ResignationScalarFieldEnum = (typeof ResignationScalarFieldEnum)[keyof typeof ResignationScalarFieldEnum]
@@ -602,8 +585,7 @@ export const NewThresholdProposalScalarFieldEnum = {
   new_arbitrator_salary_threshold: 'new_arbitrator_salary_threshold',
   new_dividend_threshold: 'new_dividend_threshold',
   new_reinvestment_threshold: 'new_reinvestment_threshold',
-  new_safety_threshold: 'new_safety_threshold',
-  bump: 'bump'
+  new_safety_threshold: 'new_safety_threshold'
 } as const
 
 export type NewThresholdProposalScalarFieldEnum = (typeof NewThresholdProposalScalarFieldEnum)[keyof typeof NewThresholdProposalScalarFieldEnum]

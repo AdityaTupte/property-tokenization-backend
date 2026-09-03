@@ -28,12 +28,10 @@ export type AggregatePropertyProposal = {
 
 export type PropertyProposalAvgAggregateOutputType = {
   property_id: number | null
-  bump: number | null
 }
 
 export type PropertyProposalSumAggregateOutputType = {
   property_id: number | null
-  bump: number | null
 }
 
 export type PropertyProposalMinAggregateOutputType = {
@@ -45,7 +43,6 @@ export type PropertyProposalMinAggregateOutputType = {
   issued_by: string | null
   approved: boolean | null
   executed: boolean | null
-  bump: number | null
 }
 
 export type PropertyProposalMaxAggregateOutputType = {
@@ -57,7 +54,6 @@ export type PropertyProposalMaxAggregateOutputType = {
   issued_by: string | null
   approved: boolean | null
   executed: boolean | null
-  bump: number | null
 }
 
 export type PropertyProposalCountAggregateOutputType = {
@@ -70,19 +66,16 @@ export type PropertyProposalCountAggregateOutputType = {
   approval_count: number
   approved: number
   executed: number
-  bump: number
   _all: number
 }
 
 
 export type PropertyProposalAvgAggregateInputType = {
   property_id?: true
-  bump?: true
 }
 
 export type PropertyProposalSumAggregateInputType = {
   property_id?: true
-  bump?: true
 }
 
 export type PropertyProposalMinAggregateInputType = {
@@ -94,7 +87,6 @@ export type PropertyProposalMinAggregateInputType = {
   issued_by?: true
   approved?: true
   executed?: true
-  bump?: true
 }
 
 export type PropertyProposalMaxAggregateInputType = {
@@ -106,7 +98,6 @@ export type PropertyProposalMaxAggregateInputType = {
   issued_by?: true
   approved?: true
   executed?: true
-  bump?: true
 }
 
 export type PropertyProposalCountAggregateInputType = {
@@ -119,7 +110,6 @@ export type PropertyProposalCountAggregateInputType = {
   approval_count?: true
   approved?: true
   executed?: true
-  bump?: true
   _all?: true
 }
 
@@ -219,7 +209,6 @@ export type PropertyProposalGroupByOutputType = {
   approval_count: string[]
   approved: boolean
   executed: boolean
-  bump: number
   _count: PropertyProposalCountAggregateOutputType | null
   _avg: PropertyProposalAvgAggregateOutputType | null
   _sum: PropertyProposalSumAggregateOutputType | null
@@ -255,7 +244,6 @@ export type PropertyProposalWhereInput = {
   approval_count?: Prisma.StringNullableListFilter<"PropertyProposal">
   approved?: Prisma.BoolFilter<"PropertyProposal"> | boolean
   executed?: Prisma.BoolFilter<"PropertyProposal"> | boolean
-  bump?: Prisma.IntFilter<"PropertyProposal"> | number
 }
 
 export type PropertyProposalOrderByWithRelationInput = {
@@ -268,7 +256,6 @@ export type PropertyProposalOrderByWithRelationInput = {
   approval_count?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyProposalWhereUniqueInput = Prisma.AtLeast<{
@@ -284,7 +271,6 @@ export type PropertyProposalWhereUniqueInput = Prisma.AtLeast<{
   approval_count?: Prisma.StringNullableListFilter<"PropertyProposal">
   approved?: Prisma.BoolFilter<"PropertyProposal"> | boolean
   executed?: Prisma.BoolFilter<"PropertyProposal"> | boolean
-  bump?: Prisma.IntFilter<"PropertyProposal"> | number
 }, "proposal_property_pubkey">
 
 export type PropertyProposalOrderByWithAggregationInput = {
@@ -297,7 +283,6 @@ export type PropertyProposalOrderByWithAggregationInput = {
   approval_count?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.PropertyProposalCountOrderByAggregateInput
   _avg?: Prisma.PropertyProposalAvgOrderByAggregateInput
   _max?: Prisma.PropertyProposalMaxOrderByAggregateInput
@@ -318,7 +303,6 @@ export type PropertyProposalScalarWhereWithAggregatesInput = {
   approval_count?: Prisma.StringNullableListFilter<"PropertyProposal">
   approved?: Prisma.BoolWithAggregatesFilter<"PropertyProposal"> | boolean
   executed?: Prisma.BoolWithAggregatesFilter<"PropertyProposal"> | boolean
-  bump?: Prisma.IntWithAggregatesFilter<"PropertyProposal"> | number
 }
 
 export type PropertyProposalCreateInput = {
@@ -331,7 +315,6 @@ export type PropertyProposalCreateInput = {
   approval_count?: Prisma.PropertyProposalCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
-  bump: number
 }
 
 export type PropertyProposalUncheckedCreateInput = {
@@ -344,7 +327,6 @@ export type PropertyProposalUncheckedCreateInput = {
   approval_count?: Prisma.PropertyProposalCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
-  bump: number
 }
 
 export type PropertyProposalUpdateInput = {
@@ -357,7 +339,6 @@ export type PropertyProposalUpdateInput = {
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyProposalUncheckedUpdateInput = {
@@ -370,7 +351,6 @@ export type PropertyProposalUncheckedUpdateInput = {
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyProposalCreateManyInput = {
@@ -383,7 +363,6 @@ export type PropertyProposalCreateManyInput = {
   approval_count?: Prisma.PropertyProposalCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
-  bump: number
 }
 
 export type PropertyProposalUpdateManyMutationInput = {
@@ -396,7 +375,6 @@ export type PropertyProposalUpdateManyMutationInput = {
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyProposalUncheckedUpdateManyInput = {
@@ -409,7 +387,6 @@ export type PropertyProposalUncheckedUpdateManyInput = {
   approval_count?: Prisma.PropertyProposalUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertyProposalCountOrderByAggregateInput = {
@@ -422,12 +399,10 @@ export type PropertyProposalCountOrderByAggregateInput = {
   approval_count?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyProposalAvgOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyProposalMaxOrderByAggregateInput = {
@@ -439,7 +414,6 @@ export type PropertyProposalMaxOrderByAggregateInput = {
   issued_by?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyProposalMinOrderByAggregateInput = {
@@ -451,12 +425,10 @@ export type PropertyProposalMinOrderByAggregateInput = {
   issued_by?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyProposalSumOrderByAggregateInput = {
   property_id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertyProposalCreateapproval_countInput = {
@@ -480,7 +452,6 @@ export type PropertyProposalSelect<ExtArgs extends runtime.Types.Extensions.Inte
   approval_count?: boolean
   approved?: boolean
   executed?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["propertyProposal"]>
 
 export type PropertyProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -493,7 +464,6 @@ export type PropertyProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   approval_count?: boolean
   approved?: boolean
   executed?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["propertyProposal"]>
 
 export type PropertyProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -506,7 +476,6 @@ export type PropertyProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   approval_count?: boolean
   approved?: boolean
   executed?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["propertyProposal"]>
 
 export type PropertyProposalSelectScalar = {
@@ -519,10 +488,9 @@ export type PropertyProposalSelectScalar = {
   approval_count?: boolean
   approved?: boolean
   executed?: boolean
-  bump?: boolean
 }
 
-export type PropertyProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "proposal_property_pubkey" | "property_system_pubkey" | "state_pubkey" | "legal_doc_hash" | "issued_by" | "approval_count" | "approved" | "executed" | "bump", ExtArgs["result"]["propertyProposal"]>
+export type PropertyProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_id" | "proposal_property_pubkey" | "property_system_pubkey" | "state_pubkey" | "legal_doc_hash" | "issued_by" | "approval_count" | "approved" | "executed", ExtArgs["result"]["propertyProposal"]>
 
 export type $PropertyProposalPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "PropertyProposal"
@@ -537,7 +505,6 @@ export type $PropertyProposalPayload<ExtArgs extends runtime.Types.Extensions.In
     approval_count: string[]
     approved: boolean
     executed: boolean
-    bump: number
   }, ExtArgs["result"]["propertyProposal"]>
   composites: {}
 }
@@ -970,7 +937,6 @@ export interface PropertyProposalFieldRefs {
   readonly approval_count: Prisma.FieldRef<"PropertyProposal", 'String[]'>
   readonly approved: Prisma.FieldRef<"PropertyProposal", 'Boolean'>
   readonly executed: Prisma.FieldRef<"PropertyProposal", 'Boolean'>
-  readonly bump: Prisma.FieldRef<"PropertyProposal", 'Int'>
 }
     
 

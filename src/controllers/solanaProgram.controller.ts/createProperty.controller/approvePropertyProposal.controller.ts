@@ -1,5 +1,5 @@
 import { address } from "@solana/kit";
-import type { Instructions, messageSchema } from "../../../helius/findProgramIndex";
+import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
@@ -9,7 +9,7 @@ import { tr } from "zod/locales";
 
 export const handleApproveLand:InstructionHandler = async(
     message:messageSchema,
-    instruction:Instructions,
+    instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number
 ) => {

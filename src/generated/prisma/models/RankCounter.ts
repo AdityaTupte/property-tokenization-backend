@@ -28,66 +28,56 @@ export type AggregateRankCounter = {
 
 export type RankCounterAvgAggregateOutputType = {
   current_rank: number | null
-  bump: number | null
 }
 
 export type RankCounterSumAggregateOutputType = {
   current_rank: number | null
-  bump: number | null
 }
 
 export type RankCounterMinAggregateOutputType = {
   proposal_id: string | null
   property_system: string | null
   current_rank: number | null
-  bump: number | null
 }
 
 export type RankCounterMaxAggregateOutputType = {
   proposal_id: string | null
   property_system: string | null
   current_rank: number | null
-  bump: number | null
 }
 
 export type RankCounterCountAggregateOutputType = {
   proposal_id: number
   property_system: number
   current_rank: number
-  bump: number
   _all: number
 }
 
 
 export type RankCounterAvgAggregateInputType = {
   current_rank?: true
-  bump?: true
 }
 
 export type RankCounterSumAggregateInputType = {
   current_rank?: true
-  bump?: true
 }
 
 export type RankCounterMinAggregateInputType = {
   proposal_id?: true
   property_system?: true
   current_rank?: true
-  bump?: true
 }
 
 export type RankCounterMaxAggregateInputType = {
   proposal_id?: true
   property_system?: true
   current_rank?: true
-  bump?: true
 }
 
 export type RankCounterCountAggregateInputType = {
   proposal_id?: true
   property_system?: true
   current_rank?: true
-  bump?: true
   _all?: true
 }
 
@@ -181,7 +171,6 @@ export type RankCounterGroupByOutputType = {
   proposal_id: string
   property_system: string
   current_rank: number
-  bump: number
   _count: RankCounterCountAggregateOutputType | null
   _avg: RankCounterAvgAggregateOutputType | null
   _sum: RankCounterSumAggregateOutputType | null
@@ -211,14 +200,12 @@ export type RankCounterWhereInput = {
   proposal_id?: Prisma.StringFilter<"RankCounter"> | string
   property_system?: Prisma.StringFilter<"RankCounter"> | string
   current_rank?: Prisma.IntFilter<"RankCounter"> | number
-  bump?: Prisma.IntFilter<"RankCounter"> | number
 }
 
 export type RankCounterOrderByWithRelationInput = {
   proposal_id?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type RankCounterWhereUniqueInput = Prisma.AtLeast<{
@@ -228,14 +215,12 @@ export type RankCounterWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.RankCounterWhereInput | Prisma.RankCounterWhereInput[]
   property_system?: Prisma.StringFilter<"RankCounter"> | string
   current_rank?: Prisma.IntFilter<"RankCounter"> | number
-  bump?: Prisma.IntFilter<"RankCounter"> | number
 }, "proposal_id">
 
 export type RankCounterOrderByWithAggregationInput = {
   proposal_id?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.RankCounterCountOrderByAggregateInput
   _avg?: Prisma.RankCounterAvgOrderByAggregateInput
   _max?: Prisma.RankCounterMaxOrderByAggregateInput
@@ -250,87 +235,74 @@ export type RankCounterScalarWhereWithAggregatesInput = {
   proposal_id?: Prisma.StringWithAggregatesFilter<"RankCounter"> | string
   property_system?: Prisma.StringWithAggregatesFilter<"RankCounter"> | string
   current_rank?: Prisma.IntWithAggregatesFilter<"RankCounter"> | number
-  bump?: Prisma.IntWithAggregatesFilter<"RankCounter"> | number
 }
 
 export type RankCounterCreateInput = {
   proposal_id: string
   property_system: string
   current_rank: number
-  bump: number
 }
 
 export type RankCounterUncheckedCreateInput = {
   proposal_id: string
   property_system: string
   current_rank: number
-  bump: number
 }
 
 export type RankCounterUpdateInput = {
   proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   current_rank?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RankCounterUncheckedUpdateInput = {
   proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   current_rank?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RankCounterCreateManyInput = {
   proposal_id: string
   property_system: string
   current_rank: number
-  bump: number
 }
 
 export type RankCounterUpdateManyMutationInput = {
   proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   current_rank?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RankCounterUncheckedUpdateManyInput = {
   proposal_id?: Prisma.StringFieldUpdateOperationsInput | string
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   current_rank?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type RankCounterCountOrderByAggregateInput = {
   proposal_id?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type RankCounterAvgOrderByAggregateInput = {
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type RankCounterMaxOrderByAggregateInput = {
   proposal_id?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type RankCounterMinOrderByAggregateInput = {
   proposal_id?: Prisma.SortOrder
   property_system?: Prisma.SortOrder
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type RankCounterSumOrderByAggregateInput = {
   current_rank?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 
@@ -339,31 +311,27 @@ export type RankCounterSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   proposal_id?: boolean
   property_system?: boolean
   current_rank?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["rankCounter"]>
 
 export type RankCounterSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_id?: boolean
   property_system?: boolean
   current_rank?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["rankCounter"]>
 
 export type RankCounterSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_id?: boolean
   property_system?: boolean
   current_rank?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["rankCounter"]>
 
 export type RankCounterSelectScalar = {
   proposal_id?: boolean
   property_system?: boolean
   current_rank?: boolean
-  bump?: boolean
 }
 
-export type RankCounterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_id" | "property_system" | "current_rank" | "bump", ExtArgs["result"]["rankCounter"]>
+export type RankCounterOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_id" | "property_system" | "current_rank", ExtArgs["result"]["rankCounter"]>
 
 export type $RankCounterPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "RankCounter"
@@ -372,7 +340,6 @@ export type $RankCounterPayload<ExtArgs extends runtime.Types.Extensions.Interna
     proposal_id: string
     property_system: string
     current_rank: number
-    bump: number
   }, ExtArgs["result"]["rankCounter"]>
   composites: {}
 }
@@ -799,7 +766,6 @@ export interface RankCounterFieldRefs {
   readonly proposal_id: Prisma.FieldRef<"RankCounter", 'String'>
   readonly property_system: Prisma.FieldRef<"RankCounter", 'String'>
   readonly current_rank: Prisma.FieldRef<"RankCounter", 'Int'>
-  readonly bump: Prisma.FieldRef<"RankCounter", 'Int'>
 }
     
 

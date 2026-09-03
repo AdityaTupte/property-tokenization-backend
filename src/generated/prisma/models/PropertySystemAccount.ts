@@ -29,18 +29,16 @@ export type AggregatePropertySystemAccount = {
 export type PropertySystemAccountAvgAggregateOutputType = {
   property_system_id: number | null
   total_properties: number | null
-  bump: number | null
 }
 
 export type PropertySystemAccountSumAggregateOutputType = {
-  property_system_id: number | null
+  property_system_id: bigint | null
   total_properties: number | null
-  bump: number | null
 }
 
 export type PropertySystemAccountMinAggregateOutputType = {
   creator_pubky: string | null
-  property_system_id: number | null
+  property_system_id: bigint | null
   property_system_public_key: string | null
   governance_mint: string | null
   threshold: string | null
@@ -53,12 +51,11 @@ export type PropertySystemAccountMinAggregateOutputType = {
   total_properties: number | null
   created_at: Date | null
   ready_for_listing: boolean | null
-  bump: number | null
 }
 
 export type PropertySystemAccountMaxAggregateOutputType = {
   creator_pubky: string | null
-  property_system_id: number | null
+  property_system_id: bigint | null
   property_system_public_key: string | null
   governance_mint: string | null
   threshold: string | null
@@ -71,7 +68,6 @@ export type PropertySystemAccountMaxAggregateOutputType = {
   total_properties: number | null
   created_at: Date | null
   ready_for_listing: boolean | null
-  bump: number | null
 }
 
 export type PropertySystemAccountCountAggregateOutputType = {
@@ -89,7 +85,6 @@ export type PropertySystemAccountCountAggregateOutputType = {
   total_properties: number
   created_at: number
   ready_for_listing: number
-  bump: number
   _all: number
 }
 
@@ -97,13 +92,11 @@ export type PropertySystemAccountCountAggregateOutputType = {
 export type PropertySystemAccountAvgAggregateInputType = {
   property_system_id?: true
   total_properties?: true
-  bump?: true
 }
 
 export type PropertySystemAccountSumAggregateInputType = {
   property_system_id?: true
   total_properties?: true
-  bump?: true
 }
 
 export type PropertySystemAccountMinAggregateInputType = {
@@ -121,7 +114,6 @@ export type PropertySystemAccountMinAggregateInputType = {
   total_properties?: true
   created_at?: true
   ready_for_listing?: true
-  bump?: true
 }
 
 export type PropertySystemAccountMaxAggregateInputType = {
@@ -139,7 +131,6 @@ export type PropertySystemAccountMaxAggregateInputType = {
   total_properties?: true
   created_at?: true
   ready_for_listing?: true
-  bump?: true
 }
 
 export type PropertySystemAccountCountAggregateInputType = {
@@ -157,7 +148,6 @@ export type PropertySystemAccountCountAggregateInputType = {
   total_properties?: true
   created_at?: true
   ready_for_listing?: true
-  bump?: true
   _all?: true
 }
 
@@ -249,7 +239,7 @@ export type PropertySystemAccountGroupByArgs<ExtArgs extends runtime.Types.Exten
 
 export type PropertySystemAccountGroupByOutputType = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -262,7 +252,6 @@ export type PropertySystemAccountGroupByOutputType = {
   total_properties: number
   created_at: Date
   ready_for_listing: boolean
-  bump: number
   _count: PropertySystemAccountCountAggregateOutputType | null
   _avg: PropertySystemAccountAvgAggregateOutputType | null
   _sum: PropertySystemAccountSumAggregateOutputType | null
@@ -290,7 +279,7 @@ export type PropertySystemAccountWhereInput = {
   OR?: Prisma.PropertySystemAccountWhereInput[]
   NOT?: Prisma.PropertySystemAccountWhereInput | Prisma.PropertySystemAccountWhereInput[]
   creator_pubky?: Prisma.StringFilter<"PropertySystemAccount"> | string
-  property_system_id?: Prisma.IntFilter<"PropertySystemAccount"> | number
+  property_system_id?: Prisma.BigIntFilter<"PropertySystemAccount"> | bigint | number
   property_system_public_key?: Prisma.StringFilter<"PropertySystemAccount"> | string
   governance_mint?: Prisma.StringFilter<"PropertySystemAccount"> | string
   threshold?: Prisma.StringFilter<"PropertySystemAccount"> | string
@@ -303,7 +292,6 @@ export type PropertySystemAccountWhereInput = {
   total_properties?: Prisma.IntFilter<"PropertySystemAccount"> | number
   created_at?: Prisma.DateTimeFilter<"PropertySystemAccount"> | Date | string
   ready_for_listing?: Prisma.BoolFilter<"PropertySystemAccount"> | boolean
-  bump?: Prisma.IntFilter<"PropertySystemAccount"> | number
   dividendPdas?: Prisma.DividendPdaListRelationFilter
   trusteeRegistries?: Prisma.XOR<Prisma.TrusteeRegistryNullableScalarRelationFilter, Prisma.TrusteeRegistryWhereInput> | null
   arbitrarRegistries?: Prisma.XOR<Prisma.ArbitrarRegistryNullableScalarRelationFilter, Prisma.ArbitrarRegistryWhereInput> | null
@@ -328,7 +316,6 @@ export type PropertySystemAccountOrderByWithRelationInput = {
   total_properties?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   ready_for_listing?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   dividendPdas?: Prisma.DividendPdaOrderByRelationAggregateInput
   trusteeRegistries?: Prisma.TrusteeRegistryOrderByWithRelationInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryOrderByWithRelationInput
@@ -352,11 +339,10 @@ export type PropertySystemAccountWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.PropertySystemAccountWhereInput[]
   NOT?: Prisma.PropertySystemAccountWhereInput | Prisma.PropertySystemAccountWhereInput[]
   creator_pubky?: Prisma.StringFilter<"PropertySystemAccount"> | string
-  property_system_id?: Prisma.IntFilter<"PropertySystemAccount"> | number
+  property_system_id?: Prisma.BigIntFilter<"PropertySystemAccount"> | bigint | number
   total_properties?: Prisma.IntFilter<"PropertySystemAccount"> | number
   created_at?: Prisma.DateTimeFilter<"PropertySystemAccount"> | Date | string
   ready_for_listing?: Prisma.BoolFilter<"PropertySystemAccount"> | boolean
-  bump?: Prisma.IntFilter<"PropertySystemAccount"> | number
   dividendPdas?: Prisma.DividendPdaListRelationFilter
   trusteeRegistries?: Prisma.XOR<Prisma.TrusteeRegistryNullableScalarRelationFilter, Prisma.TrusteeRegistryWhereInput> | null
   arbitrarRegistries?: Prisma.XOR<Prisma.ArbitrarRegistryNullableScalarRelationFilter, Prisma.ArbitrarRegistryWhereInput> | null
@@ -381,7 +367,6 @@ export type PropertySystemAccountOrderByWithAggregationInput = {
   total_properties?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   ready_for_listing?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.PropertySystemAccountCountOrderByAggregateInput
   _avg?: Prisma.PropertySystemAccountAvgOrderByAggregateInput
   _max?: Prisma.PropertySystemAccountMaxOrderByAggregateInput
@@ -394,7 +379,7 @@ export type PropertySystemAccountScalarWhereWithAggregatesInput = {
   OR?: Prisma.PropertySystemAccountScalarWhereWithAggregatesInput[]
   NOT?: Prisma.PropertySystemAccountScalarWhereWithAggregatesInput | Prisma.PropertySystemAccountScalarWhereWithAggregatesInput[]
   creator_pubky?: Prisma.StringWithAggregatesFilter<"PropertySystemAccount"> | string
-  property_system_id?: Prisma.IntWithAggregatesFilter<"PropertySystemAccount"> | number
+  property_system_id?: Prisma.BigIntWithAggregatesFilter<"PropertySystemAccount"> | bigint | number
   property_system_public_key?: Prisma.StringWithAggregatesFilter<"PropertySystemAccount"> | string
   governance_mint?: Prisma.StringWithAggregatesFilter<"PropertySystemAccount"> | string
   threshold?: Prisma.StringWithAggregatesFilter<"PropertySystemAccount"> | string
@@ -407,12 +392,11 @@ export type PropertySystemAccountScalarWhereWithAggregatesInput = {
   total_properties?: Prisma.IntWithAggregatesFilter<"PropertySystemAccount"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"PropertySystemAccount"> | Date | string
   ready_for_listing?: Prisma.BoolWithAggregatesFilter<"PropertySystemAccount"> | boolean
-  bump?: Prisma.IntWithAggregatesFilter<"PropertySystemAccount"> | number
 }
 
 export type PropertySystemAccountCreateInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -425,7 +409,6 @@ export type PropertySystemAccountCreateInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
@@ -437,7 +420,7 @@ export type PropertySystemAccountCreateInput = {
 
 export type PropertySystemAccountUncheckedCreateInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -450,7 +433,6 @@ export type PropertySystemAccountUncheckedCreateInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -462,7 +444,7 @@ export type PropertySystemAccountUncheckedCreateInput = {
 
 export type PropertySystemAccountUpdateInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -475,7 +457,6 @@ export type PropertySystemAccountUpdateInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
@@ -487,7 +468,7 @@ export type PropertySystemAccountUpdateInput = {
 
 export type PropertySystemAccountUncheckedUpdateInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -500,7 +481,6 @@ export type PropertySystemAccountUncheckedUpdateInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -512,7 +492,7 @@ export type PropertySystemAccountUncheckedUpdateInput = {
 
 export type PropertySystemAccountCreateManyInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -525,12 +505,11 @@ export type PropertySystemAccountCreateManyInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
 }
 
 export type PropertySystemAccountUpdateManyMutationInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -543,12 +522,11 @@ export type PropertySystemAccountUpdateManyMutationInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertySystemAccountUncheckedUpdateManyInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -561,7 +539,6 @@ export type PropertySystemAccountUncheckedUpdateManyInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type PropertySystemAccountCountOrderByAggregateInput = {
@@ -579,13 +556,11 @@ export type PropertySystemAccountCountOrderByAggregateInput = {
   total_properties?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   ready_for_listing?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertySystemAccountAvgOrderByAggregateInput = {
   property_system_id?: Prisma.SortOrder
   total_properties?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertySystemAccountMaxOrderByAggregateInput = {
@@ -603,7 +578,6 @@ export type PropertySystemAccountMaxOrderByAggregateInput = {
   total_properties?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   ready_for_listing?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertySystemAccountMinOrderByAggregateInput = {
@@ -621,18 +595,24 @@ export type PropertySystemAccountMinOrderByAggregateInput = {
   total_properties?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   ready_for_listing?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertySystemAccountSumOrderByAggregateInput = {
   property_system_id?: Prisma.SortOrder
   total_properties?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type PropertySystemAccountScalarRelationFilter = {
   is?: Prisma.PropertySystemAccountWhereInput
   isNot?: Prisma.PropertySystemAccountWhereInput
+}
+
+export type BigIntFieldUpdateOperationsInput = {
+  set?: bigint | number
+  increment?: bigint | number
+  decrement?: bigint | number
+  multiply?: bigint | number
+  divide?: bigint | number
 }
 
 export type PropertySystemAccountCreateNestedOneWithoutDividendPdasInput = {
@@ -735,7 +715,7 @@ export type PropertySystemAccountUpdateOneRequiredWithoutPropertyAccountsNestedI
 
 export type PropertySystemAccountCreateWithoutDividendPdasInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -748,7 +728,6 @@ export type PropertySystemAccountCreateWithoutDividendPdasInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
@@ -759,7 +738,7 @@ export type PropertySystemAccountCreateWithoutDividendPdasInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutDividendPdasInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -772,7 +751,6 @@ export type PropertySystemAccountUncheckedCreateWithoutDividendPdasInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -799,7 +777,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutDividendPdasInput = 
 
 export type PropertySystemAccountUpdateWithoutDividendPdasInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -812,7 +790,6 @@ export type PropertySystemAccountUpdateWithoutDividendPdasInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
@@ -823,7 +800,7 @@ export type PropertySystemAccountUpdateWithoutDividendPdasInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutDividendPdasInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -836,7 +813,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutDividendPdasInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -847,7 +823,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutDividendPdasInput = {
 
 export type PropertySystemAccountCreateWithoutTrusteeRegistriesInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -860,7 +836,6 @@ export type PropertySystemAccountCreateWithoutTrusteeRegistriesInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
@@ -871,7 +846,7 @@ export type PropertySystemAccountCreateWithoutTrusteeRegistriesInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutTrusteeRegistriesInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -884,7 +859,6 @@ export type PropertySystemAccountUncheckedCreateWithoutTrusteeRegistriesInput = 
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -911,7 +885,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutTrusteeRegistriesInp
 
 export type PropertySystemAccountUpdateWithoutTrusteeRegistriesInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -924,7 +898,6 @@ export type PropertySystemAccountUpdateWithoutTrusteeRegistriesInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
@@ -935,7 +908,7 @@ export type PropertySystemAccountUpdateWithoutTrusteeRegistriesInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutTrusteeRegistriesInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -948,7 +921,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutTrusteeRegistriesInput = 
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -959,7 +931,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutTrusteeRegistriesInput = 
 
 export type PropertySystemAccountCreateWithoutArbitrarRegistriesInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -972,7 +944,6 @@ export type PropertySystemAccountCreateWithoutArbitrarRegistriesInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdCreateNestedOneWithoutProperty_system_keyInput
@@ -983,7 +954,7 @@ export type PropertySystemAccountCreateWithoutArbitrarRegistriesInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutArbitrarRegistriesInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -996,7 +967,6 @@ export type PropertySystemAccountUncheckedCreateWithoutArbitrarRegistriesInput =
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   thresholds?: Prisma.ThresholdUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -1023,7 +993,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutArbitrarRegistriesIn
 
 export type PropertySystemAccountUpdateWithoutArbitrarRegistriesInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1036,7 +1006,6 @@ export type PropertySystemAccountUpdateWithoutArbitrarRegistriesInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUpdateOneWithoutProperty_system_keyNestedInput
@@ -1047,7 +1016,7 @@ export type PropertySystemAccountUpdateWithoutArbitrarRegistriesInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutArbitrarRegistriesInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1060,7 +1029,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutArbitrarRegistriesInput =
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   thresholds?: Prisma.ThresholdUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -1071,7 +1039,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutArbitrarRegistriesInput =
 
 export type PropertySystemAccountCreateWithoutThresholdsInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1084,7 +1052,6 @@ export type PropertySystemAccountCreateWithoutThresholdsInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
@@ -1095,7 +1062,7 @@ export type PropertySystemAccountCreateWithoutThresholdsInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutThresholdsInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1108,7 +1075,6 @@ export type PropertySystemAccountUncheckedCreateWithoutThresholdsInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -1135,7 +1101,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutThresholdsInput = {
 
 export type PropertySystemAccountUpdateWithoutThresholdsInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1148,7 +1114,6 @@ export type PropertySystemAccountUpdateWithoutThresholdsInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
@@ -1159,7 +1124,7 @@ export type PropertySystemAccountUpdateWithoutThresholdsInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutThresholdsInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1172,7 +1137,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutThresholdsInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -1183,7 +1147,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutThresholdsInput = {
 
 export type PropertySystemAccountCreateWithoutTreasuriesInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1196,7 +1160,6 @@ export type PropertySystemAccountCreateWithoutTreasuriesInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
@@ -1207,7 +1170,7 @@ export type PropertySystemAccountCreateWithoutTreasuriesInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutTreasuriesInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1220,7 +1183,6 @@ export type PropertySystemAccountUncheckedCreateWithoutTreasuriesInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -1247,7 +1209,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutTreasuriesInput = {
 
 export type PropertySystemAccountUpdateWithoutTreasuriesInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1260,7 +1222,6 @@ export type PropertySystemAccountUpdateWithoutTreasuriesInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
@@ -1271,7 +1232,7 @@ export type PropertySystemAccountUpdateWithoutTreasuriesInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutTreasuriesInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1284,7 +1245,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutTreasuriesInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -1295,7 +1255,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutTreasuriesInput = {
 
 export type PropertySystemAccountCreateWithoutFundsInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1308,7 +1268,6 @@ export type PropertySystemAccountCreateWithoutFundsInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
@@ -1319,7 +1278,7 @@ export type PropertySystemAccountCreateWithoutFundsInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutFundsInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1332,7 +1291,6 @@ export type PropertySystemAccountUncheckedCreateWithoutFundsInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -1359,7 +1317,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutFundsInput = {
 
 export type PropertySystemAccountUpdateWithoutFundsInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1372,7 +1330,6 @@ export type PropertySystemAccountUpdateWithoutFundsInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
@@ -1383,7 +1340,7 @@ export type PropertySystemAccountUpdateWithoutFundsInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutFundsInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1396,7 +1353,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutFundsInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -1407,7 +1363,7 @@ export type PropertySystemAccountUncheckedUpdateWithoutFundsInput = {
 
 export type PropertySystemAccountCreateWithoutPropertyAccountsInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1420,7 +1376,6 @@ export type PropertySystemAccountCreateWithoutPropertyAccountsInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryCreateNestedOneWithoutProperty_system_keyInput
@@ -1431,7 +1386,7 @@ export type PropertySystemAccountCreateWithoutPropertyAccountsInput = {
 
 export type PropertySystemAccountUncheckedCreateWithoutPropertyAccountsInput = {
   creator_pubky: string
-  property_system_id: number
+  property_system_id: bigint | number
   property_system_public_key: string
   governance_mint: string
   threshold: string
@@ -1444,7 +1399,6 @@ export type PropertySystemAccountUncheckedCreateWithoutPropertyAccountsInput = {
   total_properties: number
   created_at: Date | string
   ready_for_listing: boolean
-  bump: number
   dividendPdas?: Prisma.DividendPdaUncheckedCreateNestedManyWithoutProperty_system_keyInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedCreateNestedOneWithoutProperty_system_keyInput
@@ -1471,7 +1425,7 @@ export type PropertySystemAccountUpdateToOneWithWhereWithoutPropertyAccountsInpu
 
 export type PropertySystemAccountUpdateWithoutPropertyAccountsInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1484,7 +1438,6 @@ export type PropertySystemAccountUpdateWithoutPropertyAccountsInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUpdateOneWithoutProperty_system_keyNestedInput
@@ -1495,7 +1448,7 @@ export type PropertySystemAccountUpdateWithoutPropertyAccountsInput = {
 
 export type PropertySystemAccountUncheckedUpdateWithoutPropertyAccountsInput = {
   creator_pubky?: Prisma.StringFieldUpdateOperationsInput | string
-  property_system_id?: Prisma.IntFieldUpdateOperationsInput | number
+  property_system_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system_public_key?: Prisma.StringFieldUpdateOperationsInput | string
   governance_mint?: Prisma.StringFieldUpdateOperationsInput | string
   threshold?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1508,7 +1461,6 @@ export type PropertySystemAccountUncheckedUpdateWithoutPropertyAccountsInput = {
   total_properties?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   ready_for_listing?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   dividendPdas?: Prisma.DividendPdaUncheckedUpdateManyWithoutProperty_system_keyNestedInput
   trusteeRegistries?: Prisma.TrusteeRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
   arbitrarRegistries?: Prisma.ArbitrarRegistryUncheckedUpdateOneWithoutProperty_system_keyNestedInput
@@ -1581,7 +1533,6 @@ export type PropertySystemAccountSelect<ExtArgs extends runtime.Types.Extensions
   total_properties?: boolean
   created_at?: boolean
   ready_for_listing?: boolean
-  bump?: boolean
   dividendPdas?: boolean | Prisma.PropertySystemAccount$dividendPdasArgs<ExtArgs>
   trusteeRegistries?: boolean | Prisma.PropertySystemAccount$trusteeRegistriesArgs<ExtArgs>
   arbitrarRegistries?: boolean | Prisma.PropertySystemAccount$arbitrarRegistriesArgs<ExtArgs>
@@ -1607,7 +1558,6 @@ export type PropertySystemAccountSelectCreateManyAndReturn<ExtArgs extends runti
   total_properties?: boolean
   created_at?: boolean
   ready_for_listing?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["propertySystemAccount"]>
 
 export type PropertySystemAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1625,7 +1575,6 @@ export type PropertySystemAccountSelectUpdateManyAndReturn<ExtArgs extends runti
   total_properties?: boolean
   created_at?: boolean
   ready_for_listing?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["propertySystemAccount"]>
 
 export type PropertySystemAccountSelectScalar = {
@@ -1643,10 +1592,9 @@ export type PropertySystemAccountSelectScalar = {
   total_properties?: boolean
   created_at?: boolean
   ready_for_listing?: boolean
-  bump?: boolean
 }
 
-export type PropertySystemAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"creator_pubky" | "property_system_id" | "property_system_public_key" | "governance_mint" | "threshold" | "treasury" | "reinvestment" | "safety" | "dividend" | "trustee_registry" | "arbitrator_registry" | "total_properties" | "created_at" | "ready_for_listing" | "bump", ExtArgs["result"]["propertySystemAccount"]>
+export type PropertySystemAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"creator_pubky" | "property_system_id" | "property_system_public_key" | "governance_mint" | "threshold" | "treasury" | "reinvestment" | "safety" | "dividend" | "trustee_registry" | "arbitrator_registry" | "total_properties" | "created_at" | "ready_for_listing", ExtArgs["result"]["propertySystemAccount"]>
 export type PropertySystemAccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dividendPdas?: boolean | Prisma.PropertySystemAccount$dividendPdasArgs<ExtArgs>
   trusteeRegistries?: boolean | Prisma.PropertySystemAccount$trusteeRegistriesArgs<ExtArgs>
@@ -1673,7 +1621,7 @@ export type $PropertySystemAccountPayload<ExtArgs extends runtime.Types.Extensio
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     creator_pubky: string
-    property_system_id: number
+    property_system_id: bigint
     property_system_public_key: string
     governance_mint: string
     threshold: string
@@ -1686,7 +1634,6 @@ export type $PropertySystemAccountPayload<ExtArgs extends runtime.Types.Extensio
     total_properties: number
     created_at: Date
     ready_for_listing: boolean
-    bump: number
   }, ExtArgs["result"]["propertySystemAccount"]>
   composites: {}
 }
@@ -2118,7 +2065,7 @@ export interface Prisma__PropertySystemAccountClient<T, Null = never, ExtArgs ex
  */
 export interface PropertySystemAccountFieldRefs {
   readonly creator_pubky: Prisma.FieldRef<"PropertySystemAccount", 'String'>
-  readonly property_system_id: Prisma.FieldRef<"PropertySystemAccount", 'Int'>
+  readonly property_system_id: Prisma.FieldRef<"PropertySystemAccount", 'BigInt'>
   readonly property_system_public_key: Prisma.FieldRef<"PropertySystemAccount", 'String'>
   readonly governance_mint: Prisma.FieldRef<"PropertySystemAccount", 'String'>
   readonly threshold: Prisma.FieldRef<"PropertySystemAccount", 'String'>
@@ -2131,7 +2078,6 @@ export interface PropertySystemAccountFieldRefs {
   readonly total_properties: Prisma.FieldRef<"PropertySystemAccount", 'Int'>
   readonly created_at: Prisma.FieldRef<"PropertySystemAccount", 'DateTime'>
   readonly ready_for_listing: Prisma.FieldRef<"PropertySystemAccount", 'Boolean'>
-  readonly bump: Prisma.FieldRef<"PropertySystemAccount", 'Int'>
 }
     
 

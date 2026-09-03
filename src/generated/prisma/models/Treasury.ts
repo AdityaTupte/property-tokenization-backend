@@ -20,64 +20,40 @@ export type TreasuryModel = runtime.Types.Result.DefaultSelection<Prisma.$Treasu
 
 export type AggregateTreasury = {
   _count: TreasuryCountAggregateOutputType | null
-  _avg: TreasuryAvgAggregateOutputType | null
-  _sum: TreasurySumAggregateOutputType | null
   _min: TreasuryMinAggregateOutputType | null
   _max: TreasuryMaxAggregateOutputType | null
-}
-
-export type TreasuryAvgAggregateOutputType = {
-  bump: number | null
-}
-
-export type TreasurySumAggregateOutputType = {
-  bump: number | null
 }
 
 export type TreasuryMinAggregateOutputType = {
   treasury_key: string | null
   last_distribution: Date | null
-  bump: number | null
 }
 
 export type TreasuryMaxAggregateOutputType = {
   treasury_key: string | null
   last_distribution: Date | null
-  bump: number | null
 }
 
 export type TreasuryCountAggregateOutputType = {
   treasury_key: number
   last_distribution: number
-  bump: number
   _all: number
 }
 
 
-export type TreasuryAvgAggregateInputType = {
-  bump?: true
-}
-
-export type TreasurySumAggregateInputType = {
-  bump?: true
-}
-
 export type TreasuryMinAggregateInputType = {
   treasury_key?: true
   last_distribution?: true
-  bump?: true
 }
 
 export type TreasuryMaxAggregateInputType = {
   treasury_key?: true
   last_distribution?: true
-  bump?: true
 }
 
 export type TreasuryCountAggregateInputType = {
   treasury_key?: true
   last_distribution?: true
-  bump?: true
   _all?: true
 }
 
@@ -119,18 +95,6 @@ export type TreasuryAggregateArgs<ExtArgs extends runtime.Types.Extensions.Inter
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: TreasuryAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: TreasurySumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: TreasuryMinAggregateInputType
@@ -161,8 +125,6 @@ export type TreasuryGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
   take?: number
   skip?: number
   _count?: TreasuryCountAggregateInputType | true
-  _avg?: TreasuryAvgAggregateInputType
-  _sum?: TreasurySumAggregateInputType
   _min?: TreasuryMinAggregateInputType
   _max?: TreasuryMaxAggregateInputType
 }
@@ -170,10 +132,7 @@ export type TreasuryGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 export type TreasuryGroupByOutputType = {
   treasury_key: string
   last_distribution: Date | null
-  bump: number
   _count: TreasuryCountAggregateOutputType | null
-  _avg: TreasuryAvgAggregateOutputType | null
-  _sum: TreasurySumAggregateOutputType | null
   _min: TreasuryMinAggregateOutputType | null
   _max: TreasuryMaxAggregateOutputType | null
 }
@@ -199,14 +158,12 @@ export type TreasuryWhereInput = {
   NOT?: Prisma.TreasuryWhereInput | Prisma.TreasuryWhereInput[]
   treasury_key?: Prisma.StringFilter<"Treasury"> | string
   last_distribution?: Prisma.DateTimeNullableFilter<"Treasury"> | Date | string | null
-  bump?: Prisma.IntFilter<"Treasury"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
 }
 
 export type TreasuryOrderByWithRelationInput = {
   treasury_key?: Prisma.SortOrder
   last_distribution?: Prisma.SortOrderInput | Prisma.SortOrder
-  bump?: Prisma.SortOrder
   property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput
 }
 
@@ -216,19 +173,15 @@ export type TreasuryWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.TreasuryWhereInput[]
   NOT?: Prisma.TreasuryWhereInput | Prisma.TreasuryWhereInput[]
   last_distribution?: Prisma.DateTimeNullableFilter<"Treasury"> | Date | string | null
-  bump?: Prisma.IntFilter<"Treasury"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
 }, "treasury_key">
 
 export type TreasuryOrderByWithAggregationInput = {
   treasury_key?: Prisma.SortOrder
   last_distribution?: Prisma.SortOrderInput | Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.TreasuryCountOrderByAggregateInput
-  _avg?: Prisma.TreasuryAvgOrderByAggregateInput
   _max?: Prisma.TreasuryMaxOrderByAggregateInput
   _min?: Prisma.TreasuryMinOrderByAggregateInput
-  _sum?: Prisma.TreasurySumOrderByAggregateInput
 }
 
 export type TreasuryScalarWhereWithAggregatesInput = {
@@ -237,48 +190,40 @@ export type TreasuryScalarWhereWithAggregatesInput = {
   NOT?: Prisma.TreasuryScalarWhereWithAggregatesInput | Prisma.TreasuryScalarWhereWithAggregatesInput[]
   treasury_key?: Prisma.StringWithAggregatesFilter<"Treasury"> | string
   last_distribution?: Prisma.DateTimeNullableWithAggregatesFilter<"Treasury"> | Date | string | null
-  bump?: Prisma.IntWithAggregatesFilter<"Treasury"> | number
 }
 
 export type TreasuryCreateInput = {
   last_distribution?: Date | string | null
-  bump: number
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutTreasuriesInput
 }
 
 export type TreasuryUncheckedCreateInput = {
   treasury_key: string
   last_distribution?: Date | string | null
-  bump: number
 }
 
 export type TreasuryUpdateInput = {
   last_distribution?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutTreasuriesNestedInput
 }
 
 export type TreasuryUncheckedUpdateInput = {
   treasury_key?: Prisma.StringFieldUpdateOperationsInput | string
   last_distribution?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type TreasuryCreateManyInput = {
   treasury_key: string
   last_distribution?: Date | string | null
-  bump: number
 }
 
 export type TreasuryUpdateManyMutationInput = {
   last_distribution?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type TreasuryUncheckedUpdateManyInput = {
   treasury_key?: Prisma.StringFieldUpdateOperationsInput | string
   last_distribution?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type TreasuryNullableScalarRelationFilter = {
@@ -289,27 +234,16 @@ export type TreasuryNullableScalarRelationFilter = {
 export type TreasuryCountOrderByAggregateInput = {
   treasury_key?: Prisma.SortOrder
   last_distribution?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
-}
-
-export type TreasuryAvgOrderByAggregateInput = {
-  bump?: Prisma.SortOrder
 }
 
 export type TreasuryMaxOrderByAggregateInput = {
   treasury_key?: Prisma.SortOrder
   last_distribution?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type TreasuryMinOrderByAggregateInput = {
   treasury_key?: Prisma.SortOrder
   last_distribution?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
-}
-
-export type TreasurySumOrderByAggregateInput = {
-  bump?: Prisma.SortOrder
 }
 
 export type TreasuryCreateNestedOneWithoutProperty_system_keyInput = {
@@ -346,12 +280,10 @@ export type TreasuryUncheckedUpdateOneWithoutProperty_system_keyNestedInput = {
 
 export type TreasuryCreateWithoutProperty_system_keyInput = {
   last_distribution?: Date | string | null
-  bump: number
 }
 
 export type TreasuryUncheckedCreateWithoutProperty_system_keyInput = {
   last_distribution?: Date | string | null
-  bump: number
 }
 
 export type TreasuryCreateOrConnectWithoutProperty_system_keyInput = {
@@ -372,12 +304,10 @@ export type TreasuryUpdateToOneWithWhereWithoutProperty_system_keyInput = {
 
 export type TreasuryUpdateWithoutProperty_system_keyInput = {
   last_distribution?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type TreasuryUncheckedUpdateWithoutProperty_system_keyInput = {
   last_distribution?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -385,31 +315,27 @@ export type TreasuryUncheckedUpdateWithoutProperty_system_keyInput = {
 export type TreasurySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   treasury_key?: boolean
   last_distribution?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["treasury"]>
 
 export type TreasurySelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   treasury_key?: boolean
   last_distribution?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["treasury"]>
 
 export type TreasurySelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   treasury_key?: boolean
   last_distribution?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["treasury"]>
 
 export type TreasurySelectScalar = {
   treasury_key?: boolean
   last_distribution?: boolean
-  bump?: boolean
 }
 
-export type TreasuryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"treasury_key" | "last_distribution" | "bump", ExtArgs["result"]["treasury"]>
+export type TreasuryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"treasury_key" | "last_distribution", ExtArgs["result"]["treasury"]>
 export type TreasuryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }
@@ -428,7 +354,6 @@ export type $TreasuryPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     treasury_key: string
     last_distribution: Date | null
-    bump: number
   }, ExtArgs["result"]["treasury"]>
   composites: {}
 }
@@ -855,7 +780,6 @@ export interface Prisma__TreasuryClient<T, Null = never, ExtArgs extends runtime
 export interface TreasuryFieldRefs {
   readonly treasury_key: Prisma.FieldRef<"Treasury", 'String'>
   readonly last_distribution: Prisma.FieldRef<"Treasury", 'DateTime'>
-  readonly bump: Prisma.FieldRef<"Treasury", 'Int'>
 }
     
 

@@ -30,14 +30,12 @@ export type CountryProposalAvgAggregateOutputType = {
   total_authority: number | null
   country_id: number | null
   country_pda_threshold: number | null
-  proposal_bump: number | null
 }
 
 export type CountryProposalSumAggregateOutputType = {
   total_authority: number | null
   country_id: number | null
   country_pda_threshold: number | null
-  proposal_bump: number | null
 }
 
 export type CountryProposalMinAggregateOutputType = {
@@ -48,7 +46,6 @@ export type CountryProposalMinAggregateOutputType = {
   country_name: string | null
   approved: boolean | null
   executed: boolean | null
-  proposal_bump: number | null
   proposal_created_time: Date | null
 }
 
@@ -60,7 +57,6 @@ export type CountryProposalMaxAggregateOutputType = {
   country_name: string | null
   approved: boolean | null
   executed: boolean | null
-  proposal_bump: number | null
   proposal_created_time: Date | null
 }
 
@@ -72,7 +68,6 @@ export type CountryProposalCountAggregateOutputType = {
   country_name: number
   approved: number
   executed: number
-  proposal_bump: number
   proposal_created_time: number
   _all: number
 }
@@ -82,14 +77,12 @@ export type CountryProposalAvgAggregateInputType = {
   total_authority?: true
   country_id?: true
   country_pda_threshold?: true
-  proposal_bump?: true
 }
 
 export type CountryProposalSumAggregateInputType = {
   total_authority?: true
   country_id?: true
   country_pda_threshold?: true
-  proposal_bump?: true
 }
 
 export type CountryProposalMinAggregateInputType = {
@@ -100,7 +93,6 @@ export type CountryProposalMinAggregateInputType = {
   country_name?: true
   approved?: true
   executed?: true
-  proposal_bump?: true
   proposal_created_time?: true
 }
 
@@ -112,7 +104,6 @@ export type CountryProposalMaxAggregateInputType = {
   country_name?: true
   approved?: true
   executed?: true
-  proposal_bump?: true
   proposal_created_time?: true
 }
 
@@ -124,7 +115,6 @@ export type CountryProposalCountAggregateInputType = {
   country_name?: true
   approved?: true
   executed?: true
-  proposal_bump?: true
   proposal_created_time?: true
   _all?: true
 }
@@ -223,7 +213,6 @@ export type CountryProposalGroupByOutputType = {
   country_name: string
   approved: boolean
   executed: boolean
-  proposal_bump: number
   proposal_created_time: Date
   _count: CountryProposalCountAggregateOutputType | null
   _avg: CountryProposalAvgAggregateOutputType | null
@@ -258,7 +247,6 @@ export type CountryProposalWhereInput = {
   country_name?: Prisma.StringFilter<"CountryProposal"> | string
   approved?: Prisma.BoolFilter<"CountryProposal"> | boolean
   executed?: Prisma.BoolFilter<"CountryProposal"> | boolean
-  proposal_bump?: Prisma.IntFilter<"CountryProposal"> | number
   proposal_created_time?: Prisma.DateTimeFilter<"CountryProposal"> | Date | string
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptListRelationFilter
 }
@@ -271,7 +259,6 @@ export type CountryProposalOrderByWithRelationInput = {
   country_name?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
   proposal_created_time?: Prisma.SortOrder
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptOrderByRelationAggregateInput
 }
@@ -287,7 +274,6 @@ export type CountryProposalWhereUniqueInput = Prisma.AtLeast<{
   country_name?: Prisma.StringFilter<"CountryProposal"> | string
   approved?: Prisma.BoolFilter<"CountryProposal"> | boolean
   executed?: Prisma.BoolFilter<"CountryProposal"> | boolean
-  proposal_bump?: Prisma.IntFilter<"CountryProposal"> | number
   proposal_created_time?: Prisma.DateTimeFilter<"CountryProposal"> | Date | string
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptListRelationFilter
 }, "proposal_public_key">
@@ -300,7 +286,6 @@ export type CountryProposalOrderByWithAggregationInput = {
   country_name?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
   proposal_created_time?: Prisma.SortOrder
   _count?: Prisma.CountryProposalCountOrderByAggregateInput
   _avg?: Prisma.CountryProposalAvgOrderByAggregateInput
@@ -320,7 +305,6 @@ export type CountryProposalScalarWhereWithAggregatesInput = {
   country_name?: Prisma.StringWithAggregatesFilter<"CountryProposal"> | string
   approved?: Prisma.BoolWithAggregatesFilter<"CountryProposal"> | boolean
   executed?: Prisma.BoolWithAggregatesFilter<"CountryProposal"> | boolean
-  proposal_bump?: Prisma.IntWithAggregatesFilter<"CountryProposal"> | number
   proposal_created_time?: Prisma.DateTimeWithAggregatesFilter<"CountryProposal"> | Date | string
 }
 
@@ -332,7 +316,6 @@ export type CountryProposalCreateInput = {
   country_name: string
   approved: boolean
   executed: boolean
-  proposal_bump: number
   proposal_created_time?: Date | string
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptCreateNestedManyWithoutProposalInput
 }
@@ -345,7 +328,6 @@ export type CountryProposalUncheckedCreateInput = {
   country_name: string
   approved: boolean
   executed: boolean
-  proposal_bump: number
   proposal_created_time?: Date | string
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptUncheckedCreateNestedManyWithoutProposalInput
 }
@@ -358,7 +340,6 @@ export type CountryProposalUpdateInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  proposal_bump?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptUpdateManyWithoutProposalNestedInput
 }
@@ -371,7 +352,6 @@ export type CountryProposalUncheckedUpdateInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  proposal_bump?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approveCountryAuthorityReceipts?: Prisma.ApproveCountryAuthorityReceiptUncheckedUpdateManyWithoutProposalNestedInput
 }
@@ -384,7 +364,6 @@ export type CountryProposalCreateManyInput = {
   country_name: string
   approved: boolean
   executed: boolean
-  proposal_bump: number
   proposal_created_time?: Date | string
 }
 
@@ -396,7 +375,6 @@ export type CountryProposalUpdateManyMutationInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  proposal_bump?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -408,7 +386,6 @@ export type CountryProposalUncheckedUpdateManyInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  proposal_bump?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -425,7 +402,6 @@ export type CountryProposalCountOrderByAggregateInput = {
   country_name?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
   proposal_created_time?: Prisma.SortOrder
 }
 
@@ -433,7 +409,6 @@ export type CountryProposalAvgOrderByAggregateInput = {
   total_authority?: Prisma.SortOrder
   country_id?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
 }
 
 export type CountryProposalMaxOrderByAggregateInput = {
@@ -444,7 +419,6 @@ export type CountryProposalMaxOrderByAggregateInput = {
   country_name?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
   proposal_created_time?: Prisma.SortOrder
 }
 
@@ -456,7 +430,6 @@ export type CountryProposalMinOrderByAggregateInput = {
   country_name?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
   proposal_created_time?: Prisma.SortOrder
 }
 
@@ -464,7 +437,6 @@ export type CountryProposalSumOrderByAggregateInput = {
   total_authority?: Prisma.SortOrder
   country_id?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
-  proposal_bump?: Prisma.SortOrder
 }
 
 export type CountryProposalCreateNestedOneWithoutApproveCountryAuthorityReceiptsInput = {
@@ -493,7 +465,6 @@ export type CountryProposalCreateWithoutApproveCountryAuthorityReceiptsInput = {
   country_name: string
   approved: boolean
   executed: boolean
-  proposal_bump: number
   proposal_created_time?: Date | string
 }
 
@@ -505,7 +476,6 @@ export type CountryProposalUncheckedCreateWithoutApproveCountryAuthorityReceipts
   country_name: string
   approved: boolean
   executed: boolean
-  proposal_bump: number
   proposal_created_time?: Date | string
 }
 
@@ -533,7 +503,6 @@ export type CountryProposalUpdateWithoutApproveCountryAuthorityReceiptsInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  proposal_bump?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -545,7 +514,6 @@ export type CountryProposalUncheckedUpdateWithoutApproveCountryAuthorityReceipts
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  proposal_bump?: Prisma.IntFieldUpdateOperationsInput | number
   proposal_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -588,7 +556,6 @@ export type CountryProposalSelect<ExtArgs extends runtime.Types.Extensions.Inter
   country_name?: boolean
   approved?: boolean
   executed?: boolean
-  proposal_bump?: boolean
   proposal_created_time?: boolean
   approveCountryAuthorityReceipts?: boolean | Prisma.CountryProposal$approveCountryAuthorityReceiptsArgs<ExtArgs>
   _count?: boolean | Prisma.CountryProposalCountOutputTypeDefaultArgs<ExtArgs>
@@ -602,7 +569,6 @@ export type CountryProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   country_name?: boolean
   approved?: boolean
   executed?: boolean
-  proposal_bump?: boolean
   proposal_created_time?: boolean
 }, ExtArgs["result"]["countryProposal"]>
 
@@ -614,7 +580,6 @@ export type CountryProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   country_name?: boolean
   approved?: boolean
   executed?: boolean
-  proposal_bump?: boolean
   proposal_created_time?: boolean
 }, ExtArgs["result"]["countryProposal"]>
 
@@ -626,11 +591,10 @@ export type CountryProposalSelectScalar = {
   country_name?: boolean
   approved?: boolean
   executed?: boolean
-  proposal_bump?: boolean
   proposal_created_time?: boolean
 }
 
-export type CountryProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_public_key" | "total_authority" | "country_id" | "country_pda_threshold" | "country_name" | "approved" | "executed" | "proposal_bump" | "proposal_created_time", ExtArgs["result"]["countryProposal"]>
+export type CountryProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_public_key" | "total_authority" | "country_id" | "country_pda_threshold" | "country_name" | "approved" | "executed" | "proposal_created_time", ExtArgs["result"]["countryProposal"]>
 export type CountryProposalInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   approveCountryAuthorityReceipts?: boolean | Prisma.CountryProposal$approveCountryAuthorityReceiptsArgs<ExtArgs>
   _count?: boolean | Prisma.CountryProposalCountOutputTypeDefaultArgs<ExtArgs>
@@ -651,7 +615,6 @@ export type $CountryProposalPayload<ExtArgs extends runtime.Types.Extensions.Int
     country_name: string
     approved: boolean
     executed: boolean
-    proposal_bump: number
     proposal_created_time: Date
   }, ExtArgs["result"]["countryProposal"]>
   composites: {}
@@ -1084,7 +1047,6 @@ export interface CountryProposalFieldRefs {
   readonly country_name: Prisma.FieldRef<"CountryProposal", 'String'>
   readonly approved: Prisma.FieldRef<"CountryProposal", 'Boolean'>
   readonly executed: Prisma.FieldRef<"CountryProposal", 'Boolean'>
-  readonly proposal_bump: Prisma.FieldRef<"CountryProposal", 'Int'>
   readonly proposal_created_time: Prisma.FieldRef<"CountryProposal", 'DateTime'>
 }
     

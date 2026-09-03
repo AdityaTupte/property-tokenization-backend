@@ -15,6 +15,9 @@ export const heliusRaWDataHandler = asyncHandler(
       throw new ApiError(400, "check your json schema");
     }
 
+
+    //TODO use rediis to check th signature if not resent then check in the db and save in redis
+
     const signature = await  prisma.signature.findFirst({
       where:{
         signature:webhookSchema.data.signature

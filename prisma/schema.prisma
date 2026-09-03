@@ -129,7 +129,7 @@ model CountryApprovalAuthority {
   id            Int      @id
   authority     String[]
   threshold     Int
-  bump          Int
+
   created_time  DateTime @default(now())
   last_modified DateTime @updatedAt
 }
@@ -139,7 +139,6 @@ model ApproveCountryAuthorityReceipt {
   proposal_key  String
   approval_time DateTime        @default(now())
   signer        String
-  bump          Int
   proposal      CountryProposal @relation(fields: [proposal_key], references: [proposal_public_key])
 
   @@unique([proposal_key, signer])
@@ -154,7 +153,6 @@ model CountryProposal {
   approveCountryAuthorityReceipts ApproveCountryAuthorityReceipt[]
   approved                        Boolean
   executed                        Boolean
-  proposal_bump                   Int
   proposal_created_time           DateTime                         @default(now())
 }
 
@@ -183,7 +181,6 @@ model ApproveStateAuthorityReceipt {
   proposal_key  String
   approval_time DateTime @default(now())
   signer        String
-  bump          Int
 
   proposal StateProposal @relation(fields: [proposal_key], references: [proposal_public_key])
 
@@ -195,7 +192,7 @@ model ApproveStateAuthorityReceipt {
 //   proposal_key  String
 //   approval_time DateTime        @default(now())
 //   signer        String
-//   bump          Int
+//
 //   proposal      CountryProposal @relation(fields: [proposal_key], references: [proposal_public_key])
 
 //   @@unique([proposal_key, signer])
@@ -240,7 +237,7 @@ model StateAuthorityReceipt {
 
 model PropertySystemAccount {
   creator_pubky              String
-  property_system_id         Int
+  property_system_id         BigInt
   property_system_public_key String            @id
   governance_mint            String            @unique
   threshold                  String            @unique
@@ -254,7 +251,6 @@ model PropertySystemAccount {
   // total_token_supply         BigInt
   created_at                 DateTime
   ready_for_listing          Boolean
-  bump                       Int
   dividendPdas               DividendPda[]
   trusteeRegistries          TrusteeRegistry?
   arbitrarRegistries         ArbitrarRegistry?
@@ -268,7 +264,7 @@ model DividendPda {
   dividend_pubkey     String                @id
   dividend_per_token  BigInt
   last_updated_ts     DateTime?
-  bump                Int
+ 
   property_system_key PropertySystemAccount @relation(fields: [dividend_pubkey], references: [dividend])
 }
 
@@ -295,7 +291,7 @@ model TrusteeRegistry {
   vote_threshold             Int
   claim_deadline_ts          DateTime?
   total_salary_allocated     BigInt?
-  bump                       Int
+  
   property_system_key        PropertySystemAccount @relation(fields: [trustee_registry_pubkey], references: [trustee_registry])
   trustees                   Trustees[]
 }
@@ -307,7 +303,7 @@ model ArbitrarRegistry {
   vote_threshold             Int
   claim_deadline_ts          DateTime?             @default(now())
   total_salary_allocated     BigInt?
-  bump                       Int
+
   property_system_key        PropertySystemAccount @relation(fields: [arbitrar_registry_pubkey], references: [arbitrator_registry])
   arbitrars                  Arbitrar[]
 }
@@ -325,7 +321,7 @@ model Threshold {
 model Treasury {
   treasury_key        String                @id
   last_distribution   DateTime?
-  bump                Int
+
   property_system_key PropertySystemAccount @relation(fields: [treasury_key], references: [treasury])
 }
 
@@ -361,7 +357,7 @@ model CandiateProfile {
   removal_count              Int
   actions_history            ActionsHistory[]
   metadata_hash              String
-  bump                       Int
+  
   user                       User                 @relation(fields: [candidate], references: [signer])
   authorityCandidates        AuthorityCandidate[]
 }
@@ -375,7 +371,7 @@ model AuthorityCandidate {
   vote_gained         BigInt
   is_finalized        Boolean
   authority_type      AuthorityType
-  bump                Int
+ 
   candidate_profile   CandiateProfile     @relation(fields: [candidate], references: [candidate])
   votingForCandiates  VotingForCandiate[]
 
@@ -392,7 +388,7 @@ model PropertyProposal {
   approval_count           String[]
   approved                 Boolean
   executed                 Boolean
-  bump                     Int
+        
 }
 
 model PropertyAccount {
@@ -406,7 +402,6 @@ model PropertyAccount {
   issued_at           DateTime              @default(now())
   issued_by           String
   metadata            String
-  bump                Int
   property_system_ref PropertySystemAccount @relation(fields: [property_public_key], references: [property_system_public_key])
   state StatePda @relation(fields: [state_pubkey], references: [state_public_key])
 }
@@ -471,7 +466,7 @@ model Lease {
   lessee_acceptance_deadline DateTime
   lease_end_time             DateTime
   neutral                    String
-  bump                       Int
+  
 
   @@id([lease_id, property])
 }
@@ -495,7 +490,7 @@ model RankCounter {
   proposal_id     String @id
   property_system String
   current_rank    Int
-  bump            Int
+
 }
 
 model Offenders {
@@ -504,7 +499,7 @@ model Offenders {
   proposal_key   String        @id
   authority_type AuthorityType
   is_finalized   Boolean
-  bump           Int
+
   // challenge_proposal
 }
 
@@ -535,7 +530,7 @@ model Resignation {
   authority_type  AuthorityType
   time            DateTime       @default(now())
   status          ProposalStatus
-  bump            Int
+
 
   @@unique([property_system, proposal, authority_type])
 }
@@ -560,7 +555,7 @@ model NewThresholdProposal {
   new_dividend_threshold          Int
   new_reinvestment_threshold      Int
   new_safety_threshold            Int
-  bump                            Int
+
 }
 
 model TokenTransferProposal {

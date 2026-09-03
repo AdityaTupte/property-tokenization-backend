@@ -28,12 +28,10 @@ export type AggregateResignation = {
 
 export type ResignationAvgAggregateOutputType = {
   id: number | null
-  bump: number | null
 }
 
 export type ResignationSumAggregateOutputType = {
   id: number | null
-  bump: number | null
 }
 
 export type ResignationMinAggregateOutputType = {
@@ -43,7 +41,6 @@ export type ResignationMinAggregateOutputType = {
   authority_type: $Enums.AuthorityType | null
   time: Date | null
   status: $Enums.ProposalStatus | null
-  bump: number | null
 }
 
 export type ResignationMaxAggregateOutputType = {
@@ -53,7 +50,6 @@ export type ResignationMaxAggregateOutputType = {
   authority_type: $Enums.AuthorityType | null
   time: Date | null
   status: $Enums.ProposalStatus | null
-  bump: number | null
 }
 
 export type ResignationCountAggregateOutputType = {
@@ -64,19 +60,16 @@ export type ResignationCountAggregateOutputType = {
   authority_type: number
   time: number
   status: number
-  bump: number
   _all: number
 }
 
 
 export type ResignationAvgAggregateInputType = {
   id?: true
-  bump?: true
 }
 
 export type ResignationSumAggregateInputType = {
   id?: true
-  bump?: true
 }
 
 export type ResignationMinAggregateInputType = {
@@ -86,7 +79,6 @@ export type ResignationMinAggregateInputType = {
   authority_type?: true
   time?: true
   status?: true
-  bump?: true
 }
 
 export type ResignationMaxAggregateInputType = {
@@ -96,7 +88,6 @@ export type ResignationMaxAggregateInputType = {
   authority_type?: true
   time?: true
   status?: true
-  bump?: true
 }
 
 export type ResignationCountAggregateInputType = {
@@ -107,7 +98,6 @@ export type ResignationCountAggregateInputType = {
   authority_type?: true
   time?: true
   status?: true
-  bump?: true
   _all?: true
 }
 
@@ -205,7 +195,6 @@ export type ResignationGroupByOutputType = {
   authority_type: $Enums.AuthorityType
   time: Date
   status: $Enums.ProposalStatus
-  bump: number
   _count: ResignationCountAggregateOutputType | null
   _avg: ResignationAvgAggregateOutputType | null
   _sum: ResignationSumAggregateOutputType | null
@@ -239,7 +228,6 @@ export type ResignationWhereInput = {
   authority_type?: Prisma.EnumAuthorityTypeFilter<"Resignation"> | $Enums.AuthorityType
   time?: Prisma.DateTimeFilter<"Resignation"> | Date | string
   status?: Prisma.EnumProposalStatusFilter<"Resignation"> | $Enums.ProposalStatus
-  bump?: Prisma.IntFilter<"Resignation"> | number
 }
 
 export type ResignationOrderByWithRelationInput = {
@@ -250,7 +238,6 @@ export type ResignationOrderByWithRelationInput = {
   authority_type?: Prisma.SortOrder
   time?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ResignationWhereUniqueInput = Prisma.AtLeast<{
@@ -265,7 +252,6 @@ export type ResignationWhereUniqueInput = Prisma.AtLeast<{
   authority_type?: Prisma.EnumAuthorityTypeFilter<"Resignation"> | $Enums.AuthorityType
   time?: Prisma.DateTimeFilter<"Resignation"> | Date | string
   status?: Prisma.EnumProposalStatusFilter<"Resignation"> | $Enums.ProposalStatus
-  bump?: Prisma.IntFilter<"Resignation"> | number
 }, "property_system_proposal_authority_type">
 
 export type ResignationOrderByWithAggregationInput = {
@@ -276,7 +262,6 @@ export type ResignationOrderByWithAggregationInput = {
   authority_type?: Prisma.SortOrder
   time?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.ResignationCountOrderByAggregateInput
   _avg?: Prisma.ResignationAvgOrderByAggregateInput
   _max?: Prisma.ResignationMaxOrderByAggregateInput
@@ -295,7 +280,6 @@ export type ResignationScalarWhereWithAggregatesInput = {
   authority_type?: Prisma.EnumAuthorityTypeWithAggregatesFilter<"Resignation"> | $Enums.AuthorityType
   time?: Prisma.DateTimeWithAggregatesFilter<"Resignation"> | Date | string
   status?: Prisma.EnumProposalStatusWithAggregatesFilter<"Resignation"> | $Enums.ProposalStatus
-  bump?: Prisma.IntWithAggregatesFilter<"Resignation"> | number
 }
 
 export type ResignationCreateInput = {
@@ -306,7 +290,6 @@ export type ResignationCreateInput = {
   authority_type: $Enums.AuthorityType
   time?: Date | string
   status: $Enums.ProposalStatus
-  bump: number
 }
 
 export type ResignationUncheckedCreateInput = {
@@ -317,7 +300,6 @@ export type ResignationUncheckedCreateInput = {
   authority_type: $Enums.AuthorityType
   time?: Date | string
   status: $Enums.ProposalStatus
-  bump: number
 }
 
 export type ResignationUpdateInput = {
@@ -328,7 +310,6 @@ export type ResignationUpdateInput = {
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResignationUncheckedUpdateInput = {
@@ -339,7 +320,6 @@ export type ResignationUncheckedUpdateInput = {
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResignationCreateManyInput = {
@@ -350,7 +330,6 @@ export type ResignationCreateManyInput = {
   authority_type: $Enums.AuthorityType
   time?: Date | string
   status: $Enums.ProposalStatus
-  bump: number
 }
 
 export type ResignationUpdateManyMutationInput = {
@@ -361,7 +340,6 @@ export type ResignationUpdateManyMutationInput = {
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResignationUncheckedUpdateManyInput = {
@@ -372,7 +350,6 @@ export type ResignationUncheckedUpdateManyInput = {
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
   time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ResignationProperty_systemProposalAuthority_typeCompoundUniqueInput = {
@@ -389,12 +366,10 @@ export type ResignationCountOrderByAggregateInput = {
   authority_type?: Prisma.SortOrder
   time?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ResignationAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ResignationMaxOrderByAggregateInput = {
@@ -404,7 +379,6 @@ export type ResignationMaxOrderByAggregateInput = {
   authority_type?: Prisma.SortOrder
   time?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ResignationMinOrderByAggregateInput = {
@@ -414,12 +388,10 @@ export type ResignationMinOrderByAggregateInput = {
   authority_type?: Prisma.SortOrder
   time?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ResignationSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type ResignationCreateauthorityInput = {
@@ -445,7 +417,6 @@ export type ResignationSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   authority_type?: boolean
   time?: boolean
   status?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["resignation"]>
 
 export type ResignationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -456,7 +427,6 @@ export type ResignationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   authority_type?: boolean
   time?: boolean
   status?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["resignation"]>
 
 export type ResignationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -467,7 +437,6 @@ export type ResignationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   authority_type?: boolean
   time?: boolean
   status?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["resignation"]>
 
 export type ResignationSelectScalar = {
@@ -478,10 +447,9 @@ export type ResignationSelectScalar = {
   authority_type?: boolean
   time?: boolean
   status?: boolean
-  bump?: boolean
 }
 
-export type ResignationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authority" | "proposal" | "property_system" | "authority_type" | "time" | "status" | "bump", ExtArgs["result"]["resignation"]>
+export type ResignationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "authority" | "proposal" | "property_system" | "authority_type" | "time" | "status", ExtArgs["result"]["resignation"]>
 
 export type $ResignationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Resignation"
@@ -494,7 +462,6 @@ export type $ResignationPayload<ExtArgs extends runtime.Types.Extensions.Interna
     authority_type: $Enums.AuthorityType
     time: Date
     status: $Enums.ProposalStatus
-    bump: number
   }, ExtArgs["result"]["resignation"]>
   composites: {}
 }
@@ -925,7 +892,6 @@ export interface ResignationFieldRefs {
   readonly authority_type: Prisma.FieldRef<"Resignation", 'AuthorityType'>
   readonly time: Prisma.FieldRef<"Resignation", 'DateTime'>
   readonly status: Prisma.FieldRef<"Resignation", 'ProposalStatus'>
-  readonly bump: Prisma.FieldRef<"Resignation", 'Int'>
 }
     
 

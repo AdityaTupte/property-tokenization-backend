@@ -28,12 +28,10 @@ export type AggregateAuthorityCandidate = {
 
 export type AuthorityCandidateAvgAggregateOutputType = {
   vote_gained: number | null
-  bump: number | null
 }
 
 export type AuthorityCandidateSumAggregateOutputType = {
   vote_gained: bigint | null
-  bump: number | null
 }
 
 export type AuthorityCandidateMinAggregateOutputType = {
@@ -45,7 +43,6 @@ export type AuthorityCandidateMinAggregateOutputType = {
   vote_gained: bigint | null
   is_finalized: boolean | null
   authority_type: $Enums.AuthorityType | null
-  bump: number | null
 }
 
 export type AuthorityCandidateMaxAggregateOutputType = {
@@ -57,7 +54,6 @@ export type AuthorityCandidateMaxAggregateOutputType = {
   vote_gained: bigint | null
   is_finalized: boolean | null
   authority_type: $Enums.AuthorityType | null
-  bump: number | null
 }
 
 export type AuthorityCandidateCountAggregateOutputType = {
@@ -69,19 +65,16 @@ export type AuthorityCandidateCountAggregateOutputType = {
   vote_gained: number
   is_finalized: number
   authority_type: number
-  bump: number
   _all: number
 }
 
 
 export type AuthorityCandidateAvgAggregateInputType = {
   vote_gained?: true
-  bump?: true
 }
 
 export type AuthorityCandidateSumAggregateInputType = {
   vote_gained?: true
-  bump?: true
 }
 
 export type AuthorityCandidateMinAggregateInputType = {
@@ -93,7 +86,6 @@ export type AuthorityCandidateMinAggregateInputType = {
   vote_gained?: true
   is_finalized?: true
   authority_type?: true
-  bump?: true
 }
 
 export type AuthorityCandidateMaxAggregateInputType = {
@@ -105,7 +97,6 @@ export type AuthorityCandidateMaxAggregateInputType = {
   vote_gained?: true
   is_finalized?: true
   authority_type?: true
-  bump?: true
 }
 
 export type AuthorityCandidateCountAggregateInputType = {
@@ -117,7 +108,6 @@ export type AuthorityCandidateCountAggregateInputType = {
   vote_gained?: true
   is_finalized?: true
   authority_type?: true
-  bump?: true
   _all?: true
 }
 
@@ -216,7 +206,6 @@ export type AuthorityCandidateGroupByOutputType = {
   vote_gained: bigint
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
   _count: AuthorityCandidateCountAggregateOutputType | null
   _avg: AuthorityCandidateAvgAggregateOutputType | null
   _sum: AuthorityCandidateSumAggregateOutputType | null
@@ -251,7 +240,6 @@ export type AuthorityCandidateWhereInput = {
   vote_gained?: Prisma.BigIntFilter<"AuthorityCandidate"> | bigint | number
   is_finalized?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean
   authority_type?: Prisma.EnumAuthorityTypeFilter<"AuthorityCandidate"> | $Enums.AuthorityType
-  bump?: Prisma.IntFilter<"AuthorityCandidate"> | number
   candidate_profile?: Prisma.XOR<Prisma.CandiateProfileScalarRelationFilter, Prisma.CandiateProfileWhereInput>
   votingForCandiates?: Prisma.VotingForCandiateListRelationFilter
 }
@@ -265,7 +253,6 @@ export type AuthorityCandidateOrderByWithRelationInput = {
   vote_gained?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   candidate_profile?: Prisma.CandiateProfileOrderByWithRelationInput
   votingForCandiates?: Prisma.VotingForCandiateOrderByRelationAggregateInput
 }
@@ -283,7 +270,6 @@ export type AuthorityCandidateWhereUniqueInput = Prisma.AtLeast<{
   vote_gained?: Prisma.BigIntFilter<"AuthorityCandidate"> | bigint | number
   is_finalized?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean
   authority_type?: Prisma.EnumAuthorityTypeFilter<"AuthorityCandidate"> | $Enums.AuthorityType
-  bump?: Prisma.IntFilter<"AuthorityCandidate"> | number
   candidate_profile?: Prisma.XOR<Prisma.CandiateProfileScalarRelationFilter, Prisma.CandiateProfileWhereInput>
   votingForCandiates?: Prisma.VotingForCandiateListRelationFilter
 }, "candidate_proposal" | "authority_candidate">
@@ -297,7 +283,6 @@ export type AuthorityCandidateOrderByWithAggregationInput = {
   vote_gained?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.AuthorityCandidateCountOrderByAggregateInput
   _avg?: Prisma.AuthorityCandidateAvgOrderByAggregateInput
   _max?: Prisma.AuthorityCandidateMaxOrderByAggregateInput
@@ -317,7 +302,6 @@ export type AuthorityCandidateScalarWhereWithAggregatesInput = {
   vote_gained?: Prisma.BigIntWithAggregatesFilter<"AuthorityCandidate"> | bigint | number
   is_finalized?: Prisma.BoolWithAggregatesFilter<"AuthorityCandidate"> | boolean
   authority_type?: Prisma.EnumAuthorityTypeWithAggregatesFilter<"AuthorityCandidate"> | $Enums.AuthorityType
-  bump?: Prisma.IntWithAggregatesFilter<"AuthorityCandidate"> | number
 }
 
 export type AuthorityCandidateCreateInput = {
@@ -328,7 +312,6 @@ export type AuthorityCandidateCreateInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
   candidate_profile: Prisma.CandiateProfileCreateNestedOneWithoutAuthorityCandidatesInput
   votingForCandiates?: Prisma.VotingForCandiateCreateNestedManyWithoutAuthority_candidateInput
 }
@@ -342,7 +325,6 @@ export type AuthorityCandidateUncheckedCreateInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
   votingForCandiates?: Prisma.VotingForCandiateUncheckedCreateNestedManyWithoutAuthority_candidateInput
 }
 
@@ -354,7 +336,6 @@ export type AuthorityCandidateUpdateInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   candidate_profile?: Prisma.CandiateProfileUpdateOneRequiredWithoutAuthorityCandidatesNestedInput
   votingForCandiates?: Prisma.VotingForCandiateUpdateManyWithoutAuthority_candidateNestedInput
 }
@@ -368,7 +349,6 @@ export type AuthorityCandidateUncheckedUpdateInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   votingForCandiates?: Prisma.VotingForCandiateUncheckedUpdateManyWithoutAuthority_candidateNestedInput
 }
 
@@ -381,7 +361,6 @@ export type AuthorityCandidateCreateManyInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
 }
 
 export type AuthorityCandidateUpdateManyMutationInput = {
@@ -392,7 +371,6 @@ export type AuthorityCandidateUpdateManyMutationInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type AuthorityCandidateUncheckedUpdateManyInput = {
@@ -404,7 +382,6 @@ export type AuthorityCandidateUncheckedUpdateManyInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type AuthorityCandidateListRelationFilter = {
@@ -431,12 +408,10 @@ export type AuthorityCandidateCountOrderByAggregateInput = {
   vote_gained?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type AuthorityCandidateAvgOrderByAggregateInput = {
   vote_gained?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type AuthorityCandidateMaxOrderByAggregateInput = {
@@ -448,7 +423,6 @@ export type AuthorityCandidateMaxOrderByAggregateInput = {
   vote_gained?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type AuthorityCandidateMinOrderByAggregateInput = {
@@ -460,12 +434,10 @@ export type AuthorityCandidateMinOrderByAggregateInput = {
   vote_gained?: Prisma.SortOrder
   is_finalized?: Prisma.SortOrder
   authority_type?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type AuthorityCandidateSumOrderByAggregateInput = {
   vote_gained?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type AuthorityCandidateScalarRelationFilter = {
@@ -541,7 +513,6 @@ export type AuthorityCandidateCreateWithoutCandidate_profileInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
   votingForCandiates?: Prisma.VotingForCandiateCreateNestedManyWithoutAuthority_candidateInput
 }
 
@@ -553,7 +524,6 @@ export type AuthorityCandidateUncheckedCreateWithoutCandidate_profileInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
   votingForCandiates?: Prisma.VotingForCandiateUncheckedCreateNestedManyWithoutAuthority_candidateInput
 }
 
@@ -595,7 +565,6 @@ export type AuthorityCandidateScalarWhereInput = {
   vote_gained?: Prisma.BigIntFilter<"AuthorityCandidate"> | bigint | number
   is_finalized?: Prisma.BoolFilter<"AuthorityCandidate"> | boolean
   authority_type?: Prisma.EnumAuthorityTypeFilter<"AuthorityCandidate"> | $Enums.AuthorityType
-  bump?: Prisma.IntFilter<"AuthorityCandidate"> | number
 }
 
 export type AuthorityCandidateCreateWithoutVotingForCandiatesInput = {
@@ -606,7 +575,6 @@ export type AuthorityCandidateCreateWithoutVotingForCandiatesInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
   candidate_profile: Prisma.CandiateProfileCreateNestedOneWithoutAuthorityCandidatesInput
 }
 
@@ -619,7 +587,6 @@ export type AuthorityCandidateUncheckedCreateWithoutVotingForCandiatesInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
 }
 
 export type AuthorityCandidateCreateOrConnectWithoutVotingForCandiatesInput = {
@@ -646,7 +613,6 @@ export type AuthorityCandidateUpdateWithoutVotingForCandiatesInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   candidate_profile?: Prisma.CandiateProfileUpdateOneRequiredWithoutAuthorityCandidatesNestedInput
 }
 
@@ -659,7 +625,6 @@ export type AuthorityCandidateUncheckedUpdateWithoutVotingForCandiatesInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type AuthorityCandidateCreateManyCandidate_profileInput = {
@@ -670,7 +635,6 @@ export type AuthorityCandidateCreateManyCandidate_profileInput = {
   vote_gained: bigint | number
   is_finalized: boolean
   authority_type: $Enums.AuthorityType
-  bump: number
 }
 
 export type AuthorityCandidateUpdateWithoutCandidate_profileInput = {
@@ -681,7 +645,6 @@ export type AuthorityCandidateUpdateWithoutCandidate_profileInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   votingForCandiates?: Prisma.VotingForCandiateUpdateManyWithoutAuthority_candidateNestedInput
 }
 
@@ -693,7 +656,6 @@ export type AuthorityCandidateUncheckedUpdateWithoutCandidate_profileInput = {
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   votingForCandiates?: Prisma.VotingForCandiateUncheckedUpdateManyWithoutAuthority_candidateNestedInput
 }
 
@@ -705,7 +667,6 @@ export type AuthorityCandidateUncheckedUpdateManyWithoutCandidate_profileInput =
   vote_gained?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   is_finalized?: Prisma.BoolFieldUpdateOperationsInput | boolean
   authority_type?: Prisma.EnumAuthorityTypeFieldUpdateOperationsInput | $Enums.AuthorityType
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -748,7 +709,6 @@ export type AuthorityCandidateSelect<ExtArgs extends runtime.Types.Extensions.In
   vote_gained?: boolean
   is_finalized?: boolean
   authority_type?: boolean
-  bump?: boolean
   candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>
   votingForCandiates?: boolean | Prisma.AuthorityCandidate$votingForCandiatesArgs<ExtArgs>
   _count?: boolean | Prisma.AuthorityCandidateCountOutputTypeDefaultArgs<ExtArgs>
@@ -763,7 +723,6 @@ export type AuthorityCandidateSelectCreateManyAndReturn<ExtArgs extends runtime.
   vote_gained?: boolean
   is_finalized?: boolean
   authority_type?: boolean
-  bump?: boolean
   candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["authorityCandidate"]>
 
@@ -776,7 +735,6 @@ export type AuthorityCandidateSelectUpdateManyAndReturn<ExtArgs extends runtime.
   vote_gained?: boolean
   is_finalized?: boolean
   authority_type?: boolean
-  bump?: boolean
   candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["authorityCandidate"]>
 
@@ -789,10 +747,9 @@ export type AuthorityCandidateSelectScalar = {
   vote_gained?: boolean
   is_finalized?: boolean
   authority_type?: boolean
-  bump?: boolean
 }
 
-export type AuthorityCandidateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"authority_candidate" | "candidate" | "proposal" | "selected" | "selected_time" | "vote_gained" | "is_finalized" | "authority_type" | "bump", ExtArgs["result"]["authorityCandidate"]>
+export type AuthorityCandidateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"authority_candidate" | "candidate" | "proposal" | "selected" | "selected_time" | "vote_gained" | "is_finalized" | "authority_type", ExtArgs["result"]["authorityCandidate"]>
 export type AuthorityCandidateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   candidate_profile?: boolean | Prisma.CandiateProfileDefaultArgs<ExtArgs>
   votingForCandiates?: boolean | Prisma.AuthorityCandidate$votingForCandiatesArgs<ExtArgs>
@@ -820,7 +777,6 @@ export type $AuthorityCandidatePayload<ExtArgs extends runtime.Types.Extensions.
     vote_gained: bigint
     is_finalized: boolean
     authority_type: $Enums.AuthorityType
-    bump: number
   }, ExtArgs["result"]["authorityCandidate"]>
   composites: {}
 }
@@ -1254,7 +1210,6 @@ export interface AuthorityCandidateFieldRefs {
   readonly vote_gained: Prisma.FieldRef<"AuthorityCandidate", 'BigInt'>
   readonly is_finalized: Prisma.FieldRef<"AuthorityCandidate", 'Boolean'>
   readonly authority_type: Prisma.FieldRef<"AuthorityCandidate", 'AuthorityType'>
-  readonly bump: Prisma.FieldRef<"AuthorityCandidate", 'Int'>
 }
     
 

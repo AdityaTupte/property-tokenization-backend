@@ -32,7 +32,6 @@ export type NewThresholdProposalAvgAggregateOutputType = {
   new_dividend_threshold: number | null
   new_reinvestment_threshold: number | null
   new_safety_threshold: number | null
-  bump: number | null
 }
 
 export type NewThresholdProposalSumAggregateOutputType = {
@@ -41,7 +40,6 @@ export type NewThresholdProposalSumAggregateOutputType = {
   new_dividend_threshold: number | null
   new_reinvestment_threshold: number | null
   new_safety_threshold: number | null
-  bump: number | null
 }
 
 export type NewThresholdProposalMinAggregateOutputType = {
@@ -55,7 +53,6 @@ export type NewThresholdProposalMinAggregateOutputType = {
   new_dividend_threshold: number | null
   new_reinvestment_threshold: number | null
   new_safety_threshold: number | null
-  bump: number | null
 }
 
 export type NewThresholdProposalMaxAggregateOutputType = {
@@ -69,7 +66,6 @@ export type NewThresholdProposalMaxAggregateOutputType = {
   new_dividend_threshold: number | null
   new_reinvestment_threshold: number | null
   new_safety_threshold: number | null
-  bump: number | null
 }
 
 export type NewThresholdProposalCountAggregateOutputType = {
@@ -83,7 +79,6 @@ export type NewThresholdProposalCountAggregateOutputType = {
   new_dividend_threshold: number
   new_reinvestment_threshold: number
   new_safety_threshold: number
-  bump: number
   _all: number
 }
 
@@ -94,7 +89,6 @@ export type NewThresholdProposalAvgAggregateInputType = {
   new_dividend_threshold?: true
   new_reinvestment_threshold?: true
   new_safety_threshold?: true
-  bump?: true
 }
 
 export type NewThresholdProposalSumAggregateInputType = {
@@ -103,7 +97,6 @@ export type NewThresholdProposalSumAggregateInputType = {
   new_dividend_threshold?: true
   new_reinvestment_threshold?: true
   new_safety_threshold?: true
-  bump?: true
 }
 
 export type NewThresholdProposalMinAggregateInputType = {
@@ -117,7 +110,6 @@ export type NewThresholdProposalMinAggregateInputType = {
   new_dividend_threshold?: true
   new_reinvestment_threshold?: true
   new_safety_threshold?: true
-  bump?: true
 }
 
 export type NewThresholdProposalMaxAggregateInputType = {
@@ -131,7 +123,6 @@ export type NewThresholdProposalMaxAggregateInputType = {
   new_dividend_threshold?: true
   new_reinvestment_threshold?: true
   new_safety_threshold?: true
-  bump?: true
 }
 
 export type NewThresholdProposalCountAggregateInputType = {
@@ -145,7 +136,6 @@ export type NewThresholdProposalCountAggregateInputType = {
   new_dividend_threshold?: true
   new_reinvestment_threshold?: true
   new_safety_threshold?: true
-  bump?: true
   _all?: true
 }
 
@@ -246,7 +236,6 @@ export type NewThresholdProposalGroupByOutputType = {
   new_dividend_threshold: number
   new_reinvestment_threshold: number
   new_safety_threshold: number
-  bump: number
   _count: NewThresholdProposalCountAggregateOutputType | null
   _avg: NewThresholdProposalAvgAggregateOutputType | null
   _sum: NewThresholdProposalSumAggregateOutputType | null
@@ -283,7 +272,6 @@ export type NewThresholdProposalWhereInput = {
   new_dividend_threshold?: Prisma.IntFilter<"NewThresholdProposal"> | number
   new_reinvestment_threshold?: Prisma.IntFilter<"NewThresholdProposal"> | number
   new_safety_threshold?: Prisma.IntFilter<"NewThresholdProposal"> | number
-  bump?: Prisma.IntFilter<"NewThresholdProposal"> | number
 }
 
 export type NewThresholdProposalOrderByWithRelationInput = {
@@ -297,7 +285,6 @@ export type NewThresholdProposalOrderByWithRelationInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type NewThresholdProposalWhereUniqueInput = Prisma.AtLeast<{
@@ -314,7 +301,6 @@ export type NewThresholdProposalWhereUniqueInput = Prisma.AtLeast<{
   new_dividend_threshold?: Prisma.IntFilter<"NewThresholdProposal"> | number
   new_reinvestment_threshold?: Prisma.IntFilter<"NewThresholdProposal"> | number
   new_safety_threshold?: Prisma.IntFilter<"NewThresholdProposal"> | number
-  bump?: Prisma.IntFilter<"NewThresholdProposal"> | number
 }, "proposal">
 
 export type NewThresholdProposalOrderByWithAggregationInput = {
@@ -328,7 +314,6 @@ export type NewThresholdProposalOrderByWithAggregationInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.NewThresholdProposalCountOrderByAggregateInput
   _avg?: Prisma.NewThresholdProposalAvgOrderByAggregateInput
   _max?: Prisma.NewThresholdProposalMaxOrderByAggregateInput
@@ -350,7 +335,6 @@ export type NewThresholdProposalScalarWhereWithAggregatesInput = {
   new_dividend_threshold?: Prisma.IntWithAggregatesFilter<"NewThresholdProposal"> | number
   new_reinvestment_threshold?: Prisma.IntWithAggregatesFilter<"NewThresholdProposal"> | number
   new_safety_threshold?: Prisma.IntWithAggregatesFilter<"NewThresholdProposal"> | number
-  bump?: Prisma.IntWithAggregatesFilter<"NewThresholdProposal"> | number
 }
 
 export type NewThresholdProposalCreateInput = {
@@ -364,7 +348,6 @@ export type NewThresholdProposalCreateInput = {
   new_dividend_threshold: number
   new_reinvestment_threshold: number
   new_safety_threshold: number
-  bump: number
 }
 
 export type NewThresholdProposalUncheckedCreateInput = {
@@ -378,7 +361,6 @@ export type NewThresholdProposalUncheckedCreateInput = {
   new_dividend_threshold: number
   new_reinvestment_threshold: number
   new_safety_threshold: number
-  bump: number
 }
 
 export type NewThresholdProposalUpdateInput = {
@@ -392,7 +374,6 @@ export type NewThresholdProposalUpdateInput = {
   new_dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type NewThresholdProposalUncheckedUpdateInput = {
@@ -406,7 +387,6 @@ export type NewThresholdProposalUncheckedUpdateInput = {
   new_dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type NewThresholdProposalCreateManyInput = {
@@ -420,7 +400,6 @@ export type NewThresholdProposalCreateManyInput = {
   new_dividend_threshold: number
   new_reinvestment_threshold: number
   new_safety_threshold: number
-  bump: number
 }
 
 export type NewThresholdProposalUpdateManyMutationInput = {
@@ -434,7 +413,6 @@ export type NewThresholdProposalUpdateManyMutationInput = {
   new_dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type NewThresholdProposalUncheckedUpdateManyInput = {
@@ -448,7 +426,6 @@ export type NewThresholdProposalUncheckedUpdateManyInput = {
   new_dividend_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_reinvestment_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   new_safety_threshold?: Prisma.IntFieldUpdateOperationsInput | number
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type NewThresholdProposalCountOrderByAggregateInput = {
@@ -462,7 +439,6 @@ export type NewThresholdProposalCountOrderByAggregateInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type NewThresholdProposalAvgOrderByAggregateInput = {
@@ -471,7 +447,6 @@ export type NewThresholdProposalAvgOrderByAggregateInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type NewThresholdProposalMaxOrderByAggregateInput = {
@@ -485,7 +460,6 @@ export type NewThresholdProposalMaxOrderByAggregateInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type NewThresholdProposalMinOrderByAggregateInput = {
@@ -499,7 +473,6 @@ export type NewThresholdProposalMinOrderByAggregateInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type NewThresholdProposalSumOrderByAggregateInput = {
@@ -508,7 +481,6 @@ export type NewThresholdProposalSumOrderByAggregateInput = {
   new_dividend_threshold?: Prisma.SortOrder
   new_reinvestment_threshold?: Prisma.SortOrder
   new_safety_threshold?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 
@@ -524,7 +496,6 @@ export type NewThresholdProposalSelect<ExtArgs extends runtime.Types.Extensions.
   new_dividend_threshold?: boolean
   new_reinvestment_threshold?: boolean
   new_safety_threshold?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["newThresholdProposal"]>
 
 export type NewThresholdProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -538,7 +509,6 @@ export type NewThresholdProposalSelectCreateManyAndReturn<ExtArgs extends runtim
   new_dividend_threshold?: boolean
   new_reinvestment_threshold?: boolean
   new_safety_threshold?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["newThresholdProposal"]>
 
 export type NewThresholdProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -552,7 +522,6 @@ export type NewThresholdProposalSelectUpdateManyAndReturn<ExtArgs extends runtim
   new_dividend_threshold?: boolean
   new_reinvestment_threshold?: boolean
   new_safety_threshold?: boolean
-  bump?: boolean
 }, ExtArgs["result"]["newThresholdProposal"]>
 
 export type NewThresholdProposalSelectScalar = {
@@ -566,10 +535,9 @@ export type NewThresholdProposalSelectScalar = {
   new_dividend_threshold?: boolean
   new_reinvestment_threshold?: boolean
   new_safety_threshold?: boolean
-  bump?: boolean
 }
 
-export type NewThresholdProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "new_threshold" | "proposal" | "signer" | "vote_gained" | "new_trustee_salary_threshold" | "new_arbitrator_salary_threshold" | "new_dividend_threshold" | "new_reinvestment_threshold" | "new_safety_threshold" | "bump", ExtArgs["result"]["newThresholdProposal"]>
+export type NewThresholdProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "new_threshold" | "proposal" | "signer" | "vote_gained" | "new_trustee_salary_threshold" | "new_arbitrator_salary_threshold" | "new_dividend_threshold" | "new_reinvestment_threshold" | "new_safety_threshold", ExtArgs["result"]["newThresholdProposal"]>
 
 export type $NewThresholdProposalPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "NewThresholdProposal"
@@ -585,7 +553,6 @@ export type $NewThresholdProposalPayload<ExtArgs extends runtime.Types.Extension
     new_dividend_threshold: number
     new_reinvestment_threshold: number
     new_safety_threshold: number
-    bump: number
   }, ExtArgs["result"]["newThresholdProposal"]>
   composites: {}
 }
@@ -1019,7 +986,6 @@ export interface NewThresholdProposalFieldRefs {
   readonly new_dividend_threshold: Prisma.FieldRef<"NewThresholdProposal", 'Int'>
   readonly new_reinvestment_threshold: Prisma.FieldRef<"NewThresholdProposal", 'Int'>
   readonly new_safety_threshold: Prisma.FieldRef<"NewThresholdProposal", 'Int'>
-  readonly bump: Prisma.FieldRef<"NewThresholdProposal", 'Int'>
 }
     
 

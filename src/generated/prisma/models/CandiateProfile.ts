@@ -31,7 +31,6 @@ export type CandiateProfileAvgAggregateOutputType = {
   total_selected_as_trustee: number | null
   total_selected_as_arbitrar: number | null
   removal_count: number | null
-  bump: number | null
 }
 
 export type CandiateProfileSumAggregateOutputType = {
@@ -39,7 +38,6 @@ export type CandiateProfileSumAggregateOutputType = {
   total_selected_as_trustee: number | null
   total_selected_as_arbitrar: number | null
   removal_count: number | null
-  bump: number | null
 }
 
 export type CandiateProfileMinAggregateOutputType = {
@@ -50,7 +48,6 @@ export type CandiateProfileMinAggregateOutputType = {
   is_blacklisted: boolean | null
   removal_count: number | null
   metadata_hash: string | null
-  bump: number | null
 }
 
 export type CandiateProfileMaxAggregateOutputType = {
@@ -61,7 +58,6 @@ export type CandiateProfileMaxAggregateOutputType = {
   is_blacklisted: boolean | null
   removal_count: number | null
   metadata_hash: string | null
-  bump: number | null
 }
 
 export type CandiateProfileCountAggregateOutputType = {
@@ -73,7 +69,6 @@ export type CandiateProfileCountAggregateOutputType = {
   removal_count: number
   actions_history: number
   metadata_hash: number
-  bump: number
   _all: number
 }
 
@@ -83,7 +78,6 @@ export type CandiateProfileAvgAggregateInputType = {
   total_selected_as_trustee?: true
   total_selected_as_arbitrar?: true
   removal_count?: true
-  bump?: true
 }
 
 export type CandiateProfileSumAggregateInputType = {
@@ -91,7 +85,6 @@ export type CandiateProfileSumAggregateInputType = {
   total_selected_as_trustee?: true
   total_selected_as_arbitrar?: true
   removal_count?: true
-  bump?: true
 }
 
 export type CandiateProfileMinAggregateInputType = {
@@ -102,7 +95,6 @@ export type CandiateProfileMinAggregateInputType = {
   is_blacklisted?: true
   removal_count?: true
   metadata_hash?: true
-  bump?: true
 }
 
 export type CandiateProfileMaxAggregateInputType = {
@@ -113,7 +105,6 @@ export type CandiateProfileMaxAggregateInputType = {
   is_blacklisted?: true
   removal_count?: true
   metadata_hash?: true
-  bump?: true
 }
 
 export type CandiateProfileCountAggregateInputType = {
@@ -125,7 +116,6 @@ export type CandiateProfileCountAggregateInputType = {
   removal_count?: true
   actions_history?: true
   metadata_hash?: true
-  bump?: true
   _all?: true
 }
 
@@ -224,7 +214,6 @@ export type CandiateProfileGroupByOutputType = {
   removal_count: number
   actions_history: $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
   _count: CandiateProfileCountAggregateOutputType | null
   _avg: CandiateProfileAvgAggregateOutputType | null
   _sum: CandiateProfileSumAggregateOutputType | null
@@ -259,7 +248,6 @@ export type CandiateProfileWhereInput = {
   removal_count?: Prisma.IntFilter<"CandiateProfile"> | number
   actions_history?: Prisma.EnumActionsHistoryNullableListFilter<"CandiateProfile">
   metadata_hash?: Prisma.StringFilter<"CandiateProfile"> | string
-  bump?: Prisma.IntFilter<"CandiateProfile"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   authorityCandidates?: Prisma.AuthorityCandidateListRelationFilter
 }
@@ -273,7 +261,6 @@ export type CandiateProfileOrderByWithRelationInput = {
   removal_count?: Prisma.SortOrder
   actions_history?: Prisma.SortOrder
   metadata_hash?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   authorityCandidates?: Prisma.AuthorityCandidateOrderByRelationAggregateInput
 }
@@ -290,7 +277,6 @@ export type CandiateProfileWhereUniqueInput = Prisma.AtLeast<{
   removal_count?: Prisma.IntFilter<"CandiateProfile"> | number
   actions_history?: Prisma.EnumActionsHistoryNullableListFilter<"CandiateProfile">
   metadata_hash?: Prisma.StringFilter<"CandiateProfile"> | string
-  bump?: Prisma.IntFilter<"CandiateProfile"> | number
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   authorityCandidates?: Prisma.AuthorityCandidateListRelationFilter
 }, "candidate">
@@ -304,7 +290,6 @@ export type CandiateProfileOrderByWithAggregationInput = {
   removal_count?: Prisma.SortOrder
   actions_history?: Prisma.SortOrder
   metadata_hash?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.CandiateProfileCountOrderByAggregateInput
   _avg?: Prisma.CandiateProfileAvgOrderByAggregateInput
   _max?: Prisma.CandiateProfileMaxOrderByAggregateInput
@@ -324,7 +309,6 @@ export type CandiateProfileScalarWhereWithAggregatesInput = {
   removal_count?: Prisma.IntWithAggregatesFilter<"CandiateProfile"> | number
   actions_history?: Prisma.EnumActionsHistoryNullableListFilter<"CandiateProfile">
   metadata_hash?: Prisma.StringWithAggregatesFilter<"CandiateProfile"> | string
-  bump?: Prisma.IntWithAggregatesFilter<"CandiateProfile"> | number
 }
 
 export type CandiateProfileCreateInput = {
@@ -335,7 +319,6 @@ export type CandiateProfileCreateInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
   user: Prisma.UserCreateNestedOneWithoutCandiateProfilesInput
   authorityCandidates?: Prisma.AuthorityCandidateCreateNestedManyWithoutCandidate_profileInput
 }
@@ -349,7 +332,6 @@ export type CandiateProfileUncheckedCreateInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
   authorityCandidates?: Prisma.AuthorityCandidateUncheckedCreateNestedManyWithoutCandidate_profileInput
 }
 
@@ -361,7 +343,6 @@ export type CandiateProfileUpdateInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   user?: Prisma.UserUpdateOneRequiredWithoutCandiateProfilesNestedInput
   authorityCandidates?: Prisma.AuthorityCandidateUpdateManyWithoutCandidate_profileNestedInput
 }
@@ -375,7 +356,6 @@ export type CandiateProfileUncheckedUpdateInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   authorityCandidates?: Prisma.AuthorityCandidateUncheckedUpdateManyWithoutCandidate_profileNestedInput
 }
 
@@ -388,7 +368,6 @@ export type CandiateProfileCreateManyInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
 }
 
 export type CandiateProfileUpdateManyMutationInput = {
@@ -399,7 +378,6 @@ export type CandiateProfileUpdateManyMutationInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CandiateProfileUncheckedUpdateManyInput = {
@@ -411,7 +389,6 @@ export type CandiateProfileUncheckedUpdateManyInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CandiateProfileNullableScalarRelationFilter = {
@@ -436,7 +413,6 @@ export type CandiateProfileCountOrderByAggregateInput = {
   removal_count?: Prisma.SortOrder
   actions_history?: Prisma.SortOrder
   metadata_hash?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type CandiateProfileAvgOrderByAggregateInput = {
@@ -444,7 +420,6 @@ export type CandiateProfileAvgOrderByAggregateInput = {
   total_selected_as_trustee?: Prisma.SortOrder
   total_selected_as_arbitrar?: Prisma.SortOrder
   removal_count?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type CandiateProfileMaxOrderByAggregateInput = {
@@ -455,7 +430,6 @@ export type CandiateProfileMaxOrderByAggregateInput = {
   is_blacklisted?: Prisma.SortOrder
   removal_count?: Prisma.SortOrder
   metadata_hash?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type CandiateProfileMinOrderByAggregateInput = {
@@ -466,7 +440,6 @@ export type CandiateProfileMinOrderByAggregateInput = {
   is_blacklisted?: Prisma.SortOrder
   removal_count?: Prisma.SortOrder
   metadata_hash?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type CandiateProfileSumOrderByAggregateInput = {
@@ -474,7 +447,6 @@ export type CandiateProfileSumOrderByAggregateInput = {
   total_selected_as_trustee?: Prisma.SortOrder
   total_selected_as_arbitrar?: Prisma.SortOrder
   removal_count?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type CandiateProfileScalarRelationFilter = {
@@ -545,7 +517,6 @@ export type CandiateProfileCreateWithoutUserInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
   authorityCandidates?: Prisma.AuthorityCandidateCreateNestedManyWithoutCandidate_profileInput
 }
 
@@ -557,7 +528,6 @@ export type CandiateProfileUncheckedCreateWithoutUserInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
   authorityCandidates?: Prisma.AuthorityCandidateUncheckedCreateNestedManyWithoutCandidate_profileInput
 }
 
@@ -585,7 +555,6 @@ export type CandiateProfileUpdateWithoutUserInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   authorityCandidates?: Prisma.AuthorityCandidateUpdateManyWithoutCandidate_profileNestedInput
 }
 
@@ -597,7 +566,6 @@ export type CandiateProfileUncheckedUpdateWithoutUserInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   authorityCandidates?: Prisma.AuthorityCandidateUncheckedUpdateManyWithoutCandidate_profileNestedInput
 }
 
@@ -609,7 +577,6 @@ export type CandiateProfileCreateWithoutAuthorityCandidatesInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
   user: Prisma.UserCreateNestedOneWithoutCandiateProfilesInput
 }
 
@@ -622,7 +589,6 @@ export type CandiateProfileUncheckedCreateWithoutAuthorityCandidatesInput = {
   removal_count: number
   actions_history?: Prisma.CandiateProfileCreateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash: string
-  bump: number
 }
 
 export type CandiateProfileCreateOrConnectWithoutAuthorityCandidatesInput = {
@@ -649,7 +615,6 @@ export type CandiateProfileUpdateWithoutAuthorityCandidatesInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   user?: Prisma.UserUpdateOneRequiredWithoutCandiateProfilesNestedInput
 }
 
@@ -662,7 +627,6 @@ export type CandiateProfileUncheckedUpdateWithoutAuthorityCandidatesInput = {
   removal_count?: Prisma.IntFieldUpdateOperationsInput | number
   actions_history?: Prisma.CandiateProfileUpdateactions_historyInput | $Enums.ActionsHistory[]
   metadata_hash?: Prisma.StringFieldUpdateOperationsInput | string
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -705,7 +669,6 @@ export type CandiateProfileSelect<ExtArgs extends runtime.Types.Extensions.Inter
   removal_count?: boolean
   actions_history?: boolean
   metadata_hash?: boolean
-  bump?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   authorityCandidates?: boolean | Prisma.CandiateProfile$authorityCandidatesArgs<ExtArgs>
   _count?: boolean | Prisma.CandiateProfileCountOutputTypeDefaultArgs<ExtArgs>
@@ -720,7 +683,6 @@ export type CandiateProfileSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   removal_count?: boolean
   actions_history?: boolean
   metadata_hash?: boolean
-  bump?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["candiateProfile"]>
 
@@ -733,7 +695,6 @@ export type CandiateProfileSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   removal_count?: boolean
   actions_history?: boolean
   metadata_hash?: boolean
-  bump?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["candiateProfile"]>
 
@@ -746,10 +707,9 @@ export type CandiateProfileSelectScalar = {
   removal_count?: boolean
   actions_history?: boolean
   metadata_hash?: boolean
-  bump?: boolean
 }
 
-export type CandiateProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"candidate" | "total_applied" | "total_selected_as_trustee" | "total_selected_as_arbitrar" | "is_blacklisted" | "removal_count" | "actions_history" | "metadata_hash" | "bump", ExtArgs["result"]["candiateProfile"]>
+export type CandiateProfileOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"candidate" | "total_applied" | "total_selected_as_trustee" | "total_selected_as_arbitrar" | "is_blacklisted" | "removal_count" | "actions_history" | "metadata_hash", ExtArgs["result"]["candiateProfile"]>
 export type CandiateProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   authorityCandidates?: boolean | Prisma.CandiateProfile$authorityCandidatesArgs<ExtArgs>
@@ -777,7 +737,6 @@ export type $CandiateProfilePayload<ExtArgs extends runtime.Types.Extensions.Int
     removal_count: number
     actions_history: $Enums.ActionsHistory[]
     metadata_hash: string
-    bump: number
   }, ExtArgs["result"]["candiateProfile"]>
   composites: {}
 }
@@ -1211,7 +1170,6 @@ export interface CandiateProfileFieldRefs {
   readonly removal_count: Prisma.FieldRef<"CandiateProfile", 'Int'>
   readonly actions_history: Prisma.FieldRef<"CandiateProfile", 'ActionsHistory[]'>
   readonly metadata_hash: Prisma.FieldRef<"CandiateProfile", 'String'>
-  readonly bump: Prisma.FieldRef<"CandiateProfile", 'Int'>
 }
     
 

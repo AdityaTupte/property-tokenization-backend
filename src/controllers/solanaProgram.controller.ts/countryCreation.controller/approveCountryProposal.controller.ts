@@ -17,7 +17,7 @@ export const handleApproveCountryProposal:InstructionHandler = async(
 
     const proposal = address(message.accountKeys[instruction.accounts[0]!]!)
 
-    const proposalAccount : PdaTypes.countryProposalType = await GenericPda("proposalCountryPda",proposal) as PdaTypes.countryProposalType
+    // const proposalAccount : PdaTypes.countryProposalType = await GenericPda("proposalCountryPda",proposal) as PdaTypes.countryProposalType
 
    const CountryProposalApprovedFieldDb = await prisma.countryProposal.findUnique({
     where:{

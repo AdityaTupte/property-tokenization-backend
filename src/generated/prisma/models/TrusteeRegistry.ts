@@ -31,7 +31,6 @@ export type TrusteeRegistryAvgAggregateOutputType = {
   total_trustees: number | null
   vote_threshold: number | null
   total_salary_allocated: number | null
-  bump: number | null
 }
 
 export type TrusteeRegistrySumAggregateOutputType = {
@@ -39,7 +38,6 @@ export type TrusteeRegistrySumAggregateOutputType = {
   total_trustees: number | null
   vote_threshold: number | null
   total_salary_allocated: bigint | null
-  bump: number | null
 }
 
 export type TrusteeRegistryMinAggregateOutputType = {
@@ -49,7 +47,6 @@ export type TrusteeRegistryMinAggregateOutputType = {
   vote_threshold: number | null
   claim_deadline_ts: Date | null
   total_salary_allocated: bigint | null
-  bump: number | null
 }
 
 export type TrusteeRegistryMaxAggregateOutputType = {
@@ -59,7 +56,6 @@ export type TrusteeRegistryMaxAggregateOutputType = {
   vote_threshold: number | null
   claim_deadline_ts: Date | null
   total_salary_allocated: bigint | null
-  bump: number | null
 }
 
 export type TrusteeRegistryCountAggregateOutputType = {
@@ -69,7 +65,6 @@ export type TrusteeRegistryCountAggregateOutputType = {
   vote_threshold: number
   claim_deadline_ts: number
   total_salary_allocated: number
-  bump: number
   _all: number
 }
 
@@ -79,7 +74,6 @@ export type TrusteeRegistryAvgAggregateInputType = {
   total_trustees?: true
   vote_threshold?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type TrusteeRegistrySumAggregateInputType = {
@@ -87,7 +81,6 @@ export type TrusteeRegistrySumAggregateInputType = {
   total_trustees?: true
   vote_threshold?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type TrusteeRegistryMinAggregateInputType = {
@@ -97,7 +90,6 @@ export type TrusteeRegistryMinAggregateInputType = {
   vote_threshold?: true
   claim_deadline_ts?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type TrusteeRegistryMaxAggregateInputType = {
@@ -107,7 +99,6 @@ export type TrusteeRegistryMaxAggregateInputType = {
   vote_threshold?: true
   claim_deadline_ts?: true
   total_salary_allocated?: true
-  bump?: true
 }
 
 export type TrusteeRegistryCountAggregateInputType = {
@@ -117,7 +108,6 @@ export type TrusteeRegistryCountAggregateInputType = {
   vote_threshold?: true
   claim_deadline_ts?: true
   total_salary_allocated?: true
-  bump?: true
   _all?: true
 }
 
@@ -214,7 +204,6 @@ export type TrusteeRegistryGroupByOutputType = {
   vote_threshold: number
   claim_deadline_ts: Date | null
   total_salary_allocated: bigint | null
-  bump: number
   _count: TrusteeRegistryCountAggregateOutputType | null
   _avg: TrusteeRegistryAvgAggregateOutputType | null
   _sum: TrusteeRegistrySumAggregateOutputType | null
@@ -247,7 +236,6 @@ export type TrusteeRegistryWhereInput = {
   vote_threshold?: Prisma.IntFilter<"TrusteeRegistry"> | number
   claim_deadline_ts?: Prisma.DateTimeNullableFilter<"TrusteeRegistry"> | Date | string | null
   total_salary_allocated?: Prisma.BigIntNullableFilter<"TrusteeRegistry"> | bigint | number | null
-  bump?: Prisma.IntFilter<"TrusteeRegistry"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
   trustees?: Prisma.TrusteesListRelationFilter
 }
@@ -259,7 +247,6 @@ export type TrusteeRegistryOrderByWithRelationInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrderInput | Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrderInput | Prisma.SortOrder
-  bump?: Prisma.SortOrder
   property_system_key?: Prisma.PropertySystemAccountOrderByWithRelationInput
   trustees?: Prisma.TrusteesOrderByRelationAggregateInput
 }
@@ -274,7 +261,6 @@ export type TrusteeRegistryWhereUniqueInput = Prisma.AtLeast<{
   vote_threshold?: Prisma.IntFilter<"TrusteeRegistry"> | number
   claim_deadline_ts?: Prisma.DateTimeNullableFilter<"TrusteeRegistry"> | Date | string | null
   total_salary_allocated?: Prisma.BigIntNullableFilter<"TrusteeRegistry"> | bigint | number | null
-  bump?: Prisma.IntFilter<"TrusteeRegistry"> | number
   property_system_key?: Prisma.XOR<Prisma.PropertySystemAccountScalarRelationFilter, Prisma.PropertySystemAccountWhereInput>
   trustees?: Prisma.TrusteesListRelationFilter
 }, "trustee_registry_pubkey">
@@ -286,7 +272,6 @@ export type TrusteeRegistryOrderByWithAggregationInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrderInput | Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrderInput | Prisma.SortOrder
-  bump?: Prisma.SortOrder
   _count?: Prisma.TrusteeRegistryCountOrderByAggregateInput
   _avg?: Prisma.TrusteeRegistryAvgOrderByAggregateInput
   _max?: Prisma.TrusteeRegistryMaxOrderByAggregateInput
@@ -304,7 +289,6 @@ export type TrusteeRegistryScalarWhereWithAggregatesInput = {
   vote_threshold?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number
   claim_deadline_ts?: Prisma.DateTimeNullableWithAggregatesFilter<"TrusteeRegistry"> | Date | string | null
   total_salary_allocated?: Prisma.BigIntNullableWithAggregatesFilter<"TrusteeRegistry"> | bigint | number | null
-  bump?: Prisma.IntWithAggregatesFilter<"TrusteeRegistry"> | number
 }
 
 export type TrusteeRegistryCreateInput = {
@@ -313,7 +297,6 @@ export type TrusteeRegistryCreateInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutTrusteeRegistriesInput
   trustees?: Prisma.TrusteesCreateNestedManyWithoutRegistryInput
 }
@@ -325,7 +308,6 @@ export type TrusteeRegistryUncheckedCreateInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   trustees?: Prisma.TrusteesUncheckedCreateNestedManyWithoutRegistryInput
 }
 
@@ -335,7 +317,6 @@ export type TrusteeRegistryUpdateInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutTrusteeRegistriesNestedInput
   trustees?: Prisma.TrusteesUpdateManyWithoutRegistryNestedInput
 }
@@ -347,7 +328,6 @@ export type TrusteeRegistryUncheckedUpdateInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   trustees?: Prisma.TrusteesUncheckedUpdateManyWithoutRegistryNestedInput
 }
 
@@ -358,7 +338,6 @@ export type TrusteeRegistryCreateManyInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
 }
 
 export type TrusteeRegistryUpdateManyMutationInput = {
@@ -367,7 +346,6 @@ export type TrusteeRegistryUpdateManyMutationInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type TrusteeRegistryUncheckedUpdateManyInput = {
@@ -377,7 +355,6 @@ export type TrusteeRegistryUncheckedUpdateManyInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type TrusteeRegistryNullableScalarRelationFilter = {
@@ -397,7 +374,6 @@ export type TrusteeRegistryCountOrderByAggregateInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type TrusteeRegistryAvgOrderByAggregateInput = {
@@ -405,7 +381,6 @@ export type TrusteeRegistryAvgOrderByAggregateInput = {
   total_trustees?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type TrusteeRegistryMaxOrderByAggregateInput = {
@@ -415,7 +390,6 @@ export type TrusteeRegistryMaxOrderByAggregateInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type TrusteeRegistryMinOrderByAggregateInput = {
@@ -425,7 +399,6 @@ export type TrusteeRegistryMinOrderByAggregateInput = {
   vote_threshold?: Prisma.SortOrder
   claim_deadline_ts?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type TrusteeRegistrySumOrderByAggregateInput = {
@@ -433,7 +406,6 @@ export type TrusteeRegistrySumOrderByAggregateInput = {
   total_trustees?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   total_salary_allocated?: Prisma.SortOrder
-  bump?: Prisma.SortOrder
 }
 
 export type TrusteeRegistryCreateNestedOneWithoutProperty_system_keyInput = {
@@ -496,7 +468,6 @@ export type TrusteeRegistryCreateWithoutProperty_system_keyInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   trustees?: Prisma.TrusteesCreateNestedManyWithoutRegistryInput
 }
 
@@ -506,7 +477,6 @@ export type TrusteeRegistryUncheckedCreateWithoutProperty_system_keyInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   trustees?: Prisma.TrusteesUncheckedCreateNestedManyWithoutRegistryInput
 }
 
@@ -532,7 +502,6 @@ export type TrusteeRegistryUpdateWithoutProperty_system_keyInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   trustees?: Prisma.TrusteesUpdateManyWithoutRegistryNestedInput
 }
 
@@ -542,7 +511,6 @@ export type TrusteeRegistryUncheckedUpdateWithoutProperty_system_keyInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   trustees?: Prisma.TrusteesUncheckedUpdateManyWithoutRegistryNestedInput
 }
 
@@ -552,7 +520,6 @@ export type TrusteeRegistryCreateWithoutTrusteesInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
   property_system_key: Prisma.PropertySystemAccountCreateNestedOneWithoutTrusteeRegistriesInput
 }
 
@@ -563,7 +530,6 @@ export type TrusteeRegistryUncheckedCreateWithoutTrusteesInput = {
   vote_threshold: number
   claim_deadline_ts?: Date | string | null
   total_salary_allocated?: bigint | number | null
-  bump: number
 }
 
 export type TrusteeRegistryCreateOrConnectWithoutTrusteesInput = {
@@ -588,7 +554,6 @@ export type TrusteeRegistryUpdateWithoutTrusteesInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
   property_system_key?: Prisma.PropertySystemAccountUpdateOneRequiredWithoutTrusteeRegistriesNestedInput
 }
 
@@ -599,7 +564,6 @@ export type TrusteeRegistryUncheckedUpdateWithoutTrusteesInput = {
   vote_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   claim_deadline_ts?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   total_salary_allocated?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-  bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -640,7 +604,6 @@ export type TrusteeRegistrySelect<ExtArgs extends runtime.Types.Extensions.Inter
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   trustees?: boolean | Prisma.TrusteeRegistry$trusteesArgs<ExtArgs>
   _count?: boolean | Prisma.TrusteeRegistryCountOutputTypeDefaultArgs<ExtArgs>
@@ -653,7 +616,6 @@ export type TrusteeRegistrySelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trusteeRegistry"]>
 
@@ -664,7 +626,6 @@ export type TrusteeRegistrySelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trusteeRegistry"]>
 
@@ -675,10 +636,9 @@ export type TrusteeRegistrySelectScalar = {
   vote_threshold?: boolean
   claim_deadline_ts?: boolean
   total_salary_allocated?: boolean
-  bump?: boolean
 }
 
-export type TrusteeRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trustee_registry_pubkey" | "current_number_of_trustees" | "total_trustees" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated" | "bump", ExtArgs["result"]["trusteeRegistry"]>
+export type TrusteeRegistryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"trustee_registry_pubkey" | "current_number_of_trustees" | "total_trustees" | "vote_threshold" | "claim_deadline_ts" | "total_salary_allocated", ExtArgs["result"]["trusteeRegistry"]>
 export type TrusteeRegistryInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   property_system_key?: boolean | Prisma.PropertySystemAccountDefaultArgs<ExtArgs>
   trustees?: boolean | Prisma.TrusteeRegistry$trusteesArgs<ExtArgs>
@@ -704,7 +664,6 @@ export type $TrusteeRegistryPayload<ExtArgs extends runtime.Types.Extensions.Int
     vote_threshold: number
     claim_deadline_ts: Date | null
     total_salary_allocated: bigint | null
-    bump: number
   }, ExtArgs["result"]["trusteeRegistry"]>
   composites: {}
 }
@@ -1136,7 +1095,6 @@ export interface TrusteeRegistryFieldRefs {
   readonly vote_threshold: Prisma.FieldRef<"TrusteeRegistry", 'Int'>
   readonly claim_deadline_ts: Prisma.FieldRef<"TrusteeRegistry", 'DateTime'>
   readonly total_salary_allocated: Prisma.FieldRef<"TrusteeRegistry", 'BigInt'>
-  readonly bump: Prisma.FieldRef<"TrusteeRegistry", 'Int'>
 }
     
 
