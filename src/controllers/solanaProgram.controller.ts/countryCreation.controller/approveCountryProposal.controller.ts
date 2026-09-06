@@ -1,67 +1,94 @@
 import { address } from "@solana/kit";
-import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
-
+import type {
+  instructionsSchema,
+  messageSchema,
+} from "../../../helius/findProgramIndex";
 import { GenericPda } from "../../../utils/genericPda";
-
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
-export const handleApproveCountryProposal:InstructionHandler = async(
-    message:messageSchema,
-    instruction:instructionsSchema,
-    ctx:TransactionContext,
-    _BlockTime:number,
+
+
+export const handleApproveCountryProposal: InstructionHandler = async (
+  message: messageSchema,
+  instruction: instructionsSchema,
+  ctx: TransactionContext,
+  _BlockTime: number
 ) => {
+  const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
 
-    const proposal = address(message.accountKeys[instruction.accounts[0]!]!)
+  const CountryProposalDb = await prisma.countryProposal.findUnique({
+    where: {
+      proposal_public_key: proposal.toString(),
+    },
+    select: {
+      approved: true,
+      _count: {
+        select: {
+          approveCountryAuthorityReceipts: true,
+        },
+      },
+    },
+  });
 
-    // const proposalAccount : PdaTypes.countryProposalType = await GenericPda("proposalCountryPda",proposal) as PdaTypes.countryProposalType
+  if (!CountryProposalDb) throw new ApiError(404, "Country Proposal Not Found");
 
-   const CountryProposalApprovedFieldDb = await prisma.countryProposal.findUnique({
-    where:{
-        proposal_public_key:proposal.toString(),
-   },
-   select:{
-    approved:true,
-   }
-})
-    if(!CountryProposalApprovedFieldDb) throw new ApiError(404,"Country Proposal Not Found")
+  const CountryApprovalAuthorityThreshold =
+    await prisma.countryApprovalAuthority.findFirst({
+      where: {
+        id: 1,
+      },
+      select: {
+        threshold: true,
+      },
+    });
 
-    const NotChanged = CountryProposalApprovedFieldDb.approved === proposalAccount.approved
+  if (!CountryApprovalAuthorityThreshold)
+    throw new ApiError(404, "CountryApprovalAuthority Not Found");
 
-    const signer  =  address(message.accountKeys[instruction.accounts[3]!]!)
+  let isApproved = false;
 
-    const receiptAddress  =  address(message.accountKeys[instruction.accounts[2]!]!)
+  if (
+    (CountryProposalDb?._count.approveCountryAuthorityReceipts ?? 0) + 1 ===
+    CountryApprovalAuthorityThreshold?.threshold
+  ) {
+    const proposalAccount: PdaTypes.countryProposalType = (await GenericPda(
+      "proposalCountryPda",
+      proposal
+    )) as PdaTypes.countryProposalType;
 
-    const receiptAccount= await GenericPda("approveCountryAuthorityReceipt",receiptAddress) as PdaTypes.approveCountryAuthorityReceiptType
+    isApproved = proposalAccount.approved == true ? true : false;
+  }
 
+  const signer = address(message.accountKeys[instruction.accounts[3]!]!);
 
-    ctx.add( async(tx) =>{
+  const receiptAddress = address(
+    message.accountKeys[instruction.accounts[2]!]!
+  );
 
-        await tx.countryProposal.update({
+  const receiptAccount = (await GenericPda(
+    "approveCountryAuthorityReceipt",
+    receiptAddress
+  )) as PdaTypes.approveCountryAuthorityReceiptType;
 
-            where:{
-                proposal_public_key:proposal.toString(),
-            },
+  ctx.add(async (tx) => {
+    await tx.countryProposal.update({
+      where: {
+        proposal_public_key: proposal.toString(),
+      },
 
-             data:{   
-                approved:NotChanged?undefined:proposalAccount.approved,
-        }
-    })
+      data: {
+        approved: isApproved == true ? true : false,
+      },
+    });
 
-        await tx.approveCountryAuthorityReceipt.create({
-            data:{
-                proposal_key:proposal.toString(),
-                signer:signer.toString(),
-                bump:receiptAccount.bump,
-            }
-        })
-
-
-    })
-
-
-
-}
+    await tx.approveCountryAuthorityReceipt.create({
+      data: {
+        proposal_key: proposal.toString(),
+        signer: signer.toString(),
+      },
+    });
+  });
+};

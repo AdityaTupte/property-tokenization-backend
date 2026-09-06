@@ -16,7 +16,6 @@ export const handleAddAuthorityForCountry:InstructionHandler = async(
     const countryPdaAddress  = address(message.accountKeys[instruction.accounts[4]!]!)
 
    
-
     const countryAuthority = (address(message.accountKeys[instruction.accounts[2]!]!)).toString()
 
     
@@ -26,7 +25,7 @@ export const handleAddAuthorityForCountry:InstructionHandler = async(
         },
     })
 
-    if(!countryPdaDb) throw new ApiError(404,"Countey Pda for adding the authority not avaliable in db")
+    if(!countryPdaDb) throw new ApiError(404,"Country Pda for adding the authority not avaliable in db")
 
     ctx.add(async (tx) =>{
 

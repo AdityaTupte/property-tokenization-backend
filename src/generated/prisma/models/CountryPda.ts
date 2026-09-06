@@ -31,7 +31,6 @@ export type CountryPdaAvgAggregateOutputType = {
   country_id: number | null
   country_pda_threshold: number | null
   total_authority: number | null
-  country_bump: number | null
 }
 
 export type CountryPdaSumAggregateOutputType = {
@@ -39,7 +38,6 @@ export type CountryPdaSumAggregateOutputType = {
   country_id: number | null
   country_pda_threshold: number | null
   total_authority: number | null
-  country_bump: number | null
 }
 
 export type CountryPdaMinAggregateOutputType = {
@@ -50,7 +48,6 @@ export type CountryPdaMinAggregateOutputType = {
   country_name: string | null
   country_pda_threshold: number | null
   total_authority: number | null
-  country_bump: number | null
 }
 
 export type CountryPdaMaxAggregateOutputType = {
@@ -61,7 +58,6 @@ export type CountryPdaMaxAggregateOutputType = {
   country_name: string | null
   country_pda_threshold: number | null
   total_authority: number | null
-  country_bump: number | null
 }
 
 export type CountryPdaCountAggregateOutputType = {
@@ -72,7 +68,6 @@ export type CountryPdaCountAggregateOutputType = {
   country_name: number
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
   _all: number
 }
 
@@ -82,7 +77,6 @@ export type CountryPdaAvgAggregateInputType = {
   country_id?: true
   country_pda_threshold?: true
   total_authority?: true
-  country_bump?: true
 }
 
 export type CountryPdaSumAggregateInputType = {
@@ -90,7 +84,6 @@ export type CountryPdaSumAggregateInputType = {
   country_id?: true
   country_pda_threshold?: true
   total_authority?: true
-  country_bump?: true
 }
 
 export type CountryPdaMinAggregateInputType = {
@@ -101,7 +94,6 @@ export type CountryPdaMinAggregateInputType = {
   country_name?: true
   country_pda_threshold?: true
   total_authority?: true
-  country_bump?: true
 }
 
 export type CountryPdaMaxAggregateInputType = {
@@ -112,7 +104,6 @@ export type CountryPdaMaxAggregateInputType = {
   country_name?: true
   country_pda_threshold?: true
   total_authority?: true
-  country_bump?: true
 }
 
 export type CountryPdaCountAggregateInputType = {
@@ -123,7 +114,6 @@ export type CountryPdaCountAggregateInputType = {
   country_name?: true
   country_pda_threshold?: true
   total_authority?: true
-  country_bump?: true
   _all?: true
 }
 
@@ -221,7 +211,6 @@ export type CountryPdaGroupByOutputType = {
   country_name: string
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
   _count: CountryPdaCountAggregateOutputType | null
   _avg: CountryPdaAvgAggregateOutputType | null
   _sum: CountryPdaSumAggregateOutputType | null
@@ -255,7 +244,6 @@ export type CountryPdaWhereInput = {
   country_name?: Prisma.StringFilter<"CountryPda"> | string
   country_pda_threshold?: Prisma.IntFilter<"CountryPda"> | number
   total_authority?: Prisma.IntFilter<"CountryPda"> | number
-  country_bump?: Prisma.IntFilter<"CountryPda"> | number
   authority?: Prisma.XOR<Prisma.CountryAuthorityReceiptNullableScalarRelationFilter, Prisma.CountryAuthorityReceiptWhereInput> | null
 }
 
@@ -267,7 +255,6 @@ export type CountryPdaOrderByWithRelationInput = {
   country_name?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
   authority?: Prisma.CountryAuthorityReceiptOrderByWithRelationInput
 }
 
@@ -282,7 +269,6 @@ export type CountryPdaWhereUniqueInput = Prisma.AtLeast<{
   current_total_authority?: Prisma.IntFilter<"CountryPda"> | number
   country_pda_threshold?: Prisma.IntFilter<"CountryPda"> | number
   total_authority?: Prisma.IntFilter<"CountryPda"> | number
-  country_bump?: Prisma.IntFilter<"CountryPda"> | number
   authority?: Prisma.XOR<Prisma.CountryAuthorityReceiptNullableScalarRelationFilter, Prisma.CountryAuthorityReceiptWhereInput> | null
 }, "country_id" | "proposal_public_key" | "country_public_key" | "country_name">
 
@@ -294,7 +280,6 @@ export type CountryPdaOrderByWithAggregationInput = {
   country_name?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
   _count?: Prisma.CountryPdaCountOrderByAggregateInput
   _avg?: Prisma.CountryPdaAvgOrderByAggregateInput
   _max?: Prisma.CountryPdaMaxOrderByAggregateInput
@@ -313,7 +298,6 @@ export type CountryPdaScalarWhereWithAggregatesInput = {
   country_name?: Prisma.StringWithAggregatesFilter<"CountryPda"> | string
   country_pda_threshold?: Prisma.IntWithAggregatesFilter<"CountryPda"> | number
   total_authority?: Prisma.IntWithAggregatesFilter<"CountryPda"> | number
-  country_bump?: Prisma.IntWithAggregatesFilter<"CountryPda"> | number
 }
 
 export type CountryPdaCreateInput = {
@@ -324,7 +308,6 @@ export type CountryPdaCreateInput = {
   country_name: string
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
   authority?: Prisma.CountryAuthorityReceiptCreateNestedOneWithoutCountryInput
 }
 
@@ -336,7 +319,6 @@ export type CountryPdaUncheckedCreateInput = {
   country_name: string
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
   authority?: Prisma.CountryAuthorityReceiptUncheckedCreateNestedOneWithoutCountryInput
 }
 
@@ -348,7 +330,6 @@ export type CountryPdaUpdateInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   country_pda_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   total_authority?: Prisma.IntFieldUpdateOperationsInput | number
-  country_bump?: Prisma.IntFieldUpdateOperationsInput | number
   authority?: Prisma.CountryAuthorityReceiptUpdateOneWithoutCountryNestedInput
 }
 
@@ -360,7 +341,6 @@ export type CountryPdaUncheckedUpdateInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   country_pda_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   total_authority?: Prisma.IntFieldUpdateOperationsInput | number
-  country_bump?: Prisma.IntFieldUpdateOperationsInput | number
   authority?: Prisma.CountryAuthorityReceiptUncheckedUpdateOneWithoutCountryNestedInput
 }
 
@@ -372,7 +352,6 @@ export type CountryPdaCreateManyInput = {
   country_name: string
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
 }
 
 export type CountryPdaUpdateManyMutationInput = {
@@ -383,7 +362,6 @@ export type CountryPdaUpdateManyMutationInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   country_pda_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   total_authority?: Prisma.IntFieldUpdateOperationsInput | number
-  country_bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CountryPdaUncheckedUpdateManyInput = {
@@ -394,7 +372,6 @@ export type CountryPdaUncheckedUpdateManyInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   country_pda_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   total_authority?: Prisma.IntFieldUpdateOperationsInput | number
-  country_bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CountryPdaCountOrderByAggregateInput = {
@@ -405,7 +382,6 @@ export type CountryPdaCountOrderByAggregateInput = {
   country_name?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
 }
 
 export type CountryPdaAvgOrderByAggregateInput = {
@@ -413,7 +389,6 @@ export type CountryPdaAvgOrderByAggregateInput = {
   country_id?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
 }
 
 export type CountryPdaMaxOrderByAggregateInput = {
@@ -424,7 +399,6 @@ export type CountryPdaMaxOrderByAggregateInput = {
   country_name?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
 }
 
 export type CountryPdaMinOrderByAggregateInput = {
@@ -435,7 +409,6 @@ export type CountryPdaMinOrderByAggregateInput = {
   country_name?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
 }
 
 export type CountryPdaSumOrderByAggregateInput = {
@@ -443,7 +416,6 @@ export type CountryPdaSumOrderByAggregateInput = {
   country_id?: Prisma.SortOrder
   country_pda_threshold?: Prisma.SortOrder
   total_authority?: Prisma.SortOrder
-  country_bump?: Prisma.SortOrder
 }
 
 export type CountryPdaScalarRelationFilter = {
@@ -473,7 +445,6 @@ export type CountryPdaCreateWithoutAuthorityInput = {
   country_name: string
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
 }
 
 export type CountryPdaUncheckedCreateWithoutAuthorityInput = {
@@ -484,7 +455,6 @@ export type CountryPdaUncheckedCreateWithoutAuthorityInput = {
   country_name: string
   country_pda_threshold: number
   total_authority: number
-  country_bump: number
 }
 
 export type CountryPdaCreateOrConnectWithoutAuthorityInput = {
@@ -511,7 +481,6 @@ export type CountryPdaUpdateWithoutAuthorityInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   country_pda_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   total_authority?: Prisma.IntFieldUpdateOperationsInput | number
-  country_bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type CountryPdaUncheckedUpdateWithoutAuthorityInput = {
@@ -522,7 +491,6 @@ export type CountryPdaUncheckedUpdateWithoutAuthorityInput = {
   country_name?: Prisma.StringFieldUpdateOperationsInput | string
   country_pda_threshold?: Prisma.IntFieldUpdateOperationsInput | number
   total_authority?: Prisma.IntFieldUpdateOperationsInput | number
-  country_bump?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -535,7 +503,6 @@ export type CountryPdaSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   country_name?: boolean
   country_pda_threshold?: boolean
   total_authority?: boolean
-  country_bump?: boolean
   authority?: boolean | Prisma.CountryPda$authorityArgs<ExtArgs>
 }, ExtArgs["result"]["countryPda"]>
 
@@ -547,7 +514,6 @@ export type CountryPdaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   country_name?: boolean
   country_pda_threshold?: boolean
   total_authority?: boolean
-  country_bump?: boolean
 }, ExtArgs["result"]["countryPda"]>
 
 export type CountryPdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -558,7 +524,6 @@ export type CountryPdaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   country_name?: boolean
   country_pda_threshold?: boolean
   total_authority?: boolean
-  country_bump?: boolean
 }, ExtArgs["result"]["countryPda"]>
 
 export type CountryPdaSelectScalar = {
@@ -569,10 +534,9 @@ export type CountryPdaSelectScalar = {
   country_name?: boolean
   country_pda_threshold?: boolean
   total_authority?: boolean
-  country_bump?: boolean
 }
 
-export type CountryPdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_public_key" | "country_public_key" | "current_total_authority" | "country_id" | "country_name" | "country_pda_threshold" | "total_authority" | "country_bump", ExtArgs["result"]["countryPda"]>
+export type CountryPdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_public_key" | "country_public_key" | "current_total_authority" | "country_id" | "country_name" | "country_pda_threshold" | "total_authority", ExtArgs["result"]["countryPda"]>
 export type CountryPdaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   authority?: boolean | Prisma.CountryPda$authorityArgs<ExtArgs>
 }
@@ -592,7 +556,6 @@ export type $CountryPdaPayload<ExtArgs extends runtime.Types.Extensions.Internal
     country_name: string
     country_pda_threshold: number
     total_authority: number
-    country_bump: number
   }, ExtArgs["result"]["countryPda"]>
   composites: {}
 }
@@ -1024,7 +987,6 @@ export interface CountryPdaFieldRefs {
   readonly country_name: Prisma.FieldRef<"CountryPda", 'String'>
   readonly country_pda_threshold: Prisma.FieldRef<"CountryPda", 'Int'>
   readonly total_authority: Prisma.FieldRef<"CountryPda", 'Int'>
-  readonly country_bump: Prisma.FieldRef<"CountryPda", 'Int'>
 }
     
 

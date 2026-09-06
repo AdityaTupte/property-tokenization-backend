@@ -1,31 +1,49 @@
 import { address } from "@solana/kit";
-import type { Instructions, messageSchema } from "../../../helius/findProgramIndex";
-
-import { GenericPda } from "../../../utils/genericPda";
-
-import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
+import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
+import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { execute_country_propsalSchema } from "../../../idl.schema/generated/execute_country_propsal.schema";
+import { prisma } from "../../../prismaclient";
+import { ApiError } from "../../../utils/ApiError";
 
 export const handleExecuteCountryProposal:InstructionHandler = async(
     message:messageSchema,
-    instruction:Instructions,
+    instruction:instructionsSchema,
     ctx:TransactionContext,
     BlockTime:number,
 ) => {
 
     const proposal = address(message.accountKeys[instruction.accounts[0]!]!)
 
-    const proposalAccount = await GenericPda("proposalCountryPda",proposal) as PdaTypes.countryProposalType
+    const bytes = Buffer.from(bs58.decode(instruction.data));
+    
+    const decodedData = decoder.decode(bytes)
+    
+    const argument = execute_country_propsalSchema.parse(decodedData?.data)
+
+
+    const countryProposalDb = await prisma.countryProposal.findUnique({
+        where:{
+            proposal_public_key:proposal.toString(),
+        },
+        select:{
+            country_name:true,
+            country_id:true,
+            country_pda_threshold:true,
+            total_authority:true,
+            approved:true,
+        }
+    })
+
+    if(!countryProposalDb) throw new ApiError(400,"countryProposal not found")
+
+    if(countryProposalDb.approved == false) throw new ApiError(409, "Country proposal is not approved")
 
     const countryPdaAddress  = address(message.accountKeys[instruction.accounts[2]!]!)
 
-    const countryPdaAccount = await  GenericPda("country",countryPdaAddress) as PdaTypes.countryPdaType
-
-    const countryNameBuffer = Buffer.from(proposalAccount.countryName)
-
-    const cleanCountryName = countryNameBuffer.toString().replace(/\0/g, '').trim();
-
+    
 
     ctx.add(async (tx) =>{
 
@@ -43,12 +61,11 @@ export const handleExecuteCountryProposal:InstructionHandler = async(
             data:{
                 proposal_public_key:proposal.toString(),
                 country_public_key:countryPdaAddress.toString(),
-                country_id:countryPdaAccount.countryId,
-                country_bump:countryPdaAccount.bump,
-                country_pda_threshold:countryPdaAccount.threshold,
+                country_id:countryProposalDb.country_id,
+                country_pda_threshold:countryProposalDb.country_pda_threshold,
                 current_total_authority:0,
-                total_authority:countryPdaAccount.totalAuthority,
-                country_name:cleanCountryName
+                total_authority:countryProposalDb.total_authority,
+                country_name:countryProposalDb.country_name
             }
         })
 

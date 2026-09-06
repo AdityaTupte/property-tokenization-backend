@@ -194,8 +194,7 @@ export const CountryPdaScalarFieldEnum = {
   country_id: 'country_id',
   country_name: 'country_name',
   country_pda_threshold: 'country_pda_threshold',
-  total_authority: 'total_authority',
-  country_bump: 'country_bump'
+  total_authority: 'total_authority'
 } as const
 
 export type CountryPdaScalarFieldEnum = (typeof CountryPdaScalarFieldEnum)[keyof typeof CountryPdaScalarFieldEnum]

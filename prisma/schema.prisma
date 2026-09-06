@@ -164,7 +164,7 @@ model CountryPda {
   country_name            String                   @unique
   country_pda_threshold   Int
   total_authority         Int
-  country_bump            Int
+
   authority               CountryAuthorityReceipt?
 }
 
@@ -513,7 +513,7 @@ model VotingForProposal {
 }
 
 model VotingForCandiate {
-  proposal_key        String
+  proposal_key        String 
   timestamp           DateTime
   signer              String
   to_whom             String

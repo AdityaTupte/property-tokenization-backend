@@ -16,9 +16,6 @@ export const handleCreateCountryProposal: InstructionHandler = async (
 ) => {
   const proposal = address(message.accountKeys[instruction.accounts[1]!]!);
 
-//   const proposalAccount = (await GenericPda(
-
- 
 
   const bytes = Buffer.from(bs58.decode(instruction.data));
   
