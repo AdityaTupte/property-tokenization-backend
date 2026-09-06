@@ -3,7 +3,10 @@ import type { instructionsSchema, messageSchema } from "../../../helius/findProg
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
-import { GenericPda } from "../../../utils/genericPda";
+import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
+import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { create_property_proposalSchema } from "../../../idl.schema/generated/create_property_proposal.schema";
+// import { GenericPda } from "../../../utils/genericPda";
 
 
 export const handleCreateProperty:InstructionHandler = async(
@@ -15,7 +18,12 @@ export const handleCreateProperty:InstructionHandler = async(
 
     const PropertyProposalAddress  = address(message.accountKeys[instruction.accounts[4]!]!)
 
-    const PropertyProposalPda = await GenericPda("propertyProposal",PropertyProposalAddress) as PdaTypes.PropertyProposalType
+    const bytes = Buffer.from(bs58.decode(instruction.data))
+
+    const decodedData = decoder.decode(bytes)
+
+    const argument = create_property_proposalSchema.parse(decodedData)
+
 
     const stateAddress = address(message.accountKeys[instruction.accounts[1]!]!)
 
@@ -23,21 +31,20 @@ export const handleCreateProperty:InstructionHandler = async(
 
     const propertySystem_pukey = address(message.accountKeys[instruction.accounts[0]!]!)
 
-    const doc_hash = Buffer.from(PropertyProposalPda.legalDocHash).toString('hex')
+  
 
     ctx.add(async (tx) =>{
 
-        tx.propertyProposal.create({
+        tx.property.create({
             data:{
-                property_id:PropertyProposalPda.propertyId.toNumber(),
+                property_id:argument.property_id,
                 property_system_pubkey:propertySystem_pukey.toString(),
                 state_pubkey:stateAddress.toString(),
-                legal_doc_hash:doc_hash,
+                legalDocURI:argument.legal_doc_hash,
                 issued_by:signer.toString(),
-                approved:PropertyProposalPda.approved,
-                executed:PropertyProposalPda.executed,
-                bump:PropertyProposalPda.bump,
-                proposal_property_pubkey:PropertyProposalAddress
+                approved:false,
+                executed:false,
+                proposal_pubkey:PropertyProposalAddress.toString()
             } 
             
         })

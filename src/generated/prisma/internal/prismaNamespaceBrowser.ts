@@ -75,9 +75,7 @@ export const ModelName = {
   Fund: 'Fund',
   CandiateProfile: 'CandiateProfile',
   AuthorityCandidate: 'AuthorityCandidate',
-  PropertyProposal: 'PropertyProposal',
-  PropertyAccount: 'PropertyAccount',
-  PropertyMetdata: 'PropertyMetdata',
+  Property: 'Property',
   SalaryClaim: 'SalaryClaim',
   PropertySellProposal: 'PropertySellProposal',
   PropertyBuyProposal: 'PropertyBuyProposal',
@@ -388,44 +386,24 @@ export const AuthorityCandidateScalarFieldEnum = {
 export type AuthorityCandidateScalarFieldEnum = (typeof AuthorityCandidateScalarFieldEnum)[keyof typeof AuthorityCandidateScalarFieldEnum]
 
 
-export const PropertyProposalScalarFieldEnum = {
+export const PropertyScalarFieldEnum = {
+  proposal_pubkey: 'proposal_pubkey',
   property_id: 'property_id',
-  proposal_property_pubkey: 'proposal_property_pubkey',
+  propertyKey: 'propertyKey',
+  is_leased: 'is_leased',
+  issued_at: 'issued_at',
+  issued_by: 'issued_by',
+  history_of_owner: 'history_of_owner',
   property_system_pubkey: 'property_system_pubkey',
   state_pubkey: 'state_pubkey',
-  legal_doc_hash: 'legal_doc_hash',
-  issued_by: 'issued_by',
+  legalDocURI: 'legalDocURI',
+  MetadataLastUpdated: 'MetadataLastUpdated',
   approval_count: 'approval_count',
   approved: 'approved',
   executed: 'executed'
 } as const
 
-export type PropertyProposalScalarFieldEnum = (typeof PropertyProposalScalarFieldEnum)[keyof typeof PropertyProposalScalarFieldEnum]
-
-
-export const PropertyAccountScalarFieldEnum = {
-  property_id: 'property_id',
-  property_public_key: 'property_public_key',
-  is_leased: 'is_leased',
-  property_system: 'property_system',
-  history_of_owner: 'history_of_owner',
-  state_pubkey: 'state_pubkey',
-  country_pubkey: 'country_pubkey',
-  issued_at: 'issued_at',
-  issued_by: 'issued_by',
-  metadata: 'metadata'
-} as const
-
-export type PropertyAccountScalarFieldEnum = (typeof PropertyAccountScalarFieldEnum)[keyof typeof PropertyAccountScalarFieldEnum]
-
-
-export const PropertyMetdataScalarFieldEnum = {
-  propertySystem: 'propertySystem',
-  legalDocURI: 'legalDocURI',
-  MetadataLastUpdated: 'MetadataLastUpdated'
-} as const
-
-export type PropertyMetdataScalarFieldEnum = (typeof PropertyMetdataScalarFieldEnum)[keyof typeof PropertyMetdataScalarFieldEnum]
+export type PropertyScalarFieldEnum = (typeof PropertyScalarFieldEnum)[keyof typeof PropertyScalarFieldEnum]
 
 
 export const SalaryClaimScalarFieldEnum = {

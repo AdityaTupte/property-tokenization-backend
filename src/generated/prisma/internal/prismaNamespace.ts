@@ -421,9 +421,7 @@ export const ModelName = {
   Fund: 'Fund',
   CandiateProfile: 'CandiateProfile',
   AuthorityCandidate: 'AuthorityCandidate',
-  PropertyProposal: 'PropertyProposal',
-  PropertyAccount: 'PropertyAccount',
-  PropertyMetdata: 'PropertyMetdata',
+  Property: 'Property',
   SalaryClaim: 'SalaryClaim',
   PropertySellProposal: 'PropertySellProposal',
   PropertyBuyProposal: 'PropertyBuyProposal',
@@ -454,7 +452,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "propertyProposal" | "propertyAccount" | "propertyMetdata" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2234,225 +2232,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    PropertyProposal: {
-      payload: Prisma.$PropertyProposalPayload<ExtArgs>
-      fields: Prisma.PropertyProposalFieldRefs
+    Property: {
+      payload: Prisma.$PropertyPayload<ExtArgs>
+      fields: Prisma.PropertyFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.PropertyProposalFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload> | null
+          args: Prisma.PropertyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.PropertyProposalFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>
+          args: Prisma.PropertyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>
         }
         findFirst: {
-          args: Prisma.PropertyProposalFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload> | null
+          args: Prisma.PropertyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.PropertyProposalFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>
+          args: Prisma.PropertyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>
         }
         findMany: {
-          args: Prisma.PropertyProposalFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>[]
+          args: Prisma.PropertyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>[]
         }
         create: {
-          args: Prisma.PropertyProposalCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>
+          args: Prisma.PropertyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>
         }
         createMany: {
-          args: Prisma.PropertyProposalCreateManyArgs<ExtArgs>
+          args: Prisma.PropertyCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.PropertyProposalCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>[]
+          args: Prisma.PropertyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>[]
         }
         delete: {
-          args: Prisma.PropertyProposalDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>
+          args: Prisma.PropertyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>
         }
         update: {
-          args: Prisma.PropertyProposalUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>
+          args: Prisma.PropertyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>
         }
         deleteMany: {
-          args: Prisma.PropertyProposalDeleteManyArgs<ExtArgs>
+          args: Prisma.PropertyDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.PropertyProposalUpdateManyArgs<ExtArgs>
+          args: Prisma.PropertyUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.PropertyProposalUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>[]
+          args: Prisma.PropertyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>[]
         }
         upsert: {
-          args: Prisma.PropertyProposalUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyProposalPayload>
+          args: Prisma.PropertyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyPayload>
         }
         aggregate: {
-          args: Prisma.PropertyProposalAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregatePropertyProposal>
+          args: Prisma.PropertyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateProperty>
         }
         groupBy: {
-          args: Prisma.PropertyProposalGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PropertyProposalGroupByOutputType>[]
+          args: Prisma.PropertyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PropertyGroupByOutputType>[]
         }
         count: {
-          args: Prisma.PropertyProposalCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PropertyProposalCountAggregateOutputType> | number
-        }
-      }
-    }
-    PropertyAccount: {
-      payload: Prisma.$PropertyAccountPayload<ExtArgs>
-      fields: Prisma.PropertyAccountFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.PropertyAccountFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.PropertyAccountFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>
-        }
-        findFirst: {
-          args: Prisma.PropertyAccountFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.PropertyAccountFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>
-        }
-        findMany: {
-          args: Prisma.PropertyAccountFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>[]
-        }
-        create: {
-          args: Prisma.PropertyAccountCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>
-        }
-        createMany: {
-          args: Prisma.PropertyAccountCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.PropertyAccountCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>[]
-        }
-        delete: {
-          args: Prisma.PropertyAccountDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>
-        }
-        update: {
-          args: Prisma.PropertyAccountUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>
-        }
-        deleteMany: {
-          args: Prisma.PropertyAccountDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.PropertyAccountUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.PropertyAccountUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>[]
-        }
-        upsert: {
-          args: Prisma.PropertyAccountUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyAccountPayload>
-        }
-        aggregate: {
-          args: Prisma.PropertyAccountAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregatePropertyAccount>
-        }
-        groupBy: {
-          args: Prisma.PropertyAccountGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PropertyAccountGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.PropertyAccountCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PropertyAccountCountAggregateOutputType> | number
-        }
-      }
-    }
-    PropertyMetdata: {
-      payload: Prisma.$PropertyMetdataPayload<ExtArgs>
-      fields: Prisma.PropertyMetdataFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.PropertyMetdataFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.PropertyMetdataFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
-        }
-        findFirst: {
-          args: Prisma.PropertyMetdataFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.PropertyMetdataFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
-        }
-        findMany: {
-          args: Prisma.PropertyMetdataFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>[]
-        }
-        create: {
-          args: Prisma.PropertyMetdataCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
-        }
-        createMany: {
-          args: Prisma.PropertyMetdataCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.PropertyMetdataCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>[]
-        }
-        delete: {
-          args: Prisma.PropertyMetdataDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
-        }
-        update: {
-          args: Prisma.PropertyMetdataUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
-        }
-        deleteMany: {
-          args: Prisma.PropertyMetdataDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.PropertyMetdataUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.PropertyMetdataUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>[]
-        }
-        upsert: {
-          args: Prisma.PropertyMetdataUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$PropertyMetdataPayload>
-        }
-        aggregate: {
-          args: Prisma.PropertyMetdataAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregatePropertyMetdata>
-        }
-        groupBy: {
-          args: Prisma.PropertyMetdataGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PropertyMetdataGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.PropertyMetdataCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.PropertyMetdataCountAggregateOutputType> | number
+          args: Prisma.PropertyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PropertyCountAggregateOutputType> | number
         }
       }
     }
@@ -3882,44 +3732,24 @@ export const AuthorityCandidateScalarFieldEnum = {
 export type AuthorityCandidateScalarFieldEnum = (typeof AuthorityCandidateScalarFieldEnum)[keyof typeof AuthorityCandidateScalarFieldEnum]
 
 
-export const PropertyProposalScalarFieldEnum = {
+export const PropertyScalarFieldEnum = {
+  proposal_pubkey: 'proposal_pubkey',
   property_id: 'property_id',
-  proposal_property_pubkey: 'proposal_property_pubkey',
+  propertyKey: 'propertyKey',
+  is_leased: 'is_leased',
+  issued_at: 'issued_at',
+  issued_by: 'issued_by',
+  history_of_owner: 'history_of_owner',
   property_system_pubkey: 'property_system_pubkey',
   state_pubkey: 'state_pubkey',
-  legal_doc_hash: 'legal_doc_hash',
-  issued_by: 'issued_by',
+  legalDocURI: 'legalDocURI',
+  MetadataLastUpdated: 'MetadataLastUpdated',
   approval_count: 'approval_count',
   approved: 'approved',
   executed: 'executed'
 } as const
 
-export type PropertyProposalScalarFieldEnum = (typeof PropertyProposalScalarFieldEnum)[keyof typeof PropertyProposalScalarFieldEnum]
-
-
-export const PropertyAccountScalarFieldEnum = {
-  property_id: 'property_id',
-  property_public_key: 'property_public_key',
-  is_leased: 'is_leased',
-  property_system: 'property_system',
-  history_of_owner: 'history_of_owner',
-  state_pubkey: 'state_pubkey',
-  country_pubkey: 'country_pubkey',
-  issued_at: 'issued_at',
-  issued_by: 'issued_by',
-  metadata: 'metadata'
-} as const
-
-export type PropertyAccountScalarFieldEnum = (typeof PropertyAccountScalarFieldEnum)[keyof typeof PropertyAccountScalarFieldEnum]
-
-
-export const PropertyMetdataScalarFieldEnum = {
-  propertySystem: 'propertySystem',
-  legalDocURI: 'legalDocURI',
-  MetadataLastUpdated: 'MetadataLastUpdated'
-} as const
-
-export type PropertyMetdataScalarFieldEnum = (typeof PropertyMetdataScalarFieldEnum)[keyof typeof PropertyMetdataScalarFieldEnum]
+export type PropertyScalarFieldEnum = (typeof PropertyScalarFieldEnum)[keyof typeof PropertyScalarFieldEnum]
 
 
 export const SalaryClaimScalarFieldEnum = {
@@ -4556,9 +4386,7 @@ export type GlobalOmitConfig = {
   fund?: Prisma.FundOmit
   candiateProfile?: Prisma.CandiateProfileOmit
   authorityCandidate?: Prisma.AuthorityCandidateOmit
-  propertyProposal?: Prisma.PropertyProposalOmit
-  propertyAccount?: Prisma.PropertyAccountOmit
-  propertyMetdata?: Prisma.PropertyMetdataOmit
+  property?: Prisma.PropertyOmit
   salaryClaim?: Prisma.SalaryClaimOmit
   propertySellProposal?: Prisma.PropertySellProposalOmit
   propertyBuyProposal?: Prisma.PropertyBuyProposalOmit

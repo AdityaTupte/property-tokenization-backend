@@ -3,8 +3,9 @@ import type { instructionsSchema, messageSchema } from "../../../helius/findProg
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import { prisma } from "../../../prismaclient";
+import { ApiError } from "../../../utils/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
-import { tr } from "zod/locales";
 
 
 export const handleApproveLand:InstructionHandler = async(
@@ -16,20 +17,44 @@ export const handleApproveLand:InstructionHandler = async(
 
     const PropertyProposalAddress  = address(message.accountKeys[instruction.accounts[1]!]!)
 
-    const PropertyProposalPda = await GenericPda("propertyProposal",PropertyProposalAddress) as PdaTypes.PropertyProposalType
-
     const signer = address(message.accountKeys[instruction.accounts[2]!]!).toString()
 
+    const PropertyProposalDb = await prisma.property.findUnique({
+        where:{
+            proposal_pubkey:PropertyProposalAddress.toString(),
+        },
+        select:{
+            approval_count:true,
+            approved:true,
+            state:{
+                select:{
+                    state_public_key:true,
+                    state_authority_threshold:true
+                }
+            }
+        },
+        
+        
+    })
 
-    const isApproved =  PropertyProposalPda.approved === true
+    if(!PropertyProposalDb) throw new ApiError(409,"PropertyPropsal not Found")
+    
+    let isApproved = false
 
+    if(PropertyProposalDb.approval_count.length + 1 == PropertyProposalDb.state.state_authority_threshold  ){
+        
+        const PropertyProposalPda = await GenericPda("propertyProposal",PropertyProposalAddress) as PdaTypes.PropertyProposalType
+
+        isApproved = PropertyProposalPda.approved == true ? true : false;
+
+    }
 
 
     ctx.add(async (tx) =>{
 
-        tx.propertyProposal.update({
+        tx.property.update({
             where:{
-                proposal_property_pubkey:PropertyProposalAddress.toString(),
+                proposal_pubkey:PropertyProposalAddress.toString(),
             },
             data:{
                 approval_count:{

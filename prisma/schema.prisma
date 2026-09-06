@@ -225,7 +225,9 @@ model StatePda {
   state_bump                Int
   state_created_time        DateTime               @default(now())
   stateAuthorityReceipts    StateAuthorityReceipt?
-  property                  PropertyAccount[]
+  // propertyA                PropertyAccount[]
+  // propertyProposal          PropertyProposal[]
+  Property                  Property[]
 }
 
 model StateAuthorityReceipt {
@@ -256,8 +258,10 @@ model PropertySystemAccount {
   arbitrarRegistries         ArbitrarRegistry?
   thresholds                 Threshold?
   treasuries                 Treasury?
-  propertyAccounts           PropertyAccount[]
+  // propertyAccounts           PropertyAccount[]
+  // propertyAccounts           Property[]
   funds                      Fund[]
+  property Property[]
 }
 
 model DividendPda {
@@ -378,39 +382,57 @@ model AuthorityCandidate {
   @@id([candidate, proposal])
 }
 
-model PropertyProposal {
-  property_id              Int
-  proposal_property_pubkey String   @id
-  property_system_pubkey   String
+// model PropertyProposal {
+//   property_id              BigInt
+//   proposal_property_pubkey String   @id
+//   property_system_pubkey   String
+//   state_pubkey             String
+//   legal_doc_hash           String
+//   issued_by                String
+//   approval_count           String[]
+//   approved                 Boolean
+//   executed                 Boolean
+//   state                    StatePda @relation(fields: [state_pubkey], references: [state_public_key])
+// }
+// model PropertyAccount {
+//   property_id         Int
+//   property_public_key String                @id
+//   is_leased           Boolean
+//   property_system     String
+//   history_of_owner    String[]
+//   state_pubkey        String
+//   country_pubkey      String
+//   issued_at           DateTime              @default(now())
+//   issued_by           String
+//   metadata            String
+//   property_system_ref PropertySystemAccount @relation(fields: [property_public_key], references: [property_system_public_key])
+//   state StatePda @relation(fields: [state_pubkey], references: [state_public_key])
+// }
+
+model Property{
+  proposal_pubkey     String   @unique
+  property_id         BigInt   
+  propertyKey         String? @unique
+  is_leased           Boolean?
+  issued_at           DateTime?
+  issued_by           String
+  history_of_owner    String[]
+  property_system_pubkey   String?
   state_pubkey             String
-  legal_doc_hash           String
-  issued_by                String
+  legalDocURI          String 
+  MetadataLastUpdated DateTime @updatedAt
   approval_count           String[]
   approved                 Boolean
   executed                 Boolean
-        
-}
-
-model PropertyAccount {
-  property_id         Int
-  property_public_key String                @id
-  is_leased           Boolean
-  property_system     String
-  history_of_owner    String[]
-  state_pubkey        String
-  country_pubkey      String
-  issued_at           DateTime              @default(now())
-  issued_by           String
-  metadata            String
-  property_system_ref PropertySystemAccount @relation(fields: [property_public_key], references: [property_system_public_key])
+  property_system_ref PropertySystemAccount? @relation(fields: [property_system_pubkey], references: [property_system_public_key])
   state StatePda @relation(fields: [state_pubkey], references: [state_public_key])
 }
 
-model PropertyMetdata{
-    propertySystem String @id
-    legalDocURI String 
-    MetadataLastUpdated DateTime
-}
+// model PropertyMetdata{
+//     propertySystem String @id
+//     legalDocURI String 
+//     MetadataLastUpdated DateTime
+// }
 
 
 model SalaryClaim {

@@ -138,20 +138,10 @@ export type CandiateProfile = Prisma.CandiateProfileModel
  */
 export type AuthorityCandidate = Prisma.AuthorityCandidateModel
 /**
- * Model PropertyProposal
+ * Model Property
  * 
  */
-export type PropertyProposal = Prisma.PropertyProposalModel
-/**
- * Model PropertyAccount
- * 
- */
-export type PropertyAccount = Prisma.PropertyAccountModel
-/**
- * Model PropertyMetdata
- * 
- */
-export type PropertyMetdata = Prisma.PropertyMetdataModel
+export type Property = Prisma.PropertyModel
 /**
  * Model SalaryClaim
  * 

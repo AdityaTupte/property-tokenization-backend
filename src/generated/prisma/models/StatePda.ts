@@ -273,7 +273,7 @@ export type StatePdaWhereInput = {
   state_bump?: Prisma.IntFilter<"StatePda"> | number
   state_created_time?: Prisma.DateTimeFilter<"StatePda"> | Date | string
   stateAuthorityReceipts?: Prisma.XOR<Prisma.StateAuthorityReceiptNullableScalarRelationFilter, Prisma.StateAuthorityReceiptWhereInput> | null
-  property?: Prisma.PropertyAccountListRelationFilter
+  Property?: Prisma.PropertyListRelationFilter
 }
 
 export type StatePdaOrderByWithRelationInput = {
@@ -288,7 +288,7 @@ export type StatePdaOrderByWithRelationInput = {
   state_bump?: Prisma.SortOrder
   state_created_time?: Prisma.SortOrder
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptOrderByWithRelationInput
-  property?: Prisma.PropertyAccountOrderByRelationAggregateInput
+  Property?: Prisma.PropertyOrderByRelationAggregateInput
 }
 
 export type StatePdaWhereUniqueInput = Prisma.AtLeast<{
@@ -306,7 +306,7 @@ export type StatePdaWhereUniqueInput = Prisma.AtLeast<{
   state_bump?: Prisma.IntFilter<"StatePda"> | number
   state_created_time?: Prisma.DateTimeFilter<"StatePda"> | Date | string
   stateAuthorityReceipts?: Prisma.XOR<Prisma.StateAuthorityReceiptNullableScalarRelationFilter, Prisma.StateAuthorityReceiptWhereInput> | null
-  property?: Prisma.PropertyAccountListRelationFilter
+  Property?: Prisma.PropertyListRelationFilter
 }, "state_public_key">
 
 export type StatePdaOrderByWithAggregationInput = {
@@ -355,7 +355,7 @@ export type StatePdaCreateInput = {
   state_bump: number
   state_created_time?: Date | string
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptCreateNestedOneWithoutStateInput
-  property?: Prisma.PropertyAccountCreateNestedManyWithoutStateInput
+  Property?: Prisma.PropertyCreateNestedManyWithoutStateInput
 }
 
 export type StatePdaUncheckedCreateInput = {
@@ -370,7 +370,7 @@ export type StatePdaUncheckedCreateInput = {
   state_bump: number
   state_created_time?: Date | string
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUncheckedCreateNestedOneWithoutStateInput
-  property?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutStateInput
+  Property?: Prisma.PropertyUncheckedCreateNestedManyWithoutStateInput
 }
 
 export type StatePdaUpdateInput = {
@@ -385,7 +385,7 @@ export type StatePdaUpdateInput = {
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUpdateOneWithoutStateNestedInput
-  property?: Prisma.PropertyAccountUpdateManyWithoutStateNestedInput
+  Property?: Prisma.PropertyUpdateManyWithoutStateNestedInput
 }
 
 export type StatePdaUncheckedUpdateInput = {
@@ -400,7 +400,7 @@ export type StatePdaUncheckedUpdateInput = {
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   stateAuthorityReceipts?: Prisma.StateAuthorityReceiptUncheckedUpdateOneWithoutStateNestedInput
-  property?: Prisma.PropertyAccountUncheckedUpdateManyWithoutStateNestedInput
+  Property?: Prisma.PropertyUncheckedUpdateManyWithoutStateNestedInput
 }
 
 export type StatePdaCreateManyInput = {
@@ -541,7 +541,7 @@ export type StatePdaCreateWithoutStateAuthorityReceiptsInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  property?: Prisma.PropertyAccountCreateNestedManyWithoutStateInput
+  Property?: Prisma.PropertyCreateNestedManyWithoutStateInput
 }
 
 export type StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput = {
@@ -555,7 +555,7 @@ export type StatePdaUncheckedCreateWithoutStateAuthorityReceiptsInput = {
   country_pubkey: string
   state_bump: number
   state_created_time?: Date | string
-  property?: Prisma.PropertyAccountUncheckedCreateNestedManyWithoutStateInput
+  Property?: Prisma.PropertyUncheckedCreateNestedManyWithoutStateInput
 }
 
 export type StatePdaCreateOrConnectWithoutStateAuthorityReceiptsInput = {
@@ -585,7 +585,7 @@ export type StatePdaUpdateWithoutStateAuthorityReceiptsInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  property?: Prisma.PropertyAccountUpdateManyWithoutStateNestedInput
+  Property?: Prisma.PropertyUpdateManyWithoutStateNestedInput
 }
 
 export type StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput = {
@@ -599,7 +599,7 @@ export type StatePdaUncheckedUpdateWithoutStateAuthorityReceiptsInput = {
   country_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   state_bump?: Prisma.IntFieldUpdateOperationsInput | number
   state_created_time?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  property?: Prisma.PropertyAccountUncheckedUpdateManyWithoutStateNestedInput
+  Property?: Prisma.PropertyUncheckedUpdateManyWithoutStateNestedInput
 }
 
 export type StatePdaCreateWithoutPropertyInput = {
@@ -680,11 +680,11 @@ export type StatePdaUncheckedUpdateWithoutPropertyInput = {
  */
 
 export type StatePdaCountOutputType = {
-  property: number
+  Property: number
 }
 
 export type StatePdaCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  property?: boolean | StatePdaCountOutputTypeCountPropertyArgs
+  Property?: boolean | StatePdaCountOutputTypeCountPropertyArgs
 }
 
 /**
@@ -701,7 +701,7 @@ export type StatePdaCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Ext
  * StatePdaCountOutputType without action
  */
 export type StatePdaCountOutputTypeCountPropertyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.PropertyAccountWhereInput
+  where?: Prisma.PropertyWhereInput
 }
 
 
@@ -717,7 +717,7 @@ export type StatePdaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   state_bump?: boolean
   state_created_time?: boolean
   stateAuthorityReceipts?: boolean | Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>
-  property?: boolean | Prisma.StatePda$propertyArgs<ExtArgs>
+  Property?: boolean | Prisma.StatePda$PropertyArgs<ExtArgs>
   _count?: boolean | Prisma.StatePdaCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["statePda"]>
 
@@ -763,7 +763,7 @@ export type StatePdaSelectScalar = {
 export type StatePdaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"state_public_key" | "proposal_public_key" | "current_total_authority" | "state_id" | "state_name" | "state_total_authorities" | "state_authority_threshold" | "country_pubkey" | "state_bump" | "state_created_time", ExtArgs["result"]["statePda"]>
 export type StatePdaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   stateAuthorityReceipts?: boolean | Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>
-  property?: boolean | Prisma.StatePda$propertyArgs<ExtArgs>
+  Property?: boolean | Prisma.StatePda$PropertyArgs<ExtArgs>
   _count?: boolean | Prisma.StatePdaCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type StatePdaIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -773,7 +773,7 @@ export type $StatePdaPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   name: "StatePda"
   objects: {
     stateAuthorityReceipts: Prisma.$StateAuthorityReceiptPayload<ExtArgs> | null
-    property: Prisma.$PropertyAccountPayload<ExtArgs>[]
+    Property: Prisma.$PropertyPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     state_public_key: string
@@ -1181,7 +1181,7 @@ readonly fields: StatePdaFieldRefs;
 export interface Prisma__StatePdaClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   stateAuthorityReceipts<T extends Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StatePda$stateAuthorityReceiptsArgs<ExtArgs>>): Prisma.Prisma__StateAuthorityReceiptClient<runtime.Types.Result.GetResult<Prisma.$StateAuthorityReceiptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  property<T extends Prisma.StatePda$propertyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StatePda$propertyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Property<T extends Prisma.StatePda$PropertyArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.StatePda$PropertyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PropertyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1633,27 +1633,27 @@ export type StatePda$stateAuthorityReceiptsArgs<ExtArgs extends runtime.Types.Ex
 }
 
 /**
- * StatePda.property
+ * StatePda.Property
  */
-export type StatePda$propertyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type StatePda$PropertyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the PropertyAccount
+   * Select specific fields to fetch from the Property
    */
-  select?: Prisma.PropertyAccountSelect<ExtArgs> | null
+  select?: Prisma.PropertySelect<ExtArgs> | null
   /**
-   * Omit specific fields from the PropertyAccount
+   * Omit specific fields from the Property
    */
-  omit?: Prisma.PropertyAccountOmit<ExtArgs> | null
+  omit?: Prisma.PropertyOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.PropertyAccountInclude<ExtArgs> | null
-  where?: Prisma.PropertyAccountWhereInput
-  orderBy?: Prisma.PropertyAccountOrderByWithRelationInput | Prisma.PropertyAccountOrderByWithRelationInput[]
-  cursor?: Prisma.PropertyAccountWhereUniqueInput
+  include?: Prisma.PropertyInclude<ExtArgs> | null
+  where?: Prisma.PropertyWhereInput
+  orderBy?: Prisma.PropertyOrderByWithRelationInput | Prisma.PropertyOrderByWithRelationInput[]
+  cursor?: Prisma.PropertyWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.PropertyAccountScalarFieldEnum | Prisma.PropertyAccountScalarFieldEnum[]
+  distinct?: Prisma.PropertyScalarFieldEnum | Prisma.PropertyScalarFieldEnum[]
 }
 
 /**
