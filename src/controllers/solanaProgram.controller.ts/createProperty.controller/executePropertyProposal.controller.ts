@@ -37,8 +37,6 @@ export const handleExecutedLand:InstructionHandler = async(
     if(!PropertyProposalDb) throw new ApiError(409,"PropertyProposal Not Found")
 
 
-
-
     ctx.add(async (tx) =>{
 
         tx.property.update({
@@ -49,11 +47,10 @@ export const handleExecutedLand:InstructionHandler = async(
             data:{
                 executed:true, 
                 propertyKey:PropertyAccountAddress.toString(),
-                // is_leased,
+
                 history_of_owner:{
                     set:[`${PropertyProposalDb.property_system_pubkey}`]
                 },
-                // country_pubkey:PropertyAccountPda.countryPubkey.toString(),
                 issued_at:new Date(BlockTime),
             }
 

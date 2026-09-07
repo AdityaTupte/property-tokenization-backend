@@ -410,6 +410,7 @@ export const ModelName = {
   StateProposal: 'StateProposal',
   StatePda: 'StatePda',
   StateAuthorityReceipt: 'StateAuthorityReceipt',
+  GovernanceMint: 'GovernanceMint',
   PropertySystemAccount: 'PropertySystemAccount',
   DividendPda: 'DividendPda',
   Trustees: 'Trustees',
@@ -452,7 +453,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1415,6 +1416,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.StateAuthorityReceiptCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.StateAuthorityReceiptCountAggregateOutputType> | number
+        }
+      }
+    }
+    GovernanceMint: {
+      payload: Prisma.$GovernanceMintPayload<ExtArgs>
+      fields: Prisma.GovernanceMintFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GovernanceMintFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GovernanceMintFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>
+        }
+        findFirst: {
+          args: Prisma.GovernanceMintFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GovernanceMintFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>
+        }
+        findMany: {
+          args: Prisma.GovernanceMintFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>[]
+        }
+        create: {
+          args: Prisma.GovernanceMintCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>
+        }
+        createMany: {
+          args: Prisma.GovernanceMintCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GovernanceMintCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>[]
+        }
+        delete: {
+          args: Prisma.GovernanceMintDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>
+        }
+        update: {
+          args: Prisma.GovernanceMintUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>
+        }
+        deleteMany: {
+          args: Prisma.GovernanceMintDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GovernanceMintUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GovernanceMintUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>[]
+        }
+        upsert: {
+          args: Prisma.GovernanceMintUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GovernanceMintPayload>
+        }
+        aggregate: {
+          args: Prisma.GovernanceMintAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGovernanceMint>
+        }
+        groupBy: {
+          args: Prisma.GovernanceMintGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernanceMintGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GovernanceMintCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GovernanceMintCountAggregateOutputType> | number
         }
       }
     }
@@ -3604,6 +3679,16 @@ export const StateAuthorityReceiptScalarFieldEnum = {
 export type StateAuthorityReceiptScalarFieldEnum = (typeof StateAuthorityReceiptScalarFieldEnum)[keyof typeof StateAuthorityReceiptScalarFieldEnum]
 
 
+export const GovernanceMintScalarFieldEnum = {
+  governance_mint: 'governance_mint',
+  tokenSupply: 'tokenSupply',
+  decimal: 'decimal',
+  name: 'name'
+} as const
+
+export type GovernanceMintScalarFieldEnum = (typeof GovernanceMintScalarFieldEnum)[keyof typeof GovernanceMintScalarFieldEnum]
+
+
 export const PropertySystemAccountScalarFieldEnum = {
   creator_pubky: 'creator_pubky',
   property_system_id: 'property_system_id',
@@ -4375,6 +4460,7 @@ export type GlobalOmitConfig = {
   stateProposal?: Prisma.StateProposalOmit
   statePda?: Prisma.StatePdaOmit
   stateAuthorityReceipt?: Prisma.StateAuthorityReceiptOmit
+  governanceMint?: Prisma.GovernanceMintOmit
   propertySystemAccount?: Prisma.PropertySystemAccountOmit
   dividendPda?: Prisma.DividendPdaOmit
   trustees?: Prisma.TrusteesOmit

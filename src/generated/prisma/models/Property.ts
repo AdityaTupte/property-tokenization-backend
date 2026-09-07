@@ -236,7 +236,7 @@ export type PropertyGroupByOutputType = {
   property_system_pubkey: string | null
   state_pubkey: string
   legalDocURI: string
-  MetadataLastUpdated: Date | null
+  MetadataLastUpdated: Date
   approval_count: string[]
   approved: boolean
   executed: boolean
@@ -276,7 +276,7 @@ export type PropertyWhereInput = {
   property_system_pubkey?: Prisma.StringNullableFilter<"Property"> | string | null
   state_pubkey?: Prisma.StringFilter<"Property"> | string
   legalDocURI?: Prisma.StringFilter<"Property"> | string
-  MetadataLastUpdated?: Prisma.DateTimeNullableFilter<"Property"> | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFilter<"Property"> | Date | string
   approval_count?: Prisma.StringNullableListFilter<"Property">
   approved?: Prisma.BoolFilter<"Property"> | boolean
   executed?: Prisma.BoolFilter<"Property"> | boolean
@@ -295,7 +295,7 @@ export type PropertyOrderByWithRelationInput = {
   property_system_pubkey?: Prisma.SortOrderInput | Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
   legalDocURI?: Prisma.SortOrder
-  MetadataLastUpdated?: Prisma.SortOrderInput | Prisma.SortOrder
+  MetadataLastUpdated?: Prisma.SortOrder
   approval_count?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
@@ -317,7 +317,7 @@ export type PropertyWhereUniqueInput = Prisma.AtLeast<{
   property_system_pubkey?: Prisma.StringNullableFilter<"Property"> | string | null
   state_pubkey?: Prisma.StringFilter<"Property"> | string
   legalDocURI?: Prisma.StringFilter<"Property"> | string
-  MetadataLastUpdated?: Prisma.DateTimeNullableFilter<"Property"> | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFilter<"Property"> | Date | string
   approval_count?: Prisma.StringNullableListFilter<"Property">
   approved?: Prisma.BoolFilter<"Property"> | boolean
   executed?: Prisma.BoolFilter<"Property"> | boolean
@@ -336,7 +336,7 @@ export type PropertyOrderByWithAggregationInput = {
   property_system_pubkey?: Prisma.SortOrderInput | Prisma.SortOrder
   state_pubkey?: Prisma.SortOrder
   legalDocURI?: Prisma.SortOrder
-  MetadataLastUpdated?: Prisma.SortOrderInput | Prisma.SortOrder
+  MetadataLastUpdated?: Prisma.SortOrder
   approval_count?: Prisma.SortOrder
   approved?: Prisma.SortOrder
   executed?: Prisma.SortOrder
@@ -361,7 +361,7 @@ export type PropertyScalarWhereWithAggregatesInput = {
   property_system_pubkey?: Prisma.StringNullableWithAggregatesFilter<"Property"> | string | null
   state_pubkey?: Prisma.StringWithAggregatesFilter<"Property"> | string
   legalDocURI?: Prisma.StringWithAggregatesFilter<"Property"> | string
-  MetadataLastUpdated?: Prisma.DateTimeNullableWithAggregatesFilter<"Property"> | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeWithAggregatesFilter<"Property"> | Date | string
   approval_count?: Prisma.StringNullableListFilter<"Property">
   approved?: Prisma.BoolWithAggregatesFilter<"Property"> | boolean
   executed?: Prisma.BoolWithAggregatesFilter<"Property"> | boolean
@@ -376,7 +376,7 @@ export type PropertyCreateInput = {
   issued_by: string
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -395,7 +395,7 @@ export type PropertyUncheckedCreateInput = {
   property_system_pubkey?: string | null
   state_pubkey: string
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -410,7 +410,7 @@ export type PropertyUpdateInput = {
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -429,7 +429,7 @@ export type PropertyUncheckedUpdateInput = {
   property_system_pubkey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -446,7 +446,7 @@ export type PropertyCreateManyInput = {
   property_system_pubkey?: string | null
   state_pubkey: string
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -461,7 +461,7 @@ export type PropertyUpdateManyMutationInput = {
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -478,7 +478,7 @@ export type PropertyUncheckedUpdateManyInput = {
   property_system_pubkey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -664,7 +664,7 @@ export type PropertyCreateWithoutStateInput = {
   issued_by: string
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -681,7 +681,7 @@ export type PropertyUncheckedCreateWithoutStateInput = {
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   property_system_pubkey?: string | null
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -727,7 +727,7 @@ export type PropertyScalarWhereInput = {
   property_system_pubkey?: Prisma.StringNullableFilter<"Property"> | string | null
   state_pubkey?: Prisma.StringFilter<"Property"> | string
   legalDocURI?: Prisma.StringFilter<"Property"> | string
-  MetadataLastUpdated?: Prisma.DateTimeNullableFilter<"Property"> | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFilter<"Property"> | Date | string
   approval_count?: Prisma.StringNullableListFilter<"Property">
   approved?: Prisma.BoolFilter<"Property"> | boolean
   executed?: Prisma.BoolFilter<"Property"> | boolean
@@ -742,7 +742,7 @@ export type PropertyCreateWithoutProperty_system_refInput = {
   issued_by: string
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -759,7 +759,7 @@ export type PropertyUncheckedCreateWithoutProperty_system_refInput = {
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   state_pubkey: string
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -801,7 +801,7 @@ export type PropertyCreateManyStateInput = {
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   property_system_pubkey?: string | null
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -816,7 +816,7 @@ export type PropertyUpdateWithoutStateInput = {
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -833,7 +833,7 @@ export type PropertyUncheckedUpdateWithoutStateInput = {
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   property_system_pubkey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -849,7 +849,7 @@ export type PropertyUncheckedUpdateManyWithoutStateInput = {
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   property_system_pubkey?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -865,7 +865,7 @@ export type PropertyCreateManyProperty_system_refInput = {
   history_of_owner?: Prisma.PropertyCreatehistory_of_ownerInput | string[]
   state_pubkey: string
   legalDocURI: string
-  MetadataLastUpdated?: Date | string | null
+  MetadataLastUpdated?: Date | string
   approval_count?: Prisma.PropertyCreateapproval_countInput | string[]
   approved: boolean
   executed: boolean
@@ -880,7 +880,7 @@ export type PropertyUpdateWithoutProperty_system_refInput = {
   issued_by?: Prisma.StringFieldUpdateOperationsInput | string
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -897,7 +897,7 @@ export type PropertyUncheckedUpdateWithoutProperty_system_refInput = {
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -913,7 +913,7 @@ export type PropertyUncheckedUpdateManyWithoutProperty_system_refInput = {
   history_of_owner?: Prisma.PropertyUpdatehistory_of_ownerInput | string[]
   state_pubkey?: Prisma.StringFieldUpdateOperationsInput | string
   legalDocURI?: Prisma.StringFieldUpdateOperationsInput | string
-  MetadataLastUpdated?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  MetadataLastUpdated?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   approval_count?: Prisma.PropertyUpdateapproval_countInput | string[]
   approved?: Prisma.BoolFieldUpdateOperationsInput | boolean
   executed?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -1026,7 +1026,7 @@ export type $PropertyPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     property_system_pubkey: string | null
     state_pubkey: string
     legalDocURI: string
-    MetadataLastUpdated: Date | null
+    MetadataLastUpdated: Date
     approval_count: string[]
     approved: boolean
     executed: boolean

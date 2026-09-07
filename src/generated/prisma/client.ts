@@ -107,6 +107,11 @@ export type StatePda = Prisma.StatePdaModel
  */
 export type StateAuthorityReceipt = Prisma.StateAuthorityReceiptModel
 /**
+ * Model GovernanceMint
+ * 
+ */
+export type GovernanceMint = Prisma.GovernanceMintModel
+/**
  * Model PropertySystemAccount
  * 
  */

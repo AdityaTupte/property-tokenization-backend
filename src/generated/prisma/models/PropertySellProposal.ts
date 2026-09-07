@@ -32,12 +32,12 @@ export type PropertySellProposalAvgAggregateOutputType = {
 }
 
 export type PropertySellProposalSumAggregateOutputType = {
-  proposal_id: number | null
+  proposal_id: bigint | null
   sale_price: bigint | null
 }
 
 export type PropertySellProposalMinAggregateOutputType = {
-  proposal_id: number | null
+  proposal_id: bigint | null
   property_system: string | null
   proposal_key: string | null
   property_account: string | null
@@ -47,7 +47,7 @@ export type PropertySellProposalMinAggregateOutputType = {
 }
 
 export type PropertySellProposalMaxAggregateOutputType = {
-  proposal_id: number | null
+  proposal_id: bigint | null
   property_system: string | null
   proposal_key: string | null
   property_account: string | null
@@ -196,13 +196,13 @@ export type PropertySellProposalGroupByArgs<ExtArgs extends runtime.Types.Extens
 }
 
 export type PropertySellProposalGroupByOutputType = {
-  proposal_id: number
+  proposal_id: bigint
   property_system: string
   proposal_key: string
   property_account: string
   sale_price: bigint
   deposit_account_pda: string
-  transfer_deadline: Date
+  transfer_deadline: Date | null
   _count: PropertySellProposalCountAggregateOutputType | null
   _avg: PropertySellProposalAvgAggregateOutputType | null
   _sum: PropertySellProposalSumAggregateOutputType | null
@@ -229,13 +229,13 @@ export type PropertySellProposalWhereInput = {
   AND?: Prisma.PropertySellProposalWhereInput | Prisma.PropertySellProposalWhereInput[]
   OR?: Prisma.PropertySellProposalWhereInput[]
   NOT?: Prisma.PropertySellProposalWhereInput | Prisma.PropertySellProposalWhereInput[]
-  proposal_id?: Prisma.IntFilter<"PropertySellProposal"> | number
+  proposal_id?: Prisma.BigIntFilter<"PropertySellProposal"> | bigint | number
   property_system?: Prisma.StringFilter<"PropertySellProposal"> | string
   proposal_key?: Prisma.StringFilter<"PropertySellProposal"> | string
   property_account?: Prisma.StringFilter<"PropertySellProposal"> | string
   sale_price?: Prisma.BigIntFilter<"PropertySellProposal"> | bigint | number
   deposit_account_pda?: Prisma.StringFilter<"PropertySellProposal"> | string
-  transfer_deadline?: Prisma.DateTimeFilter<"PropertySellProposal"> | Date | string
+  transfer_deadline?: Prisma.DateTimeNullableFilter<"PropertySellProposal"> | Date | string | null
   proposal?: Prisma.XOR<Prisma.ProposalsScalarRelationFilter, Prisma.ProposalsWhereInput>
 }
 
@@ -246,7 +246,7 @@ export type PropertySellProposalOrderByWithRelationInput = {
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
   deposit_account_pda?: Prisma.SortOrder
-  transfer_deadline?: Prisma.SortOrder
+  transfer_deadline?: Prisma.SortOrderInput | Prisma.SortOrder
   proposal?: Prisma.ProposalsOrderByWithRelationInput
 }
 
@@ -255,12 +255,12 @@ export type PropertySellProposalWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.PropertySellProposalWhereInput | Prisma.PropertySellProposalWhereInput[]
   OR?: Prisma.PropertySellProposalWhereInput[]
   NOT?: Prisma.PropertySellProposalWhereInput | Prisma.PropertySellProposalWhereInput[]
-  proposal_id?: Prisma.IntFilter<"PropertySellProposal"> | number
+  proposal_id?: Prisma.BigIntFilter<"PropertySellProposal"> | bigint | number
   property_system?: Prisma.StringFilter<"PropertySellProposal"> | string
   property_account?: Prisma.StringFilter<"PropertySellProposal"> | string
   sale_price?: Prisma.BigIntFilter<"PropertySellProposal"> | bigint | number
   deposit_account_pda?: Prisma.StringFilter<"PropertySellProposal"> | string
-  transfer_deadline?: Prisma.DateTimeFilter<"PropertySellProposal"> | Date | string
+  transfer_deadline?: Prisma.DateTimeNullableFilter<"PropertySellProposal"> | Date | string | null
   proposal?: Prisma.XOR<Prisma.ProposalsScalarRelationFilter, Prisma.ProposalsWhereInput>
 }, "proposal_key">
 
@@ -271,7 +271,7 @@ export type PropertySellProposalOrderByWithAggregationInput = {
   property_account?: Prisma.SortOrder
   sale_price?: Prisma.SortOrder
   deposit_account_pda?: Prisma.SortOrder
-  transfer_deadline?: Prisma.SortOrder
+  transfer_deadline?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.PropertySellProposalCountOrderByAggregateInput
   _avg?: Prisma.PropertySellProposalAvgOrderByAggregateInput
   _max?: Prisma.PropertySellProposalMaxOrderByAggregateInput
@@ -283,82 +283,82 @@ export type PropertySellProposalScalarWhereWithAggregatesInput = {
   AND?: Prisma.PropertySellProposalScalarWhereWithAggregatesInput | Prisma.PropertySellProposalScalarWhereWithAggregatesInput[]
   OR?: Prisma.PropertySellProposalScalarWhereWithAggregatesInput[]
   NOT?: Prisma.PropertySellProposalScalarWhereWithAggregatesInput | Prisma.PropertySellProposalScalarWhereWithAggregatesInput[]
-  proposal_id?: Prisma.IntWithAggregatesFilter<"PropertySellProposal"> | number
+  proposal_id?: Prisma.BigIntWithAggregatesFilter<"PropertySellProposal"> | bigint | number
   property_system?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
   proposal_key?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
   property_account?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
   sale_price?: Prisma.BigIntWithAggregatesFilter<"PropertySellProposal"> | bigint | number
   deposit_account_pda?: Prisma.StringWithAggregatesFilter<"PropertySellProposal"> | string
-  transfer_deadline?: Prisma.DateTimeWithAggregatesFilter<"PropertySellProposal"> | Date | string
+  transfer_deadline?: Prisma.DateTimeNullableWithAggregatesFilter<"PropertySellProposal"> | Date | string | null
 }
 
 export type PropertySellProposalCreateInput = {
-  proposal_id: number
+  proposal_id: bigint | number
   property_system: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
-  transfer_deadline: Date | string
+  transfer_deadline?: Date | string | null
   proposal: Prisma.ProposalsCreateNestedOneWithoutPropertySellProposalsInput
 }
 
 export type PropertySellProposalUncheckedCreateInput = {
-  proposal_id: number
+  proposal_id: bigint | number
   property_system: string
   proposal_key: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
-  transfer_deadline: Date | string
+  transfer_deadline?: Date | string | null
 }
 
 export type PropertySellProposalUpdateInput = {
-  proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposal_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
-  transfer_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transfer_deadline?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   proposal?: Prisma.ProposalsUpdateOneRequiredWithoutPropertySellProposalsNestedInput
 }
 
 export type PropertySellProposalUncheckedUpdateInput = {
-  proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposal_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
-  transfer_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transfer_deadline?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PropertySellProposalCreateManyInput = {
-  proposal_id: number
+  proposal_id: bigint | number
   property_system: string
   proposal_key: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
-  transfer_deadline: Date | string
+  transfer_deadline?: Date | string | null
 }
 
 export type PropertySellProposalUpdateManyMutationInput = {
-  proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposal_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
-  transfer_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transfer_deadline?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PropertySellProposalUncheckedUpdateManyInput = {
-  proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposal_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
-  transfer_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transfer_deadline?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PropertySellProposalCountOrderByAggregateInput = {
@@ -439,21 +439,21 @@ export type PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput = {
 }
 
 export type PropertySellProposalCreateWithoutProposalInput = {
-  proposal_id: number
+  proposal_id: bigint | number
   property_system: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
-  transfer_deadline: Date | string
+  transfer_deadline?: Date | string | null
 }
 
 export type PropertySellProposalUncheckedCreateWithoutProposalInput = {
-  proposal_id: number
+  proposal_id: bigint | number
   property_system: string
   property_account: string
   sale_price: bigint | number
   deposit_account_pda: string
-  transfer_deadline: Date | string
+  transfer_deadline?: Date | string | null
 }
 
 export type PropertySellProposalCreateOrConnectWithoutProposalInput = {
@@ -473,21 +473,21 @@ export type PropertySellProposalUpdateToOneWithWhereWithoutProposalInput = {
 }
 
 export type PropertySellProposalUpdateWithoutProposalInput = {
-  proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposal_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
-  transfer_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transfer_deadline?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type PropertySellProposalUncheckedUpdateWithoutProposalInput = {
-  proposal_id?: Prisma.IntFieldUpdateOperationsInput | number
+  proposal_id?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   property_account?: Prisma.StringFieldUpdateOperationsInput | string
   sale_price?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   deposit_account_pda?: Prisma.StringFieldUpdateOperationsInput | string
-  transfer_deadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  transfer_deadline?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -552,13 +552,13 @@ export type $PropertySellProposalPayload<ExtArgs extends runtime.Types.Extension
     proposal: Prisma.$ProposalsPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    proposal_id: number
+    proposal_id: bigint
     property_system: string
     proposal_key: string
     property_account: string
     sale_price: bigint
     deposit_account_pda: string
-    transfer_deadline: Date
+    transfer_deadline: Date | null
   }, ExtArgs["result"]["propertySellProposal"]>
   composites: {}
 }
@@ -983,7 +983,7 @@ export interface Prisma__PropertySellProposalClient<T, Null = never, ExtArgs ext
  * Fields of the PropertySellProposal model
  */
 export interface PropertySellProposalFieldRefs {
-  readonly proposal_id: Prisma.FieldRef<"PropertySellProposal", 'Int'>
+  readonly proposal_id: Prisma.FieldRef<"PropertySellProposal", 'BigInt'>
   readonly property_system: Prisma.FieldRef<"PropertySellProposal", 'String'>
   readonly proposal_key: Prisma.FieldRef<"PropertySellProposal", 'String'>
   readonly property_account: Prisma.FieldRef<"PropertySellProposal", 'String'>

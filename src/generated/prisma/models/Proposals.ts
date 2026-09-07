@@ -258,7 +258,7 @@ export type ProposalsGroupByOutputType = {
   merkle_root: string | null
   arbitrar_approvals: string[]
   is_arbitrar_approved: boolean | null
-  total_voting_power: bigint | null
+  total_voting_power: bigint
   votes_for: bigint | null
   votes_against: bigint | null
   vote_threshold: number | null
@@ -300,7 +300,7 @@ export type ProposalsWhereInput = {
   merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
-  total_voting_power?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
+  total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number
   votes_for?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   votes_against?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   vote_threshold?: Prisma.IntNullableFilter<"Proposals"> | number | null
@@ -320,7 +320,7 @@ export type ProposalsOrderByWithRelationInput = {
   merkle_root?: Prisma.SortOrderInput | Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
   is_arbitrar_approved?: Prisma.SortOrderInput | Prisma.SortOrder
-  total_voting_power?: Prisma.SortOrderInput | Prisma.SortOrder
+  total_voting_power?: Prisma.SortOrder
   votes_for?: Prisma.SortOrderInput | Prisma.SortOrder
   votes_against?: Prisma.SortOrderInput | Prisma.SortOrder
   vote_threshold?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -343,7 +343,7 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
-  total_voting_power?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
+  total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number
   votes_for?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   votes_against?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   vote_threshold?: Prisma.IntNullableFilter<"Proposals"> | number | null
@@ -363,7 +363,7 @@ export type ProposalsOrderByWithAggregationInput = {
   merkle_root?: Prisma.SortOrderInput | Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
   is_arbitrar_approved?: Prisma.SortOrderInput | Prisma.SortOrder
-  total_voting_power?: Prisma.SortOrderInput | Prisma.SortOrder
+  total_voting_power?: Prisma.SortOrder
   votes_for?: Prisma.SortOrderInput | Prisma.SortOrder
   votes_against?: Prisma.SortOrderInput | Prisma.SortOrder
   vote_threshold?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -390,7 +390,7 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   merkle_root?: Prisma.StringNullableWithAggregatesFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableWithAggregatesFilter<"Proposals"> | boolean | null
-  total_voting_power?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
+  total_voting_power?: Prisma.BigIntWithAggregatesFilter<"Proposals"> | bigint | number
   votes_for?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
   votes_against?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
   vote_threshold?: Prisma.IntNullableWithAggregatesFilter<"Proposals"> | number | null
@@ -409,7 +409,7 @@ export type ProposalsCreateInput = {
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
-  total_voting_power?: bigint | number | null
+  total_voting_power: bigint | number
   votes_for?: bigint | number | null
   votes_against?: bigint | number | null
   vote_threshold?: number | null
@@ -429,7 +429,7 @@ export type ProposalsUncheckedCreateInput = {
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
-  total_voting_power?: bigint | number | null
+  total_voting_power: bigint | number
   votes_for?: bigint | number | null
   votes_against?: bigint | number | null
   vote_threshold?: number | null
@@ -449,7 +449,7 @@ export type ProposalsUpdateInput = {
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -469,7 +469,7 @@ export type ProposalsUncheckedUpdateInput = {
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -489,7 +489,7 @@ export type ProposalsCreateManyInput = {
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
-  total_voting_power?: bigint | number | null
+  total_voting_power: bigint | number
   votes_for?: bigint | number | null
   votes_against?: bigint | number | null
   vote_threshold?: number | null
@@ -508,7 +508,7 @@ export type ProposalsUpdateManyMutationInput = {
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -527,7 +527,7 @@ export type ProposalsUncheckedUpdateManyInput = {
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -655,7 +655,7 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
-  total_voting_power?: bigint | number | null
+  total_voting_power: bigint | number
   votes_for?: bigint | number | null
   votes_against?: bigint | number | null
   vote_threshold?: number | null
@@ -674,7 +674,7 @@ export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
-  total_voting_power?: bigint | number | null
+  total_voting_power: bigint | number
   votes_for?: bigint | number | null
   votes_against?: bigint | number | null
   vote_threshold?: number | null
@@ -709,7 +709,7 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -728,7 +728,7 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  total_voting_power?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
   votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -838,7 +838,7 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     merkle_root: string | null
     arbitrar_approvals: string[]
     is_arbitrar_approved: boolean | null
-    total_voting_power: bigint | null
+    total_voting_power: bigint
     votes_for: bigint | null
     votes_against: bigint | null
     vote_threshold: number | null

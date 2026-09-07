@@ -44,7 +44,7 @@ export const handleCreateProperty:InstructionHandler = async(
                 issued_by:signer.toString(),
                 approved:false,
                 executed:false,
-                proposal_pubkey:PropertyProposalAddress.toString()
+                proposal_pubkey:PropertyProposalAddress.toString(),
             } 
             
         })

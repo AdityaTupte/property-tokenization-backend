@@ -64,6 +64,7 @@ export const ModelName = {
   StateProposal: 'StateProposal',
   StatePda: 'StatePda',
   StateAuthorityReceipt: 'StateAuthorityReceipt',
+  GovernanceMint: 'GovernanceMint',
   PropertySystemAccount: 'PropertySystemAccount',
   DividendPda: 'DividendPda',
   Trustees: 'Trustees',
@@ -256,6 +257,16 @@ export const StateAuthorityReceiptScalarFieldEnum = {
 } as const
 
 export type StateAuthorityReceiptScalarFieldEnum = (typeof StateAuthorityReceiptScalarFieldEnum)[keyof typeof StateAuthorityReceiptScalarFieldEnum]
+
+
+export const GovernanceMintScalarFieldEnum = {
+  governance_mint: 'governance_mint',
+  tokenSupply: 'tokenSupply',
+  decimal: 'decimal',
+  name: 'name'
+} as const
+
+export type GovernanceMintScalarFieldEnum = (typeof GovernanceMintScalarFieldEnum)[keyof typeof GovernanceMintScalarFieldEnum]
 
 
 export const PropertySystemAccountScalarFieldEnum = {

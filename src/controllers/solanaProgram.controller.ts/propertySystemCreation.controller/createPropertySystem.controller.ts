@@ -166,6 +166,15 @@ export const handleCreatePropertySystem:InstructionHandler = async (
       }
     })
 
+    await tx.governanceMint.create({
+      data:{
+        governance_mint:governance_mint.toString(),
+        decimal:argument.decimals,
+        tokenSupply:argument.number_of_tokens,
+        name:argument.name
+      }
+    })
+
 
   });
 
