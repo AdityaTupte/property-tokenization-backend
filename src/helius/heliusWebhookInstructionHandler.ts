@@ -24,6 +24,9 @@ export const heliusRaWDataHandler = asyncHandler(
       }
     })
 
+    
+    
+
     if(signature) throw new ApiError(400,"Since the signature is already provided, signature parsing is not required.")
 
       
@@ -31,7 +34,7 @@ export const heliusRaWDataHandler = asyncHandler(
     
       
 
-   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,webhookSchema.data.transaction.blockTime);
+   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,webhookSchema.data.transaction.blockTime,webhookSchema.data.transaction.meta);
 
 
 

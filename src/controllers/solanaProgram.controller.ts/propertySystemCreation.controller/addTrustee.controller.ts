@@ -1,5 +1,5 @@
 import { address } from "@solana/kit";
-import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
+import type { instructionsSchema, messageSchema, metaSchema } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
@@ -10,7 +10,9 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 export const handleAddTrustee:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
-    ctx:TransactionContext
+    ctx:TransactionContext,
+    BlockTime:number,
+    meta:metaSchema
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);

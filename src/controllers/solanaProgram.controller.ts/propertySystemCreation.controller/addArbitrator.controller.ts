@@ -1,5 +1,5 @@
 import { address } from "@solana/kit";
-import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
+import type { instructionsSchema, messageSchema, metaSchema } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
@@ -9,6 +9,7 @@ export const handleAddArbitrator:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
+    meta:metaSchema
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);

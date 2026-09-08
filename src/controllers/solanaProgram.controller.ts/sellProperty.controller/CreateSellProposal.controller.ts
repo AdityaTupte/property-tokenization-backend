@@ -2,6 +2,7 @@ import { address } from "@solana/kit";
 import type {
   instructionsSchema,
   messageSchema,
+  metaSchema,
 } from "../../../helius/findProgramIndex";
 
 // import { GenericPda } from "../../../utils/genericPda";
@@ -18,7 +19,8 @@ export const handleSellPropertyProposal: InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx: TransactionContext,
-  BlockTime: number
+  BlockTime: number,
+  meta:metaSchema
 ) => {
   const proposalAddress = address(
     message.accountKeys[instruction.accounts[2]!]!

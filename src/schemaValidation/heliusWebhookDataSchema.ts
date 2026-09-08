@@ -16,6 +16,10 @@ export const messageSchema = z.object({
             )            
             })
 
+export const metaData = z.object({
+                logMessages:z.array(z.string()),
+})
+
 export const HeliusWebhookSchema = z.object({
     signature:z.string(),
 
@@ -23,7 +27,7 @@ export const HeliusWebhookSchema = z.object({
         blockTime : z.number(),
         slot:z.number(),
         version:z.string(),
-
+        meta:metaData,
         transaction:z.object({
             message:messageSchema
             

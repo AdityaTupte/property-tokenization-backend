@@ -1,6 +1,7 @@
 import type {
   instructionsSchema,
   messageSchema,
+  metaSchema,
 } from "../../../helius/findProgramIndex";
 import { address } from "@solana/kit";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
@@ -8,19 +9,21 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";
+import { solanaArgs } from "../../../utils/argumentsdecoder";
 
 export const handleCreatePropertySystem:InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx:TransactionContext,
-  BlockTime:number
+  BlockTime:number,
+  meta:metaSchema
 ) => {
 
-  const bytes = Buffer.from(bs58.decode(instruction.data));
+  // const bytes = Buffer.from(bs58.decode(instruction.data));
 
-  const decodedData = decoder.decode(bytes)
+  // const decodedData = decoder.decode(bytes)          
 
-  const argument = create_property_systemSchema.parse(decodedData?.data)
+  const argument = create_property_systemSchema.parse(solanaArgs(instruction.data)?.data)
 
   const propertySystemAddress = address(
     message.accountKeys.at(instruction.accounts[1]!)!

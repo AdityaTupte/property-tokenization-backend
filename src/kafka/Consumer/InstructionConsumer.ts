@@ -1,3 +1,4 @@
+import { da } from "zod/locales";
 import { solanaInstructionHandler } 
     from "../../helius/instructionHandlerForSolanaProgram";
 
@@ -55,7 +56,8 @@ export const kafkaInstructionconsumer = async function () {
                          data.transaction,
                          element.data,
                          ctx,
-                         data.blockTime
+                         data.blockTime,
+                         data.meta,
                      );
                  }
  

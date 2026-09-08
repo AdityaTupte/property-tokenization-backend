@@ -1,8 +1,8 @@
-import type { instructionsSchema, messageSchema } from "../helius/findProgramIndex";
+import type { instructionsSchema, messageSchema,metaSchema } from "../helius/findProgramIndex";
 
 export interface InstructionNameAndData {
     name: string,
-    data: instructionsSchema
+    data: instructionsSchema,
 }
 
 
@@ -10,7 +10,8 @@ export interface InstructionNameAndData {
 export interface InstructionDataInterface {
     transaction : messageSchema,
     InstructionNameAndData : InstructionNameAndData[]
-    blockTime : number
+    blockTime : number,
+    meta:metaSchema,
 }
 
 
