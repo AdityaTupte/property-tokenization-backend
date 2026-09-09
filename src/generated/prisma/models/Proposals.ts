@@ -39,7 +39,7 @@ export type ProposalsSumAggregateOutputType = {
   votes_for: bigint | null
   votes_against: bigint | null
   vote_threshold: number | null
-  slot: number | null
+  slot: bigint | null
 }
 
 export type ProposalsMinAggregateOutputType = {
@@ -55,7 +55,7 @@ export type ProposalsMinAggregateOutputType = {
   status: $Enums.ProposalStatus | null
   snapshot_submitted: boolean | null
   proposal_type: $Enums.ProposalType | null
-  slot: number | null
+  slot: bigint | null
   created_at: Date | null
 }
 
@@ -72,7 +72,7 @@ export type ProposalsMaxAggregateOutputType = {
   status: $Enums.ProposalStatus | null
   snapshot_submitted: boolean | null
   proposal_type: $Enums.ProposalType | null
-  slot: number | null
+  slot: bigint | null
   created_at: Date | null
 }
 
@@ -268,7 +268,7 @@ export type ProposalsGroupByOutputType = {
   snapshot_submitted: boolean | null
   proposal_type: $Enums.ProposalType
   deleted: runtime.JsonValue | null
-  slot: number | null
+  slot: bigint | null
   created_at: Date
   _count: ProposalsCountAggregateOutputType | null
   _avg: ProposalsAvgAggregateOutputType | null
@@ -310,7 +310,7 @@ export type ProposalsWhereInput = {
   snapshot_submitted?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType
   deleted?: Prisma.JsonNullableFilter<"Proposals">
-  slot?: Prisma.IntNullableFilter<"Proposals"> | number | null
+  slot?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }
@@ -353,7 +353,7 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   snapshot_submitted?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFilter<"Proposals"> | $Enums.ProposalType
   deleted?: Prisma.JsonNullableFilter<"Proposals">
-  slot?: Prisma.IntNullableFilter<"Proposals"> | number | null
+  slot?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }, "proposal_key">
@@ -400,7 +400,7 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   snapshot_submitted?: Prisma.BoolNullableWithAggregatesFilter<"Proposals"> | boolean | null
   proposal_type?: Prisma.EnumProposalTypeWithAggregatesFilter<"Proposals"> | $Enums.ProposalType
   deleted?: Prisma.JsonNullableWithAggregatesFilter<"Proposals">
-  slot?: Prisma.IntNullableWithAggregatesFilter<"Proposals"> | number | null
+  slot?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
 }
 
@@ -419,7 +419,7 @@ export type ProposalsCreateInput = {
   snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: number | null
+  slot?: bigint | number | null
   created_at?: Date | string
   propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
 }
@@ -439,7 +439,7 @@ export type ProposalsUncheckedCreateInput = {
   snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: number | null
+  slot?: bigint | number | null
   created_at?: Date | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
 }
@@ -459,7 +459,7 @@ export type ProposalsUpdateInput = {
   snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
 }
@@ -479,7 +479,7 @@ export type ProposalsUncheckedUpdateInput = {
   snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
 }
@@ -499,7 +499,7 @@ export type ProposalsCreateManyInput = {
   snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: number | null
+  slot?: bigint | number | null
   created_at?: Date | string
 }
 
@@ -518,7 +518,7 @@ export type ProposalsUpdateManyMutationInput = {
   snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -537,7 +537,7 @@ export type ProposalsUncheckedUpdateManyInput = {
   snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -665,7 +665,7 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
   snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: number | null
+  slot?: bigint | number | null
   created_at?: Date | string
 }
 
@@ -684,7 +684,7 @@ export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   snapshot_submitted?: boolean | null
   proposal_type: $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: number | null
+  slot?: bigint | number | null
   created_at?: Date | string
 }
 
@@ -719,7 +719,7 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -738,7 +738,7 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  slot?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -848,7 +848,7 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     snapshot_submitted: boolean | null
     proposal_type: $Enums.ProposalType
     deleted: runtime.JsonValue | null
-    slot: number | null
+    slot: bigint | null
     created_at: Date
   }, ExtArgs["result"]["proposals"]>
   composites: {}
@@ -1288,7 +1288,7 @@ export interface ProposalsFieldRefs {
   readonly snapshot_submitted: Prisma.FieldRef<"Proposals", 'Boolean'>
   readonly proposal_type: Prisma.FieldRef<"Proposals", 'ProposalType'>
   readonly deleted: Prisma.FieldRef<"Proposals", 'Json'>
-  readonly slot: Prisma.FieldRef<"Proposals", 'Int'>
+  readonly slot: Prisma.FieldRef<"Proposals", 'BigInt'>
   readonly created_at: Prisma.FieldRef<"Proposals", 'DateTime'>
 }
     

@@ -21,3 +21,5 @@ anchor.setProvider(provider);
 
     export const program =  new Program<PropertyTokenization>(idl as PropertyTokenization,provider);
     export const decoder = new BorshInstructionCoder(idl as any);
+    export const eventDecoder = new anchor.BorshEventCoder(idl as any);
+    

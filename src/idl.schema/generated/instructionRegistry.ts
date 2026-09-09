@@ -9,50 +9,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_arbitrar_for_removal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_offender_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_offender_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -64,40 +64,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_arbitrar_offender"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_offender",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "offender_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_offender",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "offender_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -109,40 +109,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_arbitrator"],
             accounts: [
                 {
-        name: "authority",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrator_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_arbitrator",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "new_arbitrator_recepit",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "authority",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrator_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_arbitrator",
+                writable: true,
+                signer: true
+            },
+{
+                name: "new_arbitrator_recepit",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -154,40 +154,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_country_authority"],
             accounts: [
                 {
-        name: "authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "country_authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "country",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "country_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "country_authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "country",
+                writable: true,
+                signer: false
+            },
+{
+                name: "country_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -199,45 +199,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_new_arbitrar"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "counter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "counter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -249,40 +249,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_new_authority_for_arbitrar_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "counter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "counter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -294,40 +294,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_new_authority_for_trustee_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "counter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "counter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -339,45 +339,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_new_trustee"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "counter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "counter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -389,45 +389,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_state_auhtority"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "state_authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "country",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "country_authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "state",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "state_authority_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "state_authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "country",
+                writable: false,
+                signer: false
+            },
+{
+                name: "country_authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "state",
+                writable: true,
+                signer: false
+            },
+{
+                name: "state_authority_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -439,35 +439,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_trustee"],
             accounts: [
                 {
-        name: "authority",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "new_trustee_recepit",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "authority",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "new_trustee_recepit",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -479,50 +479,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_trustee_for_removal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_offender_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "remove_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_offender_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            },
+{
+                name: "remove_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -534,40 +534,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["add_trustee_offender"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_offender",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "offender_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_offender",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "offender_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -579,35 +579,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["adjust_arbitrar_ranks"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate1",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc1",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate2",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc2",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate1",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc1",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate2",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc2",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -619,35 +619,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["adjust_ranking_of_new_authority_for_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate1",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc1",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate2",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc2",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate1",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc1",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate2",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc2",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -659,35 +659,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["adjust_ranks"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate1",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc1",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate2",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc2",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate1",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc1",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate2",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc2",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -699,30 +699,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["approve_country"],
             accounts: [
                 {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_recipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_recipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -734,35 +734,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["approve_property_proposal"],
             accounts: [
                 {
-        name: "state",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "state_authority_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_approval_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "state",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "state_authority_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_approval_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -774,40 +774,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["arbitrar_approval_for_lease"],
             accounts: [
                 {
-        name: "arbitrar",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "arbitrar",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_voter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -819,40 +819,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["arbitrar_approve_trustee_election"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -864,35 +864,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["arbitrar_resign"],
             accounts: [
                 {
-        name: "arbitrar",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "arbitrar",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -904,60 +904,60 @@ export const InstructionRegistry = new Map([
             schema: Schemas["arbitrar_salary_claim"],
             accounts: [
                 {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitirar_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitirar_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_registry_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -969,15 +969,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["ask_snapshot_for_challenge_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "challenge_proposal",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "challenge_proposal",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -989,15 +989,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["ask_snapshot_for_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposed_remove_proposal",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposed_remove_proposal",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1009,40 +1009,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["buy_proposal_arbitrar_vote"],
             accounts: [
                 {
-        name: "arbitrar",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "buyer",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "arbitrar",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "buyer",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_voter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1054,15 +1054,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["buy_proposal_finalize"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1074,30 +1074,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["buy_proposal_voting"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1109,15 +1109,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["buy_submit_snapshot"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1129,35 +1129,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["challenge_against_new_arbitrar"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_from",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "challenge_to",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_from",
+                writable: true,
+                signer: false
+            },
+{
+                name: "challenge_to",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1169,40 +1169,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["challenge_against_new_trustee"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_from",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "challenge_to",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_from",
+                writable: true,
+                signer: false
+            },
+{
+                name: "challenge_to",
+                writable: true,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1214,45 +1214,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["challenge_authority"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "ata",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "ata",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1264,35 +1264,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["challenge_new_authority_of_removal_prposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_from",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_to",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "ranking_acc",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_from",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_to",
+                writable: false,
+                signer: false
+            },
+{
+                name: "ranking_acc",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1304,30 +1304,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["challenge_new_threshold"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "existing_new_threshold",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "challenge_new_threshold",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "existing_new_threshold",
+                writable: false,
+                signer: false
+            },
+{
+                name: "challenge_new_threshold",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1339,30 +1339,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["change_to_the_new_threshold"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_threshold",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_threshold",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1374,65 +1374,65 @@ export const InstructionRegistry = new Map([
             schema: Schemas["claim_dividend_token"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "signer_governance_mint_ata",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "dividend_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "dividend_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reward_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "transfer_hook_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "governance_mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "signer_governance_mint_ata",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "dividend_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "dividend_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reward_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "transfer_hook_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "governance_mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1444,20 +1444,20 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_approve_country_authority"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "authority",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "authority",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1469,45 +1469,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_buy_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "buyer",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "buyer_reinvestment_pda",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "seller_proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_account",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "buyer",
+                writable: false,
+                signer: false
+            },
+{
+                name: "buyer_reinvestment_pda",
+                writable: false,
+                signer: false
+            },
+{
+                name: "seller_proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_account",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1519,25 +1519,25 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_candidate_profile"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "candidate",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "candidate",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1549,20 +1549,20 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_country_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "country_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "country_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1574,35 +1574,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_property_proposal"],
             accounts: [
                 {
-        name: "property_system",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "state",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "state_authority_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "property_system",
+                writable: true,
+                signer: false
+            },
+{
+                name: "state",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "state_authority_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1614,90 +1614,90 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_property_system"],
             accounts: [
                 {
-        name: "creator",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system_acc",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "threshold",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "treasury_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "safety_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "dividend_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrator_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "governance_mint",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "creator_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "custom_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "transfer_hook_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "extra_account_meta_list",
-        writable: true,
-        signer: undefined
-    }
+                name: "creator",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system_acc",
+                writable: true,
+                signer: false
+            },
+{
+                name: "threshold",
+                writable: true,
+                signer: false
+            },
+{
+                name: "treasury_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "safety_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "dividend_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrator_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "governance_mint",
+                writable: true,
+                signer: false
+            },
+{
+                name: "creator_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "custom_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "transfer_hook_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "extra_account_meta_list",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1709,40 +1709,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["create_sell_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "seller",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "seller_treasury",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_account",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "seller",
+                writable: false,
+                signer: false
+            },
+{
+                name: "seller_treasury",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_account",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1754,25 +1754,25 @@ export const InstructionRegistry = new Map([
             schema: Schemas["delete_buy_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1784,25 +1784,25 @@ export const InstructionRegistry = new Map([
             schema: Schemas["delete_sell"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -1814,80 +1814,80 @@ export const InstructionRegistry = new Map([
             schema: Schemas["execute_buy_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "buyer",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "buyer_wallet",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "buyer_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "sell_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "seller",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "seller_treasury",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "seller_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_account",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "buyer",
+                writable: true,
+                signer: false
+            },
+{
+                name: "buyer_wallet",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "buyer_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "sell_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "seller",
+                writable: true,
+                signer: false
+            },
+{
+                name: "seller_treasury",
+                writable: false,
+                signer: false
+            },
+{
+                name: "seller_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_account",
+                writable: true,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1899,25 +1899,25 @@ export const InstructionRegistry = new Map([
             schema: Schemas["execute_country_propsal"],
             accounts: [
                 {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "country_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "country_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1929,45 +1929,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["execute_property_proposal"],
             accounts: [
                 {
-        name: "property_system_account",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "state",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "state_authority_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_metadata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "property_system_account",
+                writable: true,
+                signer: false
+            },
+{
+                name: "state",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "state_authority_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_metadata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -1979,30 +1979,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_arbitrar_candidate_profile_for_challenge_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_offender_receipt",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_offender_receipt",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2014,65 +2014,65 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_lease"],
             accounts: [
                 {
-        name: "neutral",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "lessee",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "lessee_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "neutral",
+                writable: false,
+                signer: true
+            },
+{
+                name: "lessee",
+                writable: false,
+                signer: false
+            },
+{
+                name: "lessee_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2084,50 +2084,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_new_arbitrar"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "candidate",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "candidate",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2139,50 +2139,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_new_arbitrar_for_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "candidate",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "candidate",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2194,30 +2194,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_new_threshold"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "existing_threshold",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_threshold",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "existing_threshold",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_threshold",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2229,50 +2229,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_new_trustee"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "candidate",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "candidate",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2284,50 +2284,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_new_trustee_for_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "candidate",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "candidate",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2339,35 +2339,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_old_arbitrar"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2379,35 +2379,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_old_trsutee"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2419,15 +2419,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "remove_proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "remove_proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2439,15 +2439,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_rtc_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2459,30 +2459,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["finalize_trustee_candidate_profile_for_challenge_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_offender_receipt",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_offender_receipt",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2494,50 +2494,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["initialize_lease_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "lessee",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "neutral",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "lease_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "lessee",
+                writable: false,
+                signer: false
+            },
+{
+                name: "neutral",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property",
+                writable: false,
+                signer: false
+            },
+{
+                name: "lease_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2549,75 +2549,75 @@ export const InstructionRegistry = new Map([
             schema: Schemas["lease_accept"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "lease",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "neutral",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "signer_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "treasury_pda",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "treasury_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "lease",
+                writable: true,
+                signer: false
+            },
+{
+                name: "neutral",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "signer_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: true,
+                signer: false
+            },
+{
+                name: "treasury_pda",
+                writable: false,
+                signer: false
+            },
+{
+                name: "treasury_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2629,20 +2629,20 @@ export const InstructionRegistry = new Map([
             schema: Schemas["outcome_of_proposal"],
             accounts: [
                 {
-        name: "authority",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "authority",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2654,45 +2654,45 @@ export const InstructionRegistry = new Map([
             schema: Schemas["pay_rent"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "signer_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "treasury",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "treasury_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "signer_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "treasury",
+                writable: true,
+                signer: false
+            },
+{
+                name: "treasury_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease",
+                writable: true,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2704,35 +2704,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["propose_new_threshold"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "new_threshold",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "new_threshold",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2744,50 +2744,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["remove_arbitrar_guilt_authority_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "ata",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "ata",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2799,40 +2799,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["remove_old_arbitrar_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2844,40 +2844,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["remove_old_trustee_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -2889,50 +2889,50 @@ export const InstructionRegistry = new Map([
             schema: Schemas["remove_trustee_guilt_authority_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "ata",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "ata",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2944,35 +2944,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["revenue_change_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -2984,40 +2984,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["revenue_proposal_arbitrar_vote"],
             accounts: [
                 {
-        name: "arbitrar",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "arbitrar",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_voter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3029,15 +3029,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["revenue_proposal_submit_snapshot"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3049,30 +3049,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["revenue_proposal_voting"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3084,40 +3084,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["sell_proposal_arbitrar_vote"],
             accounts: [
                 {
-        name: "arbitrar",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "seller",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "arbitrar",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "seller",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_voter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3129,15 +3129,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["sell_proposal_finalize"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3149,30 +3149,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["state_creation_proposal"],
             accounts: [
                 {
-        name: "country",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "country_authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "state_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "country",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "country_authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "state_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3184,35 +3184,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["state_proposal_approval"],
             accounts: [
                 {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "country",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "country_authority",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "state_creation_recepit",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "country",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "country_authority",
+                writable: false,
+                signer: false
+            },
+{
+                name: "state_creation_recepit",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3224,30 +3224,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["state_proposal_execute"],
             accounts: [
                 {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "country",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "state",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "country",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "state",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3259,35 +3259,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_arbitrar_candidate"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_registration",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_registration",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3299,35 +3299,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_candidate_for_arbitrar_authority_for_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_registration",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_registration",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3339,35 +3339,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_candidate_for_trustee_authority_for_remove_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_registration",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_registration",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3379,20 +3379,20 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_snaphot_for_voting_on_challenge_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3404,15 +3404,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_snapshot_for_arbitrar_election"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3424,15 +3424,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_snapshot_for_authority"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3444,20 +3444,20 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_snapshot_for_removal_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3469,15 +3469,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_snapshot_for_sell_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3489,35 +3489,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["submit_trustee_candidate"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "candidate_profile",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "new_registration",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "candidate_profile",
+                writable: true,
+                signer: false
+            },
+{
+                name: "new_registration",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3529,65 +3529,65 @@ export const InstructionRegistry = new Map([
             schema: Schemas["terminate_lease"],
             accounts: [
                 {
-        name: "neutral",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "lesse",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "lessee_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "lease_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "neutral",
+                writable: true,
+                signer: true
+            },
+{
+                name: "lesse",
+                writable: false,
+                signer: false
+            },
+{
+                name: "lessee_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease",
+                writable: true,
+                signer: false
+            },
+{
+                name: "lease_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3599,40 +3599,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_arbitrar_approval_reinvest_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_voter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3644,40 +3644,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_arbitrar_approval_safety_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "arbitrar_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "arbitrar_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "arbitrar_voter",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3689,40 +3689,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_create_use_reinvest_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "receipent_wallet",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "receipent_wallet",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3734,40 +3734,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_create_use_safety_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "receipent_wallet",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "receipent_wallet",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3779,25 +3779,25 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_delete_reinvest_proposal"],
             accounts: [
                 {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3809,25 +3809,25 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_delete_safety_proposal"],
             accounts: [
                 {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -3839,70 +3839,70 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_execute_reinvest_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_treasury",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "recepient_wallet",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "recepient_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "reinvestment_treasury",
+                writable: false,
+                signer: false
+            },
+{
+                name: "reinvestment_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "recepient_wallet",
+                writable: false,
+                signer: false
+            },
+{
+                name: "recepient_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3914,70 +3914,70 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_execute_safety_proposal"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "safety_treasury",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "safety_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "recepient_wallet",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "recepient_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "safety_treasury",
+                writable: true,
+                signer: false
+            },
+{
+                name: "safety_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "recepient_wallet",
+                writable: true,
+                signer: false
+            },
+{
+                name: "recepient_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -3989,15 +3989,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_finalize_reinvest_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -4009,15 +4009,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_finalize_safety_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -4029,15 +4029,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_submit_snapshot_reinvest_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -4049,15 +4049,15 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_submit_snapshot_safety_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            }
             ],
         },
     ],
@@ -4069,30 +4069,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_vote_for_reinvest_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4104,30 +4104,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["token_transfer_vote_for_submit_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4139,105 +4139,105 @@ export const InstructionRegistry = new Map([
             schema: Schemas["treasury_distribution"],
             accounts: [
                 {
-        name: "payer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "thershold",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "treasury_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "treasury_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "dividend_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "dividend_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "reinvestment_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "safety_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "safety_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_pda",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "governance_mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "payer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "thershold",
+                writable: false,
+                signer: false
+            },
+{
+                name: "treasury_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "treasury_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "dividend_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "dividend_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "reinvestment_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "safety_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "safety_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_pda",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "governance_mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4249,40 +4249,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["trustee_approve_arbitrar_election"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "arbitrar_voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "arbitrar_voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4294,35 +4294,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["trustee_resign"],
             accounts: [
                 {
-        name: "trustee",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "trustee_receipt",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "resignation",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "trustee",
+                writable: true,
+                signer: true
+            },
+{
+                name: "trustee_receipt",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "resignation",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4334,60 +4334,60 @@ export const InstructionRegistry = new Map([
             schema: Schemas["trustee_salary_claim"],
             accounts: [
                 {
-        name: "associated_token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "token_program",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "trustee_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "trustee_registry_ata",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "associated_token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "token_program",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee",
+                writable: false,
+                signer: false
+            },
+{
+                name: "trustee_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry",
+                writable: true,
+                signer: false
+            },
+{
+                name: "trustee_registry_ata",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4399,35 +4399,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["vote_for_arbitrar_candiate"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_vote_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_vote_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4439,20 +4439,20 @@ export const InstructionRegistry = new Map([
             schema: Schemas["vote_for_challenge_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: undefined,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: false,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4464,35 +4464,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["vote_for_new_arbitrar_authority_for_removal_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_vote_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_vote_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4504,40 +4504,40 @@ export const InstructionRegistry = new Map([
             schema: Schemas["vote_for_new_threshold"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "mint",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "new_threshold",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "new_threshold_vote_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "mint",
+                writable: false,
+                signer: false
+            },
+{
+                name: "new_threshold",
+                writable: true,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "new_threshold_vote_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4549,35 +4549,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["vote_for_new_trustee_authority_for_removal_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "removal_proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_vote_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "removal_proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_vote_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4589,35 +4589,35 @@ export const InstructionRegistry = new Map([
             schema: Schemas["vote_for_trustee_candiate"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "proposal",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "authority_candidate",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "authority_vote_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "proposal",
+                writable: false,
+                signer: false
+            },
+{
+                name: "authority_candidate",
+                writable: true,
+                signer: false
+            },
+{
+                name: "authority_vote_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],
@@ -4629,30 +4629,30 @@ export const InstructionRegistry = new Map([
             schema: Schemas["voting_for_sell_proposal"],
             accounts: [
                 {
-        name: "signer",
-        writable: true,
-        signer: true
-    },
-                {
-        name: "proposal",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "property_system",
-        writable: undefined,
-        signer: undefined
-    },
-                {
-        name: "token_holder_voter_receipt",
-        writable: true,
-        signer: undefined
-    },
-                {
-        name: "system_program",
-        writable: undefined,
-        signer: undefined
-    }
+                name: "signer",
+                writable: true,
+                signer: true
+            },
+{
+                name: "proposal",
+                writable: true,
+                signer: false
+            },
+{
+                name: "property_system",
+                writable: false,
+                signer: false
+            },
+{
+                name: "token_holder_voter_receipt",
+                writable: true,
+                signer: false
+            },
+{
+                name: "system_program",
+                writable: false,
+                signer: false
+            }
             ],
         },
     ],

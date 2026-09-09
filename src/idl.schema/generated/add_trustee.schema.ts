@@ -1,5 +1,5 @@
-import {z} from "zod"
+import { z } from "zod";
 
 export const add_trusteeSchema = z.object({
-          system_id : z.any().transform((val) => BigInt(val.toString())),
+    system_id: z.any().transform((val) => BigInt(val.toString())),
 });

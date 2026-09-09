@@ -619,7 +619,7 @@ model Proposals {
   snapshot_submitted    Boolean?
   proposal_type         ProposalType
   deleted               Json?
-  slot                  Int?
+  slot                  BigInt?
   created_at            DateTime              @default(now())
   propertySellProposals PropertySellProposal?
 }

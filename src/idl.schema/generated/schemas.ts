@@ -1,5 +1,4 @@
-
-    import { add_arbitrar_for_removalSchema } from "./add_arbitrar_for_removal.schema";
+import { add_arbitrar_for_removalSchema } from "./add_arbitrar_for_removal.schema";
 import { add_arbitrar_offenderSchema } from "./add_arbitrar_offender.schema";
 import { add_arbitratorSchema } from "./add_arbitrator.schema";
 import { add_country_authoritySchema } from "./add_country_authority.schema";
@@ -112,8 +111,8 @@ import { vote_for_trustee_candiateSchema } from "./vote_for_trustee_candiate.sch
 import { voting_for_sell_proposalSchema } from "./voting_for_sell_proposal.schema";
 
 
-    export const Schemas = {
-        add_arbitrar_for_removal: add_arbitrar_for_removalSchema,
+export const Schemas = {
+    add_arbitrar_for_removal: add_arbitrar_for_removalSchema,
     add_arbitrar_offender: add_arbitrar_offenderSchema,
     add_arbitrator: add_arbitratorSchema,
     add_country_authority: add_country_authoritySchema,
@@ -225,4 +224,3 @@ import { voting_for_sell_proposalSchema } from "./voting_for_sell_proposal.schem
     vote_for_trustee_candiate: vote_for_trustee_candiateSchema,
     voting_for_sell_proposal: voting_for_sell_proposalSchema,
 };
-    

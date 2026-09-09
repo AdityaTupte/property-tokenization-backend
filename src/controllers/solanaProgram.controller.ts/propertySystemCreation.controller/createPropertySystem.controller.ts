@@ -7,7 +7,7 @@ import { address } from "@solana/kit";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
-import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { decoder, eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";
 import { solanaArgs } from "../../../utils/argumentsdecoder";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
@@ -80,7 +80,7 @@ export const handleCreatePropertySystem:InstructionHandler = async (
   );
 
 
-
+const decodedEvent = eventDecoder.decode(log.events[0]?.raw!);
   
   
 
