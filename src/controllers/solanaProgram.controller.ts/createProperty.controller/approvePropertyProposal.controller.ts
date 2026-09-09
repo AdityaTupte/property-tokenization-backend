@@ -6,13 +6,15 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 
 export const handleApproveLand:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
     ctx:TransactionContext,
-    _BlockTime:number
+    _BlockTime:number,
+    log:CompletedExecution[]
 ) => {
 
     const PropertyProposalAddress  = address(message.accountKeys[instruction.accounts[1]!]!)

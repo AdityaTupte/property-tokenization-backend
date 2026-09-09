@@ -9,13 +9,15 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 
 export const handleApproveCountryProposal: InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx: TransactionContext,
-  _BlockTime: number
+  _BlockTime: number,
+  log:CompletedExecution[]
 ) => {
   const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
 

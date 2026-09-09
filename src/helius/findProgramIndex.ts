@@ -66,12 +66,13 @@ export const FindProgramIdIndex = async (
     
   }
 
-  console.log("HERE IS NEW LOGS =>  ");
-  console.dir(
-    parseSolanaLogs(meta.logMessages),
-    { depth: null }
-);
-   
+  // console.log("HERE IS NEW LOGS =>  ");
+//   console.dir(
+//    parseSolanaLogs(meta.logMessages),
+//     { depth: null }
+// );
+
+    const logTree= parseSolanaLogs(meta.logMessages)
 
 
 
@@ -80,7 +81,7 @@ export const FindProgramIdIndex = async (
     transaction: message,
     InstructionNameAndData: event,
     blockTime: BlockTime,
-    meta:meta
+    log:logTree,
   });
 };
 

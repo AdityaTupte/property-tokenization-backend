@@ -1,17 +1,5 @@
-type EventData = {
-  raw: string;
-  discriminator: string;
-  data: string;
-};
 
-type ExecutionFrame = {
-  programId: string;
-  depth: number;
-  instructionName?: string;
-  events: EventData[];
-  children: ExecutionFrame[];
-};
-type CompletedExecution = ExecutionFrame & { parent?: CompletedExecution };
+import type { CompletedExecution, EventData, ExecutionFrame } from "../types&interface/solanaLogParser.interface";
 
 const INVOKE_REGEX = /^Program (\S+) invoke \[(\d+)\]$/;
 const SUCCESS_REGEX = /^Program (\S+) success$/;
@@ -29,18 +17,13 @@ export function parseSolanaLogs(
     // ================================================== // INVOKE // ==================================================
     const invoke = log.match(INVOKE_REGEX);
     if (invoke) {
+      
       const [, programId, depthString] = invoke;
       const depth = Number(depthString);
       if (programId === undefined || depthString === undefined) {
         continue;
       }
-      //  stack.push({
-      //     programId,
-      //      depth,
-      //      events: []
-      //     });
-      //   continue;
-      // }
+     
 
       const frame: ExecutionFrame = {
         programId,

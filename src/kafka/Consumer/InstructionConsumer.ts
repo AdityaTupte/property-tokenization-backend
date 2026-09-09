@@ -57,7 +57,7 @@ export const kafkaInstructionconsumer = async function () {
                          element.data,
                          ctx,
                          data.blockTime,
-                         data.meta,
+                         data.log,
                      );
                  }
  

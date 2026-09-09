@@ -7,12 +7,14 @@ import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper
 import { execute_country_propsalSchema } from "../../../idl.schema/generated/execute_country_propsal.schema";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleExecuteCountryProposal:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
     ctx:TransactionContext,
     BlockTime:number,
+    log:CompletedExecution[]
 ) => {
 
     const proposal = address(message.accountKeys[instruction.accounts[0]!]!)

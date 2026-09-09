@@ -1,4 +1,5 @@
 import type { instructionsSchema, messageSchema,metaSchema } from "../helius/findProgramIndex";
+import type { CompletedExecution } from "./solanaLogParser.interface";
 
 export interface InstructionNameAndData {
     name: string,
@@ -11,7 +12,7 @@ export interface InstructionDataInterface {
     transaction : messageSchema,
     InstructionNameAndData : InstructionNameAndData[]
     blockTime : number,
-    meta:metaSchema,
+    log:CompletedExecution[],
 }
 
 

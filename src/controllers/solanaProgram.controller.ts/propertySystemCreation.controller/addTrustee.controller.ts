@@ -7,12 +7,13 @@ import { GenericPda } from "../../../utils/genericPda";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleAddTrustee:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
     ctx:TransactionContext,
     BlockTime:number,
-    meta:metaSchema
+    log:CompletedExecution[]
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);

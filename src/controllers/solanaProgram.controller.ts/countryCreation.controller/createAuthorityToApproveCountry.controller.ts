@@ -5,11 +5,13 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_approve_country_authoritySchema } from "../../../idl.schema/generated/create_approve_country_authority.schema";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handlerCreateAuthorityToApproveCountry:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
+    log:CompletedExecution[]
 ) => {
 
     const AuthorityToApproveCountryAddress = address(message.accountKeys[instruction.accounts[1]!]!)

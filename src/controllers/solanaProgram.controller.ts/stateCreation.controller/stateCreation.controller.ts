@@ -1,16 +1,18 @@
 import { address } from "@solana/kit";
-import type { Instructions, messageSchema } from "../../../helius/findProgramIndex";
+import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
 
 import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleStateProposal:InstructionHandler = async(
     message:messageSchema,
-    instruction:Instructions,
+    instruction:instructionsSchema,
     ctx:TransactionContext,
-    BlockTime:number
+    BlockTime:number,
+    log:CompletedExecution[]
 ) => {
 
 

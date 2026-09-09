@@ -4,12 +4,13 @@ import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleAddArbitrator:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
-    meta:metaSchema
+    log:CompletedExecution[]
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);

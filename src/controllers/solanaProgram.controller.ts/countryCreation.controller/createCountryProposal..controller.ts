@@ -8,11 +8,13 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import { create_country_proposalSchema } from "../../../idl.schema/generated/create_country_proposal.schema";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleCreateCountryProposal: InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx: TransactionContext,
-  BlockTime: number
+  BlockTime: number,
+  log:CompletedExecution[]
 ) => {
   const proposal = address(message.accountKeys[instruction.accounts[1]!]!);
 

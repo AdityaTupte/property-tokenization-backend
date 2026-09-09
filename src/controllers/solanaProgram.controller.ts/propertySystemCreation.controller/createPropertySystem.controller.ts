@@ -10,13 +10,14 @@ import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";
 import { solanaArgs } from "../../../utils/argumentsdecoder";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleCreatePropertySystem:InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx:TransactionContext,
   BlockTime:number,
-  meta:metaSchema
+  log:CompletedExecution[]
 ) => {
 
   // const bytes = Buffer.from(bs58.decode(instruction.data));

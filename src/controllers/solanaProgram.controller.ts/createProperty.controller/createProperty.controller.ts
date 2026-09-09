@@ -6,6 +6,7 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_proposalSchema } from "../../../idl.schema/generated/create_property_proposal.schema";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 // import { GenericPda } from "../../../utils/genericPda";
 
 
@@ -13,7 +14,8 @@ export const handleCreateProperty:InstructionHandler = async(
     message:messageSchema,
     instruction:instructionsSchema,
     ctx:TransactionContext,
-    _BlockTime:number
+    _BlockTime:number,
+    log:CompletedExecution[]
 ) => {
 
     const PropertyProposalAddress  = address(message.accountKeys[instruction.accounts[4]!]!)
