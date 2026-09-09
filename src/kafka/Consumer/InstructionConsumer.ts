@@ -46,19 +46,22 @@ export const kafkaInstructionconsumer = async function () {
                      JSON.parse(message.value.toString());
  
                  const ctx = new TransactionContext();
- 
+                let index = 0 
                  for (const element of data.InstructionNameAndData) {
  
                      const handler =
                          solanaInstructionHandler(element.name);
+
+                    
  
                      await handler(
                          data.transaction,
                          element.data,
                          ctx,
                          data.blockTime,
-                         data.log,
+                         data.log[index]!,
                      );
+                     index++
                  }
  
                  await ctx.execute();

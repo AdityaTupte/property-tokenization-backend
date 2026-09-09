@@ -66,14 +66,19 @@ export const FindProgramIdIndex = async (
     
   }
 
-  // console.log("HERE IS NEW LOGS =>  ");
-//   console.dir(
-//    parseSolanaLogs(meta.logMessages),
-//     { depth: null }
-// );
+ 
 
     const logTree= parseSolanaLogs(meta.logMessages)
 
+   console.log("HERE IS NEW LOGS =>  ");
+  console.dir(
+  logTree,
+    { depth: null }
+);
+
+  const filteredLog  = logTree.filter( (ele) =>{
+   return  ele.programId == "BYtpqEouT7FFDUFjFeE2ecSDwf1VHNNHUkc2URswVZ4B" 
+  })
 
 
  
@@ -81,7 +86,7 @@ export const FindProgramIdIndex = async (
     transaction: message,
     InstructionNameAndData: event,
     blockTime: BlockTime,
-    log:logTree,
+    log:filteredLog,
   });
 };
 

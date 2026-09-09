@@ -11,7 +11,7 @@ export const handleAddAuthorityForCountry:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
 

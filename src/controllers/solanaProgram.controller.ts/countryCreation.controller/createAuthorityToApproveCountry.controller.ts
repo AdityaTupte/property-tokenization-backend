@@ -11,7 +11,7 @@ export const handlerCreateAuthorityToApproveCountry:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
     const AuthorityToApproveCountryAddress = address(message.accountKeys[instruction.accounts[1]!]!)

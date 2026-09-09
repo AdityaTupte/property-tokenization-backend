@@ -17,7 +17,7 @@ export const handleCreatePropertySystem:InstructionHandler = async (
   instruction: instructionsSchema,
   ctx:TransactionContext,
   BlockTime:number,
-  log:CompletedExecution[]
+  log:CompletedExecution
 ) => {
 
   // const bytes = Buffer.from(bs58.decode(instruction.data));

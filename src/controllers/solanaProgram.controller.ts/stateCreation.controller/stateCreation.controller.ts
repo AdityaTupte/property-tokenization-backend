@@ -12,7 +12,7 @@ export const handleStateProposal:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
 

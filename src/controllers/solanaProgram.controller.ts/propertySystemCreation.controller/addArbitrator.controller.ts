@@ -10,7 +10,7 @@ export const handleAddArbitrator:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);

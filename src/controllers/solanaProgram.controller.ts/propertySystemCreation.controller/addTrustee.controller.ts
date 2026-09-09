@@ -13,7 +13,7 @@ export const handleAddTrustee:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
     const propertySystemAddress = address(message.accountKeys[instruction.accounts[1]!]!);

@@ -13,7 +13,7 @@ export const handleExecuteStateProposal:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
     const proposal = address(message.accountKeys[instruction.accounts[0]!]!)

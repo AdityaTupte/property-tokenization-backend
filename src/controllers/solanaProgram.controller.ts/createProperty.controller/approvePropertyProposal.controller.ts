@@ -14,7 +14,7 @@ export const handleApproveLand:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
     const PropertyProposalAddress  = address(message.accountKeys[instruction.accounts[1]!]!)

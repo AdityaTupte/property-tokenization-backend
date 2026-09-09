@@ -14,7 +14,7 @@ export const handleApproveStateProposal:InstructionHandler = async(
     instruction:instructionsSchema,
     ctx:TransactionContext,
     _BlockTime:number,
-    log:CompletedExecution[]
+    log:CompletedExecution
 ) => {
 
     const proposal = address(message.accountKeys[instruction.accounts[0]!]!)
