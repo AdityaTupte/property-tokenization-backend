@@ -4,7 +4,7 @@ import type {
   messageSchema,
 } from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { create_country_proposalSchema } from "../../../idl.schema/generated/create_country_proposal.schema";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
@@ -14,19 +14,20 @@ export const handleCreateCountryProposal: InstructionHandler = async (
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
-  log:CompletedExecution
+  log: CompletedExecution
 ) => {
   const proposal = address(message.accountKeys[instruction.accounts[1]!]!);
 
-
   const bytes = Buffer.from(bs58.decode(instruction.data));
-  
-  const decodedData = decoder.decode(bytes)
+
+  const decodedData = decoder.decode(bytes);
 
   const argument = create_country_proposalSchema.parse(decodedData);
 
-const cleanCountryName = argument.country_name.toString().replace(/\0/g, "").trim();
-
+  const cleanCountryName = argument.country_name
+    .toString()
+    .replace(/\0/g, "")
+    .trim();
 
   ctx.add(async (tx) => {
     await tx.countryProposal.create({

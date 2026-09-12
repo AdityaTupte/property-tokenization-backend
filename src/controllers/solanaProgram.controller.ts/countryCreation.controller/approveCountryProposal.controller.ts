@@ -8,16 +8,15 @@ import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaType
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
-
 
 export const handleApproveCountryProposal: InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
-  log:CompletedExecution
+  log: CompletedExecution
 ) => {
   const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
 

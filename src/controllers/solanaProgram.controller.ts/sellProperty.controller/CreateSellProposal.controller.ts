@@ -9,7 +9,7 @@ import type {
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_sell_proposalSchema } from "../../../idl.schema/generated/create_sell_proposal.schema";
@@ -20,7 +20,7 @@ export const handleSellPropertyProposal: InstructionHandler = async (
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
-  meta:metaSchema
+  meta: metaSchema
 ) => {
   const proposalAddress = address(
     message.accountKeys[instruction.accounts[2]!]!
@@ -28,14 +28,13 @@ export const handleSellPropertyProposal: InstructionHandler = async (
 
   const propertySystem = address(
     message.accountKeys[instruction.accounts[3]!]!
-  )
+  );
 
-  const bytes = Buffer.from(bs58.decode(instruction.data))
+  const bytes = Buffer.from(bs58.decode(instruction.data));
 
-  const decodedData = decoder.decode(bytes)
+  const decodedData = decoder.decode(bytes);
 
-  const args = create_sell_proposalSchema.parse(decodedData)
-
+  const args = create_sell_proposalSchema.parse(decodedData);
 
   // const ProposalAccountPda = (await GenericPda(
   //   "propertySellProposal",
@@ -57,24 +56,26 @@ export const handleSellPropertyProposal: InstructionHandler = async (
     message.accountKeys[instruction.accounts[4]!]!
   ).toString();
 
-  const governance_mint_token_supply = await prisma.propertySystemAccount.findFirst({
-    where:{
-      property_system_public_key:propertySystemAddress.toString(),
-    },
-    select:{
-      governanceMintAccount:{
-        select:{tokenSupply:true}
-      }
-    }
-  }) 
+  const governance_mint_token_supply =
+    await prisma.propertySystemAccount.findFirst({
+      where: {
+        property_system_public_key: propertySystemAddress.toString(),
+      },
+      select: {
+        governanceMintAccount: {
+          select: { tokenSupply: true },
+        },
+      },
+    });
 
-  if(!governance_mint_token_supply) throw new ApiError(409,"governance mint data not available")
+  if (!governance_mint_token_supply)
+    throw new ApiError(409, "governance mint data not available");
 
-  const totalVotingPower = governance_mint_token_supply.governanceMintAccount?.tokenSupply;
+  const totalVotingPower =
+    governance_mint_token_supply.governanceMintAccount?.tokenSupply;
   if (totalVotingPower === undefined) {
     throw new ApiError(409, "governance mint token supply not available");
   }
-
 
   ctx.add(async (tx) => {
     tx.propertySellProposal.create({
@@ -94,7 +95,7 @@ export const handleSellPropertyProposal: InstructionHandler = async (
         status: "Draft",
         proposal_type: "SELLPROPERTY",
         total_voting_power: totalVotingPower,
-         created_at: new Date(BlockTime),
+        created_at: new Date(BlockTime),
       },
     });
   });

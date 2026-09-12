@@ -1,39 +1,36 @@
 import { ApiError } from "../utils/ApiError";
-import type { InstructionHandler } from "../types&interface/solanaInstrcution.type";
-import * as country from "../controllers/solanaProgram.controller.ts/countryCreation.controller/countryImportLib" 
-import * as propertySystem from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/propertySystemImporLib"
-import * as state from "../controllers/solanaProgram.controller.ts/stateCreation.controller/stateCreationImportLib"
-import * as Property from "../controllers/solanaProgram.controller.ts/createProperty.controller/createPropertyImportLib"
-
+import type { InstructionHandler } from "../types&interface/solanaInstrcution&event.type";
+import * as country from "../controllers/solanaProgram.controller.ts/countryCreation.controller/countryImportLib";
+import * as propertySystem from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/propertySystemImporLib";
+import * as state from "../controllers/solanaProgram.controller.ts/stateCreation.controller/stateCreationImportLib";
+import * as Property from "../controllers/solanaProgram.controller.ts/createProperty.controller/createPropertyImportLib";
 
 const instructionMap: Record<string, InstructionHandler> = {
   create_property_system: propertySystem.handleCreatePropertySystem,
-  add_trustee :  propertySystem.handleAddTrustee,
-  add_arbitrator:  propertySystem.handleAddArbitrator,
+  add_trustee: propertySystem.handleAddTrustee,
+  add_arbitrator: propertySystem.handleAddArbitrator,
 
-  create_country_proposal:country.handleCreateCountryProposal,
-  create_approve_country_authority:country.handlerCreateAuthorityToApproveCountry,
-  approve_country:country.handleApproveCountryProposal,
-  execute_country_propsal:country.handleExecuteCountryProposal,
-  add_country_authority:country.handleAddAuthorityForCountry,
+  create_country_proposal: country.handleCreateCountryProposal,
+  create_approve_country_authority:
+    country.handlerCreateAuthorityToApproveCountry,
+  approve_country: country.handleApproveCountryProposal,
+  execute_country_propsal: country.handleExecuteCountryProposal,
+  add_country_authority: country.handleAddAuthorityForCountry,
 
-  state_proposal:state.handleStateProposal,
-  state_proposal_approval:state.handleApproveStateProposal,
-  state_proposal_execute:state.handleExecuteStateProposal,
-  add_state_auhtority:state.handleAddAuthorityForState,
+  state_proposal: state.handleStateProposal,
+  state_proposal_approval: state.handleApproveStateProposal,
+  state_proposal_execute: state.handleExecuteStateProposal,
+  add_state_auhtority: state.handleAddAuthorityForState,
 
-  create_property_proposal:Property.handleCreateProperty,
-  approve_property_proposal:Property.handleApproveLand,
-  execute_property_proposal:Property.handleExecutedLand,
+  create_property_proposal: Property.handleCreateProperty,
+  approve_property_proposal: Property.handleApproveLand,
+  execute_property_proposal: Property.handleExecutedLand,
 };
 
-export const solanaInstructionHandler =  (
-  instruction: string
-) => {
-  const handler =  instructionMap[instruction];
+export const solanaInstructionHandler = (instruction: string) => {
+  const handler = instructionMap[instruction];
 
   if (!handler) throw new ApiError(500, "No instructionHandler Available");
 
   return handler;
-
 };

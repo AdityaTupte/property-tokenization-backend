@@ -13,7 +13,7 @@ export class TransactionContext {
         this.operations.push(op);
     }
 
-    async execute() {
+    async   execute() {
         await prisma.$transaction(async (tx:Tx) => {
             for (const op of this.operations) {
                 await op(tx);

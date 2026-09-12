@@ -1,52 +1,55 @@
 import { address } from "@solana/kit";
-import type { instructionsSchema, messageSchema } from "../../../helius/findProgramIndex";
+import type {
+  instructionsSchema,
+  messageSchema,
+} from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
-export const handleAddAuthorityForState:InstructionHandler = async(
-    message:messageSchema,
-    instruction:instructionsSchema,
-    ctx:TransactionContext,
-    _BlockTime:number,
-    log:CompletedExecution
+export const handleAddAuthorityForState: InstructionHandler = async (
+  message: messageSchema,
+  instruction: instructionsSchema,
+  ctx: TransactionContext,
+  _BlockTime: number,
+  log: CompletedExecution
 ) => {
+  const StatePdaAddress = address(
+    message.accountKeys[instruction.accounts[4]!]!
+  );
 
+  const StateAuthority = address(
+    message.accountKeys[instruction.accounts[2]!]!
+  ).toString();
 
-    const StatePdaAddress  = address(message.accountKeys[instruction.accounts[4]!]!)
+  const StatePdaDb = prisma.statePda.findUnique({
+    where: {
+      state_public_key: StatePdaAddress.toString(),
+    },
+  });
 
-    const StateAuthority = (address(message.accountKeys[instruction.accounts[2]!]!)).toString()
+  if (!StatePdaDb)
+    throw new ApiError(
+      404,
+      "Countey Pda for adding the authority not avaliable in db"
+    );
 
-    
-    const StatePdaDb =  prisma.statePda.findUnique({
-        where:{
-            state_public_key:StatePdaAddress.toString(),
+  ctx.add(async (tx) => {
+    tx.stateAuthorityReceipt.upsert({
+      where: {
+        public_key: StatePdaAddress.toString(),
+      },
+      create: {
+        public_key: StatePdaAddress.toString(),
+        signer: [`${StateAuthority}`],
+      },
+      update: {
+        signer: {
+          push: `${StateAuthority}`,
         },
-    })
-
-    if(!StatePdaDb) throw new ApiError(404,"Countey Pda for adding the authority not avaliable in db")
-
-    ctx.add(async (tx) =>{
-
-       tx.stateAuthorityReceipt.upsert({
-        where:{
-            public_key:StatePdaAddress.toString(),
-        },
-        create:{
-            public_key:StatePdaAddress.toString(),
-            signer:[`${StateAuthority}`],
-        },
-        update:{
-            signer:{
-                push:`${StateAuthority}`
-            }
-        }
-       })
-
-    })
-
-
-
-}
+      },
+    });
+  });
+};

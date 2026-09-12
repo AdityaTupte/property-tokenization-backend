@@ -5,31 +5,34 @@ import type {
 } from "../../../helius/findProgramIndex";
 import { address } from "@solana/kit";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
-import { decoder, eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import {
+  decoder,
+  eventDecoder,
+} from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";
 import { solanaArgs } from "../../../utils/argumentsdecoder";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
-export const handleCreatePropertySystem:InstructionHandler = async (
+export const handleCreatePropertySystem: InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
-  ctx:TransactionContext,
-  BlockTime:number,
-  log:CompletedExecution
+  ctx: TransactionContext,
+  BlockTime: number,
+  log: CompletedExecution
 ) => {
-
   // const bytes = Buffer.from(bs58.decode(instruction.data));
 
-  // const decodedData = decoder.decode(bytes)          
+  // const decodedData = decoder.decode(bytes)
 
-  const argument = create_property_systemSchema.parse(solanaArgs(instruction.data)?.data)
+  const argument = create_property_systemSchema.parse(
+    solanaArgs(instruction.data)?.data
+  );
 
   const propertySystemAddress = address(
     message.accountKeys.at(instruction.accounts[1]!)!
   );
-  
 
   const creator_pubky = address(
     message.accountKeys.at(instruction.accounts[0]!)!
@@ -39,13 +42,9 @@ export const handleCreatePropertySystem:InstructionHandler = async (
     message.accountKeys.at(instruction.accounts[9]!)!
   );
 
-
-
   const treasuryAddress = address(
     message.accountKeys.at(instruction.accounts[3]!)!
   );
-
-
 
   const thresholdAddress = address(
     message.accountKeys.at(instruction.accounts[2]!)!
@@ -55,34 +54,23 @@ export const handleCreatePropertySystem:InstructionHandler = async (
     message.accountKeys.at(instruction.accounts[6]!)!
   );
 
-  
-
   const safetyAddress = address(
     message.accountKeys.at(instruction.accounts[5]!)!
   );
 
-  
   const reinvestmentAddress = address(
     message.accountKeys.at(instruction.accounts[4]!)!
   );
 
-
-  
   const trusteeRegistryAddress = address(
     message.accountKeys.at(instruction.accounts[7]!)!
   );
-
- 
-
 
   const AribtrarRegistryAddress = address(
     message.accountKeys.at(instruction.accounts[8]!)!
   );
 
-
-const decodedEvent = eventDecoder.decode(log.events[0]?.raw!);
-  
-  
+  const decodedEvent = eventDecoder.decode(log.events[0]?.raw!);
 
   ctx.add(async (tx) => {
     await tx.propertySystemAccount.create({
@@ -90,13 +78,13 @@ const decodedEvent = eventDecoder.decode(log.events[0]?.raw!);
         creator_pubky: creator_pubky.toString(),
         property_system_id: argument.system_id,
         property_system_public_key: propertySystemAddress,
-        arbitrator_registry:AribtrarRegistryAddress.toString(),
+        arbitrator_registry: AribtrarRegistryAddress.toString(),
         treasury: treasuryAddress.toString(),
         governance_mint: governance_mint.toString(),
         trustee_registry: trusteeRegistryAddress.toString(),
         ready_for_listing: false,
         total_properties: 0,
-        created_at: new Date(BlockTime * 1000), 
+        created_at: new Date(BlockTime * 1000),
         dividend: dividendAddress,
         reinvestment: reinvestmentAddress,
         safety: safetyAddress,
@@ -148,40 +136,34 @@ const decodedEvent = eventDecoder.decode(log.events[0]?.raw!);
     });
 
     await tx.trusteeRegistry.create({
-      data:{
-        trustee_registry_pubkey :trusteeRegistryAddress.toString(),
-        current_number_of_trustees:0,
-        total_trustees:argument.total_trustees,
-        total_salary_allocated:0,
-        vote_threshold:argument.trustee_vote_threshold,
+      data: {
+        trustee_registry_pubkey: trusteeRegistryAddress.toString(),
+        current_number_of_trustees: 0,
+        total_trustees: argument.total_trustees,
+        total_salary_allocated: 0,
+        vote_threshold: argument.trustee_vote_threshold,
         claim_deadline_ts: null,
-      }
-    })
-
+      },
+    });
 
     await tx.arbitrarRegistry.create({
-      data:{
-       arbitrar_registry_pubkey:AribtrarRegistryAddress.toString(),
-       current_number_of_arbitrar:0,
-       total_arbitrar:argument.total_arbitrar,
-       total_salary_allocated:0,
-       vote_threshold:argument.arbitrar_vote_threshold,
-       claim_deadline_ts: null
-      }
-    })
+      data: {
+        arbitrar_registry_pubkey: AribtrarRegistryAddress.toString(),
+        current_number_of_arbitrar: 0,
+        total_arbitrar: argument.total_arbitrar,
+        total_salary_allocated: 0,
+        vote_threshold: argument.arbitrar_vote_threshold,
+        claim_deadline_ts: null,
+      },
+    });
 
     await tx.governanceMint.create({
-      data:{
-        governance_mint:governance_mint.toString(),
-        decimal:argument.decimals,
-        tokenSupply:argument.number_of_tokens,
-        name:argument.name
-      }
-    })
-
-
+      data: {
+        governance_mint: governance_mint.toString(),
+        decimal: argument.decimals,
+        tokenSupply: argument.number_of_tokens,
+        name: argument.name,
+      },
+    });
   });
-
-
-
 };

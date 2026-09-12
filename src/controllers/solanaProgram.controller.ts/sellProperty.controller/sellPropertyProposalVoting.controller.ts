@@ -6,15 +6,12 @@ import type {
 import { GenericPda } from "../../../utils/genericPda";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 export const handleSellPropertyProposalVoting: InstructionHandler = async (
   message: messageSchema,
   instruction: Instructions,
   ctx: TransactionContext,
   BlockTime: number
 ) => {
-
-    // TODO update the redis 
-
-
+  // TODO update the redis
 };

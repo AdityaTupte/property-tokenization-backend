@@ -6,7 +6,7 @@ import type {
 import { GenericPda } from "../../../utils/genericPda";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 export const handleSellPropertyProposalSubmit: InstructionHandler = async (
   message: messageSchema,
   instruction: Instructions,
@@ -29,25 +29,18 @@ export const handleSellPropertyProposalSubmit: InstructionHandler = async (
       ProposalAccountPda.proposalType as unknown as PdaTypes.ProposalVariant,
   };
 
-  
-  ctx.add(async (tx) =>{
-
+  ctx.add(async (tx) => {
     tx.proposals.update({
-        where:{
-            proposal_key:proposalAddress.toString()
-        },
-        data:{
-            start_time:new Date(ProposalAccount.startTime.toString()),
-            end_time:new Date(ProposalAccount.endTime.toString()),
-            snapshot_submitted:true,
-            vote_threshold:ProposalAccount.voteThreshold.toNumber(),
-            status:"Active"
-        }
-    })
-
-  } )
-
-
-
-
+      where: {
+        proposal_key: proposalAddress.toString(),
+      },
+      data: {
+        start_time: new Date(ProposalAccount.startTime.toString()),
+        end_time: new Date(ProposalAccount.endTime.toString()),
+        snapshot_submitted: true,
+        vote_threshold: ProposalAccount.voteThreshold.toNumber(),
+        status: "Active",
+      },
+    });
+  });
 };

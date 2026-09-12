@@ -6,7 +6,7 @@ import type {
 import { GenericPda } from "../../../utils/genericPda";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
-import type { InstructionHandler } from "../../../types&interface/solanaInstrcution.type";
+import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 export const handleSellPropertyProposalDelete: InstructionHandler = async (
   message: messageSchema,
   instruction: Instructions,
@@ -25,25 +25,19 @@ export const handleSellPropertyProposalDelete: InstructionHandler = async (
   const signer = address(
     message.accountKeys[instruction.accounts[0]!]!
   ).toString();
-  
-  ctx.add(async (tx) =>{
 
+  ctx.add(async (tx) => {
     tx.proposals.update({
-        where:{
-            proposal_key:proposalAddress.toString()
+      where: {
+        proposal_key: proposalAddress.toString(),
+      },
+      data: {
+        status: "Deleted",
+        deleted: {
+          signer: signer,
+          time: new Date(BlockTime.toString()),
         },
-        data:{
-            status:"Deleted",
-            deleted:{
-            signer : signer,
-            time : new Date(BlockTime.toString())
-            }
-        }
-    })
-
-  } )
-
-
-
-
+      },
+    });
+  });
 };

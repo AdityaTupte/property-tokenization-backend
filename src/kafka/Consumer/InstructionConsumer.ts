@@ -8,6 +8,7 @@ import type { InstructionDataInterface }
 import { TransactionContext } 
     from "../../utils/solanaDbHandler";
 import { kafka } from "../kakfaClient";
+import { EventHandler } from "../../helius/EventhandlerForSolanaProgram";
 
 
 
@@ -51,8 +52,6 @@ export const kafkaInstructionconsumer = async function () {
  
                      const handler =
                          solanaInstructionHandler(element.name);
-
-                    
  
                      await handler(
                          data.transaction,
@@ -65,7 +64,13 @@ export const kafkaInstructionconsumer = async function () {
                  }
  
                  await ctx.execute();
- 
+
+                 for (const log of data.log) {
+                    
+                    const logEventHandler = EventHandler(log)
+
+                 }
+                 
              } catch (error) {
  
                  console.error(
