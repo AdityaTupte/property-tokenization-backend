@@ -246,3 +246,18 @@ export type Elect = Prisma.ElectModel
  * 
  */
 export type Proposals = Prisma.ProposalsModel
+/**
+ * Model MerkleNode
+ * 
+ */
+export type MerkleNode = Prisma.MerkleNodeModel
+/**
+ * Model MerkleProof
+ * 
+ */
+export type MerkleProof = Prisma.MerkleProofModel
+/**
+ * Model TokenHolder
+ * 
+ */
+export type TokenHolder = Prisma.TokenHolderModel

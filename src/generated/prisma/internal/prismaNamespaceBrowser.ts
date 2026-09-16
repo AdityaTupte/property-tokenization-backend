@@ -91,7 +91,10 @@ export const ModelName = {
   NewThresholdProposal: 'NewThresholdProposal',
   TokenTransferProposal: 'TokenTransferProposal',
   Elect: 'Elect',
-  Proposals: 'Proposals'
+  Proposals: 'Proposals',
+  MerkleNode: 'MerkleNode',
+  MerkleProof: 'MerkleProof',
+  TokenHolder: 'TokenHolder'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -625,6 +628,37 @@ export const ProposalsScalarFieldEnum = {
 } as const
 
 export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof typeof ProposalsScalarFieldEnum]
+
+
+export const MerkleNodeScalarFieldEnum = {
+  snapshotId: 'snapshotId',
+  level: 'level',
+  nodeIndex: 'nodeIndex',
+  hash: 'hash'
+} as const
+
+export type MerkleNodeScalarFieldEnum = (typeof MerkleNodeScalarFieldEnum)[keyof typeof MerkleNodeScalarFieldEnum]
+
+
+export const MerkleProofScalarFieldEnum = {
+  snapshotId: 'snapshotId',
+  holder: 'holder',
+  leafIndex: 'leafIndex',
+  proofIndex: 'proofIndex',
+  hash: 'hash'
+} as const
+
+export type MerkleProofScalarFieldEnum = (typeof MerkleProofScalarFieldEnum)[keyof typeof MerkleProofScalarFieldEnum]
+
+
+export const TokenHolderScalarFieldEnum = {
+  id: 'id',
+  mint: 'mint',
+  holder: 'holder',
+  balance: 'balance'
+} as const
+
+export type TokenHolderScalarFieldEnum = (typeof TokenHolderScalarFieldEnum)[keyof typeof TokenHolderScalarFieldEnum]
 
 
 export const SortOrder = {

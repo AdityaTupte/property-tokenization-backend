@@ -623,3 +623,50 @@ model Proposals {
   created_at            DateTime              @default(now())
   propertySellProposals PropertySellProposal?
 }
+
+
+model MerkleNode {
+  snapshotId String
+  level      Int
+  nodeIndex  BigInt
+  hash       Bytes
+
+  @@id([snapshotId, level, nodeIndex])
+  @@index([snapshotId, level])
+}
+
+
+// model MerkleSnapshot {
+//   id             String   @id
+//   mint           String
+//   proposal       String
+//   governanceMint String
+//   slot           BigInt
+//   root           Bytes
+//   createdAt      DateTime @default(now())
+
+//   @@index([mint, slot])
+// }
+
+
+model MerkleProof {
+  snapshotId String
+  holder     String
+  leafIndex  BigInt
+  proofIndex Int
+  hash       Bytes
+
+  @@id([snapshotId, holder, proofIndex])
+  @@index([snapshotId, holder])
+}
+
+
+
+model TokenHolder {
+  id        BigInt   @id @default(autoincrement())
+  mint      String
+  holder    String
+  balance   BigInt
+
+  @@index([mint, id])
+}

@@ -437,7 +437,10 @@ export const ModelName = {
   NewThresholdProposal: 'NewThresholdProposal',
   TokenTransferProposal: 'TokenTransferProposal',
   Elect: 'Elect',
-  Proposals: 'Proposals'
+  Proposals: 'Proposals',
+  MerkleNode: 'MerkleNode',
+  MerkleProof: 'MerkleProof',
+  TokenHolder: 'TokenHolder'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -453,7 +456,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleProof" | "tokenHolder"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3491,6 +3494,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    MerkleNode: {
+      payload: Prisma.$MerkleNodePayload<ExtArgs>
+      fields: Prisma.MerkleNodeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MerkleNodeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MerkleNodeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>
+        }
+        findFirst: {
+          args: Prisma.MerkleNodeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MerkleNodeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>
+        }
+        findMany: {
+          args: Prisma.MerkleNodeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>[]
+        }
+        create: {
+          args: Prisma.MerkleNodeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>
+        }
+        createMany: {
+          args: Prisma.MerkleNodeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MerkleNodeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>[]
+        }
+        delete: {
+          args: Prisma.MerkleNodeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>
+        }
+        update: {
+          args: Prisma.MerkleNodeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>
+        }
+        deleteMany: {
+          args: Prisma.MerkleNodeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MerkleNodeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MerkleNodeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>[]
+        }
+        upsert: {
+          args: Prisma.MerkleNodeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleNodePayload>
+        }
+        aggregate: {
+          args: Prisma.MerkleNodeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMerkleNode>
+        }
+        groupBy: {
+          args: Prisma.MerkleNodeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MerkleNodeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MerkleNodeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MerkleNodeCountAggregateOutputType> | number
+        }
+      }
+    }
+    MerkleProof: {
+      payload: Prisma.$MerkleProofPayload<ExtArgs>
+      fields: Prisma.MerkleProofFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MerkleProofFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MerkleProofFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>
+        }
+        findFirst: {
+          args: Prisma.MerkleProofFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MerkleProofFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>
+        }
+        findMany: {
+          args: Prisma.MerkleProofFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>[]
+        }
+        create: {
+          args: Prisma.MerkleProofCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>
+        }
+        createMany: {
+          args: Prisma.MerkleProofCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MerkleProofCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>[]
+        }
+        delete: {
+          args: Prisma.MerkleProofDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>
+        }
+        update: {
+          args: Prisma.MerkleProofUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>
+        }
+        deleteMany: {
+          args: Prisma.MerkleProofDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MerkleProofUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MerkleProofUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>[]
+        }
+        upsert: {
+          args: Prisma.MerkleProofUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleProofPayload>
+        }
+        aggregate: {
+          args: Prisma.MerkleProofAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMerkleProof>
+        }
+        groupBy: {
+          args: Prisma.MerkleProofGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MerkleProofGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MerkleProofCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MerkleProofCountAggregateOutputType> | number
+        }
+      }
+    }
+    TokenHolder: {
+      payload: Prisma.$TokenHolderPayload<ExtArgs>
+      fields: Prisma.TokenHolderFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TokenHolderFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TokenHolderFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+        }
+        findFirst: {
+          args: Prisma.TokenHolderFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TokenHolderFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+        }
+        findMany: {
+          args: Prisma.TokenHolderFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>[]
+        }
+        create: {
+          args: Prisma.TokenHolderCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+        }
+        createMany: {
+          args: Prisma.TokenHolderCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TokenHolderCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>[]
+        }
+        delete: {
+          args: Prisma.TokenHolderDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+        }
+        update: {
+          args: Prisma.TokenHolderUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+        }
+        deleteMany: {
+          args: Prisma.TokenHolderDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TokenHolderUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TokenHolderUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>[]
+        }
+        upsert: {
+          args: Prisma.TokenHolderUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+        }
+        aggregate: {
+          args: Prisma.TokenHolderAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTokenHolder>
+        }
+        groupBy: {
+          args: Prisma.TokenHolderGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TokenHolderGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TokenHolderCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TokenHolderCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -4047,6 +4272,37 @@ export const ProposalsScalarFieldEnum = {
 export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof typeof ProposalsScalarFieldEnum]
 
 
+export const MerkleNodeScalarFieldEnum = {
+  snapshotId: 'snapshotId',
+  level: 'level',
+  nodeIndex: 'nodeIndex',
+  hash: 'hash'
+} as const
+
+export type MerkleNodeScalarFieldEnum = (typeof MerkleNodeScalarFieldEnum)[keyof typeof MerkleNodeScalarFieldEnum]
+
+
+export const MerkleProofScalarFieldEnum = {
+  snapshotId: 'snapshotId',
+  holder: 'holder',
+  leafIndex: 'leafIndex',
+  proofIndex: 'proofIndex',
+  hash: 'hash'
+} as const
+
+export type MerkleProofScalarFieldEnum = (typeof MerkleProofScalarFieldEnum)[keyof typeof MerkleProofScalarFieldEnum]
+
+
+export const TokenHolderScalarFieldEnum = {
+  id: 'id',
+  mint: 'mint',
+  holder: 'holder',
+  balance: 'balance'
+} as const
+
+export type TokenHolderScalarFieldEnum = (typeof TokenHolderScalarFieldEnum)[keyof typeof TokenHolderScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4284,6 +4540,20 @@ export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$Prisma
 
 
 /**
+ * Reference to a field of type 'Bytes'
+ */
+export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
+    
+
+
+/**
+ * Reference to a field of type 'Bytes[]'
+ */
+export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4488,6 +4758,9 @@ export type GlobalOmitConfig = {
   tokenTransferProposal?: Prisma.TokenTransferProposalOmit
   elect?: Prisma.ElectOmit
   proposals?: Prisma.ProposalsOmit
+  merkleNode?: Prisma.MerkleNodeOmit
+  merkleProof?: Prisma.MerkleProofOmit
+  tokenHolder?: Prisma.TokenHolderOmit
 }
 
 /* Types for Logging */
