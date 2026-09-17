@@ -626,6 +626,7 @@ model Proposals {
 
 
 model MerkleNode {
+  holder     String? 
   snapshotId String
   level      Int
   nodeIndex  BigInt
@@ -662,11 +663,21 @@ model MerkleProof {
 
 
 
-model TokenHolder {
-  id        BigInt   @id @default(autoincrement())
-  mint      String
-  holder    String
-  balance   BigInt
+// model TokenHolder {
+//   id        BigInt   @id @default(autoincrement())
+//   mint      String
+//   holder    String
+//   balance   BigInt
+//   slot      String
+//   @@index([mint, id])
+// }
 
-  @@index([mint, id])
+model BalanceHistory {
+  id      BigInt @id @default(autoincrement())
+  mint    String
+  holder  String
+  slot    BigInt
+  balance BigInt
+
+  @@index([mint, holder, slot])
 }

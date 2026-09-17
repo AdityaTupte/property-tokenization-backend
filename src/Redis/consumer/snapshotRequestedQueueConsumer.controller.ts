@@ -1,19 +1,28 @@
 import { Worker } from "bullmq";
 import { BullMqConnection } from "../server&queues";
 import type { CompletedExecution } from "../../types&interface/solanaLogParser.interface";
-import { createMerkleLeavesFromTokenBalance } from "../../utils/mekleRootCreation.util/createleaves";
+import { createMerkleLeavesFromTokenBalance } from "../../utils/mekleRootCreation.util/CreateLeaves.util";
+import { SnapshotRequestedSchema } from "../../idl.schema/generated/SnapshotRequested.schema";
+import type z from "zod";
+import { eventDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { BuildTreeRootFromLeaves } from "../../utils/mekleRootCreation.util/buildTreeRootFromLeaves.util";
 
 
-
+export type SnapshotRequestedType = z.infer<typeof SnapshotRequestedSchema>;
 const snapshotWorker = new Worker(
     "snapshotRequestedQueue",
     async(job) =>{
 
-        const data:CompletedExecution = job.data
+         const eventArray:CompletedExecution = job.data
 
-        await createMerkleLeavesFromTokenBalance(data.events)
+         const decodedData = eventDecoder.decode(eventArray.events[0]?.raw!);
+        
+          const data = SnapshotRequestedSchema.parse(decodedData);
+        
 
+        await createMerkleLeavesFromTokenBalance(data,data.proposalType)
 
+        await BuildTreeRootFromLeaves(data)
         
 
 

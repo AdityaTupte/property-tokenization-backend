@@ -37,6 +37,7 @@ export type MerkleNodeSumAggregateOutputType = {
 }
 
 export type MerkleNodeMinAggregateOutputType = {
+  holder: string | null
   snapshotId: string | null
   level: number | null
   nodeIndex: bigint | null
@@ -44,6 +45,7 @@ export type MerkleNodeMinAggregateOutputType = {
 }
 
 export type MerkleNodeMaxAggregateOutputType = {
+  holder: string | null
   snapshotId: string | null
   level: number | null
   nodeIndex: bigint | null
@@ -51,6 +53,7 @@ export type MerkleNodeMaxAggregateOutputType = {
 }
 
 export type MerkleNodeCountAggregateOutputType = {
+  holder: number
   snapshotId: number
   level: number
   nodeIndex: number
@@ -70,6 +73,7 @@ export type MerkleNodeSumAggregateInputType = {
 }
 
 export type MerkleNodeMinAggregateInputType = {
+  holder?: true
   snapshotId?: true
   level?: true
   nodeIndex?: true
@@ -77,6 +81,7 @@ export type MerkleNodeMinAggregateInputType = {
 }
 
 export type MerkleNodeMaxAggregateInputType = {
+  holder?: true
   snapshotId?: true
   level?: true
   nodeIndex?: true
@@ -84,6 +89,7 @@ export type MerkleNodeMaxAggregateInputType = {
 }
 
 export type MerkleNodeCountAggregateInputType = {
+  holder?: true
   snapshotId?: true
   level?: true
   nodeIndex?: true
@@ -178,6 +184,7 @@ export type MerkleNodeGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 export type MerkleNodeGroupByOutputType = {
+  holder: string | null
   snapshotId: string
   level: number
   nodeIndex: bigint
@@ -208,6 +215,7 @@ export type MerkleNodeWhereInput = {
   AND?: Prisma.MerkleNodeWhereInput | Prisma.MerkleNodeWhereInput[]
   OR?: Prisma.MerkleNodeWhereInput[]
   NOT?: Prisma.MerkleNodeWhereInput | Prisma.MerkleNodeWhereInput[]
+  holder?: Prisma.StringNullableFilter<"MerkleNode"> | string | null
   snapshotId?: Prisma.StringFilter<"MerkleNode"> | string
   level?: Prisma.IntFilter<"MerkleNode"> | number
   nodeIndex?: Prisma.BigIntFilter<"MerkleNode"> | bigint | number
@@ -215,6 +223,7 @@ export type MerkleNodeWhereInput = {
 }
 
 export type MerkleNodeOrderByWithRelationInput = {
+  holder?: Prisma.SortOrderInput | Prisma.SortOrder
   snapshotId?: Prisma.SortOrder
   level?: Prisma.SortOrder
   nodeIndex?: Prisma.SortOrder
@@ -226,6 +235,7 @@ export type MerkleNodeWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.MerkleNodeWhereInput | Prisma.MerkleNodeWhereInput[]
   OR?: Prisma.MerkleNodeWhereInput[]
   NOT?: Prisma.MerkleNodeWhereInput | Prisma.MerkleNodeWhereInput[]
+  holder?: Prisma.StringNullableFilter<"MerkleNode"> | string | null
   snapshotId?: Prisma.StringFilter<"MerkleNode"> | string
   level?: Prisma.IntFilter<"MerkleNode"> | number
   nodeIndex?: Prisma.BigIntFilter<"MerkleNode"> | bigint | number
@@ -233,6 +243,7 @@ export type MerkleNodeWhereUniqueInput = Prisma.AtLeast<{
 }, "snapshotId_level_nodeIndex">
 
 export type MerkleNodeOrderByWithAggregationInput = {
+  holder?: Prisma.SortOrderInput | Prisma.SortOrder
   snapshotId?: Prisma.SortOrder
   level?: Prisma.SortOrder
   nodeIndex?: Prisma.SortOrder
@@ -248,6 +259,7 @@ export type MerkleNodeScalarWhereWithAggregatesInput = {
   AND?: Prisma.MerkleNodeScalarWhereWithAggregatesInput | Prisma.MerkleNodeScalarWhereWithAggregatesInput[]
   OR?: Prisma.MerkleNodeScalarWhereWithAggregatesInput[]
   NOT?: Prisma.MerkleNodeScalarWhereWithAggregatesInput | Prisma.MerkleNodeScalarWhereWithAggregatesInput[]
+  holder?: Prisma.StringNullableWithAggregatesFilter<"MerkleNode"> | string | null
   snapshotId?: Prisma.StringWithAggregatesFilter<"MerkleNode"> | string
   level?: Prisma.IntWithAggregatesFilter<"MerkleNode"> | number
   nodeIndex?: Prisma.BigIntWithAggregatesFilter<"MerkleNode"> | bigint | number
@@ -255,6 +267,7 @@ export type MerkleNodeScalarWhereWithAggregatesInput = {
 }
 
 export type MerkleNodeCreateInput = {
+  holder?: string | null
   snapshotId: string
   level: number
   nodeIndex: bigint | number
@@ -262,6 +275,7 @@ export type MerkleNodeCreateInput = {
 }
 
 export type MerkleNodeUncheckedCreateInput = {
+  holder?: string | null
   snapshotId: string
   level: number
   nodeIndex: bigint | number
@@ -269,6 +283,7 @@ export type MerkleNodeUncheckedCreateInput = {
 }
 
 export type MerkleNodeUpdateInput = {
+  holder?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.IntFieldUpdateOperationsInput | number
   nodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -276,6 +291,7 @@ export type MerkleNodeUpdateInput = {
 }
 
 export type MerkleNodeUncheckedUpdateInput = {
+  holder?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.IntFieldUpdateOperationsInput | number
   nodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -283,6 +299,7 @@ export type MerkleNodeUncheckedUpdateInput = {
 }
 
 export type MerkleNodeCreateManyInput = {
+  holder?: string | null
   snapshotId: string
   level: number
   nodeIndex: bigint | number
@@ -290,6 +307,7 @@ export type MerkleNodeCreateManyInput = {
 }
 
 export type MerkleNodeUpdateManyMutationInput = {
+  holder?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.IntFieldUpdateOperationsInput | number
   nodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -297,6 +315,7 @@ export type MerkleNodeUpdateManyMutationInput = {
 }
 
 export type MerkleNodeUncheckedUpdateManyInput = {
+  holder?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   level?: Prisma.IntFieldUpdateOperationsInput | number
   nodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -310,6 +329,7 @@ export type MerkleNodeSnapshotIdLevelNodeIndexCompoundUniqueInput = {
 }
 
 export type MerkleNodeCountOrderByAggregateInput = {
+  holder?: Prisma.SortOrder
   snapshotId?: Prisma.SortOrder
   level?: Prisma.SortOrder
   nodeIndex?: Prisma.SortOrder
@@ -322,6 +342,7 @@ export type MerkleNodeAvgOrderByAggregateInput = {
 }
 
 export type MerkleNodeMaxOrderByAggregateInput = {
+  holder?: Prisma.SortOrder
   snapshotId?: Prisma.SortOrder
   level?: Prisma.SortOrder
   nodeIndex?: Prisma.SortOrder
@@ -329,6 +350,7 @@ export type MerkleNodeMaxOrderByAggregateInput = {
 }
 
 export type MerkleNodeMinOrderByAggregateInput = {
+  holder?: Prisma.SortOrder
   snapshotId?: Prisma.SortOrder
   level?: Prisma.SortOrder
   nodeIndex?: Prisma.SortOrder
@@ -347,6 +369,7 @@ export type BytesFieldUpdateOperationsInput = {
 
 
 export type MerkleNodeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  holder?: boolean
   snapshotId?: boolean
   level?: boolean
   nodeIndex?: boolean
@@ -354,6 +377,7 @@ export type MerkleNodeSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 }, ExtArgs["result"]["merkleNode"]>
 
 export type MerkleNodeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  holder?: boolean
   snapshotId?: boolean
   level?: boolean
   nodeIndex?: boolean
@@ -361,6 +385,7 @@ export type MerkleNodeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
 }, ExtArgs["result"]["merkleNode"]>
 
 export type MerkleNodeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  holder?: boolean
   snapshotId?: boolean
   level?: boolean
   nodeIndex?: boolean
@@ -368,18 +393,20 @@ export type MerkleNodeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 }, ExtArgs["result"]["merkleNode"]>
 
 export type MerkleNodeSelectScalar = {
+  holder?: boolean
   snapshotId?: boolean
   level?: boolean
   nodeIndex?: boolean
   hash?: boolean
 }
 
-export type MerkleNodeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"snapshotId" | "level" | "nodeIndex" | "hash", ExtArgs["result"]["merkleNode"]>
+export type MerkleNodeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"holder" | "snapshotId" | "level" | "nodeIndex" | "hash", ExtArgs["result"]["merkleNode"]>
 
 export type $MerkleNodePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "MerkleNode"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
+    holder: string | null
     snapshotId: string
     level: number
     nodeIndex: bigint
@@ -467,8 +494,8 @@ export interface MerkleNodeDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * // Get first 10 MerkleNodes
    * const merkleNodes = await prisma.merkleNode.findMany({ take: 10 })
    * 
-   * // Only select the `snapshotId`
-   * const merkleNodeWithSnapshotIdOnly = await prisma.merkleNode.findMany({ select: { snapshotId: true } })
+   * // Only select the `holder`
+   * const merkleNodeWithHolderOnly = await prisma.merkleNode.findMany({ select: { holder: true } })
    * 
    */
   findMany<T extends MerkleNodeFindManyArgs>(args?: Prisma.SelectSubset<T, MerkleNodeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MerkleNodePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -512,9 +539,9 @@ export interface MerkleNodeDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   ]
    * })
    * 
-   * // Create many MerkleNodes and only return the `snapshotId`
-   * const merkleNodeWithSnapshotIdOnly = await prisma.merkleNode.createManyAndReturn({
-   *   select: { snapshotId: true },
+   * // Create many MerkleNodes and only return the `holder`
+   * const merkleNodeWithHolderOnly = await prisma.merkleNode.createManyAndReturn({
+   *   select: { holder: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -603,9 +630,9 @@ export interface MerkleNodeDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   ]
    * })
    * 
-   * // Update zero or more MerkleNodes and only return the `snapshotId`
-   * const merkleNodeWithSnapshotIdOnly = await prisma.merkleNode.updateManyAndReturn({
-   *   select: { snapshotId: true },
+   * // Update zero or more MerkleNodes and only return the `holder`
+   * const merkleNodeWithHolderOnly = await prisma.merkleNode.updateManyAndReturn({
+   *   select: { holder: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -807,6 +834,7 @@ export interface Prisma__MerkleNodeClient<T, Null = never, ExtArgs extends runti
  * Fields of the MerkleNode model
  */
 export interface MerkleNodeFieldRefs {
+  readonly holder: Prisma.FieldRef<"MerkleNode", 'String'>
   readonly snapshotId: Prisma.FieldRef<"MerkleNode", 'String'>
   readonly level: Prisma.FieldRef<"MerkleNode", 'Int'>
   readonly nodeIndex: Prisma.FieldRef<"MerkleNode", 'BigInt'>

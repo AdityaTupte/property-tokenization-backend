@@ -94,7 +94,7 @@ export const ModelName = {
   Proposals: 'Proposals',
   MerkleNode: 'MerkleNode',
   MerkleProof: 'MerkleProof',
-  TokenHolder: 'TokenHolder'
+  BalanceHistory: 'BalanceHistory'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -631,6 +631,7 @@ export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof t
 
 
 export const MerkleNodeScalarFieldEnum = {
+  holder: 'holder',
   snapshotId: 'snapshotId',
   level: 'level',
   nodeIndex: 'nodeIndex',
@@ -651,14 +652,15 @@ export const MerkleProofScalarFieldEnum = {
 export type MerkleProofScalarFieldEnum = (typeof MerkleProofScalarFieldEnum)[keyof typeof MerkleProofScalarFieldEnum]
 
 
-export const TokenHolderScalarFieldEnum = {
+export const BalanceHistoryScalarFieldEnum = {
   id: 'id',
   mint: 'mint',
   holder: 'holder',
+  slot: 'slot',
   balance: 'balance'
 } as const
 
-export type TokenHolderScalarFieldEnum = (typeof TokenHolderScalarFieldEnum)[keyof typeof TokenHolderScalarFieldEnum]
+export type BalanceHistoryScalarFieldEnum = (typeof BalanceHistoryScalarFieldEnum)[keyof typeof BalanceHistoryScalarFieldEnum]
 
 
 export const SortOrder = {

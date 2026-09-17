@@ -440,7 +440,7 @@ export const ModelName = {
   Proposals: 'Proposals',
   MerkleNode: 'MerkleNode',
   MerkleProof: 'MerkleProof',
-  TokenHolder: 'TokenHolder'
+  BalanceHistory: 'BalanceHistory'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -456,7 +456,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleProof" | "tokenHolder"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleProof" | "balanceHistory"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3642,77 +3642,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    TokenHolder: {
-      payload: Prisma.$TokenHolderPayload<ExtArgs>
-      fields: Prisma.TokenHolderFieldRefs
+    BalanceHistory: {
+      payload: Prisma.$BalanceHistoryPayload<ExtArgs>
+      fields: Prisma.BalanceHistoryFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.TokenHolderFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload> | null
+          args: Prisma.BalanceHistoryFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.TokenHolderFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+          args: Prisma.BalanceHistoryFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>
         }
         findFirst: {
-          args: Prisma.TokenHolderFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload> | null
+          args: Prisma.BalanceHistoryFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.TokenHolderFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+          args: Prisma.BalanceHistoryFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>
         }
         findMany: {
-          args: Prisma.TokenHolderFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>[]
+          args: Prisma.BalanceHistoryFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>[]
         }
         create: {
-          args: Prisma.TokenHolderCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+          args: Prisma.BalanceHistoryCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>
         }
         createMany: {
-          args: Prisma.TokenHolderCreateManyArgs<ExtArgs>
+          args: Prisma.BalanceHistoryCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.TokenHolderCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>[]
+          args: Prisma.BalanceHistoryCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>[]
         }
         delete: {
-          args: Prisma.TokenHolderDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+          args: Prisma.BalanceHistoryDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>
         }
         update: {
-          args: Prisma.TokenHolderUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+          args: Prisma.BalanceHistoryUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>
         }
         deleteMany: {
-          args: Prisma.TokenHolderDeleteManyArgs<ExtArgs>
+          args: Prisma.BalanceHistoryDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.TokenHolderUpdateManyArgs<ExtArgs>
+          args: Prisma.BalanceHistoryUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.TokenHolderUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>[]
+          args: Prisma.BalanceHistoryUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>[]
         }
         upsert: {
-          args: Prisma.TokenHolderUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenHolderPayload>
+          args: Prisma.BalanceHistoryUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BalanceHistoryPayload>
         }
         aggregate: {
-          args: Prisma.TokenHolderAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTokenHolder>
+          args: Prisma.BalanceHistoryAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBalanceHistory>
         }
         groupBy: {
-          args: Prisma.TokenHolderGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TokenHolderGroupByOutputType>[]
+          args: Prisma.BalanceHistoryGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BalanceHistoryGroupByOutputType>[]
         }
         count: {
-          args: Prisma.TokenHolderCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TokenHolderCountAggregateOutputType> | number
+          args: Prisma.BalanceHistoryCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BalanceHistoryCountAggregateOutputType> | number
         }
       }
     }
@@ -4273,6 +4273,7 @@ export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof t
 
 
 export const MerkleNodeScalarFieldEnum = {
+  holder: 'holder',
   snapshotId: 'snapshotId',
   level: 'level',
   nodeIndex: 'nodeIndex',
@@ -4293,14 +4294,15 @@ export const MerkleProofScalarFieldEnum = {
 export type MerkleProofScalarFieldEnum = (typeof MerkleProofScalarFieldEnum)[keyof typeof MerkleProofScalarFieldEnum]
 
 
-export const TokenHolderScalarFieldEnum = {
+export const BalanceHistoryScalarFieldEnum = {
   id: 'id',
   mint: 'mint',
   holder: 'holder',
+  slot: 'slot',
   balance: 'balance'
 } as const
 
-export type TokenHolderScalarFieldEnum = (typeof TokenHolderScalarFieldEnum)[keyof typeof TokenHolderScalarFieldEnum]
+export type BalanceHistoryScalarFieldEnum = (typeof BalanceHistoryScalarFieldEnum)[keyof typeof BalanceHistoryScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -4760,7 +4762,7 @@ export type GlobalOmitConfig = {
   proposals?: Prisma.ProposalsOmit
   merkleNode?: Prisma.MerkleNodeOmit
   merkleProof?: Prisma.MerkleProofOmit
-  tokenHolder?: Prisma.TokenHolderOmit
+  balanceHistory?: Prisma.BalanceHistoryOmit
 }
 
 /* Types for Logging */

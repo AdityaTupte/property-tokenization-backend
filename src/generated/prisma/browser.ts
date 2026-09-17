@@ -233,7 +233,7 @@ export type MerkleNode = Prisma.MerkleNodeModel
  */
 export type MerkleProof = Prisma.MerkleProofModel
 /**
- * Model TokenHolder
+ * Model BalanceHistory
  * 
  */
-export type TokenHolder = Prisma.TokenHolderModel
+export type BalanceHistory = Prisma.BalanceHistoryModel
