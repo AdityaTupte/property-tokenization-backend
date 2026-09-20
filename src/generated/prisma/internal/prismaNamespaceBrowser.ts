@@ -632,6 +632,7 @@ export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof t
 
 export const MerkleNodeScalarFieldEnum = {
   holder: 'holder',
+  mint: 'mint',
   snapshotId: 'snapshotId',
   level: 'level',
   nodeIndex: 'nodeIndex',

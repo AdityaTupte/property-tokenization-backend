@@ -5,7 +5,8 @@ import { createMerkleLeavesFromTokenBalance } from "../../utils/mekleRootCreatio
 import { SnapshotRequestedSchema } from "../../idl.schema/generated/SnapshotRequested.schema";
 import type z from "zod";
 import { eventDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
-import { BuildTreeRootFromLeaves } from "../../utils/mekleRootCreation.util/buildTreeRootFromLeaves.util";
+import { BuildTreeRootFromLeaves } from "../../utils/mekleRootCreation.util/BuildTreeRootFromLeaves.util"; 
+import { prisma } from "../../prismaclient";
 
 
 export type SnapshotRequestedType = z.infer<typeof SnapshotRequestedSchema>;
@@ -20,10 +21,31 @@ const snapshotWorker = new Worker(
           const data = SnapshotRequestedSchema.parse(decodedData);
         
 
-        await createMerkleLeavesFromTokenBalance(data,data.proposalType)
+        await createMerkleLeavesFromTokenBalance(data,data.proposalType) //fixme prpolsal string
 
-        await BuildTreeRootFromLeaves(data)
+        await BuildTreeRootFromLeaves(data);
+
+        const root =  await prisma.merkleNode.findFirst({
+            where:{
+                snapshotId:data.slot.toString(),
+                mint:data.mint.toString(),
+            },
+            orderBy:{
+                level:"desc",
+            },
+            select:{
+                hash:true,
+            }
+        })
+
+
         
+        // grnrate proof 
+
+        //   call the submit function at submition enter the sanphot id snapshot in table
+        
+
+        // 
 
 
 
@@ -34,10 +56,7 @@ const snapshotWorker = new Worker(
         call the submit function
         for voting user redis 
         to store the data of token balcne schaneg use redis 
-        maintain  a table whre we store data of mini number of slot required 
-        
-        
-        
+        maintain  a table whre we store data of mini number of slot required     
         
  */
     },

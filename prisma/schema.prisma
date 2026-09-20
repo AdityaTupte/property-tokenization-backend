@@ -627,6 +627,7 @@ model Proposals {
 
 model MerkleNode {
   holder     String? 
+  mint        String
   snapshotId String
   level      Int
   nodeIndex  BigInt

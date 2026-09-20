@@ -1,85 +1,152 @@
 import { prisma } from "../../prismaclient";
 import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueueConsumer.controller";
+import { keccak_256 } from "@noble/hashes/sha3";
+
+
+
+const buildLevelForTree = (
+  hash1: Buffer,
+  hash2: Buffer
+): Buffer => {
+  const combined = Buffer.concat([
+    hash1,
+    hash2,
+  ]);
+
+  return Buffer.from(
+    keccak_256(combined)
+  );
+};
+
+
+
+
 
 export const BuildTreeRootFromLeaves = async (event: SnapshotRequestedType) => {
   const BATCH_SIZE = 10_000;
 
-  let level = 0;
+  const snapshotId = event.slot.toString()
 
-  let lastNodeIndex: string | undefined = undefined;
-
-  let nodeIndex: bigint = 0n;
-
-
-//   FIXME use another fuction to buiod the tree and after completion of
-//  create a single3 level create a logic where we call the fuctioon one agaion util the root does not left 
+  let currentLevel = 0;
 
   while (true) {
-    const leaves = await prisma.merkleNode.findMany({
-      take: BATCH_SIZE,
 
+     const currentLevelCount = await prisma.merkleNode.count({
       where: {
-        snapshotId: event.slot.toString(),
-        level: level,
-        ...(lastNodeIndex !== undefined && {
-          nodeIndex: {
-            gt: lastNodeIndex,
-          },
-        }),
-      },
-      orderBy: {
-        nodeIndex: "asc",
+        snapshotId,
+        level: currentLevel,
       },
     });
 
-    if (leaves.length === 0) {
-      break;
+
+     if (currentLevelCount === 0) {
+      throw new Error(
+        `No nodes found for snapshot ${snapshotId}, level ${currentLevel}`
+      );
     }
 
-    for (const leaf of leaves) {
-      console.log(leaf.nodeIndex, leaf.hash);
-    }
+    if (currentLevelCount === 1){
 
-    // lastNodeIndex = leaves[leaves.length - 1]!.nodeIndex;
+      const root = await prisma.merkleNode.findFirst({
+        where:{
+          snapshotId:snapshotId,
+          level:currentLevel
+        }
+      })
+
+      if(!root){
+      throw new Error("Root node not found");       
+      };
+
+      return root.hash; 
   }
+
+
+  let lastNodeIndex: bigint | undefined = undefined;
+
+
+  while(true){
+
+      const nodes :any = await prisma.merkleNode.findMany({
+        take:BATCH_SIZE,
+
+        where:{
+          snapshotId:snapshotId,
+          level:currentLevel,
+
+          ...(lastNodeIndex !== undefined && {
+            nodeIndex:{
+              gt:lastNodeIndex
+            }
+          } ),
+        },
+          orderBy:{
+            nodeIndex:"asc",
+          },
+        }
+      );
+
+      if(nodes.length === 0) break;
+      
+      const parentArray = [] 
+      
+      for(let i = 0;i<nodes.length;i+2 ){
+
+        const left = nodes[i];
+
+        let right = nodes[i + 1];
+
+        if(!right){
+
+          const isLastNode = left?.nodeIndex === BigInt(currentLevelCount -1 );
+          
+          if (!isLastNode) {
+            throw new Error(
+              `Unexpected missing sibling at node ${left!.nodeIndex}`
+            );
+
+        }
+           right = left;
+
+      } 
+
+      const Hash = buildLevelForTree(
+        Buffer.from(left!.hash),
+        Buffer.from(right.hash)          
+      );
+
+       const parentHash = new Uint8Array(Hash.length);
+      parentHash.set(Hash);
+
+
+      const parentIndex = left!.nodeIndex / 2n ;
+
+
+      parentArray.push( {  
+        snapshotId : snapshotId , 
+        hash : parentHash,
+        level:currentLevel+1, 
+        nodeIndex: parentIndex,
+        mint: event.mint.toString()
+      })
+
+
+  }
+
+
+    if (parentArray.length > 0) {
+        await prisma.merkleNode.createMany({
+          data: parentArray,
+        });
+      }
+
+
+    lastNodeIndex = nodes[nodes.length - 1]!.nodeIndex!;
+
 };
 
-// function buildMerkleTree(
-//   leaves: ReadonlyArray<Buffer | Uint8Array>
-// ): MerkleTree {
-//   if (leaves.length === 0) {
-//     throw new Error("Cannot build Merkle tree from zero leaves");
-//   }
+      currentLevel++;
 
-//   const levels: Buffer[][] = [];
+}
 
-//   // Level 0 = leaves
-//   let level: Buffer[] = leaves.map((leaf) => Buffer.from(leaf));
-
-//   levels.push(level);
-
-//   while (level.length > 1) {
-//     // If odd, duplicate last node
-//     if (level.length % 2 === 1) {
-//       level = [...level, Buffer.from(level[level.length - 1])];
-//     }
-
-//     const nextLevel: Buffer[] = [];
-
-//     for (let i = 0; i < level.length; i += 2) {
-//       const left = level[i];
-//       const right = level[i + 1];
-
-//       nextLevel.push(hashPair(left, right));
-//     }
-
-//     level = nextLevel;
-
-//     levels.push(level);
-//   }
-
-//   return {
-//     levels,
-//     root: level[0],
-//   };
-// }
+}

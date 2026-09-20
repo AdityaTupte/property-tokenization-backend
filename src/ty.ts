@@ -391,3 +391,165 @@ model MerkleProof {
   @@id([snapshotId, holder, proofIndex])
   @@index([snapshotId, holder])
 }
+
+
+
+
+
+export const BuildTreeRootFromLeaves = async (
+  event: SnapshotRequestedType
+) => {
+  const BATCH_SIZE = 10_000;
+
+  const snapshotId = event.slot.toString();
+
+  let currentLevel = 0;
+
+  while (true) {
+    // --------------------------------------------------
+    // 1. Count nodes in the current level
+    // --------------------------------------------------
+
+    const currentLevelCount = await prisma.merkleNode.count({
+      where: {
+        snapshotId,
+        level: currentLevel,
+      },
+    });
+
+    if (currentLevelCount === 0) {
+      throw new Error(
+        `No nodes found for snapshot ${snapshotId}, level ${currentLevel}`
+      );
+    }
+
+    // --------------------------------------------------
+    // 2. If only one node exists, it is the root
+    // --------------------------------------------------
+
+    if (currentLevelCount === 1) {
+      const root = await prisma.merkleNode.findFirst({
+        where: {
+          snapshotId,
+          level: currentLevel,
+        },
+      });
+
+      if (!root) {
+        throw new Error("Root node not found");
+      }
+
+      console.log(
+        `Merkle root found: level=${currentLevel}, index=${root.nodeIndex}`
+      );
+
+      return root.hash;
+    }
+
+    // --------------------------------------------------
+    // 3. Process current level in batches
+    // --------------------------------------------------
+
+    let lastNodeIndex: bigint | undefined = undefined;
+
+    while (true) {
+      const nodes = await prisma.merkleNode.findMany({
+        take: BATCH_SIZE,
+
+        where: {
+          snapshotId,
+          level: currentLevel,
+
+          ...(lastNodeIndex !== undefined && {
+            nodeIndex: {
+              gt: lastNodeIndex,
+            },
+          }),
+        },
+
+        orderBy: {
+          nodeIndex: "asc",
+        },
+      });
+
+      if (nodes.length === 0) {
+        break;
+      }
+
+      // ------------------------------------------------
+      // 4. Build parent nodes from pairs
+      // ------------------------------------------------
+
+      for (let i = 0; i < nodes.length; i += 2) {
+        const left = nodes[i]!;
+
+        let right = nodes[i + 1];
+
+        // ----------------------------------------------
+        // Odd number of nodes:
+        // duplicate the final node
+        // ----------------------------------------------
+
+        if (!right) {
+          const isLastNode =
+            left.nodeIndex === BigInt(currentLevelCount - 1);
+
+          if (!isLastNode) {
+            throw new Error(
+              `Unexpected missing sibling at node ${left.nodeIndex}`
+            );
+          }
+
+          right = left;
+        }
+
+        // ----------------------------------------------
+        // Build parent hash
+        // ----------------------------------------------
+
+        const parentHash = buildLevelForTree(
+          left.hash,
+          right.hash
+        );
+
+        // ----------------------------------------------
+        // Parent index
+        // ----------------------------------------------
+
+        const parentIndex = left.nodeIndex / 2n;
+
+        // ----------------------------------------------
+        // Insert parent into next level
+        // ----------------------------------------------
+
+        await prisma.merkleNode.create({
+          data: {
+            id: `${snapshotId}-${currentLevel + 1}-${parentIndex}`,
+
+            snapshotId,
+
+            level: currentLevel + 1,
+
+            nodeIndex: parentIndex,
+
+            hash: parentHash,
+          },
+        });
+        
+      }
+
+      // ------------------------------------------------
+      // 5. Move cursor
+      // ------------------------------------------------
+
+      lastNodeIndex =
+        nodes[nodes.length - 1]!.nodeIndex;
+    }
+
+    // --------------------------------------------------
+    // 6. Move to the next level
+    // --------------------------------------------------
+
+    currentLevel++;
+  }
+};
