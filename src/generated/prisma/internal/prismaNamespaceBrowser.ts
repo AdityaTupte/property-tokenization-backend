@@ -645,9 +645,8 @@ export type MerkleNodeScalarFieldEnum = (typeof MerkleNodeScalarFieldEnum)[keyof
 export const MerkleProofScalarFieldEnum = {
   snapshotId: 'snapshotId',
   holder: 'holder',
-  leafIndex: 'leafIndex',
-  proofIndex: 'proofIndex',
-  hash: 'hash'
+  mint: 'mint',
+  leafnodeIndex: 'leafnodeIndex'
 } as const
 
 export type MerkleProofScalarFieldEnum = (typeof MerkleProofScalarFieldEnum)[keyof typeof MerkleProofScalarFieldEnum]

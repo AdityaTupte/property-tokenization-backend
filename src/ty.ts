@@ -553,3 +553,596 @@ export const BuildTreeRootFromLeaves = async (
     currentLevel++;
   }
 };
+
+
+
+export type MerkleProof = {
+  hash: Buffer;
+  // true  -> sibling is on the left
+  // false -> sibling is on the right
+  siblingIsLeft: boolean;
+};
+
+export const buildMerkleProofFromDB = async (
+  snapshotId: string,
+  holder: string,
+  mint:string
+): Promise<MerkleProof[]> => {
+
+  const proof: MerkleProof[] = [];
+
+  /*
+   * 1. Find the holder's leaf
+   */
+  const leaf = await prisma.merkleNode.findFirst({
+    where: {
+      snapshotId,
+      holder,
+      level: 0,
+    },
+    select: {
+      nodeIndex: true,
+      hash: true,
+    },
+  });
+
+  if (!leaf) {
+    throw new Error(
+      `Leaf not found for holder ${holder}`
+    );
+  }
+
+  let currentIndex = leaf.nodeIndex;
+  let currentLevel = 0;
+
+  /*
+   * 2. Keep walking upward until we reach root
+   */
+  while (true) {
+
+    const currentLevelCount =
+      await prisma.merkleNode.count({
+        where: {
+          snapshotId,
+          level: currentLevel,
+        },
+      });
+
+    /*
+     * Only one node at this level means
+     * we have reached the root.
+     */
+    if (currentLevelCount === 1) {
+      break;
+    }
+
+    /*
+     * 3. Determine sibling index
+     *
+     * 0 -> sibling 1
+     * 1 -> sibling 0
+     * 2 -> sibling 3
+     * 3 -> sibling 2
+     */
+    const siblingIndex =
+      currentIndex % 2n === 0n
+        ? currentIndex + 1n
+        : currentIndex - 1n;
+
+    /*
+     * 4. Find sibling
+     */
+    let sibling =
+      await prisma.merkleNode.findFirst({
+        where: {
+          snapshotId,
+          level: currentLevel,
+          nodeIndex: siblingIndex,
+        },
+        select: {
+          hash: true,
+          nodeIndex: true,
+        },
+      });
+
+    /*
+     * 5. If sibling doesn't exist, this must be
+     * the last node of an odd-sized level.
+     *
+     * Your tree-building code duplicates the
+     * last node, so the node is its own sibling.
+     */
+    if (!sibling) {
+
+      const isLastNode =
+        currentIndex === BigInt(
+          currentLevelCount - 1
+        );
+
+      if (!isLastNode) {
+        throw new Error(
+          `Sibling not found for node ${currentIndex} at level ${currentLevel}`
+        );
+      }
+
+      sibling = await prisma.merkleNode.findFirst({
+        where: {
+          snapshotId,
+          level: currentLevel,
+          nodeIndex: currentIndex,
+        },
+        select: {
+          hash: true,
+          nodeIndex: true,
+        },
+      });
+
+      if (!sibling) {
+        throw new Error(
+          `Self-sibling not found for node ${currentIndex}`
+        );
+      }
+    }
+
+    /*
+     * 6. Add sibling to proof
+     */
+    proof.push({
+      hash: Buffer.from(sibling.hash),
+
+      /*
+       * If current node is odd:
+       *
+       *     sibling | current
+       *
+       * therefore sibling is LEFT.
+       */
+      siblingIsLeft:
+        currentIndex % 2n === 1n,
+    });
+
+    /*
+     * 7. Move to parent
+     */
+    currentIndex =
+      currentIndex / 2n;
+
+    currentLevel++;
+  }
+
+  return proof;
+};
+
+// /////////////////////////////////
+
+type MerkleProofItem = {
+  hash: Buffer;
+  siblingIsLeft: boolean;
+};
+
+type HolderMerkleProof = {
+  holder: string;
+  nodeIndex: bigint;
+  proof: MerkleProofItem[];
+};
+
+
+/**
+ * Generate Merkle proofs batch-wise for a snapshot.
+ *
+ * Only snapshotId/slot and mint are required.
+ *
+ * Example:
+ *
+ * await generateMerkleProofs(
+ *   event.slot.toString(),
+ *   event.mint.toString(),
+ *   async (proofs) => {
+ *     // store proofs / send to Kafka / etc.
+ *   }
+ * );
+ */
+export const generateMerkleProofs = async (
+  snapshotId: string,
+  mint: string,
+  onBatch: (
+    proofs: HolderMerkleProof[]
+  ) => Promise<void>
+) => {
+
+  const BATCH_SIZE = 10_000;
+
+  let lastNodeIndex: bigint | undefined = undefined;
+
+  while (true) {
+
+    /*
+     * =====================================================
+     * 1. Fetch next 10,000 leaves
+     * =====================================================
+     */
+
+    const leaves = await prisma.merkleNode.findMany({
+      where: {
+        snapshotId,
+        mint,
+        level: 0,
+
+        ...(lastNodeIndex !== undefined && {
+          nodeIndex: {
+            gt: lastNodeIndex,
+          },
+        }),
+      },
+
+      orderBy: {
+        nodeIndex: "asc",
+      },
+
+      take: BATCH_SIZE,
+
+      select: {
+        holder: true,
+        nodeIndex: true,
+      },
+    });
+
+    /*
+     * No more leaves.
+     */
+    if (leaves.length === 0) {
+      break;
+    }
+
+
+    /*
+     * =====================================================
+     * 2. Create proof state for every holder in this batch
+     * =====================================================
+     */
+
+    const proofMap = new Map<
+      string,
+      MerkleProofItem[]
+    >();
+
+    const indexMap = new Map<
+      string,
+      bigint
+    >();
+
+
+    for (const leaf of leaves) {
+
+      if (!leaf.holder) {
+        throw new Error(
+          `Leaf ${leaf.nodeIndex} has no holder`
+        );
+      }
+
+      proofMap.set(
+        leaf.holder,
+        []
+      );
+
+      indexMap.set(
+        leaf.holder,
+        leaf.nodeIndex
+      );
+    }
+
+
+    /*
+     * =====================================================
+     * 3. Walk upward through the Merkle tree
+     * =====================================================
+     */
+
+    let currentLevel = 0;
+
+
+    while (true) {
+
+      /*
+       * How many nodes exist at this level?
+       */
+      const currentLevelCount =
+        await prisma.merkleNode.count({
+          where: {
+            snapshotId,
+            mint,
+            level: currentLevel,
+          },
+        });
+
+
+      /*
+       * Only one node means this is the root.
+       */
+      if (currentLevelCount === 1) {
+        break;
+      }
+
+
+      /*
+       * ===================================================
+       * 4. Calculate all sibling indexes required
+       * ===================================================
+       */
+
+      const siblingIndexes = new Set<string>();
+
+      const holderInfo: {
+        holder: string;
+        currentIndex: bigint;
+        siblingIndex: bigint;
+        siblingIsLeft: boolean;
+      }[] = [];
+
+
+      for (const [
+        holder,
+        currentIndex
+      ] of indexMap) {
+
+        const siblingIndex =
+          currentIndex % 2n === 0n
+            ? currentIndex + 1n
+            : currentIndex - 1n;
+
+
+        holderInfo.push({
+          holder,
+          currentIndex,
+          siblingIndex,
+
+          /*
+           * currentIndex odd means:
+           *
+           * sibling | current
+           *
+           * Therefore sibling is on the left.
+           */
+          siblingIsLeft:
+            currentIndex % 2n === 1n,
+        });
+
+
+        siblingIndexes.add(
+          siblingIndex.toString()
+        );
+      }
+
+
+      /*
+       * ===================================================
+       * 5. Fetch ALL siblings for this level in ONE query
+       * ===================================================
+       */
+
+      const siblingIndexesBigInt =
+        Array.from(
+          siblingIndexes,
+          (index) => BigInt(index)
+        );
+
+
+      const siblings =
+        await prisma.merkleNode.findMany({
+          where: {
+            snapshotId,
+            mint,
+            level: currentLevel,
+
+            nodeIndex: {
+              in: siblingIndexesBigInt,
+            },
+          },
+
+          select: {
+            nodeIndex: true,
+            hash: true,
+          },
+        });
+
+
+      /*
+       * nodeIndex -> hash
+       */
+      const siblingMap = new Map<
+        string,
+        Buffer
+      >();
+
+
+      for (const sibling of siblings) {
+
+        siblingMap.set(
+          sibling.nodeIndex.toString(),
+          Buffer.from(sibling.hash)
+        );
+      }
+
+
+      /*
+       * ===================================================
+       * 6. Add sibling to every holder's proof
+       * ===================================================
+       */
+
+      for (const info of holderInfo) {
+
+        let siblingHash =
+          siblingMap.get(
+            info.siblingIndex.toString()
+          );
+
+
+        /*
+         * =================================================
+         * Odd number of nodes
+         *
+         * Example:
+         *
+         * 0 1 2 3 4
+         *
+         * Node 4 has no node 5.
+         *
+         * Tree construction uses:
+         *
+         * hash(4, 4)
+         *
+         * Therefore node 4 is its own sibling.
+         * =================================================
+         */
+
+        if (!siblingHash) {
+
+          const isLastNode =
+            info.currentIndex ===
+            BigInt(currentLevelCount - 1);
+
+
+          if (!isLastNode) {
+            throw new Error(
+              `Missing sibling ${info.siblingIndex} ` +
+              `for node ${info.currentIndex} ` +
+              `at level ${currentLevel}`
+            );
+          }
+
+
+          /*
+           * Fetch the last node itself.
+           *
+           * We need its hash because the sibling
+           * is the node itself.
+           */
+          siblingHash =
+            siblingMap.get(
+              info.currentIndex.toString()
+            );
+
+
+          if (!siblingHash) {
+
+            const self =
+              await prisma.merkleNode.findFirst({
+                where: {
+                  snapshotId,
+                  mint,
+                  level: currentLevel,
+                  nodeIndex:
+                    info.currentIndex,
+                },
+
+                select: {
+                  hash: true,
+                },
+              });
+
+
+            if (!self) {
+              throw new Error(
+                `Self sibling not found for node ` +
+                `${info.currentIndex} at level ` +
+                `${currentLevel}`
+              );
+            }
+
+
+            siblingHash =
+              Buffer.from(self.hash);
+          }
+        }
+
+
+        /*
+         * Add sibling to proof.
+         */
+        proofMap
+          .get(info.holder)!
+          .push({
+            hash: siblingHash,
+            siblingIsLeft:
+              info.siblingIsLeft,
+          });
+      }
+
+
+      /*
+       * ===================================================
+       * 7. Move every holder to its parent
+       *
+       * parentIndex = floor(nodeIndex / 2)
+       * ===================================================
+       */
+
+      for (const [
+        holder,
+        currentIndex
+      ] of indexMap) {
+
+        indexMap.set(
+          holder,
+          currentIndex / 2n
+        );
+      }
+
+
+      /*
+       * Move to next level.
+       */
+      currentLevel++;
+    }
+
+
+    /*
+     * =====================================================
+     * 8. Convert Map → array
+     * =====================================================
+     */
+
+    const batchProofs: HolderMerkleProof[] =
+      leaves.map((leaf) => {
+
+        if (!leaf.holder) {
+          throw new Error(
+            `Leaf ${leaf.nodeIndex} has no holder`
+          );
+        }
+
+        return {
+          holder: leaf.holder,
+
+          nodeIndex:
+            leaf.nodeIndex,
+
+          proof:
+            proofMap.get(leaf.holder) ?? [],
+        };
+      });
+
+
+    /*
+     * =====================================================
+     * 9. Process/store this batch
+     *
+     * IMPORTANT:
+     * We don't keep all proofs in memory.
+     * =====================================================
+     */
+
+    await onBatch(batchProofs);
+
+
+    /*
+     * =====================================================
+     * 10. Move to next 10,000 leaves
+     * =====================================================
+     */
+
+    lastNodeIndex =
+      leaves[leaves.length - 1].nodeIndex;
+  }
+};

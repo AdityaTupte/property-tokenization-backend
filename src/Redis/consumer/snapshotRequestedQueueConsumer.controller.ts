@@ -40,7 +40,7 @@ const snapshotWorker = new Worker(
 
 
         
-        // grnrate proof 
+        await generateProofForOnchainVerficaion(data.mint,data.slot);
 
         //   call the submit function at submition enter the sanphot id snapshot in table
         

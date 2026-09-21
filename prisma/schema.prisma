@@ -654,11 +654,11 @@ model MerkleNode {
 model MerkleProof {
   snapshotId String
   holder     String
-  leafIndex  BigInt
-  proofIndex Int
-  hash       Bytes
+  mint String
+  leafnodeIndex  BigInt
+  // proofIndex Int
 
-  @@id([snapshotId, holder, proofIndex])
+  @@id([snapshotId, holder])
   @@index([snapshotId, holder])
 }
 

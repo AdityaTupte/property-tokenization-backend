@@ -27,73 +27,63 @@ export type AggregateMerkleProof = {
 }
 
 export type MerkleProofAvgAggregateOutputType = {
-  leafIndex: number | null
-  proofIndex: number | null
+  leafnodeIndex: number | null
 }
 
 export type MerkleProofSumAggregateOutputType = {
-  leafIndex: bigint | null
-  proofIndex: number | null
+  leafnodeIndex: bigint | null
 }
 
 export type MerkleProofMinAggregateOutputType = {
   snapshotId: string | null
   holder: string | null
-  leafIndex: bigint | null
-  proofIndex: number | null
-  hash: runtime.Bytes | null
+  mint: string | null
+  leafnodeIndex: bigint | null
 }
 
 export type MerkleProofMaxAggregateOutputType = {
   snapshotId: string | null
   holder: string | null
-  leafIndex: bigint | null
-  proofIndex: number | null
-  hash: runtime.Bytes | null
+  mint: string | null
+  leafnodeIndex: bigint | null
 }
 
 export type MerkleProofCountAggregateOutputType = {
   snapshotId: number
   holder: number
-  leafIndex: number
-  proofIndex: number
-  hash: number
+  mint: number
+  leafnodeIndex: number
   _all: number
 }
 
 
 export type MerkleProofAvgAggregateInputType = {
-  leafIndex?: true
-  proofIndex?: true
+  leafnodeIndex?: true
 }
 
 export type MerkleProofSumAggregateInputType = {
-  leafIndex?: true
-  proofIndex?: true
+  leafnodeIndex?: true
 }
 
 export type MerkleProofMinAggregateInputType = {
   snapshotId?: true
   holder?: true
-  leafIndex?: true
-  proofIndex?: true
-  hash?: true
+  mint?: true
+  leafnodeIndex?: true
 }
 
 export type MerkleProofMaxAggregateInputType = {
   snapshotId?: true
   holder?: true
-  leafIndex?: true
-  proofIndex?: true
-  hash?: true
+  mint?: true
+  leafnodeIndex?: true
 }
 
 export type MerkleProofCountAggregateInputType = {
   snapshotId?: true
   holder?: true
-  leafIndex?: true
-  proofIndex?: true
-  hash?: true
+  mint?: true
+  leafnodeIndex?: true
   _all?: true
 }
 
@@ -186,9 +176,8 @@ export type MerkleProofGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 export type MerkleProofGroupByOutputType = {
   snapshotId: string
   holder: string
-  leafIndex: bigint
-  proofIndex: number
-  hash: runtime.Bytes
+  mint: string
+  leafnodeIndex: bigint
   _count: MerkleProofCountAggregateOutputType | null
   _avg: MerkleProofAvgAggregateOutputType | null
   _sum: MerkleProofSumAggregateOutputType | null
@@ -217,37 +206,33 @@ export type MerkleProofWhereInput = {
   NOT?: Prisma.MerkleProofWhereInput | Prisma.MerkleProofWhereInput[]
   snapshotId?: Prisma.StringFilter<"MerkleProof"> | string
   holder?: Prisma.StringFilter<"MerkleProof"> | string
-  leafIndex?: Prisma.BigIntFilter<"MerkleProof"> | bigint | number
-  proofIndex?: Prisma.IntFilter<"MerkleProof"> | number
-  hash?: Prisma.BytesFilter<"MerkleProof"> | runtime.Bytes
+  mint?: Prisma.StringFilter<"MerkleProof"> | string
+  leafnodeIndex?: Prisma.BigIntFilter<"MerkleProof"> | bigint | number
 }
 
 export type MerkleProofOrderByWithRelationInput = {
   snapshotId?: Prisma.SortOrder
   holder?: Prisma.SortOrder
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
-  hash?: Prisma.SortOrder
+  mint?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
 }
 
 export type MerkleProofWhereUniqueInput = Prisma.AtLeast<{
-  snapshotId_holder_proofIndex?: Prisma.MerkleProofSnapshotIdHolderProofIndexCompoundUniqueInput
+  snapshotId_holder?: Prisma.MerkleProofSnapshotIdHolderCompoundUniqueInput
   AND?: Prisma.MerkleProofWhereInput | Prisma.MerkleProofWhereInput[]
   OR?: Prisma.MerkleProofWhereInput[]
   NOT?: Prisma.MerkleProofWhereInput | Prisma.MerkleProofWhereInput[]
   snapshotId?: Prisma.StringFilter<"MerkleProof"> | string
   holder?: Prisma.StringFilter<"MerkleProof"> | string
-  leafIndex?: Prisma.BigIntFilter<"MerkleProof"> | bigint | number
-  proofIndex?: Prisma.IntFilter<"MerkleProof"> | number
-  hash?: Prisma.BytesFilter<"MerkleProof"> | runtime.Bytes
-}, "snapshotId_holder_proofIndex">
+  mint?: Prisma.StringFilter<"MerkleProof"> | string
+  leafnodeIndex?: Prisma.BigIntFilter<"MerkleProof"> | bigint | number
+}, "snapshotId_holder">
 
 export type MerkleProofOrderByWithAggregationInput = {
   snapshotId?: Prisma.SortOrder
   holder?: Prisma.SortOrder
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
-  hash?: Prisma.SortOrder
+  mint?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
   _count?: Prisma.MerkleProofCountOrderByAggregateInput
   _avg?: Prisma.MerkleProofAvgOrderByAggregateInput
   _max?: Prisma.MerkleProofMaxOrderByAggregateInput
@@ -261,105 +246,91 @@ export type MerkleProofScalarWhereWithAggregatesInput = {
   NOT?: Prisma.MerkleProofScalarWhereWithAggregatesInput | Prisma.MerkleProofScalarWhereWithAggregatesInput[]
   snapshotId?: Prisma.StringWithAggregatesFilter<"MerkleProof"> | string
   holder?: Prisma.StringWithAggregatesFilter<"MerkleProof"> | string
-  leafIndex?: Prisma.BigIntWithAggregatesFilter<"MerkleProof"> | bigint | number
-  proofIndex?: Prisma.IntWithAggregatesFilter<"MerkleProof"> | number
-  hash?: Prisma.BytesWithAggregatesFilter<"MerkleProof"> | runtime.Bytes
+  mint?: Prisma.StringWithAggregatesFilter<"MerkleProof"> | string
+  leafnodeIndex?: Prisma.BigIntWithAggregatesFilter<"MerkleProof"> | bigint | number
 }
 
 export type MerkleProofCreateInput = {
   snapshotId: string
   holder: string
-  leafIndex: bigint | number
-  proofIndex: number
-  hash: runtime.Bytes
+  mint: string
+  leafnodeIndex: bigint | number
 }
 
 export type MerkleProofUncheckedCreateInput = {
   snapshotId: string
   holder: string
-  leafIndex: bigint | number
-  proofIndex: number
-  hash: runtime.Bytes
+  mint: string
+  leafnodeIndex: bigint | number
 }
 
 export type MerkleProofUpdateInput = {
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   holder?: Prisma.StringFieldUpdateOperationsInput | string
-  leafIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  proofIndex?: Prisma.IntFieldUpdateOperationsInput | number
-  hash?: Prisma.BytesFieldUpdateOperationsInput | runtime.Bytes
+  mint?: Prisma.StringFieldUpdateOperationsInput | string
+  leafnodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
 }
 
 export type MerkleProofUncheckedUpdateInput = {
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   holder?: Prisma.StringFieldUpdateOperationsInput | string
-  leafIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  proofIndex?: Prisma.IntFieldUpdateOperationsInput | number
-  hash?: Prisma.BytesFieldUpdateOperationsInput | runtime.Bytes
+  mint?: Prisma.StringFieldUpdateOperationsInput | string
+  leafnodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
 }
 
 export type MerkleProofCreateManyInput = {
   snapshotId: string
   holder: string
-  leafIndex: bigint | number
-  proofIndex: number
-  hash: runtime.Bytes
+  mint: string
+  leafnodeIndex: bigint | number
 }
 
 export type MerkleProofUpdateManyMutationInput = {
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   holder?: Prisma.StringFieldUpdateOperationsInput | string
-  leafIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  proofIndex?: Prisma.IntFieldUpdateOperationsInput | number
-  hash?: Prisma.BytesFieldUpdateOperationsInput | runtime.Bytes
+  mint?: Prisma.StringFieldUpdateOperationsInput | string
+  leafnodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
 }
 
 export type MerkleProofUncheckedUpdateManyInput = {
   snapshotId?: Prisma.StringFieldUpdateOperationsInput | string
   holder?: Prisma.StringFieldUpdateOperationsInput | string
-  leafIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
-  proofIndex?: Prisma.IntFieldUpdateOperationsInput | number
-  hash?: Prisma.BytesFieldUpdateOperationsInput | runtime.Bytes
+  mint?: Prisma.StringFieldUpdateOperationsInput | string
+  leafnodeIndex?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
 }
 
-export type MerkleProofSnapshotIdHolderProofIndexCompoundUniqueInput = {
+export type MerkleProofSnapshotIdHolderCompoundUniqueInput = {
   snapshotId: string
   holder: string
-  proofIndex: number
 }
 
 export type MerkleProofCountOrderByAggregateInput = {
   snapshotId?: Prisma.SortOrder
   holder?: Prisma.SortOrder
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
-  hash?: Prisma.SortOrder
+  mint?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
 }
 
 export type MerkleProofAvgOrderByAggregateInput = {
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
 }
 
 export type MerkleProofMaxOrderByAggregateInput = {
   snapshotId?: Prisma.SortOrder
   holder?: Prisma.SortOrder
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
-  hash?: Prisma.SortOrder
+  mint?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
 }
 
 export type MerkleProofMinOrderByAggregateInput = {
   snapshotId?: Prisma.SortOrder
   holder?: Prisma.SortOrder
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
-  hash?: Prisma.SortOrder
+  mint?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
 }
 
 export type MerkleProofSumOrderByAggregateInput = {
-  leafIndex?: Prisma.SortOrder
-  proofIndex?: Prisma.SortOrder
+  leafnodeIndex?: Prisma.SortOrder
 }
 
 
@@ -367,36 +338,32 @@ export type MerkleProofSumOrderByAggregateInput = {
 export type MerkleProofSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   snapshotId?: boolean
   holder?: boolean
-  leafIndex?: boolean
-  proofIndex?: boolean
-  hash?: boolean
+  mint?: boolean
+  leafnodeIndex?: boolean
 }, ExtArgs["result"]["merkleProof"]>
 
 export type MerkleProofSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   snapshotId?: boolean
   holder?: boolean
-  leafIndex?: boolean
-  proofIndex?: boolean
-  hash?: boolean
+  mint?: boolean
+  leafnodeIndex?: boolean
 }, ExtArgs["result"]["merkleProof"]>
 
 export type MerkleProofSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   snapshotId?: boolean
   holder?: boolean
-  leafIndex?: boolean
-  proofIndex?: boolean
-  hash?: boolean
+  mint?: boolean
+  leafnodeIndex?: boolean
 }, ExtArgs["result"]["merkleProof"]>
 
 export type MerkleProofSelectScalar = {
   snapshotId?: boolean
   holder?: boolean
-  leafIndex?: boolean
-  proofIndex?: boolean
-  hash?: boolean
+  mint?: boolean
+  leafnodeIndex?: boolean
 }
 
-export type MerkleProofOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"snapshotId" | "holder" | "leafIndex" | "proofIndex" | "hash", ExtArgs["result"]["merkleProof"]>
+export type MerkleProofOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"snapshotId" | "holder" | "mint" | "leafnodeIndex", ExtArgs["result"]["merkleProof"]>
 
 export type $MerkleProofPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "MerkleProof"
@@ -404,9 +371,8 @@ export type $MerkleProofPayload<ExtArgs extends runtime.Types.Extensions.Interna
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     snapshotId: string
     holder: string
-    leafIndex: bigint
-    proofIndex: number
-    hash: runtime.Bytes
+    mint: string
+    leafnodeIndex: bigint
   }, ExtArgs["result"]["merkleProof"]>
   composites: {}
 }
@@ -832,9 +798,8 @@ export interface Prisma__MerkleProofClient<T, Null = never, ExtArgs extends runt
 export interface MerkleProofFieldRefs {
   readonly snapshotId: Prisma.FieldRef<"MerkleProof", 'String'>
   readonly holder: Prisma.FieldRef<"MerkleProof", 'String'>
-  readonly leafIndex: Prisma.FieldRef<"MerkleProof", 'BigInt'>
-  readonly proofIndex: Prisma.FieldRef<"MerkleProof", 'Int'>
-  readonly hash: Prisma.FieldRef<"MerkleProof", 'Bytes'>
+  readonly mint: Prisma.FieldRef<"MerkleProof", 'String'>
+  readonly leafnodeIndex: Prisma.FieldRef<"MerkleProof", 'BigInt'>
 }
     
 
