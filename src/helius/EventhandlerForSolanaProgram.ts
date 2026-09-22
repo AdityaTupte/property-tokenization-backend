@@ -1,4 +1,4 @@
-import { snapshotRequestedJobCreationHandler } from "../Redis/producer/snapshotRequestedQueueProducer.controller";
+import { snapshotRequestedJobCreationHandler } from "../Redis/producer/snapshotRequestedQueue.producer";
 import { eventDecoder } from "../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import type { Eventahandler } from "../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../types&interface/solanaLogParser.interface";

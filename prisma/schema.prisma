@@ -626,10 +626,11 @@ model Proposals {
 
 
 model MerkleNode {
+  id          String   @default(uuid())
   holder     String? 
   mint        String
   snapshotId String
-  level      Int
+  level      Int 
   nodeIndex  BigInt
   hash       Bytes
 
@@ -637,6 +638,17 @@ model MerkleNode {
   @@index([snapshotId, level])
 }
 
+
+model MerkleRoot{
+
+  slot String 
+  mint String
+
+  @@id([slot,mint])
+  @@unique([slot,mint])
+
+
+}
 
 // model MerkleSnapshot {
 //   id             String   @id

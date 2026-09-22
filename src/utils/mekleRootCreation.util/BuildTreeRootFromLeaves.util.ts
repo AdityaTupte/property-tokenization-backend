@@ -2,8 +2,6 @@
 // import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueueConsumer.controller";
 // import { keccak_256 } from "@noble/hashes/sha3";
 
-
-
 // const buildLevelForTree = (
 //   hash1: Buffer,
 //   hash2: Buffer
@@ -17,10 +15,6 @@
 //     keccak_256(combined)
 //   );
 // };
-
-
-
-
 
 // export const BuildTreeRootFromLeaves = async (event: SnapshotRequestedType) => {
 //   const BATCH_SIZE = 10_000;
@@ -38,7 +32,6 @@
 //       },
 //     });
 
-
 //      if (currentLevelCount === 0) {
 //       throw new Error(
 //         `No nodes found for snapshot ${snapshotId}, level ${currentLevel}`
@@ -55,15 +48,13 @@
 //       })
 
 //       if(!root){
-//       throw new Error("Root node not found");       
+//       throw new Error("Root node not found");
 //       };
 
-//       return root.hash; 
+//       return root.hash;
 //   }
 
-
 //   let lastNodeIndex: bigint | undefined = undefined;
-
 
 //   while(true){
 
@@ -87,9 +78,9 @@
 //       );
 
 //       if(nodes.length === 0) break;
-      
-//       const parentArray = [] 
-      
+
+//       const parentArray = []
+
 //       for(let i = 0;i<nodes.length;i+2 ){
 
 //         const left = nodes[i];
@@ -99,7 +90,7 @@
 //         if(!right){
 
 //           const isLastNode = left?.nodeIndex === BigInt(currentLevelCount -1 );
-          
+
 //           if (!isLastNode) {
 //             throw new Error(
 //               `Unexpected missing sibling at node ${left!.nodeIndex}`
@@ -108,38 +99,33 @@
 //         }
 //            right = left;
 
-//       } 
+//       }
 
 //       const Hash = buildLevelForTree(
 //         Buffer.from(left!.hash),
-//         Buffer.from(right.hash)          
+//         Buffer.from(right.hash)
 //       );
 
 //        const parentHash = new Uint8Array(Hash.length);
 //       parentHash.set(Hash);
 
-
 //       const parentIndex = left!.nodeIndex / 2n ;
 
-
-//       parentArray.push( {  
-//         snapshotId : snapshotId , 
+//       parentArray.push( {
+//         snapshotId : snapshotId ,
 //         hash : parentHash,
-//         level:currentLevel+1, 
+//         level:currentLevel+1,
 //         nodeIndex: parentIndex,
 //         mint: event.mint.toString()
 //       })
 
-
 //   }
-
 
 //     if (parentArray.length > 0) {
 //         await prisma.merkleNode.createMany({
 //           data: parentArray,
 //         });
 //       }
-
 
 //     lastNodeIndex = nodes[nodes.length - 1]!.nodeIndex!;
 
@@ -151,12 +137,9 @@
 
 // }
 
-
-
 import { prisma } from "../../prismaclient";
-import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueueConsumer.controller";
+import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueue.consumer";
 import { keccak_256 } from "@noble/hashes/sha3";
-
 
 /*
  * MUST match Rust verify_proof().
@@ -169,264 +152,196 @@ import { keccak_256 } from "@noble/hashes/sha3";
  *     hash(p, computed)
  * }
  */
-const buildLevelForTree = (
-  hash1: Buffer,
-  hash2: Buffer
-): Buffer => {
-
+const buildLevelForTree = (hash1: Buffer, hash2: Buffer): Buffer => {
   const [first, second] =
-    Buffer.compare(hash1, hash2) <= 0
-      ? [hash1, hash2]
-      : [hash2, hash1];
+    Buffer.compare(hash1, hash2) <= 0 ? [hash1, hash2] : [hash2, hash1];
 
-
-  return Buffer.from(
-    keccak_256(
-      Buffer.concat([
-        first,
-        second,
-      ])
-    )
-  );
+  return Buffer.from(keccak_256(Buffer.concat([first, second])));
 };
 
+export const BuildTreeRootFromLeaves = async (event: SnapshotRequestedType) => {
+  const BATCH_SIZE = 10_000;
 
-export const BuildTreeRootFromLeaves =
-  async (
-    event: SnapshotRequestedType
-  ) => {
+  const snapshotId = event.slot.toString();
 
-    const BATCH_SIZE = 10_000;
+  const mint = event.mint.toString();
 
-    const snapshotId =
-      event.slot.toString();
+  let currentLevel = 0;
 
-    const mint =
-      event.mint.toString();
+  while (true) {
+    /*
+     * Number of nodes at this level.
+     */
+    const currentLevelCount = await prisma.merkleNode.count({
+      where: {
+        snapshotId,
+        mint,
+        level: currentLevel,
+      },
+    });
 
-    let currentLevel = 0;
+    if (currentLevelCount === 0) {
+      throw new Error(
+        `No nodes found for snapshot ${snapshotId}, level ${currentLevel}`
+      );
+    }
 
+    /*
+     * One node = ROOT.
+     */
+    if (currentLevelCount === 1) {
+      const root = await prisma.merkleNode.findFirst({
+        where: {
+          snapshotId,
+          mint,
+          level: currentLevel,
+        },
+
+        select: {
+          hash: true,
+        },
+      });
+
+      if (!root) {
+        throw new Error("Root node not found");
+      }
+
+      return root.hash;
+    }
+
+    /*
+     * Process this level in batches.
+     */
+    let lastNodeIndex: bigint | undefined;
 
     while (true) {
+      const nodes = await prisma.merkleNode.findMany({
+        where: {
+          snapshotId,
+          mint,
+          level: currentLevel,
 
-      /*
-       * Number of nodes at this level.
-       */
-      const currentLevelCount =
-        await prisma.merkleNode.count({
-          where: {
-            snapshotId,
-            mint,
-            level: currentLevel,
-          },
-        });
+          ...(lastNodeIndex !== undefined && {
+            nodeIndex: {
+              gt: lastNodeIndex,
+            },
+          }),
+        },
 
+        orderBy: {
+          nodeIndex: "asc",
+        },
 
-      if (currentLevelCount === 0) {
-        throw new Error(
-          `No nodes found for snapshot ${snapshotId}, level ${currentLevel}`
-        );
+        take: BATCH_SIZE,
+
+        select: {
+          hash: true,
+          nodeIndex: true,
+        },
+      });
+
+      if (nodes.length === 0) {
+        break;
       }
 
+      const parentArray: {
+        snapshotId: string;
+        mint: string;
+        hash: Uint8Array<ArrayBuffer>;
+        level: number;
+        nodeIndex: bigint;
+      }[] = [];
 
       /*
-       * One node = ROOT.
+       * IMPORTANT:
+       *
+       * BATCH_SIZE must be EVEN.
+       *
+       * 10,000 is even, so a pair
+       * will never be split across batches.
        */
-      if (currentLevelCount === 1) {
+      for (let i = 0; i < nodes.length; i += 2) {
+        const left = nodes[i];
 
-        const root =
-          await prisma.merkleNode.findFirst({
-            where: {
-              snapshotId,
-              mint,
-              level: currentLevel,
-            },
-
-            select: {
-              hash: true,
-            },
-          });
-
-
-        if (!root) {
-          throw new Error(
-            "Root node not found"
-          );
+        if (!left) {
+          throw new Error("Left node missing");
         }
 
-
-        return root.hash;
-      }
-
-
-      /*
-       * Process this level in batches.
-       */
-      let lastNodeIndex:
-        bigint | undefined;
-
-
-      while (true) {
-
-        const nodes =
-          await prisma.merkleNode.findMany({
-
-            where: {
-              snapshotId,
-              mint,
-              level: currentLevel,
-
-              ...(lastNodeIndex !== undefined && {
-                nodeIndex: {
-                  gt: lastNodeIndex,
-                },
-              }),
-            },
-
-            orderBy: {
-              nodeIndex: "asc",
-            },
-
-            take: BATCH_SIZE,
-
-            select: {
-              hash: true,
-              nodeIndex: true,
-            },
-          });
-
-
-        if (nodes.length === 0) {
-          break;
-        }
-
-
-        const parentArray: {
-          snapshotId: string;
-          mint: string;
-          hash: Uint8Array<ArrayBuffer>;
-          level: number;
-          nodeIndex: bigint;
-        }[] = [];
-
+        let right = nodes[i + 1];
 
         /*
-         * IMPORTANT:
+         * Odd number of nodes.
          *
-         * BATCH_SIZE must be EVEN.
+         * Example:
          *
-         * 10,000 is even, so a pair
-         * will never be split across batches.
+         * A B C
+         *
+         * becomes:
+         *
+         * A B
+         * C C
          */
-        for (
-          let i = 0;
-          i < nodes.length;
-          i += 2
-        ) {
+        if (!right) {
+          const isLastNode = left.nodeIndex === BigInt(currentLevelCount - 1);
 
-          const left =
-            nodes[i];
-
-          if (!left) {
+          if (!isLastNode) {
             throw new Error(
-              "Left node missing"
+              `Unexpected missing sibling at node ${left.nodeIndex}`
             );
           }
 
-
-          let right =
-            nodes[i + 1];
-
-
-          /*
-           * Odd number of nodes.
-           *
-           * Example:
-           *
-           * A B C
-           *
-           * becomes:
-           *
-           * A B
-           * C C
-           */
-          if (!right) {
-
-            const isLastNode =
-              left.nodeIndex ===
-              BigInt(currentLevelCount - 1);
-
-
-            if (!isLastNode) {
-              throw new Error(
-                `Unexpected missing sibling at node ${left.nodeIndex}`
-              );
-            }
-
-
-            right = left;
-          }
-
-
-          /*
-           * Sorted-pair hashing.
-           */
-          const parentHash =
-            buildLevelForTree(
-              Buffer.from(left.hash),
-              Buffer.from(right.hash)
-            );
-
-
-          /*
-           * Parent index.
-           *
-           * 0,1 -> 0
-           * 2,3 -> 1
-           * 4,5 -> 2
-           */
-          const parentIndex =
-            left.nodeIndex / 2n;
-           
-            const hash = new Uint8Array(parentHash.length);
-            
-            hash.set(parentHash);
-
-          parentArray.push({
-            snapshotId,
-
-            mint,
-
-            hash: hash,
-
-            level:
-              currentLevel + 1,
-
-            nodeIndex:
-              parentIndex,
-          });
+          right = left;
         }
-
 
         /*
-         * Insert parents for this batch.
+         * Sorted-pair hashing.
          */
-        if (parentArray.length > 0) {
+        const parentHash = buildLevelForTree(
+          Buffer.from(left.hash),
+          Buffer.from(right.hash)
+        );
 
-          await prisma.merkleNode.createMany({
-            data: parentArray,
-          });
-        }
+        /*
+         * Parent index.
+         *
+         * 0,1 -> 0
+         * 2,3 -> 1
+         * 4,5 -> 2
+         */
+        const parentIndex = left.nodeIndex / 2n;
 
+        const hash = new Uint8Array(parentHash.length);
 
-        lastNodeIndex =
-          nodes[nodes.length - 1]!.nodeIndex;
+        hash.set(parentHash);
+
+        parentArray.push({
+          snapshotId,
+
+          mint,
+
+          hash: hash,
+
+          level: currentLevel + 1,
+
+          nodeIndex: parentIndex,
+        });
       }
 
-
       /*
-       * Next level.
+       * Insert parents for this batch.
        */
-      currentLevel++;
+      if (parentArray.length > 0) {
+        await prisma.merkleNode.createMany({
+          data: parentArray,
+        });
+      }
+
+      lastNodeIndex = nodes[nodes.length - 1]!.nodeIndex;
     }
-  };
+
+    /*
+     * Next level.
+     */
+    currentLevel++;
+  }
+};

@@ -43,13 +43,10 @@
 //   return buffer;
 // }
 
-
-
 // export const createMerkleLeavesFromTokenBalance = async (
 //   data: SnapshotRequestedType,
 //   proposalType: ProposalType
 // ) => {
-  
 
 //   const BATCH_SIZE = 10_000;
 
@@ -60,39 +57,39 @@
 //   while (true) {
 
 //     const latestBalances : Awaited<ReturnType<typeof prisma.balanceHistory.findMany>> = await prisma.$queryRaw<
-//       { 
+//       {
 //         id: bigint,
 //         holder: string;
 //         mint: string;
 //         slot: bigint;
 //         balance: bigint;
 //       }[]
-//     >` 
-//     SELECT * 
-//     FROM ( 
-//       SELECT DISTINCT ON ("holder") 
-//         "holder", 
-//         "mint", 
-//         "slot", 
-//         "balance" 
+//     >`
+//     SELECT *
+//     FROM (
+//       SELECT DISTINCT ON ("holder")
+//         "holder",
+//         "mint",
+//         "slot",
+//         "balance"
 //       FROM "BalanceHistory"
-      
-//       WHERE "mint" = ${data.mint} 
+
+//       WHERE "mint" = ${data.mint}
 //       AND "slot" <= ${data.slot}
 
 //       ${
 //         lastHolder !== undefined
 //           ? Prisma.sql`AND "holder" > ${lastHolder}`
 //           : Prisma.empty
-//       } 
-//       ORDER BY 
-//         "holder" ASC, 
-//         "slot" DESC 
-//       ) AS latest 
-      
-//       WHERE "balance" > 0 
-//       ORDER BY "holder" ASC 
-//       LIMIT ${BATCH_SIZE}; 
+//       }
+//       ORDER BY
+//         "holder" ASC,
+//         "slot" DESC
+//       ) AS latest
+
+//       WHERE "balance" > 0
+//       ORDER BY "holder" ASC
+//       LIMIT ${BATCH_SIZE};
 //     `;
 
 //     if (latestBalances.length === 0) {
@@ -114,63 +111,41 @@
 //       return { holder : holder.holder , snapshotId :  holder.slot.toString() , hash : hash,level:0, nodeIndex: nodeIndex++ }
 //     });
 
-
 //     await prisma.merkleNode.createMany({
 //       data:[
 //         ...LeavesOfTokenHolder
 //       ]
 //     })
 
-
-//    lastHolder = latestBalances[latestBalances.length - 1]!.holder; 
+//    lastHolder = latestBalances[latestBalances.length - 1]!.holder;
 
 //   }
 // };
-
-
 
 import { PublicKey } from "@solana/web3.js";
 import { Prisma, ProposalType } from "../../generated/prisma/client";
 import { prisma } from "../../prismaclient";
 import BN from "bn.js";
 import { keccak_256 } from "@noble/hashes/sha3";
-import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueueConsumer.controller";
+import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueue.consumer";
 
-
-function keccakBuffer(
-  parts: ReadonlyArray<Buffer | Uint8Array>
-): Buffer {
+function keccakBuffer(parts: ReadonlyArray<Buffer | Uint8Array>): Buffer {
   return Buffer.from(
-    keccak_256(
-      Buffer.concat(
-        parts.map((part) => Buffer.from(part))
-      )
-    )
+    keccak_256(Buffer.concat(parts.map((part) => Buffer.from(part))))
   );
 }
 
-
-function toU64LeBuffer(
-  value: number | bigint | BN
-): Buffer {
-
+function toU64LeBuffer(value: number | bigint | BN): Buffer {
   if (BN.isBN(value)) {
-    return value.toArrayLike(
-      Buffer,
-      "le",
-      8
-    );
+    return value.toArrayLike(Buffer, "le", 8);
   }
 
   const buffer = Buffer.alloc(8);
 
-  buffer.writeBigUInt64LE(
-    BigInt(value)
-  );
+  buffer.writeBigUInt64LE(BigInt(value));
 
   return buffer;
 }
-
 
 /*
  * IMPORTANT:
@@ -189,6 +164,9 @@ function toU64LeBuffer(
  *
  * Then TransferLand = 0, BuyProperty = 1.
  */
+
+// FIXME propsaltype
+
 function buildProposalLeaf(
   holder: PublicKey,
   proposal: PublicKey,
@@ -196,7 +174,6 @@ function buildProposalLeaf(
   votingPower: number | bigint | BN,
   proposalTypeValue: number
 ): Buffer {
-
   return keccakBuffer([
     // Rust: &[*item.proposal_type() as u8]
     Buffer.from([proposalTypeValue]),
@@ -212,41 +189,33 @@ function buildProposalLeaf(
   ]);
 }
 
+export const createMerkleLeavesFromTokenBalance = async (
+  data: SnapshotRequestedType,
+  proposalTypeValue: number
+) => {
+  const BATCH_SIZE = 10_000;
 
-export const createMerkleLeavesFromTokenBalance =
-  async (
-    data: SnapshotRequestedType,
-    proposalTypeValue: number
-  ) => {
+  const snapshotId = data.slot.toString();
 
-    const BATCH_SIZE = 10_000;
+  const mint = data.mint.toString();
 
-    const snapshotId =
-      data.slot.toString();
+  let lastHolder: string | undefined;
 
-    const mint =
-      data.mint.toString();
+  let nodeIndex = 0n;
 
-    let lastHolder: string | undefined;
-
-    let nodeIndex = 0n;
-
-
-    while (true) {
-
-      /*
-       * Get latest balance of each holder
-       * at or before the snapshot slot.
-       */
-      const latestBalances =
-        await prisma.$queryRaw<
-          {
-            holder: string;
-            mint: string;
-            slot: bigint;
-            balance: bigint;
-          }[]
-        >`
+  while (true) {
+    /*
+     * Get latest balance of each holder
+     * at or before the snapshot slot.
+     */
+    const latestBalances = await prisma.$queryRaw<
+      {
+        holder: string;
+        mint: string;
+        slot: bigint;
+        balance: bigint;
+      }[]
+    >`
 
         SELECT *
         FROM (
@@ -282,62 +251,51 @@ export const createMerkleLeavesFromTokenBalance =
         LIMIT ${BATCH_SIZE};
       `;
 
-
-      if (latestBalances.length === 0) {
-        break;
-      }
-
-
-      /*
-       * Create level-0 nodes.
-       */
-      const leaves =
-        latestBalances.map((holder) => {
-
-          const leaf =
-            buildProposalLeaf(
-              new PublicKey(holder.holder),
-              new PublicKey(data.proposal_key),
-              new PublicKey(mint),
-              holder.balance,
-              proposalTypeValue
-            );
-
-            const hash = new Uint8Array(leaf.length);
-            
-            hash.set(leaf);
-
-
-          return {
-            snapshotId,
-
-            mint,
-
-            holder: holder.holder,
-
-            hash: hash,
-
-            level: 0,
-
-            nodeIndex: nodeIndex++,
-          };
-        });
-
-
-      /*
-       * Store this batch.
-       */
-      await prisma.merkleNode.createMany({
-        data: leaves,
-      });
-
-
-      /*
-       * Cursor for next holder batch.
-       */
-      lastHolder =
-        latestBalances[
-          latestBalances.length - 1
-        ]!.holder;
+    if (latestBalances.length === 0) {
+      break;
     }
-  };
+
+    /*
+     * Create level-0 nodes.
+     */
+    const leaves = latestBalances.map((holder) => {
+      const leaf = buildProposalLeaf(
+        new PublicKey(holder.holder),
+        new PublicKey(data.proposal_key),
+        new PublicKey(mint),
+        holder.balance,
+        proposalTypeValue
+      );
+
+      const hash = new Uint8Array(leaf.length);
+
+      hash.set(leaf);
+
+      return {
+        snapshotId,
+
+        mint,
+
+        holder: holder.holder,
+
+        hash: hash,
+
+        level: 0,
+
+        nodeIndex: nodeIndex++,
+      };
+    });
+
+    /*
+     * Store this batch.
+     */
+    await prisma.merkleNode.createMany({
+      data: leaves,
+    });
+
+    /*
+     * Cursor for next holder batch.
+     */
+    lastHolder = latestBalances[latestBalances.length - 1]!.holder;
+  }
+};

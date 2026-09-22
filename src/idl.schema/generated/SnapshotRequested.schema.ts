@@ -5,4 +5,5 @@ export const SnapshotRequestedSchema = z.object({
     proposal_key: z.string(),
     mint: z.string(),
     slot: z.any().transform((val) => BigInt(val.toString())),
+    proposalTypeIndex : z.number()
 });

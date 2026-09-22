@@ -93,6 +93,7 @@ export const ModelName = {
   Elect: 'Elect',
   Proposals: 'Proposals',
   MerkleNode: 'MerkleNode',
+  MerkleRoot: 'MerkleRoot',
   MerkleProof: 'MerkleProof',
   BalanceHistory: 'BalanceHistory'
 } as const
@@ -631,6 +632,7 @@ export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof t
 
 
 export const MerkleNodeScalarFieldEnum = {
+  id: 'id',
   holder: 'holder',
   mint: 'mint',
   snapshotId: 'snapshotId',
@@ -640,6 +642,14 @@ export const MerkleNodeScalarFieldEnum = {
 } as const
 
 export type MerkleNodeScalarFieldEnum = (typeof MerkleNodeScalarFieldEnum)[keyof typeof MerkleNodeScalarFieldEnum]
+
+
+export const MerkleRootScalarFieldEnum = {
+  slot: 'slot',
+  mint: 'mint'
+} as const
+
+export type MerkleRootScalarFieldEnum = (typeof MerkleRootScalarFieldEnum)[keyof typeof MerkleRootScalarFieldEnum]
 
 
 export const MerkleProofScalarFieldEnum = {

@@ -228,6 +228,11 @@ export type Proposals = Prisma.ProposalsModel
  */
 export type MerkleNode = Prisma.MerkleNodeModel
 /**
+ * Model MerkleRoot
+ * 
+ */
+export type MerkleRoot = Prisma.MerkleRootModel
+/**
  * Model MerkleProof
  * 
  */

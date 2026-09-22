@@ -439,6 +439,7 @@ export const ModelName = {
   Elect: 'Elect',
   Proposals: 'Proposals',
   MerkleNode: 'MerkleNode',
+  MerkleRoot: 'MerkleRoot',
   MerkleProof: 'MerkleProof',
   BalanceHistory: 'BalanceHistory'
 } as const
@@ -456,7 +457,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleProof" | "balanceHistory"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleRoot" | "merkleProof" | "balanceHistory"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3568,6 +3569,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    MerkleRoot: {
+      payload: Prisma.$MerkleRootPayload<ExtArgs>
+      fields: Prisma.MerkleRootFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MerkleRootFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MerkleRootFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>
+        }
+        findFirst: {
+          args: Prisma.MerkleRootFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MerkleRootFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>
+        }
+        findMany: {
+          args: Prisma.MerkleRootFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>[]
+        }
+        create: {
+          args: Prisma.MerkleRootCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>
+        }
+        createMany: {
+          args: Prisma.MerkleRootCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MerkleRootCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>[]
+        }
+        delete: {
+          args: Prisma.MerkleRootDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>
+        }
+        update: {
+          args: Prisma.MerkleRootUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>
+        }
+        deleteMany: {
+          args: Prisma.MerkleRootDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MerkleRootUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MerkleRootUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>[]
+        }
+        upsert: {
+          args: Prisma.MerkleRootUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MerkleRootPayload>
+        }
+        aggregate: {
+          args: Prisma.MerkleRootAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMerkleRoot>
+        }
+        groupBy: {
+          args: Prisma.MerkleRootGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MerkleRootGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MerkleRootCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MerkleRootCountAggregateOutputType> | number
+        }
+      }
+    }
     MerkleProof: {
       payload: Prisma.$MerkleProofPayload<ExtArgs>
       fields: Prisma.MerkleProofFieldRefs
@@ -4273,6 +4348,7 @@ export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof t
 
 
 export const MerkleNodeScalarFieldEnum = {
+  id: 'id',
   holder: 'holder',
   mint: 'mint',
   snapshotId: 'snapshotId',
@@ -4282,6 +4358,14 @@ export const MerkleNodeScalarFieldEnum = {
 } as const
 
 export type MerkleNodeScalarFieldEnum = (typeof MerkleNodeScalarFieldEnum)[keyof typeof MerkleNodeScalarFieldEnum]
+
+
+export const MerkleRootScalarFieldEnum = {
+  slot: 'slot',
+  mint: 'mint'
+} as const
+
+export type MerkleRootScalarFieldEnum = (typeof MerkleRootScalarFieldEnum)[keyof typeof MerkleRootScalarFieldEnum]
 
 
 export const MerkleProofScalarFieldEnum = {
@@ -4761,6 +4845,7 @@ export type GlobalOmitConfig = {
   elect?: Prisma.ElectOmit
   proposals?: Prisma.ProposalsOmit
   merkleNode?: Prisma.MerkleNodeOmit
+  merkleRoot?: Prisma.MerkleRootOmit
   merkleProof?: Prisma.MerkleProofOmit
   balanceHistory?: Prisma.BalanceHistoryOmit
 }

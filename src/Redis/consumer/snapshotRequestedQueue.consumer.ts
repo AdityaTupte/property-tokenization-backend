@@ -7,6 +7,9 @@ import type z from "zod";
 import { eventDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { BuildTreeRootFromLeaves } from "../../utils/mekleRootCreation.util/BuildTreeRootFromLeaves.util"; 
 import { prisma } from "../../prismaclient";
+import { generateProofForOnchainVerification } from "../../utils/mekleRootCreation.util/generateProofForOnchainVerficaion.util";
+import { deleteLeavesAndRootJobProducer } from "../producer/deleteUnwantedLeavesAndRoot.producer";
+import { submitMerkleRootToOnchainPdaJobProducer } from "../producer/submitMerkleRootToOnchainPda.producer";
 
 
 export type SnapshotRequestedType = z.infer<typeof SnapshotRequestedSchema>;
@@ -14,14 +17,15 @@ const snapshotWorker = new Worker(
     "snapshotRequestedQueue",
     async(job) =>{
 
-         const eventArray:CompletedExecution = job.data
+        const eventArray:CompletedExecution = job.data
 
-         const decodedData = eventDecoder.decode(eventArray.events[0]?.raw!);
+        const decodedData = eventDecoder.decode(eventArray.events[0]?.raw!);
         
-          const data = SnapshotRequestedSchema.parse(decodedData);
+        const data = SnapshotRequestedSchema.parse(decodedData?.data);
         
+        // FIXME if here root is prosent skip the merkjle creation
 
-        await createMerkleLeavesFromTokenBalance(data,data.proposalType) //fixme prpolsal string
+        await createMerkleLeavesFromTokenBalance(data,data.proposalTypeIndex) //fixme prpolsal string
 
         await BuildTreeRootFromLeaves(data);
 
@@ -38,21 +42,26 @@ const snapshotWorker = new Worker(
             }
         })
 
+        await prisma.merkleRoot.create({
+            data:{
+                mint:data.mint,
+                slot:data.slot.toString()
+            }
+        })
 
         
-        await generateProofForOnchainVerficaion(data.mint,data.slot);
+        await generateProofForOnchainVerification(data.mint,data.slot);
 
-        //   call the submit function at submition enter the sanphot id snapshot in table
-        
+        await deleteLeavesAndRootJobProducer(data)
 
-        // 
+
+        await submitMerkleRootToOnchainPdaJobProducer(data)
+
 
 
 
   
-  /*   TODO   use batch wise proess of leaves ,poarent and eroots
-        stoe evry leave and roots whjile creating then in batch whise
-        again same until root created
+  /*   TODO   
         call the submit function
         for voting user redis 
         to store the data of token balcne schaneg use redis 
