@@ -1,17 +1,19 @@
 import { address } from "@solana/kit";
 import type {
-  Instructions,
+  instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
 import { GenericPda } from "../../../utils/genericPda";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleSellPropertyProposalSubmit: InstructionHandler = async (
   message: messageSchema,
-  instruction: Instructions,
+  instruction: instructionsSchema,
   ctx: TransactionContext,
-  _BlockTime: number
+  _BlockTime: number,
+  log:CompletedExecution
 ) => {
   const proposalAddress = address(
     message.accountKeys[instruction.accounts[1]!]!
@@ -44,3 +46,7 @@ export const handleSellPropertyProposalSubmit: InstructionHandler = async (
     });
   });
 };
+
+
+
+    //TODO Autocall the submit fuction

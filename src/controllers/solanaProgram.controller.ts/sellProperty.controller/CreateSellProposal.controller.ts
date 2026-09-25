@@ -4,10 +4,6 @@ import type {
   messageSchema,
   metaSchema,
 } from "../../../helius/findProgramIndex";
-
-// import { GenericPda } from "../../../utils/genericPda";
-
-import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
@@ -15,12 +11,13 @@ import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper
 import { create_sell_proposalSchema } from "../../../idl.schema/generated/create_sell_proposal.schema";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/ApiError";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleSellPropertyProposal: InstructionHandler = async (
   message: messageSchema,
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
-  meta: metaSchema
+  meta: CompletedExecution
 ) => {
   const proposalAddress = address(
     message.accountKeys[instruction.accounts[2]!]!

@@ -15,6 +15,7 @@ import {
 } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { PropertySystemCreatedSchema } from "../../../idl.schema/generated/PropertySystemCreated.schema";
 import { SnapshotRequestedSchema } from "../../../idl.schema/generated/SnapshotRequested.schema";
+import { snapshotRequestedJobCreationHandler } from "../../../Redis/producer/snapshotRequestedQueue.producer";
 export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
   async (
     message: messageSchema,
@@ -95,7 +96,9 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
       });
     });
 
-    //TODO create merkleRoot function and update
-    // TODO vote threshold update here and Total Voting Power
-    //TODO Autocall the submit fuction
+
+    await snapshotRequestedJobCreationHandler(log);
+
+  
+
   };
