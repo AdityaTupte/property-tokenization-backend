@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import asyncHandler from "../utils/AsyncHandler";
 import { HeliusWebhookSchema } from "../schemaValidation/heliusWebhookDataSchema";
-import { ApiError } from "../utils/ApiError";
+import { ApiError } from "../utils/errors/ApiError";
 import { ApiResponse } from "../utils/ApiResponse";
 import { FindProgramIdIndex } from "./findProgramIndex";
 import { prisma } from "../prismaclient";
@@ -15,55 +15,44 @@ export const heliusRaWDataHandler = asyncHandler(
       throw new ApiError(400, "check your json schema");
     }
 
-
     //TODO use rediis to check th signature if not resent then check in the db and save in redis
 
-    const signature = await  prisma.signature.findFirst({
-      where:{
-        signature:webhookSchema.data.signature
-      }
-    })
+    const signature = await prisma.signature.findFirst({
+      where: {
+        signature: webhookSchema.data.signature,
+      },
+    });
 
-    
-    
+    if (signature)
+      throw new ApiError(
+        400,
+        "Since the signature is already provided, signature parsing is not required."
+      );
 
-    if(signature) throw new ApiError(400,"Since the signature is already provided, signature parsing is not required.")
+    await FindProgramIdIndex(
+      webhookSchema.data.transaction.transaction.message,
+      webhookSchema.data.transaction.blockTime,
+      webhookSchema.data.transaction.meta
+    );
 
-      
+    //  const ctx = new TransactionContext();
 
-    
-      
+    //    ctx.add(async(tx) =>{
 
-   await FindProgramIdIndex(webhookSchema.data.transaction.transaction.message,webhookSchema.data.transaction.blockTime,webhookSchema.data.transaction.meta);
+    //     await  tx.signature.create({
+    //         data:{
+    //           signature:webhookSchema.data.signature
+    //         }
+    //       })
 
+    //     })
 
-
-  
-    
-
-
-
-  //  const ctx = new TransactionContext();
-
-  //    ctx.add(async(tx) =>{
-
-  //     await  tx.signature.create({
-  //         data:{
-  //           signature:webhookSchema.data.signature
-  //         }
-  //       })
-
-  //     })
-
-  // await ctx.execute();
+    // await ctx.execute();
 
     return res.status(200).json(
-      new ApiResponse(
-        200,
-        {
-         message:"instruction Parse SuccessFully"
-        },
-      )
+      new ApiResponse(200, {
+        message: "instruction Parse SuccessFully",
+      })
     );
   }
 );

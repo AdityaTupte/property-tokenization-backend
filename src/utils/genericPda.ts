@@ -1,6 +1,6 @@
 import { program } from "../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { type Address } from "@solana/kit";
-import { ApiError } from "./ApiError.js";
+import { ApiError } from "./errors/ApiError.js";
 
 type AccountName = keyof typeof program.account;
 

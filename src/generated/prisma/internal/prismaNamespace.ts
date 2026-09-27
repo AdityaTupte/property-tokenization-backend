@@ -4152,7 +4152,6 @@ export type SalaryClaimScalarFieldEnum = (typeof SalaryClaimScalarFieldEnum)[key
 
 export const PropertySellProposalScalarFieldEnum = {
   proposal_id: 'proposal_id',
-  property_system: 'property_system',
   proposal_key: 'proposal_key',
   property_account: 'property_account',
   sale_price: 'sale_price',
@@ -4326,6 +4325,7 @@ export type ElectScalarFieldEnum = (typeof ElectScalarFieldEnum)[keyof typeof El
 
 
 export const ProposalsScalarFieldEnum = {
+  property_system: 'property_system',
   proposal_key: 'proposal_key',
   merkle_root: 'merkle_root',
   arbitrar_approvals: 'arbitrar_approvals',
@@ -4361,6 +4361,7 @@ export type MerkleNodeScalarFieldEnum = (typeof MerkleNodeScalarFieldEnum)[keyof
 
 
 export const MerkleRootScalarFieldEnum = {
+  merkleRoot: 'merkleRoot',
   slot: 'slot',
   mint: 'mint'
 } as const

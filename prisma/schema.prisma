@@ -457,7 +457,7 @@ model SalaryClaim {
 
 model PropertySellProposal {
   proposal_id         BigInt
-  property_system     String
+ 
   proposal_key        String    @id
   property_account    String
   sale_price          BigInt
@@ -605,6 +605,7 @@ model Elect {
 }
 
 model Proposals {
+  property_system     String
   proposal_key          String                @id
   merkle_root           String?
   arbitrar_approvals    String[]
@@ -640,13 +641,12 @@ model MerkleNode {
 
 
 model MerkleRoot{
-
+  merkleRoot String
   slot String 
   mint String
 
   @@id([slot,mint])
   @@unique([slot,mint])
-
 
 }
 

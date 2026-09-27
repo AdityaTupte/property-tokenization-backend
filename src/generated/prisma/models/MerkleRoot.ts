@@ -25,16 +25,19 @@ export type AggregateMerkleRoot = {
 }
 
 export type MerkleRootMinAggregateOutputType = {
+  merkleRoot: string | null
   slot: string | null
   mint: string | null
 }
 
 export type MerkleRootMaxAggregateOutputType = {
+  merkleRoot: string | null
   slot: string | null
   mint: string | null
 }
 
 export type MerkleRootCountAggregateOutputType = {
+  merkleRoot: number
   slot: number
   mint: number
   _all: number
@@ -42,16 +45,19 @@ export type MerkleRootCountAggregateOutputType = {
 
 
 export type MerkleRootMinAggregateInputType = {
+  merkleRoot?: true
   slot?: true
   mint?: true
 }
 
 export type MerkleRootMaxAggregateInputType = {
+  merkleRoot?: true
   slot?: true
   mint?: true
 }
 
 export type MerkleRootCountAggregateInputType = {
+  merkleRoot?: true
   slot?: true
   mint?: true
   _all?: true
@@ -130,6 +136,7 @@ export type MerkleRootGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 export type MerkleRootGroupByOutputType = {
+  merkleRoot: string
   slot: string
   mint: string
   _count: MerkleRootCountAggregateOutputType | null
@@ -156,11 +163,13 @@ export type MerkleRootWhereInput = {
   AND?: Prisma.MerkleRootWhereInput | Prisma.MerkleRootWhereInput[]
   OR?: Prisma.MerkleRootWhereInput[]
   NOT?: Prisma.MerkleRootWhereInput | Prisma.MerkleRootWhereInput[]
+  merkleRoot?: Prisma.StringFilter<"MerkleRoot"> | string
   slot?: Prisma.StringFilter<"MerkleRoot"> | string
   mint?: Prisma.StringFilter<"MerkleRoot"> | string
 }
 
 export type MerkleRootOrderByWithRelationInput = {
+  merkleRoot?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   mint?: Prisma.SortOrder
 }
@@ -170,11 +179,13 @@ export type MerkleRootWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.MerkleRootWhereInput | Prisma.MerkleRootWhereInput[]
   OR?: Prisma.MerkleRootWhereInput[]
   NOT?: Prisma.MerkleRootWhereInput | Prisma.MerkleRootWhereInput[]
+  merkleRoot?: Prisma.StringFilter<"MerkleRoot"> | string
   slot?: Prisma.StringFilter<"MerkleRoot"> | string
   mint?: Prisma.StringFilter<"MerkleRoot"> | string
-}, "slot_mint">
+}, "slot_mint" | "slot_mint">
 
 export type MerkleRootOrderByWithAggregationInput = {
+  merkleRoot?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   mint?: Prisma.SortOrder
   _count?: Prisma.MerkleRootCountOrderByAggregateInput
@@ -186,41 +197,49 @@ export type MerkleRootScalarWhereWithAggregatesInput = {
   AND?: Prisma.MerkleRootScalarWhereWithAggregatesInput | Prisma.MerkleRootScalarWhereWithAggregatesInput[]
   OR?: Prisma.MerkleRootScalarWhereWithAggregatesInput[]
   NOT?: Prisma.MerkleRootScalarWhereWithAggregatesInput | Prisma.MerkleRootScalarWhereWithAggregatesInput[]
+  merkleRoot?: Prisma.StringWithAggregatesFilter<"MerkleRoot"> | string
   slot?: Prisma.StringWithAggregatesFilter<"MerkleRoot"> | string
   mint?: Prisma.StringWithAggregatesFilter<"MerkleRoot"> | string
 }
 
 export type MerkleRootCreateInput = {
+  merkleRoot: string
   slot: string
   mint: string
 }
 
 export type MerkleRootUncheckedCreateInput = {
+  merkleRoot: string
   slot: string
   mint: string
 }
 
 export type MerkleRootUpdateInput = {
+  merkleRoot?: Prisma.StringFieldUpdateOperationsInput | string
   slot?: Prisma.StringFieldUpdateOperationsInput | string
   mint?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MerkleRootUncheckedUpdateInput = {
+  merkleRoot?: Prisma.StringFieldUpdateOperationsInput | string
   slot?: Prisma.StringFieldUpdateOperationsInput | string
   mint?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MerkleRootCreateManyInput = {
+  merkleRoot: string
   slot: string
   mint: string
 }
 
 export type MerkleRootUpdateManyMutationInput = {
+  merkleRoot?: Prisma.StringFieldUpdateOperationsInput | string
   slot?: Prisma.StringFieldUpdateOperationsInput | string
   mint?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type MerkleRootUncheckedUpdateManyInput = {
+  merkleRoot?: Prisma.StringFieldUpdateOperationsInput | string
   slot?: Prisma.StringFieldUpdateOperationsInput | string
   mint?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -231,16 +250,19 @@ export type MerkleRootSlotMintCompoundUniqueInput = {
 }
 
 export type MerkleRootCountOrderByAggregateInput = {
+  merkleRoot?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   mint?: Prisma.SortOrder
 }
 
 export type MerkleRootMaxOrderByAggregateInput = {
+  merkleRoot?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   mint?: Prisma.SortOrder
 }
 
 export type MerkleRootMinOrderByAggregateInput = {
+  merkleRoot?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   mint?: Prisma.SortOrder
 }
@@ -248,31 +270,36 @@ export type MerkleRootMinOrderByAggregateInput = {
 
 
 export type MerkleRootSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  merkleRoot?: boolean
   slot?: boolean
   mint?: boolean
 }, ExtArgs["result"]["merkleRoot"]>
 
 export type MerkleRootSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  merkleRoot?: boolean
   slot?: boolean
   mint?: boolean
 }, ExtArgs["result"]["merkleRoot"]>
 
 export type MerkleRootSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  merkleRoot?: boolean
   slot?: boolean
   mint?: boolean
 }, ExtArgs["result"]["merkleRoot"]>
 
 export type MerkleRootSelectScalar = {
+  merkleRoot?: boolean
   slot?: boolean
   mint?: boolean
 }
 
-export type MerkleRootOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"slot" | "mint", ExtArgs["result"]["merkleRoot"]>
+export type MerkleRootOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"merkleRoot" | "slot" | "mint", ExtArgs["result"]["merkleRoot"]>
 
 export type $MerkleRootPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "MerkleRoot"
   objects: {}
   scalars: runtime.Types.Extensions.GetPayloadResult<{
+    merkleRoot: string
     slot: string
     mint: string
   }, ExtArgs["result"]["merkleRoot"]>
@@ -358,8 +385,8 @@ export interface MerkleRootDelegate<ExtArgs extends runtime.Types.Extensions.Int
    * // Get first 10 MerkleRoots
    * const merkleRoots = await prisma.merkleRoot.findMany({ take: 10 })
    * 
-   * // Only select the `slot`
-   * const merkleRootWithSlotOnly = await prisma.merkleRoot.findMany({ select: { slot: true } })
+   * // Only select the `merkleRoot`
+   * const merkleRootWithMerkleRootOnly = await prisma.merkleRoot.findMany({ select: { merkleRoot: true } })
    * 
    */
   findMany<T extends MerkleRootFindManyArgs>(args?: Prisma.SelectSubset<T, MerkleRootFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MerkleRootPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -403,9 +430,9 @@ export interface MerkleRootDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   ]
    * })
    * 
-   * // Create many MerkleRoots and only return the `slot`
-   * const merkleRootWithSlotOnly = await prisma.merkleRoot.createManyAndReturn({
-   *   select: { slot: true },
+   * // Create many MerkleRoots and only return the `merkleRoot`
+   * const merkleRootWithMerkleRootOnly = await prisma.merkleRoot.createManyAndReturn({
+   *   select: { merkleRoot: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -494,9 +521,9 @@ export interface MerkleRootDelegate<ExtArgs extends runtime.Types.Extensions.Int
    *   ]
    * })
    * 
-   * // Update zero or more MerkleRoots and only return the `slot`
-   * const merkleRootWithSlotOnly = await prisma.merkleRoot.updateManyAndReturn({
-   *   select: { slot: true },
+   * // Update zero or more MerkleRoots and only return the `merkleRoot`
+   * const merkleRootWithMerkleRootOnly = await prisma.merkleRoot.updateManyAndReturn({
+   *   select: { merkleRoot: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -698,6 +725,7 @@ export interface Prisma__MerkleRootClient<T, Null = never, ExtArgs extends runti
  * Fields of the MerkleRoot model
  */
 export interface MerkleRootFieldRefs {
+  readonly merkleRoot: Prisma.FieldRef<"MerkleRoot", 'String'>
   readonly slot: Prisma.FieldRef<"MerkleRoot", 'String'>
   readonly mint: Prisma.FieldRef<"MerkleRoot", 'String'>
 }

@@ -5,7 +5,7 @@ import type {
 } from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
+import { ApiError } from "../../../utils/errors/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 

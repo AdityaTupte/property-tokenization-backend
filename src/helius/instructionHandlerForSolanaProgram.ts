@@ -1,4 +1,4 @@
-import { ApiError } from "../utils/ApiError";
+import { ApiError } from "../utils/errors/ApiError";
 import type { InstructionHandler } from "../types&interface/solanaInstrcution&event.type";
 import * as country from "../controllers/solanaProgram.controller.ts/countryCreation.controller/countryImportLib";
 import * as propertySystem from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/propertySystemImporLib";

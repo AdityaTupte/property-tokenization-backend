@@ -10,7 +10,7 @@ import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_sell_proposalSchema } from "../../../idl.schema/generated/create_sell_proposal.schema";
 import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
+import { ApiError } from "../../../utils/errors/ApiError";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleSellPropertyProposal: InstructionHandler = async (
   message: messageSchema,
@@ -82,12 +82,12 @@ export const handleSellPropertyProposal: InstructionHandler = async (
         property_account: propertySystemAddress,
         sale_price: args.sale_price,
         deposit_account_pda: treasuryAddress,
-        property_system: propertySystem.toString(),
       },
     });
 
     tx.proposals.create({
       data: {
+        property_system: propertySystem.toString(),
         proposal_key: proposalAddress.toString(),
         status: "Draft",
         proposal_type: "SELLPROPERTY",

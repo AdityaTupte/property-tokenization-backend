@@ -9,7 +9,7 @@ import { GenericPda } from "../../../utils/genericPda";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
+import { ApiError } from "../../../utils/errors/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleApproveStateProposal: InstructionHandler = async (

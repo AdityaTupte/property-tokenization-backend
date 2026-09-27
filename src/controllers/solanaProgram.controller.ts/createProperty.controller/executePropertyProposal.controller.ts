@@ -7,7 +7,7 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
+import { ApiError } from "../../../utils/errors/ApiError";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 // import { GenericPda } from "../../../utils/genericPda";
 

@@ -43,6 +43,7 @@ export type ProposalsSumAggregateOutputType = {
 }
 
 export type ProposalsMinAggregateOutputType = {
+  property_system: string | null
   proposal_key: string | null
   merkle_root: string | null
   is_arbitrar_approved: boolean | null
@@ -60,6 +61,7 @@ export type ProposalsMinAggregateOutputType = {
 }
 
 export type ProposalsMaxAggregateOutputType = {
+  property_system: string | null
   proposal_key: string | null
   merkle_root: string | null
   is_arbitrar_approved: boolean | null
@@ -77,6 +79,7 @@ export type ProposalsMaxAggregateOutputType = {
 }
 
 export type ProposalsCountAggregateOutputType = {
+  property_system: number
   proposal_key: number
   merkle_root: number
   arbitrar_approvals: number
@@ -114,6 +117,7 @@ export type ProposalsSumAggregateInputType = {
 }
 
 export type ProposalsMinAggregateInputType = {
+  property_system?: true
   proposal_key?: true
   merkle_root?: true
   is_arbitrar_approved?: true
@@ -131,6 +135,7 @@ export type ProposalsMinAggregateInputType = {
 }
 
 export type ProposalsMaxAggregateInputType = {
+  property_system?: true
   proposal_key?: true
   merkle_root?: true
   is_arbitrar_approved?: true
@@ -148,6 +153,7 @@ export type ProposalsMaxAggregateInputType = {
 }
 
 export type ProposalsCountAggregateInputType = {
+  property_system?: true
   proposal_key?: true
   merkle_root?: true
   arbitrar_approvals?: true
@@ -254,6 +260,7 @@ export type ProposalsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 }
 
 export type ProposalsGroupByOutputType = {
+  property_system: string
   proposal_key: string
   merkle_root: string | null
   arbitrar_approvals: string[]
@@ -296,6 +303,7 @@ export type ProposalsWhereInput = {
   AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
+  property_system?: Prisma.StringFilter<"Proposals"> | string
   proposal_key?: Prisma.StringFilter<"Proposals"> | string
   merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
@@ -316,6 +324,7 @@ export type ProposalsWhereInput = {
 }
 
 export type ProposalsOrderByWithRelationInput = {
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrderInput | Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
@@ -340,6 +349,7 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
+  property_system?: Prisma.StringFilter<"Proposals"> | string
   merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
@@ -359,6 +369,7 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
 }, "proposal_key">
 
 export type ProposalsOrderByWithAggregationInput = {
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrderInput | Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
@@ -386,6 +397,7 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   AND?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[]
   OR?: Prisma.ProposalsScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[]
+  property_system?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
   proposal_key?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
   merkle_root?: Prisma.StringNullableWithAggregatesFilter<"Proposals"> | string | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
@@ -405,6 +417,7 @@ export type ProposalsScalarWhereWithAggregatesInput = {
 }
 
 export type ProposalsCreateInput = {
+  property_system: string
   proposal_key: string
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -425,6 +438,7 @@ export type ProposalsCreateInput = {
 }
 
 export type ProposalsUncheckedCreateInput = {
+  property_system: string
   proposal_key: string
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -445,6 +459,7 @@ export type ProposalsUncheckedCreateInput = {
 }
 
 export type ProposalsUpdateInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -465,6 +480,7 @@ export type ProposalsUpdateInput = {
 }
 
 export type ProposalsUncheckedUpdateInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -485,6 +501,7 @@ export type ProposalsUncheckedUpdateInput = {
 }
 
 export type ProposalsCreateManyInput = {
+  property_system: string
   proposal_key: string
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -504,6 +521,7 @@ export type ProposalsCreateManyInput = {
 }
 
 export type ProposalsUpdateManyMutationInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -523,6 +541,7 @@ export type ProposalsUpdateManyMutationInput = {
 }
 
 export type ProposalsUncheckedUpdateManyInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -547,6 +566,7 @@ export type ProposalsScalarRelationFilter = {
 }
 
 export type ProposalsCountOrderByAggregateInput = {
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   arbitrar_approvals?: Prisma.SortOrder
@@ -574,6 +594,7 @@ export type ProposalsAvgOrderByAggregateInput = {
 }
 
 export type ProposalsMaxOrderByAggregateInput = {
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   is_arbitrar_approved?: Prisma.SortOrder
@@ -591,6 +612,7 @@ export type ProposalsMaxOrderByAggregateInput = {
 }
 
 export type ProposalsMinOrderByAggregateInput = {
+  property_system?: Prisma.SortOrder
   proposal_key?: Prisma.SortOrder
   merkle_root?: Prisma.SortOrder
   is_arbitrar_approved?: Prisma.SortOrder
@@ -651,6 +673,7 @@ export type EnumProposalTypeFieldUpdateOperationsInput = {
 }
 
 export type ProposalsCreateWithoutPropertySellProposalsInput = {
+  property_system: string
   proposal_key: string
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -670,6 +693,7 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
 }
 
 export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
+  property_system: string
   proposal_key: string
   merkle_root?: string | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
@@ -705,6 +729,7 @@ export type ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput = {
 }
 
 export type ProposalsUpdateWithoutPropertySellProposalsInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -724,6 +749,7 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
 }
 
 export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
   merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
@@ -745,6 +771,7 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
 
 
 export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  property_system?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -765,6 +792,7 @@ export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  property_system?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -784,6 +812,7 @@ export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  property_system?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -803,6 +832,7 @@ export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectScalar = {
+  property_system?: boolean
   proposal_key?: boolean
   merkle_root?: boolean
   arbitrar_approvals?: boolean
@@ -821,7 +851,7 @@ export type ProposalsSelectScalar = {
   created_at?: boolean
 }
 
-export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "deleted" | "slot" | "created_at", ExtArgs["result"]["proposals"]>
+export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "deleted" | "slot" | "created_at", ExtArgs["result"]["proposals"]>
 export type ProposalsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
 }
@@ -834,6 +864,7 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     propertySellProposals: Prisma.$PropertySellProposalPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
+    property_system: string
     proposal_key: string
     merkle_root: string | null
     arbitrar_approvals: string[]
@@ -933,8 +964,8 @@ export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    * // Get first 10 Proposals
    * const proposals = await prisma.proposals.findMany({ take: 10 })
    * 
-   * // Only select the `proposal_key`
-   * const proposalsWithProposal_keyOnly = await prisma.proposals.findMany({ select: { proposal_key: true } })
+   * // Only select the `property_system`
+   * const proposalsWithProperty_systemOnly = await prisma.proposals.findMany({ select: { property_system: true } })
    * 
    */
   findMany<T extends ProposalsFindManyArgs>(args?: Prisma.SelectSubset<T, ProposalsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
@@ -978,9 +1009,9 @@ export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   ]
    * })
    * 
-   * // Create many Proposals and only return the `proposal_key`
-   * const proposalsWithProposal_keyOnly = await prisma.proposals.createManyAndReturn({
-   *   select: { proposal_key: true },
+   * // Create many Proposals and only return the `property_system`
+   * const proposalsWithProperty_systemOnly = await prisma.proposals.createManyAndReturn({
+   *   select: { property_system: true },
    *   data: [
    *     // ... provide data here
    *   ]
@@ -1069,9 +1100,9 @@ export interface ProposalsDelegate<ExtArgs extends runtime.Types.Extensions.Inte
    *   ]
    * })
    * 
-   * // Update zero or more Proposals and only return the `proposal_key`
-   * const proposalsWithProposal_keyOnly = await prisma.proposals.updateManyAndReturn({
-   *   select: { proposal_key: true },
+   * // Update zero or more Proposals and only return the `property_system`
+   * const proposalsWithProperty_systemOnly = await prisma.proposals.updateManyAndReturn({
+   *   select: { property_system: true },
    *   where: {
    *     // ... provide filter here
    *   },
@@ -1274,6 +1305,7 @@ export interface Prisma__ProposalsClient<T, Null = never, ExtArgs extends runtim
  * Fields of the Proposals model
  */
 export interface ProposalsFieldRefs {
+  readonly property_system: Prisma.FieldRef<"Proposals", 'String'>
   readonly proposal_key: Prisma.FieldRef<"Proposals", 'String'>
   readonly merkle_root: Prisma.FieldRef<"Proposals", 'String'>
   readonly arbitrar_approvals: Prisma.FieldRef<"Proposals", 'String[]'>

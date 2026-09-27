@@ -5,7 +5,7 @@ import type {
   metaSchema,
 } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
-import { ApiError } from "../../../utils/ApiError";
+import { ApiError } from "../../../utils/errors/ApiError";
 import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";

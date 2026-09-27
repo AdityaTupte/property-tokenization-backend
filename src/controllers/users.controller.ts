@@ -4,7 +4,7 @@ import type {
   RefreshTokenPayload,
   RegisterUserBody,
 } from "../types&interface/user.types&interface.js";
-import { ApiError } from "../utils/ApiError.js";
+import { ApiError } from "../utils/errors/ApiError.js";
 import asyncHandler from "../utils/AsyncHandler.js";
 import type { Request, Response } from "express";
 import { uploadOnCloudinary } from "../utils/Cloudianry.js";
@@ -335,8 +335,6 @@ const changeCurrentPassword = asyncHandler(
     });
 
     const { password } = user;
-
-  
 
     const isPasswordvalid = await UserDb.user.isPasswordcorrect(
       oldPassword,

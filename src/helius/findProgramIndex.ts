@@ -3,13 +3,12 @@ import instructionsSchema, {
   metaData,
 } from "../schemaValidation/heliusWebhookDataSchema";
 import z from "zod";
-import { ApiError } from "../utils/ApiError";
+import { ApiError } from "../utils/errors/ApiError";
 import bs58 from "bs58";
 import { InstructionRegistry } from "../idl.schema/generated/instructionRegistry";
-import { instructionProducer } from "../kafka/Producers/Instruction.Producers"; 
+import { instructionProducer } from "../kafka/Producers/Instruction.Producers";
 import type { InstructionNameAndData } from "../types&interface/instructionData.Interface";
 import { parseSolanaLogs } from "../utils/solanaLogParser";
-
 
 export type messageSchema = z.infer<typeof messageSchema>;
 export type instructionsSchema = z.infer<typeof instructionsSchema>;
@@ -18,7 +17,7 @@ export type metaSchema = z.infer<typeof metaData>;
 export const FindProgramIdIndex = async (
   message: messageSchema,
   BlockTime: number,
-  meta:metaSchema
+  meta: metaSchema
 ) => {
   const uniqueProgramIdIndex = [
     ...new Set(
@@ -48,7 +47,7 @@ export const FindProgramIdIndex = async (
 
   for (const element of encodedData) {
     const bytes = bs58.decode(element.data);
-   
+
     const discriminator = Buffer.from(bytes.slice(0, 8)).toString("hex");
 
     const parser = InstructionRegistry.get(discriminator);
@@ -58,38 +57,26 @@ export const FindProgramIdIndex = async (
     }
     const name = parser.name;
     const ele: instructionsSchema = element;
-   
 
-   
-    event.push({ name:name, data: ele , });
-
-    
+    event.push({ name: name, data: ele });
   }
 
- 
+  const logTree = parseSolanaLogs(meta.logMessages);
 
-    const logTree= parseSolanaLogs(meta.logMessages)
+  //    console.log("HERE IS NEW LOGS =>  ");
+  //   console.dir(
+  //   logTree,
+  //     { depth: null }
+  // );
 
-//    console.log("HERE IS NEW LOGS =>  ");
-//   console.dir(
-//   logTree,
-//     { depth: null }
-// );
+  const filteredLog = logTree.filter((ele) => {
+    return ele.programId == "BYtpqEouT7FFDUFjFeE2ecSDwf1VHNNHUkc2URswVZ4B";
+  });
 
-  const filteredLog  = logTree.filter( (ele) =>{
-   return  ele.programId == "BYtpqEouT7FFDUFjFeE2ecSDwf1VHNNHUkc2URswVZ4B" 
-  })
-
-
- 
   await instructionProducer({
     transaction: message,
     InstructionNameAndData: event,
     blockTime: BlockTime,
-    log:filteredLog,
+    log: filteredLog,
   });
 };
-
-
-
-
