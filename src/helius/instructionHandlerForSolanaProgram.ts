@@ -11,8 +11,7 @@ const instructionMap: Record<string, InstructionHandler> = {
   add_arbitrator: propertySystem.handleAddArbitrator,
 
   create_country_proposal: country.handleCreateCountryProposal,
-  create_approve_country_authority:
-    country.handlerCreateAuthorityToApproveCountry,
+  create_approve_country_authority:country.handlerCreateAuthorityToApproveCountry,
   approve_country: country.handleApproveCountryProposal,
   execute_country_propsal: country.handleExecuteCountryProposal,
   add_country_authority: country.handleAddAuthorityForCountry,

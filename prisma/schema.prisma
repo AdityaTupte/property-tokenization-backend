@@ -641,7 +641,7 @@ model MerkleNode {
 
 
 model MerkleRoot{
-  merkleRoot String
+  merkleRoot Bytes
   slot String 
   mint String
 

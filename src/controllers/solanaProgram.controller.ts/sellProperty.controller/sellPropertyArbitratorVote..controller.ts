@@ -10,10 +10,8 @@ import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 import {
-  decoder,
   eventDecoder,
 } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
-import { PropertySystemCreatedSchema } from "../../../idl.schema/generated/PropertySystemCreated.schema";
 import { SnapshotRequestedSchema } from "../../../idl.schema/generated/SnapshotRequested.schema";
 import { snapshotRequestedJobCreationHandler } from "../../../Redis/producer/snapshotRequestedQueue.producer";
 export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
@@ -31,18 +29,6 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
     const arbitrarRegistryAddress = address(
       message.accountKeys[instruction.accounts[4]!]!
     );
-
-    // const ProposalAccountPda = (await GenericPda(
-    //   "propertySellProposal",
-    //   proposalAddress
-    // )) as any;
-
-    // const ProposalAccount: PdaTypes.propertySellProposalType = {
-    //   ...ProposalAccountPda,
-    //   status: ProposalAccountPda.status as unknown as PdaTypes.StatusVariant,
-    //   proposalType:
-    //     ProposalAccountPda.proposalType as unknown as PdaTypes.ProposalVariant,
-    // };
 
     const signer = address(
       message.accountKeys[instruction.accounts[0]!]!.toString()
@@ -68,7 +54,7 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
 
     if (!arbitrarDb) throw new ApiError(409, "arbitrarRgistry not available");
 
-    let ArbitrarApproved: boolean;
+    let ArbitrarApproved: boolean = false;
     if (
       arbitrarDb.vote_threshold ==
       (ProposalDb?.arbitrar_approvals?.length ?? 0) + 1
@@ -96,5 +82,9 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
       });
     });
 
-    await snapshotRequestedJobCreationHandler(log);
-  };
+
+    if(ArbitrarApproved){
+       await snapshotRequestedJobCreationHandler(log);
+  }
+
+};

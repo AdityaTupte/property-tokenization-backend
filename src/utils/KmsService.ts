@@ -3,19 +3,27 @@ import { InfrastructureError } from "./errors/InfraBaseErrorClass";
 import crypto from "crypto"
 import {
   PublicKey,
-
 } from "@solana/web3.js";
-export class KmsSigner {
+export class KmsService {
     private readonly kms: KMSClient;
     private readonly keyId: string;
     private kmsPublicKeyDer!: Buffer<ArrayBuffer>;
+    private authority! : PublicKey;
 
     constructor(kms: KMSClient, keyId: string) {
         this.kms = kms;
         this.keyId = keyId;
     }
 
-    async getPublicKey(): Promise<Buffer> {
+
+    getAuthority():PublicKey{
+
+        return this.authority;
+
+    }
+
+
+    async getPublicKey() {
         try {
             const result = await this.kms.send(
                 new GetPublicKeyCommand({
@@ -38,11 +46,8 @@ export class KmsSigner {
             this.kmsPublicKeyDer.length - 32
             );
     
-            const authority = new PublicKey(rawPublicKey);
+             this.authority = new PublicKey(rawPublicKey);
 
-
-
-            return Buffer.from(result.PublicKey);
         } catch (error) {
             throw new InfrastructureError(
                 "KMS public key was not returned",

@@ -23,36 +23,52 @@ const snapshotWorker = new Worker(
         
         const data = SnapshotRequestedSchema.parse(decodedData?.data);
         
-        // FIXME if here root is prosent skip the merkjle creation
-
-        await createMerkleLeavesFromTokenBalance(data,data.proposalTypeIndex) //fixme prpolsal string
-
-        await BuildTreeRootFromLeaves(data);
-
-        const root =  await prisma.merkleNode.findFirst({
+        const root = await prisma.merkleRoot.findFirst({
             where:{
-                snapshotId:data.slot.toString(),
-                mint:data.mint.toString(),
-            },
-            orderBy:{
-                level:"desc",
+                mint:data.mint,
+                slot:data.slot.toString()
             },
             select:{
-                hash:true,
+                merkleRoot:true
             }
         })
 
-        await prisma.merkleRoot.create({
+       if (!root?.merkleRoot) {
+         await createMerkleLeavesFromTokenBalance(data,data.proposalTypeIndex) 
+ 
+         await BuildTreeRootFromLeaves(data);
+ 
+         const root =  await prisma.merkleNode.findFirst({
+             where:{
+                 snapshotId:data.slot.toString(),
+                 mint:data.mint.toString(),
+             },
+             orderBy:{
+                 level:"desc",
+             },
+             select:{
+                 hash:true,
+             }
+         })
+         if(!root) return;
+
+         await prisma.merkleRoot.create({
             data:{
+                merkleRoot:root.hash,
                 mint:data.mint,
                 slot:data.slot.toString()
             }
         })
 
-        
         await generateProofForOnchainVerification(data.mint,data.slot);
 
         await deleteLeavesAndRootJobProducer(data)
+
+
+       }
+        
+        
+        
 
 
         await submitMerkleRootToOnchainPdaJobProducer(data)

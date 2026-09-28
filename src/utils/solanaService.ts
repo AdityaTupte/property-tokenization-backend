@@ -2,7 +2,7 @@
 
 import { Connection, LAMPORTS_PER_SOL, PublicKey, Transaction, TransactionInstruction} from "@solana/web3.js"
 
-interface SolanaTransactionDetail {
+export interface SolanaTransactionDetail {
     transaction : Transaction
     message : Buffer,
     blockhash: string,
@@ -25,7 +25,8 @@ export class SolanaService  {
     let balance =  await this.connection.getBalance(authority);
 
     if(balance / LAMPORTS_PER_SOL < 50){
-
+        console.log("message to owner");
+        
         //TODO  message to the owner
 
     }

@@ -6,9 +6,7 @@ import type {
 import { address } from "@solana/kit";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
-import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import {
-  decoder,
   eventDecoder,
 } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";

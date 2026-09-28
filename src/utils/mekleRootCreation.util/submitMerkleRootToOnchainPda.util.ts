@@ -3,26 +3,52 @@ import { prisma } from "../../prismaclient";
 import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueue.consumer";
 
 import {
-  PublicKey,
-  
+  PublicKey,  
 } from "@solana/web3.js";
 import { program } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { BN } from "bn.js";
 import { NotFoundError } from "../errors/AppErrors/NotFoundError";
 import { ConflictError } from "../errors/AppErrors/ConfictError";
+import { ConnectToKMS } from "../../db/KmsConnection";
+import { SolanaServiceForSignature } from "../../db/solanaConnection";
+import type { SolanaTransactionDetail } from "../solanaService";
 export const submitMerkleRootToOnchainPda = async (
     event:SnapshotRequestedType
 ) => {
+
+    
+    const merkleRoot = await prisma.merkleRoot.findFirst({
+        where:{
+            AND:{
+            slot:event.slot.toString(),
+            mint:event.mint
+            }
+        },
+        select:{
+            merkleRoot:true,
+
+        }
+    })
+
+
+     if(!merkleRoot){
+
+        throw new NotFoundError("merkle Root not found in database at this slot ",event.slot.toString())
+
+    }
+
     
    
 
-    const proposalData = await prisma.proposals.findFirst({
+        // ////////////////////////////
+
+   const proposalData = await prisma.proposals.findFirst({
     where:{
         proposal_key:event.proposal_key
     },
     select:{
         deleted:true,
-        property_system:true,
+        property_system:true,  
     }
     })
     
@@ -33,34 +59,25 @@ export const submitMerkleRootToOnchainPda = async (
     }
 
     if(proposalData?.deleted == true) throw new ConflictError("proposal is deleted")
-
-    
-    const merkleRoot = await prisma.merkleRoot.findFirst({
-        where:{
-            slot:event.slot.toString(),
-            mint:event.mint
-        }
-    })
+        
+    submitfuctionHandler
 
 
-     if(!merkleRoot){
-
-        throw new NotFoundError("merkle Root not found in database at this slot ",event.slot.toString())
-
-    }
-  
-
-    const tx = await program.methods.submitSnapshotForSellProposal(
-      new PublicKey(proposalData!.property_system),
-      new BN(event.proposal_id),
-      Array.from(Buffer.from(merkleRoot!.merkleRoot, "hex")),
-      2,
-      20,
-      new BN(500)
+    const tx =  program.methods.submitSnapshotForSellProposal(
+        new PublicKey(proposalData!.property_system),
+        new BN(event.proposal_id),
+        Array.from(merkleRoot!.merkleRoot),
+        2,
+        20,
+        new BN(500)
     ).instruction();
 
-    
 
+    const txDetails :SolanaTransactionDetail  = await SolanaServiceForSignature.addInstructionToTransaction(ConnectToKMS.getAuthority(),tx);
+
+    const signature = await  ConnectToKMS.SignAndVerify(txDetails.message);
+
+    await SolanaServiceForSignature.addSignatureAndExecuteTransaction(txDetails.transaction,ConnectToKMS.getAuthority(),signature,txDetails)
 
 
 }
