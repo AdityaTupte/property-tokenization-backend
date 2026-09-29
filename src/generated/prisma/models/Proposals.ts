@@ -32,6 +32,7 @@ export type ProposalsAvgAggregateOutputType = {
   votes_against: number | null
   vote_threshold: number | null
   slot: number | null
+  GapBetweenDays: number | null
 }
 
 export type ProposalsSumAggregateOutputType = {
@@ -40,12 +41,13 @@ export type ProposalsSumAggregateOutputType = {
   votes_against: bigint | null
   vote_threshold: number | null
   slot: bigint | null
+  GapBetweenDays: number | null
 }
 
 export type ProposalsMinAggregateOutputType = {
   property_system: string | null
   proposal_key: string | null
-  merkle_root: string | null
+  merkle_root: runtime.Bytes | null
   is_arbitrar_approved: boolean | null
   total_voting_power: bigint | null
   votes_for: bigint | null
@@ -58,12 +60,14 @@ export type ProposalsMinAggregateOutputType = {
   proposal_type: $Enums.ProposalType | null
   slot: bigint | null
   created_at: Date | null
+  GapBetweenDays: number | null
+  proposalTxSignature: string | null
 }
 
 export type ProposalsMaxAggregateOutputType = {
   property_system: string | null
   proposal_key: string | null
-  merkle_root: string | null
+  merkle_root: runtime.Bytes | null
   is_arbitrar_approved: boolean | null
   total_voting_power: bigint | null
   votes_for: bigint | null
@@ -76,6 +80,8 @@ export type ProposalsMaxAggregateOutputType = {
   proposal_type: $Enums.ProposalType | null
   slot: bigint | null
   created_at: Date | null
+  GapBetweenDays: number | null
+  proposalTxSignature: string | null
 }
 
 export type ProposalsCountAggregateOutputType = {
@@ -96,6 +102,8 @@ export type ProposalsCountAggregateOutputType = {
   deleted: number
   slot: number
   created_at: number
+  GapBetweenDays: number
+  proposalTxSignature: number
   _all: number
 }
 
@@ -106,6 +114,7 @@ export type ProposalsAvgAggregateInputType = {
   votes_against?: true
   vote_threshold?: true
   slot?: true
+  GapBetweenDays?: true
 }
 
 export type ProposalsSumAggregateInputType = {
@@ -114,6 +123,7 @@ export type ProposalsSumAggregateInputType = {
   votes_against?: true
   vote_threshold?: true
   slot?: true
+  GapBetweenDays?: true
 }
 
 export type ProposalsMinAggregateInputType = {
@@ -132,6 +142,8 @@ export type ProposalsMinAggregateInputType = {
   proposal_type?: true
   slot?: true
   created_at?: true
+  GapBetweenDays?: true
+  proposalTxSignature?: true
 }
 
 export type ProposalsMaxAggregateInputType = {
@@ -150,6 +162,8 @@ export type ProposalsMaxAggregateInputType = {
   proposal_type?: true
   slot?: true
   created_at?: true
+  GapBetweenDays?: true
+  proposalTxSignature?: true
 }
 
 export type ProposalsCountAggregateInputType = {
@@ -170,6 +184,8 @@ export type ProposalsCountAggregateInputType = {
   deleted?: true
   slot?: true
   created_at?: true
+  GapBetweenDays?: true
+  proposalTxSignature?: true
   _all?: true
 }
 
@@ -262,7 +278,7 @@ export type ProposalsGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type ProposalsGroupByOutputType = {
   property_system: string
   proposal_key: string
-  merkle_root: string | null
+  merkle_root: runtime.Bytes | null
   arbitrar_approvals: string[]
   is_arbitrar_approved: boolean | null
   total_voting_power: bigint
@@ -277,6 +293,8 @@ export type ProposalsGroupByOutputType = {
   deleted: runtime.JsonValue | null
   slot: bigint | null
   created_at: Date
+  GapBetweenDays: number
+  proposalTxSignature: string
   _count: ProposalsCountAggregateOutputType | null
   _avg: ProposalsAvgAggregateOutputType | null
   _sum: ProposalsSumAggregateOutputType | null
@@ -305,7 +323,7 @@ export type ProposalsWhereInput = {
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   property_system?: Prisma.StringFilter<"Proposals"> | string
   proposal_key?: Prisma.StringFilter<"Proposals"> | string
-  merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
+  merkle_root?: Prisma.BytesNullableFilter<"Proposals"> | runtime.Bytes | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
   total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number
@@ -320,6 +338,8 @@ export type ProposalsWhereInput = {
   deleted?: Prisma.JsonNullableFilter<"Proposals">
   slot?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
+  GapBetweenDays?: Prisma.IntFilter<"Proposals"> | number
+  proposalTxSignature?: Prisma.StringFilter<"Proposals"> | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }
 
@@ -341,6 +361,8 @@ export type ProposalsOrderByWithRelationInput = {
   deleted?: Prisma.SortOrderInput | Prisma.SortOrder
   slot?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrder
   propertySellProposals?: Prisma.PropertySellProposalOrderByWithRelationInput
 }
 
@@ -350,7 +372,7 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ProposalsWhereInput[]
   NOT?: Prisma.ProposalsWhereInput | Prisma.ProposalsWhereInput[]
   property_system?: Prisma.StringFilter<"Proposals"> | string
-  merkle_root?: Prisma.StringNullableFilter<"Proposals"> | string | null
+  merkle_root?: Prisma.BytesNullableFilter<"Proposals"> | runtime.Bytes | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableFilter<"Proposals"> | boolean | null
   total_voting_power?: Prisma.BigIntFilter<"Proposals"> | bigint | number
@@ -365,6 +387,8 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   deleted?: Prisma.JsonNullableFilter<"Proposals">
   slot?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
+  GapBetweenDays?: Prisma.IntFilter<"Proposals"> | number
+  proposalTxSignature?: Prisma.StringFilter<"Proposals"> | string
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }, "proposal_key">
 
@@ -386,6 +410,8 @@ export type ProposalsOrderByWithAggregationInput = {
   deleted?: Prisma.SortOrderInput | Prisma.SortOrder
   slot?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrder
   _count?: Prisma.ProposalsCountOrderByAggregateInput
   _avg?: Prisma.ProposalsAvgOrderByAggregateInput
   _max?: Prisma.ProposalsMaxOrderByAggregateInput
@@ -399,7 +425,7 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ProposalsScalarWhereWithAggregatesInput | Prisma.ProposalsScalarWhereWithAggregatesInput[]
   property_system?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
   proposal_key?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
-  merkle_root?: Prisma.StringNullableWithAggregatesFilter<"Proposals"> | string | null
+  merkle_root?: Prisma.BytesNullableWithAggregatesFilter<"Proposals"> | runtime.Bytes | null
   arbitrar_approvals?: Prisma.StringNullableListFilter<"Proposals">
   is_arbitrar_approved?: Prisma.BoolNullableWithAggregatesFilter<"Proposals"> | boolean | null
   total_voting_power?: Prisma.BigIntWithAggregatesFilter<"Proposals"> | bigint | number
@@ -414,12 +440,14 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   deleted?: Prisma.JsonNullableWithAggregatesFilter<"Proposals">
   slot?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
+  GapBetweenDays?: Prisma.IntWithAggregatesFilter<"Proposals"> | number
+  proposalTxSignature?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
 }
 
 export type ProposalsCreateInput = {
   property_system: string
   proposal_key: string
-  merkle_root?: string | null
+  merkle_root?: runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
   total_voting_power: bigint | number
@@ -434,13 +462,15 @@ export type ProposalsCreateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
+  GapBetweenDays: number
+  proposalTxSignature: string
   propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
 }
 
 export type ProposalsUncheckedCreateInput = {
   property_system: string
   proposal_key: string
-  merkle_root?: string | null
+  merkle_root?: runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
   total_voting_power: bigint | number
@@ -455,13 +485,15 @@ export type ProposalsUncheckedCreateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
+  GapBetweenDays: number
+  proposalTxSignature: string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
 }
 
 export type ProposalsUpdateInput = {
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -476,13 +508,15 @@ export type ProposalsUpdateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
+  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
   propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
 }
 
 export type ProposalsUncheckedUpdateInput = {
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -497,13 +531,15 @@ export type ProposalsUncheckedUpdateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
+  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
   propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
 }
 
 export type ProposalsCreateManyInput = {
   property_system: string
   proposal_key: string
-  merkle_root?: string | null
+  merkle_root?: runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
   total_voting_power: bigint | number
@@ -518,12 +554,14 @@ export type ProposalsCreateManyInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
+  GapBetweenDays: number
+  proposalTxSignature: string
 }
 
 export type ProposalsUpdateManyMutationInput = {
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -538,12 +576,14 @@ export type ProposalsUpdateManyMutationInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
+  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ProposalsUncheckedUpdateManyInput = {
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -558,6 +598,8 @@ export type ProposalsUncheckedUpdateManyInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
+  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ProposalsScalarRelationFilter = {
@@ -583,6 +625,8 @@ export type ProposalsCountOrderByAggregateInput = {
   deleted?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrder
 }
 
 export type ProposalsAvgOrderByAggregateInput = {
@@ -591,6 +635,7 @@ export type ProposalsAvgOrderByAggregateInput = {
   votes_against?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   slot?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
 }
 
 export type ProposalsMaxOrderByAggregateInput = {
@@ -609,6 +654,8 @@ export type ProposalsMaxOrderByAggregateInput = {
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrder
 }
 
 export type ProposalsMinOrderByAggregateInput = {
@@ -627,6 +674,8 @@ export type ProposalsMinOrderByAggregateInput = {
   proposal_type?: Prisma.SortOrder
   slot?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrder
 }
 
 export type ProposalsSumOrderByAggregateInput = {
@@ -635,6 +684,7 @@ export type ProposalsSumOrderByAggregateInput = {
   votes_against?: Prisma.SortOrder
   vote_threshold?: Prisma.SortOrder
   slot?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrder
 }
 
 export type ProposalsCreateNestedOneWithoutPropertySellProposalsInput = {
@@ -653,6 +703,10 @@ export type ProposalsUpdateOneRequiredWithoutPropertySellProposalsNestedInput = 
 
 export type ProposalsCreatearbitrar_approvalsInput = {
   set: string[]
+}
+
+export type NullableBytesFieldUpdateOperationsInput = {
+  set?: runtime.Bytes | null
 }
 
 export type ProposalsUpdatearbitrar_approvalsInput = {
@@ -675,7 +729,7 @@ export type EnumProposalTypeFieldUpdateOperationsInput = {
 export type ProposalsCreateWithoutPropertySellProposalsInput = {
   property_system: string
   proposal_key: string
-  merkle_root?: string | null
+  merkle_root?: runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
   total_voting_power: bigint | number
@@ -690,12 +744,14 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
+  GapBetweenDays: number
+  proposalTxSignature: string
 }
 
 export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   property_system: string
   proposal_key: string
-  merkle_root?: string | null
+  merkle_root?: runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: boolean | null
   total_voting_power: bigint | number
@@ -710,6 +766,8 @@ export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
+  GapBetweenDays: number
+  proposalTxSignature: string
 }
 
 export type ProposalsCreateOrConnectWithoutPropertySellProposalsInput = {
@@ -731,7 +789,7 @@ export type ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput = {
 export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -746,12 +804,14 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
+  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   property_system?: Prisma.StringFieldUpdateOperationsInput | string
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  merkle_root?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
   arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
   is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
@@ -766,6 +826,8 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
+  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 
@@ -788,6 +850,8 @@ export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   deleted?: boolean
   slot?: boolean
   created_at?: boolean
+  GapBetweenDays?: boolean
+  proposalTxSignature?: boolean
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
 }, ExtArgs["result"]["proposals"]>
 
@@ -809,6 +873,8 @@ export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   deleted?: boolean
   slot?: boolean
   created_at?: boolean
+  GapBetweenDays?: boolean
+  proposalTxSignature?: boolean
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -829,6 +895,8 @@ export type ProposalsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   deleted?: boolean
   slot?: boolean
   created_at?: boolean
+  GapBetweenDays?: boolean
+  proposalTxSignature?: boolean
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectScalar = {
@@ -849,9 +917,11 @@ export type ProposalsSelectScalar = {
   deleted?: boolean
   slot?: boolean
   created_at?: boolean
+  GapBetweenDays?: boolean
+  proposalTxSignature?: boolean
 }
 
-export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "deleted" | "slot" | "created_at", ExtArgs["result"]["proposals"]>
+export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "deleted" | "slot" | "created_at" | "GapBetweenDays" | "proposalTxSignature", ExtArgs["result"]["proposals"]>
 export type ProposalsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
 }
@@ -866,7 +936,7 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     property_system: string
     proposal_key: string
-    merkle_root: string | null
+    merkle_root: runtime.Bytes | null
     arbitrar_approvals: string[]
     is_arbitrar_approved: boolean | null
     total_voting_power: bigint
@@ -881,6 +951,8 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     deleted: runtime.JsonValue | null
     slot: bigint | null
     created_at: Date
+    GapBetweenDays: number
+    proposalTxSignature: string
   }, ExtArgs["result"]["proposals"]>
   composites: {}
 }
@@ -1307,7 +1379,7 @@ export interface Prisma__ProposalsClient<T, Null = never, ExtArgs extends runtim
 export interface ProposalsFieldRefs {
   readonly property_system: Prisma.FieldRef<"Proposals", 'String'>
   readonly proposal_key: Prisma.FieldRef<"Proposals", 'String'>
-  readonly merkle_root: Prisma.FieldRef<"Proposals", 'String'>
+  readonly merkle_root: Prisma.FieldRef<"Proposals", 'Bytes'>
   readonly arbitrar_approvals: Prisma.FieldRef<"Proposals", 'String[]'>
   readonly is_arbitrar_approved: Prisma.FieldRef<"Proposals", 'Boolean'>
   readonly total_voting_power: Prisma.FieldRef<"Proposals", 'BigInt'>
@@ -1322,6 +1394,8 @@ export interface ProposalsFieldRefs {
   readonly deleted: Prisma.FieldRef<"Proposals", 'Json'>
   readonly slot: Prisma.FieldRef<"Proposals", 'BigInt'>
   readonly created_at: Prisma.FieldRef<"Proposals", 'DateTime'>
+  readonly GapBetweenDays: Prisma.FieldRef<"Proposals", 'Int'>
+  readonly proposalTxSignature: Prisma.FieldRef<"Proposals", 'String'>
 }
     
 

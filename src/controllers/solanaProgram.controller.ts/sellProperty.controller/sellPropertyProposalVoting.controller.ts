@@ -1,17 +1,19 @@
-import { address } from "@solana/kit";
+
 import type {
-  Instructions,
+  instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
-import { GenericPda } from "../../../utils/genericPda";
-import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 export const handleSellPropertyProposalVoting: InstructionHandler = async (
   message: messageSchema,
-  instruction: Instructions,
+  instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number
 ) => {
   // TODO update the redis
+
+
+
+
 };

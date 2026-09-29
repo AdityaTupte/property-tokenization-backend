@@ -1,17 +1,17 @@
 
 import { prisma } from "../../prismaclient";
 import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueue.consumer";
-
-import {
-  PublicKey,  
-} from "@solana/web3.js";
-import { program } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
-import { BN } from "bn.js";
 import { NotFoundError } from "../errors/AppErrors/NotFoundError";
 import { ConflictError } from "../errors/AppErrors/ConfictError";
 import { ConnectToKMS } from "../../db/KmsConnection";
 import { SolanaServiceForSignature } from "../../db/solanaConnection";
 import type { SolanaTransactionDetail } from "../solanaService";
+import { ProposalTypeSubmitFuctionHandler } from "./submitProposalHandler.util";
+
+
+
+
+
 export const submitMerkleRootToOnchainPda = async (
     event:SnapshotRequestedType
 ) => {
@@ -37,10 +37,6 @@ export const submitMerkleRootToOnchainPda = async (
 
     }
 
-    
-   
-
-        // ////////////////////////////
 
    const proposalData = await prisma.proposals.findFirst({
     where:{
@@ -48,7 +44,6 @@ export const submitMerkleRootToOnchainPda = async (
     },
     select:{
         deleted:true,
-        property_system:true,  
     }
     })
     
@@ -58,26 +53,26 @@ export const submitMerkleRootToOnchainPda = async (
 
     }
 
-    if(proposalData?.deleted == true) throw new ConflictError("proposal is deleted")
-        
-    submitfuctionHandler
+    if(proposalData?.deleted) throw new ConflictError("proposal is deleted")
 
+    const handler =  await ProposalTypeSubmitFuctionHandler(event.proposalTypeIndex);
 
-    const tx =  program.methods.submitSnapshotForSellProposal(
-        new PublicKey(proposalData!.property_system),
-        new BN(event.proposal_id),
-        Array.from(merkleRoot!.merkleRoot),
-        2,
-        20,
-        new BN(500)
-    ).instruction();
+    const instruction = await handler(event.proposal_key)  
 
-
-    const txDetails :SolanaTransactionDetail  = await SolanaServiceForSignature.addInstructionToTransaction(ConnectToKMS.getAuthority(),tx);
+    const txDetails :SolanaTransactionDetail  = await SolanaServiceForSignature.addInstructionToTransaction(ConnectToKMS.getAuthority(),instruction);
 
     const signature = await  ConnectToKMS.SignAndVerify(txDetails.message);
 
-    await SolanaServiceForSignature.addSignatureAndExecuteTransaction(txDetails.transaction,ConnectToKMS.getAuthority(),signature,txDetails)
+    const tx =  await SolanaServiceForSignature.addSignatureAndExecuteTransaction(txDetails.transaction,ConnectToKMS.getAuthority(),signature,txDetails)
+
+    await prisma.proposals.update({
+        where:{
+            proposal_key:event.proposal_key,
+        },
+        data:{
+            proposalTxSignature:tx
+        }
+    })
 
 
 }

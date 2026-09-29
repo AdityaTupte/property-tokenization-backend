@@ -4341,7 +4341,9 @@ export const ProposalsScalarFieldEnum = {
   proposal_type: 'proposal_type',
   deleted: 'deleted',
   slot: 'slot',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  GapBetweenDays: 'GapBetweenDays',
+  proposalTxSignature: 'proposalTxSignature'
 } as const
 
 export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof typeof ProposalsScalarFieldEnum]
@@ -4599,6 +4601,20 @@ export type ListEnumProposalStatusFieldRefInput<$PrismaModel> = FieldRefInputTyp
 
 
 /**
+ * Reference to a field of type 'Bytes'
+ */
+export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
+    
+
+
+/**
+ * Reference to a field of type 'Bytes[]'
+ */
+export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+/**
  * Reference to a field of type 'ProposalType'
  */
 export type EnumProposalTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProposalType'>
@@ -4623,20 +4639,6 @@ export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'J
  * Reference to a field of type 'QueryMode'
  */
 export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
-    
-
-
-/**
- * Reference to a field of type 'Bytes'
- */
-export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
-    
-
-
-/**
- * Reference to a field of type 'Bytes[]'
- */
-export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
     
 
 

@@ -607,7 +607,7 @@ model Elect {
 model Proposals {
   property_system     String
   proposal_key          String                @id
-  merkle_root           String?
+  merkle_root           Bytes?
   arbitrar_approvals    String[]
   is_arbitrar_approved  Boolean?
   total_voting_power    BigInt
@@ -622,7 +622,10 @@ model Proposals {
   deleted               Json?
   slot                  BigInt?
   created_at            DateTime              @default(now())
+  GapBetweenDays        Int
+  proposalTxSignature   String
   propertySellProposals PropertySellProposal?
+
 }
 
 

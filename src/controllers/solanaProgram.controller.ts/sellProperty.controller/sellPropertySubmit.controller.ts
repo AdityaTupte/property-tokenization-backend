@@ -49,4 +49,4 @@ export const handleSellPropertyProposalSubmit: InstructionHandler = async (
 
 
 
-    //TODO Autocall the submit fuction
+

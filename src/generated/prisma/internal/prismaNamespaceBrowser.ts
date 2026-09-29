@@ -625,7 +625,9 @@ export const ProposalsScalarFieldEnum = {
   proposal_type: 'proposal_type',
   deleted: 'deleted',
   slot: 'slot',
-  created_at: 'created_at'
+  created_at: 'created_at',
+  GapBetweenDays: 'GapBetweenDays',
+  proposalTxSignature: 'proposalTxSignature'
 } as const
 
 export type ProposalsScalarFieldEnum = (typeof ProposalsScalarFieldEnum)[keyof typeof ProposalsScalarFieldEnum]
