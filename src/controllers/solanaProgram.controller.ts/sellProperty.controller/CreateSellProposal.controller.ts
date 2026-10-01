@@ -93,6 +93,7 @@ export const handleSellPropertyProposal: InstructionHandler = async (
         proposal_type: "SELLPROPERTY",
         total_voting_power: totalVotingPower,
         created_at: new Date(BlockTime),
+        
       },
     });
   });

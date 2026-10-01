@@ -1,7 +1,5 @@
 import { Queue } from "bullmq";
-import Redis from "ioredis";
-
-export const BullMqConnection = new Redis('redis://localhost:6379');
+import { BullMqConnection } from "../RedisConnection";
 
 
 

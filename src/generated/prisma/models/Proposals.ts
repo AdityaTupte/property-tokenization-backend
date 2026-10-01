@@ -293,8 +293,8 @@ export type ProposalsGroupByOutputType = {
   deleted: runtime.JsonValue | null
   slot: bigint | null
   created_at: Date
-  GapBetweenDays: number
-  proposalTxSignature: string
+  GapBetweenDays: number | null
+  proposalTxSignature: string | null
   _count: ProposalsCountAggregateOutputType | null
   _avg: ProposalsAvgAggregateOutputType | null
   _sum: ProposalsSumAggregateOutputType | null
@@ -338,8 +338,8 @@ export type ProposalsWhereInput = {
   deleted?: Prisma.JsonNullableFilter<"Proposals">
   slot?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
-  GapBetweenDays?: Prisma.IntFilter<"Proposals"> | number
-  proposalTxSignature?: Prisma.StringFilter<"Proposals"> | string
+  GapBetweenDays?: Prisma.IntNullableFilter<"Proposals"> | number | null
+  proposalTxSignature?: Prisma.StringNullableFilter<"Proposals"> | string | null
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }
 
@@ -361,8 +361,8 @@ export type ProposalsOrderByWithRelationInput = {
   deleted?: Prisma.SortOrderInput | Prisma.SortOrder
   slot?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  GapBetweenDays?: Prisma.SortOrder
-  proposalTxSignature?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrderInput | Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrderInput | Prisma.SortOrder
   propertySellProposals?: Prisma.PropertySellProposalOrderByWithRelationInput
 }
 
@@ -387,8 +387,8 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   deleted?: Prisma.JsonNullableFilter<"Proposals">
   slot?: Prisma.BigIntNullableFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeFilter<"Proposals"> | Date | string
-  GapBetweenDays?: Prisma.IntFilter<"Proposals"> | number
-  proposalTxSignature?: Prisma.StringFilter<"Proposals"> | string
+  GapBetweenDays?: Prisma.IntNullableFilter<"Proposals"> | number | null
+  proposalTxSignature?: Prisma.StringNullableFilter<"Proposals"> | string | null
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
 }, "proposal_key">
 
@@ -410,8 +410,8 @@ export type ProposalsOrderByWithAggregationInput = {
   deleted?: Prisma.SortOrderInput | Prisma.SortOrder
   slot?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  GapBetweenDays?: Prisma.SortOrder
-  proposalTxSignature?: Prisma.SortOrder
+  GapBetweenDays?: Prisma.SortOrderInput | Prisma.SortOrder
+  proposalTxSignature?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProposalsCountOrderByAggregateInput
   _avg?: Prisma.ProposalsAvgOrderByAggregateInput
   _max?: Prisma.ProposalsMaxOrderByAggregateInput
@@ -440,8 +440,8 @@ export type ProposalsScalarWhereWithAggregatesInput = {
   deleted?: Prisma.JsonNullableWithAggregatesFilter<"Proposals">
   slot?: Prisma.BigIntNullableWithAggregatesFilter<"Proposals"> | bigint | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Proposals"> | Date | string
-  GapBetweenDays?: Prisma.IntWithAggregatesFilter<"Proposals"> | number
-  proposalTxSignature?: Prisma.StringWithAggregatesFilter<"Proposals"> | string
+  GapBetweenDays?: Prisma.IntNullableWithAggregatesFilter<"Proposals"> | number | null
+  proposalTxSignature?: Prisma.StringNullableWithAggregatesFilter<"Proposals"> | string | null
 }
 
 export type ProposalsCreateInput = {
@@ -462,8 +462,8 @@ export type ProposalsCreateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
-  GapBetweenDays: number
-  proposalTxSignature: string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
   propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
 }
 
@@ -485,8 +485,8 @@ export type ProposalsUncheckedCreateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
-  GapBetweenDays: number
-  proposalTxSignature: string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
   propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
 }
 
@@ -508,8 +508,8 @@ export type ProposalsUpdateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
-  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
 }
 
@@ -531,8 +531,8 @@ export type ProposalsUncheckedUpdateInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
-  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
 }
 
@@ -554,8 +554,8 @@ export type ProposalsCreateManyInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
-  GapBetweenDays: number
-  proposalTxSignature: string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
 }
 
 export type ProposalsUpdateManyMutationInput = {
@@ -576,8 +576,8 @@ export type ProposalsUpdateManyMutationInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
-  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProposalsUncheckedUpdateManyInput = {
@@ -598,8 +598,8 @@ export type ProposalsUncheckedUpdateManyInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
-  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProposalsScalarRelationFilter = {
@@ -744,8 +744,8 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
-  GapBetweenDays: number
-  proposalTxSignature: string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
 }
 
 export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
@@ -766,8 +766,8 @@ export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: bigint | number | null
   created_at?: Date | string
-  GapBetweenDays: number
-  proposalTxSignature: string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
 }
 
 export type ProposalsCreateOrConnectWithoutPropertySellProposalsInput = {
@@ -804,8 +804,8 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
-  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
@@ -826,8 +826,8 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  GapBetweenDays?: Prisma.IntFieldUpdateOperationsInput | number
-  proposalTxSignature?: Prisma.StringFieldUpdateOperationsInput | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -951,8 +951,8 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     deleted: runtime.JsonValue | null
     slot: bigint | null
     created_at: Date
-    GapBetweenDays: number
-    proposalTxSignature: string
+    GapBetweenDays: number | null
+    proposalTxSignature: string | null
   }, ExtArgs["result"]["proposals"]>
   composites: {}
 }

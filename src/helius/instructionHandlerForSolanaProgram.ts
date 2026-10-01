@@ -4,7 +4,7 @@ import * as country from "../controllers/solanaProgram.controller.ts/countryCrea
 import * as propertySystem from "../controllers/solanaProgram.controller.ts/propertySystemCreation.controller/propertySystemImporLib";
 import * as state from "../controllers/solanaProgram.controller.ts/stateCreation.controller/stateCreationImportLib";
 import * as Property from "../controllers/solanaProgram.controller.ts/createProperty.controller/createPropertyImportLib";
-
+import * as SellProposal from "../controllers/solanaProgram.controller.ts/sellProperty.controller/sellPropertyProposalImportLib"
 const instructionMap: Record<string, InstructionHandler> = {
   create_property_system: propertySystem.handleCreatePropertySystem,
   add_trustee: propertySystem.handleAddTrustee,
@@ -24,12 +24,22 @@ const instructionMap: Record<string, InstructionHandler> = {
   create_property_proposal: Property.handleCreateProperty,
   approve_property_proposal: Property.handleApproveLand,
   execute_property_proposal: Property.handleExecutedLand,
+
+  create_sell_proposal:SellProposal.handleSellPropertyProposal,
+  sell_proposal_arbitrar_vote:SellProposal.handleSellPropertyProposalArbitratorVote,
+  submit_snapshot_for_sell_proposal:SellProposal.handleSellPropertyProposalSubmit,
+  voting_for_sell_proposal:SellProposal.handleSellPropertyProposal,
+
+
 };
 
 export const solanaInstructionHandler = (instruction: string) => {
   const handler = instructionMap[instruction];
 
   if (!handler) throw new ApiError(500, "No instructionHandler Available");
+
+
+
 
   return handler;
 };

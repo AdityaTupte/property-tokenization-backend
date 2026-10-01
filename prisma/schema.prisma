@@ -622,8 +622,8 @@ model Proposals {
   deleted               Json?
   slot                  BigInt?
   created_at            DateTime              @default(now())
-  GapBetweenDays        Int
-  proposalTxSignature   String
+  GapBetweenDays        Int?
+  proposalTxSignature   String?
   propertySellProposals PropertySellProposal?
 
 }

@@ -9,11 +9,9 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
-import {
-  eventDecoder,
-} from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { SnapshotRequestedSchema } from "../../../idl.schema/generated/SnapshotRequested.schema";
-import { snapshotRequestedJobCreationHandler } from "../../../Redis/producer/snapshotRequestedQueue.producer";
+import { snapshotRequestedJobCreationHandler } from "../../../Redis/RedisJobQueue/producer/snapshotRequestedQueue.producer";
 export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
   async (
     message: messageSchema,
@@ -82,9 +80,7 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
       });
     });
 
-
-    if(ArbitrarApproved){
-       await snapshotRequestedJobCreationHandler(log);
-  }
-
-};
+    if (ArbitrarApproved) {
+      await snapshotRequestedJobCreationHandler(log);
+    }
+  };

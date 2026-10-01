@@ -1,4 +1,4 @@
-import { da } from "zod/locales";
+
 import { solanaInstructionHandler } 
     from "../../helius/instructionHandlerForSolanaProgram";
 
@@ -9,8 +9,13 @@ import { TransactionContext }
     from "../../utils/solanaDbHandler";
 import { kafka } from "../kakfaClient";
 import { EventHandler } from "../../helius/EventhandlerForSolanaProgram";
+import type { InstructionHandler } from "../../types&interface/solanaInstrcution&event.type";
+import * as SellProposal from "../../controllers/solanaProgram.controller.ts/sellProperty.controller/sellPropertyProposalImportLib"
+import { VotingForProposalInstructionProducer } from "../Producers/VotingForProposal.Producer";
 
-
+const VotingforProposalInstructionMap: Record<string, InstructionHandler> = {
+    //  voting_for_sell_proposal:VotingForProposa.handleSellPropertyProposal,
+};
 
 export const kafkaInstructionconsumer = async function () {
 
@@ -49,10 +54,27 @@ export const kafkaInstructionconsumer = async function () {
                  const ctx = new TransactionContext();
                 let index = 0 
                  for (const element of data.InstructionNameAndData) {
- 
-                     const handler =
+
+                if(VotingforProposalInstructionMap[element.name]){ 
+
+                     await VotingForProposalInstructionProducer(
+                        data.transaction,
+                        element,
+                        ctx,
+                        data.blockTime,
+                        data.log[index]!,
+                     )
+                    
+                     index++
+                     
+                }
+
+                else{
+                    
+                    const handler =
                          solanaInstructionHandler(element.name);
- 
+                    
+                       
                      await handler(
                          data.transaction,
                          element.data,
@@ -61,8 +83,13 @@ export const kafkaInstructionconsumer = async function () {
                          data.log[index]!,
                      );
                      index++
-                 }
+
+                     
+                }
  
+
+
+                }
                  await ctx.execute();
 
                  for (const log of data.log) {
