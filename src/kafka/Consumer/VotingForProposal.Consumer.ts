@@ -1,118 +1,90 @@
-import { kafka } from "../kakfaClient"
+import { kafka } from "../kakfaClient";
 import { KAFKA_TOPICS } from "../kafka.TopicsNames";
 import type { InstructionDataInterface } from "../../types&interface/instructionData.Interface";
 import { VotesForProposalCache } from "../../Redis/RedisCache/votingForProposal.Cache";
-import type { InstructionHandler } from "../../types&interface/solanaInstrcution&event.type";
-import type { VotingDataType } from "../../types&interface/VotingDataType";
 
+import { eventDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { VoteForProposalSchema } from "../../idl.schema/generated/VoteForProposal.schema";
 export const kafkaVotingForProposalConsumerForRedisCache = async function () {
+  const Consumer = kafka.consumer({
+    groupId: "VotingForProposalConsumer",
+  });
 
-     const Consumer = kafka.consumer({
-       groupId:"VotingForProposalConsumer",
-     })
+  await Consumer.connect();
 
-     await Consumer.connect()
+  await Consumer.subscribe({
+    topic: KAFKA_TOPICS.VOTINGFORPROPOSAL,
+    // fromBeginning: true,
+  });
 
-     await Consumer.subscribe({
-         topic: KAFKA_TOPICS.VOTINGFORPROPOSAL,
-         // fromBeginning: true,
-     })
+  await Consumer.run({
+    autoCommit: true,
 
-     await Consumer.run({
-         autoCommit: true,  
-        
-         eachMessage: async ({
-             topic,
-             heartbeat,
-             message,
-             partition,
-             pause,
-         }) => {
+    eachMessage: async ({ topic, heartbeat, message, partition, pause }) => {
+      if (!message.value) {
+        throw new Error("Message has no value");
+      }
 
-                if (!message.value) {
+      try {
+        const data: InstructionDataInterface = JSON.parse(
+          message.value.toString()
+        );
 
-                    throw new Error("Message has no value");
+         const decodedEvent = eventDecoder.decode(data.log[0]?.events[0]?.raw!);
+          // TODO:Change the Eveent in thge solanm proge VoteForProposalSchema
+         const decodedData =VoteForProposalSchema.parse(decodedEvent?.data);
 
-                }
-
-
-                try {
-                    
-                    const data:VotingDataType = JSON.parse(message.value.toString());
-                    
-
-                    // TODO : IMPLEMENT FUCtion to give the proposalKey from the instruction data using instrcution name 
-                    
-                    // create redis stream for db update
-
-                    // const proposalKey = data.data.accountKeys[data.instruction.accounts[2]!]!.toString();
-
-
-                    
-                    // TODO: IMPLEMNET Redis Cache System
-
-         }
-         catch (error) {
- 
-                 console.error(
-                     "❌ Error processing Kafka message:",
-                     error
-                 );
-             }
-        }
-        })
-
-    }
-
+         await VotesForProposalCache.hsetnx(
+            decodedData.proposal, {
+          voterAddress:decodedData.voter,
+          votingPower:decodedData.voting_power,
+          Vote:decodedData.for_against,
+         })
+         
+        // create redis stream for db update
+        // const proposalKey = data.data.accountKeys[data.instruction.accounts[2]!]!.toString();
+        // TODO: IMPLEMNET Redis Cache System
+      } catch (error) {
+        console.error("❌ Error processing Kafka message:", error);
+      }
+    },
+  });
+};
 
 export const kafkaVotingForProposalConsumerDBOperations = async function () {
+  const Consumer = kafka.consumer({
+    groupId: "VotingForProposalConsumerDBOperations",
+  });
 
-        const Consumer = kafka.consumer({ 
-            groupId:"VotingForProposalConsumerDBOperations",
+  await Consumer.connect();
 
-         })
+  await Consumer.subscribe({
+    topic: KAFKA_TOPICS.VOTINGFORPROPOSAL,
+    // fromBeginning: true,
+  });
 
-         await Consumer.connect()
+  await Consumer.run({
+    autoCommit: true,
+    eachMessage: async ({ topic,  heartbeat, message, partition, pause }) => {
+      if (!message.value) {
+        throw new Error("Message has no value");
+      }
 
-         await Consumer.subscribe({
-             topic: KAFKA_TOPICS.VOTINGFORPROPOSAL,
-             // fromBeginning: true,
-         })
+      try {
+        const data: InstructionDataInterface = JSON.parse(
+          message.value.toString()
+        );
 
-            await Consumer.run({
+        const decodedEvent = eventDecoder.decode(data.log[0]?.events[0]?.raw!);
 
-                autoCommit: true,
-                eachMessage: async ({
-                    topic,
-                    heartbeat, 
-                    message,
-                    partition,
-                    pause,
-                }) => {
+        const decodedData =VoteForProposalSchema.parse(decodedEvent?.data);
 
-                    if (!message.value) {
-
-                        throw new Error("Message has no value");
-                    }
-
-                    try {
-
-                        const data: InstructionDataInterface = JSON.parse(message.value.toString());
-
-                        // TODO: IMPLEMENT DB Operations
-
-                    }
-                    
-                    catch (error) {
-
-                        console.error(
-                            "❌ Error processing Kafka message:",
-                            error
-                        );
-                    }
-
-                }
-            })
-
-
-}
+        
+        
+        // TODO: IMPLEMENT DB Operations
+      } catch (error) {
+        console.error("❌ Error processing Kafka message:", error);
+      }
+    },
+  });
+};

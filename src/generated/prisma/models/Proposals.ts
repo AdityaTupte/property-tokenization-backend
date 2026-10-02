@@ -341,6 +341,7 @@ export type ProposalsWhereInput = {
   GapBetweenDays?: Prisma.IntNullableFilter<"Proposals"> | number | null
   proposalTxSignature?: Prisma.StringNullableFilter<"Proposals"> | string | null
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
+  votingForProposals?: Prisma.VotingForProposalListRelationFilter
 }
 
 export type ProposalsOrderByWithRelationInput = {
@@ -364,6 +365,7 @@ export type ProposalsOrderByWithRelationInput = {
   GapBetweenDays?: Prisma.SortOrderInput | Prisma.SortOrder
   proposalTxSignature?: Prisma.SortOrderInput | Prisma.SortOrder
   propertySellProposals?: Prisma.PropertySellProposalOrderByWithRelationInput
+  votingForProposals?: Prisma.VotingForProposalOrderByRelationAggregateInput
 }
 
 export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
@@ -390,6 +392,7 @@ export type ProposalsWhereUniqueInput = Prisma.AtLeast<{
   GapBetweenDays?: Prisma.IntNullableFilter<"Proposals"> | number | null
   proposalTxSignature?: Prisma.StringNullableFilter<"Proposals"> | string | null
   propertySellProposals?: Prisma.XOR<Prisma.PropertySellProposalNullableScalarRelationFilter, Prisma.PropertySellProposalWhereInput> | null
+  votingForProposals?: Prisma.VotingForProposalListRelationFilter
 }, "proposal_key">
 
 export type ProposalsOrderByWithAggregationInput = {
@@ -465,6 +468,7 @@ export type ProposalsCreateInput = {
   GapBetweenDays?: number | null
   proposalTxSignature?: string | null
   propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
+  votingForProposals?: Prisma.VotingForProposalCreateNestedManyWithoutProposalInput
 }
 
 export type ProposalsUncheckedCreateInput = {
@@ -488,6 +492,7 @@ export type ProposalsUncheckedCreateInput = {
   GapBetweenDays?: number | null
   proposalTxSignature?: string | null
   propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
+  votingForProposals?: Prisma.VotingForProposalUncheckedCreateNestedManyWithoutProposalInput
 }
 
 export type ProposalsUpdateInput = {
@@ -511,6 +516,7 @@ export type ProposalsUpdateInput = {
   GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
+  votingForProposals?: Prisma.VotingForProposalUpdateManyWithoutProposalNestedInput
 }
 
 export type ProposalsUncheckedUpdateInput = {
@@ -534,6 +540,7 @@ export type ProposalsUncheckedUpdateInput = {
   GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
+  votingForProposals?: Prisma.VotingForProposalUncheckedUpdateManyWithoutProposalNestedInput
 }
 
 export type ProposalsCreateManyInput = {
@@ -701,6 +708,20 @@ export type ProposalsUpdateOneRequiredWithoutPropertySellProposalsNestedInput = 
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProposalsUpdateToOneWithWhereWithoutPropertySellProposalsInput, Prisma.ProposalsUpdateWithoutPropertySellProposalsInput>, Prisma.ProposalsUncheckedUpdateWithoutPropertySellProposalsInput>
 }
 
+export type ProposalsCreateNestedOneWithoutVotingForProposalsInput = {
+  create?: Prisma.XOR<Prisma.ProposalsCreateWithoutVotingForProposalsInput, Prisma.ProposalsUncheckedCreateWithoutVotingForProposalsInput>
+  connectOrCreate?: Prisma.ProposalsCreateOrConnectWithoutVotingForProposalsInput
+  connect?: Prisma.ProposalsWhereUniqueInput
+}
+
+export type ProposalsUpdateOneRequiredWithoutVotingForProposalsNestedInput = {
+  create?: Prisma.XOR<Prisma.ProposalsCreateWithoutVotingForProposalsInput, Prisma.ProposalsUncheckedCreateWithoutVotingForProposalsInput>
+  connectOrCreate?: Prisma.ProposalsCreateOrConnectWithoutVotingForProposalsInput
+  upsert?: Prisma.ProposalsUpsertWithoutVotingForProposalsInput
+  connect?: Prisma.ProposalsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProposalsUpdateToOneWithWhereWithoutVotingForProposalsInput, Prisma.ProposalsUpdateWithoutVotingForProposalsInput>, Prisma.ProposalsUncheckedUpdateWithoutVotingForProposalsInput>
+}
+
 export type ProposalsCreatearbitrar_approvalsInput = {
   set: string[]
 }
@@ -746,6 +767,7 @@ export type ProposalsCreateWithoutPropertySellProposalsInput = {
   created_at?: Date | string
   GapBetweenDays?: number | null
   proposalTxSignature?: string | null
+  votingForProposals?: Prisma.VotingForProposalCreateNestedManyWithoutProposalInput
 }
 
 export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
@@ -768,6 +790,7 @@ export type ProposalsUncheckedCreateWithoutPropertySellProposalsInput = {
   created_at?: Date | string
   GapBetweenDays?: number | null
   proposalTxSignature?: string | null
+  votingForProposals?: Prisma.VotingForProposalUncheckedCreateNestedManyWithoutProposalInput
 }
 
 export type ProposalsCreateOrConnectWithoutPropertySellProposalsInput = {
@@ -806,6 +829,7 @@ export type ProposalsUpdateWithoutPropertySellProposalsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  votingForProposals?: Prisma.VotingForProposalUpdateManyWithoutProposalNestedInput
 }
 
 export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
@@ -828,8 +852,146 @@ export type ProposalsUncheckedUpdateWithoutPropertySellProposalsInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  votingForProposals?: Prisma.VotingForProposalUncheckedUpdateManyWithoutProposalNestedInput
 }
 
+export type ProposalsCreateWithoutVotingForProposalsInput = {
+  property_system: string
+  proposal_key: string
+  merkle_root?: runtime.Bytes | null
+  arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
+  is_arbitrar_approved?: boolean | null
+  total_voting_power: bigint | number
+  votes_for?: bigint | number | null
+  votes_against?: bigint | number | null
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
+  status: $Enums.ProposalStatus
+  snapshot_submitted?: boolean | null
+  proposal_type: $Enums.ProposalType
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: bigint | number | null
+  created_at?: Date | string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
+  propertySellProposals?: Prisma.PropertySellProposalCreateNestedOneWithoutProposalInput
+}
+
+export type ProposalsUncheckedCreateWithoutVotingForProposalsInput = {
+  property_system: string
+  proposal_key: string
+  merkle_root?: runtime.Bytes | null
+  arbitrar_approvals?: Prisma.ProposalsCreatearbitrar_approvalsInput | string[]
+  is_arbitrar_approved?: boolean | null
+  total_voting_power: bigint | number
+  votes_for?: bigint | number | null
+  votes_against?: bigint | number | null
+  vote_threshold?: number | null
+  start_time?: Date | string | null
+  end_time?: Date | string | null
+  status: $Enums.ProposalStatus
+  snapshot_submitted?: boolean | null
+  proposal_type: $Enums.ProposalType
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: bigint | number | null
+  created_at?: Date | string
+  GapBetweenDays?: number | null
+  proposalTxSignature?: string | null
+  propertySellProposals?: Prisma.PropertySellProposalUncheckedCreateNestedOneWithoutProposalInput
+}
+
+export type ProposalsCreateOrConnectWithoutVotingForProposalsInput = {
+  where: Prisma.ProposalsWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProposalsCreateWithoutVotingForProposalsInput, Prisma.ProposalsUncheckedCreateWithoutVotingForProposalsInput>
+}
+
+export type ProposalsUpsertWithoutVotingForProposalsInput = {
+  update: Prisma.XOR<Prisma.ProposalsUpdateWithoutVotingForProposalsInput, Prisma.ProposalsUncheckedUpdateWithoutVotingForProposalsInput>
+  create: Prisma.XOR<Prisma.ProposalsCreateWithoutVotingForProposalsInput, Prisma.ProposalsUncheckedCreateWithoutVotingForProposalsInput>
+  where?: Prisma.ProposalsWhereInput
+}
+
+export type ProposalsUpdateToOneWithWhereWithoutVotingForProposalsInput = {
+  where?: Prisma.ProposalsWhereInput
+  data: Prisma.XOR<Prisma.ProposalsUpdateWithoutVotingForProposalsInput, Prisma.ProposalsUncheckedUpdateWithoutVotingForProposalsInput>
+}
+
+export type ProposalsUpdateWithoutVotingForProposalsInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
+  proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
+  arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  propertySellProposals?: Prisma.PropertySellProposalUpdateOneWithoutProposalNestedInput
+}
+
+export type ProposalsUncheckedUpdateWithoutVotingForProposalsInput = {
+  property_system?: Prisma.StringFieldUpdateOperationsInput | string
+  proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
+  merkle_root?: Prisma.NullableBytesFieldUpdateOperationsInput | runtime.Bytes | null
+  arbitrar_approvals?: Prisma.ProposalsUpdatearbitrar_approvalsInput | string[]
+  is_arbitrar_approved?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  total_voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  votes_for?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  votes_against?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  vote_threshold?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  end_time?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  status?: Prisma.EnumProposalStatusFieldUpdateOperationsInput | $Enums.ProposalStatus
+  snapshot_submitted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  proposal_type?: Prisma.EnumProposalTypeFieldUpdateOperationsInput | $Enums.ProposalType
+  deleted?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  slot?: Prisma.NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  GapBetweenDays?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  proposalTxSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  propertySellProposals?: Prisma.PropertySellProposalUncheckedUpdateOneWithoutProposalNestedInput
+}
+
+
+/**
+ * Count Type ProposalsCountOutputType
+ */
+
+export type ProposalsCountOutputType = {
+  votingForProposals: number
+}
+
+export type ProposalsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  votingForProposals?: boolean | ProposalsCountOutputTypeCountVotingForProposalsArgs
+}
+
+/**
+ * ProposalsCountOutputType without action
+ */
+export type ProposalsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ProposalsCountOutputType
+   */
+  select?: Prisma.ProposalsCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * ProposalsCountOutputType without action
+ */
+export type ProposalsCountOutputTypeCountVotingForProposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VotingForProposalWhereInput
+}
 
 
 export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -853,6 +1015,8 @@ export type ProposalsSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   GapBetweenDays?: boolean
   proposalTxSignature?: boolean
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
+  votingForProposals?: boolean | Prisma.Proposals$votingForProposalsArgs<ExtArgs>
+  _count?: boolean | Prisma.ProposalsCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["proposals"]>
 
 export type ProposalsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -924,6 +1088,8 @@ export type ProposalsSelectScalar = {
 export type ProposalsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"property_system" | "proposal_key" | "merkle_root" | "arbitrar_approvals" | "is_arbitrar_approved" | "total_voting_power" | "votes_for" | "votes_against" | "vote_threshold" | "start_time" | "end_time" | "status" | "snapshot_submitted" | "proposal_type" | "deleted" | "slot" | "created_at" | "GapBetweenDays" | "proposalTxSignature", ExtArgs["result"]["proposals"]>
 export type ProposalsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   propertySellProposals?: boolean | Prisma.Proposals$propertySellProposalsArgs<ExtArgs>
+  votingForProposals?: boolean | Prisma.Proposals$votingForProposalsArgs<ExtArgs>
+  _count?: boolean | Prisma.ProposalsCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ProposalsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 export type ProposalsIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -932,6 +1098,7 @@ export type $ProposalsPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   name: "Proposals"
   objects: {
     propertySellProposals: Prisma.$PropertySellProposalPayload<ExtArgs> | null
+    votingForProposals: Prisma.$VotingForProposalPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     property_system: string
@@ -1348,6 +1515,7 @@ readonly fields: ProposalsFieldRefs;
 export interface Prisma__ProposalsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   propertySellProposals<T extends Prisma.Proposals$propertySellProposalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Proposals$propertySellProposalsArgs<ExtArgs>>): Prisma.Prisma__PropertySellProposalClient<runtime.Types.Result.GetResult<Prisma.$PropertySellProposalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  votingForProposals<T extends Prisma.Proposals$votingForProposalsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Proposals$votingForProposalsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VotingForProposalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1805,6 +1973,30 @@ export type Proposals$propertySellProposalsArgs<ExtArgs extends runtime.Types.Ex
    */
   include?: Prisma.PropertySellProposalInclude<ExtArgs> | null
   where?: Prisma.PropertySellProposalWhereInput
+}
+
+/**
+ * Proposals.votingForProposals
+ */
+export type Proposals$votingForProposalsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VotingForProposal
+   */
+  select?: Prisma.VotingForProposalSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the VotingForProposal
+   */
+  omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
+  where?: Prisma.VotingForProposalWhereInput
+  orderBy?: Prisma.VotingForProposalOrderByWithRelationInput | Prisma.VotingForProposalOrderByWithRelationInput[]
+  cursor?: Prisma.VotingForProposalWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.VotingForProposalScalarFieldEnum | Prisma.VotingForProposalScalarFieldEnum[]
 }
 
 /**

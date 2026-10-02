@@ -1,7 +1,7 @@
 import { address } from "@solana/kit";
 import type {
   instructionsSchema,
-  messageSchema,
+  
   metaSchema,
 } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
@@ -13,21 +13,21 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleAddTrustee: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   log: CompletedExecution
 ) => {
   const propertySystemAddress = address(
-    message.accountKeys[instruction.accounts[1]!]!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   const trustee_registry = address(
-    message.accountKeys[instruction.accounts[2]!]!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   );
 
-  const newTrustee = address(message.accountKeys[instruction.accounts[3]!]!);
+  const newTrustee = address(TransactionAccountskey.at(instruction.accounts[3]!)!);
 
   //  const trusteeRegistryaccount = await GenericPda(
   //     "trusteeRegistry",

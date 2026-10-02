@@ -12,20 +12,20 @@ import type { CompletedExecution } from "../../../types&interface/solanaLogParse
 // import { GenericPda } from "../../../utils/genericPda";
 
 export const handleExecutedLand: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   log: CompletedExecution
 ) => {
   const PropertyProposalAddress = address(
-    message.accountKeys[instruction.accounts[1]!]!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   // const PropertyProposalPda = await GenericPda("propertyProposal",PropertyProposalAddress) as PdaTypes.PropertyProposalType
 
   const PropertyAccountAddress = address(
-    message.accountKeys[instruction.accounts[4]!]!
+    TransactionAccountskey.at(instruction.accounts[4]!)!
   );
 
   // const PropertyAccountPda = await GenericPda("propertyAccount",PropertyAccountAddress) as PdaTypes.PropertyAccountType

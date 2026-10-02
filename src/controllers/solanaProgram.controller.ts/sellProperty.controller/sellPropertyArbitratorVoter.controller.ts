@@ -1,7 +1,6 @@
 import { address } from "@solana/kit";
 import type {
-  instructionsSchema,
-  messageSchema,
+  instructionsSchema
 } from "../../../helius/findProgramIndex";
 
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
@@ -14,22 +13,22 @@ import { SnapshotRequestedSchema } from "../../../idl.schema/generated/SnapshotR
 import { snapshotRequestedJobCreationHandler } from "../../../Redis/RedisJobQueue/producer/snapshotRequestedQueue.producer";
 export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
   async (
-    message: messageSchema,
+    TransactionAccountskey: string[],
     instruction: instructionsSchema,
     ctx: TransactionContext,
     _BlockTime: number,
     log: CompletedExecution
   ) => {
     const proposalAddress = address(
-      message.accountKeys[instruction.accounts[2]!]!
+      TransactionAccountskey.at(instruction.accounts[2]!)!
     );
 
     const arbitrarRegistryAddress = address(
-      message.accountKeys[instruction.accounts[4]!]!
+      TransactionAccountskey.at(instruction.accounts[4]!)!
     );
 
     const signer = address(
-      message.accountKeys[instruction.accounts[0]!]!.toString()
+      TransactionAccountskey.at(instruction.accounts[0]!)!.toString()
     );
 
     const ProposalDb = await prisma.proposals.findUnique({

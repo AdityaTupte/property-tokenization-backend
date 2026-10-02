@@ -13,13 +13,13 @@ import { ApiError } from "../../../utils/errors/ApiError";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleExecuteCountryProposal: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
+  const proposal = address(TransactionAccountskey.at(instruction.accounts[0]!)!);
 
   const bytes = Buffer.from(bs58.decode(instruction.data));
 
@@ -46,7 +46,7 @@ export const handleExecuteCountryProposal: InstructionHandler = async (
     throw new ApiError(409, "Country proposal is not approved");
 
   const countryPdaAddress = address(
-    message.accountKeys[instruction.accounts[2]!]!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   );
 
   ctx.add(async (tx) => {

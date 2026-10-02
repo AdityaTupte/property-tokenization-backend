@@ -13,18 +13,18 @@ import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleSellPropertyProposal: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   meta: CompletedExecution
 ) => {
   const proposalAddress = address(
-    message.accountKeys[instruction.accounts[2]!]!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   );
 
   const propertySystem = address(
-    message.accountKeys[instruction.accounts[3]!]!
+    TransactionAccountskey.at(instruction.accounts[3]!)!
   );
 
   const bytes = Buffer.from(bs58.decode(instruction.data));
@@ -46,11 +46,11 @@ export const handleSellPropertyProposal: InstructionHandler = async (
   // };
 
   const propertySystemAddress = address(
-    message.accountKeys[instruction.accounts[3]!]!
+    TransactionAccountskey.at(instruction.accounts[3]!)!
   ).toString();
 
   const treasuryAddress = address(
-    message.accountKeys[instruction.accounts[4]!]!
+    TransactionAccountskey.at(instruction.accounts[4]!)!
   ).toString();
 
   const governance_mint_token_supply =

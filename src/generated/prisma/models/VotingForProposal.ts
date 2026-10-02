@@ -36,23 +36,23 @@ export type VotingForProposalSumAggregateOutputType = {
 
 export type VotingForProposalMinAggregateOutputType = {
   proposal_key: string | null
-  timestamp: Date | null
   signer: string | null
   voting_power: bigint | null
+  For_Against: boolean | null
 }
 
 export type VotingForProposalMaxAggregateOutputType = {
   proposal_key: string | null
-  timestamp: Date | null
   signer: string | null
   voting_power: bigint | null
+  For_Against: boolean | null
 }
 
 export type VotingForProposalCountAggregateOutputType = {
   proposal_key: number
-  timestamp: number
   signer: number
   voting_power: number
+  For_Against: number
   _all: number
 }
 
@@ -67,23 +67,23 @@ export type VotingForProposalSumAggregateInputType = {
 
 export type VotingForProposalMinAggregateInputType = {
   proposal_key?: true
-  timestamp?: true
   signer?: true
   voting_power?: true
+  For_Against?: true
 }
 
 export type VotingForProposalMaxAggregateInputType = {
   proposal_key?: true
-  timestamp?: true
   signer?: true
   voting_power?: true
+  For_Against?: true
 }
 
 export type VotingForProposalCountAggregateInputType = {
   proposal_key?: true
-  timestamp?: true
   signer?: true
   voting_power?: true
+  For_Against?: true
   _all?: true
 }
 
@@ -175,9 +175,9 @@ export type VotingForProposalGroupByArgs<ExtArgs extends runtime.Types.Extension
 
 export type VotingForProposalGroupByOutputType = {
   proposal_key: string
-  timestamp: Date
   signer: string
   voting_power: bigint
+  For_Against: boolean
   _count: VotingForProposalCountAggregateOutputType | null
   _avg: VotingForProposalAvgAggregateOutputType | null
   _sum: VotingForProposalSumAggregateOutputType | null
@@ -205,16 +205,18 @@ export type VotingForProposalWhereInput = {
   OR?: Prisma.VotingForProposalWhereInput[]
   NOT?: Prisma.VotingForProposalWhereInput | Prisma.VotingForProposalWhereInput[]
   proposal_key?: Prisma.StringFilter<"VotingForProposal"> | string
-  timestamp?: Prisma.DateTimeFilter<"VotingForProposal"> | Date | string
   signer?: Prisma.StringFilter<"VotingForProposal"> | string
   voting_power?: Prisma.BigIntFilter<"VotingForProposal"> | bigint | number
+  For_Against?: Prisma.BoolFilter<"VotingForProposal"> | boolean
+  proposal?: Prisma.XOR<Prisma.ProposalsScalarRelationFilter, Prisma.ProposalsWhereInput>
 }
 
 export type VotingForProposalOrderByWithRelationInput = {
   proposal_key?: Prisma.SortOrder
-  timestamp?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   voting_power?: Prisma.SortOrder
+  For_Against?: Prisma.SortOrder
+  proposal?: Prisma.ProposalsOrderByWithRelationInput
 }
 
 export type VotingForProposalWhereUniqueInput = Prisma.AtLeast<{
@@ -223,16 +225,17 @@ export type VotingForProposalWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.VotingForProposalWhereInput[]
   NOT?: Prisma.VotingForProposalWhereInput | Prisma.VotingForProposalWhereInput[]
   proposal_key?: Prisma.StringFilter<"VotingForProposal"> | string
-  timestamp?: Prisma.DateTimeFilter<"VotingForProposal"> | Date | string
   signer?: Prisma.StringFilter<"VotingForProposal"> | string
   voting_power?: Prisma.BigIntFilter<"VotingForProposal"> | bigint | number
+  For_Against?: Prisma.BoolFilter<"VotingForProposal"> | boolean
+  proposal?: Prisma.XOR<Prisma.ProposalsScalarRelationFilter, Prisma.ProposalsWhereInput>
 }, "proposal_key_signer">
 
 export type VotingForProposalOrderByWithAggregationInput = {
   proposal_key?: Prisma.SortOrder
-  timestamp?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   voting_power?: Prisma.SortOrder
+  For_Against?: Prisma.SortOrder
   _count?: Prisma.VotingForProposalCountOrderByAggregateInput
   _avg?: Prisma.VotingForProposalAvgOrderByAggregateInput
   _max?: Prisma.VotingForProposalMaxOrderByAggregateInput
@@ -245,58 +248,57 @@ export type VotingForProposalScalarWhereWithAggregatesInput = {
   OR?: Prisma.VotingForProposalScalarWhereWithAggregatesInput[]
   NOT?: Prisma.VotingForProposalScalarWhereWithAggregatesInput | Prisma.VotingForProposalScalarWhereWithAggregatesInput[]
   proposal_key?: Prisma.StringWithAggregatesFilter<"VotingForProposal"> | string
-  timestamp?: Prisma.DateTimeWithAggregatesFilter<"VotingForProposal"> | Date | string
   signer?: Prisma.StringWithAggregatesFilter<"VotingForProposal"> | string
   voting_power?: Prisma.BigIntWithAggregatesFilter<"VotingForProposal"> | bigint | number
+  For_Against?: Prisma.BoolWithAggregatesFilter<"VotingForProposal"> | boolean
 }
 
 export type VotingForProposalCreateInput = {
-  proposal_key: string
-  timestamp: Date | string
   signer: string
   voting_power: bigint | number
+  For_Against: boolean
+  proposal: Prisma.ProposalsCreateNestedOneWithoutVotingForProposalsInput
 }
 
 export type VotingForProposalUncheckedCreateInput = {
   proposal_key: string
-  timestamp: Date | string
   signer: string
   voting_power: bigint | number
+  For_Against: boolean
 }
 
 export type VotingForProposalUpdateInput = {
-  proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  timestamp?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  proposal?: Prisma.ProposalsUpdateOneRequiredWithoutVotingForProposalsNestedInput
 }
 
 export type VotingForProposalUncheckedUpdateInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  timestamp?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type VotingForProposalCreateManyInput = {
   proposal_key: string
-  timestamp: Date | string
   signer: string
   voting_power: bigint | number
+  For_Against: boolean
 }
 
 export type VotingForProposalUpdateManyMutationInput = {
-  proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  timestamp?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type VotingForProposalUncheckedUpdateManyInput = {
   proposal_key?: Prisma.StringFieldUpdateOperationsInput | string
-  timestamp?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   signer?: Prisma.StringFieldUpdateOperationsInput | string
   voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type VotingForProposalProposal_keySignerCompoundUniqueInput = {
@@ -306,9 +308,9 @@ export type VotingForProposalProposal_keySignerCompoundUniqueInput = {
 
 export type VotingForProposalCountOrderByAggregateInput = {
   proposal_key?: Prisma.SortOrder
-  timestamp?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   voting_power?: Prisma.SortOrder
+  For_Against?: Prisma.SortOrder
 }
 
 export type VotingForProposalAvgOrderByAggregateInput = {
@@ -317,62 +319,200 @@ export type VotingForProposalAvgOrderByAggregateInput = {
 
 export type VotingForProposalMaxOrderByAggregateInput = {
   proposal_key?: Prisma.SortOrder
-  timestamp?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   voting_power?: Prisma.SortOrder
+  For_Against?: Prisma.SortOrder
 }
 
 export type VotingForProposalMinOrderByAggregateInput = {
   proposal_key?: Prisma.SortOrder
-  timestamp?: Prisma.SortOrder
   signer?: Prisma.SortOrder
   voting_power?: Prisma.SortOrder
+  For_Against?: Prisma.SortOrder
 }
 
 export type VotingForProposalSumOrderByAggregateInput = {
   voting_power?: Prisma.SortOrder
 }
 
+export type VotingForProposalListRelationFilter = {
+  every?: Prisma.VotingForProposalWhereInput
+  some?: Prisma.VotingForProposalWhereInput
+  none?: Prisma.VotingForProposalWhereInput
+}
+
+export type VotingForProposalOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type VotingForProposalCreateNestedManyWithoutProposalInput = {
+  create?: Prisma.XOR<Prisma.VotingForProposalCreateWithoutProposalInput, Prisma.VotingForProposalUncheckedCreateWithoutProposalInput> | Prisma.VotingForProposalCreateWithoutProposalInput[] | Prisma.VotingForProposalUncheckedCreateWithoutProposalInput[]
+  connectOrCreate?: Prisma.VotingForProposalCreateOrConnectWithoutProposalInput | Prisma.VotingForProposalCreateOrConnectWithoutProposalInput[]
+  createMany?: Prisma.VotingForProposalCreateManyProposalInputEnvelope
+  connect?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+}
+
+export type VotingForProposalUncheckedCreateNestedManyWithoutProposalInput = {
+  create?: Prisma.XOR<Prisma.VotingForProposalCreateWithoutProposalInput, Prisma.VotingForProposalUncheckedCreateWithoutProposalInput> | Prisma.VotingForProposalCreateWithoutProposalInput[] | Prisma.VotingForProposalUncheckedCreateWithoutProposalInput[]
+  connectOrCreate?: Prisma.VotingForProposalCreateOrConnectWithoutProposalInput | Prisma.VotingForProposalCreateOrConnectWithoutProposalInput[]
+  createMany?: Prisma.VotingForProposalCreateManyProposalInputEnvelope
+  connect?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+}
+
+export type VotingForProposalUpdateManyWithoutProposalNestedInput = {
+  create?: Prisma.XOR<Prisma.VotingForProposalCreateWithoutProposalInput, Prisma.VotingForProposalUncheckedCreateWithoutProposalInput> | Prisma.VotingForProposalCreateWithoutProposalInput[] | Prisma.VotingForProposalUncheckedCreateWithoutProposalInput[]
+  connectOrCreate?: Prisma.VotingForProposalCreateOrConnectWithoutProposalInput | Prisma.VotingForProposalCreateOrConnectWithoutProposalInput[]
+  upsert?: Prisma.VotingForProposalUpsertWithWhereUniqueWithoutProposalInput | Prisma.VotingForProposalUpsertWithWhereUniqueWithoutProposalInput[]
+  createMany?: Prisma.VotingForProposalCreateManyProposalInputEnvelope
+  set?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  disconnect?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  delete?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  connect?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  update?: Prisma.VotingForProposalUpdateWithWhereUniqueWithoutProposalInput | Prisma.VotingForProposalUpdateWithWhereUniqueWithoutProposalInput[]
+  updateMany?: Prisma.VotingForProposalUpdateManyWithWhereWithoutProposalInput | Prisma.VotingForProposalUpdateManyWithWhereWithoutProposalInput[]
+  deleteMany?: Prisma.VotingForProposalScalarWhereInput | Prisma.VotingForProposalScalarWhereInput[]
+}
+
+export type VotingForProposalUncheckedUpdateManyWithoutProposalNestedInput = {
+  create?: Prisma.XOR<Prisma.VotingForProposalCreateWithoutProposalInput, Prisma.VotingForProposalUncheckedCreateWithoutProposalInput> | Prisma.VotingForProposalCreateWithoutProposalInput[] | Prisma.VotingForProposalUncheckedCreateWithoutProposalInput[]
+  connectOrCreate?: Prisma.VotingForProposalCreateOrConnectWithoutProposalInput | Prisma.VotingForProposalCreateOrConnectWithoutProposalInput[]
+  upsert?: Prisma.VotingForProposalUpsertWithWhereUniqueWithoutProposalInput | Prisma.VotingForProposalUpsertWithWhereUniqueWithoutProposalInput[]
+  createMany?: Prisma.VotingForProposalCreateManyProposalInputEnvelope
+  set?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  disconnect?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  delete?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  connect?: Prisma.VotingForProposalWhereUniqueInput | Prisma.VotingForProposalWhereUniqueInput[]
+  update?: Prisma.VotingForProposalUpdateWithWhereUniqueWithoutProposalInput | Prisma.VotingForProposalUpdateWithWhereUniqueWithoutProposalInput[]
+  updateMany?: Prisma.VotingForProposalUpdateManyWithWhereWithoutProposalInput | Prisma.VotingForProposalUpdateManyWithWhereWithoutProposalInput[]
+  deleteMany?: Prisma.VotingForProposalScalarWhereInput | Prisma.VotingForProposalScalarWhereInput[]
+}
+
+export type VotingForProposalCreateWithoutProposalInput = {
+  signer: string
+  voting_power: bigint | number
+  For_Against: boolean
+}
+
+export type VotingForProposalUncheckedCreateWithoutProposalInput = {
+  signer: string
+  voting_power: bigint | number
+  For_Against: boolean
+}
+
+export type VotingForProposalCreateOrConnectWithoutProposalInput = {
+  where: Prisma.VotingForProposalWhereUniqueInput
+  create: Prisma.XOR<Prisma.VotingForProposalCreateWithoutProposalInput, Prisma.VotingForProposalUncheckedCreateWithoutProposalInput>
+}
+
+export type VotingForProposalCreateManyProposalInputEnvelope = {
+  data: Prisma.VotingForProposalCreateManyProposalInput | Prisma.VotingForProposalCreateManyProposalInput[]
+  skipDuplicates?: boolean
+}
+
+export type VotingForProposalUpsertWithWhereUniqueWithoutProposalInput = {
+  where: Prisma.VotingForProposalWhereUniqueInput
+  update: Prisma.XOR<Prisma.VotingForProposalUpdateWithoutProposalInput, Prisma.VotingForProposalUncheckedUpdateWithoutProposalInput>
+  create: Prisma.XOR<Prisma.VotingForProposalCreateWithoutProposalInput, Prisma.VotingForProposalUncheckedCreateWithoutProposalInput>
+}
+
+export type VotingForProposalUpdateWithWhereUniqueWithoutProposalInput = {
+  where: Prisma.VotingForProposalWhereUniqueInput
+  data: Prisma.XOR<Prisma.VotingForProposalUpdateWithoutProposalInput, Prisma.VotingForProposalUncheckedUpdateWithoutProposalInput>
+}
+
+export type VotingForProposalUpdateManyWithWhereWithoutProposalInput = {
+  where: Prisma.VotingForProposalScalarWhereInput
+  data: Prisma.XOR<Prisma.VotingForProposalUpdateManyMutationInput, Prisma.VotingForProposalUncheckedUpdateManyWithoutProposalInput>
+}
+
+export type VotingForProposalScalarWhereInput = {
+  AND?: Prisma.VotingForProposalScalarWhereInput | Prisma.VotingForProposalScalarWhereInput[]
+  OR?: Prisma.VotingForProposalScalarWhereInput[]
+  NOT?: Prisma.VotingForProposalScalarWhereInput | Prisma.VotingForProposalScalarWhereInput[]
+  proposal_key?: Prisma.StringFilter<"VotingForProposal"> | string
+  signer?: Prisma.StringFilter<"VotingForProposal"> | string
+  voting_power?: Prisma.BigIntFilter<"VotingForProposal"> | bigint | number
+  For_Against?: Prisma.BoolFilter<"VotingForProposal"> | boolean
+}
+
+export type VotingForProposalCreateManyProposalInput = {
+  signer: string
+  voting_power: bigint | number
+  For_Against: boolean
+}
+
+export type VotingForProposalUpdateWithoutProposalInput = {
+  signer?: Prisma.StringFieldUpdateOperationsInput | string
+  voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
+}
+
+export type VotingForProposalUncheckedUpdateWithoutProposalInput = {
+  signer?: Prisma.StringFieldUpdateOperationsInput | string
+  voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
+}
+
+export type VotingForProposalUncheckedUpdateManyWithoutProposalInput = {
+  signer?: Prisma.StringFieldUpdateOperationsInput | string
+  voting_power?: Prisma.BigIntFieldUpdateOperationsInput | bigint | number
+  For_Against?: Prisma.BoolFieldUpdateOperationsInput | boolean
+}
+
 
 
 export type VotingForProposalSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_key?: boolean
-  timestamp?: boolean
   signer?: boolean
   voting_power?: boolean
+  For_Against?: boolean
+  proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["votingForProposal"]>
 
 export type VotingForProposalSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_key?: boolean
-  timestamp?: boolean
   signer?: boolean
   voting_power?: boolean
+  For_Against?: boolean
+  proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["votingForProposal"]>
 
 export type VotingForProposalSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   proposal_key?: boolean
-  timestamp?: boolean
   signer?: boolean
   voting_power?: boolean
+  For_Against?: boolean
+  proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["votingForProposal"]>
 
 export type VotingForProposalSelectScalar = {
   proposal_key?: boolean
-  timestamp?: boolean
   signer?: boolean
   voting_power?: boolean
+  For_Against?: boolean
 }
 
-export type VotingForProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_key" | "timestamp" | "signer" | "voting_power", ExtArgs["result"]["votingForProposal"]>
+export type VotingForProposalOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"proposal_key" | "signer" | "voting_power" | "For_Against", ExtArgs["result"]["votingForProposal"]>
+export type VotingForProposalInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
+}
+export type VotingForProposalIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
+}
+export type VotingForProposalIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  proposal?: boolean | Prisma.ProposalsDefaultArgs<ExtArgs>
+}
 
 export type $VotingForProposalPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "VotingForProposal"
-  objects: {}
+  objects: {
+    proposal: Prisma.$ProposalsPayload<ExtArgs>
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     proposal_key: string
-    timestamp: Date
     signer: string
     voting_power: bigint
+    For_Against: boolean
   }, ExtArgs["result"]["votingForProposal"]>
   composites: {}
 }
@@ -767,6 +907,7 @@ readonly fields: VotingForProposalFieldRefs;
  */
 export interface Prisma__VotingForProposalClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  proposal<T extends Prisma.ProposalsDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ProposalsDefaultArgs<ExtArgs>>): Prisma.Prisma__ProposalsClient<runtime.Types.Result.GetResult<Prisma.$ProposalsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -797,9 +938,9 @@ export interface Prisma__VotingForProposalClient<T, Null = never, ExtArgs extend
  */
 export interface VotingForProposalFieldRefs {
   readonly proposal_key: Prisma.FieldRef<"VotingForProposal", 'String'>
-  readonly timestamp: Prisma.FieldRef<"VotingForProposal", 'DateTime'>
   readonly signer: Prisma.FieldRef<"VotingForProposal", 'String'>
   readonly voting_power: Prisma.FieldRef<"VotingForProposal", 'BigInt'>
+  readonly For_Against: Prisma.FieldRef<"VotingForProposal", 'Boolean'>
 }
     
 
@@ -816,6 +957,10 @@ export type VotingForProposalFindUniqueArgs<ExtArgs extends runtime.Types.Extens
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
   /**
    * Filter, which VotingForProposal to fetch.
    */
@@ -835,6 +980,10 @@ export type VotingForProposalFindUniqueOrThrowArgs<ExtArgs extends runtime.Types
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
+  /**
    * Filter, which VotingForProposal to fetch.
    */
   where: Prisma.VotingForProposalWhereUniqueInput
@@ -852,6 +1001,10 @@ export type VotingForProposalFindFirstArgs<ExtArgs extends runtime.Types.Extensi
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
   /**
    * Filter, which VotingForProposal to fetch.
    */
@@ -901,6 +1054,10 @@ export type VotingForProposalFindFirstOrThrowArgs<ExtArgs extends runtime.Types.
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
+  /**
    * Filter, which VotingForProposal to fetch.
    */
   where?: Prisma.VotingForProposalWhereInput
@@ -948,6 +1105,10 @@ export type VotingForProposalFindManyArgs<ExtArgs extends runtime.Types.Extensio
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
   /**
    * Filter, which VotingForProposals to fetch.
    */
@@ -997,6 +1158,10 @@ export type VotingForProposalCreateArgs<ExtArgs extends runtime.Types.Extensions
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
+  /**
    * The data needed to create a VotingForProposal.
    */
   data: Prisma.XOR<Prisma.VotingForProposalCreateInput, Prisma.VotingForProposalUncheckedCreateInput>
@@ -1030,6 +1195,10 @@ export type VotingForProposalCreateManyAndReturnArgs<ExtArgs extends runtime.Typ
    */
   data: Prisma.VotingForProposalCreateManyInput | Prisma.VotingForProposalCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1044,6 +1213,10 @@ export type VotingForProposalUpdateArgs<ExtArgs extends runtime.Types.Extensions
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
   /**
    * The data needed to update a VotingForProposal.
    */
@@ -1096,6 +1269,10 @@ export type VotingForProposalUpdateManyAndReturnArgs<ExtArgs extends runtime.Typ
    * Limit how many VotingForProposals to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1110,6 +1287,10 @@ export type VotingForProposalUpsertArgs<ExtArgs extends runtime.Types.Extensions
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
   /**
    * The filter to search for the VotingForProposal to update in case it exists.
    */
@@ -1136,6 +1317,10 @@ export type VotingForProposalDeleteArgs<ExtArgs extends runtime.Types.Extensions
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
   /**
    * Filter which VotingForProposal to delete.
    */
@@ -1168,4 +1353,8 @@ export type VotingForProposalDefaultArgs<ExtArgs extends runtime.Types.Extension
    * Omit specific fields from the VotingForProposal
    */
   omit?: Prisma.VotingForProposalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.VotingForProposalInclude<ExtArgs> | null
 }

@@ -8,13 +8,13 @@ import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaType
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 export const handleSellPropertyProposalDelete: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number
 ) => {
   const proposalAddress = address(
-    message.accountKeys[instruction.accounts[1]!]!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   const ProposalAccountPda = (await GenericPda(
@@ -23,7 +23,7 @@ export const handleSellPropertyProposalDelete: InstructionHandler = async (
   )) as any;
 
   const signer = address(
-    message.accountKeys[instruction.accounts[0]!]!
+    TransactionAccountskey.at(instruction.accounts[0]!)!
   ).toString();
 
   ctx.add(async (tx) => {

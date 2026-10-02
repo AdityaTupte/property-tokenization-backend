@@ -1,6 +1,5 @@
 import type {
   instructionsSchema,
-  messageSchema,
   metaSchema,
 } from "../../../helius/findProgramIndex";
 import { address } from "@solana/kit";
@@ -14,7 +13,7 @@ import { solanaArgs } from "../../../utils/argumentsdecoder";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleCreatePropertySystem: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
@@ -29,46 +28,46 @@ export const handleCreatePropertySystem: InstructionHandler = async (
   );
 
   const propertySystemAddress = address(
-    message.accountKeys.at(instruction.accounts[1]!)!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   const creator_pubky = address(
-    message.accountKeys.at(instruction.accounts[0]!)!
+    TransactionAccountskey.at(instruction.accounts[0]!)!
   );
 
   const governance_mint = address(
-    message.accountKeys.at(instruction.accounts[9]!)!
+    TransactionAccountskey.at(instruction.accounts[9]!)!
   );
 
   const treasuryAddress = address(
-    message.accountKeys.at(instruction.accounts[3]!)!
+    TransactionAccountskey.at(instruction.accounts[3]!)!
   );
 
   const thresholdAddress = address(
-    message.accountKeys.at(instruction.accounts[2]!)!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   );
 
   const dividendAddress = address(
-    message.accountKeys.at(instruction.accounts[6]!)!
+    TransactionAccountskey.at(instruction.accounts[6]!)!
   );
 
   const safetyAddress = address(
-    message.accountKeys.at(instruction.accounts[5]!)!
+    TransactionAccountskey.at(instruction.accounts[5]!)!
   );
 
   const reinvestmentAddress = address(
-    message.accountKeys.at(instruction.accounts[4]!)!
+    TransactionAccountskey.at(instruction.accounts[4]!)!
   );
 
   const trusteeRegistryAddress = address(
-    message.accountKeys.at(instruction.accounts[7]!)!
+    TransactionAccountskey.at(instruction.accounts[7]!)!
   );
 
   const AribtrarRegistryAddress = address(
-    message.accountKeys.at(instruction.accounts[8]!)!
+    TransactionAccountskey.at(instruction.accounts[8]!)!
   );
 
-  const decodedEvent = eventDecoder.decode(log.events[0]?.raw!);
+  
 
   ctx.add(async (tx) => {
     await tx.propertySystemAccount.create({

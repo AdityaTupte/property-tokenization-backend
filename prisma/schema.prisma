@@ -238,7 +238,7 @@ model StateAuthorityReceipt {
 }
 
 model GovernanceMint {
-  governance_mint String @id
+  governance_mint String                @id
   tokenSupply     BigInt
   decimal         Int
   name            String
@@ -270,7 +270,7 @@ model PropertySystemAccount {
   // propertyAccounts           Property[]
   funds                      Fund[]
   property                   Property[]
-  governanceMintAccount     GovernanceMint?
+  governanceMintAccount      GovernanceMint?
 }
 
 model DividendPda {
@@ -456,8 +456,8 @@ model SalaryClaim {
 }
 
 model PropertySellProposal {
-  proposal_id         BigInt
- 
+  proposal_id BigInt
+
   proposal_key        String    @id
   property_account    String
   sale_price          BigInt
@@ -533,10 +533,10 @@ model Offenders {
 
 model VotingForProposal {
   proposal_key String
-  timestamp    DateTime
   signer       String
   voting_power BigInt
-
+  For_Against  Boolean
+  proposal     Proposals @relation(fields: [proposal_key], references: [proposal_key])
   @@id([proposal_key, signer])
 }
 
@@ -605,7 +605,7 @@ model Elect {
 }
 
 model Proposals {
-  property_system     String
+  property_system       String
   proposal_key          String                @id
   merkle_root           Bytes?
   arbitrar_approvals    String[]
@@ -626,15 +626,15 @@ model Proposals {
   proposalTxSignature   String?
   propertySellProposals PropertySellProposal?
 
+  votingForProposals VotingForProposal[]
 }
 
-
 model MerkleNode {
-  id          String   @default(uuid())
-  holder     String? 
-  mint        String
+  id         String  @default(uuid())
+  holder     String?
+  mint       String
   snapshotId String
-  level      Int 
+  level      Int
   nodeIndex  BigInt
   hash       Bytes
 
@@ -642,15 +642,13 @@ model MerkleNode {
   @@index([snapshotId, level])
 }
 
-
-model MerkleRoot{
+model MerkleRoot {
   merkleRoot Bytes
-  slot String 
-  mint String
+  slot       String
+  mint       String
 
-  @@id([slot,mint])
-  @@unique([slot,mint])
-
+  @@id([slot, mint])
+  @@unique([slot, mint])
 }
 
 // model MerkleSnapshot {
@@ -665,19 +663,16 @@ model MerkleRoot{
 //   @@index([mint, slot])
 // }
 
-
 model MerkleProof {
-  snapshotId String
-  holder     String
-  mint String
-  leafnodeIndex  BigInt
+  snapshotId    String
+  holder        String
+  mint          String
+  leafnodeIndex BigInt
   // proofIndex Int
 
   @@id([snapshotId, holder])
   @@index([snapshotId, holder])
 }
-
-
 
 // model TokenHolder {
 //   id        BigInt   @id @default(autoincrement())

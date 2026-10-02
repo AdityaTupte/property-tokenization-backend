@@ -12,18 +12,18 @@ import { GenericPda } from "../../../utils/genericPda";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleApproveLand: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
   const PropertyProposalAddress = address(
-    message.accountKeys[instruction.accounts[1]!]!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   const signer = address(
-    message.accountKeys[instruction.accounts[2]!]!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   ).toString();
 
   const PropertyProposalDb = await prisma.property.findUnique({

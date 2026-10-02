@@ -9,11 +9,13 @@ export interface InstructionNameAndData {
 
 
 export interface InstructionDataInterface {
-    transaction : messageSchema,
+    TransactionAccountskey : string[],
     InstructionNameAndData : InstructionNameAndData[]
     blockTime : number,
     log:CompletedExecution[],
 }
+
+
 
 
 

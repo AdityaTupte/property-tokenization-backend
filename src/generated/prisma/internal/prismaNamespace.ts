@@ -4239,9 +4239,9 @@ export type OffendersScalarFieldEnum = (typeof OffendersScalarFieldEnum)[keyof t
 
 export const VotingForProposalScalarFieldEnum = {
   proposal_key: 'proposal_key',
-  timestamp: 'timestamp',
   signer: 'signer',
-  voting_power: 'voting_power'
+  voting_power: 'voting_power',
+  For_Against: 'For_Against'
 } as const
 
 export type VotingForProposalScalarFieldEnum = (typeof VotingForProposalScalarFieldEnum)[keyof typeof VotingForProposalScalarFieldEnum]

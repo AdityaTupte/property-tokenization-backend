@@ -58,7 +58,7 @@ export const kafkaInstructionconsumer = async function () {
                 if(VotingforProposalInstructionMap[element.name]){ 
 
                      await VotingForProposalInstructionProducer(
-                        data.transaction,
+                        data.TransactionAccountskey,
                         element,
                         ctx,
                         data.blockTime,
@@ -76,7 +76,7 @@ export const kafkaInstructionconsumer = async function () {
                     
                        
                      await handler(
-                         data.transaction,
+                         data.TransactionAccountskey,
                          element.data,
                          ctx,
                          data.blockTime,

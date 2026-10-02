@@ -11,14 +11,14 @@ import { create_approve_country_authoritySchema } from "../../../idl.schema/gene
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handlerCreateAuthorityToApproveCountry: InstructionHandler =
   async (
-    message: messageSchema,
+    TransactionAccountskey: string[],
     instruction: instructionsSchema,
     ctx: TransactionContext,
     _BlockTime: number,
     log: CompletedExecution
   ) => {
     const AuthorityToApproveCountryAddress = address(
-      message.accountKeys[instruction.accounts[1]!]!
+      TransactionAccountskey.at(instruction.accounts[1]!)!
     );
 
     const bytes = Buffer.from(bs58.decode(instruction.data));

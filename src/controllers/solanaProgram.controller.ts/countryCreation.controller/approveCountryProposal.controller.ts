@@ -12,13 +12,13 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleApproveCountryProposal: InstructionHandler = async (
-  message: messageSchema,
+ TransactionAccountskey: string[],  
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
+  const proposal = address(TransactionAccountskey.at(instruction.accounts[0]!)!);
 
   const CountryProposalDb = await prisma.countryProposal.findUnique({
     where: {
@@ -63,10 +63,10 @@ export const handleApproveCountryProposal: InstructionHandler = async (
     isApproved = proposalAccount.approved == true ? true : false;
   }
 
-  const signer = address(message.accountKeys[instruction.accounts[3]!]!);
+  const signer = address(TransactionAccountskey.at(instruction.accounts[3]!)!);
 
   const receiptAddress = address(
-    message.accountKeys[instruction.accounts[2]!]!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   );
 
   const receiptAccount = (await GenericPda(

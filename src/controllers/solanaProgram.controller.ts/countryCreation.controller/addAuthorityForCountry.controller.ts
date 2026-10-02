@@ -10,18 +10,18 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleAddAuthorityForCountry: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
   const countryPdaAddress = address(
-    message.accountKeys[instruction.accounts[4]!]!
+    TransactionAccountskey.at(instruction.accounts[4]!)!
   );
 
   const countryAuthority = address(
-    message.accountKeys[instruction.accounts[2]!]!
+    TransactionAccountskey.at(instruction.accounts[2]!)!
   ).toString();
 
   const countryPdaDb = prisma.countryPda.findUnique({

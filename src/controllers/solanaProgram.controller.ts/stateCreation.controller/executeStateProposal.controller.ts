@@ -12,13 +12,13 @@ import type { InstructionHandler } from "../../../types&interface/solanaInstrcut
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 
 export const handleExecuteStateProposal: InstructionHandler = async (
-  message: messageSchema,
+    TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
+  const proposal = address(TransactionAccountskey.at(instruction.accounts[0]!)!);
 
   const proposalAccount = (await GenericPda(
     "proposalCountryPda",
@@ -26,7 +26,7 @@ export const handleExecuteStateProposal: InstructionHandler = async (
   )) as PdaTypes.StateProposalType;
 
   const StatePdaAddress = address(
-    message.accountKeys[instruction.accounts[3]!]!
+    TransactionAccountskey.at(instruction.accounts[3]!)!
   );
 
   const StateyPdaAccount = (await GenericPda(
@@ -39,7 +39,7 @@ export const handleExecuteStateProposal: InstructionHandler = async (
   const cleanStateName = StateNameBuffer.toString().replace(/\0/g, "").trim();
 
   const CountryPdaAddress = address(
-    message.accountKeys[instruction.accounts[1]!]!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   ctx.add(async (tx) => {

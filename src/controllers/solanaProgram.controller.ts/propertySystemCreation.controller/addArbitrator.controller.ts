@@ -10,21 +10,21 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleAddArbitrator: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
   const propertySystemAddress = address(
-    message.accountKeys[instruction.accounts[1]!]!
+    TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
   const arbitrator_registry = address(
-    message.accountKeys[instruction.accounts[3]!]!
+    TransactionAccountskey.at(instruction.accounts[3]!)!
   );
 
-  const newarbitrar = address(message.accountKeys[instruction.accounts[4]!]!);
+  const newarbitrar = address(TransactionAccountskey.at(instruction.accounts[4]!)!);
 
   const arbitratorRegistiyAvailable = await prisma.arbitrarRegistry.findFirst({
     where: {

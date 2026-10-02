@@ -13,14 +13,14 @@ import type { CompletedExecution } from "../../../types&interface/solanaLogParse
 // import { GenericPda } from "../../../utils/genericPda";
 
 export const handleCreateProperty: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
   const PropertyProposalAddress = address(
-    message.accountKeys[instruction.accounts[4]!]!
+    TransactionAccountskey.at(instruction.accounts[4]!)!
   );
 
   const bytes = Buffer.from(bs58.decode(instruction.data));
@@ -29,12 +29,12 @@ export const handleCreateProperty: InstructionHandler = async (
 
   const argument = create_property_proposalSchema.parse(decodedData);
 
-  const stateAddress = address(message.accountKeys[instruction.accounts[1]!]!);
+  const stateAddress = address(TransactionAccountskey.at(instruction.accounts[1]!)!);
 
-  const signer = address(message.accountKeys[instruction.accounts[2]!]!);
+  const signer = address(TransactionAccountskey.at(instruction.accounts[2]!)!);
 
   const propertySystem_pukey = address(
-    message.accountKeys[instruction.accounts[0]!]!
+    TransactionAccountskey.at(instruction.accounts[0]!)!
   );
 
   ctx.add(async (tx) => {

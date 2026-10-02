@@ -63,18 +63,13 @@ export const FindProgramIdIndex = async (
 
   const logTree = parseSolanaLogs(meta.logMessages);
 
-  //    console.log("HERE IS NEW LOGS =>  ");
-  //   console.dir(
-  //   logTree,
-  //     { depth: null }
-  // );
 
   const filteredLog = logTree.filter((ele) => {
     return ele.programId == "BYtpqEouT7FFDUFjFeE2ecSDwf1VHNNHUkc2URswVZ4B";
   });
 
   await instructionProducer({
-    transaction: message,
+    TransactionAccountskey: message.accountKeys,
     InstructionNameAndData: event,
     blockTime: BlockTime,
     log: filteredLog,

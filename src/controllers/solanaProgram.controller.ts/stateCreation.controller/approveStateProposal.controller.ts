@@ -13,13 +13,13 @@ import { ApiError } from "../../../utils/errors/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleApproveStateProposal: InstructionHandler = async (
-  message: messageSchema,
+TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(message.accountKeys[instruction.accounts[0]!]!);
+  const proposal = address(TransactionAccountskey.at(instruction.accounts[0]!)!);
 
   const proposalAccount: PdaTypes.countryProposalType = (await GenericPda(
     "proposalCountryPda",
@@ -40,10 +40,10 @@ export const handleApproveStateProposal: InstructionHandler = async (
   const NotChanged =
     StateProposalApprovedFieldDb.approved === proposalAccount.approved;
 
-  const signer = address(message.accountKeys[instruction.accounts[2]!]!);
+  const signer = address(TransactionAccountskey.at(instruction.accounts[2]!)!);
 
   const receiptAddress = address(
-    message.accountKeys[instruction.accounts[4]!]!
+    TransactionAccountskey.at(instruction.accounts[4]!)!
   );
 
   const receiptAccount = (await GenericPda(

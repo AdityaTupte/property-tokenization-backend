@@ -11,19 +11,19 @@ import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleStateProposal: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   log: CompletedExecution
 ) => {
   const proposalAddress = address(
-    message.accountKeys[instruction.accounts[3]!]!
+    TransactionAccountskey.at(instruction.accounts[3]!)!
   );
 
-  const country = address(message.accountKeys[instruction.accounts[0]!]!);
+  const country = address(TransactionAccountskey.at(instruction.accounts[0]!)!);
 
-  const signer = address(message.accountKeys[instruction.accounts[1]!]!);
+  const signer = address(TransactionAccountskey.at(instruction.accounts[1]!)!);
 
   const ProposalAccount = (await GenericPda(
     "stateProposalPda",

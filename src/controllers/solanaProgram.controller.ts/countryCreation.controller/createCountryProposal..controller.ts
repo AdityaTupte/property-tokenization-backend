@@ -10,13 +10,13 @@ import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleCreateCountryProposal: InstructionHandler = async (
-  message: messageSchema,
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(message.accountKeys[instruction.accounts[1]!]!);
+  const proposal = address(TransactionAccountskey.at(instruction.accounts[1]!)!);
 
   const bytes = Buffer.from(bs58.decode(instruction.data));
 
