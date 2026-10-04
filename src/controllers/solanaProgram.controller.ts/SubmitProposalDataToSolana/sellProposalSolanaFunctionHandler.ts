@@ -59,7 +59,7 @@ export const SubmitSellProposalSolanaFuctionHandler = async (
         new PublicKey(proposalData?.proposal.property_system),
         new BN(proposalData.proposal_id),
         Array.from(proposalData.proposal?.merkle_root!),
-        proposalData.proposal.GapBetweenDays,
+        proposalData.proposal.GapBetweenDays?,
         transfer_deadline_in_days,
         new BN( proposalData.proposal.vote_threshold!)
         ).instruction();

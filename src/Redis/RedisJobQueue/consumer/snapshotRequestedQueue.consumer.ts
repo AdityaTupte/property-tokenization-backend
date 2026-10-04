@@ -1,13 +1,13 @@
 import { Worker } from "bullmq";
-import { BullMqConnection } from "../server&queues";
-import type { CompletedExecution } from "../../types&interface/solanaLogParser.interface";
-import { createMerkleLeavesFromTokenBalance } from "../../utils/mekleRootCreation.util/CreateLeaves.util";
-import { SnapshotRequestedSchema } from "../../idl.schema/generated/SnapshotRequested.schema";
+import { BullMqConnection } from "../../RedisConnection";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
+import { createMerkleLeavesFromTokenBalance } from "../../../utils/mekleRootCreation.util/CreateLeaves.util"; 
+import { SnapshotRequestedSchema } from "../../../idl.schema/generated/SnapshotRequested.schema";
 import type z from "zod";
-import { eventDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
-import { BuildTreeRootFromLeaves } from "../../utils/mekleRootCreation.util/BuildTreeRootFromLeaves.util"; 
-import { prisma } from "../../prismaclient";
-import { generateProofForOnchainVerification } from "../../utils/mekleRootCreation.util/generateProofForOnchainVerficaion.util";
+import { eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { BuildTreeRootFromLeaves } from "../../../utils/mekleRootCreation.util/BuildTreeRootFromLeaves.util";
+import { prisma } from "../../../prismaclient";
+import { generateProofForOnchainVerification } from "../../../utils/mekleRootCreation.util/generateProofForOnchainVerficaion.util";
 import { deleteLeavesAndRootJobProducer } from "../producer/deleteUnwantedLeavesAndRoot.producer";
 import { submitMerkleRootToOnchainPdaJobProducer } from "../producer/submitMerkleRootToOnchainPda.producer";
 

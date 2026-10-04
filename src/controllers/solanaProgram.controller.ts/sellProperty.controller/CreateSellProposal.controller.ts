@@ -33,18 +33,6 @@ export const handleSellPropertyProposal: InstructionHandler = async (
 
   const args = create_sell_proposalSchema.parse(decodedData);
 
-  // const ProposalAccountPda = (await GenericPda(
-  //   "propertySellProposal",
-  //   proposalAddress
-  // )) as any;
-
-  // const ProposalAccount: PdaTypes.propertySellProposalType = {
-  //   ...ProposalAccountPda,
-  //   status: ProposalAccountPda.status as unknown as PdaTypes.StatusVariant,
-  //   proposalType:
-  //     ProposalAccountPda.proposalType as unknown as PdaTypes.ProposalVariant,
-  // };
-
   const propertySystemAddress = address(
     TransactionAccountskey.at(instruction.accounts[3]!)!
   ).toString();

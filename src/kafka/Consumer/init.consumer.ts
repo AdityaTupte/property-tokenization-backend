@@ -3,7 +3,7 @@ import { kafkaVotingForProposalConsumerForRedisCache } from "./VotingForProposal
 
 
 export const InitConsumer = async () => {
- 
+  
     await Promise.all([
         kafkaInstructionconsumer(),
         kafkaVotingForProposalConsumerForRedisCache(),

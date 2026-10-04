@@ -3,7 +3,8 @@ import type {
   instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
-
+import { GenericPda } from "../../../utils/genericPda";
+import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
@@ -17,7 +18,18 @@ export const handleSellPropertyProposalSubmit: InstructionHandler = async (
   const proposalAddress = address(
     TransactionAccountskey.at(instruction.accounts[1]!)!
   );
-// 
+
+  const ProposalAccountPda = (await GenericPda(
+    "propertySellProposal",
+    proposalAddress
+  )) as any;
+
+  const ProposalAccount: PdaTypes.propertySellProposalType = {
+    ...ProposalAccountPda,
+    status: ProposalAccountPda.status as unknown as PdaTypes.StatusVariant,
+    proposalType:
+      ProposalAccountPda.proposalType as unknown as PdaTypes.ProposalVariant,
+  };
 
   ctx.add(async (tx) => {
     tx.proposals.update({

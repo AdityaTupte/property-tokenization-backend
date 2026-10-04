@@ -31,6 +31,9 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
       TransactionAccountskey.at(instruction.accounts[0]!)!.toString()
     );
 
+
+    //FIXME commmon 
+
     const ProposalDb = await prisma.proposals.findUnique({
       where: {
         proposal_key: proposalAddress.toString(),

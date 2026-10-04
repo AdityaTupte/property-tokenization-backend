@@ -2,9 +2,11 @@ import { kafka } from "../kakfaClient";
 import { KAFKA_TOPICS } from "../kafka.TopicsNames";
 import type { InstructionDataInterface } from "../../types&interface/instructionData.Interface";
 import { VotesForProposalCache } from "../../Redis/RedisCache/votingForProposal.Cache";
-
 import { eventDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { VoteForProposalSchema } from "../../idl.schema/generated/VoteForProposal.schema";
+import { RedisStreamProducer } from "../../Redis/RedisStream/redisStreamProducerAndConsumer";
+
+
 export const kafkaVotingForProposalConsumerForRedisCache = async function () {
   const Consumer = kafka.consumer({
     groupId: "VotingForProposalConsumer",
@@ -58,6 +60,7 @@ export const kafkaVotingForProposalConsumerDBOperations = async function () {
 
   await Consumer.connect();
 
+
   await Consumer.subscribe({
     topic: KAFKA_TOPICS.VOTINGFORPROPOSAL,
     // fromBeginning: true,
@@ -79,11 +82,15 @@ export const kafkaVotingForProposalConsumerDBOperations = async function () {
 
         const decodedData =VoteForProposalSchema.parse(decodedEvent?.data);
 
-        
-        
-        // TODO: IMPLEMENT DB Operations
+        RedisStreamProducer.produce(
+          decodedData.proposal,
+          decodedData.voter,
+          decodedData.voting_power,
+          decodedData.for_against
+        );
+
       } catch (error) {
-        console.error("❌ Error processing Kafka message:", error);
+       throw new Error("checka aerrror")
       }
     },
   });

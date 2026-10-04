@@ -26,6 +26,8 @@ export const handleSellPropertyProposalDelete: InstructionHandler = async (
     TransactionAccountskey.at(instruction.accounts[0]!)!
   ).toString();
 
+  // FIXME
+
   ctx.add(async (tx) => {
     tx.proposals.update({
       where: {
