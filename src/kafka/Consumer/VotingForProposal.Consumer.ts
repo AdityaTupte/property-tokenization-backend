@@ -43,9 +43,7 @@ export const kafkaVotingForProposalConsumerForRedisCache = async function () {
           Vote:decodedData.for_against,
          })
          
-        // create redis stream for db update
-        // const proposalKey = data.data.accountKeys[data.instruction.accounts[2]!]!.toString();
-        // TODO: IMPLEMNET Redis Cache System
+  
       } catch (error) {
         console.error("❌ Error processing Kafka message:", error);
       }

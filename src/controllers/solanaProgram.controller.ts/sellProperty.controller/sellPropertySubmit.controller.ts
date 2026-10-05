@@ -8,6 +8,9 @@ import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaType
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
+import { eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { SubmitSnapshotForSellProposalSchema } from "../../../idl.schema/generated/SubmitSnapshotForSellProposal.schema";
+import { prisma } from "../../../prismaclient";
 export const handleSellPropertyProposalSubmit: InstructionHandler = async (
   TransactionAccountskey: string[], 
   instruction: instructionsSchema,
@@ -19,29 +22,14 @@ export const handleSellPropertyProposalSubmit: InstructionHandler = async (
     TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
-  const ProposalAccountPda = (await GenericPda(
-    "propertySellProposal",
-    proposalAddress
-  )) as any;
-
-  const ProposalAccount: PdaTypes.propertySellProposalType = {
-    ...ProposalAccountPda,
-    status: ProposalAccountPda.status as unknown as PdaTypes.StatusVariant,
-    proposalType:
-      ProposalAccountPda.proposalType as unknown as PdaTypes.ProposalVariant,
-  };
-
-  ctx.add(async (tx) => {
+    ctx.add(async (tx) => {
     tx.proposals.update({
       where: {
         proposal_key: proposalAddress.toString(),
       },
       data: {
-        start_time: new Date(ProposalAccount.startTime.toString()),
-        end_time: new Date(ProposalAccount.endTime.toString()),
         snapshot_submitted: true,
-        vote_threshold: ProposalAccount.voteThreshold.toNumber(),
-        status: "Active",
+        status: "Active", 
       },
     });
   });

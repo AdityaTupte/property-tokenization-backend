@@ -1,33 +1,27 @@
 import { address } from "@solana/kit";
 import type {
   instructionsSchema,
-  messageSchema,
 } from "../../../helius/findProgramIndex";
-import { GenericPda } from "../../../utils/genericPda";
-import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
+import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleSellPropertyProposalDelete: InstructionHandler = async (
   TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
-  BlockTime: number
+  BlockTime: number,
+  _log: CompletedExecution
 ) => {
   const proposalAddress = address(
     TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
-  const ProposalAccountPda = (await GenericPda(
-    "propertySellProposal",
-    proposalAddress
-  )) as any;
 
   const signer = address(
     TransactionAccountskey.at(instruction.accounts[0]!)!
   ).toString();
 
-  // FIXME
-
+  
   ctx.add(async (tx) => {
     tx.proposals.update({
       where: {
@@ -37,7 +31,7 @@ export const handleSellPropertyProposalDelete: InstructionHandler = async (
         status: "Deleted",
         deleted: {
           signer: signer,
-          time: new Date(BlockTime.toString()),
+          time: new Date(BlockTime* 1000),
         },
       },
     });

@@ -78,8 +78,6 @@ const snapshotWorker = new Worker(
 
   
   /*   TODO   
-        call the submit function
-        for voting user redis 
         to store the data of token balcne schaneg use redis 
         maintain  a table whre we store data of mini number of slot required     
         

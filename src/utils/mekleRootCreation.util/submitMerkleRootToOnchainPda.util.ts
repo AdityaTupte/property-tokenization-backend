@@ -1,6 +1,6 @@
 
 import { prisma } from "../../prismaclient";
-import type { SnapshotRequestedType } from "../../Redis/consumer/snapshotRequestedQueue.consumer";
+import type { SnapshotRequestedType } from "../../Redis/RedisJobQueue/consumer/snapshotRequestedQueue.consumer";
 import { NotFoundError } from "../errors/AppErrors/NotFoundError";
 import { ConflictError } from "../errors/AppErrors/ConfictError";
 import { ConnectToKMS } from "../../db/KmsConnection";

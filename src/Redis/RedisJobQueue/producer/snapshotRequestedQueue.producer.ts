@@ -14,14 +14,12 @@ export const snapshotRequestedJobCreationHandler = async (
     }
   );
 
-  // TODO Create a two table for token holdr and token history
-  // TODO create a kakfa topic for transfer proposal to keep tracjk of balance
-  /*      use batch wise proess of leaves ,poarent and eroots
-        to store the data of token balcne schaneg use redis 
-        maintain  a table whre we store data of mini number of slot required 
+       // TODO Create a two table for token holdr and token history
+  
+        // to store the data of token balcne schaneg use redis 
+        // maintain  a table whre we store data of mini number of slot required 
         
         
         
-        
- */
+
 };

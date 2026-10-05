@@ -1,8 +1,6 @@
 import { address } from "@solana/kit";
 import type {
   instructionsSchema,
-  messageSchema,
-  metaSchema,
 } from "../../../helius/findProgramIndex";
 import type { TransactionContext } from "../../../utils/solanaDbHandler";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
@@ -17,7 +15,7 @@ export const handleSellPropertyProposal: InstructionHandler = async (
   instruction: instructionsSchema,
   ctx: TransactionContext,
   BlockTime: number,
-  meta: CompletedExecution
+  _meta: CompletedExecution
 ) => {
   const proposalAddress = address(
     TransactionAccountskey.at(instruction.accounts[2]!)!
@@ -80,8 +78,7 @@ export const handleSellPropertyProposal: InstructionHandler = async (
         status: "Draft",
         proposal_type: "SELLPROPERTY",
         total_voting_power: totalVotingPower,
-        created_at: new Date(BlockTime),
-        
+        created_at: new Date(BlockTime),    
       },
     });
   });

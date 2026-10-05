@@ -11,7 +11,6 @@ import {
 } from "@solana/web3.js";
 
 
-
 export const SubmitSellProposalSolanaFuctionHandler = async (
     proposalKey:string , 
 ) : Promise<TransactionInstruction> =>{
@@ -59,7 +58,7 @@ export const SubmitSellProposalSolanaFuctionHandler = async (
         new PublicKey(proposalData?.proposal.property_system),
         new BN(proposalData.proposal_id),
         Array.from(proposalData.proposal?.merkle_root!),
-        proposalData.proposal.GapBetweenDays?,
+        proposalData.proposal.GapBetweenDays?, //FIXME
         transfer_deadline_in_days,
         new BN( proposalData.proposal.vote_threshold!)
         ).instruction();
