@@ -6,7 +6,7 @@ import type {
 } from "../../../helius/findProgramIndex";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleAddArbitrator: InstructionHandler = async (
@@ -24,7 +24,9 @@ export const handleAddArbitrator: InstructionHandler = async (
     TransactionAccountskey.at(instruction.accounts[3]!)!
   );
 
-  const newarbitrar = address(TransactionAccountskey.at(instruction.accounts[4]!)!);
+  const newarbitrar = address(
+    TransactionAccountskey.at(instruction.accounts[4]!)!
+  );
 
   const arbitratorRegistiyAvailable = await prisma.arbitrarRegistry.findFirst({
     where: {

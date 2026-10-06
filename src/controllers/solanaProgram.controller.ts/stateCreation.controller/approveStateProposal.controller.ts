@@ -7,19 +7,21 @@ import type {
 import { GenericPda } from "../../../utils/genericPda";
 
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleApproveStateProposal: InstructionHandler = async (
-TransactionAccountskey: string[],
+  TransactionAccountskey: string[],
   instruction: instructionsSchema,
   ctx: TransactionContext,
   _BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(TransactionAccountskey.at(instruction.accounts[0]!)!);
+  const proposal = address(
+    TransactionAccountskey.at(instruction.accounts[0]!)!
+  );
 
   const proposalAccount: PdaTypes.countryProposalType = (await GenericPda(
     "proposalCountryPda",

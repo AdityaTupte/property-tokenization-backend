@@ -692,3 +692,17 @@ model BalanceHistory {
 
   @@index([mint, holder, slot])
 }
+
+
+model TokenTransfer {
+  id         String   @id @default(uuid())
+  mint       String
+  sender String
+  receiver   String
+  newBalanceOfSender   BigInt
+  newBalanceOfReceiver   BigInt
+  amountTransfer     BigInt
+  slot       BigInt
+  signature  String
+  time       DateTime
+}

@@ -95,7 +95,8 @@ export const ModelName = {
   MerkleNode: 'MerkleNode',
   MerkleRoot: 'MerkleRoot',
   MerkleProof: 'MerkleProof',
-  BalanceHistory: 'BalanceHistory'
+  BalanceHistory: 'BalanceHistory',
+  TokenTransfer: 'TokenTransfer'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -674,6 +675,22 @@ export const BalanceHistoryScalarFieldEnum = {
 } as const
 
 export type BalanceHistoryScalarFieldEnum = (typeof BalanceHistoryScalarFieldEnum)[keyof typeof BalanceHistoryScalarFieldEnum]
+
+
+export const TokenTransferScalarFieldEnum = {
+  id: 'id',
+  mint: 'mint',
+  sender: 'sender',
+  receiver: 'receiver',
+  newBalanceOfSender: 'newBalanceOfSender',
+  newBalanceOfReceiver: 'newBalanceOfReceiver',
+  amountTransfer: 'amountTransfer',
+  slot: 'slot',
+  signature: 'signature',
+  time: 'time'
+} as const
+
+export type TokenTransferScalarFieldEnum = (typeof TokenTransferScalarFieldEnum)[keyof typeof TokenTransferScalarFieldEnum]
 
 
 export const SortOrder = {

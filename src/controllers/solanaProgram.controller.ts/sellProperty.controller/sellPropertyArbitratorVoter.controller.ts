@@ -1,9 +1,7 @@
 import { address } from "@solana/kit";
-import type {
-  instructionsSchema
-} from "../../../helius/findProgramIndex";
+import type { instructionsSchema } from "../../../helius/findProgramIndex";
 
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
@@ -30,7 +28,6 @@ export const handleSellPropertyProposalArbitratorVote: InstructionHandler =
     const signer = address(
       TransactionAccountskey.at(instruction.accounts[0]!)!.toString()
     );
-
 
     const ProposalDb = await prisma.proposals.findUnique({
       where: {

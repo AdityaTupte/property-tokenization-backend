@@ -1,8 +1,6 @@
 import { address } from "@solana/kit";
-import type {
-  instructionsSchema,
-} from "../../../helius/findProgramIndex";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { instructionsSchema } from "../../../helius/findProgramIndex";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import { decoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
@@ -78,7 +76,7 @@ export const handleSellPropertyProposal: InstructionHandler = async (
         status: "Draft",
         proposal_type: "SELLPROPERTY",
         total_voting_power: totalVotingPower,
-        created_at: new Date(BlockTime),    
+        created_at: new Date(BlockTime),
       },
     });
   });

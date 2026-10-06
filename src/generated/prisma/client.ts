@@ -266,3 +266,8 @@ export type MerkleProof = Prisma.MerkleProofModel
  * 
  */
 export type BalanceHistory = Prisma.BalanceHistoryModel
+/**
+ * Model TokenTransfer
+ * 
+ */
+export type TokenTransfer = Prisma.TokenTransferModel

@@ -1,8 +1,6 @@
 import { address } from "@solana/kit";
-import type {
-  instructionsSchema,
-} from "../../../helius/findProgramIndex";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { instructionsSchema } from "../../../helius/findProgramIndex";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
 export const handleSellPropertyProposalDelete: InstructionHandler = async (
@@ -16,12 +14,10 @@ export const handleSellPropertyProposalDelete: InstructionHandler = async (
     TransactionAccountskey.at(instruction.accounts[1]!)!
   );
 
-
   const signer = address(
     TransactionAccountskey.at(instruction.accounts[0]!)!
   ).toString();
 
-  
   ctx.add(async (tx) => {
     tx.proposals.update({
       where: {
@@ -31,7 +27,7 @@ export const handleSellPropertyProposalDelete: InstructionHandler = async (
         status: "Deleted",
         deleted: {
           signer: signer,
-          time: new Date(BlockTime* 1000),
+          time: new Date(BlockTime * 1000),
         },
       },
     });

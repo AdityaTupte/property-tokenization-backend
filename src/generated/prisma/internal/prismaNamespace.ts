@@ -441,7 +441,8 @@ export const ModelName = {
   MerkleNode: 'MerkleNode',
   MerkleRoot: 'MerkleRoot',
   MerkleProof: 'MerkleProof',
-  BalanceHistory: 'BalanceHistory'
+  BalanceHistory: 'BalanceHistory',
+  TokenTransfer: 'TokenTransfer'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -457,7 +458,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleRoot" | "merkleProof" | "balanceHistory"
+    modelProps: "tranasction_history" | "signature" | "user" | "admin" | "countryApprovalAuthority" | "approveCountryAuthorityReceipt" | "countryProposal" | "countryPda" | "countryAuthorityReceipt" | "approveStateAuthorityReceipt" | "stateProposal" | "statePda" | "stateAuthorityReceipt" | "governanceMint" | "propertySystemAccount" | "dividendPda" | "trustees" | "arbitrar" | "trusteeRegistry" | "arbitrarRegistry" | "threshold" | "treasury" | "fund" | "candiateProfile" | "authorityCandidate" | "property" | "salaryClaim" | "propertySellProposal" | "propertyBuyProposal" | "lease" | "challengeProposal" | "rankCounter" | "offenders" | "votingForProposal" | "votingForCandiate" | "resignation" | "rTChgProposal" | "newThresholdProposal" | "tokenTransferProposal" | "elect" | "proposals" | "merkleNode" | "merkleRoot" | "merkleProof" | "balanceHistory" | "tokenTransfer"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3791,6 +3792,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    TokenTransfer: {
+      payload: Prisma.$TokenTransferPayload<ExtArgs>
+      fields: Prisma.TokenTransferFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TokenTransferFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TokenTransferFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>
+        }
+        findFirst: {
+          args: Prisma.TokenTransferFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TokenTransferFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>
+        }
+        findMany: {
+          args: Prisma.TokenTransferFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>[]
+        }
+        create: {
+          args: Prisma.TokenTransferCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>
+        }
+        createMany: {
+          args: Prisma.TokenTransferCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TokenTransferCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>[]
+        }
+        delete: {
+          args: Prisma.TokenTransferDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>
+        }
+        update: {
+          args: Prisma.TokenTransferUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>
+        }
+        deleteMany: {
+          args: Prisma.TokenTransferDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TokenTransferUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TokenTransferUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>[]
+        }
+        upsert: {
+          args: Prisma.TokenTransferUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TokenTransferPayload>
+        }
+        aggregate: {
+          args: Prisma.TokenTransferAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTokenTransfer>
+        }
+        groupBy: {
+          args: Prisma.TokenTransferGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TokenTransferGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TokenTransferCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TokenTransferCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -4392,6 +4467,22 @@ export const BalanceHistoryScalarFieldEnum = {
 export type BalanceHistoryScalarFieldEnum = (typeof BalanceHistoryScalarFieldEnum)[keyof typeof BalanceHistoryScalarFieldEnum]
 
 
+export const TokenTransferScalarFieldEnum = {
+  id: 'id',
+  mint: 'mint',
+  sender: 'sender',
+  receiver: 'receiver',
+  newBalanceOfSender: 'newBalanceOfSender',
+  newBalanceOfReceiver: 'newBalanceOfReceiver',
+  amountTransfer: 'amountTransfer',
+  slot: 'slot',
+  signature: 'signature',
+  time: 'time'
+} as const
+
+export type TokenTransferScalarFieldEnum = (typeof TokenTransferScalarFieldEnum)[keyof typeof TokenTransferScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4851,6 +4942,7 @@ export type GlobalOmitConfig = {
   merkleRoot?: Prisma.MerkleRootOmit
   merkleProof?: Prisma.MerkleProofOmit
   balanceHistory?: Prisma.BalanceHistoryOmit
+  tokenTransfer?: Prisma.TokenTransferOmit
 }
 
 /* Types for Logging */

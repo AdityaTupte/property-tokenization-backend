@@ -1,16 +1,18 @@
-import type { instructionsSchema, messageSchema,metaSchema } from "../helius/findProgramIndex";
+import type {
+  instructionsSchema,
+  messageSchema,
+  metaSchema,
+} from "../helius/findProgramIndex";
 import type { VoteForProposalSchema } from "../idl.schema/generated/VoteForProposal.schema";
-import type { TransactionContext } from "../utils/solanaDbHandler";
+import type { TransactionContext } from "../utils/prisamTransactionClass";
 import type { CompletedExecution } from "./solanaLogParser.interface";
 
 export type VotingProposalDataType = {
-    data: messageSchema,
-    instruction: instructionsSchema,
-    ctx: TransactionContext,
-    BlockTime: number,
-    meta: CompletedExecution
+  data: messageSchema;
+  instruction: instructionsSchema;
+  ctx: TransactionContext;
+  BlockTime: number;
+  meta: CompletedExecution;
 };
 
-
-
-export type VoteForProposalSchemaType  = z.infer<typeof VoteForProposalSchema> ;
+export type VoteForProposalSchemaType = z.infer<typeof VoteForProposalSchema>;

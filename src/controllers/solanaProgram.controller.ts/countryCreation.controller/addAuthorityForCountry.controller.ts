@@ -3,7 +3,7 @@ import type {
   instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import { prisma } from "../../../prismaclient";
 import { ApiError } from "../../../utils/errors/ApiError";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";

@@ -5,7 +5,7 @@ import { ApiError } from "../utils/errors/ApiError";
 import { ApiResponse } from "../utils/ApiResponse";
 import { FindProgramIdIndex } from "./findProgramIndex";
 import { prisma } from "../prismaclient";
-import { TransactionContext } from "../utils/solanaDbHandler";
+import { TransactionContext } from "../utils/prisamTransactionClass";
 
 export const heliusRaWDataHandler = asyncHandler(
   async (req: Request, res: Response) => {

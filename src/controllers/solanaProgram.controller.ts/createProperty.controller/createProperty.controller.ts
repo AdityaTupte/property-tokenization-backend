@@ -3,7 +3,7 @@ import type {
   instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaTypes";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
@@ -29,7 +29,9 @@ export const handleCreateProperty: InstructionHandler = async (
 
   const argument = create_property_proposalSchema.parse(decodedData);
 
-  const stateAddress = address(TransactionAccountskey.at(instruction.accounts[1]!)!);
+  const stateAddress = address(
+    TransactionAccountskey.at(instruction.accounts[1]!)!
+  );
 
   const signer = address(TransactionAccountskey.at(instruction.accounts[2]!)!);
 

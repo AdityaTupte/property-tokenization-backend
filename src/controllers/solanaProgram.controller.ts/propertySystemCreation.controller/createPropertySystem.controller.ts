@@ -3,11 +3,9 @@ import type {
   metaSchema,
 } from "../../../helius/findProgramIndex";
 import { address } from "@solana/kit";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
-import {
-  eventDecoder,
-} from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { create_property_systemSchema } from "../../../idl.schema/generated/create_property_system.schema";
 import { solanaArgs } from "../../../utils/argumentsdecoder";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
@@ -66,8 +64,6 @@ export const handleCreatePropertySystem: InstructionHandler = async (
   const AribtrarRegistryAddress = address(
     TransactionAccountskey.at(instruction.accounts[8]!)!
   );
-
-  
 
   ctx.add(async (tx) => {
     await tx.propertySystemAccount.create({

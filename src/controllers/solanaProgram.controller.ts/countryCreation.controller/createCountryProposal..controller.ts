@@ -3,7 +3,7 @@ import type {
   instructionsSchema,
   messageSchema,
 } from "../../../helius/findProgramIndex";
-import type { TransactionContext } from "../../../utils/solanaDbHandler";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import { create_country_proposalSchema } from "../../../idl.schema/generated/create_country_proposal.schema";
 import { bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
@@ -16,7 +16,9 @@ export const handleCreateCountryProposal: InstructionHandler = async (
   BlockTime: number,
   log: CompletedExecution
 ) => {
-  const proposal = address(TransactionAccountskey.at(instruction.accounts[1]!)!);
+  const proposal = address(
+    TransactionAccountskey.at(instruction.accounts[1]!)!
+  );
 
   const bytes = Buffer.from(bs58.decode(instruction.data));
 
