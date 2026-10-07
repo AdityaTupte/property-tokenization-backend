@@ -36,5 +36,40 @@ export const HeliusWebhookSchema = z.object({
 })
 
 
-export default instructionsSchema;
 
+
+// for HELIUS RPC
+
+// export const instructionsSchema = z.object({
+//     accounts: z.array(z.number()),
+//     data: z.string(),
+//     programIdIndex: z.number(),
+//     stackHeight: z.number().optional(),
+// });
+
+// export const messageSchema = z.object({
+//     accountKeys: z.array(z.string()),
+//     instructions: z.array(instructionsSchema),
+// });
+
+// export const metaData = z.object({
+//     logMessages: z.array(z.string()),
+// });
+
+// export const HeliusWebhookSchema = z.array(
+//     z.object({
+//         blockTime: z.number(),
+//         slot: z.number(),
+//         version: z.string(),
+
+//         meta: metaData,
+
+//         transaction: z.object({
+//             message: messageSchema,
+
+//             // ✅ Signature is here
+//             signatures: z.array(z.string()),
+//         }),
+//     })
+// );
+export default instructionsSchema;
