@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { heliusRaWDataHandler } from "../helius/heliusWebhookInstructionHandler";
+import { tokenTransferDataHandler } from "../helius/tokenTransferDataHandler";
 
 
 
@@ -8,6 +9,7 @@ import { heliusRaWDataHandler } from "../helius/heliusWebhookInstructionHandler"
 
 
 router.route("/senddata").post(heliusRaWDataHandler);
+router.route("/senddata1").post(tokenTransferDataHandler);
 
 
 export default router;

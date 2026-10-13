@@ -46,6 +46,7 @@ export const FindProgramIdIndex = async (
   const event: InstructionNameAndData[] = [];
 
   for (const element of encodedData) {
+    
     const bytes = bs58.decode(element.data);
 
     const discriminator = Buffer.from(bytes.slice(0, 8)).toString("hex");

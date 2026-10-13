@@ -8,6 +8,8 @@ import { EventHandler } from "../../helius/EventhandlerForSolanaProgram";
 import type { InstructionHandler } from "../../types&interface/solanaInstrcution&event.type";
 import * as SellProposal from "../../controllers/solanaProgram.controller.ts/sellProperty.controller/sellPropertyProposalImportLib";
 import { VotingForProposalInstructionProducer } from "../Producers/VotingForProposal.Producer";
+import { KAFKA_TOPICS } from "../kafka.TopicsNames";
+import { KafkaJSError } from "kafkajs";
 
 const VotingforProposalInstructionMap: Record<string, InstructionHandler> = {
   //  voting_for_sell_proposal:VotingForProposa.handleSellPropertyProposal,
@@ -21,7 +23,7 @@ export const kafkaInstructionconsumer = async function () {
   await Consumer.connect();
 
   await Consumer.subscribe({
-    topic: "Instruction",
+    topic: KAFKA_TOPICS.INSTRUCTION,
     // fromBeginning: true,
   });
 
@@ -71,7 +73,8 @@ export const kafkaInstructionconsumer = async function () {
           const logEventHandler = EventHandler(log);
         }
       } catch (error) {
-        console.error("❌ Error processing Kafka message:", error);
+        // FIXME ERROR
+      //  throw new KafkaJSError({})
       }
     },
   });

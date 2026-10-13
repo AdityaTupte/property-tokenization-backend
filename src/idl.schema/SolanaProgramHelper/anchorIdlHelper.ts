@@ -4,6 +4,8 @@
     import idl from "./property_tokenization.json";
     import { BorshInstructionCoder } from "@coral-xyz/anchor";
     import type { PropertyTokenization } from "./property_tokenization";
+    import transferTokenHookidl from "./transfer_hook.json";
+   
 
     const connection = new Connection(
   "http://localhost:8899",
@@ -22,4 +24,6 @@ anchor.setProvider(provider);
     export const program =  new Program<PropertyTokenization>(idl as PropertyTokenization,provider);
     export const decoder = new BorshInstructionCoder(idl as any);
     export const eventDecoder = new anchor.BorshEventCoder(idl as any);
-    
+
+    export const tokenTransferDecoder = new BorshInstructionCoder(transferTokenHookidl as any);
+   
