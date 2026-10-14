@@ -1,0 +1,3 @@
+export const TRANSFER_HOOK_PROGRAM_ID = "AHecjWfQz5pmfdcYNLkP34S3FLeCz1SNNkS6xxCC8qSv"
+
+export const EXECUTE_DISCRIMINATOR = "692565c54bfb661a";
