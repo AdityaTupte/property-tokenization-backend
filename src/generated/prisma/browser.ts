@@ -247,3 +247,8 @@ export type BalanceHistory = Prisma.BalanceHistoryModel
  * 
  */
 export type TokenTransfer = Prisma.TokenTransferModel
+/**
+ * Model Ata
+ * 
+ */
+export type Ata = Prisma.AtaModel

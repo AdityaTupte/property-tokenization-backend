@@ -706,3 +706,17 @@ model TokenTransfer {
   signature  String
   time       DateTime
 }
+
+
+model Ata {
+
+  ataKey String @id
+
+  mintKey String
+
+  owner String 
+
+  @@index([owner,mintKey])
+   @@index([ataKey,mintKey])
+
+}

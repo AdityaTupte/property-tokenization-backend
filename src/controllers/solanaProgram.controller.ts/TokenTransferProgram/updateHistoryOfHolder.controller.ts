@@ -1,37 +1,69 @@
 // import { publickey, signature } from "@solana/web3.js"
 // import { prisma } from "../../../prismaclient"
 
+import type { instructionsSchema } from "../../../helius/findProgramIndex";
+import type { TransactionContext } from "../../../utils/prisamTransactionClass";
+
 // type BalanceHistoryRow = {
 //             holder: string;
 //             balance: bigint;
 //             slot: bigint;
 // };
 
-// export const UpdateHistoryOfHolder = async(
-//     sender: string,
-//     receiver: publickey,
-//     BlockTime: number,
-//     _meta: any,
-//     mint?: string,
-//     slot?: bigint
-// ) => {
+export const UpdateHistoryOfHolder = async(
+    TransactionAccountKeys:String[],
+    instruction : instructionsSchema,
+    slot :number,
+    ctx: TransactionContext
+) => {
 
-//     // require new balances -- mint -- slot -- sigature -- Blocktime
+    // require new balances -- mint -- slot -- sigature -- Blocktime
 
 
-//     // query balance from the sender and receiver from balancehistory
+    const SourceAtaAddress = instruction.accounts[0]
 
-//     // minus sender balance by the sender new balance which will be given by the event
+    const MintAddress = instruction.accounts[1]
     
-//     // minus  reciveer new balance which will be given by the event by the reciver balance 
+    const DestinationAtaAddress = instruction.accounts[2]
 
-//     //  if equal proceed
+    const authority = instruction.accounts[3]
 
-//     //  create a row in  the transfer token table where transfer amount is minus amount and
+
+   /*  
+        chjeclk db for correspoding owner 
+        
+          { 1 db call with find many }
+
+        if not present call helius fuction for find owner  
+
+        getMUltipleAcccounts data 
+
+        register new onwer in db corresponding to ata
+
+
+        get balances of source and destinations 
+        
+        operations on the owner and the destination if destination not found balance is zero   
+
+        and update the Balnce history and TokenTransfer tables
+
+
+
+    */
+
+    // query balance from the sender and receiver from balancehistory
+
+    // minus sender balance by the sender new balance which will be given by the event
     
-//     //  the new balcanbe will be the solana given balance
+    // minus  reciveer new balance which will be given by the event by the reciver balance 
 
-//     //  create two rows in the balance history for sender and receiver 
+    //  if equal proceed
+
+    //  create a row in  the transfer token table where transfer amount is minus amount and
+    
+    //  the new balcanbe will be the solana given balance
+
+    //  create two rows in the balance history for sender and receiver 
 
 
 //    const balances = await prisma.$queryRaw<
@@ -95,4 +127,4 @@
 //             },
 //         ],
 //     });
-// };
+};

@@ -96,7 +96,8 @@ export const ModelName = {
   MerkleRoot: 'MerkleRoot',
   MerkleProof: 'MerkleProof',
   BalanceHistory: 'BalanceHistory',
-  TokenTransfer: 'TokenTransfer'
+  TokenTransfer: 'TokenTransfer',
+  Ata: 'Ata'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -691,6 +692,15 @@ export const TokenTransferScalarFieldEnum = {
 } as const
 
 export type TokenTransferScalarFieldEnum = (typeof TokenTransferScalarFieldEnum)[keyof typeof TokenTransferScalarFieldEnum]
+
+
+export const AtaScalarFieldEnum = {
+  ataKey: 'ataKey',
+  mintKey: 'mintKey',
+  owner: 'owner'
+} as const
+
+export type AtaScalarFieldEnum = (typeof AtaScalarFieldEnum)[keyof typeof AtaScalarFieldEnum]
 
 
 export const SortOrder = {
