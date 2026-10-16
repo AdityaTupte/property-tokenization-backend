@@ -81,7 +81,6 @@ export const  getTokenAccountOwnersFromDb = async(
 
   return accounts.map(({ ataKey, mintKey }) => ({
     ataKey,
-    mintKey,
     owner: accountMap.get(`${ataKey}:${mintKey}`) ?? null,
   }));
 }

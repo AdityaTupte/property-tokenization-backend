@@ -1,7 +1,7 @@
 import { createHelius } from "helius-sdk";
 
-  const apiKey = process.env.HELIUS_KEY; // From Helius dashboard
- export const helius = createHelius({ apiKey });
+  const apiKey = process.env.HELIUS_KEY; 
+ export const helius = createHelius({ apiKey,network:"devnet" });
 
 export const heliusConnection =async () => {
 

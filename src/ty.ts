@@ -5,6 +5,7 @@
 // ) {
 //   const rows = [];
 
+
 //   for (
 //     let i = 0;
 //     i < holders.length;
@@ -1221,3 +1222,36 @@ interface ExecuteInstructionData {
 //   .then(res => res.json())
 //   .then(res => console.log(res))
 //   .catch(err => console.error(err));
+
+
+import { address } from "@solana/kit";
+import "dotenv/config"
+import { createHelius } from "helius-sdk";
+import { dir } from "node:console";
+import { GetMultipleAccountsResponseSchema } from "./schemaValidation/heliusGetTokenOwnerAddressFromAtaSchema";
+
+ const apiKey = "4aeb61ea-16ef-46e2-a283-bb8be85312e3"; 
+ console.log("key length:", process.env.HELIUS_KEY?.length);
+  const helius = createHelius({ apiKey,network:"devnet"});
+
+            const data = await helius.getMultipleAccounts(
+                [
+        address('29gH4cjcLDwkiGBJopxYrmqjnoYYTayhMDmjjMKxeAsn'),
+        address('9UnjFWAXyTKdbHKfdobjVc7ukZpzuBqUiAnfiKxyH3sV')
+      ],
+                {
+                    commitment:"finalized",
+                    encoding:"jsonParsed",
+                },
+                                
+            )
+
+  const parsedResponse =
+  GetMultipleAccountsResponseSchema.parse(data);
+
+
+  
+            
+
+
+    
