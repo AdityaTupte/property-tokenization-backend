@@ -26,4 +26,5 @@ anchor.setProvider(provider);
     export const eventDecoder = new anchor.BorshEventCoder(idl as any);
 
     export const tokenTransferDecoder = new BorshInstructionCoder(transferTokenHookidl as any);
+    export const tokenTransfereventDecoder = new anchor.BorshEventCoder(transferTokenHookidl as any);
    

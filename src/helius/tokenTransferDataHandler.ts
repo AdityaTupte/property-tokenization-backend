@@ -5,13 +5,14 @@ import type { Request, Response } from "express";
 import { ApiError } from "../utils/errors/ApiError";
 import { prisma } from "../prismaclient";
 import type { instructionsSchema } from "./findProgramIndex";
-import { TokenTransferProducer } from "../kafka/Producers/TransferToken.Producer";
+// import { TokenTransferProducer } from "../kafka/Producers/TransferToken.Producer";
 import type { InstructionNameAndData } from "../types&interface/instructionData.Interface";
-import { tokenTransferDecoder } from "../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import { tokenTransferDecoder, tokenTransfereventDecoder } from "../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { base64, bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import idl from "../idl.schema/SolanaProgramHelper/transfer_hook.json";
 import { decodeExecuteInstruction } from "../utils/tokenTransferHookInstrcution.util";
 import { EXECUTE_DISCRIMINATOR, TRANSFER_HOOK_PROGRAM_ID } from "../constant";
+import { combineInnerInstructionsWithEvents } from "../utils/solanaTokenTransferParser.util";
 export const tokenTransferDataHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const webhookSchema = HeliusWebhookSchema.safeParse(req.body);
@@ -23,6 +24,12 @@ export const tokenTransferDataHandler = asyncHandler(
         webhookSchema.error.issues
       );
     }
+
+   const combineInnerInstructionWithEvents = combineInnerInstructionsWithEvents(
+      webhookSchema.data,
+      "AHecjWfQz5pmfdcYNLkP34S3FLeCz1SNNkS6xxCC8qSv",
+      tokenTransfereventDecoder,   
+    )
 
     const transaction = webhookSchema.data.transaction.transaction;
 
@@ -52,19 +59,55 @@ const matchingInnerInstructions: instructionsSchema[] =
     })
   );
 
+ const programData =  combineInnerInstructionWithEvents.filter(
+    (ix) =>{
+
+      if( ix.name == "TransferHook" &&  ix.data.discriminator == EXECUTE_DISCRIMINATOR){
+        return true
+      }
+
+    }
+  ).map(
+    (ix) =>{
+
+      return ix.data.event?.data!
+
+
+    }
+  )
+
+  if(programData.length != matchingInnerInstructions.length){
+    throw new ApiError(401,"length of programData does not match with matchingInnerInstructions length ")
+  }
+  console.log("INNERINSTR ===>");
+  
+  console.dir(
+    matchingInnerInstructions,
+    {depth:null}
+  )
+
+  console.log("PROGRAMDATA ===>");
+  
+  console.dir(
+    programData,
+    {depth:null}
+  )
 
 
 
-    await TokenTransferProducer({
-      InnerInstructions:matchingInnerInstructions,
-      slot:webhookSchema.data.transaction.slot,
-      TransactionAccountskey:transaction.message.accountKeys
-    });
+    // await TokenTransferProducer({
+    //   InnerInstructions:matchingInnerInstructions,
+    //   slot:webhookSchema.data.transaction.slot,
+    //   TransactionAccountskey:transaction.message.accountKeys,
+    //   programData:programData,
+    // });
 
-    return res.status(200).json(
-      new ApiResponse(200, {
-        message: "instruction Parse SuccessFully",
-      })
-    );
+    // return res.status(200).json(
+    //   new ApiResponse(200, {
+    //     message: "instruction Parse SuccessFully",
+    //   })
+    // );
+
+
   }
 );

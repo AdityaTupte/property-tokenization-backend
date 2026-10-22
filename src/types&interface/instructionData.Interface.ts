@@ -20,5 +20,6 @@ export interface InstructionDataInterface {
 export interface TokenTransferInstructionInterface {
     InnerInstructions : instructionsSchema[]
     slot: number;
-    TransactionAccountskey: string[];  
+    TransactionAccountskey: string[];
+    programData?:string[]  
   };

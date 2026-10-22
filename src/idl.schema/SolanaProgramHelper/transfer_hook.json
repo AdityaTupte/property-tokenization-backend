@@ -556,6 +556,21 @@
       ]
     }
   ],
+  "events": [
+    {
+      "name": "TokenTransferEvent",
+      "discriminator": [
+        238,
+        159,
+        246,
+        89,
+        230,
+        8,
+        89,
+        117
+      ]
+    }
+  ],
   "errors": [
     {
       "code": 6000,
@@ -595,6 +610,30 @@
           },
           {
             "name": "pending_reward",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TokenTransferEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "source",
+            "type": "pubkey"
+          },
+          {
+            "name": "destination",
+            "type": "pubkey"
+          },
+          {
+            "name": "postBalanceOfSource",
+            "type": "u64"
+          },
+          {
+            "name": "postBalaceOfDestination",
             "type": "u64"
           }
         ]

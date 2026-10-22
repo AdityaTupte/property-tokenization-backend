@@ -16,9 +16,9 @@ const VotingforProposalInstructionMap: Record<string, InstructionHandler> = {
 };
 
 export const kafkaInstructionconsumer = async function () {
-  const Consumer = kafka.consumer({
-    groupId: "InstructionConsumer",
-  });
+    const Consumer = kafka.consumer({
+      groupId: "InstructionConsumer",
+    });
 
   await Consumer.connect();
 

@@ -8,12 +8,14 @@ export const instructionProducer = async (
 
     await producer.send({
         topic: KAFKA_TOPICS.INSTRUCTION,
+        
         messages: [
             {
                 value: JSON.stringify(data),
             },
         ],
-    });
+    }
+);
 
     console.log("messsage produced");
 };

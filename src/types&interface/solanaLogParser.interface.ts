@@ -1,6 +1,6 @@
 export type EventData = {
-  raw: string;
-  discriminator: string;
+  raw?: string;
+  discriminator?: string;
   data: string;
 };
 
