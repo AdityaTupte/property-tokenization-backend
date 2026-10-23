@@ -3,5 +3,6 @@ export const KAFKA_TOPICS = {
     TRANSACTION: "Transaction",
     PROPERTY: "Property",
     VOTINGFORPROPOSAL: "VotingForProposal",
-    TOKENTRANSFER : "TokenTransfer"
+    TOKENTRANSFER : "TokenTransfer",
+    TOKENTRANSFERDBINSERT:"TokenTransferDbInsert",
 } as const;

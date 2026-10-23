@@ -5,6 +5,8 @@
 // ) {
 //   const rows = [];
 
+import { tokenTransfereventDecoder } from "./idl.schema/SolanaProgramHelper/anchorIdlHelper";
+
 
 //   for (
 //     let i = 0;
@@ -1433,4 +1435,43 @@ interface ExecuteInstructionData {
 
 //   return results;
 // }
+
+import { z } from "zod";
+
+export const TokenTransferEventSchema = z.object({
+  name: z.literal("TokenTransferEvent"),
+  data: z.object({
+    source: z.string(),
+    destination: z.string(),
+    postBalanceOfSource: z.string(),
+    postBalaceOfDestination: z.string(),
+  }),
+});
+
+const event = tokenTransfereventDecoder.decode(
+  "7p/2WeYIWXUaTDpggWq/y3SrcdT/d1llrtFFWI1zQXBjASHSD8a+e86Ysu0bSh04BnoNR/dXowv/5EaI5YlkJtszXSJxJJ4OIAMAAAAAAADIAAAAAAAAAA=="
+);
+
+if (event) {
+  const convertedEvent = {
+    name: event.name,
+    data: {
+      source: event.data.source.toBase58(),
+      destination: event.data.destination.toBase58(),
+      postBalanceOfSource: event.data.postBalanceOfSource.toString(),
+      postBalaceOfDestination:
+        event.data.postBalaceOfDestination.toString(),
+    },
+  };
+
+  const result = TokenTransferEventSchema.safeParse(convertedEvent);
+
+  if (result.success) {
+    console.log("Valid event:", result.data);
+  } else {
+    console.error("Invalid event:", result.error.format());
+  }
+} else {
+  console.error("Failed to decode event");
+}
 

@@ -1,7 +1,5 @@
 import type {
   instructionsSchema,
-  messageSchema,
-  metaSchema,
 } from "../helius/findProgramIndex";
 import type { TransactionContext } from "../utils/prisamTransactionClass";
 import type { CompletedExecution } from "./solanaLogParser.interface";

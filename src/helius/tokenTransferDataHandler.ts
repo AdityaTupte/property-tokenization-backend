@@ -3,13 +3,11 @@ import { ApiResponse } from "../utils/ApiResponse";
 import asyncHandler from "../utils/AsyncHandler";
 import type { Request, Response } from "express";
 import { ApiError } from "../utils/errors/ApiError";
-import { prisma } from "../prismaclient";
 import type { instructionsSchema } from "./findProgramIndex";
-// import { TokenTransferProducer } from "../kafka/Producers/TransferToken.Producer";
-import type { InstructionNameAndData } from "../types&interface/instructionData.Interface";
-import { tokenTransferDecoder, tokenTransfereventDecoder } from "../idl.schema/SolanaProgramHelper/anchorIdlHelper";
-import { base64, bs58 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
-import idl from "../idl.schema/SolanaProgramHelper/transfer_hook.json";
+import { TokenTransferProducer } from "../kafka/Producers/TransferToken.Producer";
+
+import {  tokenTransfereventDecoder } from "../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+
 import { decodeExecuteInstruction } from "../utils/tokenTransferHookInstrcution.util";
 import { EXECUTE_DISCRIMINATOR, TRANSFER_HOOK_PROGRAM_ID } from "../constant";
 import { combineInnerInstructionsWithEvents } from "../utils/solanaTokenTransferParser.util";
@@ -95,18 +93,18 @@ const matchingInnerInstructions: instructionsSchema[] =
 
 
 
-    // await TokenTransferProducer({
-    //   InnerInstructions:matchingInnerInstructions,
-    //   slot:webhookSchema.data.transaction.slot,
-    //   TransactionAccountskey:transaction.message.accountKeys,
-    //   programData:programData,
-    // });
+    await TokenTransferProducer({
+      InnerInstructions:matchingInnerInstructions,
+      slot:webhookSchema.data.transaction.slot,
+      TransactionAccountskey:transaction.message.accountKeys,
+      programData:programData,
+    });
 
-    // return res.status(200).json(
-    //   new ApiResponse(200, {
-    //     message: "instruction Parse SuccessFully",
-    //   })
-    // );
+    return res.status(200).json(
+      new ApiResponse(200, {
+        message: "instruction Parse SuccessFully",
+      })
+    );
 
 
   }

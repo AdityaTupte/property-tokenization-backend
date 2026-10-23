@@ -8,7 +8,6 @@ import type * as PdaTypes from "../../../types&interface/PdaTypes/programPdaType
 import type { TransactionContext } from "../../../utils/prisamTransactionClass";
 import type { InstructionHandler } from "../../../types&interface/solanaInstrcution&event.type";
 import type { CompletedExecution } from "../../../types&interface/solanaLogParser.interface";
-import { eventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 import { SubmitSnapshotForSellProposalSchema } from "../../../idl.schema/generated/SubmitSnapshotForSellProposal.schema";
 import { prisma } from "../../../prismaclient";
 export const handleSellPropertyProposalSubmit: InstructionHandler = async (

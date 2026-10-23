@@ -1,35 +1,68 @@
-// import { publickey, signature } from "@solana/web3.js"
-// import { prisma } from "../../../prismaclient"
+import { tokenTransfereventDecoder } from "../../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
+import type { TokenTransferDbEventSchema } from "../../../types&interface/instructionData.Interface";
 
-import type { instructionsSchema } from "../../../helius/findProgramIndex";
-import type { TransactionContext } from "../../../utils/prisamTransactionClass";
+import { z } from "zod";
+import { ApiError } from "../../../utils/errors/ApiError";
 
-// type BalanceHistoryRow = {
-//             holder: string;
-//             balance: bigint;
-//             slot: bigint;
-// };
+export const TokenTransferEventSchema = z.object({
+  name: z.literal("TokenTransferEvent"),
+  data: z.object({
+    source: z.string(),
+    destination: z.string(),
+    postBalanceOfSource: z.string(),
+    postBalaceOfDestination: z.string(),
+  }),
+});
 
-export const UpdateHistoryOfHolder = async(
-    TransactionAccountKeys:String[],
-    instruction : instructionsSchema,
-    slot :number,
-    ctx: TransactionContext
+export const UpdateHistoryOfHolder = async (
+  data: TokenTransferDbEventSchema
 ) => {
+  // require new balances -- mint -- slot -- sigature -- Blocktime
 
-    // require new balances -- mint -- slot -- sigature -- Blocktime
+  const SourceOwner = data.sourceOwner;
+
+  const SourceAtaAddress = data.sourceAta;
+
+  const MintAddress = data.mint;
+
+  const recieverAtaAddress = data.recieverAta;
+
+  const recieverOwner = data.recieverOwner;
+
+  if (!data.programEventData) {
+    throw new ApiError(400, "sdarf");
+  }
+
+  const event = tokenTransfereventDecoder.decode(data.programEventData);
+
+  if (event) {
+    const convertedEvent = {
+      name: event.name,
+      data: {
+        source: event.data.source.toBase58(),
+        destination: event.data.destination.toBase58(),
+        postBalanceOfSource: event.data.postBalanceOfSource.toString(),
+        postBalaceOfDestination: event.data.postBalaceOfDestination.toString(),
+      },
+    };
+
+    const result = TokenTransferEventSchema.safeParse(convertedEvent);
+
+    if (result.success) {
+     
+
+        // DB call
 
 
-    const SourceAtaAddress = instruction.accounts[0]
+    } else {
+      console.error("Invalid event:", result.error.format());
+    }
 
-    const MintAddress = instruction.accounts[1]
-    
-    const DestinationAtaAddress = instruction.accounts[2]
+  } else {
+    console.error("Failed to decode event");
+  }
 
-    const authority = instruction.accounts[3]
-
-
-   /*  
+  /*  
         chjeclk db for correspoding owner 
         
           { 1 db call with find many }
@@ -51,80 +84,77 @@ export const UpdateHistoryOfHolder = async(
 
     */
 
-    // query balance from the sender and receiver from balancehistory
+  // query balance from the sender and receiver from balancehistory
 
-    // minus sender balance by the sender new balance which will be given by the event
-    
-    // minus  reciveer new balance which will be given by the event by the reciver balance 
+  // minus sender balance by the sender new balance which will be given by the event
 
-    //  if equal proceed
+  // minus  reciveer new balance which will be given by the event by the reciver balance
 
-    //  create a row in  the transfer token table where transfer amount is minus amount and
-    
-    //  the new balcanbe will be the solana given balance
+  //  if equal proceed
 
-    //  create two rows in the balance history for sender and receiver 
+  //  create a row in  the transfer token table where transfer amount is minus amount and
 
+  //  the new balcanbe will be the solana given balance
 
-//    const balances = await prisma.$queryRaw<
-//         BalanceHistoryRow[]
-//         >`
-//         SELECT DISTINCT ON ("holder")
-//             "holder",
-//             "balance",
-//             "slot"
-//         FROM "BalanceHistory"
-//         WHERE "mint" = ${mint}
-//             AND "holder" IN (${sender}, ${receiver})
-//             AND "slot" <= ${slot}
-//         ORDER BY "holder", "slot" DESC
-//         `;
-    
-//     const fromBalance =  balances.find(x => x.holder === sender)?.balance ?? 0n;
+  //  create two rows in the balance history for sender and receiver
 
-//     const toBalance =  balances.find(x => x.holder === receiver)?.balance ?? 0n;
+  //    const balances = await prisma.$queryRaw<
+  //         BalanceHistoryRow[]
+  //         >`
+  //         SELECT DISTINCT ON ("holder")
+  //             "holder",
+  //             "balance",
+  //             "slot"
+  //         FROM "BalanceHistory"
+  //         WHERE "mint" = ${mint}
+  //             AND "holder" IN (${sender}, ${receiver})
+  //             AND "slot" <= ${slot}
+  //         ORDER BY "holder", "slot" DESC
+  //         `;
 
-    
-//     const tranferAmount1 = fromBalance - newBalanceOfSender;
+  //     const fromBalance =  balances.find(x => x.holder === sender)?.balance ?? 0n;
 
-//     const tranferAmount2 = newBalanceOfReceiver - toBalance;
+  //     const toBalance =  balances.find(x => x.holder === receiver)?.balance ?? 0n;
 
-//     if(tranferAmount1 != tranferAmount2){
+  //     const tranferAmount1 = fromBalance - newBalanceOfSender;
 
-//         // throw new Error 
-//     }
-   
-//     await prisma.tokenTransfer.create({
+  //     const tranferAmount2 = newBalanceOfReceiver - toBalance;
 
-//         data:{
-//                 mint:mint,
-//                 amountTransfer:tranferAmount1,
-//                 newBalanceOfSender:newBalanceOfSender,
-//                 newBalanceOfReceiver:newBalanceOfReceiver,
-//                 sender:sender,
-//                 receiver:receiver,
-//                 signature:signature,
-//                 slot:slot,
-//                 time: new Date(BlockTime * 1000)
-//           }
-        
+  //     if(tranferAmount1 != tranferAmount2){
 
-//     })
+  //         // throw new Error
+  //     }
 
-//     await prisma.balanceHistory.createMany({
-//         data: [
-//             {
-//                 holder: sender,
-//                 balance:newBalanceOfSender ,
-//                 mint: tokenMint,
-//                 slot: currentSlot,
-//             },
-//             {
-//                 holder: receiver,
-//                 balance: newBalanceOfReceiver,
-//                 mint: tokenMint,
-//                 slot: currentSlot,
-//             },
-//         ],
-//     });
+  //     await prisma.tokenTransfer.create({
+
+  //         data:{
+  //                 mint:mint,
+  //                 amountTransfer:tranferAmount1,
+  //                 newBalanceOfSender:newBalanceOfSender,
+  //                 newBalanceOfReceiver:newBalanceOfReceiver,
+  //                 sender:sender,
+  //                 receiver:receiver,
+  //                 signature:signature,
+  //                 slot:slot,
+  //                 time: new Date(BlockTime * 1000)
+  //           }
+
+  //     })
+
+  //     await prisma.balanceHistory.createMany({
+  //         data: [
+  //             {
+  //                 holder: sender,
+  //                 balance:newBalanceOfSender ,
+  //                 mint: tokenMint,
+  //                 slot: currentSlot,
+  //             },
+  //             {
+  //                 holder: receiver,
+  //                 balance: newBalanceOfReceiver,
+  //                 mint: tokenMint,
+  //                 slot: currentSlot,
+  //             },
+  //         ],
+  //     });
 };

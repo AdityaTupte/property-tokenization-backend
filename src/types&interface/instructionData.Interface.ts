@@ -23,3 +23,13 @@ export interface TokenTransferInstructionInterface {
     TransactionAccountskey: string[];
     programData?:string[]  
   };
+export interface TokenTransferDbEventSchema  {
+
+            sourceOwner:string | undefined | null,
+            sourceAta:string| undefined | null,
+            mint:string| undefined | null,
+            recieverOwner:string| undefined | null,
+            recieverAta:string| undefined | null,
+            programEventData:string| undefined | null,
+            slot : number,
+          }

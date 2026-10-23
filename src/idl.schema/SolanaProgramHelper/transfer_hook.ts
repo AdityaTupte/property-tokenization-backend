@@ -562,6 +562,21 @@ export type TransferHook = {
       ]
     }
   ],
+  "events": [
+    {
+      "name": "tokenTransferEvent",
+      "discriminator": [
+        238,
+        159,
+        246,
+        89,
+        230,
+        8,
+        89,
+        117
+      ]
+    }
+  ],
   "errors": [
     {
       "code": 6000,
@@ -601,6 +616,30 @@ export type TransferHook = {
           },
           {
             "name": "pendingReward",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "tokenTransferEvent",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "source",
+            "type": "pubkey"
+          },
+          {
+            "name": "destination",
+            "type": "pubkey"
+          },
+          {
+            "name": "postBalanceOfSource",
+            "type": "u64"
+          },
+          {
+            "name": "postBalaceOfDestination",
             "type": "u64"
           }
         ]
