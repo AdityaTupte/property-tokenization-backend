@@ -21,7 +21,9 @@ export interface TokenTransferInstructionInterface {
     InnerInstructions : instructionsSchema[]
     slot: number;
     TransactionAccountskey: string[];
-    programData?:string[]  
+    programData?:string[],
+    signature:string,
+    blocktime:number, 
   };
 export interface TokenTransferDbEventSchema  {
 
@@ -32,4 +34,7 @@ export interface TokenTransferDbEventSchema  {
             recieverAta:string| undefined | null,
             programEventData:string| undefined | null,
             slot : number,
+            amount:bigint,
+            signature:string,
+            blocktime:number,
           }

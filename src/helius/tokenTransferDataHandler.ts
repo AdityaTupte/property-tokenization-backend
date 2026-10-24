@@ -77,27 +77,15 @@ const matchingInnerInstructions: instructionsSchema[] =
   if(programData.length != matchingInnerInstructions.length){
     throw new ApiError(401,"length of programData does not match with matchingInnerInstructions length ")
   }
-  console.log("INNERINSTR ===>");
-  
-  console.dir(
-    matchingInnerInstructions,
-    {depth:null}
-  )
-
-  console.log("PROGRAMDATA ===>");
-  
-  console.dir(
-    programData,
-    {depth:null}
-  )
-
-
+ 
 
     await TokenTransferProducer({
       InnerInstructions:matchingInnerInstructions,
       slot:webhookSchema.data.transaction.slot,
       TransactionAccountskey:transaction.message.accountKeys,
       programData:programData,
+      signature:webhookSchema.data.signature,
+      blocktime:webhookSchema.data.transaction.blockTime,
     });
 
     return res.status(200).json(

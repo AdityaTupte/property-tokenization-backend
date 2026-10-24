@@ -1,4 +1,5 @@
-import { da, el } from "zod/locales";
+          
+          import bs58 from "bs58";
 import type {
   InstructionDataInterface,
   TokenTransferDbEventSchema,
@@ -16,6 +17,7 @@ import { getOwnerFromHeliusRpc } from "../../helius/getOwnerFromHeliusRpc";
 import { address } from "@solana/kit";
 import { TokenTransferProducerDb } from "../Producers/TokenTransferDbUpdate.Producer";
 import type { ProducerBatch } from "kafkajs";
+import { tokenTransferDecoder } from "../../idl.schema/SolanaProgramHelper/anchorIdlHelper";
 
 export const tokenTransferKafkaConsumer = async () => {
   const Consumer = kafka.consumer({
@@ -111,8 +113,16 @@ export const tokenTransferKafkaConsumer = async () => {
             mintAccountIndex === undefined
               ? undefined
               : data.TransactionAccountskey[mintAccountIndex];
+          
+            
+  
 
+          const decoded = Buffer.from(bs58.decode(data.InnerInstructions[index]?.data!))
+          const args = decoded.subarray(8);
+
+          const TransferedAmount =  args.readBigUInt64LE(0).toString();
          
+
 
           Eventdata.push({
             sourceOwner:
@@ -125,6 +135,9 @@ export const tokenTransferKafkaConsumer = async () => {
             recieverAta : ReceiverAta,
             programEventData : data.programData![index],
             slot:data.slot,
+            amount : BigInt(TransferedAmount),
+            signature:data.signature,
+            blocktime:data.blocktime
           })
           
         }
@@ -136,7 +149,7 @@ export const tokenTransferKafkaConsumer = async () => {
           topicMessages.push({
             topic: KAFKA_TOPICS.TOKENTRANSFERDBINSERT,
             messages: [
-              {
+              { 
                 value: JSON.stringify(Eventdata[index]),
               },
             ],
