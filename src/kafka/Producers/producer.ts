@@ -8,4 +8,10 @@ export const producerInit = async () => {
 
 }
 
+export const instTxProducer = kafka.producer({
+  transactionalId: 'Instruction-transaction-producer',
+  maxInFlightRequests: 1,
+  idempotent: true
+})
+
  

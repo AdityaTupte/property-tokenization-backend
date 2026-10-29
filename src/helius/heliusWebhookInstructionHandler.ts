@@ -11,18 +11,6 @@ import { TransactionContext } from "../utils/prisamTransactionClass";
 
 export const heliusRaWDataHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    // console.log("REQUEST BODY : =>>>>>>>");
-    // console.dir(req.body, { depth: null });
-    // const bodyFiles = await readdir(process.cwd());
-    // const nextBodyNumber =
-    //   bodyFiles.reduce((max, file) => {
-    //     const match = /^body(\d+)\.json$/.exec(file);
-    //     return match ? Math.max(max, Number(match[1])) : max;
-    //   }, 0) + 1;
-    // await writeFile(
-    //   `body${nextBodyNumber}.json`,
-    //   JSON.stringify(req.body, null, 2)
-    // );
 
     const webhookSchema = HeliusWebhookSchema.safeParse(req.body);
 
@@ -32,10 +20,7 @@ export const heliusRaWDataHandler = asyncHandler(
 
     //TODO use rediis to check th signature if not resent then check in the db and save in redis
 
-  
 
-    console.log("PARSED DATA :=>>>>>>>>>", webhookSchema);
-    
     const signature = await prisma.signature.findFirst({
       where: {
         signature: webhookSchema.data.signature,
@@ -47,6 +32,8 @@ export const heliusRaWDataHandler = asyncHandler(
         400,
         "Since the signature is already provided, signature parsing is not required."
       );
+
+      // SEND SUCCESUUFLL REPSONE TO THE GLEOUS RPCE
 
     await FindProgramIdIndex(
       webhookSchema.data.transaction.transaction.message,
